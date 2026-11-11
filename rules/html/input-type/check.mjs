@@ -20,7 +20,11 @@ export default {
       const ac = (staticValue(el, 'autocomplete') || '').toLowerCase()
       const names = [staticValue(el, 'name'), staticValue(el, 'id')].filter(Boolean)
       const hit = KINDS.find(([, re, token]) => token.test(ac) || names.some((n) => re.test(n)))
-      if (hit) ctx.report(el, `This field holds ${hit[0] === 'tel' ? 'a phone number' : hit[0] === 'url' ? 'a URL' : 'an email address'}; use type="${hit[0]}" for the right keyboard and validation.`)
+      if (hit)
+        ctx.report(
+          el,
+          `This field holds ${hit[0] === 'tel' ? 'a phone number' : hit[0] === 'url' ? 'a URL' : 'an email address'}; use type="${hit[0]}" for the right keyboard and validation.`
+        )
     }
   }
 }

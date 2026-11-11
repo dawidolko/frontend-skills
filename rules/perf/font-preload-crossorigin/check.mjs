@@ -11,7 +11,8 @@ export default {
       if (el.spread) continue
       const rel = (staticValue(el, 'rel') || '').toLowerCase().split(/\s+/)
       if (!rel.includes('preload') || (staticValue(el, 'as') || '').toLowerCase() !== 'font') continue
-      if (!el.attrs.has('crossorigin')) ctx.report(el, 'A font preload without crossorigin does not match the font request, so the font downloads twice; add crossorigin.')
+      if (!el.attrs.has('crossorigin'))
+        ctx.report(el, 'A font preload without crossorigin does not match the font request, so the font downloads twice; add crossorigin.')
     }
   }
 }

@@ -10,7 +10,14 @@ export default {
     const links = ctx.elements('link')
     const sheet = links.find((el) => /fonts\.googleapis\.com\/css/.test(staticValue(el, 'href') || ''))
     if (!sheet) return
-    const ok = links.some((el) => /(^|\s)preconnect(\s|$)/i.test(staticValue(el, 'rel') || '') && /fonts\.gstatic\.com/.test(staticValue(el, 'href') || '') && el.attrs.has('crossorigin'))
-    if (!ok) ctx.report(sheet, 'Google Fonts files come from fonts.gstatic.com; add <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>, or self-host the fonts.')
+    const ok = links.some(
+      (el) =>
+        /(^|\s)preconnect(\s|$)/i.test(staticValue(el, 'rel') || '') && /fonts\.gstatic\.com/.test(staticValue(el, 'href') || '') && el.attrs.has('crossorigin')
+    )
+    if (!ok)
+      ctx.report(
+        sheet,
+        'Google Fonts files come from fonts.gstatic.com; add <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>, or self-host the fonts.'
+      )
   }
 }

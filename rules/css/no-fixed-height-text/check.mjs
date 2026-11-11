@@ -18,7 +18,10 @@ export default {
       const fixedWidth = b.decls.some((d) => (d.prop === 'width' || d.prop === 'inline-size') && LENGTH.test(d.value))
       const clamp = b.decls.some((d) => /line-clamp$/.test(d.prop))
       if (hidden && !fixedWidth && !clamp)
-        ctx.report(h.line, `${h.prop}: ${h.value} with hidden overflow clips text when it is enlarged or spaced; use min-height and let the content set the height.`)
+        ctx.report(
+          h.line,
+          `${h.prop}: ${h.value} with hidden overflow clips text when it is enlarged or spaced; use min-height and let the content set the height.`
+        )
     }
   }
 }

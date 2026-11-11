@@ -21,7 +21,10 @@ export default {
       for (const d of b.decls) {
         if (!PROPS.test(d.prop) || px(d.value) <= 320) continue
         if (capped && !d.prop.startsWith('min-')) continue
-        ctx.report(d.line, `${d.prop}: ${d.value} is wider than a 320px screen and forces sideways scrolling; use max-width: ${d.value} or min(100%, ${d.value}).`)
+        ctx.report(
+          d.line,
+          `${d.prop}: ${d.value} is wider than a 320px screen and forces sideways scrolling; use max-width: ${d.value} or min(100%, ${d.value}).`
+        )
       }
     }
   }

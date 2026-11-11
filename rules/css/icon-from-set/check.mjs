@@ -28,7 +28,11 @@ export default {
         for (const m of d.value.matchAll(URL)) {
           const url = m[2]
           if (!/\.svg(\?|#|$)/i.test(url) || url.startsWith('data:')) continue
-          const name = url.split(/[?#]/)[0].split('/').pop().replace(/\.svg$/i, '')
+          const name = url
+            .split(/[?#]/)[0]
+            .split('/')
+            .pop()
+            .replace(/\.svg$/i, '')
           if (!(/(^|\/)icons?\//i.test(url) || /^(icon|ic)[-_]/i.test(name) || /mask|content|list-style/.test(d.prop))) continue
           const use = set.prefix ? `the generated class .${set.prefix}${name.replace(/^(icon|ic)[-_]/i, '')}` : "the icon set's class or mixin"
           ctx.report(d.line, `${d.prop} points at the icon file ${url}; use ${use}, which the build regenerates from the source SVGs.`)

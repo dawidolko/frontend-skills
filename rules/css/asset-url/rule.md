@@ -28,8 +28,6 @@ sources:
     url: https://vite.dev/guide/build#public-base-path
   - title: Next.js, basePath
     url: https://nextjs.org/docs/app/api-reference/config/next-config-js/basePath
-  - title: webpack, Asset Modules
-    url: https://webpack.js.org/guides/asset-management/
 ---
 
 ## Why

@@ -19,7 +19,10 @@ export default {
           const root = url.startsWith('/') && !url.startsWith('//') && !url.startsWith('/src/')
           if (!root && !/(^|\/)public\//.test(url)) continue
           if (icons && /\.svg(\?|#|$)/i.test(url) && /icon/i.test(url)) continue
-          ctx.report(d.line, `url(${url}) is a hard-coded path to a public file: it gets no content hash, and not every framework adds the base path to it; use a path relative to this file or the project's asset alias.`)
+          ctx.report(
+            d.line,
+            `url(${url}) is a hard-coded path to a public file: it gets no content hash, and not every framework adds the base path to it; use a path relative to this file or the project's asset alias.`
+          )
         }
   }
 }

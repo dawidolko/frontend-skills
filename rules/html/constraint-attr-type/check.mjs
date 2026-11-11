@@ -17,7 +17,10 @@ export default {
       if (['hidden', 'submit', 'button', 'reset', 'image', 'checkbox', 'radio', 'file', 'color'].includes(type) && !el.attrs.has('pattern')) continue
       for (const [name, types] of Object.entries(ALLOWED))
         if (el.attrs.has(name) && !types.has(type)) {
-          ctx.report(el, `${name} does nothing on type="${type}"; ${name === 'pattern' || name.endsWith('length') ? 'use min, max and step, or a text-like type' : 'use pattern, minlength or maxlength, or a number or date type'}.`)
+          ctx.report(
+            el,
+            `${name} does nothing on type="${type}"; ${name === 'pattern' || name.endsWith('length') ? 'use min, max and step, or a text-like type' : 'use pattern, minlength or maxlength, or a number or date type'}.`
+          )
           break
         }
     }

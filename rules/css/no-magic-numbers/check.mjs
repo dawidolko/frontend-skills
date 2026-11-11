@@ -25,7 +25,10 @@ export default {
           if (!odd) continue
           const px = Math.abs(toPx(odd))
           const near = steps.reduce((a, s) => (Math.abs(s - px) < Math.abs(a - px) ? s : a), steps[0])
-          ctx.report({ file: src.file, line: d.line }, `${d.prop}: ${odd} is not on the spacing scale; use the nearest step ${scale.get(near).ref} (${near}px) or derive it from layout.`)
+          ctx.report(
+            { file: src.file, line: d.line },
+            `${d.prop}: ${odd} is not on the spacing scale; use the nearest step ${scale.get(near).ref} (${near}px) or derive it from layout.`
+          )
         }
     }
   }

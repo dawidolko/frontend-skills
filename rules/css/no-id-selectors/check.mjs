@@ -10,7 +10,10 @@ export default {
     if (ctx.kind === 'less') return
     for (const b of ctx.css()) {
       if (b.atRule || b.parents.some((p) => /^@(-\w+-)?keyframes/.test(p))) continue
-      const sel = b.prelude.replace(/\[[^\]]*\]/g, '').replace(/(["']).*?\1/g, '').replace(/#\{[^}]*\}/g, '')
+      const sel = b.prelude
+        .replace(/\[[^\]]*\]/g, '')
+        .replace(/(["']).*?\1/g, '')
+        .replace(/#\{[^}]*\}/g, '')
       const m = ID.exec(sel)
       if (m) ctx.report(b.line, `"${b.prelude}" styles by id (${m[0]}); use a class so the rule can be reused and overridden.`)
     }

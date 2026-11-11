@@ -16,8 +16,6 @@ since: 0.1.0
 sources:
   - title: MDN, CSS values and units (relative length units)
     url: https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics/Values_and_units
-  - title: Foundation for Sites, Sass functions (rem-calc)
-    url: https://get.foundation/sites/docs/sass-functions.html#rem-calc
   - title: WCAG 2.2, Understanding SC 1.4.4 Resize Text
     url: https://www.w3.org/WAI/WCAG22/Understanding/resize-text.html
 ---

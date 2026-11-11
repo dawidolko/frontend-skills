@@ -1,6 +1,6 @@
 ---
 id: css/icon-from-set
-title: With a generated icon set, CSS uses its classes ({{icon-classes.example|icon-<name>}}) or mixin, never a url() to an icon file.
+title: With a generated icon set, CSS uses its icon classes or mixin, never a url() hard-coded to an icon file.
 severity: minor
 check: static
 applies:

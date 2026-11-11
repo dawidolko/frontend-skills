@@ -21,6 +21,9 @@ export default {
     if (!isDocument(ctx)) return
     const first = images.find((el) => !el.component && !el.ancestors.includes('noscript') && !el.ancestors.includes('template'))
     if (first && lazy(first) && !marked(first))
-      ctx.report(first, 'The first image of the page is probably in view and may be the LCP element; do not lazy-load it, and add fetchpriority="high" if it is the hero.')
+      ctx.report(
+        first,
+        'The first image of the page is probably in view and may be the LCP element; do not lazy-load it, and add fetchpriority="high" if it is the hero.'
+      )
   }
 }

@@ -20,8 +20,8 @@ sources:
     url: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_anchor_positioning
   - title: MDN, CSS scroll-driven animations
     url: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_scroll-driven_animations
-  - title: web-features explorer (Baseline status of anchor-positioning and scroll-driven-animations)
-    url: https://web-platform-dx.github.io/web-features-explorer/
+  - title: W3C WebDX Community Group, web-features (the data behind Baseline)
+    url: https://github.com/web-platform-dx/web-features
 ---
 
 ## Why

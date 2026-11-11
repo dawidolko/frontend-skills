@@ -29,8 +29,10 @@ export default {
       if (first) break
     }
     if (!first) return
-    for (const f of ctx.files)
-      if (['jsx', 'vue', 'svelte', 'astro', 'html', 'angular'].includes(f.kind) && RESPONDS.test(ctx.read(f.path))) return
-    ctx.report(first, `${first.what} runs for everyone; nothing in the project honours prefers-reduced-motion. Wrap motion in @media (prefers-reduced-motion: no-preference) or tone it down under reduce.`)
+    for (const f of ctx.files) if (['jsx', 'vue', 'svelte', 'astro', 'html', 'angular'].includes(f.kind) && RESPONDS.test(ctx.read(f.path))) return
+    ctx.report(
+      first,
+      `${first.what} runs for everyone; nothing in the project honours prefers-reduced-motion. Wrap motion in @media (prefers-reduced-motion: no-preference) or tone it down under reduce.`
+    )
   }
 }

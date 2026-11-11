@@ -25,7 +25,8 @@ export default {
         text = ctx.text.slice(open + 1, close).trim()
         if (/[{}]/.test(text)) continue
       }
-      if (text !== '') ctx.report(el, 'This required select starts on a real option, so "required" never fails; add a first <option value=""> such as "Choose…".')
+      if (text !== '')
+        ctx.report(el, 'This required select starts on a real option, so "required" never fails; add a first <option value=""> such as "Choose…".')
     }
   }
 }

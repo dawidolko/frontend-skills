@@ -55,6 +55,7 @@ export default {
         }
       }
     for (const [c, uses] of seen)
-      if (uses.length >= REPEATS) ctx.report(uses[0], `${c} is written ${uses.length} times; define it once as a token (a custom property such as --color-…) and use var().`)
+      if (uses.length >= REPEATS)
+        ctx.report(uses[0], `${c} is written ${uses.length} times; define it once as a token (a custom property such as --color-…) and use var().`)
   }
 }

@@ -8,7 +8,12 @@ import { staticValue } from '../../../engine/helpers.mjs'
 const CODE_WORDS = new Set(['zip', 'zipcode', 'postal', 'postcode', 'card', 'cvc', 'cvv', 'csc', 'otp', 'pin', 'phone', 'tel', 'iban', 'account', 'code'])
 
 /** The words of a name, id or token: camelCase, kebab-case and snake_case split apart. */
-const words = (s) => s.replace(/([a-z])([A-Z])/g, '$1 $2').toLowerCase().split(/[^a-z0-9]+/).filter(Boolean)
+const words = (s) =>
+  s
+    .replace(/([a-z])([A-Z])/g, '$1 $2')
+    .toLowerCase()
+    .split(/[^a-z0-9]+/)
+    .filter(Boolean)
 
 export default {
   check(ctx) {

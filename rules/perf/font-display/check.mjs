@@ -16,7 +16,7 @@ export default {
         ctx.report(el, 'The Google Fonts URL has no display parameter; add &display=swap.')
     }
     if (!['css', 'scss', 'less'].includes(ctx.kind)) return
-    for (const m of ctx.text.matchAll(/@import\s+(?:url\()?\s*['"]?[^'"\n;]*fonts\.googleapis\.com[^'"\n;)]*/g))
-      if (!/[?&]display=/.test(m[0])) ctx.report(ctx.lineOf(m.index), 'The Google Fonts @import has no display parameter; add &display=swap.')
+    for (const m of ctx.text.matchAll(/@import\s+(?:url\(\s*)?(['"]?)([^'")\s]*fonts\.googleapis\.com[^'")\s]*)\1/g))
+      if (!/[?&]display=/.test(m[2])) ctx.report(ctx.lineOf(m.index), 'The Google Fonts @import has no display parameter; add &display=swap.')
   }
 }

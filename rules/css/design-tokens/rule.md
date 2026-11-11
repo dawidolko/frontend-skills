@@ -12,8 +12,6 @@ sources:
     url: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_cascading_variables/Using_CSS_custom_properties
   - title: Sass documentation, Variables
     url: https://sass-lang.com/documentation/variables/
-  - title: W3C Design Tokens Community Group, Design Tokens Format Module
-    url: https://www.designtokens.org/tr/drafts/format/
 ---
 
 ## Why

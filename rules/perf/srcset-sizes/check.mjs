@@ -12,8 +12,10 @@ export default {
       if (el.spread || !srcset) continue
       const descriptors = srcset.split(',').map((c) => c.trim().split(/\s+/)[1] || '1x')
       const widths = descriptors.some((d) => /^\d+w$/.test(d))
-      if (widths && descriptors.some((d) => /^\d*\.?\d+x$/.test(d))) ctx.report(el, 'srcset mixes width (w) and density (x) descriptors; use w for every candidate.')
-      else if (widths && !el.attrs.has('sizes')) ctx.report(el, 'srcset uses width descriptors but there is no sizes, so the browser assumes 100vw and fetches a larger file than needed; add sizes.')
+      if (widths && descriptors.some((d) => /^\d*\.?\d+x$/.test(d)))
+        ctx.report(el, 'srcset mixes width (w) and density (x) descriptors; use w for every candidate.')
+      else if (widths && !el.attrs.has('sizes'))
+        ctx.report(el, 'srcset uses width descriptors but there is no sizes, so the browser assumes 100vw and fetches a larger file than needed; add sizes.')
     }
   }
 }

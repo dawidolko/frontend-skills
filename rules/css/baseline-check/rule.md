@@ -12,8 +12,8 @@ since: 0.1.0
 sources:
   - title: web.dev, Baseline
     url: https://web.dev/baseline
-  - title: web-features explorer
-    url: https://web-platform-dx.github.io/web-features-explorer/
+  - title: W3C WebDX Community Group, web-features (the data behind Baseline)
+    url: https://github.com/web-platform-dx/web-features
   - title: MDN, @supports
     url: https://developer.mozilla.org/en-US/docs/Web/CSS/@supports
 ---

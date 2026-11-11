@@ -9,7 +9,11 @@ export default {
     for (const b of ctx.css()) {
       if (!b.parents.length || b.atRule) continue
       const m = /(^|,\s*)&([\w-]+)/.exec(b.prelude)
-      if (m) ctx.report(b.line, `"${b.prelude}" joins "&" and "${m[2]}"; native CSS nesting cannot build class names, so the rule is dropped. Write the full selector.`)
+      if (m)
+        ctx.report(
+          b.line,
+          `"${b.prelude}" joins "&" and "${m[2]}"; native CSS nesting cannot build class names, so the rule is dropped. Write the full selector.`
+        )
     }
   }
 }

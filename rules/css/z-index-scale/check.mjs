@@ -11,7 +11,10 @@ export default {
   check(ctx) {
     const sources = styleSources(ctx)
     const scale = collectTokens(sources).filter((t) => Z_NAME.test(t.name))
-    const names = scale.slice(0, 3).map((t) => t.ref).join(', ')
+    const names = scale
+      .slice(0, 3)
+      .map((t) => t.ref)
+      .join(', ')
     for (const src of sources)
       for (const b of src.blocks)
         for (const d of b.decls) {
@@ -19,7 +22,8 @@ export default {
           const n = Number(d.value)
           const at = { file: src.file, line: d.line }
           if (scale.length && Math.abs(n) >= 10) ctx.report(at, `z-index: ${n} is not from the project's scale; use one of its layers (${names}).`)
-          else if (!scale.length && Math.abs(n) >= 100) ctx.report(at, `z-index: ${n} is an ad hoc number; define a z-index scale (--z-dropdown, --z-modal, --z-toast) and use it.`)
+          else if (!scale.length && Math.abs(n) >= 100)
+            ctx.report(at, `z-index: ${n} is an ad hoc number; define a z-index scale (--z-dropdown, --z-modal, --z-toast) and use it.`)
         }
   }
 }

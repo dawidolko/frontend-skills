@@ -12,6 +12,9 @@ export default {
     for (const b of ctx.css())
       for (const d of b.decls)
         if (d.prop === 'font-size' && VIEWPORT.test(d.value) && !ZOOMABLE.test(d.value) && !d.value.includes('var('))
-          ctx.report(d.line, `font-size: ${d.value} uses only viewport units, so zoom cannot enlarge it; use clamp(1rem, 0.9rem + 1vw, 1.5rem) with rem bounds.`)
+          ctx.report(
+            d.line,
+            `font-size: ${d.value} uses only viewport units, so zoom cannot enlarge it; use clamp(1rem, 0.9rem + 1vw, 1.5rem) with rem bounds.`
+          )
   }
 }
