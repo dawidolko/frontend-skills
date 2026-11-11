@@ -46,7 +46,7 @@ Status: ✅ written (reference examples), ⬜ to write. Every skill follows `doc
 | ✅ `fe-a11y-forms` | accessibility | web | Labels, autocomplete, errors, groups, authentication (1.3.1, 1.3.5, 3.3.1–3.3.8, 4.1.2). |
 | ✅ `fe-a11y-keyboard` | accessibility | web | Keyboard access, focus order and visibility, focus not obscured, focus management, skip links (2.1.1, 2.1.2, 2.4.1, 2.4.3, 2.4.7, 2.4.11). Owns `a11y/positive-tabindex`, `a11y/no-click-on-static`, `a11y/focus-visible`. |
 | ⬜ `fe-a11y-visual` | accessibility | web | Contrast, use of colour, text spacing, reflow, resize, target size, non-text contrast (1.4.1, 1.4.3, 1.4.4, 1.4.10–1.4.13, 2.5.8). |
-| ⬜ `fe-a11y-aria` | accessibility | web | Accessible names, roles and states, live regions, the first rule of ARIA (4.1.2, 4.1.3). |
+| ✅ `fe-a11y-aria` | accessibility | web | Accessible names, roles and states, live regions, the first rule of ARIA (4.1.2, 4.1.3). |
 | ⬜ `fe-a11y-media` | accessibility | web | Captions, transcripts, audio description, autoplay, flashing, pause controls (1.2.x, 1.4.2, 2.2.2, 2.3.1). |
 | ⬜ `fe-a11y-dialog` | accessibility | web | Modal and non-modal dialogs with `<dialog>`, focus in and out, inert background (APG Dialog). |
 | ⬜ `fe-a11y-menus` | accessibility | web | Disclosure, navigation menus, menu buttons; when not to use `role="menu"` (APG Disclosure, Menu Button). |
