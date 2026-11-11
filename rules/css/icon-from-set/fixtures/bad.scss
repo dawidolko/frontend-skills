@@ -1,0 +1,9 @@
+// The project's icon set is in use here, yet two icons are hard-coded file paths.
+@use 'generated/icons';
+.search-btn::before {
+  content: '';
+  mask: url('../assets/icons/search.svg') no-repeat center;
+}
+.external-link {
+  background: url(/img/icon-external.svg) right center / 1em no-repeat;
+}

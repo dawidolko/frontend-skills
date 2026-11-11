@@ -9,7 +9,7 @@ Status: ✅ written (reference examples), ⬜ to write. Every skill follows `doc
 | Skill | Area | requires | One line |
 | --- | --- | --- | --- |
 | ✅ `fe-html` | foundations | web | Documents, head, landmarks, headings, semantic elements, images and buttons. |
-| ⬜ `fe-css-architecture` | styling | web | Cascade layers, custom properties as tokens, specificity, naming, file organisation, what to avoid. |
+| ✅ `fe-css-architecture` | styling | web | Cascade layers, custom properties as tokens, specificity, naming, file organisation, what to avoid. |
 | ⬜ `fe-css-layout` | styling | web | Flexbox, grid, container queries, logical properties, spacing systems, no fixed heights. |
 | ⬜ `fe-css-modern` | styling | web | Baseline features worth using today (`:has()`, nesting, `@scope`, `color-mix()`, `@starting-style`), with their Baseline status. |
 | ⬜ `fe-responsive` | foundations | web | Viewport, fluid type and space, breakpoints vs container queries, reflow at 320 CSS px, touch targets, print. Owns `responsive/*` and `a11y/zoom-not-blocked`. |
@@ -37,6 +37,36 @@ Status: ✅ written (reference examples), ⬜ to write. Every skill follows `doc
 | ⬜ `fe-sass` | styling | sass | 1.108 | `@use`/`@forward` (no `@import`), modules, when plain CSS now suffices. |
 | ⬜ `fe-state` | frameworks | react vue svelte angular | Pinia 4.1 | Where state lives, stores (Pinia, Zustand, Redux Toolkit, signals), URL state, no duplicated server state. |
 | ⬜ `fe-data-fetching` | frameworks | react vue svelte angular next nuxt | TanStack Query 5.107 | Server-state libraries vs framework loaders, caching, loading and error UI, race conditions. |
+| ⬜ `fe-icons` | styling | web | – | Icons from the set the build generates (SVG sprite, icon classes or an icon component), never a hard-coded icon file path; decorative vs meaningful icons. Owns `html/icon-from-set`. Added 2026-11-11 for the owner's icon practice: the icon component of each framework and the sprite or class generator need one home. |
+
+## Project conventions: the owner's practices (2026-11-11)
+
+The owner asked for rules that follow the project's own helpers: icons from a generated set, no hard-coded asset paths, sizes in rem through the project's px-to-rem helper, unitless `line-height`, tokens instead of repeated literals, no magic numbers, `!important` only in utilities, `z-index` from a scale. Lane A owns the CSS rules, lane B the Sass helper detection, the framework icon component and the markup half. These ids are reserved here so no id is made twice; the owning lane creates the rule.
+
+| Id | Lane | Skill | One line |
+| --- | --- | --- | --- |
+| `css/rem-units` | A | `fe-css-architecture` | Font sizes, spacing and breakpoints in `rem` (through `conventions.remHelper` when the profile names one), not raw `px`. |
+| `css/unitless-line-height` | A | `fe-css-architecture` | `line-height` is a unitless number (`1.5`), never `px`. |
+| `css/design-tokens` | A | `fe-css-architecture` | A colour or spacing literal repeated across rules becomes a custom property or token. |
+| `css/no-magic-numbers` | A | `fe-css-architecture` | One-off offsets and sizes (`top: 37px`, `margin-left: -3px`) are derived from tokens or layout, not tuned by hand. |
+| `css/no-important` | A | `fe-css-architecture` | `!important` only in utility classes and overrides of third-party CSS, with a reason. |
+| `css/z-index-scale` | A | `fe-css-architecture` | `z-index` values come from a named scale (custom properties or Sass map), not ad hoc numbers. |
+| `css/icon-from-set` | A | `fe-css-architecture` | The CSS half of the icon rule: no `url()` to an icon file in `background`/`mask`/`content`; use the generated icon classes. |
+| `css/asset-url` | A | `fe-css-architecture` | The CSS half of the asset rule: `url()` to images and fonts is relative and resolved by the bundler, not a hard-coded root path. |
+| `html/icon-from-set` | B | `fe-icons` | The markup half of the icon rule: no `<img src>` or `<use href>` hard-coded to an icon file when the project has an icon set; use its component or classes. |
+| `js/asset-import` | B | `fe-javascript` | In a bundled project, images, fonts and media in component markup are imported or go through the framework's base-path helper, not hard-coded root paths. |
+| `sass/rem-helper` | B | `fe-sass` | When the project has a px-to-rem function (Foundation's `rem-calc()` or its own), sizes call it instead of dividing by a hard-coded base. |
+
+**Profile contract.** A check that needs a project helper runs only when the helper is known, and its fix names that helper. The helpers are recorded under `conventions` in `.frontend-skills/profile.json` (proposed for `cli/lib/detect.mjs`; until then `fe-learn` runs `node skills/styling/fe-sass/scripts/find-conventions.mjs --json` and confirms the result with the person):
+
+```json
+"conventions": {
+  "remHelper": { "name": "rem-calc", "file": "src/styles/_functions.scss", "base": 16 },
+  "icons": { "kind": "sprite", "component": "Icon", "classPrefix": "icon-", "source": "src/icons", "generator": "vite-plugin-svg-icons" }
+}
+```
+
+`kind` is `sprite`, `classes` or `component`. A check also accepts the helper when the file it reads already uses it (a `rem-calc(` call, an `<Icon>` element), so a project without a profile still gets the finding where the mix is visible.
 
 ## Lane C: accessibility, performance, SEO, i18n, security, testing, tooling
 

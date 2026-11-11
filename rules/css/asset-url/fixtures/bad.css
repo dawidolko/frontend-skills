@@ -1,0 +1,8 @@
+/* Root paths into public/: copied as-is, never hashed, not prefixed with the base path everywhere. */
+.hero { background-image: url('/images/hero.jpg'); }
+@font-face {
+  font-family: "Brand";
+  src: url(/fonts/brand.woff2) format("woff2");
+  font-display: swap;
+}
+.logo { background: url("../../public/logo.png") no-repeat; }

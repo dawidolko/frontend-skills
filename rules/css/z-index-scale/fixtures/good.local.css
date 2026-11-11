@@ -1,0 +1,5 @@
+/* Without a scale in the project nothing here is reported (all below 100); with one, the sticky header's 50 is. */
+.card { position: relative; z-index: 2; }
+.card__badge { position: absolute; z-index: 3; }
+.backdrop { z-index: -1; }
+.site-header { position: sticky; top: 0; z-index: 50; }
