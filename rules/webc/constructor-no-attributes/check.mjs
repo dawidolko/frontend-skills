@@ -7,7 +7,8 @@
 import { closing, findInCode } from '../../js/source.mjs'
 import { classes } from '../lit.mjs'
 
-const HOST = /this\s*\.\s*(?:(getAttribute|setAttribute|hasAttribute|removeAttribute|toggleAttribute|getAttributeNames|attributes|classList|className|dataset|appendChild|append|prepend|replaceChildren|insertAdjacentHTML|insertAdjacentElement|innerHTML|outerHTML|textContent|innerText|children|childNodes|firstChild|firstElementChild|querySelector|querySelectorAll)\b|(id)(?=\s*=[^=]))/g
+const HOST =
+  /this\s*\.\s*(?:(getAttribute|setAttribute|hasAttribute|removeAttribute|toggleAttribute|getAttributeNames|attributes|classList|className|dataset|appendChild|append|prepend|replaceChildren|insertAdjacentHTML|insertAdjacentElement|innerHTML|outerHTML|textContent|innerText|children|childNodes|firstChild|firstElementChild|querySelector|querySelectorAll)\b|(id)(?=\s*=[^=]))/g
 
 export default {
   check(ctx) {
@@ -20,7 +21,11 @@ export default {
       const body = f.code.slice(open, closing(f.code, open))
       HOST.lastIndex = 0
       const m = HOST.exec(body)
-      if (m) ctx.report(ctx.lineOf(f.offset + open + m.index), `this.${m[1] || m[2]} in the constructor touches the host's attributes or children; move it to connectedCallback.`)
+      if (m)
+        ctx.report(
+          ctx.lineOf(f.offset + open + m.index),
+          `this.${m[1] || m[2]} in the constructor touches the host's attributes or children; move it to connectedCallback.`
+        )
     }
   }
 }

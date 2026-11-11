@@ -5,7 +5,8 @@
  * for static lists. Blocks inside HTML comments are ignored.
  */
 const FOR = /@for\s*\(\s*([\w$]+)\s+of\s+[^;]*;\s*track\s+([^;)]+?)\s*[;)][^{]*\{/g
-const PRIMITIVE = /^(?:length|at|charAt|codePointAt|concat|endsWith|includes|indexOf|localeCompare|padEnd|padStart|replace|replaceAll|slice|split|startsWith|substring|toFixed|toLowerCase|toString|toUpperCase|trim|trimEnd|trimStart|valueOf)\b/
+const PRIMITIVE =
+  /^(?:length|at|charAt|codePointAt|concat|endsWith|includes|indexOf|localeCompare|padEnd|padStart|replace|replaceAll|slice|split|startsWith|substring|toFixed|toLowerCase|toString|toUpperCase|trim|trimEnd|trimStart|valueOf)\b/
 
 function blockEnd(text, open) {
   let depth = 0
@@ -20,8 +21,7 @@ export default {
   check(ctx) {
     const text = ctx.text.replace(/<!--[\s\S]*?-->/g, (c) => c.replace(/[^\n]/g, ' '))
     FOR.lastIndex = 0
-    let m
-    while ((m = FOR.exec(text))) {
+    for (const m of text.matchAll(FOR)) {
       const name = m[1]
       if (m[2].trim() !== name) continue
       const open = m.index + m[0].length - 1

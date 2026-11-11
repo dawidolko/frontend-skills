@@ -6,8 +6,16 @@
 import { isSolution, lineOfKey, tsconfigs, typescriptMajor } from '../tsconfig.mjs'
 
 const FLAGS = [
-  'strict', 'noImplicitAny', 'strictNullChecks', 'strictFunctionTypes', 'strictBindCallApply',
-  'strictPropertyInitialization', 'strictBuiltinIteratorReturn', 'noImplicitThis', 'useUnknownInCatchVariables', 'alwaysStrict'
+  'strict',
+  'noImplicitAny',
+  'strictNullChecks',
+  'strictFunctionTypes',
+  'strictBindCallApply',
+  'strictPropertyInitialization',
+  'strictBuiltinIteratorReturn',
+  'noImplicitThis',
+  'useUnknownInCatchVariables',
+  'alwaysStrict'
 ]
 
 export default {
@@ -15,7 +23,8 @@ export default {
     for (const cfg of tsconfigs(ctx)) {
       const options = cfg.data.compilerOptions || {}
       for (const flag of FLAGS)
-        if (options[flag] === false) ctx.report({ file: cfg.path, line: lineOfKey(cfg.text, flag) }, `"${flag}": false turns off strict type checking; remove it.`)
+        if (options[flag] === false)
+          ctx.report({ file: cfg.path, line: lineOfKey(cfg.text, flag) }, `"${flag}": false turns off strict type checking; remove it.`)
       if (options.strict !== undefined || cfg.data.extends || isSolution(cfg.data)) continue
       const major = typescriptMajor(ctx, cfg.path)
       if (major !== null && major < 6)

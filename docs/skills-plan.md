@@ -65,36 +65,36 @@ An icon component helper (`<Icon name>` over a sprite or `unplugin-icons`) is no
 
 | Skill | Area | requires | One line |
 | --- | --- | --- | --- |
-| ⬜ `fe-a11y-core` | accessibility | web | WCAG 2.2 A and AA mapped to front-end code: the index of criteria, what is automated, what needs a person; points to the skills below. |
+| ✅ `fe-a11y-core` | accessibility | web | WCAG 2.2 A and AA mapped to front-end code: the index of criteria, what is automated, what needs a person; points to the skills below. |
 | ✅ `fe-a11y-forms` | accessibility | web | Labels, autocomplete, errors, groups, authentication (1.3.1, 1.3.5, 3.3.1–3.3.8, 4.1.2). |
-| ⬜ `fe-a11y-keyboard` | accessibility | web | Keyboard access, focus order and visibility, focus not obscured, focus management, skip links (2.1.1, 2.1.2, 2.4.1, 2.4.3, 2.4.7, 2.4.11). Owns `a11y/positive-tabindex`, `a11y/no-click-on-static`, `a11y/focus-visible`. |
-| ⬜ `fe-a11y-visual` | accessibility | web | Contrast, use of colour, text spacing, reflow, resize, target size, non-text contrast (1.4.1, 1.4.3, 1.4.4, 1.4.10–1.4.13, 2.5.8). |
-| ⬜ `fe-a11y-aria` | accessibility | web | Accessible names, roles and states, live regions, the first rule of ARIA (4.1.2, 4.1.3). |
-| ⬜ `fe-a11y-media` | accessibility | web | Captions, transcripts, audio description, autoplay, flashing, pause controls (1.2.x, 1.4.2, 2.2.2, 2.3.1). |
-| ⬜ `fe-a11y-dialog` | accessibility | web | Modal and non-modal dialogs with `<dialog>`, focus in and out, inert background (APG Dialog). |
-| ⬜ `fe-a11y-menus` | accessibility | web | Disclosure, navigation menus, menu buttons; when not to use `role="menu"` (APG Disclosure, Menu Button). |
-| ⬜ `fe-a11y-tabs-accordion` | accessibility | web | Tabs and accordions with the right keyboard model (APG Tabs, Accordion). |
-| ⬜ `fe-a11y-combobox` | accessibility | web | Autocomplete, select-only combobox, listbox (APG Combobox, Listbox). |
-| ⬜ `fe-a11y-carousel-toast` | accessibility | web | Carousels with pause and controls; toasts and status messages that are announced and not timed out (APG Carousel). |
-| ⬜ `fe-a11y-tables` | accessibility | web | Data tables, headers and captions, sortable columns, responsive tables. |
-| ⬜ `fe-core-web-vitals` | performance | web | LCP (≤ 2.5 s), INP (≤ 200 ms), CLS (≤ 0.1) at the 75th percentile: causes and fixes per framework. |
-| ⬜ `fe-lighthouse` | performance | web | Running Lighthouse 13 locally and in CI, reading the score (weights: TBT 30, LCP 25, CLS 25, FCP 10, SI 10), budgets. |
-| ⬜ `fe-perf-delivery` | performance | web | JavaScript and CSS delivery, code splitting, hydration cost, third-party scripts, caching and resource hints; cites `perf/render-blocking-script` (owned by `fe-html`). |
-| ⬜ `fe-seo-metadata` | quality | web | Titles, descriptions, canonical, Open Graph, structured data, sitemap and robots, per framework. |
-| ⬜ `fe-i18n` | quality | web | `lang` and `dir`, `Intl` formatting, message formats, RTL with logical properties, framework i18n libraries. |
-| ⬜ `fe-security` | quality | web | XSS sinks (`innerHTML`, `dangerouslySetInnerHTML`, `v-html`, `{@html}`), CSP, Trusted Types, SRI, third-party code. |
-| ⬜ `fe-testing` | quality | vitest jest playwright cypress testing-library | Unit, component (Testing Library queries by role), end-to-end (Playwright 1.65), accessibility in tests (axe-core). |
-| ⬜ `fe-tooling` | quality | vite eslint prettier biome | Vite 8, ESLint 10 flat config with a11y plugins, Prettier 3 or Biome 2, browserslist and Baseline. |
+| ✅ `fe-a11y-keyboard` | accessibility | web | Keyboard access, focus order and visibility, focus not obscured, focus management, skip links (2.1.1, 2.1.2, 2.4.1, 2.4.3, 2.4.7, 2.4.11). Owns `a11y/positive-tabindex`, `a11y/no-click-on-static`, `a11y/focus-visible`. |
+| ✅ `fe-a11y-visual` | accessibility | web | Contrast, use of colour, text spacing, reflow, resize, target size, non-text contrast (1.4.1, 1.4.3, 1.4.4, 1.4.10–1.4.13, 2.5.8). |
+| ✅ `fe-a11y-aria` | accessibility | web | Accessible names, roles and states, live regions, the first rule of ARIA (4.1.2, 4.1.3). |
+| ✅ `fe-a11y-media` | accessibility | web | Captions, transcripts, audio description, autoplay, flashing, pause controls (1.2.x, 1.4.2, 2.2.2, 2.3.1). |
+| ✅ `fe-a11y-dialog` | accessibility | web | Modal and non-modal dialogs with `<dialog>`, focus in and out, inert background (APG Dialog). |
+| ✅ `fe-a11y-menus` | accessibility | web | Disclosure, navigation menus, menu buttons; when not to use `role="menu"` (APG Disclosure, Menu Button). |
+| ✅ `fe-a11y-tabs-accordion` | accessibility | web | Tabs and accordions with the right keyboard model (APG Tabs, Accordion). |
+| ✅ `fe-a11y-combobox` | accessibility | web | Autocomplete, select-only combobox, listbox (APG Combobox, Listbox). |
+| ✅ `fe-a11y-carousel-toast` | accessibility | web | Carousels with pause and controls; toasts and status messages that are announced and not timed out (APG Carousel). |
+| ✅ `fe-a11y-tables` | accessibility | web | Data tables, headers and captions, sortable columns, responsive tables. |
+| ✅ `fe-core-web-vitals` | performance | web | LCP (≤ 2.5 s), INP (≤ 200 ms), CLS (≤ 0.1) at the 75th percentile: causes and fixes per framework. |
+| ✅ `fe-lighthouse` | performance | web | Running Lighthouse 13 locally and in CI, reading the score (weights: TBT 30, LCP 25, CLS 25, FCP 10, SI 10), budgets. |
+| ✅ `fe-perf-delivery` | performance | web | JavaScript and CSS delivery, code splitting, hydration cost, third-party scripts, caching and resource hints; cites `perf/render-blocking-script` (owned by `fe-html`). |
+| ✅ `fe-seo-metadata` | quality | web | Titles, descriptions, canonical, Open Graph, structured data, sitemap and robots, per framework. |
+| ✅ `fe-i18n` | quality | web | `lang` and `dir`, `Intl` formatting, message formats, RTL with logical properties, framework i18n libraries. |
+| ✅ `fe-security` | quality | web | XSS sinks (`innerHTML`, `dangerouslySetInnerHTML`, `v-html`, `{@html}`), CSP, Trusted Types, SRI, third-party code. |
+| ✅ `fe-testing` | quality | vitest jest playwright cypress testing-library | Unit, component (Testing Library queries by role), end-to-end (Playwright 1.65), accessibility in tests (axe-core). |
+| ✅ `fe-tooling` | quality | vite eslint prettier biome | Vite 8, ESLint 10 flat config with a11y plugins, Prettier 3 or Biome 2, browserslist and Baseline. |
 
 ## Workflow skills (lane C after its first three skills, or a fourth agent)
 
 | Skill | One line |
 | --- | --- |
-| ⬜ `fe-learn` | Run `init`/`learn`, read the profile, confirm the detected project helpers (rem function, icon build, tokens, custom properties) with the person, add missed ones to `profile.helpers` with `"source": "person"`, record lessons. |
-| ⬜ `fe-audit` | Run `audit` (and `--url` when a page is running), read the JSON, explain the top findings, propose an order of fixes. |
-| ⬜ `fe-fix` | Fix findings by rule id, smallest change first, re-run `audit --changed`, never suppress without a reason. |
-| ⬜ `fe-review` | Review a diff of front-end code: run `audit --changed`, then the manual rules of the touched skills; report by rule id. |
-| ⬜ `fe-component` | Build a new component: semantics first, keyboard model from the APG, states, responsive, tests, then audit. |
+| ✅ `fe-learn` | Run `init`/`learn`, read the profile, confirm the detected project helpers (rem function, icon build, tokens, custom properties) with the person, add missed ones to `profile.helpers` with `"source": "person"`, record lessons. |
+| ✅ `fe-audit` | Run `audit` (and `--url` when a page is running), read the JSON, explain the top findings, propose an order of fixes. |
+| ✅ `fe-fix` | Fix findings by rule id, smallest change first, re-run `audit --changed`, never suppress without a reason. |
+| ✅ `fe-review` | Review a diff of front-end code: run `audit --changed`, then the manual rules of the touched skills; report by rule id. |
+| ✅ `fe-component` | Build a new component: semantics first, keyboard model from the APG, states, responsive, tests, then audit. |
 
 ## Stack keys
 

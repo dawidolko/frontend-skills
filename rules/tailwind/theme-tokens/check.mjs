@@ -23,6 +23,7 @@ export default {
       }
     }
     for (const [value, { count, line }] of seen)
-      if (count >= MIN) ctx.report(line, `The arbitrary value [${value}] is used ${count} times in this file; define it once in @theme and use the generated utility.`)
+      if (count >= MIN)
+        ctx.report(line, `The arbitrary value [${value}] is used ${count} times in this file; define it once in @theme and use the generated utility.`)
   }
 }

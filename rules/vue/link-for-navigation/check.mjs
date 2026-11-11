@@ -11,7 +11,7 @@ export default {
     for (const el of ctx.elements(['button', 'input'])) {
       if (el.name === 'input' && el.attrs.get('type')?.value !== 'button') continue
       const click = el.attrs.get('onclick')
-      if (!click || !click.event || !NAV.test(click.value)) continue
+      if (!click?.event || !NAV.test(click.value)) continue
       ctx.report(click.line, `This button only navigates (${click.value.trim()}); use RouterLink or NuxtLink with to.`)
     }
   }

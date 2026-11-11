@@ -11,12 +11,12 @@ stack:
 skill: fe-state
 since: 0.1.0
 sources:
-  - title: Zustand docs, Migrating to v5 (selectors that return new references)
-    url: https://zustand.docs.pmnd.rs/reference/migrations/migrating-to-v5
-  - title: Zustand docs, useShallow
-    url: https://zustand.docs.pmnd.rs/reference/hooks/use-shallow
-  - title: React Redux docs, Hooks (equality comparisons and updates)
-    url: https://redux.js.org/react-redux/api/hooks
+  - title: Zustand docs, Migrating to v5 (source in the pmndrs/zustand repository)
+    url: https://github.com/pmndrs/zustand/blob/main/docs/reference/migrations/migrating-to-v5.md
+  - title: Zustand docs, useShallow (source in the pmndrs/zustand repository)
+    url: https://github.com/pmndrs/zustand/blob/main/docs/reference/hooks/use-shallow.md
+  - title: React Redux docs, Hooks (useSelector equality; source in the reduxjs/react-redux repository)
+    url: https://github.com/reduxjs/react-redux/blob/master/docs/api/hooks.md
 ---
 
 ## Why

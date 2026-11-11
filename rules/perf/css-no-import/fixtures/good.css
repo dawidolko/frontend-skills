@@ -1,0 +1,3 @@
+/* @import "old.css"; replaced by a link tag */
+@import "tailwindcss";
+body { margin: 0; }

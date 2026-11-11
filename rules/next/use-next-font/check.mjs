@@ -10,8 +10,8 @@ export default {
   check(ctx) {
     if (['css', 'scss'].includes(ctx.kind)) {
       IMPORT.lastIndex = 0
-      let m
-      while ((m = IMPORT.exec(ctx.text))) ctx.report(ctx.lineOf(m.index), 'Load this font with next/font/google instead of @import from fonts.googleapis.com.')
+      for (const m of ctx.text.matchAll(IMPORT))
+        ctx.report(ctx.lineOf(m.index), 'Load this font with next/font/google instead of @import from fonts.googleapis.com.')
       return
     }
     for (const el of ctx.elements('link')) {

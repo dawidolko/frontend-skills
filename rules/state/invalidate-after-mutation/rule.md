@@ -16,8 +16,8 @@ since: 0.1.0
 sources:
   - title: TanStack Query docs, Invalidations from Mutations
     url: https://tanstack.com/query/latest/docs/framework/react/guides/invalidations-from-mutations
-  - title: SWR docs, Mutation and Revalidation
-    url: https://swr.vercel.app/docs/mutation
+  - title: SWR docs, Mutation and revalidation (source in the vercel/swr-site repository)
+    url: https://github.com/vercel/swr-site/blob/main/content/docs/mutation.mdx
 ---
 
 ## Why

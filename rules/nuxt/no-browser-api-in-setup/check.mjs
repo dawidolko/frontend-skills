@@ -16,8 +16,7 @@ export default {
       const code = blank(b.text)
       const lines = b.text.split('\n')
       const re = /(?<![\w$.])(window|document|localStorage|sessionStorage|navigator)(?![\w$])(?!\s*:)/g
-      let m
-      while ((m = re.exec(code))) {
+      for (const m of code.matchAll(re)) {
         if (!runsAtTopLevel(code, m.index)) continue
         const line = ctx.lineOf(b.offset + m.index)
         const local = code.slice(0, m.index).split('\n').length - 1

@@ -37,17 +37,20 @@ export default {
       const end = closing(code, open)
       const re = /([\w$]+|(["'])[^"'\n]*\2)\s*:\s*([^,\n}]*)/g
       re.lastIndex = open + 1
-      let m
       let depth = 0
       let last = open + 1
-      while ((m = re.exec(raw)) && m.index < end) {
+      for (const m of raw.matchAll(re)) {
+        if (m.index >= end) break
         for (let i = last; i < m.index; i++) depth += code[i] === '{' ? 1 : code[i] === '}' ? -1 : 0
         last = m.index
-        if (depth !== 0 || code[m.index] !== raw[m.index] && !/^["']/.test(m[1])) continue
+        if (depth !== 0 || (code[m.index] !== raw[m.index] && !/^["']/.test(m[1]))) continue
         const key = m[1].replace(/["']/g, '')
         const env = /process\.env\.([\w$]+)/.exec(m[3])
         if ((SECRET.test(key) && !NOT_SECRET.test(key)) || (env && SECRET.test(env[1])))
-          ctx.report({ file, line: raw.slice(0, m.index).split('\n').length }, `runtimeConfig.public.${key} is sent to every browser; move it to the top level of runtimeConfig (server-only).`)
+          ctx.report(
+            { file, line: raw.slice(0, m.index).split('\n').length },
+            `runtimeConfig.public.${key} is sent to every browser; move it to the top level of runtimeConfig (server-only).`
+          )
       }
     }
   }

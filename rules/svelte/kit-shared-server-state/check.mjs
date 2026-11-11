@@ -69,8 +69,7 @@ export default {
       const { depth, fn } = scopes(code)
       const lineOf = (i) => code.slice(0, i).split('\n').length
       const decl = /(?:^|[;\n])[ \t]*(?:export\s+)?(let|const)\s+([\w$]+)\s*(?::[^=\n]+)?=?\s*([^\n;]*)/g
-      let m
-      while ((m = decl.exec(code))) {
+      for (const m of code.matchAll(decl)) {
         const at = m.index + m[0].search(/\S/)
         if (depth[at] !== 0) continue
         const [, kind, name, init] = m
@@ -79,10 +78,12 @@ export default {
           kind === 'let'
             ? new RegExp(`(?<![\\w$.])${name}\\s*(?:[-+*/]?=(?!=)|\\+\\+|--)|(?:\\+\\+|--)${name}(?![\\w$])`, 'g')
             : new RegExp(`(?<![\\w$.])${name}\\s*(?:\\.\\s*(?:push|unshift|splice)\\s*\\(|(?:\\.[\\w$]+|\\[[^\\]]+\\])\\s*=(?!=))`, 'g')
-        let w
-        while ((w = write.exec(code))) {
+        for (const w of code.matchAll(write)) {
           if (!fn[w.index]) continue
-          ctx.report({ file, line: lineOf(at) }, `${name} is module state on the server, shared by every user and request; keep request data inside load/actions or in a database.`)
+          ctx.report(
+            { file, line: lineOf(at) },
+            `${name} is module state on the server, shared by every user and request; keep request data inside load/actions or in a database.`
+          )
           break
         }
       }

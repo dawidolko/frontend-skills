@@ -10,10 +10,10 @@ stack:
 skill: fe-state
 since: 0.1.0
 sources:
-  - title: Redux docs, Why Redux Toolkit is How To Use Redux Today
-    url: https://redux.js.org/introduction/why-rtk-is-redux-today
-  - title: Redux docs, Style Guide
-    url: https://redux.js.org/style-guide/
+  - title: Redux docs, Why Redux Toolkit is how to use Redux today (source in the reduxjs/redux repository)
+    url: https://github.com/reduxjs/redux/blob/master/docs/introduction/why-rtk-is-redux-today.md
+  - title: Redux docs, Style guide (source in the reduxjs/redux repository)
+    url: https://github.com/reduxjs/redux/blob/master/docs/style-guide/style-guide.md
 ---
 
 ## Why

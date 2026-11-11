@@ -9,7 +9,8 @@
  */
 import { classTokens, staticValue } from '../../../engine/helpers.mjs'
 
-const ICON_FILE = /(?:^|\/)(?:icons?|sprites?|svg-icons)\/(?:[^/]+\/)*[^/]+\.(?:svg|png|webp|gif|avif)(?:[?#].*)?$|(?:^|\/)(?:icon|ic)[-_][^/]*\.(?:svg|png|webp|gif|avif)(?:[?#].*)?$/i
+const ICON_FILE =
+  /(?:^|\/)(?:icons?|sprites?|svg-icons)\/(?:[^/]+\/)*[^/]+\.(?:svg|png|webp|gif|avif)(?:[?#].*)?$|(?:^|\/)(?:icon|ic)[-_][^/]*\.(?:svg|png|webp|gif|avif)(?:[?#].*)?$/i
 const ICON_CLASS = /^(?:icon|fa|bi|ri|mdi|ph|i)-[\w-]+$|^material-(?:icons|symbols)/
 const iconName = (src) => (/([^/]+?)\.(?:svg|png|webp|gif|avif)/i.exec(src)?.[1] || 'name').replace(/^(?:icon|ic)[-_]/i, '')
 

@@ -10,10 +10,8 @@ stack:
 skill: fe-typescript
 since: 0.1.0
 sources:
-  - title: Announcing TypeScript 6.0 (deprecations)
-    url: https://devblogs.microsoft.com/typescript/announcing-typescript-6-0/
-  - title: Announcing TypeScript 7.0
-    url: https://devblogs.microsoft.com/typescript/announcing-typescript-7-0/
+  - title: TypeScript 6.0 release notes (deprecations, removed in TypeScript 7.0)
+    url: https://www.typescriptlang.org/docs/handbook/release-notes/typescript-6-0.html
   - title: TypeScript, TSConfig reference (moduleResolution)
     url: https://www.typescriptlang.org/tsconfig/#moduleResolution
 ---

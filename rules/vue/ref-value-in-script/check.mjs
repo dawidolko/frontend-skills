@@ -23,8 +23,7 @@ export default {
         new RegExp(`${name}\\s*(?:\\+\\+|--)`, 'g')
       ]
       for (const re of res) {
-        let m
-        while ((m = re.exec(code))) {
+        for (const m of code.matchAll(re)) {
           if (m.index < f.match.index + f.match[0].length) continue
           const line = ctx.lineOf(f.offset + m.index)
           if (seen.has(`${n}:${line}`)) continue

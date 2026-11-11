@@ -11,8 +11,7 @@ export default {
     for (const b of scriptBlocks(ctx)) {
       const code = blank(b.text)
       const re = /(?<![\w$.])(useFetch|useLazyFetch|useAsyncData|useLazyAsyncData)\s*(?:<[^>\n]*>)?\s*\(/g
-      let m
-      while ((m = re.exec(code))) {
+      for (const m of code.matchAll(re)) {
         const fn = enclosingFunction(code, m.index)
         if (!fn || /^use[A-Z0-9_]/.test(fn.name) || fn.name === 'setup' || /^define[A-Z]/.test(fn.name)) continue
         ctx.report(ctx.lineOf(b.offset + m.index), `${m[1]} inside ${fn.name}(); call it in setup or a composable, and use $fetch in handlers.`)
