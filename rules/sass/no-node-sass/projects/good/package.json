@@ -1,0 +1,9 @@
+{
+  "name": "good",
+  "private": true,
+  "description": "Moved from node-sass to sass.",
+  "devDependencies": {
+    "sass": "^1.108.2",
+    "vite": "^8.3.8"
+  }
+}

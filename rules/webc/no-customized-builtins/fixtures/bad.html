@@ -1,0 +1,11 @@
+<!doctype html>
+<html lang="en">
+  <head><title>Buttons</title></head>
+  <body>
+    <button is="fancy-button" type="button">Save</button>
+    <script type="module">
+      class FancyButton extends HTMLButtonElement {}
+      customElements.define('fancy-button', FancyButton, { extends: 'button' })
+    </script>
+  </body>
+</html>

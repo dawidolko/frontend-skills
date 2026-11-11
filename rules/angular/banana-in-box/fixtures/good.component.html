@@ -1,0 +1,3 @@
+<label for="name">Name</label>
+<input id="name" [(ngModel)]="name" (blur)="touched.set(true)" [disabled]="busy()">
+<app-search [(query)]="query" />

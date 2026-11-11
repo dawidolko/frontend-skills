@@ -1,0 +1,8 @@
+{
+  "compilerOptions": {
+    /* "strict": false was removed in 2026 */
+    "paths": { "@/*": ["./src/*"] },
+    "noUncheckedIndexedAccess": true
+  },
+  "include": ["src"]
+}

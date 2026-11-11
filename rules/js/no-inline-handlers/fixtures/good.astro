@@ -1,0 +1,11 @@
+---
+const label = 'Send'
+---
+<form id="contact" data-online="true">
+  <button type="submit">{label}</button>
+</form>
+<script>
+  document.getElementById('contact')?.addEventListener('submit', (event) => {
+    if (!navigator.onLine) event.preventDefault()
+  })
+</script>

@@ -1,0 +1,14 @@
+---
+import Stripe from 'stripe'
+import { STRIPE_SECRET_KEY } from 'astro:env/server'
+// PUBLIC_STRIPE_SECRET_KEY in a comment is not code
+const stripe = new Stripe(STRIPE_SECRET_KEY)
+const prices = await stripe.prices.list()
+const site = import.meta.env.PUBLIC_SITE_URL
+const label = 'PUBLIC_PASSWORD'
+---
+<ul data-site={site} data-label={label}>{prices.data.map((price) => <li>{price.nickname}</li>)}</ul>
+<script>
+  const key = import.meta.env.PUBLIC_STRIPE_PUBLISHABLE_KEY
+  console.log(key.length)
+</script>

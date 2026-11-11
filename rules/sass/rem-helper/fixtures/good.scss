@@ -1,0 +1,16 @@
+@use 'sass:math';
+
+$base-font-size: 16px;
+
+// The helper's own body divides, and that is the one place that should.
+@function rem-calc($px, $base: $base-font-size) {
+  @return math.div($px, $base) * 1rem;
+}
+
+.card {
+  padding: rem-calc(24px);
+  font-size: rem-calc(18px);
+  gap: calc(100% / 3);
+  inline-size: math.div(100%, 3);
+  // math.div(24px, 16px) * 1rem in a comment
+}

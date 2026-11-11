@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Equality</title>
+    <script type="application/ld+json">{ "a": "b == c" }</script>
+  </head>
+  <body>
+    <p>The text a == b is not code.</p>
+    <script type="module">
+      // a comment with x == y is not code
+      const page = Number(new URLSearchParams(location.search).get('page'))
+      const label = 'a == b'
+      const pattern = /==/
+      if (page === 1 && label !== '' && pattern.test(label)) loadFirstPage()
+      if (window.config == null) useDefaults()
+      const done = `${page} == ${label}`
+    </script>
+  </body>
+</html>

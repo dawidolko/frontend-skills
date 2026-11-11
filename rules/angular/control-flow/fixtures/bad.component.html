@@ -1,0 +1,7 @@
+<ul>
+  <li *ngFor="let item of items">{{ item.name }}</li>
+</ul>
+<p *ngIf="loading">Loading…</p>
+<div [ngSwitch]="status">
+  <span *ngSwitchCase="'done'">Done</span>
+</div>

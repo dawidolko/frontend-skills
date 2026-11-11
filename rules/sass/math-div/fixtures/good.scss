@@ -1,0 +1,28 @@
+@use 'sass:math';
+
+// $gutter / 2 in a comment
+$gutter: 2rem;
+$size: 1rem;
+$line: 1.5;
+
+.col {
+  padding-inline: math.div($gutter, 2);
+  width: calc(100% / 3);
+  inline-size: calc($gutter / 2);
+  font: 1rem/1.5 system-ui;
+  font-size: #{$size}/#{$line};
+  grid-area: 1 / 3 / 2 / 4;
+  aspect-ratio: 16 / 9;
+  background: url(images/bg.png);
+  color: rgb(0 0 0 / 50%);
+  --ratio: $gutter / 2;
+  content: 'a / b';
+}
+
+.w-1\/2 {
+  width: 50%;
+}
+
+@media (min-aspect-ratio: 16/9) {
+  .hero { block-size: 100dvh; }
+}

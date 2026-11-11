@@ -1,0 +1,9 @@
+{
+  // copied from an old template
+  "compilerOptions": {
+    "target": "es2022",
+    "strict": true,
+    "strictNullChecks": false,
+  },
+  "include": ["src"]
+}
