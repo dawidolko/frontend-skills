@@ -1,0 +1,8 @@
+/* Anchor positioning and a scroll timeline with no fallback. */
+.menu-button { anchor-name: --menu; }
+.menu {
+  position: absolute;
+  position-anchor: --menu;
+  top: anchor(bottom);
+}
+.progress { animation: grow linear; animation-timeline: scroll(); }
