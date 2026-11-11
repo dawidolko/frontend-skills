@@ -1,0 +1,1 @@
+{ "helpers": { "icon-classes": { "kind": "icon-font", "tool": "fantasticon", "prefix": "icon-", "sourceDir": "src/icons", "example": "icon-<name>", "source": "detected" } } }

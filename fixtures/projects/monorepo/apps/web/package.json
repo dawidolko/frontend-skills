@@ -1,0 +1,1 @@
+{ "name": "web", "dependencies": { "next": "16.4.6", "react": "19.3.1", "react-dom": "19.3.1", "next-intl": "^4.0.0" }, "devDependencies": { "@playwright/test": "^1.65.0" } }

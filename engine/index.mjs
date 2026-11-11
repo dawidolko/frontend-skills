@@ -2,7 +2,8 @@
  * The static audit engine. It lists the project's files, parses each one at most once (markup, embedded and
  * standalone CSS), runs every rule whose `applies` kinds and `stack` match, and returns the findings with rule id,
  * file and line. A rule is a folder under rules/ (rule.md for the dictionary entry, check.mjs for the code); the
- * check receives a small context (elements, css blocks, report) described in docs/architecture.md. A finding is
+ * check receives a small context (elements, css blocks, helpers, report) described in docs/architecture.md. A rule
+ * that requires a project helper (rem-function, icon-classes…) runs only when the profile records it. A finding is
  * dropped when its line or the line above carries "fs-ignore <rule id>", or when the project profile ignores the
  * rule or excludes the file.
  */
@@ -76,7 +77,7 @@ function ignoredAt(lines, line, id) {
   for (const l of [line, line - 1]) {
     const m = IGNORE.exec(lines[l - 1] || '')
     if (!m) continue
-    const ids = m[1].replace(/-->|\*\/|\}/g, ' ').split(/[\s,]+/).filter((x) => /^[a-z]+\/[a-z0-9-]+$/.test(x))
+    const ids = m[1].replace(/-->|\*\/|\}/g, ' ').split(/[\s,]+/).filter((x) => /^[a-z][a-z0-9]*\/[a-z0-9-]+$/.test(x))
     if (ids.length === 0 || ids.includes(id)) return true
   }
   return false
@@ -98,7 +99,13 @@ export async function runAudit({ root, rules, profile = null, stack = new Set(),
     changedOnly = changedFiles(root, base)
     if (changedOnly) all = all.filter((f) => changedOnly.has(f.path))
   }
-  const active = checks.filter(({ rule }) => !ignore.has(rule.id) && (rule.stack.length === 0 || rule.stack.some((s) => stack.has(s))))
+  const helpers = profile?.helpers || {}
+  const active = checks.filter(
+    ({ rule }) =>
+      !ignore.has(rule.id) &&
+      (rule.stack.length === 0 || rule.stack.some((s) => stack.has(s))) &&
+      rule.requires.every((h) => helpers[h])
+  )
   const findings = []
   const texts = new Map()
   const read = (rel) => {
@@ -125,6 +132,7 @@ export async function runAudit({ root, rules, profile = null, stack = new Set(),
     const text = read(file.path)
     const lines = text.split('\n')
     const ctx = makeFileContext(file, text, profile)
+    ctx.helpers = helpers
     for (const { rule, impl } of fileChecks) {
       ctx.report = (at, message) => {
         const line = typeof at === 'number' ? at : at?.line || 1
@@ -143,6 +151,7 @@ export async function runAudit({ root, rules, profile = null, stack = new Set(),
       root,
       files: all,
       profile,
+      helpers,
       read,
       report(at, message) {
         push(rule, at.file || '.', at.line || 1, message, at.file ? read(at.file).split('\n') : null)

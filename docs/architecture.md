@@ -83,6 +83,7 @@ The body has fixed sections: a one-line "read the profile and lessons first" not
 | `check` | yes | `static` (a `check.mjs` reads the source), `browser` (needs a rendered page; mapped from `axe` or `lighthouse`), `manual` (a person or the agent reviews; the skill says how). |
 | `applies` | yes | File kinds: `html`, `angular`, `vue`, `svelte`, `astro`, `jsx`, `css`, `scss`, `less`, `image`, `svg`, `font`, `project` (one check over the file list), `page` (browser only). |
 | `stack` | no | Stack keys; the rule runs only when the profile has one of them. |
+| `requires` | no | Project helper ids (see "Project helpers"); the rule runs only when the profile records every one of them. Its title and fix may name the helper with placeholders. |
 | `wcag`, `level` | for a11y | Success criterion numbers (`1.1.1`) and the level (`A`, `AA`). |
 | `axe`, `lighthouse` | no | axe-core rule ids and Lighthouse audit ids that report the same problem; `audit --url` maps their results to this id. |
 | `sources` | yes | At least one `{ title, url }` from a public standard or the vendor's documentation: W3C/WAI, WHATWG, MDN, web.dev or developer.chrome.com, the framework's own docs, the W3Schools style guides. |
@@ -107,7 +108,7 @@ export default {
 }
 ```
 
-File checks receive `ctx.file`, `ctx.kind`, `ctx.text` (LF line endings), `ctx.elements(name?)` (native elements: `{ name, attrs: Map, spread, ancestors, parent, line, index, end, component }`; attribute names normalised to HTML: `className` → `class`, `onClick` → `onclick`, `:alt` → `alt`, `(click)` → `onclick`), `ctx.doctype`, `ctx.css()` (blocks: `{ prelude, parents, decls: [{ prop, value, important, line }], line, atRule }`), `ctx.lineOf(index)`, `ctx.profile` and `ctx.report(elementOrLine, message?)`. Project checks (`applies: [project]`) receive `ctx.files` (`{ path, kind, size }`), `ctx.read(path)` and `ctx.report({ file, line }, message?)`.
+File checks receive `ctx.file`, `ctx.kind`, `ctx.helpers` (the profile's helpers), `ctx.text` (LF line endings), `ctx.elements(name?)` (native elements: `{ name, attrs: Map, spread, ancestors, parent, line, index, end, component }`; attribute names normalised to HTML: `className` → `class`, `onClick` → `onclick`, `:alt` → `alt`, `(click)` → `onclick`), `ctx.doctype`, `ctx.css()` (blocks: `{ prelude, parents, decls: [{ prop, value, important, line }], line, atRule }`), `ctx.lineOf(index)`, `ctx.profile` and `ctx.report(elementOrLine, message?)`. Project checks (`applies: [project]`) receive `ctx.files` (`{ path, kind, size }`), `ctx.read(path)` and `ctx.report({ file, line }, message?)`.
 
 Rules of a check: report only what the source proves (skip elements with a spread, bound values you cannot read, components that may render the thing); a false positive costs more trust than a missed finding. One finding per problem, at the line a person must change.
 
@@ -140,13 +141,39 @@ Suppression: `fs-ignore <rule id>` in a comment on the line or the line above (a
     }
   ],
   "stack": ["web", "react", "next", "typescript", "tailwind", "vitest", "playwright"],
+  "helpers": {
+    "rem-function": { "kind": "sass-function", "name": "rem-calc", "call": "rem-calc(16px)", "file": "src/styles/_functions.scss", "line": 3, "uses": 212, "source": "detected" },
+    "icon-classes": { "kind": "icon-font", "tool": "fantasticon", "prefix": "icon-", "sourceDir": "src/icons", "example": "icon-<name>", "source": "detected" },
+    "custom-properties": { "kind": "custom-properties", "file": "src/styles/tokens.css", "count": 84, "prefixes": ["--color-*", "--space-*"], "source": "detected" }
+  },
   "agents": ["claude", "cursor"],
   "skills": ["fe-html", "fe-react", "fe-a11y-forms"],
   "audit": { "failOn": "serious", "ignore": [], "exclude": [], "budgets": { "imageKB": 250 } }
 }
 ```
 
-`stack` is the union of the keys skills and rules match on. Versions are read from the installed package (`node_modules/<name>/package.json`) when present, else the range in `package.json` with its prefix removed. The `audit` object belongs to the person: `learn` and `update` keep it.
+`stack` is the union of the keys skills and rules match on. `helpers` records the project's own conventions (next section). Versions are read from the installed package (`node_modules/<name>/package.json`) when present, else the range in `package.json` with its prefix removed. The `audit` object belongs to the person: `learn` and `update` keep it.
+
+### Project helpers
+
+Rules and skills follow the project's own tools when it has them: rem sizes through its px-to-rem function, icons through its generated classes, colours from its tokens. `cli/lib/conventions.mjs` detects them on `init` and `learn` and records them under `profile.helpers`, keyed by a stable helper id:
+
+| Helper id | Detected from | Recorded fields |
+| --- | --- | --- |
+| `rem-function` | an `@function` in `.scss`/`.less` named like `rem-calc`, `rem`, `to-rem`, `px-to-rem`, `px2rem`; `rem-calc` from `foundation-sites` when it is used | `name`, `call`, `file`, `line`, `uses` |
+| `px-to-rem-build` | `postcss-pxtorem` or a similar PostCSS plugin (px in the source is then the convention) | `tool` |
+| `icon-classes` | an icon-font build (`fantasticon`, `svgtofont`, `gulp-iconfont`, `@iconify/tailwind`…) in dependencies or scripts, or generated CSS with `.<prefix>-name::before { content: "\e…" }` | `tool`, `prefix`, `sourceDir`, `cssFile`, `example` |
+| `icon-sprite` | an SVG sprite build (`svg-sprite`, `svgstore`, `vite-plugin-svg-icons`, `svg-sprite-loader`…) | `tool`, `sourceDir` |
+| `design-tokens` | `*.tokens.json`, `tokens.json`, `tokens/*.json`, Style Dictionary or Tokens Studio | `tool`, `files` |
+| `custom-properties` | five or more `--variables` on `:root` in one stylesheet | `file`, `count`, `prefixes` |
+
+- A **rule** that only makes sense with a helper declares it: `requires: [rem-function]`. The engine skips the rule when the profile lacks the helper, and gives the check `ctx.helpers`.
+- A rule's **title and fix name the project's helper** with placeholders `{{<helper id>.<field>|<fallback>}}`, for example `{{rem-function.call|rem-calc(16px)}}`. The report and `explain` (inside a project) fill them from the profile; elsewhere the fallback is shown.
+- The **instruction block** gets a "This project" list with one line per helper (for example "Sizes: write rem with `rem-calc()` (defined in `src/styles/_functions.scss`), not raw px"), so every agent follows the convention while the skills stay generic.
+- A person can **add or correct a helper** by editing `profile.helpers` and setting `"source": "person"`; such entries survive `learn` and `update`. The `fe-learn` skill asks the person to confirm what was detected and to name helpers the detector missed.
+- New helper ids are added to `HELPER_IDS` in `cli/lib/conventions.mjs` and to this table in the same commit.
+
+The first two rules built on this: `css/rem-helper` (requires `rem-function`) and `html/project-icons` (requires `icon-classes`).
 
 ### Lessons
 

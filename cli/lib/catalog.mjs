@@ -62,6 +62,7 @@ export function readRule(dir, area, name) {
     check: data.check,
     applies: list(data.applies),
     stack: list(data.stack),
+    requires: list(data.requires),
     wcag: list(data.wcag),
     level: data.level || null,
     axe: list(data.axe),

@@ -1,0 +1,1 @@
+{ "name": "@acme/ui", "dependencies": { "lit": "^3.3.3" } }
