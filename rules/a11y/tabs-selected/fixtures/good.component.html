@@ -1,0 +1,6 @@
+<div role="tablist" aria-label="Plan">
+  @for (tab of tabs; track tab.id) {
+    <button role="tab" [attr.aria-selected]="tab.id === current" [attr.tabindex]="tab.id === current ? 0 : -1" (click)="select(tab.id)">{{ tab.label }}</button>
+  }
+</div>
+<button role="tab" aria-selected="false">Static</button>
