@@ -8,8 +8,8 @@
 
 export const ESTIMATOR = 'frontend-skills estimate v1 (calibrated on o200k)'
 
-/* Weights fitted by tools/calibrate-tokens.mjs. */
-const W = { word: 1, longWord: 0.17, digit: 0.34, punct: 0.8, newline: 0.3 }
+/* Weights fitted by tools/calibrate-tokens.mjs on 2026-11-11 (33 Markdown files, 27,051 o200k tokens). */
+const W = { word: 0.89, longWord: 0.22, digit: 1.8, punct: 0.76, newline: 0.03 }
 
 /** Estimated tokens of a text. */
 export function estimateTokens(text) {

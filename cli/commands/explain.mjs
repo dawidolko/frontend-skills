@@ -26,7 +26,22 @@ export default async function explain(argv) {
   const r = found.rule
   const fill = (t) => fillHelpers(t, readProfile(rootOf(args))?.helpers || {})
   if (args.json) {
-    out(JSON.stringify({ id: r.id, via: found.via, title: fill(r.title), severity: r.severity, check: r.check, wcag: r.wcag, level: r.level, requires: r.requires, why: fill(r.why), fix: fill(r.fix), sources: r.sources, skill: r.skill }))
+    out(
+      JSON.stringify({
+        id: r.id,
+        via: found.via,
+        title: fill(r.title),
+        severity: r.severity,
+        check: r.check,
+        wcag: r.wcag,
+        level: r.level,
+        requires: r.requires,
+        why: fill(r.why),
+        fix: fill(r.fix),
+        sources: r.sources,
+        skill: r.skill
+      })
+    )
     return 0
   }
   if (found.via.length) out(`${found.via.join(' -> ')} was replaced by ${r.id}.\n`)

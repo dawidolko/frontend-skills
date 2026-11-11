@@ -17,12 +17,30 @@ const url = 'http://localhost:5173/'
 test('axe-core violations map to rule ids, unknown ones keep the axe id', () => {
   const results = {
     violations: [
-      { id: 'image-alt', impact: 'critical', help: 'Images must have alternative text', helpUrl: 'https://example.test/image-alt', nodes: [{ target: ['main > img'] }] },
-      { id: 'color-contrast', impact: 'serious', help: 'Elements must meet minimum color contrast ratio thresholds', helpUrl: 'https://example.test/cc', nodes: [{ target: ['.muted'] }, { target: ['.hint'] }] }
+      {
+        id: 'image-alt',
+        impact: 'critical',
+        help: 'Images must have alternative text',
+        helpUrl: 'https://example.test/image-alt',
+        nodes: [{ target: ['main > img'] }]
+      },
+      {
+        id: 'color-contrast',
+        impact: 'serious',
+        help: 'Elements must meet minimum color contrast ratio thresholds',
+        helpUrl: 'https://example.test/cc',
+        nodes: [{ target: ['.muted'] }, { target: ['.hint'] }]
+      }
     ]
   }
   const f = mapAxe(results, rules, url)
-  assert.deepEqual(f.map((x) => [x.id, x.severity, x.line]), [['a11y/img-alt', 'critical', 0], ['axe/color-contrast', 'serious', 0]])
+  assert.deepEqual(
+    f.map((x) => [x.id, x.severity, x.line]),
+    [
+      ['a11y/img-alt', 'critical', 0],
+      ['axe/color-contrast', 'serious', 0]
+    ]
+  )
   assert.match(f[1].message, /\(2×\): \.muted, \.hint/)
 })
 
@@ -30,7 +48,12 @@ test('Lighthouse audits below 0.9 map to rule ids; scores and lab metrics are ke
   const lhr = {
     categories: { performance: { score: 0.71 }, accessibility: { score: 0.88 } },
     audits: {
-      'unsized-images': { score: 0.5, title: 'Image elements do not have explicit width and height', scoreDisplayMode: 'metricSavings', details: { items: [{ node: { selector: 'img.hero' } }] } },
+      'unsized-images': {
+        score: 0.5,
+        title: 'Image elements do not have explicit width and height',
+        scoreDisplayMode: 'metricSavings',
+        details: { items: [{ node: { selector: 'img.hero' } }] }
+      },
       'font-display': { score: 1, title: 'ok' },
       'largest-contentful-paint': { score: 0.4, title: 'Largest Contentful Paint', displayValue: '4.1 s', scoreDisplayMode: 'numeric' },
       'cumulative-layout-shift': { score: 0.95, displayValue: '0.05', scoreDisplayMode: 'numeric' },
@@ -38,7 +61,13 @@ test('Lighthouse audits below 0.9 map to rule ids; scores and lab metrics are ke
     }
   }
   const r = mapLighthouse(lhr, rules, url)
-  assert.deepEqual(r.findings.map((x) => [x.id, x.severity]), [['perf/img-dimensions', 'moderate'], ['lighthouse/largest-contentful-paint', 'serious']])
+  assert.deepEqual(
+    r.findings.map((x) => [x.id, x.severity]),
+    [
+      ['perf/img-dimensions', 'moderate'],
+      ['lighthouse/largest-contentful-paint', 'serious']
+    ]
+  )
   assert.deepEqual(r.scores, { performance: 71, accessibility: 88 })
   assert.equal(r.metrics.LCP, '4.1 s')
   assert.equal(r.metrics.CLS, '0.05')

@@ -11,9 +11,16 @@ import { parseMarkup } from '../engine/parse/markup.mjs'
 const names = (r) => r.elements.map((e) => `${e.line}:${e.name}`)
 
 test('front matter: scalars, lists, maps, list of maps, CRLF and BOM', () => {
-  const text = '﻿---\r\nname: fe-x\r\ndescription: "A: quoted"\r\nmetadata:\r\n  title: X\r\napplies:\r\n  - html\r\n  - jsx\r\nsources:\r\n  - title: A\r\n    url: https://a.example\r\n---\r\n# Body\r\n'
+  const text =
+    '﻿---\r\nname: fe-x\r\ndescription: "A: quoted"\r\nmetadata:\r\n  title: X\r\napplies:\r\n  - html\r\n  - jsx\r\nsources:\r\n  - title: A\r\n    url: https://a.example\r\n---\r\n# Body\r\n'
   const { data, body, bodyLine } = parseFrontMatter(text)
-  assert.deepEqual(data, { name: 'fe-x', description: 'A: quoted', metadata: { title: 'X' }, applies: ['html', 'jsx'], sources: [{ title: 'A', url: 'https://a.example' }] })
+  assert.deepEqual(data, {
+    name: 'fe-x',
+    description: 'A: quoted',
+    metadata: { title: 'X' },
+    applies: ['html', 'jsx'],
+    sources: [{ title: 'A', url: 'https://a.example' }]
+  })
   assert.equal(body, '# Body\n')
   assert.equal(bodyLine, 13)
 })
@@ -50,11 +57,18 @@ test('jsx: comparisons, generics and regex are not tags; nested JSX in expressio
 
 test('jsx: components keep their name and are flagged', () => {
   const r = parseMarkup('const a = <Image src={x} /> ; const b = <Foo.Bar />', 'jsx')
-  assert.deepEqual(r.elements.map((e) => [e.name, e.component]), [['Image', true], ['Foo.Bar', true]])
+  assert.deepEqual(
+    r.elements.map((e) => [e.name, e.component]),
+    [
+      ['Image', true],
+      ['Foo.Bar', true]
+    ]
+  )
 })
 
 test('vue: only the template block, bindings and events normalised, styles collected', () => {
-  const src = '<script setup>\nconst a = 1 < 2\n</script>\n<template>\n  <img :src="u" @click="go" v-bind="attrs">\n  <p>{{ a<b }}</p>\n</template>\n<style lang="scss">\n.a { color: red }\n</style>\n'
+  const src =
+    '<script setup>\nconst a = 1 < 2\n</script>\n<template>\n  <img :src="u" @click="go" v-bind="attrs">\n  <p>{{ a<b }}</p>\n</template>\n<style lang="scss">\n.a { color: red }\n</style>\n'
   const r = parseMarkup(src, 'vue')
   assert.deepEqual(names(r), ['5:img', '6:p'])
   assert.equal(r.elements[0].attrs.get('src').dynamic, true)
@@ -83,9 +97,18 @@ test('html: comments, raw text, implied end tags, doctype and line numbers', () 
 })
 
 test('css: nesting, comments, strings, SCSS comments and interpolation', () => {
-  const css = '/* a { b: c } */\n.a {\n  content: "}";\n  &:focus { outline: none; }\n  #{$x}: 1;\n}\n// .b { c: d }\n@media (min-width: 1px) { .c { height: 100vh !important } }\n'
+  const css =
+    '/* a { b: c } */\n.a {\n  content: "}";\n  &:focus { outline: none; }\n  #{$x}: 1;\n}\n// .b { c: d }\n@media (min-width: 1px) { .c { height: 100vh !important } }\n'
   const { blocks } = parseCss(css, { scss: true })
-  assert.deepEqual(blocks.map((b) => [b.line, b.prelude]), [[2, '.a'], [4, '&:focus'], [8, '@media (min-width: 1px)'], [8, '.c']])
+  assert.deepEqual(
+    blocks.map((b) => [b.line, b.prelude]),
+    [
+      [2, '.a'],
+      [4, '&:focus'],
+      [8, '@media (min-width: 1px)'],
+      [8, '.c']
+    ]
+  )
   assert.equal(fullSelector(blocks[1]), '.a:focus')
   assert.deepEqual(blocks[3].decls[0], { prop: 'height', value: '100vh', important: true, line: 8 })
 })

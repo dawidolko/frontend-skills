@@ -10,10 +10,40 @@ import { readdirSync, statSync } from 'node:fs'
 import path from 'node:path'
 
 export const SKIP_DIRS = new Set([
-  'node_modules', '.git', 'dist', 'build', 'out', '.next', '.nuxt', '.output', '.svelte-kit', '.astro', '.vercel',
-  '.netlify', 'coverage', 'vendor', '.cache', '.turbo', '.parcel-cache', 'storybook-static', '.angular',
-  '.frontend-skills', '.claude', '.agents', '.cursor', '.github', '.windsurf', '.gemini', '.opencode', '.clinerules',
-  '.roo', '.kiro', '.junie', '.continue', '.devin', '.zed'
+  'node_modules',
+  '.git',
+  'dist',
+  'build',
+  'out',
+  '.next',
+  '.nuxt',
+  '.output',
+  '.svelte-kit',
+  '.astro',
+  '.vercel',
+  '.netlify',
+  'coverage',
+  'vendor',
+  '.cache',
+  '.turbo',
+  '.parcel-cache',
+  'storybook-static',
+  '.angular',
+  '.frontend-skills',
+  '.claude',
+  '.agents',
+  '.cursor',
+  '.github',
+  '.windsurf',
+  '.gemini',
+  '.opencode',
+  '.clinerules',
+  '.roo',
+  '.kiro',
+  '.junie',
+  '.continue',
+  '.devin',
+  '.zed'
 ])
 
 const KINDS = [
@@ -74,9 +104,7 @@ function walk(root) {
 export function listFiles(root) {
   let files
   try {
-    files = git(root, ['ls-files', '-z', '--cached', '--others', '--exclude-standard'])
-      .split('\0')
-      .filter(Boolean)
+    files = git(root, ['ls-files', '-z', '--cached', '--others', '--exclude-standard']).split('\0').filter(Boolean)
   } catch {
     files = walk(root)
   }

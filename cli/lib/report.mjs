@@ -51,13 +51,31 @@ export function toMarkdown({ findings, rules, failOn, root, date, stats, manual 
   const { counts, failed } = summarize(findings, failOn)
   const L = []
   L.push('# Front-end report', '')
-  L.push(`Project: \`${root}\` · ${date} · ${stats.files} files read, ${stats.rules} static rules run${stats.changedOnly !== null ? ` (changed files only)` : ''}${browser ? ` · page: ${browser.url}` : ''}.`, '')
-  L.push(`| critical | serious | moderate | minor |`, `| ---: | ---: | ---: | ---: |`, `| ${counts.critical} | ${counts.serious} | ${counts.moderate} | ${counts.minor} |`, '')
+  L.push(
+    `Project: \`${root}\` · ${date} · ${stats.files} files read, ${stats.rules} static rules run${stats.changedOnly !== null ? ` (changed files only)` : ''}${browser ? ` · page: ${browser.url}` : ''}.`,
+    ''
+  )
+  L.push(
+    `| critical | serious | moderate | minor |`,
+    `| ---: | ---: | ---: | ---: |`,
+    `| ${counts.critical} | ${counts.serious} | ${counts.moderate} | ${counts.minor} |`,
+    ''
+  )
   L.push(failed ? `**Result: findings at \`${failOn}\` or above.**` : `Result: nothing at \`${failOn}\` or above.`, '')
   L.push('Automated checks find only part of the problems; the checklist at the end needs a person.', '')
   if (browser?.scores) {
-    L.push(`Page \`${browser.url}\`: Lighthouse ${Object.entries(browser.scores).map(([k, v]) => `${k} ${v ?? '–'}`).join(', ')}.`)
-    L.push(`Lab metrics (one run, not field data): ${Object.entries(browser.metrics).filter(([, v]) => v).map(([k, v]) => `${k} ${v}`).join(', ')}.`, '')
+    L.push(
+      `Page \`${browser.url}\`: Lighthouse ${Object.entries(browser.scores)
+        .map(([k, v]) => `${k} ${v ?? '–'}`)
+        .join(', ')}.`
+    )
+    L.push(
+      `Lab metrics (one run, not field data): ${Object.entries(browser.metrics)
+        .filter(([, v]) => v)
+        .map(([k, v]) => `${k} ${v}`)
+        .join(', ')}.`,
+      ''
+    )
   }
   for (const sev of SEVERITIES) {
     const groups = groupByRule(findings.filter((f) => f.severity === sev))
@@ -80,7 +98,13 @@ export function toMarkdown({ findings, rules, failOn, root, date, stats, manual 
     for (const b of build) L.push(`| \`${b.file}\` | ${Math.round(b.size / 1000)} KB | ${Math.round(b.gzip / 1000)} KB |`)
     L.push('')
   }
-  if (!browser) L.push('## Not checked', '', 'Rules that need a rendered page (contrast, names computed through components, Lighthouse metrics) were not run. Start the app and run `audit --url <address>`.', '')
+  if (!browser)
+    L.push(
+      '## Not checked',
+      '',
+      'Rules that need a rendered page (contrast, names computed through components, Lighthouse metrics) were not run. Start the app and run `audit --url <address>`.',
+      ''
+    )
   if (manual.length) {
     L.push('## Checklist for a person', '')
     for (const r of manual) L.push(`- [ ] \`${r.id}\` ${r.title}`)
@@ -93,7 +117,9 @@ export function toMarkdown({ findings, rules, failOn, root, date, stats, manual 
 /** The terminal summary: a few lines. */
 export function toSummary({ findings, failOn, reportPath, stats }) {
   const { counts, failed } = summarize(findings, failOn)
-  const L = [`${stats.files} files, ${stats.rules} rules: ${counts.critical} critical, ${counts.serious} serious, ${counts.moderate} moderate, ${counts.minor} minor.`]
+  const L = [
+    `${stats.files} files, ${stats.rules} rules: ${counts.critical} critical, ${counts.serious} serious, ${counts.moderate} moderate, ${counts.minor} minor.`
+  ]
   const top = groupByRule(findings).slice(0, 5)
   for (const g of top) L.push(`  ${g.severity.padEnd(8)} ${g.id}  ${g.items.length}× (first: ${loc(g.items[0])})`)
   if (reportPath) L.push(`Report: ${reportPath}`)
