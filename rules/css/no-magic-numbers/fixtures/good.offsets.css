@@ -1,0 +1,7 @@
+/* Hand-tuned values; without a spacing scale in the project nothing is reported. */
+.badge {
+  position: absolute;
+  top: -7px;
+  right: 13px;
+  padding: 3px 10px;
+}

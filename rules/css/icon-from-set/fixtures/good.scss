@@ -1,0 +1,6 @@
+// Icons through the set; photos and illustrations are not icons.
+@use 'generated/icons';
+.search-btn::before { @include icons.icon(search); }
+.hero { background-image: url('../images/hero.avif'); }
+.empty-state { background: url('../illustrations/empty.svg') center / contain no-repeat; }
+.chevron { mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'/%3E"); }

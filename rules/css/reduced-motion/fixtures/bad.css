@@ -1,0 +1,7 @@
+/* Motion and smooth scrolling with no reduced-motion handling anywhere. */
+html { scroll-behavior: smooth; }
+.hero__title { animation: slide-in 0.8s ease-out both; }
+@keyframes slide-in {
+  from { transform: translateY(2rem); opacity: 0; }
+  to { transform: none; opacity: 1; }
+}

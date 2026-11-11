@@ -1,0 +1,11 @@
+/* Prefixes copied from an old snippet. */
+.card {
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+  -webkit-box-shadow: 0 1px 2px rgb(0 0 0 / 0.2);
+  -webkit-transition: transform 0.2s;
+  display: -ms-flexbox;
+  background: -webkit-linear-gradient(top, #fff, #eee);
+}
+@-webkit-keyframes spin { to { transform: rotate(1turn); } }

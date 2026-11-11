@@ -1,0 +1,10 @@
+// Text boxes with a fixed height and hidden overflow.
+.card__excerpt {
+  height: 72px;
+  overflow: hidden;
+}
+.btn {
+  block-size: 2.5rem;
+  overflow: hidden;
+  white-space: nowrap;
+}

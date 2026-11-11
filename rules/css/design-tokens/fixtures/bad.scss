@@ -1,0 +1,6 @@
+// The same colour written three times and no token for it.
+.alert {
+  color: #e11d48;
+  border: 1px solid #e11d48;
+  &__icon { fill: #E11D48; }
+}
