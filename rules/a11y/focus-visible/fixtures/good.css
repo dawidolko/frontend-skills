@@ -1,0 +1,13 @@
+.button:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.button:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+.field:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px #1d4ed8;
+}
