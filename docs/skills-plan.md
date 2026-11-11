@@ -22,22 +22,22 @@ Status: ✅ written (reference examples), ⬜ to write. Every skill follows `doc
 
 | Skill | Area | requires | Version (2026-11-11) | One line |
 | --- | --- | --- | --- | --- |
-| ⬜ `fe-javascript` | foundations | web | ES2025 | Modules, DOM and events, async and errors, W3Schools JS conventions, no globals. |
-| ⬜ `fe-typescript` | foundations | typescript | 7.0 | Strict config, types at the boundaries (API, forms, storage), narrowing, no `any`. |
+| ✅ `fe-javascript` | foundations | web | ES2025 | Modules, DOM and events, async and errors, W3Schools JS conventions, no globals. |
+| ✅ `fe-typescript` | foundations | typescript | 7.0 | Strict config, types at the boundaries (API, forms, storage), narrowing, no `any`. |
 | ✅ `fe-react` | frameworks | react | 19.3 | Components, keys, state, effects, React 19 APIs, compiler. |
-| ⬜ `fe-nextjs` | frameworks | next | 16.4 | App Router, Server and Client Components, caching and data, metadata, `next/image`, `next/font`. |
-| ⬜ `fe-vue` | frameworks | vue | 3.5 | `<script setup>`, Composition API, reactivity pitfalls, `v-for` keys, `useId`. |
-| ⬜ `fe-nuxt` | frameworks | nuxt | 4.6 | Directory structure, data fetching (`useFetch`, `useAsyncData`), `useHead`/`useSeoMeta`, rendering modes. |
-| ⬜ `fe-angular` | frameworks | angular | 22.2 | Standalone components, signals, built-in control flow, zoneless, `NgOptimizedImage`, CDK a11y. |
-| ⬜ `fe-svelte` | frameworks | svelte | 5.57 | Runes (`$state`, `$derived`, `$effect`, `$props`), snippets, events, a11y warnings. |
-| ⬜ `fe-sveltekit` | frameworks | sveltekit | 3.2 | Routing, `load`, form actions with progressive enhancement, `app.html`, rendering options. |
-| ⬜ `fe-astro` | frameworks | astro | 7.4 | Islands and `client:*` directives, content collections, `astro:assets`, layouts. |
-| ⬜ `fe-web-components` | frameworks | lit webc | Lit 3.3 | Custom elements, shadow DOM and forms (`ElementInternals`), slots, accessibility across the shadow boundary. |
-| ⬜ `fe-tailwind` | styling | tailwind | 4.3 | CSS-first config (`@theme`), utilities vs components, `focus-visible:`, `dvh`, no arbitrary-value sprawl. |
-| ⬜ `fe-sass` | styling | sass | 1.108 | `@use`/`@forward` (no `@import`), modules, when plain CSS now suffices. |
-| ⬜ `fe-state` | frameworks | react vue svelte angular | Pinia 4.1 | Where state lives, stores (Pinia, Zustand, Redux Toolkit, signals), URL state, no duplicated server state. |
-| ⬜ `fe-data-fetching` | frameworks | react vue svelte angular next nuxt | TanStack Query 5.107 | Server-state libraries vs framework loaders, caching, loading and error UI, race conditions. |
-| ⬜ `fe-icons` | styling | web | – | Icons from the set the build generates (SVG sprite, icon classes or an icon component), never a hard-coded icon file path; decorative vs meaningful icons. Owns `html/icon-from-set`. Added 2026-11-11 for the owner's icon practice: the icon component of each framework and the sprite or class generator need one home. |
+| ✅ `fe-nextjs` | frameworks | next | 16.4 | App Router, Server and Client Components, caching and data, metadata, `next/image`, `next/font`. |
+| ✅ `fe-vue` | frameworks | vue | 3.5 | `<script setup>`, Composition API, reactivity pitfalls, `v-for` keys, `useId`. |
+| ✅ `fe-nuxt` | frameworks | nuxt | 4.6 | Directory structure, data fetching (`useFetch`, `useAsyncData`), `useHead`/`useSeoMeta`, rendering modes. |
+| ✅ `fe-angular` | frameworks | angular | 22.2 | Standalone components, signals, built-in control flow, zoneless, `NgOptimizedImage`, CDK a11y. |
+| ✅ `fe-svelte` | frameworks | svelte | 5.57 | Runes (`$state`, `$derived`, `$effect`, `$props`), snippets, events, a11y warnings. |
+| ✅ `fe-sveltekit` | frameworks | sveltekit | 3.2 | Routing, `load`, form actions with progressive enhancement, `app.html`, rendering options. |
+| ✅ `fe-astro` | frameworks | astro | 7.4 | Islands and `client:*` directives, content collections, `astro:assets`, layouts. |
+| ✅ `fe-web-components` | frameworks | lit webc | Lit 3.3 | Custom elements, shadow DOM and forms (`ElementInternals`), slots, accessibility across the shadow boundary. |
+| ✅ `fe-tailwind` | styling | tailwind | 4.3 | CSS-first config (`@theme`), utilities vs components, `focus-visible:`, `dvh`, no arbitrary-value sprawl. |
+| ✅ `fe-sass` | styling | sass | 1.108 | `@use`/`@forward` (no `@import`), modules, when plain CSS now suffices. |
+| ✅ `fe-state` | frameworks | react vue svelte angular | Pinia 4.1 | Where state lives, stores (Pinia, Zustand, Redux Toolkit, signals), URL state, no duplicated server state. |
+| ✅ `fe-data-fetching` | frameworks | react vue svelte angular next nuxt | TanStack Query 5.107 | Server-state libraries vs framework loaders, caching, loading and error UI, race conditions. |
+| ✅ `fe-icons` | styling | web | – | Icons from the set the build generates (SVG sprite, icon classes or an icon component), never a hard-coded icon file path; decorative vs meaningful icons. Owns `html/icon-from-set`. Added 2026-11-11 for the owner's icon practice: the icon component of each framework and the sprite or class generator need one home. |
 
 ## Project conventions: the owner's practices (2026-11-11)
 
@@ -57,7 +57,7 @@ The owner asked for rules that follow the project's own helpers: icons from a ge
 | ✅ `html/project-icons` | A | `fe-images` | `icon-classes` | `<img>` of an SVG from the icon folder where the project builds icon classes (written by fs-core). |
 | ✅ `html/icon-from-set` | B | `fe-icons` | – | The markup half for the other sets: no `<img src>` or `<use href="…svg#…">` to an icon file when the project has an icon sprite (`icon-sprite`) or an icon component or icon classes are used in the same file; skips projects with `icon-classes`, which `html/project-icons` covers. |
 | ✅ `js/asset-import` | B | `fe-javascript` | – | In a bundled project, images, fonts and media in component markup are imported or go through the framework's base-path helper, not hard-coded root paths. |
-| `sass/rem-helper` | B | `fe-sass` | `rem-function` | Hand-made conversions (`math.div(24px, 16px) * 1rem`, `#{24/16}rem`) that bypass the project's px-to-rem function; raw `px` is `css/rem-helper`'s. |
+| ✅ `sass/rem-helper` | B | `fe-sass` | `rem-function` | Hand-made conversions (`math.div(24px, 16px) * 1rem`, `#{24/16}rem`) that bypass the project's px-to-rem function; raw `px` is `css/rem-helper`'s. |
 
 An icon component helper (`<Icon name>` over a sprite or `unplugin-icons`) is not among the helper ids yet; `html/icon-from-set` finds it in the file it reads. Proposed for `cli/lib/conventions.mjs`: `icon-component` (`name`, `file`, `example`).
 
