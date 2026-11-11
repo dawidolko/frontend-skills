@@ -1,8 +1,10 @@
 /*
  * Builds skills.dawidolko.pl into site/dist (or --out <dir>): plain HTML in English (/) and Polish (/pl/) from the
- * repository's skills and rules, one stylesheet, the copy-and-search script, the author's accessibility panel, the
- * search index of the dictionary, the sitemap with hreflang pairs, robots.txt, llms.txt, the Open Graph images and
- * the CNAME for GitHub Pages. Node.js 20 or newer, no dependencies. Run with `npm run site:build`.
+ * repository's skills and rules, one stylesheet (its night tokens applied both to the saved choice and to the system
+ * preference, plus the rules that show each agent's panel in the install pickers), the site script, the icon sprite,
+ * the terminal recordings, the author's accessibility panel, the search index of the dictionary, the sitemap with
+ * hreflang pairs, robots.txt, llms.txt, the Open Graph images and the CNAME for GitHub Pages. Node.js 20 or newer, no
+ * dependencies. Run with `npm run site:build`.
  */
 import { createHash } from 'node:crypto'
 import { copyFileSync, cpSync, mkdirSync, readFileSync, readdirSync, rmSync, statSync, writeFileSync } from 'node:fs'
@@ -35,6 +37,21 @@ const minifyCss = (css) =>
     .replace(/;}/g, '}')
     .trim()
 
+/*
+ * The night tokens are written once, between the @dark markers, for the saved "dark" choice; they are repeated here
+ * for the system preference when no choice is saved. The install pickers show one agent panel through :has(), one
+ * rule per agent.
+ */
+function themeCss(css, data) {
+  const m = /\/\*@dark\*\/([\s\S]*?)\/\*@enddark\*\//.exec(css)
+  if (!m) throw new Error('styles.css: the /*@dark*/ … /*@enddark*/ block is missing')
+  const system = `@media (prefers-color-scheme: dark) {\n  :root:not([data-theme="light"]) {${m[1]}}\n}\n`
+  const panels = ['auto', ...data.agents.map((a) => a.id)]
+    .map((id) => `.install:has(.seg-agents input[value="${id}"]:checked) .agent-panel[data-agent="${id}"] { display: block; }`)
+    .join('\n')
+  return css.replace(/(:root\[data-theme="dark"\] \{[\s\S]*?\/\*@enddark\*\/\s*\})/, `$1\n${system}`) + `\n${panels}\n`
+}
+
 function write(file, text) {
   mkdirSync(path.dirname(file), { recursive: true })
   writeFileSync(file, text)
@@ -52,7 +69,7 @@ function build() {
   mkdirSync(OUT, { recursive: true })
 
   /* Assets: one stylesheet, one script, the fonts and the panel, versioned by their content. */
-  const css = minifyCss(readFileSync(path.join(SITE, 'assets', 'styles.css'), 'utf8'))
+  const css = minifyCss(themeCss(readFileSync(path.join(SITE, 'assets', 'styles.css'), 'utf8'), data))
   const js = readFileSync(path.join(SITE, 'assets', 'site.js'), 'utf8')
   const panelJs = readFileSync(path.join(SITE, 'assets', 'a11y', 'a11y-panel.js'), 'utf8')
   write(path.join(OUT, 'assets', 'styles.css'), css)
@@ -61,6 +78,12 @@ function build() {
   mkdirSync(path.join(OUT, 'a11y'), { recursive: true })
   for (const f of ['a11y-panel.js', 'a11y-panel.css']) copyFileSync(path.join(SITE, 'assets', 'a11y', f), path.join(OUT, 'a11y', f))
   write(path.join(OUT, 'favicon.svg'), FAVICON)
+  copyFileSync(path.join(SITE, 'assets', 'icons.svg'), path.join(OUT, 'assets', 'icons.svg'))
+  mkdirSync(path.join(OUT, 'media'), { recursive: true })
+  for (const [name, m] of Object.entries(data.media)) {
+    copyFileSync(m.file, path.join(OUT, 'media', `${name}.svg`))
+    if (m.still) copyFileSync(m.still, path.join(OUT, 'media', `${name}.png`))
+  }
   const assets = { css: hash(css), js: hash(js), panel: hash(panelJs) }
 
   /* Pages in both languages. */
@@ -72,7 +95,7 @@ function build() {
     const other = dicts[LANGS.find((l) => l !== lang)]
     for (const page of pagesFor(t, lang, data, other)) {
       const urlPath = page.alternates === false ? page.path : href(lang, page.path)
-      write(fileOf(urlPath), layout(t, page, assets))
+      write(fileOf(urlPath), layout(t, page, { assets, data }))
       count++
       if (lang === 'en' && !page.noindex) sitemap.push(page.path)
     }

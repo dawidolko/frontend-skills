@@ -1,8 +1,12 @@
 /*
  * The page frame shared by every page of the site: the head (title, description, canonical, hreflang pairs, Open
- * Graph, JSON-LD, the one stylesheet and the two deferred scripts), the header with the main navigation and the
- * language switch, and the footer. Also small helpers for translated strings and language-prefixed URLs.
+ * Graph, JSON-LD, the one stylesheet, the tiny inline script that applies the saved colour theme before the first
+ * paint, and the two deferred scripts), the header with the main navigation, the day, night and system theme switch
+ * and the language switch, the documentation shell (chapter sidebar that becomes a drawer on phones, the page, the
+ * on-this-page outline) and the footer in columns. Also helpers for translated strings, plural forms, icons and
+ * language-prefixed URLs.
  */
+import { createHash } from 'node:crypto'
 import { esc, inline } from './markdown.mjs'
 
 export const ORIGIN = 'https://skills.dawidolko.pl'
@@ -11,7 +15,15 @@ export const LANGS = ['en', 'pl']
 /** The URL of a language-neutral path in one language: English at the root, Polish under /pl/. */
 export const href = (lang, p) => (lang === 'en' ? p : `/pl${p}`)
 
-/** A translated string by dotted key, with {name} placeholders filled. Throws on a missing key, so the build fails. */
+/** An icon from the sprite; decorative, hidden from assistive technology. */
+export const icon = (name, size = 20, cls = 'icon') =>
+  `<svg class="${cls}" width="${size}" height="${size}" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#${name}"/></svg>`
+
+/* Applies the saved theme before the first paint, so a dark choice never flashes light. Allowed by its CSP hash. */
+export const THEME_SCRIPT = `(function(){try{var t=localStorage.getItem("fs-theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}})();`
+export const THEME_HASH = `sha256-${createHash('sha256').update(THEME_SCRIPT).digest('base64')}`
+
+/** A translated string by dotted key, with {name} and {name:word} placeholders. Throws on a missing key. */
 export function translator(dict) {
   const get = (key) => {
     const v = key.split('.').reduce((o, k) => (o == null ? o : o[k]), dict)
@@ -29,7 +41,6 @@ export function translator(dict) {
     if (!forms) throw new Error(`missing plural "${word}" for ${dict.lang}`)
     return forms[Math.min(form(n), forms.length - 1)]
   }
-  /* {name} is replaced by its value; {name:word} by the value and the word in the matching plural form. */
   const t = (key, vars = {}) =>
     String(get(key)).replace(/\{(\w+)(?::(\w+))?\}/g, (m, k, word) => (k in vars ? (word ? `${vars[k]} ${plural(word, Number(vars[k]))}` : String(vars[k])) : m))
   t.raw = get
@@ -46,29 +57,69 @@ const NAV = [
   ['faq', '/faq/']
 ]
 
-const FOOT = [
-  ['home', '/'],
-  ['how', '/how-it-works/'],
-  ['rules', '/rules/'],
-  ['skills', '/skills/'],
-  ['commands', '/commands/'],
-  ['faq', '/faq/'],
-  ['about', '/about/'],
-  ['github', 'https://github.com/dawidolko/frontend-skills']
-]
-
 const LOGO = `<svg class="brand-mark" viewBox="0 0 32 32" width="32" height="32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="8" fill="currentColor"/><path d="M12.5 10 7 16l5.5 6M19.5 10 25 16l-5.5 6" fill="none" stroke="var(--logo-ink)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>`
-
-const GITHUB = `<svg viewBox="0 0 16 16" width="20" height="20" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>`
 
 /** Escapes a value for a JSON-LD script block (no "</script>" can close it early). */
 const ld = (obj) => JSON.stringify(obj).replace(/</g, '\\u003c')
 
+function themeSwitch(t) {
+  const b = (mode, ic) =>
+    `<button type="button" class="theme-btn" data-theme-set="${mode}" aria-pressed="${mode === 'system'}" aria-label="${esc(t(`theme.${mode}`))}" title="${esc(t(`theme.${mode}`))}">${icon(ic, 18)}</button>`
+  return `<div class="theme-switch" role="group" aria-label="${esc(t('theme.label'))}" hidden>${b('light', 'sun')}${b('system', 'system')}${b('dark', 'moon')}</div>`
+}
+
+function footer(t, lang, data) {
+  const col = (title, items) =>
+    `<div class="footer-col"><h2>${esc(title)}</h2><ul>${items.map(([label, url]) => `<li><a href="${url}">${label}</a></li>`).join('')}</ul></div>`
+  const guide = [
+    [esc(t('nav.home')), href(lang, '/')],
+    [esc(t('nav.how')), href(lang, '/how-it-works/')],
+    [esc(t('nav.commands')), href(lang, '/commands/')],
+    [esc(t('nav.faq')), href(lang, '/faq/')]
+  ]
+  const dictionary = [[esc(t('docs.allRules')), href(lang, '/rules/')], ...data.areas.slice(0, 6).map((a) => [esc(t(`ruleArea.${a}`)), href(lang, `/rules/#area-${a}`)])]
+  const skills = [[esc(t('docs.allSkills')), href(lang, '/skills/')], ...data.skillAreas.slice(0, 6).map((a) => [esc(t(`skillArea.${a}`)), href(lang, `/skills/#sa-${a}`)])]
+  const project = [
+    [esc(t('site.github')), 'https://github.com/dawidolko/frontend-skills'],
+    [esc(t('footer.issues')), 'https://github.com/dawidolko/frontend-skills/issues'],
+    [esc(t('footer.licence')), href(lang, '/about/#licence')],
+    [esc(t('nav.about')), href(lang, '/about/')],
+    ['dawidolko.pl', 'https://dawidolko.pl']
+  ]
+  return `<footer class="site-footer">
+<div class="wrap footer-grid">
+<div class="footer-brand-col">
+<p class="footer-brand">${LOGO}<span>${esc(t('site.name'))}</span></p>
+<p>${esc(t('footer.tagline'))}</p>
+<p>${inline(t('site.footerAbout'))}</p>
+</div>
+<nav class="footer-nav" aria-label="${esc(t('site.footerNavLabel'))}">
+${col(t('footer.guide'), guide)}
+${col(t('footer.dictionary'), dictionary)}
+${col(t('footer.skills'), skills)}
+${col(t('footer.project'), project)}
+</nav>
+</div>
+<div class="wrap footer-legal">
+<p>${inline(t('site.footerHonest'))}</p>
+<p>${inline(t('site.footerPrivacy'))}</p>
+</div>
+</footer>`
+}
+
+/* The outline of the page, for wide screens; the script marks the section in view. */
+const outline = (t, items) =>
+  items && items.length
+    ? `<aside class="docs-outline"><nav aria-labelledby="outline-title"><h2 id="outline-title">${esc(t('docs.onThisPage'))}</h2><ol>${items
+        .map(([id, label, level]) => `<li${level === 3 ? ' class="sub"' : ''}><a href="#${id}">${label}</a></li>`)
+        .join('')}</ol></nav></aside>`
+    : ''
+
 /**
- * One full page. page: { path, title, description, body, section, jsonld, noindex, alternates }.
- * path is language-neutral ("/rules/a11y/img-alt/"); alternates is false for a page with no translation (404).
+ * One full page. page: { path, title, description, body, section, jsonld, noindex, alternates, docs }.
+ * docs: { label, sidebar, outline } puts the page in the documentation shell.
  */
-export function layout(t, page, assets) {
+export function layout(t, page, { assets, data }) {
   const { lang } = t
   const other = lang === 'en' ? 'pl' : 'en'
   const url = ORIGIN + href(lang, page.path)
@@ -81,9 +132,24 @@ export function layout(t, page, assets) {
   const og = `${ORIGIN}/og-${lang}.png`
   const current = (p) => (page.path === p ? ' aria-current="page"' : page.section === p ? ' class="is-section"' : '')
   const nav = NAV.map(([key, p]) => `<li><a href="${href(lang, p)}"${current(p)}>${esc(t(`nav.${key}`))}</a></li>`).join('')
-  const foot = FOOT.map(([key, p]) => `<li><a href="${p.startsWith('http') ? p : href(lang, p)}"${page.path === p ? ' aria-current="page"' : ''}>${esc(key === 'github' ? t('site.github') : t(`nav.${key}`))}</a></li>`).join('')
   const switchHref = page.alternates === false ? href(other, '/') : href(other, page.path)
   const jsonld = (page.jsonld || []).map((o) => `<script type="application/ld+json">${ld(o)}</script>`).join('\n')
+  const docs = page.docs
+  const content = docs
+    ? `<div class="docs wrap-wide">
+<button type="button" class="docs-toggle" popovertarget="docs-nav" aria-controls="docs-nav">${icon('menu', 18)}<span>${esc(docs.label)}</span></button>
+<nav id="docs-nav" class="docs-nav" popover aria-label="${esc(docs.label)}">
+<div class="docs-nav-head"><span>${esc(docs.label)}</span><button type="button" class="docs-close" popovertarget="docs-nav" popovertargetaction="hide" aria-label="${esc(t('docs.close'))}">${icon('close', 18)}</button></div>
+${docs.sidebar}
+</nav>
+<main id="main" tabindex="-1" class="docs-main">
+${page.body}
+</main>
+${outline(t, docs.outline)}
+</div>`
+    : `<main id="main" tabindex="-1">
+${page.body}
+</main>`
 
   return `<!doctype html>
 <html lang="${lang}">
@@ -92,11 +158,11 @@ export function layout(t, page, assets) {
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>${esc(fullTitle)}</title>
 <meta name="description" content="${esc(page.description)}">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' '${THEME_HASH}'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="color-scheme" content="light dark">
-<meta name="theme-color" content="#faf7fc" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#0d0d0f" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#0d0d0f">
+<script>${THEME_SCRIPT}</script>
 ${page.noindex ? '<meta name="robots" content="noindex">\n' : `<link rel="canonical" href="${url}">\n`}${alternates}
 <link rel="preload" href="/assets/fonts/opensans-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/styles.css?v=${assets.css}">
@@ -121,29 +187,18 @@ ${jsonld}
 <body>
 <a class="skip-link" href="#main">${esc(t('site.skip'))}</a>
 <header class="site-header">
-<div class="wrap header-inner">
+<div class="wrap-wide header-inner">
 <a class="brand" href="${href(lang, '/')}"${page.path === '/' ? ' aria-current="page"' : ''}>${LOGO}<span class="brand-name">${esc(t('site.name'))}</span></a>
 <nav class="main-nav" aria-label="${esc(t('site.navLabel'))}"><ul>${nav}</ul></nav>
 <div class="header-tools">
+${themeSwitch(t)}
 <a class="lang-switch" href="${switchHref}" hreflang="${other}" lang="${other}" title="${esc(t('site.switchTitle'))}">${esc(t('site.switchLabel'))}</a>
-<a class="gh-link" href="https://github.com/dawidolko/frontend-skills" aria-label="${esc(t('site.githubLabel'))}">${GITHUB}</a>
+<a class="gh-link" href="https://github.com/dawidolko/frontend-skills" aria-label="${esc(t('site.githubLabel'))}">${icon('github', 22)}</a>
 </div>
 </div>
 </header>
-<main id="main" tabindex="-1">
-${page.body}
-</main>
-<footer class="site-footer">
-<div class="wrap footer-inner">
-<div class="footer-text">
-<p class="footer-brand">${LOGO}<span>${esc(t('site.name'))}</span></p>
-<p>${inline(t('site.footerAbout'))}</p>
-<p>${inline(t('site.footerHonest'))}</p>
-<p>${inline(t('site.footerPrivacy'))}</p>
-</div>
-<nav aria-label="${esc(t('site.footerNavLabel'))}"><ul class="footer-nav">${foot}</ul></nav>
-</div>
-</footer>
+${content}
+${footer(t, lang, data)}
 <p id="live-status" class="visually-hidden" role="status" aria-live="polite"></p>
 </body>
 </html>
