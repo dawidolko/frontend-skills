@@ -1,6 +1,6 @@
 ---
 name: fe-testing
-description: Writes reliable front-end tests with the project's own runner - unit and component tests with Vitest or Jest and Testing Library queries by role, end-to-end tests with Playwright 1.65 or Cypress, network mocking, accessibility scans with axe-core - and keeps them free of flakes. Use when adding or fixing tests, a flaky test or CI test setup, or when asked "test this component" or "write an e2e test".
+description: Writes reliable front-end tests with the project's own runner - unit and component tests with Vitest or Jest and Testing Library queries by role, end-to-end tests with Playwright 1.65 or Cypress, network mocking, accessibility scans with axe-core, without flakes. Use when adding or fixing tests, a flaky test or CI test setup, or when asked "test this component" or "write an e2e test".
 license: MIT
 compatibility: Any agent that reads Agent Skills. The audit command needs Node.js 20 or newer.
 metadata:
