@@ -45,8 +45,14 @@ export default async function init(argv) {
     if (agents.length) out(`Coding agents found in this project: ${agents.join(', ')} (use --agents to choose others).`)
   }
   if (!agents.length) {
-    if (!interactive()) throw new UsageError(`no coding agent found in this project; pass --agents, for example --agents claude,cursor (known: ${ADAPTERS.map((a) => a.id).join(', ')})`)
-    agents = await choose('No coding agent files found. Which agents do you use?', ADAPTERS.map((a) => ({ label: `${a.label} (${a.id})`, value: a.id })))
+    if (!interactive())
+      throw new UsageError(
+        `no coding agent found in this project; pass --agents, for example --agents claude,cursor (known: ${ADAPTERS.map((a) => a.id).join(', ')})`
+      )
+    agents = await choose(
+      'No coding agent files found. Which agents do you use?',
+      ADAPTERS.map((a) => ({ label: `${a.label} (${a.id})`, value: a.id }))
+    )
     if (!agents.length) throw new UsageError('no agent chosen')
   }
 
@@ -72,14 +78,29 @@ export default async function init(argv) {
   writeProfile(root, profile)
   ensureLessons(root)
   const res = applyPlan(root, plan, { meta: { tool: `frontend-skills ${version()}`, agents, format, skills: skills.map((s) => s.name), updated: today() } })
-  out(`\nWritten ${res.written.length}, updated ${res.updated.length}, unchanged ${res.unchanged.length}${res.conflicts.length ? `, not written ${res.conflicts.length} (your files)` : ''}${res.kept.length ? `, kept ${res.kept.length} (changed by you)` : ''}.`)
+  out(
+    `\nWritten ${res.written.length}, updated ${res.updated.length}, unchanged ${res.unchanged.length}${res.conflicts.length ? `, not written ${res.conflicts.length} (your files)` : ''}${res.kept.length ? `, kept ${res.kept.length} (changed by you)` : ''}.`
+  )
   out('Undo everything with: npx github:dawidolko/frontend-skills uninstall')
 
   if (args.audit === false) return 0
   out('\nFirst audit:')
   const a = await runProjectAudit(root, {})
   const stats = { files: a.files, rules: a.rulesRun, changedOnly: null }
-  writeFileSync(path.join(root, 'frontend-report.md'), toMarkdown({ findings: a.findings, rules: a.rules, failOn: a.failOn, root: path.basename(root), date: today(), stats, manual: a.manual, build: a.build, helpers: a.helpers }))
+  writeFileSync(
+    path.join(root, 'frontend-report.md'),
+    toMarkdown({
+      findings: a.findings,
+      rules: a.rules,
+      failOn: a.failOn,
+      root: path.basename(root),
+      date: today(),
+      stats,
+      manual: a.manual,
+      build: a.build,
+      helpers: a.helpers
+    })
+  )
   out(toSummary({ findings: a.findings, failOn: a.failOn, reportPath: 'frontend-report.md', stats }))
   return 0
 }

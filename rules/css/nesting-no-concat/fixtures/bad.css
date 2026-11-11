@@ -1,0 +1,6 @@
+/* Sass-style suffixes in a native CSS file. */
+.card {
+  padding: 1rem;
+  &__title { font-size: 1.25rem; }
+  &--featured { border-color: gold; }
+}

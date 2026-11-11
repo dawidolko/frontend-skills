@@ -25,9 +25,21 @@
     "node": ">=20"
   },
   "scripts": {
-    "test": "node --test test/",
+    "test": "node --test --test-concurrency=4 \"test/*.test.mjs\"",
+    "validate": "node tools/validate.mjs",
+    "headers": "node tools/check-headers.mjs",
+    "links": "node tools/check-links.mjs",
+    "links:online": "node tools/check-links.mjs --online",
+    "tokens": "node tools/calibrate-tokens.mjs",
+    "format": "biome format --write .",
+    "lint": "biome check .",
     "site:build": "node site/build.mjs",
-    "site:check": "node site/check.mjs"
+    "site:check": "node site/check.mjs",
+    "check": "biome check . && node tools/validate.mjs && node tools/check-headers.mjs && node tools/check-links.mjs && node tools/calibrate-tokens.mjs --check && node --test --test-concurrency=4 \"test/*.test.mjs\""
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.6.6",
+    "gpt-tokenizer": "4.1.2"
   },
   "keywords": [
     "agent-skills",

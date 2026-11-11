@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="en">
+<head><title>Editor</title></head>
+<body>
+  <!-- window.addEventListener('unload', save) was replaced below -->
+  <script type="module">
+    // do not use addEventListener('unload', …): it blocks the bfcache
+    addEventListener('pagehide', () => navigator.sendBeacon('/log', 'bye'))
+    document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'hidden') saveDraft() })
+    const message = 'unload is deprecated'
+  </script>
+</body>
+</html>

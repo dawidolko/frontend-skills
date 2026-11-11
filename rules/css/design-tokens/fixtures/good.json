@@ -1,0 +1,4 @@
+{ "files": [
+  { "path": "good.tokens.css", "kind": "css", "size": 200 },
+  { "path": "good.uses.css", "kind": "css", "size": 300 }
+] }

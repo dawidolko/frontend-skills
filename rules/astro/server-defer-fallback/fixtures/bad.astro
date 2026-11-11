@@ -1,0 +1,8 @@
+---
+import Avatar from '../components/Avatar.astro'
+const { user } = Astro.locals
+---
+<header>
+  <a href="/">Home</a>
+  <Avatar server:defer userId={user.id} />
+</header>

@@ -1,0 +1,11 @@
+/* A fallback position first; the new features only where supported. */
+.menu { position: absolute; top: 100%; left: 0; }
+@supports (anchor-name: --a) {
+  .menu-button { anchor-name: --menu; }
+  .menu { position-anchor: --menu; top: anchor(bottom); left: anchor(left); }
+}
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: scroll()) {
+    .progress { animation: grow linear; animation-timeline: scroll(); }
+  }
+}

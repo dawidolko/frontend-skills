@@ -1,0 +1,5 @@
+{ "files": [
+  { "path": "public/spinner.gif", "kind": "image", "size": 8000 },
+  { "path": "public/demo.mp4", "kind": null, "size": 300000 },
+  { "path": "public/photo.jpg", "kind": "image", "size": 200000 }
+] }

@@ -1,0 +1,11 @@
+---
+const apiUrl = import.meta.env.PUBLIC_API_URL
+---
+<div id="feed"></div>
+<script type="module">
+  import confetti from 'canvas-confetti'
+  confetti()
+</script>
+<script define:vars={{ apiUrl }}>
+  fetch(apiUrl)
+</script>

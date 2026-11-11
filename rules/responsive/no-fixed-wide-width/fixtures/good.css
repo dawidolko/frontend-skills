@@ -1,0 +1,11 @@
+/* Capped, fluid, or wide only where there is room. */
+.wrapper { max-width: 960px; margin-inline: auto; }
+.modal { width: 500px; max-width: calc(100% - 2rem); }
+.panel { width: min(100%, 40rem); }
+.card { width: 18rem; }
+@media (min-width: 64em) {
+  .sidebar { inline-size: 22rem; }
+}
+@container (width > 50rem) { .media { width: 600px; } }
+.data-table { min-width: 720px; }
+pre { width: 800px; }

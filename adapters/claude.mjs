@@ -13,7 +13,8 @@ export default {
   label: 'Claude Code',
   detect: ['CLAUDE.md', '.claude', 'CLAUDE.local.md'],
   skillDirs: ['.claude/skills'],
-  instructions: (root) => (existsSync(path.join(root, 'CLAUDE.md')) ? 'CLAUDE.md' : existsSync(path.join(root, '.claude', 'CLAUDE.md')) ? '.claude/CLAUDE.md' : 'AGENTS.md'),
+  instructions: (root) =>
+    existsSync(path.join(root, 'CLAUDE.md')) ? 'CLAUDE.md' : existsSync(path.join(root, '.claude', 'CLAUDE.md')) ? '.claude/CLAUDE.md' : 'AGENTS.md',
   rule: (skill, ctx) => ({ path: `.claude/rules/${skill.name}.md`, text: frontMatter([yamlList('paths', skill.globs)]) + digest(skill, ctx.skillPath(skill)) }),
   ruleGlobs: (text) => [...text.matchAll(/^ {2}- "(.+)"$/gm)].map((m) => m[1]),
   notes: [],

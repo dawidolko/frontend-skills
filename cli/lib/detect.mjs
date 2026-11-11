@@ -10,10 +10,43 @@ import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs'
 import path from 'node:path'
 
 export const STACK_KEYS = [
-  'web', 'html', 'react', 'next', 'preact', 'vue', 'nuxt', 'angular', 'svelte', 'sveltekit', 'astro', 'solid', 'lit',
-  'webc', 'tailwind', 'sass', 'less', 'css-modules', 'typescript', 'vite', 'webpack', 'vitest', 'jest', 'playwright',
-  'cypress', 'testing-library', 'storybook', 'eslint', 'prettier', 'biome', 'tanstack-query', 'swr', 'redux', 'zustand',
-  'pinia', 'jotai', 'i18n'
+  'web',
+  'html',
+  'react',
+  'next',
+  'preact',
+  'vue',
+  'nuxt',
+  'angular',
+  'svelte',
+  'sveltekit',
+  'astro',
+  'solid',
+  'lit',
+  'webc',
+  'tailwind',
+  'sass',
+  'less',
+  'css-modules',
+  'typescript',
+  'vite',
+  'webpack',
+  'vitest',
+  'jest',
+  'playwright',
+  'cypress',
+  'testing-library',
+  'storybook',
+  'eslint',
+  'prettier',
+  'biome',
+  'tanstack-query',
+  'swr',
+  'redux',
+  'zustand',
+  'pinia',
+  'jotai',
+  'i18n'
 ]
 
 /* package name -> [group, key]; the first matching package of a key gives its version. */
@@ -130,7 +163,18 @@ function workspaceDirs(root, pkg) {
   const pnpm = read(path.join(root, 'pnpm-workspace.yaml'))
   if (pnpm) {
     const block = /^packages:\s*\n((?:\s+-.*\n?)+)/m.exec(pnpm)
-    if (block) globs.push(...block[1].split('\n').map((l) => l.replace(/^\s*-\s*/, '').replace(/^["']|["']$/g, '').trim()).filter(Boolean))
+    if (block)
+      globs.push(
+        ...block[1]
+          .split('\n')
+          .map((l) =>
+            l
+              .replace(/^\s*-\s*/, '')
+              .replace(/^["']|["']$/g, '')
+              .trim()
+          )
+          .filter(Boolean)
+      )
   }
   const lerna = readJson(path.join(root, 'lerna.json'))
   if (Array.isArray(lerna?.packages)) globs.push(...lerna.packages)
@@ -161,13 +205,17 @@ function workspaceDirs(root, pkg) {
     }
     visit(base, 0)
   }
-  if (out.size === 0 && tool === 'nx') for (const d of ['apps', 'packages', 'libs']) for (const e of safeList(path.join(root, d))) if (existsSync(path.join(root, d, e, 'package.json'))) out.add(`${d}/${e}`)
+  if (out.size === 0 && tool === 'nx')
+    for (const d of ['apps', 'packages', 'libs'])
+      for (const e of safeList(path.join(root, d))) if (existsSync(path.join(root, d, e, 'package.json'))) out.add(`${d}/${e}`)
   return { tool, dirs: [...out].sort() }
 }
 
 const safeList = (dir) => {
   try {
-    return readdirSync(dir, { withFileTypes: true }).filter((e) => e.isDirectory()).map((e) => e.name)
+    return readdirSync(dir, { withFileTypes: true })
+      .filter((e) => e.isDirectory())
+      .map((e) => e.name)
   } catch {
     return []
   }
@@ -317,6 +365,7 @@ export function detectStack(root) {
 /** Which coding agents the project already uses, from the files they leave; adapters list their own signals. */
 export function detectAgents(root, adapters) {
   const found = []
-  for (const a of adapters) if (a.detect.some((p) => existsSync(path.join(root, ...p.split('/'))) || (p.endsWith('/') && isDir(path.join(root, p))))) found.push(a.id)
+  for (const a of adapters)
+    if (a.detect.some((p) => existsSync(path.join(root, ...p.split('/'))) || (p.endsWith('/') && isDir(path.join(root, p))))) found.push(a.id)
   return found
 }

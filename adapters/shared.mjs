@@ -23,9 +23,7 @@ export function digest(skill, skillPath, { description = true } = {}) {
 
 /** One line per skill, for agents that read no skills folder. */
 export function skillIndex(skills, pathOf) {
-  return skills
-    .map((s) => `- \`${s.name}\` (${s.title}): when editing ${s.globs.map((g) => `\`${g}\``).join(', ')}, first read \`${pathOf(s)}\`.`)
-    .join('\n')
+  return skills.map((s) => `- \`${s.name}\` (${s.title}): when editing ${s.globs.map((g) => `\`${g}\``).join(', ')}, first read \`${pathOf(s)}\`.`).join('\n')
 }
 
 const q = (s) => JSON.stringify(s)

@@ -1,0 +1,11 @@
+// Classes, attribute selectors that mention ids, Sass interpolation and keyframes.
+$name: 'card';
+.site-header { padding: 1rem; }
+a[href="#top"] { font-weight: 600; }
+[id="legacy-widget"] { display: block; }
+.#{$name}__title { font-size: 1.25rem; }
+@keyframes pulse {
+  from { opacity: 1; }
+  to { opacity: 0.5; }
+}
+.swatch { color: #1a1a1a; }

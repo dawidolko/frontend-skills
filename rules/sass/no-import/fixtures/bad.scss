@@ -1,0 +1,6 @@
+@import 'tokens';
+@import 'mixins', 'base';
+
+.card {
+  padding: $space-4;
+}

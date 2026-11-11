@@ -41,7 +41,8 @@ export function describeProfile(profile) {
     L.push(`  ${p.path === '.' ? 'project' : p.path}: ${[...fw, ...extra].join(', ') || (p.plainHtml ? 'plain HTML site' : 'no front-end framework found')}`)
   }
   if (profile.monorepo) L.push(`  monorepo (${profile.monorepo.tool}): ${profile.monorepo.packages.length} packages`)
-  for (const [id, h] of Object.entries(profile.helpers || {})) L.push(`  helper ${id}: ${h.name || h.tool || h.file || ''}${h.prefix ? ` (prefix ${h.prefix})` : ''}`)
+  for (const [id, h] of Object.entries(profile.helpers || {}))
+    L.push(`  helper ${id}: ${h.name || h.tool || h.file || ''}${h.prefix ? ` (prefix ${h.prefix})` : ''}`)
   return L
 }
 

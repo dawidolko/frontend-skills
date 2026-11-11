@@ -16,16 +16,32 @@ import { copyFixture } from './helpers.mjs'
 const DOCUMENTED = {
   claude: { skills: ['.claude/skills'], rules: /^\.claude\/rules\/fe-react\.md$/, key: /^paths:\n {2}- "\*\*\/\*\.jsx"/m },
   codex: { skills: ['.agents/skills'], rules: null },
-  cursor: { skills: ['.agents/skills', '.cursor/skills', '.claude/skills', '.codex/skills'], rules: /^\.cursor\/rules\/fe-react\.mdc$/, key: /^globs: \*\*\/\*\.jsx, \*\*\/\*\.tsx\nalwaysApply: false$/m },
-  copilot: { skills: ['.github/skills', '.claude/skills', '.agents/skills'], rules: /^\.github\/instructions\/fe-react\.instructions\.md$/, key: /^applyTo: "\*\*\/\*\.jsx,\*\*\/\*\.tsx"$/m },
+  cursor: {
+    skills: ['.agents/skills', '.cursor/skills', '.claude/skills', '.codex/skills'],
+    rules: /^\.cursor\/rules\/fe-react\.mdc$/,
+    key: /^globs: \*\*\/\*\.jsx, \*\*\/\*\.tsx\nalwaysApply: false$/m
+  },
+  copilot: {
+    skills: ['.github/skills', '.claude/skills', '.agents/skills'],
+    rules: /^\.github\/instructions\/fe-react\.instructions\.md$/,
+    key: /^applyTo: "\*\*\/\*\.jsx,\*\*\/\*\.tsx"$/m
+  },
   gemini: { skills: ['.agents/skills', '.gemini/skills'], rules: null },
   antigravity: { skills: ['.agents/skills'], rules: /^\.agents\/rules\/fe-react\.md$/, key: /^trigger: glob\nglobs: "\*\*\/\*\.jsx, \*\*\/\*\.tsx"$/m },
-  devin: { skills: ['.agents/skills', '.devin/skills', '.windsurf/skills'], rules: /^\.devin\/rules\/fe-react\.md$/, key: /^trigger: glob\nglobs: "\*\*\/\*\.jsx,\*\*\/\*\.tsx"$/m },
+  devin: {
+    skills: ['.agents/skills', '.devin/skills', '.windsurf/skills'],
+    rules: /^\.devin\/rules\/fe-react\.md$/,
+    key: /^trigger: glob\nglobs: "\*\*\/\*\.jsx,\*\*\/\*\.tsx"$/m
+  },
   opencode: { skills: ['.opencode/skills', '.claude/skills', '.agents/skills'], rules: null },
   cline: { skills: ['.cline/skills', '.clinerules/skills', '.claude/skills'], rules: /^\.clinerules\/fe-react\.md$/, key: /^paths:\n {2}- "/m },
   zed: { skills: ['.agents/skills'], rules: null },
   junie: { skills: ['.junie/skills', '.agents/skills'], rules: null },
-  kiro: { skills: ['.kiro/skills'], rules: /^\.kiro\/steering\/fe-react\.md$/, key: /^inclusion: fileMatch\nfileMatchPattern: \["\*\*\/\*\.jsx", "\*\*\/\*\.tsx"\]$/m },
+  kiro: {
+    skills: ['.kiro/skills'],
+    rules: /^\.kiro\/steering\/fe-react\.md$/,
+    key: /^inclusion: fileMatch\nfileMatchPattern: \["\*\*\/\*\.jsx", "\*\*\/\*\.tsx"\]$/m
+  },
   augment: { skills: ['.augment/skills', '.claude/skills', '.agents/skills'], rules: null },
   trae: { skills: ['.trae/skills'], rules: /^\.trae\/rules\/fe-react\.md$/, key: /^globs: \*\*\/\*\.jsx,\*\*\/\*\.tsx\nalwaysApply: false$/m },
   continue: { skills: [], rules: /^\.continue\/rules\/fe-react\.md$/, key: /^globs: \["\*\*\/\*\.jsx", "\*\*\/\*\.tsx"\]\nalwaysApply: false$/m },
@@ -47,7 +63,11 @@ for (const a of ADAPTERS) {
     const doc = DOCUMENTED[a.id]
     const skillFile = plan.ops.find((o) => o.path.endsWith('fe-react/SKILL.md'))
     assert.ok(skillFile, 'one copy of the skill is written')
-    if (doc.skills.length) assert.ok(doc.skills.some((d) => skillFile.path.startsWith(`${d}/`)), `${skillFile.path} is in a folder ${a.label} reads`)
+    if (doc.skills.length)
+      assert.ok(
+        doc.skills.some((d) => skillFile.path.startsWith(`${d}/`)),
+        `${skillFile.path} is in a folder ${a.label} reads`
+      )
     else assert.ok(skillFile.path.startsWith('.frontend-skills/skills/'), 'agents without skills get the support copy')
     const rule = plan.ops.find((o) => o.what === 'rule')
     if (!doc.rules) assert.equal(rule, undefined)
@@ -72,8 +92,16 @@ test('folder cover: shared folders first, fewest duplicates', () => {
   assert.deepEqual(chooseSkillDirs(['claude', 'codex']).dirs, ['.agents/skills', '.claude/skills'])
   assert.deepEqual(chooseSkillDirs(['kiro', 'trae']).dirs, ['.kiro/skills', '.trae/skills'])
   const all = chooseSkillDirs(ADAPTERS.map((a) => a.id))
-  for (const a of ADAPTERS) if (a.skillDirs.length) assert.ok(a.skillDirs.some((d) => all.dirs.includes(d)), `${a.id} is covered`)
-  assert.ok(chooseSkillDirs(['claude', 'codex', 'cursor']).duplicates.some((d) => d.agent === 'cursor'), 'Cursor reads both folders: reported')
+  for (const a of ADAPTERS)
+    if (a.skillDirs.length)
+      assert.ok(
+        a.skillDirs.some((d) => all.dirs.includes(d)),
+        `${a.id} is covered`
+      )
+  assert.ok(
+    chooseSkillDirs(['claude', 'codex', 'cursor']).duplicates.some((d) => d.agent === 'cursor'),
+    'Cursor reads both folders: reported'
+  )
 })
 
 test('aliases and unknown agents', () => {

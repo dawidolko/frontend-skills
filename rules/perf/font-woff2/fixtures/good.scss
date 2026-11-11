@@ -1,0 +1,16 @@
+// WOFF2 (alone, or first with an old fallback), and local() fallbacks.
+@font-face {
+  font-family: "Brand";
+  src: url("../fonts/brand.woff2") format("woff2");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Legacy";
+  src: url("../fonts/legacy.woff2") format("woff2"), url("../fonts/legacy.woff") format("woff");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Brand Fallback";
+  src: local("Arial");
+  size-adjust: 104%;
+}

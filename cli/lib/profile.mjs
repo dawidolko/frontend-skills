@@ -64,13 +64,14 @@ export function profileDiff(before, after) {
   for (const [k, v] of Object.entries(versions(after))) if (k in vb && vb[k] !== v) out.push(`${k.replace(/^\.:/, '')} ${vb[k] ?? '?'} -> ${v ?? '?'}`)
   const hb = before.helpers || {}
   for (const [id, h] of Object.entries(after.helpers || {})) if (!hb[id]) out.push(`+ helper ${id}${h.name ? ` (${h.name})` : h.tool ? ` (${h.tool})` : ''}`)
-  for (const id of Object.keys(hb)) if (!(after.helpers || {})[id]) out.push(`- helper ${id}`)
+  for (const id of Object.keys(hb)) if (!after.helpers?.[id]) out.push(`- helper ${id}`)
   return out
 }
 
 /* ---------- lessons ---------- */
 
-const HEADER = '# Project lessons\n\nConventions of this project that a person confirmed. Every front-end skill reads this file first; a lesson wins over a skill. One line each; never secrets.\n\n'
+const HEADER =
+  '# Project lessons\n\nConventions of this project that a person confirmed. Every front-end skill reads this file first; a lesson wins over a skill. One line each; never secrets.\n\n'
 const LINE = /^- (\d{4}-\d{2}-\d{2}) · (convention|command|pitfall) · (.+)$/
 const SECRETS = [
   /-----BEGIN [A-Z ]*PRIVATE KEY/,
@@ -86,7 +87,7 @@ const SECRETS = [
 /** Why a lesson cannot be stored, or null. */
 export function lessonProblem(text, kind) {
   if (!LESSON_KINDS.includes(kind)) return `the kind must be one of ${LESSON_KINDS.join(', ')}`
-  if (!text || !text.trim()) return 'the lesson is empty'
+  if (!text?.trim()) return 'the lesson is empty'
   if (/[\r\n]/.test(text)) return 'a lesson is one line'
   if (text.length > 300) return 'a lesson is at most 300 characters'
   if (SECRETS.some((re) => re.test(text))) return 'the lesson looks like it contains a secret'

@@ -1,0 +1,8 @@
+/* Line heights in units. */
+.btn {
+  font-size: 16px;
+  height: 40px;
+  line-height: 40px;
+}
+.lead { line-height: 1.6em; }
+.small { font: 14px/20px system-ui, sans-serif; }

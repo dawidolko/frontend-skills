@@ -15,10 +15,14 @@ export default {
   detect: ['.github/copilot-instructions.md', '.github/instructions', '.github/skills', '.github/prompts'],
   skillDirs: ['.agents/skills', '.github/skills', '.claude/skills'],
   instructions: (root) =>
-    !existsSync(path.join(root, 'AGENTS.md')) && existsSync(path.join(root, '.github', 'copilot-instructions.md')) ? '.github/copilot-instructions.md' : 'AGENTS.md',
+    !existsSync(path.join(root, 'AGENTS.md')) && existsSync(path.join(root, '.github', 'copilot-instructions.md'))
+      ? '.github/copilot-instructions.md'
+      : 'AGENTS.md',
   rule: (skill, ctx) => ({
     path: `.github/instructions/${skill.name}.instructions.md`,
-    text: frontMatter([yamlQuoted('applyTo', skill.globs.join(',')), yamlQuoted('description', oneLine(skill.description))]) + digest(skill, ctx.skillPath(skill), { description: false })
+    text:
+      frontMatter([yamlQuoted('applyTo', skill.globs.join(',')), yamlQuoted('description', oneLine(skill.description))]) +
+      digest(skill, ctx.skillPath(skill), { description: false })
   }),
   ruleGlobs: (text) => JSON.parse(/^applyTo: (".*")$/m.exec(text)?.[1] || '""').split(','),
   notes: [],

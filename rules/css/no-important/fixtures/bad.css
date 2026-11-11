@@ -1,0 +1,7 @@
+/* !important used to beat another component's selector. */
+.header .nav a.active {
+  color: #fff !important;
+}
+.card.featured {
+  border: 2px solid gold !important;
+}

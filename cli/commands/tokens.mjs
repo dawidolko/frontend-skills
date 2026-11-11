@@ -34,7 +34,12 @@ const refsOf = (dir) => {
 
 /** Cost of every skill in the package. */
 export function packageCost() {
-  return loadSkills().map((s) => ({ name: s.name, listing: listingTokens(s.text), body: estimateTokens(s.text), references: refsOf(path.join(s.dir, 'references')) }))
+  return loadSkills().map((s) => ({
+    name: s.name,
+    listing: listingTokens(s.text),
+    body: estimateTokens(s.text),
+    references: refsOf(path.join(s.dir, 'references'))
+  }))
 }
 
 /** Cost of what is installed in a project, per agent. Null without an install record. */
@@ -61,7 +66,13 @@ export function projectCost(root) {
     const rules = ops.filter((o) => o.what === 'rule').map((o) => ({ path: o.path, tokens: estimateTokens(read(o.path) || o.text) }))
     agents[id] = { label: a.label, alwaysLoaded: listing + block, listing, block, skills: skills.length, rules }
   }
-  return { agents, skills: [...new Set(plan.ops.filter((o) => o.what === 'skill' && o.path.endsWith('/SKILL.md')).map((o) => o.path))].map((p) => ({ path: p, body: estimateTokens(read(p)) })) }
+  return {
+    agents,
+    skills: [...new Set(plan.ops.filter((o) => o.what === 'skill' && o.path.endsWith('/SKILL.md')).map((o) => o.path))].map((p) => ({
+      path: p,
+      body: estimateTokens(read(p))
+    }))
+  }
 }
 
 export default async function tokens(argv) {
@@ -79,7 +90,10 @@ export default async function tokens(argv) {
     else {
       if (!args.all) out('No install record in this project; showing every skill in the package.')
       out(`Token estimates (${ESTIMATOR}). Listing = always loaded per skill; body = loaded when the skill is used.`)
-      for (const s of skills) out(`  ${s.name.padEnd(24)} listing ~${String(s.listing).padStart(3)}  body ~${String(s.body).padStart(5)}  ${s.references.map((r) => `${r.file} ~${r.tokens}`).join(', ')}`)
+      for (const s of skills)
+        out(
+          `  ${s.name.padEnd(24)} listing ~${String(s.listing).padStart(3)}  body ~${String(s.body).padStart(5)}  ${s.references.map((r) => `${r.file} ~${r.tokens}`).join(', ')}`
+        )
       out(`  ${'all skills'.padEnd(24)} listing ~${skills.reduce((n, s) => n + s.listing, 0)}`)
     }
     return 0
@@ -90,7 +104,9 @@ export default async function tokens(argv) {
   }
   out(`Token estimates (${ESTIMATOR}).`)
   for (const a of Object.values(project.agents)) {
-    const rule = a.rules.length ? `; a glob rule file ~${Math.round(a.rules.reduce((n, r) => n + r.tokens, 0) / a.rules.length)} when a matching file is open` : ''
+    const rule = a.rules.length
+      ? `; a glob rule file ~${Math.round(a.rules.reduce((n, r) => n + r.tokens, 0) / a.rules.length)} when a matching file is open`
+      : ''
     out(`  ${a.label.padEnd(22)} always ~${a.alwaysLoaded} (${a.skills} skills listed ~${a.listing}, instruction block ~${a.block})${rule}`)
   }
   out('On use:')

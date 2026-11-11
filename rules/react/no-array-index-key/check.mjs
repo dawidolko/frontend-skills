@@ -21,10 +21,9 @@ function splitParams(src) {
 }
 
 function indexParam(text, before) {
-  MAP.lastIndex = Math.max(0, before - 800)
+  const from = Math.max(0, before - 800)
   let name = null
-  let m
-  while ((m = MAP.exec(text)) && m.index < before) {
+  for (const m of text.slice(from, before).matchAll(MAP)) {
     const p = splitParams(m[1])[1]
     name = p ? p.replace(/[:=].*$/, '').trim() : null
   }
@@ -35,7 +34,7 @@ export default {
   check(ctx) {
     for (const el of ctx.elements()) {
       const key = el.attrs.get('key')
-      if (!key || !key.dynamic) continue
+      if (!key?.dynamic) continue
       const index = indexParam(ctx.text, el.index)
       if (!index) continue
       const ids = (key.value.replace(/(["'])(?:(?!\1).)*\1/g, '').match(/[A-Za-z_$][\w$]*/g) || []).filter((w) => !['String', 'toString'].includes(w))

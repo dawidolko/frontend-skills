@@ -1,0 +1,4 @@
+/* Actions that appear only under the mouse. */
+.card .card__actions { display: none; }
+.card:hover .card__actions { display: flex; }
+.menu:hover > .submenu { visibility: visible; opacity: 1; }

@@ -19,6 +19,17 @@ import { changedFiles, listFiles, MARKUP_KINDS, STYLE_KINDS } from './files.mjs'
 
 const IGNORE = /fs-ignore(?![\w-])([^\n]*)/
 
+const ORDER = ['critical', 'serious', 'moderate', 'minor']
+
+/** Sorts findings by severity, then rule id, then file and line (in place). */
+export function sortFindings(findings) {
+  const order = (s) => ORDER.indexOf(s)
+  return findings.sort(
+    (a, b) =>
+      order(a.severity) - order(b.severity) || (a.id < b.id ? -1 : a.id > b.id ? 1 : 0) || (a.file < b.file ? -1 : a.file > b.file ? 1 : a.line - b.line)
+  )
+}
+
 /** Loads the check module of each rule that has one. */
 export async function loadChecks(rules) {
   const out = []
@@ -77,7 +88,10 @@ function ignoredAt(lines, line, id) {
   for (const l of [line, line - 1]) {
     const m = IGNORE.exec(lines[l - 1] || '')
     if (!m) continue
-    const ids = m[1].replace(/-->|\*\/|\}/g, ' ').split(/[\s,]+/).filter((x) => /^[a-z][a-z0-9]*\/[a-z0-9-]+$/.test(x))
+    const ids = m[1]
+      .replace(/-->|\*\/|\}/g, ' ')
+      .split(/[\s,]+/)
+      .filter((x) => /^[a-z][a-z0-9]*\/[a-z0-9-]+$/.test(x))
     if (ids.length === 0 || ids.includes(id)) return true
   }
   return false
@@ -101,10 +115,7 @@ export async function runAudit({ root, rules, profile = null, stack = new Set(),
   }
   const helpers = profile?.helpers || {}
   const active = checks.filter(
-    ({ rule }) =>
-      !ignore.has(rule.id) &&
-      (rule.stack.length === 0 || rule.stack.some((s) => stack.has(s))) &&
-      rule.requires.every((h) => helpers[h])
+    ({ rule }) => !ignore.has(rule.id) && (rule.stack.length === 0 || rule.stack.some((s) => stack.has(s))) && rule.requires.every((h) => helpers[h])
   )
   const findings = []
   const texts = new Map()
@@ -160,7 +171,6 @@ export async function runAudit({ root, rules, profile = null, stack = new Set(),
     impl.check(pctx)
   }
 
-  const order = (s) => ['critical', 'serious', 'moderate', 'minor'].indexOf(s)
-  findings.sort((a, b) => order(a.severity) - order(b.severity) || (a.id < b.id ? -1 : a.id > b.id ? 1 : 0) || (a.file < b.file ? -1 : a.file > b.file ? 1 : a.line - b.line))
+  sortFindings(findings)
   return { findings, files: all.length, rules: active.length, changedOnly: changedOnly ? changedOnly.size : null }
 }
