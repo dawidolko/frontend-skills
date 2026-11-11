@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en">
+  <head><title>Panel</title></head>
+  <body>
+    <acme-panel>
+      <template shadowrootmode="open">
+        <style>
+          :host { display: block; }
+          :host([hidden]) { display: none; }
+          :host(.compact) { padding: 0; }
+        </style>
+        <slot></slot>
+      </template>
+      Content
+    </acme-panel>
+  </body>
+</html>
