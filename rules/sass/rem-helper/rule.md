@@ -15,8 +15,8 @@ requires:
 skill: fe-sass
 since: 0.1.0
 sources:
-  - title: Foundation for Sites 6 docs, Sass functions (rem-calc)
-    url: https://get.foundation/sites/docs/sass-functions.html
+  - title: Foundation for Sites 6.9.0, scss/util/_unit.scss (the rem-calc function)
+    url: https://github.com/foundation/foundation-sites/blob/v6.9.0/scss/util/_unit.scss
   - title: Sass docs, @function
     url: https://sass-lang.com/documentation/at-rules/function/
   - title: Sass docs, sass:math (math.div)

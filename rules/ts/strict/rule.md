@@ -12,8 +12,8 @@ since: 0.1.0
 sources:
   - title: TypeScript, TSConfig reference (strict)
     url: https://www.typescriptlang.org/tsconfig/#strict
-  - title: Announcing TypeScript 6.0 (strict is on by default)
-    url: https://devblogs.microsoft.com/typescript/announcing-typescript-6-0/
+  - title: TypeScript 6.0 release notes (strict is now true by default)
+    url: https://www.typescriptlang.org/docs/handbook/release-notes/typescript-6-0.html
 ---
 
 ## Why
