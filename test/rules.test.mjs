@@ -1,7 +1,8 @@
 /*
  * Proves every rule of the dictionary on its own fixtures: each rules/<area>/<name>/fixtures/bad.* file must give
  * at least one finding of that rule, each good.* file none. A bad.json or good.json fixture lists virtual files for
- * a project-level rule. Also checks that a CRLF copy of every fixture gives the same lines as the LF original.
+ * a project-level rule; fixtures/profile.json, when present, is the project profile (for rules that require a
+ * project helper). Also checks that a CRLF copy of every fixture gives the same lines as the LF original.
  */
 import assert from 'node:assert/strict'
 import { mkdtempSync, readdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs'
@@ -16,12 +17,18 @@ const rules = loadRules()
 
 async function findings(rule, dir, file) {
   const stack = new Set(rule.stack)
+  let profile = null
+  try {
+    profile = JSON.parse(readFileSync(path.join(rule.dir, 'fixtures', 'profile.json'), 'utf8'))
+  } catch {
+    /* no profile fixture */
+  }
   if (file.endsWith('.json')) {
     const { files } = JSON.parse(readFileSync(path.join(dir, file), 'utf8'))
-    return (await runAudit({ root: dir, rules: [rule], files, stack })).findings
+    return (await runAudit({ root: dir, rules: [rule], files, stack, profile })).findings
   }
   const size = readFileSync(path.join(dir, file)).length
-  return (await runAudit({ root: dir, rules: [rule], files: [{ path: file, kind: kindOf(file), size }], stack })).findings
+  return (await runAudit({ root: dir, rules: [rule], files: [{ path: file, kind: kindOf(file), size }], stack, profile })).findings
 }
 
 for (const rule of rules.filter((r) => r.hasCheck)) {
@@ -36,7 +43,7 @@ for (const rule of rules.filter((r) => r.hasCheck)) {
     assert.ok(files.some((f) => f.startsWith('bad.')), 'no fixtures/bad.* file')
     assert.ok(files.some((f) => f.startsWith('good.')), 'no fixtures/good.* file')
   })
-  for (const file of files) {
+  for (const file of files.filter((f) => f !== 'profile.json')) {
     const bad = file.startsWith('bad.')
     test(`${rule.id} ${bad ? 'reports' : 'accepts'} fixtures/${file}`, async () => {
       const got = (await findings(rule, dir, file)).filter((f) => f.id === rule.id)
@@ -60,3 +67,10 @@ for (const rule of rules.filter((r) => r.hasCheck)) {
       })
   }
 }
+
+test('a rule that requires a helper does not run without it', async () => {
+  const rule = rules.find((r) => r.id === 'css/rem-helper')
+  const dir = path.join(rule.dir, 'fixtures')
+  const got = await runAudit({ root: dir, rules: [rule], files: [{ path: 'bad.scss', kind: 'scss', size: 10 }] })
+  assert.deepEqual(got.findings, [])
+})

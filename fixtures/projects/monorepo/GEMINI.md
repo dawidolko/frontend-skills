@@ -1,0 +1,3 @@
+# Acme
+
+Use pnpm.
