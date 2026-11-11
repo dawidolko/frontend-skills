@@ -1,9 +1,10 @@
 #!/usr/bin/env node
 /*
  * Renders the launch thumbnails from thumbnail.html with Playwright: YouTube 1280x720 and LinkedIn 1200x627, each as
- * PNG and JPG, with the author's portrait, the mark, the headline and the counts read from the dictionary. The
- * portrait is passed as a path and is not stored in the repository; Playwright is not a dependency, its path comes from
- * PLAYWRIGHT_MODULE. Every file is checked to stay under 2 MB.
+ * PNG and JPG, in Polish (thumbnail-youtube.*, the main ones) and English (thumbnail-youtube-en.*), with the author's
+ * portrait, the mark, the headline and the counts read from the dictionary. The portrait is passed as a path and is not
+ * stored in the repository; Playwright is not a dependency, its path comes from PLAYWRIGHT_MODULE. Every file is
+ * checked to stay under 2 MB.
  * Usage: node media/launch/build.mjs --photo <portrait.png> [--out media/launch]
  */
 import { mkdirSync, statSync } from 'node:fs'
@@ -34,25 +35,27 @@ async function main(argv) {
   const counts = { rules: loadRules().length, skills: loadSkills().length, agents: ADAPTERS.length }
   const browser = await chromium.launch()
   try {
-    for (const [name, w, h] of SIZES) {
-      const page = await browser.newPage({ viewport: { width: w, height: h }, deviceScaleFactor: 1 })
-      const q = new URLSearchParams({ w, h, photo: pathToFileURL(path.resolve(photo)).href, ...counts })
-      await page.goto(`${pathToFileURL(path.join(HERE, 'thumbnail.html')).href}?${q}`)
-      await page.evaluate(() => document.fonts.ready)
-      await page.waitForTimeout(300)
-      const box = page.locator('#t')
-      for (const [ext, extra] of [
-        ['png', { type: 'png' }],
-        ['jpg', { type: 'jpeg', quality: 90 }]
-      ]) {
-        const file = path.join(out, `${name}.${ext}`)
-        await box.screenshot({ path: file, ...extra })
-        const size = statSync(file).size
-        if (size > LIMIT) throw new Error(`${file} is ${(size / 1024 / 1024).toFixed(2)} MB, over 2 MB`)
-        process.stdout.write(`${path.relative(process.cwd(), file)}: ${w}x${h}, ${(size / 1024).toFixed(0)} KB\n`)
+    for (const [base, w, h] of SIZES)
+      for (const lang of ['pl', 'en']) {
+        const name = lang === 'pl' ? base : `${base}-en`
+        const page = await browser.newPage({ viewport: { width: w, height: h }, deviceScaleFactor: 1 })
+        const q = new URLSearchParams({ w, h, lang, photo: pathToFileURL(path.resolve(photo)).href, ...counts })
+        await page.goto(`${pathToFileURL(path.join(HERE, 'thumbnail.html')).href}?${q}`)
+        await page.evaluate(() => document.fonts.ready)
+        await page.waitForTimeout(300)
+        const box = page.locator('#t')
+        for (const [ext, extra] of [
+          ['png', { type: 'png' }],
+          ['jpg', { type: 'jpeg', quality: 90 }]
+        ]) {
+          const file = path.join(out, `${name}.${ext}`)
+          await box.screenshot({ path: file, ...extra })
+          const size = statSync(file).size
+          if (size > LIMIT) throw new Error(`${file} is ${(size / 1024 / 1024).toFixed(2)} MB, over 2 MB`)
+          process.stdout.write(`${path.relative(process.cwd(), file)}: ${w}x${h}, ${(size / 1024).toFixed(0)} KB\n`)
+        }
+        await page.close()
       }
-      await page.close()
-    }
   } finally {
     await browser.close()
   }
