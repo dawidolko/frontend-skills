@@ -1,0 +1,7 @@
+@import "tailwindcss";
+@config "../tailwind.config.js";
+
+/* @tailwind utilities; in a comment is not a directive */
+@theme {
+  --color-brand-600: #0a7a3e;
+}
