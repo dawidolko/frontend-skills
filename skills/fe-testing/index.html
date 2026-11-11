@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Front-end testing (fe-testing) · Frontend Skills</title>
+<meta name="description" content="Writes reliable front-end tests with the project's own runner - unit and component tests with Vitest or Jest and Testing Library queries by role,…">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#faf7fc" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0d0d0f" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://skills.dawidolko.pl/skills/fe-testing/">
+<link rel="alternate" hreflang="en" href="https://skills.dawidolko.pl/skills/fe-testing/">
+<link rel="alternate" hreflang="pl" href="https://skills.dawidolko.pl/pl/skills/fe-testing/">
+<link rel="alternate" hreflang="x-default" href="https://skills.dawidolko.pl/skills/fe-testing/">
+<link rel="preload" href="/assets/fonts/opensans-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/styles.css?v=fbc2d7ae26">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Frontend Skills">
+<meta property="og:title" content="Front-end testing (fe-testing)">
+<meta property="og:description" content="Writes reliable front-end tests with the project's own runner - unit and component tests with Vitest or Jest and Testing Library queries by role,…">
+<meta property="og:url" content="https://skills.dawidolko.pl/skills/fe-testing/">
+<meta property="og:image" content="https://skills.dawidolko.pl/og-en.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Frontend Skills: one command that fits front-end skills to your project and every coding agent you use.">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="pl_PL">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="author" content="Dawid Olko">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://skills.dawidolko.pl/"},{"@type":"ListItem","position":2,"name":"Skills","item":"https://skills.dawidolko.pl/skills/"},{"@type":"ListItem","position":3,"name":"Front-end testing","item":"https://skills.dawidolko.pl/skills/fe-testing/"}]}</script>
+<script src="/assets/site.js?v=dd8cab0a79" defer></script>
+<script src="/a11y/a11y-panel.js?v=39d6e82235" data-accent="#9b00c2" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+<div class="wrap header-inner">
+<a class="brand" href="/"><svg class="brand-mark" viewBox="0 0 32 32" width="32" height="32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="8" fill="currentColor"/><path d="M12.5 10 7 16l5.5 6M19.5 10 25 16l-5.5 6" fill="none" stroke="var(--logo-ink)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="brand-name">Frontend Skills</span></a>
+<nav class="main-nav" aria-label="Main"><ul><li><a href="/how-it-works/">How it works</a></li><li><a href="/rules/">Rules</a></li><li><a href="/skills/" class="is-section">Skills</a></li><li><a href="/commands/">Commands</a></li><li><a href="/faq/">FAQ</a></li></ul></nav>
+<div class="header-tools">
+<a class="lang-switch" href="/pl/skills/fe-testing/" hreflang="pl" lang="pl" title="Ta strona po polsku">Polski</a>
+<a class="gh-link" href="https://github.com/dawidolko/frontend-skills" aria-label="Source code on GitHub"><svg viewBox="0 0 16 16" width="20" height="20" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg></a>
+</div>
+</div>
+</header>
+<main id="main" tabindex="-1">
+<div class="page-head"><div class="wrap">
+<nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><a href="/skills/">Skills</a></li><li><span aria-current="page">Front-end testing</span></li></ol></nav>
+<h1>Front-end testing</h1>
+<p class="lead">Writes reliable front-end tests with the project's own runner - unit and component tests with Vitest or Jest and Testing Library queries by role, end-to-end tests with Playwright 1.65 or Cypress, network mocking, accessibility scans with axe-core, without flakes. Use when adding or fixing tests, a flaky test or CI test setup, or when asked &quot;test this component&quot; or &quot;write an e2e test&quot;.</p>
+</div></div>
+<div class="wrap rule-layout">
+<div class="prose">
+<section aria-labelledby="rules"><h2 id="rules">Rules it teaches</h2>
+<ul class="rule-list compact"><li class="rule-item"><a class="rule-id" href="/rules/test/no-focused-tests/"><code>test/no-focused-tests</code></a><p class="rule-title">No focused tests (.only, fit, fdescribe) are committed; they silently skip the rest of the suite.</p><p class="rule-meta"><span class="sev sev-serious">serious</span> <span class="tag tag-static">static</span></p></li><li class="rule-item"><a class="rule-id" href="/rules/test/no-fixed-wait/"><code>test/no-fixed-wait</code></a><p class="rule-title">Tests wait for conditions, never for a fixed time (no waitForTimeout, cy.wait(ms) or setTimeout sleeps).</p><p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-static">static</span></p></li><li class="rule-item"><a class="rule-id" href="/rules/test/web-first-assertions/"><code>test/web-first-assertions</code></a><p class="rule-title">Playwright tests assert with auto-retrying web-first matchers (toBeVisible, toHaveText), not on values read once.</p><p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-static">static</span></p></li><li class="rule-item"><a class="rule-id" href="/rules/test/query-by-role/"><code>test/query-by-role</code></a><p class="rule-title">Tests find elements the way users do - getByRole with a name first, then label and text; test ids only as a last resort.</p><p class="rule-meta"><span class="sev sev-minor">minor</span> <span class="tag tag-manual">manual</span></p></li><li class="rule-item"><a class="rule-id" href="/rules/test/axe-in-e2e/"><code>test/axe-in-e2e</code></a><p class="rule-title">End-to-end tests run an axe scan with the WCAG tags you target on each key page and state, and fail on violations.</p><p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-manual">manual</span></p></li></ul></section>
+<section aria-labelledby="digest"><h2 id="digest">The rule digest</h2><p>This part is copied into each agent's scoped rule file, so it stands on its own:</p><div class="digest"><ul><li>Run tests through the project's own script and runner (<code>npm test</code>, <code>pnpm test:e2e</code>); never install a second runner.</li><li>Never commit <code>.only</code>, <code>fit</code> or <code>fdescribe</code>; make CI refuse them (<a href="/rules/test/no-focused-tests/">test/no-focused-tests</a>).</li><li>Wait for conditions, never for time: no <code>waitForTimeout</code>, <code>cy.wait(ms)</code> or sleeps (<a href="/rules/test/no-fixed-wait/">test/no-fixed-wait</a>).</li><li>In Playwright, assert with web-first matchers: <code>await expect(locator).toBeVisible()</code> (<a href="/rules/test/web-first-assertions/">test/web-first-assertions</a>).</li><li>Find elements by role and name first, then label and text; test ids last (<a href="/rules/test/query-by-role/">test/query-by-role</a>).</li><li>Scan key pages and states with axe-core and the WCAG tags you target; automated checks find only part of the problems (<a href="/rules/test/axe-in-e2e/">test/axe-in-e2e</a>).</li><li>Await every async call: <code>findBy*</code>, <code>user.*</code>, Playwright actions and assertions.</li><li>Each test sets up its own state and passes alone; reset in <code>beforeEach</code>, not <code>afterEach</code>.</li><li>Mock HTTP at the network boundary (MSW, <code>page.route</code>, <code>cy.intercept</code>); never hit third-party services.</li><li>Every test asserts something a user would notice; no tests of implementation details.</li></ul></div></section>
+<section aria-labelledby="do"><h2 id="do">Steps the agent follows</h2><ol><li>Read the profile and <code>package.json</code> scripts to find the runners: <code>vitest.config.*</code> (or <code>test</code> in <code>vite.config.*</code>), <code>jest.config.*</code>, <code>playwright.config.*</code>, <code>cypress.config.*</code>, <code>.storybook/</code>.</li><li>Component test: render, act with <code>userEvent.setup()</code>, assert on what is on screen (<code>getByRole</code>, <code>findByText</code>); in jsdom or happy-dom, or Vitest browser mode for anything that needs real layout.</li><li>End-to-end: one user journey per test, user-facing locators, web-first assertions, test data created through the API in <code>beforeEach</code> or a setup project for sign-in.</li><li>Add an axe scan to the e2e tests of each page type, and again after opening dialogs and menus.</li><li>When a test flakes: find the race (a missing await, a fixed wait, shared state), fix it, and keep retries only as a safety net that is reported.</li></ol></section>
+<section aria-labelledby="check"><h2 id="check">How the agent checks the work</h2><ul><li><code>npx github:dawidolko/frontend-skills audit --changed</code> finds focused tests, fixed waits and one-shot Playwright assertions in <code>.js</code>, <code>.jsx</code> and <code>.tsx</code> test files.</li><li>Run the project's lint with the runner's plugin (<code>eslint-plugin-vitest</code>, <code>eslint-plugin-jest</code>, <code>eslint-plugin-playwright</code>, <code>eslint-plugin-testing-library</code>) if it is installed.</li><li>Run the changed tests alone and several times (<code>--repeat-each=5</code> in Playwright) before calling them stable.</li></ul></section>
+<section aria-labelledby="refs"><h2 id="refs">Reference files</h2><ul><li><a href="https://github.com/dawidolko/frontend-skills/blob/main/skills/quality/fe-testing/references/testing.md"><code>references/testing.md</code></a> · 1636 tokens</li></ul></section>
+<section aria-labelledby="agents"><h2 id="agents">Written for</h2>
+<p>every agent the project uses: Claude Code, OpenAI Codex, Cursor, GitHub Copilot, Gemini CLI, Antigravity CLI, Devin / Windsurf, OpenCode, Cline, Zed, JetBrains Junie, Kiro, Augment, Trae, Continue, Amazon Q Developer, Aider.</p>
+<p>Agents that also get a rule file scoped to these files: Claude Code, Cursor, GitHub Copilot, Antigravity CLI, Devin / Windsurf, Cline, Kiro, Trae, Continue.</p></section>
+</div>
+<aside class="facts" aria-labelledby="facts-title">
+<h2 id="facts-title">Facts</h2>
+<dl><dt>Name</dt><dd><code>fe-testing</code></dd><dt>Area</dt><dd>Quality</dd><dt>Installed when the project uses</dt><dd><code>vitest</code>, <code>jest</code>, <code>playwright</code>, <code>cypress</code>, <code>testing-library</code></dd><dt>Files it is about</dt><dd><code>**/*.test.*</code> <code>**/*.spec.*</code> <code>**/__tests__/**</code> <code>**/e2e/**</code> <code>**/tests/**</code> <code>**/cypress/**</code> <code>**/playwright.config.*</code> <code>**/vitest.config.*</code></dd><dt>Token cost</dt><dd>91 tokens always loaded, 949 tokens when used, 1636 tokens in references on demand.</dd></dl>
+<p><a href="https://github.com/dawidolko/frontend-skills/blob/main/skills/quality/fe-testing/SKILL.md">SKILL.md on GitHub</a></p>
+<p><a href="/skills/">All skills</a></p>
+</aside>
+</div>
+</main>
+<footer class="site-footer">
+<div class="wrap footer-inner">
+<div class="footer-text">
+<p class="footer-brand"><svg class="brand-mark" viewBox="0 0 32 32" width="32" height="32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="8" fill="currentColor"/><path d="M12.5 10 7 16l5.5 6M19.5 10 25 16l-5.5 6" fill="none" stroke="var(--logo-ink)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Frontend Skills</span></p>
+<p>Free and open source under the MIT licence, made by <a href="https://dawidolko.pl">Dawid Olko</a>.</p>
+<p>Built to WCAG 2.2 AA as a target. Automated checks find only part of the problems.</p>
+<p>No cookies, no analytics, no third-party requests. The accessibility button keeps its settings on your device.</p>
+</div>
+<nav aria-label="More"><ul class="footer-nav"><li><a href="/">Home</a></li><li><a href="/how-it-works/">How it works</a></li><li><a href="/rules/">Rules</a></li><li><a href="/skills/">Skills</a></li><li><a href="/commands/">Commands</a></li><li><a href="/faq/">FAQ</a></li><li><a href="/about/">About</a></li><li><a href="https://github.com/dawidolko/frontend-skills">GitHub</a></li></ul></nav>
+</div>
+</footer>
+<p id="live-status" class="visually-hidden" role="status" aria-live="polite"></p>
+</body>
+</html>

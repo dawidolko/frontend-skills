@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Accessibility, WCAG 2.2 map (fe-a11y-core) · Frontend Skills</title>
+<meta name="description" content="The entry point for accessibility in any front-end stack - WCAG 2.2 A and AA mapped to code, the page basics (language, title, landmarks, iframes,…">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#faf7fc" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0d0d0f" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://skills.dawidolko.pl/skills/fe-a11y-core/">
+<link rel="alternate" hreflang="en" href="https://skills.dawidolko.pl/skills/fe-a11y-core/">
+<link rel="alternate" hreflang="pl" href="https://skills.dawidolko.pl/pl/skills/fe-a11y-core/">
+<link rel="alternate" hreflang="x-default" href="https://skills.dawidolko.pl/skills/fe-a11y-core/">
+<link rel="preload" href="/assets/fonts/opensans-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/styles.css?v=fbc2d7ae26">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Frontend Skills">
+<meta property="og:title" content="Accessibility, WCAG 2.2 map (fe-a11y-core)">
+<meta property="og:description" content="The entry point for accessibility in any front-end stack - WCAG 2.2 A and AA mapped to code, the page basics (language, title, landmarks, iframes,…">
+<meta property="og:url" content="https://skills.dawidolko.pl/skills/fe-a11y-core/">
+<meta property="og:image" content="https://skills.dawidolko.pl/og-en.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Frontend Skills: one command that fits front-end skills to your project and every coding agent you use.">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="pl_PL">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="author" content="Dawid Olko">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://skills.dawidolko.pl/"},{"@type":"ListItem","position":2,"name":"Skills","item":"https://skills.dawidolko.pl/skills/"},{"@type":"ListItem","position":3,"name":"Accessibility, WCAG 2.2 map","item":"https://skills.dawidolko.pl/skills/fe-a11y-core/"}]}</script>
+<script src="/assets/site.js?v=dd8cab0a79" defer></script>
+<script src="/a11y/a11y-panel.js?v=39d6e82235" data-accent="#9b00c2" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+<div class="wrap header-inner">
+<a class="brand" href="/"><svg class="brand-mark" viewBox="0 0 32 32" width="32" height="32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="8" fill="currentColor"/><path d="M12.5 10 7 16l5.5 6M19.5 10 25 16l-5.5 6" fill="none" stroke="var(--logo-ink)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="brand-name">Frontend Skills</span></a>
+<nav class="main-nav" aria-label="Main"><ul><li><a href="/how-it-works/">How it works</a></li><li><a href="/rules/">Rules</a></li><li><a href="/skills/" class="is-section">Skills</a></li><li><a href="/commands/">Commands</a></li><li><a href="/faq/">FAQ</a></li></ul></nav>
+<div class="header-tools">
+<a class="lang-switch" href="/pl/skills/fe-a11y-core/" hreflang="pl" lang="pl" title="Ta strona po polsku">Polski</a>
+<a class="gh-link" href="https://github.com/dawidolko/frontend-skills" aria-label="Source code on GitHub"><svg viewBox="0 0 16 16" width="20" height="20" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg></a>
+</div>
+</div>
+</header>
+<main id="main" tabindex="-1">
+<div class="page-head"><div class="wrap">
+<nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><a href="/skills/">Skills</a></li><li><span aria-current="page">Accessibility, WCAG 2.2 map</span></li></ol></nav>
+<h1>Accessibility, WCAG 2.2 map</h1>
+<p class="lead">The entry point for accessibility in any front-end stack - WCAG 2.2 A and AA mapped to code, the page basics (language, title, landmarks, iframes, timing), what automated checks find and what needs a person, and which accessibility skill to load next. Use when starting accessibility work, auditing a page or a component library, or when asked &quot;is this accessible&quot; or &quot;WCAG&quot;.</p>
+</div></div>
+<div class="wrap rule-layout">
+<div class="prose">
+<section aria-labelledby="rules"><h2 id="rules">Rules it teaches</h2>
+<ul class="rule-list compact"><li class="rule-item"><a class="rule-id" href="/rules/a11y/lang-valid/"><code>a11y/lang-valid</code></a><p class="rule-title">Every lang value is a valid BCP 47 language tag (&quot;en&quot;, &quot;en-GB&quot;, &quot;pl&quot;), never &quot;en_US&quot; or a language name.</p><p class="rule-meta"><span class="sev sev-serious">serious</span> <span class="tag tag-static">static</span></p></li><li class="rule-item"><a class="rule-id" href="/rules/a11y/no-meta-refresh/"><code>a11y/no-meta-refresh</code></a><p class="rule-title">No meta refresh reloads or redirects the page after a delay; redirect on the server or let people choose.</p><p class="rule-meta"><span class="sev sev-serious">serious</span> <span class="tag tag-static">static</span></p></li><li class="rule-item"><a class="rule-id" href="/rules/a11y/iframe-title/"><code>a11y/iframe-title</code></a><p class="rule-title">Every visible iframe has a title that says what it contains (map, video, payment form).</p><p class="rule-meta"><span class="sev sev-serious">serious</span> <span class="tag tag-static">static</span></p></li><li class="rule-item"><a class="rule-id" href="/rules/a11y/landmarks/"><code>a11y/landmarks</code></a><p class="rule-title">Each page has one main landmark, all content sits inside landmarks, and repeated landmarks of a kind have distinct labels.</p><p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-browser">browser</span></p></li><li class="rule-item"><a class="rule-id" href="/rules/a11y/html-lang/"><code>a11y/html-lang</code></a><p class="rule-title">The html element names the language of the page in a non-empty lang attribute.</p><p class="rule-meta"><span class="sev sev-serious">serious</span> <span class="tag tag-static">static</span></p></li><li class="rule-item"><a class="rule-id" href="/rules/a11y/page-title/"><code>a11y/page-title</code></a><p class="rule-title">Every HTML document has a title element that says what the page is about.</p><p class="rule-meta"><span class="sev sev-serious">serious</span> <span class="tag tag-static">static</span></p></li><li class="rule-item"><a class="rule-id" href="/rules/a11y/img-alt/"><code>a11y/img-alt</code></a><p class="rule-title">Every img and area element has an alt attribute; a decorative image has alt=&quot;&quot;.</p><p class="rule-meta"><span class="sev sev-critical">critical</span> <span class="tag tag-static">static</span></p></li><li class="rule-item"><a class="rule-id" href="/rules/a11y/control-name/"><code>a11y/control-name</code></a><p class="rule-title">Every button and link has an accessible name; icon-only controls get visually hidden text or aria-label.</p><p class="rule-meta"><span class="sev sev-critical">critical</span> <span class="tag tag-static">static</span></p></li><li class="rule-item"><a class="rule-id" href="/rules/a11y/input-label/"><code>a11y/input-label</code></a><p class="rule-title">Every form field has a programmatic label (label element, aria-label or aria-labelledby); a placeholder is not a label.</p><p class="rule-meta"><span class="sev sev-critical">critical</span> <span class="tag tag-static">static</span></p></li><li class="rule-item"><a class="rule-id" href="/rules/a11y/no-click-on-static/"><code>a11y/no-click-on-static</code></a><p class="rule-title">A click handler belongs on a button or link; a static element with one also needs a role, tabindex and a key handler.</p><p class="rule-meta"><span class="sev sev-serious">serious</span> <span class="tag tag-static">static</span></p></li><li class="rule-item"><a class="rule-id" href="/rules/a11y/focus-visible/"><code>a11y/focus-visible</code></a><p class="rule-title">Never remove the focus outline without drawing a visible replacement for keyboard focus.</p><p class="rule-meta"><span class="sev sev-serious">serious</span> <span class="tag tag-static">static</span></p></li><li class="rule-item"><a class="rule-id" href="/rules/a11y/color-contrast/"><code>a11y/color-contrast</code></a><p class="rule-title">Text has a contrast ratio of at least 4.5:1 with its background; large text (24px, or 18.5px bold) at least 3:1.</p><p class="rule-meta"><span class="sev sev-serious">serious</span> <span class="tag tag-browser">browser</span></p></li></ul></section>
+<section aria-labelledby="digest"><h2 id="digest">The rule digest</h2><p>This part is copied into each agent's scoped rule file, so it stands on its own:</p><div class="digest"><ul><li>Work to WCAG 2.2 level AA as the target; say &quot;helps you work to WCAG 2.2 AA&quot;, never &quot;compliant&quot; or &quot;accessible&quot;.</li><li>Use native HTML first; add ARIA only where no element does the job.</li><li><code>&lt;html lang&gt;</code> is set and every <code>lang</code> value is a valid tag (a11y/html-lang, a11y/lang-valid).</li><li>Every page and route has a unique <code>&lt;title&gt;</code>; the layout has one <code>&lt;main&gt;</code> and labelled landmarks (a11y/page-title, a11y/landmarks).</li><li>Images have <code>alt</code>, buttons and links have names, fields have labels (a11y/img-alt, a11y/control-name, a11y/input-label).</li><li>Everything works with the keyboard and shows where focus is (a11y/no-click-on-static, a11y/focus-visible).</li><li>Text contrast is at least 4.5:1, large text 3:1 (a11y/color-contrast).</li><li>Every iframe has a <code>title</code> (a11y/iframe-title).</li><li>No timed refresh or redirect; time limits can be turned off or extended (a11y/no-meta-refresh).</li><li>Report results as &quot;N problems found, M items need a person&quot;, never as a pass.</li></ul></div></section>
+<section aria-labelledby="do"><h2 id="do">Steps the agent follows</h2><ol><li>Load the skill for the work at hand: forms <code>fe-a11y-forms</code>, keyboard and focus <code>fe-a11y-keyboard</code>, names and live regions <code>fe-a11y-aria</code>, colour and layout <code>fe-a11y-visual</code>, media <code>fe-a11y-media</code>, widgets <code>fe-a11y-dialog</code>, <code>fe-a11y-menus</code>, <code>fe-a11y-tabs-accordion</code>, <code>fe-a11y-combobox</code>, <code>fe-a11y-carousel-toast</code>, <code>fe-a11y-tables</code>.</li><li>Fix the shared layout first (document shell, skip link, landmarks, focus style, live region): one change fixes every page.</li><li>Fix shared components next (button, link, field, dialog, icon): find them through the profile and lessons.</li><li>Run the static audit on the changed files, then the page audit on a running page, then the manual checks for the criteria that tools do not cover.</li><li>Record decisions that the next person needs (for example &quot;icons come from <code>&lt;Icon&gt;</code>, which sets <code>aria-hidden</code>&quot;) with <code>learn --lesson</code>.</li></ol></section>
+<section aria-labelledby="check"><h2 id="check">How the agent checks the work</h2><ul><li><code>npx github:dawidolko/frontend-skills audit --changed</code> runs the static rules; <code>audit --url &lt;page&gt;</code> adds axe-core and Lighthouse on the rendered page.</li><li>Automated checks find only part of the problems: about half of the A and AA criteria have no automated rule at all. The manual list in the reference covers the rest.</li><li>By hand on every change: keyboard only, screen reader on the changed part, zoom to 400%.</li></ul></section>
+<section aria-labelledby="refs"><h2 id="refs">Reference files</h2><ul><li><a href="https://github.com/dawidolko/frontend-skills/blob/main/skills/accessibility/fe-a11y-core/references/wcag-map.md"><code>references/wcag-map.md</code></a> · 2711 tokens</li></ul></section>
+<section aria-labelledby="agents"><h2 id="agents">Written for</h2>
+<p>every agent the project uses: Claude Code, OpenAI Codex, Cursor, GitHub Copilot, Gemini CLI, Antigravity CLI, Devin / Windsurf, OpenCode, Cline, Zed, JetBrains Junie, Kiro, Augment, Trae, Continue, Amazon Q Developer, Aider.</p>
+<p>Agents that also get a rule file scoped to these files: Claude Code, Cursor, GitHub Copilot, Antigravity CLI, Devin / Windsurf, Cline, Kiro, Trae, Continue.</p></section>
+</div>
+<aside class="facts" aria-labelledby="facts-title">
+<h2 id="facts-title">Facts</h2>
+<dl><dt>Name</dt><dd><code>fe-a11y-core</code></dd><dt>Area</dt><dd>Accessibility</dd><dt>Installed when the project uses</dt><dd>every web project</dd><dt>Files it is about</dt><dd><code>**/*.html</code> <code>**/*.jsx</code> <code>**/*.tsx</code> <code>**/*.vue</code> <code>**/*.svelte</code> <code>**/*.astro</code> <code>**/*.component.html</code></dd><dt>Token cost</dt><dd>92 tokens always loaded, 1097 tokens when used, 2711 tokens in references on demand.</dd></dl>
+<p><a href="https://github.com/dawidolko/frontend-skills/blob/main/skills/accessibility/fe-a11y-core/SKILL.md">SKILL.md on GitHub</a></p>
+<p><a href="/skills/">All skills</a></p>
+</aside>
+</div>
+</main>
+<footer class="site-footer">
+<div class="wrap footer-inner">
+<div class="footer-text">
+<p class="footer-brand"><svg class="brand-mark" viewBox="0 0 32 32" width="32" height="32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="8" fill="currentColor"/><path d="M12.5 10 7 16l5.5 6M19.5 10 25 16l-5.5 6" fill="none" stroke="var(--logo-ink)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Frontend Skills</span></p>
+<p>Free and open source under the MIT licence, made by <a href="https://dawidolko.pl">Dawid Olko</a>.</p>
+<p>Built to WCAG 2.2 AA as a target. Automated checks find only part of the problems.</p>
+<p>No cookies, no analytics, no third-party requests. The accessibility button keeps its settings on your device.</p>
+</div>
+<nav aria-label="More"><ul class="footer-nav"><li><a href="/">Home</a></li><li><a href="/how-it-works/">How it works</a></li><li><a href="/rules/">Rules</a></li><li><a href="/skills/">Skills</a></li><li><a href="/commands/">Commands</a></li><li><a href="/faq/">FAQ</a></li><li><a href="/about/">About</a></li><li><a href="https://github.com/dawidolko/frontend-skills">GitHub</a></li></ul></nav>
+</div>
+</footer>
+<p id="live-status" class="visually-hidden" role="status" aria-live="polite"></p>
+</body>
+</html>

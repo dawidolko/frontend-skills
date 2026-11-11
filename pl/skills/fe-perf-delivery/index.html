@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JavaScript, CSS and asset delivery (fe-perf-delivery) · Frontend Skills</title>
+<meta name="description" content="Ships less and earlier - JavaScript and CSS delivery, code splitting, hydration cost, third-party scripts and facades, resource hints, caching headers and…">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#faf7fc" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0d0d0f" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://skills.dawidolko.pl/pl/skills/fe-perf-delivery/">
+<link rel="alternate" hreflang="en" href="https://skills.dawidolko.pl/skills/fe-perf-delivery/">
+<link rel="alternate" hreflang="pl" href="https://skills.dawidolko.pl/pl/skills/fe-perf-delivery/">
+<link rel="alternate" hreflang="x-default" href="https://skills.dawidolko.pl/skills/fe-perf-delivery/">
+<link rel="preload" href="/assets/fonts/opensans-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/styles.css?v=fbc2d7ae26">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Frontend Skills">
+<meta property="og:title" content="JavaScript, CSS and asset delivery (fe-perf-delivery)">
+<meta property="og:description" content="Ships less and earlier - JavaScript and CSS delivery, code splitting, hydration cost, third-party scripts and facades, resource hints, caching headers and…">
+<meta property="og:url" content="https://skills.dawidolko.pl/pl/skills/fe-perf-delivery/">
+<meta property="og:image" content="https://skills.dawidolko.pl/og-pl.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Frontend Skills: jedno polecenie, które dopasowuje skille front-endowe do Twojego projektu i każdego agenta, którego używasz.">
+<meta property="og:locale" content="pl_PL">
+<meta property="og:locale:alternate" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="author" content="Dawid Olko">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Start","item":"https://skills.dawidolko.pl/pl/"},{"@type":"ListItem","position":2,"name":"Skille","item":"https://skills.dawidolko.pl/pl/skills/"},{"@type":"ListItem","position":3,"name":"JavaScript, CSS and asset delivery","item":"https://skills.dawidolko.pl/pl/skills/fe-perf-delivery/"}]}</script>
+<script src="/assets/site.js?v=dd8cab0a79" defer></script>
+<script src="/a11y/a11y-panel.js?v=39d6e82235" data-accent="#9b00c2" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Przejdź do treści</a>
+<header class="site-header">
+<div class="wrap header-inner">
+<a class="brand" href="/pl/"><svg class="brand-mark" viewBox="0 0 32 32" width="32" height="32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="8" fill="currentColor"/><path d="M12.5 10 7 16l5.5 6M19.5 10 25 16l-5.5 6" fill="none" stroke="var(--logo-ink)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="brand-name">Frontend Skills</span></a>
+<nav class="main-nav" aria-label="Główna"><ul><li><a href="/pl/how-it-works/">Jak to działa</a></li><li><a href="/pl/rules/">Reguły</a></li><li><a href="/pl/skills/" class="is-section">Skille</a></li><li><a href="/pl/commands/">Polecenia</a></li><li><a href="/pl/faq/">Pytania</a></li></ul></nav>
+<div class="header-tools">
+<a class="lang-switch" href="/skills/fe-perf-delivery/" hreflang="en" lang="en" title="This page in English">English</a>
+<a class="gh-link" href="https://github.com/dawidolko/frontend-skills" aria-label="Kod źródłowy na GitHubie"><svg viewBox="0 0 16 16" width="20" height="20" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg></a>
+</div>
+</div>
+</header>
+<main id="main" tabindex="-1">
+<div class="page-head"><div class="wrap">
+<nav class="breadcrumb" aria-label="Ścieżka nawigacji"><ol><li><a href="/pl/">Start</a></li><li><a href="/pl/skills/">Skille</a></li><li><span aria-current="page">JavaScript, CSS and asset delivery</span></li></ol></nav>
+<h1>JavaScript, CSS and asset delivery</h1>
+<p class="lead">Ships less and earlier - JavaScript and CSS delivery, code splitting, hydration cost, third-party scripts and facades, resource hints, caching headers and modern browser targets - in any stack. Use when a bundle is large, a page loads many scripts, adding analytics, a widget or a dependency, setting cache headers, or when asked &quot;why is this page heavy&quot; or &quot;reduce JavaScript&quot;.</p>
+</div></div>
+<div class="wrap rule-layout">
+<div class="prose">
+<section aria-labelledby="rules"><h2 id="rules">Reguły, których uczy</h2>
+<ul class="rule-list compact"><li class="rule-item"><a class="rule-id" href="/pl/rules/perf/render-blocking-script/"><code>perf/render-blocking-script</code></a><p class="rule-title">A script in the head loads with defer, async or type=&quot;module&quot;, never as a plain blocking script.</p><p class="rule-meta"><span class="sev sev-moderate">umiarkowana</span> <span class="tag tag-static">statyczne</span></p></li><li class="rule-item"><a class="rule-id" href="/pl/rules/perf/third-party-async/"><code>perf/third-party-async</code></a><p class="rule-title">Third-party scripts load with async or defer (or a framework strategy such as lazyOnload), never as parser-blocking tags.</p><p class="rule-meta"><span class="sev sev-moderate">umiarkowana</span> <span class="tag tag-static">statyczne</span></p></li><li class="rule-item"><a class="rule-id" href="/pl/rules/perf/css-no-import/"><code>perf/css-no-import</code></a><p class="rule-title">Shipped CSS does not chain stylesheets with @import; link them in the HTML or combine them in a build.</p><p class="rule-meta"><span class="sev sev-moderate">umiarkowana</span> <span class="tag tag-static">statyczne</span></p></li><li class="rule-item"><a class="rule-id" href="/pl/rules/perf/no-whole-library-import/"><code>perf/no-whole-library-import</code></a><p class="rule-title">Client code does not import all of lodash or moment; use lodash-es, per-method imports, Intl or the platform.</p><p class="rule-meta"><span class="sev sev-moderate">umiarkowana</span> <span class="tag tag-static">statyczne</span></p></li><li class="rule-item"><a class="rule-id" href="/pl/rules/perf/code-split/"><code>perf/code-split</code></a><p class="rule-title">JavaScript is split by route, and features that most visits do not use load on demand with dynamic import().</p><p class="rule-meta"><span class="sev sev-moderate">umiarkowana</span> <span class="tag tag-browser">w przeglądarce</span></p></li><li class="rule-item"><a class="rule-id" href="/pl/rules/perf/third-party-cost/"><code>perf/third-party-cost</code></a><p class="rule-title">Each third-party script earns its place, loads late, and heavy embeds (video, maps, chat) start as a lightweight facade.</p><p class="rule-meta"><span class="sev sev-moderate">umiarkowana</span> <span class="tag tag-browser">w przeglądarce</span></p></li><li class="rule-item"><a class="rule-id" href="/pl/rules/perf/cache-static-assets/"><code>perf/cache-static-assets</code></a><p class="rule-title">Content-hashed assets are cached for a year as immutable; HTML is revalidated (no-cache), never cached long.</p><p class="rule-meta"><span class="sev sev-moderate">umiarkowana</span> <span class="tag tag-browser">w przeglądarce</span></p></li><li class="rule-item"><a class="rule-id" href="/pl/rules/perf/no-legacy-javascript/"><code>perf/no-legacy-javascript</code></a><p class="rule-title">Do not ship polyfills and down-level transforms for features your target browsers already support; declare targets once.</p><p class="rule-meta"><span class="sev sev-minor">drobna</span> <span class="tag tag-browser">w przeglądarce</span></p></li></ul></section>
+<section aria-labelledby="digest"><h2 id="digest">Skrót reguł</h2><p>Ta część jest kopiowana do zawężonego pliku reguł każdego agenta, więc musi być zrozumiała sama w sobie:</p><div class="digest"><ul><li>Head scripts use <code>defer</code> or <code>type=&quot;module&quot;</code>; third-party scripts use <code>async</code>, <code>defer</code> or a framework strategy (<a href="/pl/rules/perf/render-blocking-script/">perf/render-blocking-script</a>, <a href="/pl/rules/perf/third-party-async/">perf/third-party-async</a>).</li><li>Shipped CSS never chains files with <code>@import</code>; link them or bundle them (<a href="/pl/rules/perf/css-no-import/">perf/css-no-import</a>).</li><li>Never import all of <code>lodash</code> or <code>moment</code> in client code; use <code>lodash-es</code>, per-method paths or <code>Intl</code> (<a href="/pl/rules/perf/no-whole-library-import/">perf/no-whole-library-import</a>).</li><li>Split by route and load rare features with <code>import()</code> (<a href="/pl/rules/perf/code-split/">perf/code-split</a>).</li><li>Each third party has an owner and a reason, loads late, and heavy embeds start as a facade (<a href="/pl/rules/perf/third-party-cost/">perf/third-party-cost</a>).</li><li>Hashed assets are cached a year as <code>immutable</code>; HTML is <code>no-cache</code> (<a href="/pl/rules/perf/cache-static-assets/">perf/cache-static-assets</a>).</li><li>Declare browser targets once; no blanket polyfills for Baseline features (<a href="/pl/rules/perf/no-legacy-javascript/">perf/no-legacy-javascript</a>).</li><li>Hydrate only what is interactive: server-render static parts, use islands or server components.</li><li>Preconnect to at most two or three critical origins; preload only late-discovered critical files.</li><li>Before adding a dependency, check its size and whether the platform already does it.</li></ul></div></section>
+<section aria-labelledby="do"><h2 id="do">Kroki, które wykonuje agent</h2><ol><li>Measure first: the build's bundle report (<code>rollup-plugin-visualizer</code>, <code>@next/bundle-analyzer</code>, Lighthouse treemap) and the network panel on a throttled mobile profile.</li><li>Remove before you optimise: unused dependencies, duplicate libraries, dead routes, polyfills for old browsers.</li><li>Move work off the critical path: <code>defer</code> scripts, lazy routes and dialogs, <code>client:visible</code> or <code>@defer</code> for below-the-fold widgets.</li><li>Shrink what stays: tree-shakable imports, modern targets, Brotli compression on the host, small critical CSS.</li><li>Set caching once in the host configuration, and verify the response headers of a deployed page.</li></ol></section>
+<section aria-labelledby="check"><h2 id="check">Jak agent sprawdza swoją pracę</h2><ul><li><code>npx github:dawidolko/frontend-skills audit --changed</code> finds blocking head and third-party scripts, CSS <code>@import</code> chains in plain sites and whole-library imports.</li><li><code>audit --url &lt;page&gt;</code> maps Lighthouse's unused JavaScript, third parties, cache lifetimes and legacy JavaScript results to these rule ids.</li><li>By hand: compare the bundle report before and after a change; a new dependency over ~20 kB gzip needs a reason in the pull request.</li></ul></section>
+<section aria-labelledby="refs"><h2 id="refs">Pliki referencyjne</h2><ul><li><a href="https://github.com/dawidolko/frontend-skills/blob/main/skills/performance/fe-perf-delivery/references/delivery.md"><code>references/delivery.md</code></a> · 1431 tokenów</li></ul></section>
+<section aria-labelledby="agents"><h2 id="agents">Pisany dla</h2>
+<p>każdego agenta używanego w projekcie: Claude Code, OpenAI Codex, Cursor, GitHub Copilot, Gemini CLI, Antigravity CLI, Devin / Windsurf, OpenCode, Cline, Zed, JetBrains Junie, Kiro, Augment, Trae, Continue, Amazon Q Developer, Aider.</p>
+<p>Agenci, którzy dostają też plik reguł zawężony do tych plików: Claude Code, Cursor, GitHub Copilot, Antigravity CLI, Devin / Windsurf, Cline, Kiro, Trae, Continue.</p></section>
+</div>
+<aside class="facts" aria-labelledby="facts-title">
+<h2 id="facts-title">Fakty</h2>
+<dl><dt>Nazwa</dt><dd><code>fe-perf-delivery</code></dd><dt>Obszar</dt><dd>Wydajność</dd><dt>Instalowany, gdy projekt używa</dt><dd>każdego projektu webowego</dd><dt>Pliki, których dotyczy</dt><dd><code>**/*.html</code> <code>**/*.jsx</code> <code>**/*.tsx</code> <code>**/*.js</code> <code>**/*.vue</code> <code>**/*.svelte</code> <code>**/*.astro</code> <code>**/*.css</code></dd><dt>Koszt w tokenach</dt><dd>ładowane zawsze: 81 tokenów; przy użyciu: 837 tokenów; w referencjach na żądanie: 1431 tokenów.</dd></dl>
+<p><a href="https://github.com/dawidolko/frontend-skills/blob/main/skills/performance/fe-perf-delivery/SKILL.md">SKILL.md na GitHubie</a></p>
+<p><a href="/pl/skills/">Wszystkie skille</a></p>
+</aside>
+</div>
+</main>
+<footer class="site-footer">
+<div class="wrap footer-inner">
+<div class="footer-text">
+<p class="footer-brand"><svg class="brand-mark" viewBox="0 0 32 32" width="32" height="32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="8" fill="currentColor"/><path d="M12.5 10 7 16l5.5 6M19.5 10 25 16l-5.5 6" fill="none" stroke="var(--logo-ink)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Frontend Skills</span></p>
+<p>Darmowy i otwarty, na licencji MIT. Autor: <a href="https://dawidolko.pl">Dawid Olko</a>.</p>
+<p>Budowana z WCAG 2.2 AA jako celem. Automatyczne testy wykrywają tylko część problemów.</p>
+<p>Bez ciasteczek, bez analityki, bez zapytań do innych serwisów. Przycisk dostępności zapisuje ustawienia tylko na Twoim urządzeniu.</p>
+</div>
+<nav aria-label="Więcej"><ul class="footer-nav"><li><a href="/pl/">Start</a></li><li><a href="/pl/how-it-works/">Jak to działa</a></li><li><a href="/pl/rules/">Reguły</a></li><li><a href="/pl/skills/">Skille</a></li><li><a href="/pl/commands/">Polecenia</a></li><li><a href="/pl/faq/">Pytania</a></li><li><a href="/pl/about/">O projekcie</a></li><li><a href="https://github.com/dawidolko/frontend-skills">GitHub</a></li></ul></nav>
+</div>
+</footer>
+<p id="live-status" class="visually-hidden" role="status" aria-live="polite"></p>
+</body>
+</html>

@@ -51,12 +51,12 @@
 <div class="wrap">
 <form class="filters" id="rule-filters" role="search" aria-label="Filter the rules" data-index="/rules/index.json" data-count="{shown} of {total} rules shown." data-count-all="{total} rules." hidden>
 <div class="field field-search"><label for="f-q">Search</label><input id="f-q" name="q" type="search" autocomplete="off" spellcheck="false" aria-describedby="f-q-hint"><p class="hint" id="f-q-hint">Id, words of the title, WCAG criterion or skill</p></div>
-<div class="field"><label for="f-area">Area</label><select id="f-area" name="area"><option value="">All</option><option value="html">HTML</option><option value="css">CSS</option><option value="responsive">Responsive layout</option><option value="a11y">Accessibility</option><option value="perf">Performance</option><option value="js">JavaScript</option><option value="ts">TypeScript</option><option value="react">React</option><option value="next">Next.js</option><option value="vue">Vue</option><option value="nuxt">Nuxt</option><option value="angular">Angular</option><option value="svelte">Svelte</option><option value="astro">Astro</option><option value="webc">Web Components</option><option value="tailwind">Tailwind CSS</option><option value="sass">Sass</option><option value="state">State</option></select></div>
+<div class="field"><label for="f-area">Area</label><select id="f-area" name="area"><option value="">All</option><option value="html">HTML</option><option value="css">CSS</option><option value="responsive">Responsive layout</option><option value="a11y">Accessibility</option><option value="perf">Performance</option><option value="seo">SEO</option><option value="i18n">Internationalisation</option><option value="security">Security</option><option value="js">JavaScript</option><option value="ts">TypeScript</option><option value="test">Testing</option><option value="tooling">Tooling</option><option value="react">React</option><option value="next">Next.js</option><option value="vue">Vue</option><option value="nuxt">Nuxt</option><option value="angular">Angular</option><option value="svelte">Svelte</option><option value="astro">Astro</option><option value="webc">Web Components</option><option value="tailwind">Tailwind CSS</option><option value="sass">Sass</option><option value="state">State</option></select></div>
 <div class="field"><label for="f-severity">Severity</label><select id="f-severity" name="severity"><option value="">All</option><option value="critical">critical</option><option value="serious">serious</option><option value="moderate">moderate</option><option value="minor">minor</option></select></div>
 <div class="field"><label for="f-check">Check</label><select id="f-check" name="check"><option value="">All</option><option value="static">static</option><option value="browser">browser</option><option value="manual">manual</option></select></div>
 <div class="field field-reset"><button type="reset" class="button button-ghost">Clear the filters</button></div>
 </form>
-<p class="rule-count" id="rule-count">176 rules.</p>
+<p class="rule-count" id="rule-count">275 rules.</p>
 <p class="empty" id="rule-empty" hidden>No rule matches these filters.</p>
 <section class="rule-group" data-area="html" aria-labelledby="area-html">
 <h2 id="area-html">HTML <span class="count">11 rules</span></h2>
@@ -273,26 +273,116 @@
 </li></ul>
 </section>
 <section class="rule-group" data-area="a11y" aria-labelledby="area-a11y">
-<h2 id="area-a11y">Accessibility <span class="count">10 rules</span></h2>
-<ul class="rule-list"><li class="rule-item" data-id="a11y/autocomplete-valid" data-area="a11y" data-severity="serious" data-check="static">
+<h2 id="area-a11y">Accessibility <span class="count">58 rules</span></h2>
+<ul class="rule-list"><li class="rule-item" data-id="a11y/accordion-header" data-area="a11y" data-severity="moderate" data-check="manual">
+<a class="rule-id" href="/rules/a11y/accordion-header/"><code>a11y/accordion-header</code></a>
+<p class="rule-title">Each accordion header is a button with aria-expanded inside a heading of the right level; or use details and summary.</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-manual">manual</span> <span class="tag">WCAG 1.3.1, 4.1.2 A</span></p>
+</li>
+<li class="rule-item" data-id="a11y/aria-hidden-focusable" data-area="a11y" data-severity="serious" data-check="static">
+<a class="rule-id" href="/rules/a11y/aria-hidden-focusable/"><code>a11y/aria-hidden-focusable</code></a>
+<p class="rule-title">aria-hidden=&quot;true&quot; is never on a focusable element or on an element that contains one.</p>
+<p class="rule-meta"><span class="sev sev-serious">serious</span> <span class="tag tag-static">static</span> <span class="tag">WCAG 4.1.2 A</span></p>
+</li>
+<li class="rule-item" data-id="a11y/aria-label-generic" data-area="a11y" data-severity="serious" data-check="static">
+<a class="rule-id" href="/rules/a11y/aria-label-generic/"><code>a11y/aria-label-generic</code></a>
+<p class="rule-title">aria-label and aria-labelledby go on controls, landmarks and named roles, never on a plain div, span or p.</p>
+<p class="rule-meta"><span class="sev sev-serious">serious</span> <span class="tag tag-static">static</span> <span class="tag">WCAG 4.1.2 A</span></p>
+</li>
+<li class="rule-item" data-id="a11y/aria-ref-exists" data-area="a11y" data-severity="serious" data-check="static">
+<a class="rule-id" href="/rules/a11y/aria-ref-exists/"><code>a11y/aria-ref-exists</code></a>
+<p class="rule-title">Ids named in aria-labelledby, aria-describedby and aria-errormessage exist in the page and are unique.</p>
+<p class="rule-meta"><span class="sev sev-serious">serious</span> <span class="tag tag-static">static</span> <span class="tag">WCAG 1.3.1, 4.1.2 A</span></p>
+</li>
+<li class="rule-item" data-id="a11y/aria-valid" data-area="a11y" data-severity="serious" data-check="static">
+<a class="rule-id" href="/rules/a11y/aria-valid/"><code>a11y/aria-valid</code></a>
+<p class="rule-title">Every role value is a real WAI-ARIA role and every aria-* attribute name exists (aria-labelledby, not aria-labeledby).</p>
+<p class="rule-meta"><span class="sev sev-serious">serious</span> <span class="tag tag-static">static</span> <span class="tag">WCAG 4.1.2 A</span></p>
+</li>
+<li class="rule-item" data-id="a11y/autocomplete-valid" data-area="a11y" data-severity="serious" data-check="static">
 <a class="rule-id" href="/rules/a11y/autocomplete-valid/"><code>a11y/autocomplete-valid</code></a>
 <p class="rule-title">An autocomplete attribute holds only tokens the HTML standard defines (email, given-name, new-password…).</p>
 <p class="rule-meta"><span class="sev sev-serious">serious</span> <span class="tag tag-static">static</span> <span class="tag">WCAG 1.3.5 AA</span></p>
+</li>
+<li class="rule-item" data-id="a11y/carousel-controls" data-area="a11y" data-severity="serious" data-check="manual">
+<a class="rule-id" href="/rules/a11y/carousel-controls/"><code>a11y/carousel-controls</code></a>
+<p class="rule-title">A carousel has named previous and next buttons, a pause button first in its Tab order when it rotates, and stops on hover and focus.</p>
+<p class="rule-meta"><span class="sev sev-serious">serious</span> <span class="tag tag-manual">manual</span> <span class="tag">WCAG 2.2.2, 4.1.2 A</span></p>
+</li>
+<li class="rule-item" data-id="a11y/color-contrast" data-area="a11y" data-severity="serious" data-check="browser">
+<a class="rule-id" href="/rules/a11y/color-contrast/"><code>a11y/color-contrast</code></a>
+<p class="rule-title">Text has a contrast ratio of at least 4.5:1 with its background; large text (24px, or 18.5px bold) at least 3:1.</p>
+<p class="rule-meta"><span class="sev sev-serious">serious</span> <span class="tag tag-browser">browser</span> <span class="tag">WCAG 1.4.3 AA</span></p>
+</li>
+<li class="rule-item" data-id="a11y/combobox-keyboard" data-area="a11y" data-severity="serious" data-check="manual">
+<a class="rule-id" href="/rules/a11y/combobox-keyboard/"><code>a11y/combobox-keyboard</code></a>
+<p class="rule-title">A combobox keeps focus in the input, marks the highlighted option with aria-activedescendant and supports Down, Up, Enter and Escape.</p>
+<p class="rule-meta"><span class="sev sev-serious">serious</span> <span class="tag tag-manual">manual</span> <span class="tag">WCAG 2.1.1, 4.1.2 A</span></p>
+</li>
+<li class="rule-item" data-id="a11y/combobox-on-input" data-area="a11y" data-severity="serious" data-check="static">
+<a class="rule-id" href="/rules/a11y/combobox-on-input/"><code>a11y/combobox-on-input</code></a>
+<p class="rule-title">role=&quot;combobox&quot; sits on the input itself (ARIA 1.2), not on a wrapper element that contains the input.</p>
+<p class="rule-meta"><span class="sev sev-serious">serious</span> <span class="tag tag-static">static</span> <span class="tag">WCAG 4.1.2 A</span></p>
+</li>
+<li class="rule-item" data-id="a11y/control-name" data-area="a11y" data-severity="critical" data-check="static">
+<a class="rule-id" href="/rules/a11y/control-name/"><code>a11y/control-name</code></a>
+<p class="rule-title">Every button and link has an accessible name; icon-only controls get visually hidden text or aria-label.</p>
+<p class="rule-meta"><span class="sev sev-critical">critical</span> <span class="tag tag-static">static</span> <span class="tag">WCAG 4.1.2, 2.4.4 A</span></p>
+</li>
+<li class="rule-item" data-id="a11y/dialog-focus" data-area="a11y" data-severity="serious" data-check="manual">
+<a class="rule-id" href="/rules/a11y/dialog-focus/"><code>a11y/dialog-focus</code></a>
+<p class="rule-title">A modal moves focus inside on open, keeps Tab inside, closes on Escape, and returns focus to the control that opened it.</p>
+<p class="rule-meta"><span class="sev sev-serious">serious</span> <span class="tag tag-manual">manual</span> <span class="tag">WCAG 2.4.3, 2.1.2 A</span></p>
+</li>
+<li class="rule-item" data-id="a11y/dialog-name" data-area="a11y" data-severity="serious" data-check="static">
+<a class="rule-id" href="/rules/a11y/dialog-name/"><code>a11y/dialog-name</code></a>
+<p class="rule-title">Every dialog has an accessible name, usually aria-labelledby pointing at its visible heading.</p>
+<p class="rule-meta"><span class="sev sev-serious">serious</span> <span class="tag tag-static">static</span> <span class="tag">WCAG 4.1.2 A</span></p>
+</li>
+<li class="rule-item" data-id="a11y/dialog-native" data-area="a11y" data-severity="minor" data-check="static">
+<a class="rule-id" href="/rules/a11y/dialog-native/"><code>a11y/dialog-native</code></a>
+<p class="rule-title">Build dialogs on the native &lt;dialog&gt; element opened with showModal() rather than a div with role=&quot;dialog&quot;.</p>
+<p class="rule-meta"><span class="sev sev-minor">minor</span> <span class="tag tag-static">static</span> <span class="tag">WCAG 2.4.3, 4.1.2 A</span></p>
+</li>
+<li class="rule-item" data-id="a11y/focus-not-obscured" data-area="a11y" data-severity="serious" data-check="manual">
+<a class="rule-id" href="/rules/a11y/focus-not-obscured/"><code>a11y/focus-not-obscured</code></a>
+<p class="rule-title">Sticky headers, footers, cookie banners and chat widgets never fully cover the element that has keyboard focus.</p>
+<p class="rule-meta"><span class="sev sev-serious">serious</span> <span class="tag tag-manual">manual</span> <span class="tag">WCAG 2.4.11 AA</span></p>
+</li>
+<li class="rule-item" data-id="a11y/focus-route-change" data-area="a11y" data-severity="moderate" data-check="manual">
+<a class="rule-id" href="/rules/a11y/focus-route-change/"><code>a11y/focus-route-change</code></a>
+<p class="rule-title">After a client-side route change, focus moves to the new page's heading or main region and the new title is announced.</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-manual">manual</span> <span class="tag">WCAG 2.4.3, 4.1.3 A</span></p>
 </li>
 <li class="rule-item" data-id="a11y/focus-visible" data-area="a11y" data-severity="serious" data-check="static">
 <a class="rule-id" href="/rules/a11y/focus-visible/"><code>a11y/focus-visible</code></a>
 <p class="rule-title">Never remove the focus outline without drawing a visible replacement for keyboard focus.</p>
 <p class="rule-meta"><span class="sev sev-serious">serious</span> <span class="tag tag-static">static</span> <span class="tag">WCAG 2.4.7 AA</span></p>
 </li>
+<li class="rule-item" data-id="a11y/font-size-relative" data-area="a11y" data-severity="minor" data-check="static">
+<a class="rule-id" href="/rules/a11y/font-size-relative/"><code>a11y/font-size-relative</code></a>
+<p class="rule-title">The root font size is not set in pixels, so text follows the reader's default size; use rem for type.</p>
+<p class="rule-meta"><span class="sev sev-minor">minor</span> <span class="tag tag-static">static</span> <span class="tag">WCAG 1.4.4 AA</span></p>
+</li>
 <li class="rule-item" data-id="a11y/form-errors" data-area="a11y" data-severity="serious" data-check="manual">
 <a class="rule-id" href="/rules/a11y/form-errors/"><code>a11y/form-errors</code></a>
 <p class="rule-title">An input error is shown in text next to the field, tied to it with aria-describedby, and says how to fix it.</p>
 <p class="rule-meta"><span class="sev sev-serious">serious</span> <span class="tag tag-manual">manual</span> <span class="tag">WCAG 3.3.1, 3.3.3, 4.1.3 AA</span></p>
 </li>
+<li class="rule-item" data-id="a11y/hover-content-dismissible" data-area="a11y" data-severity="moderate" data-check="manual">
+<a class="rule-id" href="/rules/a11y/hover-content-dismissible/"><code>a11y/hover-content-dismissible</code></a>
+<p class="rule-title">Tooltips and popups shown on hover or focus close with Escape, stay while the pointer moves onto them, and do not vanish on a timer.</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-manual">manual</span> <span class="tag">WCAG 1.4.13 AA</span></p>
+</li>
 <li class="rule-item" data-id="a11y/html-lang" data-area="a11y" data-severity="serious" data-check="static">
 <a class="rule-id" href="/rules/a11y/html-lang/"><code>a11y/html-lang</code></a>
 <p class="rule-title">The html element names the language of the page in a non-empty lang attribute.</p>
 <p class="rule-meta"><span class="sev sev-serious">serious</span> <span class="tag tag-static">static</span> <span class="tag">WCAG 3.1.1 A</span></p>
+</li>
+<li class="rule-item" data-id="a11y/iframe-title" data-area="a11y" data-severity="serious" data-check="static">
+<a class="rule-id" href="/rules/a11y/iframe-title/"><code>a11y/iframe-title</code></a>
+<p class="rule-title">Every visible iframe has a title that says what it contains (map, video, payment form).</p>
+<p class="rule-meta"><span class="sev sev-serious">serious</span> <span class="tag tag-static">static</span> <span class="tag">WCAG 4.1.2 A</span></p>
 </li>
 <li class="rule-item" data-id="a11y/img-alt" data-area="a11y" data-severity="critical" data-check="static">
 <a class="rule-id" href="/rules/a11y/img-alt/"><code>a11y/img-alt</code></a>
@@ -304,20 +394,170 @@
 <p class="rule-title">Every form field has a programmatic label (label element, aria-label or aria-labelledby); a placeholder is not a label.</p>
 <p class="rule-meta"><span class="sev sev-critical">critical</span> <span class="tag tag-static">static</span> <span class="tag">WCAG 1.3.1, 3.3.2, 4.1.2 A</span></p>
 </li>
+<li class="rule-item" data-id="a11y/landmarks" data-area="a11y" data-severity="moderate" data-check="browser">
+<a class="rule-id" href="/rules/a11y/landmarks/"><code>a11y/landmarks</code></a>
+<p class="rule-title">Each page has one main landmark, all content sits inside landmarks, and repeated landmarks of a kind have distinct labels.</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-browser">browser</span> <span class="tag">WCAG 1.3.1, 2.4.1 A</span></p>
+</li>
+<li class="rule-item" data-id="a11y/lang-valid" data-area="a11y" data-severity="serious" data-check="static">
+<a class="rule-id" href="/rules/a11y/lang-valid/"><code>a11y/lang-valid</code></a>
+<p class="rule-title">Every lang value is a valid BCP 47 language tag (&quot;en&quot;, &quot;en-GB&quot;, &quot;pl&quot;), never &quot;en_US&quot; or a language name.</p>
+<p class="rule-meta"><span class="sev sev-serious">serious</span> <span class="tag tag-static">static</span> <span class="tag">WCAG 3.1.1, 3.1.2 AA</span></p>
+</li>
+<li class="rule-item" data-id="a11y/link-is-link" data-area="a11y" data-severity="serious" data-check="static">
+<a class="rule-id" href="/rules/a11y/link-is-link/"><code>a11y/link-is-link</code></a>
+<p class="rule-title">An &lt;a&gt; is a real link with an href; an action is a &lt;button&gt;, never &lt;a&gt; without href, href=&quot;#&quot; or javascript:.</p>
+<p class="rule-meta"><span class="sev sev-serious">serious</span> <span class="tag tag-static">static</span> <span class="tag">WCAG 2.1.1, 4.1.2 A</span></p>
+</li>
+<li class="rule-item" data-id="a11y/media-alternative" data-area="a11y" data-severity="serious" data-check="manual">
+<a class="rule-id" href="/rules/a11y/media-alternative/"><code>a11y/media-alternative</code></a>
+<p class="rule-title">Recorded audio has a transcript; recorded video has audio description of what is only shown, or a full text alternative.</p>
+<p class="rule-meta"><span class="sev sev-serious">serious</span> <span class="tag tag-manual">manual</span> <span class="tag">WCAG 1.2.1, 1.2.3, 1.2.5 AA</span></p>
+</li>
+<li class="rule-item" data-id="a11y/menu-keyboard" data-area="a11y" data-severity="serious" data-check="manual">
+<a class="rule-id" href="/rules/a11y/menu-keyboard/"><code>a11y/menu-keyboard</code></a>
+<p class="rule-title">Menus implement their keys - arrows move between items, Enter activates, Escape closes and returns focus to the button.</p>
+<p class="rule-meta"><span class="sev sev-serious">serious</span> <span class="tag tag-manual">manual</span> <span class="tag">WCAG 2.1.1 A</span></p>
+</li>
+<li class="rule-item" data-id="a11y/menu-not-for-site-nav" data-area="a11y" data-severity="moderate" data-check="static">
+<a class="rule-id" href="/rules/a11y/menu-not-for-site-nav/"><code>a11y/menu-not-for-site-nav</code></a>
+<p class="rule-title">Site navigation is a nav with a list of links and disclosure buttons, not role=&quot;menu&quot; or role=&quot;menubar&quot;.</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-static">static</span> <span class="tag">WCAG 4.1.2 A</span></p>
+</li>
+<li class="rule-item" data-id="a11y/no-autoplay-audio" data-area="a11y" data-severity="moderate" data-check="static">
+<a class="rule-id" href="/rules/a11y/no-autoplay-audio/"><code>a11y/no-autoplay-audio</code></a>
+<p class="rule-title">No audio plays automatically; autoplaying video is muted, and any sound longer than 3 seconds can be paused or stopped.</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-static">static</span> <span class="tag">WCAG 1.4.2 A</span></p>
+</li>
 <li class="rule-item" data-id="a11y/no-click-on-static" data-area="a11y" data-severity="serious" data-check="static">
 <a class="rule-id" href="/rules/a11y/no-click-on-static/"><code>a11y/no-click-on-static</code></a>
 <p class="rule-title">A click handler belongs on a button or link; a static element with one also needs a role, tabindex and a key handler.</p>
 <p class="rule-meta"><span class="sev sev-serious">serious</span> <span class="tag tag-static">static</span> <span class="tag">WCAG 2.1.1, 4.1.2 A</span></p>
+</li>
+<li class="rule-item" data-id="a11y/no-color-only" data-area="a11y" data-severity="serious" data-check="browser">
+<a class="rule-id" href="/rules/a11y/no-color-only/"><code>a11y/no-color-only</code></a>
+<p class="rule-title">Colour is never the only cue; errors, states, links in text and chart series also differ by text, icon, shape or underline.</p>
+<p class="rule-meta"><span class="sev sev-serious">serious</span> <span class="tag tag-browser">browser</span> <span class="tag">WCAG 1.4.1 A</span></p>
+</li>
+<li class="rule-item" data-id="a11y/no-flash" data-area="a11y" data-severity="critical" data-check="manual">
+<a class="rule-id" href="/rules/a11y/no-flash/"><code>a11y/no-flash</code></a>
+<p class="rule-title">Nothing flashes more than three times in any one second, unless the flash is small and below the general and red thresholds.</p>
+<p class="rule-meta"><span class="sev sev-critical">critical</span> <span class="tag tag-manual">manual</span> <span class="tag">WCAG 2.3.1 A</span></p>
+</li>
+<li class="rule-item" data-id="a11y/no-keyboard-trap" data-area="a11y" data-severity="critical" data-check="manual">
+<a class="rule-id" href="/rules/a11y/no-keyboard-trap/"><code>a11y/no-keyboard-trap</code></a>
+<p class="rule-title">Keyboard focus can always leave a component with Tab, Shift+Tab or Escape; only an open modal keeps focus inside.</p>
+<p class="rule-meta"><span class="sev sev-critical">critical</span> <span class="tag tag-manual">manual</span> <span class="tag">WCAG 2.1.2 A</span></p>
+</li>
+<li class="rule-item" data-id="a11y/no-meta-refresh" data-area="a11y" data-severity="serious" data-check="static">
+<a class="rule-id" href="/rules/a11y/no-meta-refresh/"><code>a11y/no-meta-refresh</code></a>
+<p class="rule-title">No meta refresh reloads or redirects the page after a delay; redirect on the server or let people choose.</p>
+<p class="rule-meta"><span class="sev sev-serious">serious</span> <span class="tag tag-static">static</span> <span class="tag">WCAG 2.2.1 A</span></p>
+</li>
+<li class="rule-item" data-id="a11y/non-text-contrast" data-area="a11y" data-severity="serious" data-check="manual">
+<a class="rule-id" href="/rules/a11y/non-text-contrast/"><code>a11y/non-text-contrast</code></a>
+<p class="rule-title">Borders of fields, checkboxes, toggles, focus rings and meaningful icons have at least 3:1 contrast with their neighbours.</p>
+<p class="rule-meta"><span class="sev sev-serious">serious</span> <span class="tag tag-manual">manual</span> <span class="tag">WCAG 1.4.11 AA</span></p>
+</li>
+<li class="rule-item" data-id="a11y/option-no-interactive" data-area="a11y" data-severity="serious" data-check="static">
+<a class="rule-id" href="/rules/a11y/option-no-interactive/"><code>a11y/option-no-interactive</code></a>
+<p class="rule-title">Options in a listbox or combobox popup hold only text and images, never links, buttons or fields.</p>
+<p class="rule-meta"><span class="sev sev-serious">serious</span> <span class="tag tag-static">static</span> <span class="tag">WCAG 4.1.2 A</span></p>
 </li>
 <li class="rule-item" data-id="a11y/page-title" data-area="a11y" data-severity="serious" data-check="static">
 <a class="rule-id" href="/rules/a11y/page-title/"><code>a11y/page-title</code></a>
 <p class="rule-title">Every HTML document has a title element that says what the page is about.</p>
 <p class="rule-meta"><span class="sev sev-serious">serious</span> <span class="tag tag-static">static</span> <span class="tag">WCAG 2.4.2 A</span></p>
 </li>
+<li class="rule-item" data-id="a11y/pause-auto-motion" data-area="a11y" data-severity="serious" data-check="manual">
+<a class="rule-id" href="/rules/a11y/pause-auto-motion/"><code>a11y/pause-auto-motion</code></a>
+<p class="rule-title">Anything that moves, blinks, scrolls or updates by itself for more than 5 seconds has a visible pause or stop control.</p>
+<p class="rule-meta"><span class="sev sev-serious">serious</span> <span class="tag tag-manual">manual</span> <span class="tag">WCAG 2.2.2 A</span></p>
+</li>
+<li class="rule-item" data-id="a11y/popup-button-expanded" data-area="a11y" data-severity="serious" data-check="static">
+<a class="rule-id" href="/rules/a11y/popup-button-expanded/"><code>a11y/popup-button-expanded</code></a>
+<p class="rule-title">A control that opens a popup (aria-haspopup or role=&quot;combobox&quot;) has aria-expanded that follows the open state.</p>
+<p class="rule-meta"><span class="sev sev-serious">serious</span> <span class="tag tag-static">static</span> <span class="tag">WCAG 4.1.2 A</span></p>
+</li>
 <li class="rule-item" data-id="a11y/positive-tabindex" data-area="a11y" data-severity="serious" data-check="static">
 <a class="rule-id" href="/rules/a11y/positive-tabindex/"><code>a11y/positive-tabindex</code></a>
 <p class="rule-title">No element has a tabindex greater than 0; focus order follows the source order.</p>
 <p class="rule-meta"><span class="sev sev-serious">serious</span> <span class="tag tag-static">static</span> <span class="tag">WCAG 2.4.3 A</span></p>
+</li>
+<li class="rule-item" data-id="a11y/prefer-native-element" data-area="a11y" data-severity="minor" data-check="static">
+<a class="rule-id" href="/rules/a11y/prefer-native-element/"><code>a11y/prefer-native-element</code></a>
+<p class="rule-title">Use the native element instead of a role it already provides (button, a href, input, h1–h6, nav, main, ul, li).</p>
+<p class="rule-meta"><span class="sev sev-minor">minor</span> <span class="tag tag-static">static</span> <span class="tag">WCAG 4.1.2 A</span></p>
+</li>
+<li class="rule-item" data-id="a11y/reflow" data-area="a11y" data-severity="serious" data-check="manual">
+<a class="rule-id" href="/rules/a11y/reflow/"><code>a11y/reflow</code></a>
+<p class="rule-title">At 320 CSS pixels wide (400% zoom) content reflows into one column with no horizontal scrolling, except tables, maps and similar.</p>
+<p class="rule-meta"><span class="sev sev-serious">serious</span> <span class="tag tag-manual">manual</span> <span class="tag">WCAG 1.4.10 AA</span></p>
+</li>
+<li class="rule-item" data-id="a11y/scrollable-region-focusable" data-area="a11y" data-severity="serious" data-check="browser">
+<a class="rule-id" href="/rules/a11y/scrollable-region-focusable/"><code>a11y/scrollable-region-focusable</code></a>
+<p class="rule-title">A scrolling region with no focusable content inside can itself take focus (tabindex=&quot;0&quot;) and has a name.</p>
+<p class="rule-meta"><span class="sev sev-serious">serious</span> <span class="tag tag-browser">browser</span> <span class="tag">WCAG 2.1.1 A</span></p>
+</li>
+<li class="rule-item" data-id="a11y/skip-link" data-area="a11y" data-severity="moderate" data-check="browser">
+<a class="rule-id" href="/rules/a11y/skip-link/"><code>a11y/skip-link</code></a>
+<p class="rule-title">Pages with repeated header or navigation start with a &quot;Skip to main content&quot; link whose target exists and takes focus.</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-browser">browser</span> <span class="tag">WCAG 2.4.1 A</span></p>
+</li>
+<li class="rule-item" data-id="a11y/state-exposed" data-area="a11y" data-severity="serious" data-check="manual">
+<a class="rule-id" href="/rules/a11y/state-exposed/"><code>a11y/state-exposed</code></a>
+<p class="rule-title">Custom toggles, disclosures and selections expose their state (aria-expanded, aria-pressed, aria-checked, aria-selected).</p>
+<p class="rule-meta"><span class="sev sev-serious">serious</span> <span class="tag tag-manual">manual</span> <span class="tag">WCAG 4.1.2 A</span></p>
+</li>
+<li class="rule-item" data-id="a11y/status-message-live" data-area="a11y" data-severity="serious" data-check="manual">
+<a class="rule-id" href="/rules/a11y/status-message-live/"><code>a11y/status-message-live</code></a>
+<p class="rule-title">Messages that appear without moving focus (saved, results, errors, progress) are announced through a live region.</p>
+<p class="rule-meta"><span class="sev sev-serious">serious</span> <span class="tag tag-manual">manual</span> <span class="tag">WCAG 4.1.3 AA</span></p>
+</li>
+<li class="rule-item" data-id="a11y/table-caption" data-area="a11y" data-severity="minor" data-check="manual">
+<a class="rule-id" href="/rules/a11y/table-caption/"><code>a11y/table-caption</code></a>
+<p class="rule-title">A data table has a name, from a caption element or aria-labelledby pointing at the heading above it.</p>
+<p class="rule-meta"><span class="sev sev-minor">minor</span> <span class="tag tag-manual">manual</span> <span class="tag">WCAG 1.3.1 A</span></p>
+</li>
+<li class="rule-item" data-id="a11y/table-headers" data-area="a11y" data-severity="serious" data-check="static">
+<a class="rule-id" href="/rules/a11y/table-headers/"><code>a11y/table-headers</code></a>
+<p class="rule-title">Data tables mark their header cells with th (with scope when needed); layout tables carry role=&quot;presentation&quot;.</p>
+<p class="rule-meta"><span class="sev sev-serious">serious</span> <span class="tag tag-static">static</span> <span class="tag">WCAG 1.3.1 A</span></p>
+</li>
+<li class="rule-item" data-id="a11y/table-sort" data-area="a11y" data-severity="moderate" data-check="manual">
+<a class="rule-id" href="/rules/a11y/table-sort/"><code>a11y/table-sort</code></a>
+<p class="rule-title">Sortable columns use a button inside the th, and aria-sort only on the header of the column that is sorted.</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-manual">manual</span> <span class="tag">WCAG 2.1.1, 4.1.2 A</span></p>
+</li>
+<li class="rule-item" data-id="a11y/tabs-keyboard" data-area="a11y" data-severity="serious" data-check="manual">
+<a class="rule-id" href="/rules/a11y/tabs-keyboard/"><code>a11y/tabs-keyboard</code></a>
+<p class="rule-title">A tab list is one Tab stop; Left and Right Arrow (Up and Down when vertical), Home and End move between tabs.</p>
+<p class="rule-meta"><span class="sev sev-serious">serious</span> <span class="tag tag-manual">manual</span> <span class="tag">WCAG 2.1.1 A</span></p>
+</li>
+<li class="rule-item" data-id="a11y/tabs-selected" data-area="a11y" data-severity="serious" data-check="static">
+<a class="rule-id" href="/rules/a11y/tabs-selected/"><code>a11y/tabs-selected</code></a>
+<p class="rule-title">Every role=&quot;tab&quot; carries aria-selected, true on the active tab and false on the others.</p>
+<p class="rule-meta"><span class="sev sev-serious">serious</span> <span class="tag tag-static">static</span> <span class="tag">WCAG 4.1.2 A</span></p>
+</li>
+<li class="rule-item" data-id="a11y/target-size" data-area="a11y" data-severity="serious" data-check="browser">
+<a class="rule-id" href="/rules/a11y/target-size/"><code>a11y/target-size</code></a>
+<p class="rule-title">Pointer targets are at least 24 by 24 CSS pixels, or spaced so a 24px circle on each does not touch another target.</p>
+<p class="rule-meta"><span class="sev sev-serious">serious</span> <span class="tag tag-browser">browser</span> <span class="tag">WCAG 2.5.8 AA</span></p>
+</li>
+<li class="rule-item" data-id="a11y/text-spacing" data-area="a11y" data-severity="serious" data-check="browser">
+<a class="rule-id" href="/rules/a11y/text-spacing/"><code>a11y/text-spacing</code></a>
+<p class="rule-title">Text survives line height 1.5, paragraph spacing 2em, letter spacing 0.12em and word spacing 0.16em without being cut off.</p>
+<p class="rule-meta"><span class="sev sev-serious">serious</span> <span class="tag tag-browser">browser</span> <span class="tag">WCAG 1.4.12 AA</span></p>
+</li>
+<li class="rule-item" data-id="a11y/toast-timing" data-area="a11y" data-severity="moderate" data-check="manual">
+<a class="rule-id" href="/rules/a11y/toast-timing/"><code>a11y/toast-timing</code></a>
+<p class="rule-title">Toasts with actions or information the user needs do not disappear on a timer; others stay long enough and pause on hover and focus.</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-manual">manual</span> <span class="tag">WCAG 2.2.1, 4.1.3 A</span></p>
+</li>
+<li class="rule-item" data-id="a11y/video-captions" data-area="a11y" data-severity="critical" data-check="static">
+<a class="rule-id" href="/rules/a11y/video-captions/"><code>a11y/video-captions</code></a>
+<p class="rule-title">Recorded video with speech or meaningful sound has synchronised captions, for example a &lt;track kind=&quot;captions&quot;&gt;.</p>
+<p class="rule-meta"><span class="sev sev-critical">critical</span> <span class="tag tag-static">static</span> <span class="tag">WCAG 1.2.2 A</span></p>
 </li>
 <li class="rule-item" data-id="a11y/zoom-not-blocked" data-area="a11y" data-severity="critical" data-check="static">
 <a class="rule-id" href="/rules/a11y/zoom-not-blocked/"><code>a11y/zoom-not-blocked</code></a>
@@ -326,8 +566,33 @@
 </li></ul>
 </section>
 <section class="rule-group" data-area="perf" aria-labelledby="area-perf">
-<h2 id="area-perf">Performance <span class="count">12 rules</span></h2>
-<ul class="rule-list"><li class="rule-item" data-id="perf/font-display" data-area="perf" data-severity="minor" data-check="static">
+<h2 id="area-perf">Performance <span class="count">26 rules</span></h2>
+<ul class="rule-list"><li class="rule-item" data-id="perf/bfcache-no-unload" data-area="perf" data-severity="moderate" data-check="static">
+<a class="rule-id" href="/rules/perf/bfcache-no-unload/"><code>perf/bfcache-no-unload</code></a>
+<p class="rule-title">No code listens to the unload event; use pagehide or visibilitychange so the page can use the back/forward cache.</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="perf/cache-static-assets" data-area="perf" data-severity="moderate" data-check="browser">
+<a class="rule-id" href="/rules/perf/cache-static-assets/"><code>perf/cache-static-assets</code></a>
+<p class="rule-title">Content-hashed assets are cached for a year as immutable; HTML is revalidated (no-cache), never cached long.</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-browser">browser</span></p>
+</li>
+<li class="rule-item" data-id="perf/code-split" data-area="perf" data-severity="moderate" data-check="browser">
+<a class="rule-id" href="/rules/perf/code-split/"><code>perf/code-split</code></a>
+<p class="rule-title">JavaScript is split by route, and features that most visits do not use load on demand with dynamic import().</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-browser">browser</span></p>
+</li>
+<li class="rule-item" data-id="perf/css-no-import" data-area="perf" data-severity="moderate" data-check="static">
+<a class="rule-id" href="/rules/perf/css-no-import/"><code>perf/css-no-import</code></a>
+<p class="rule-title">Shipped CSS does not chain stylesheets with @import; link them in the HTML or combine them in a build.</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="perf/field-data-p75" data-area="perf" data-severity="minor" data-check="manual">
+<a class="rule-id" href="/rules/perf/field-data-p75/"><code>perf/field-data-p75</code></a>
+<p class="rule-title">Claims about Core Web Vitals come from field data at the 75th percentile, not from a Lighthouse score.</p>
+<p class="rule-meta"><span class="sev sev-minor">minor</span> <span class="tag tag-manual">manual</span></p>
+</li>
+<li class="rule-item" data-id="perf/font-display" data-area="perf" data-severity="minor" data-check="static">
 <a class="rule-id" href="/rules/perf/font-display/"><code>perf/font-display</code></a>
 <p class="rule-title">Every @font-face and Google Fonts URL sets font-display (swap or optional) so text is visible while the font loads.</p>
 <p class="rule-meta"><span class="sev sev-minor">minor</span> <span class="tag tag-static">static</span></p>
@@ -372,10 +637,40 @@
 <p class="rule-title">An image file in the source stays under the image budget (250 KB by default); larger ones are resized or re-encoded.</p>
 <p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-static">static</span></p>
 </li>
+<li class="rule-item" data-id="perf/layout-shift" data-area="perf" data-severity="moderate" data-check="browser">
+<a class="rule-id" href="/rules/perf/layout-shift/"><code>perf/layout-shift</code></a>
+<p class="rule-title">Nothing moves after it appears - space is reserved for images, embeds, ads and late content (CLS 0.1 or less).</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-browser">browser</span></p>
+</li>
+<li class="rule-item" data-id="perf/lcp-image" data-area="perf" data-severity="moderate" data-check="browser">
+<a class="rule-id" href="/rules/perf/lcp-image/"><code>perf/lcp-image</code></a>
+<p class="rule-title">The LCP image is in the initial HTML, not lazy, and has fetchpriority=&quot;high&quot;; a CSS background LCP image is preloaded.</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-browser">browser</span></p>
+</li>
+<li class="rule-item" data-id="perf/lcp-image-not-lazy" data-area="perf" data-severity="moderate" data-check="static">
+<a class="rule-id" href="/rules/perf/lcp-image-not-lazy/"><code>perf/lcp-image-not-lazy</code></a>
+<p class="rule-title">The image most likely to be the Largest Contentful Paint (hero, high priority) is never loading=&quot;lazy&quot;.</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-static">static</span></p>
+</li>
 <li class="rule-item" data-id="perf/lcp-image-priority" data-area="perf" data-severity="serious" data-check="static">
 <a class="rule-id" href="/rules/perf/lcp-image-priority/"><code>perf/lcp-image-priority</code></a>
 <p class="rule-title">The image that is likely the LCP element loads eagerly with fetchpriority high; it is never lazy-loaded.</p>
 <p class="rule-meta"><span class="sev sev-serious">serious</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="perf/lighthouse-ci" data-area="perf" data-severity="minor" data-check="manual">
+<a class="rule-id" href="/rules/perf/lighthouse-ci/"><code>perf/lighthouse-ci</code></a>
+<p class="rule-title">Lighthouse in CI runs each URL several times, asserts on metrics and categories with realistic thresholds, and never demands a perfect 100.</p>
+<p class="rule-meta"><span class="sev sev-minor">minor</span> <span class="tag tag-manual">manual</span></p>
+</li>
+<li class="rule-item" data-id="perf/no-legacy-javascript" data-area="perf" data-severity="minor" data-check="browser">
+<a class="rule-id" href="/rules/perf/no-legacy-javascript/"><code>perf/no-legacy-javascript</code></a>
+<p class="rule-title">Do not ship polyfills and down-level transforms for features your target browsers already support; declare targets once.</p>
+<p class="rule-meta"><span class="sev sev-minor">minor</span> <span class="tag tag-browser">browser</span></p>
+</li>
+<li class="rule-item" data-id="perf/no-whole-library-import" data-area="perf" data-severity="moderate" data-check="static">
+<a class="rule-id" href="/rules/perf/no-whole-library-import/"><code>perf/no-whole-library-import</code></a>
+<p class="rule-title">Client code does not import all of lodash or moment; use lodash-es, per-method imports, Intl or the platform.</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-static">static</span></p>
 </li>
 <li class="rule-item" data-id="perf/render-blocking-script" data-area="perf" data-severity="moderate" data-check="static">
 <a class="rule-id" href="/rules/perf/render-blocking-script/"><code>perf/render-blocking-script</code></a>
@@ -386,6 +681,155 @@
 <a class="rule-id" href="/rules/perf/srcset-sizes/"><code>perf/srcset-sizes</code></a>
 <p class="rule-title">A srcset with width descriptors (400w, 800w) comes with a sizes attribute that matches the image's displayed width.</p>
 <p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="perf/third-party-async" data-area="perf" data-severity="moderate" data-check="static">
+<a class="rule-id" href="/rules/perf/third-party-async/"><code>perf/third-party-async</code></a>
+<p class="rule-title">Third-party scripts load with async or defer (or a framework strategy such as lazyOnload), never as parser-blocking tags.</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="perf/third-party-cost" data-area="perf" data-severity="moderate" data-check="browser">
+<a class="rule-id" href="/rules/perf/third-party-cost/"><code>perf/third-party-cost</code></a>
+<p class="rule-title">Each third-party script earns its place, loads late, and heavy embeds (video, maps, chat) start as a lightweight facade.</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-browser">browser</span></p>
+</li>
+<li class="rule-item" data-id="perf/yield-long-tasks" data-area="perf" data-severity="moderate" data-check="manual">
+<a class="rule-id" href="/rules/perf/yield-long-tasks/"><code>perf/yield-long-tasks</code></a>
+<p class="rule-title">Main-thread work over 50 ms is split and yields, and event handlers do the visible update first (INP 200 ms or less).</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-manual">manual</span></p>
+</li></ul>
+</section>
+<section class="rule-group" data-area="seo" aria-labelledby="area-seo">
+<h2 id="area-seo">SEO <span class="count">9 rules</span></h2>
+<ul class="rule-list"><li class="rule-item" data-id="seo/canonical-valid" data-area="seo" data-severity="moderate" data-check="static">
+<a class="rule-id" href="/rules/seo/canonical-valid/"><code>seo/canonical-valid</code></a>
+<p class="rule-title">A page has at most one rel=&quot;canonical&quot;, in the head, with an absolute URL of an indexable page and no fragment.</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="seo/hreflang-valid" data-area="seo" data-severity="moderate" data-check="static">
+<a class="rule-id" href="/rules/seo/hreflang-valid/"><code>seo/hreflang-valid</code></a>
+<p class="rule-title">hreflang values are ISO 639-1 language codes with an optional script and ISO 3166-1 region (or x-default), linking absolute URLs.</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="seo/http-status" data-area="seo" data-severity="moderate" data-check="browser">
+<a class="rule-id" href="/rules/seo/http-status/"><code>seo/http-status</code></a>
+<p class="rule-title">Missing pages return 404 or 410, moved pages 301 or 308, and a client-rendered error view is not served with 200.</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-browser">browser</span></p>
+</li>
+<li class="rule-item" data-id="seo/indexable" data-area="seo" data-severity="serious" data-check="browser">
+<a class="rule-id" href="/rules/seo/indexable/"><code>seo/indexable</code></a>
+<p class="rule-title">Pages meant to rank are crawlable and carry no noindex (meta robots or X-Robots-Tag) in production.</p>
+<p class="rule-meta"><span class="sev sev-serious">serious</span> <span class="tag tag-browser">browser</span></p>
+</li>
+<li class="rule-item" data-id="seo/jsonld-type-supported" data-area="seo" data-severity="minor" data-check="static">
+<a class="rule-id" href="/rules/seo/jsonld-type-supported/"><code>seo/jsonld-type-supported</code></a>
+<p class="rule-title">Structured data for rich results uses types in Google's current search gallery, not retired ones such as FAQPage or HowTo.</p>
+<p class="rule-meta"><span class="sev sev-minor">minor</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="seo/jsonld-valid" data-area="seo" data-severity="moderate" data-check="static">
+<a class="rule-id" href="/rules/seo/jsonld-valid/"><code>seo/jsonld-valid</code></a>
+<p class="rule-title">Every JSON-LD block is valid JSON with &quot;@context&quot; &quot;<a href="https://schema.org">https://schema.org</a>&quot; and a schema.org @type.</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="seo/meta-description" data-area="seo" data-severity="moderate" data-check="static">
+<a class="rule-id" href="/rules/seo/meta-description/"><code>seo/meta-description</code></a>
+<p class="rule-title">Each indexable page has its own meta description that summarises that page.</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="seo/og-absolute-url" data-area="seo" data-severity="minor" data-check="static">
+<a class="rule-id" href="/rules/seo/og-absolute-url/"><code>seo/og-absolute-url</code></a>
+<p class="rule-title">Open Graph and social image and URL tags (og:image, og:url, twitter:image) use absolute https URLs.</p>
+<p class="rule-meta"><span class="sev sev-minor">minor</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="seo/title-unique" data-area="seo" data-severity="minor" data-check="manual">
+<a class="rule-id" href="/rules/seo/title-unique/"><code>seo/title-unique</code></a>
+<p class="rule-title">Each page has its own descriptive title, page topic first and site name last, in the page's language.</p>
+<p class="rule-meta"><span class="sev sev-minor">minor</span> <span class="tag tag-manual">manual</span></p>
+</li></ul>
+</section>
+<section class="rule-group" data-area="i18n" aria-labelledby="area-i18n">
+<h2 id="area-i18n">Internationalisation <span class="count">7 rules</span></h2>
+<ul class="rule-list"><li class="rule-item" data-id="i18n/dir-rtl" data-area="i18n" data-severity="serious" data-check="static">
+<a class="rule-id" href="/rules/i18n/dir-rtl/"><code>i18n/dir-rtl</code></a>
+<p class="rule-title">Pages in right-to-left languages (Arabic, Hebrew, Persian, Urdu) set dir=&quot;rtl&quot; on html together with lang.</p>
+<p class="rule-meta"><span class="sev sev-serious">serious</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="i18n/explicit-locale" data-area="i18n" data-severity="minor" data-check="static">
+<a class="rule-id" href="/rules/i18n/explicit-locale/"><code>i18n/explicit-locale</code></a>
+<p class="rule-title">Intl formatters and toLocale*String() receive the app's active locale instead of relying on the runtime default.</p>
+<p class="rule-meta"><span class="sev sev-minor">minor</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="i18n/intl-format" data-area="i18n" data-severity="moderate" data-check="static">
+<a class="rule-id" href="/rules/i18n/intl-format/"><code>i18n/intl-format</code></a>
+<p class="rule-title">Dates, times, numbers and prices are formatted with Intl for the user's locale, never assembled from parts.</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="i18n/logical-properties" data-area="i18n" data-severity="moderate" data-check="manual">
+<a class="rule-id" href="/rules/i18n/logical-properties/"><code>i18n/logical-properties</code></a>
+<p class="rule-title">In projects with a right-to-left locale, layout uses logical properties (margin-inline-start, inset-inline-end, text-align start).</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-manual">manual</span></p>
+</li>
+<li class="rule-item" data-id="i18n/no-string-concat" data-area="i18n" data-severity="moderate" data-check="static">
+<a class="rule-id" href="/rules/i18n/no-string-concat/"><code>i18n/no-string-concat</code></a>
+<p class="rule-title">User-facing sentences are one message with placeholders, never joined from translated fragments and values.</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="i18n/plural-rules" data-area="i18n" data-severity="moderate" data-check="static">
+<a class="rule-id" href="/rules/i18n/plural-rules/"><code>i18n/plural-rules</code></a>
+<p class="rule-title">Plurals use the locale's plural rules (ICU plural or Intl.PluralRules), never count === 1 ? singular : plural.</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="i18n/same-keys" data-area="i18n" data-severity="serious" data-check="manual">
+<a class="rule-id" href="/rules/i18n/same-keys/"><code>i18n/same-keys</code></a>
+<p class="rule-title">Every locale file has the same keys and placeholders as the source locale, and the plural forms its language needs.</p>
+<p class="rule-meta"><span class="sev sev-serious">serious</span> <span class="tag tag-manual">manual</span></p>
+</li></ul>
+</section>
+<section class="rule-group" data-area="security" aria-labelledby="area-security">
+<h2 id="area-security">Security <span class="count">9 rules</span></h2>
+<ul class="rule-list"><li class="rule-item" data-id="security/csp-meta-ignored" data-area="security" data-severity="moderate" data-check="static">
+<a class="rule-id" href="/rules/security/csp-meta-ignored/"><code>security/csp-meta-ignored</code></a>
+<p class="rule-title">frame-ancestors, report-uri, sandbox and X-Frame-Options are sent as HTTP headers; in a meta tag they do nothing.</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="security/csp-strict" data-area="security" data-severity="moderate" data-check="browser">
+<a class="rule-id" href="/rules/security/csp-strict/"><code>security/csp-strict</code></a>
+<p class="rule-title">Production pages send a strict Content Security Policy (nonces or hashes with strict-dynamic, object-src none, base-uri none).</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-browser">browser</span></p>
+</li>
+<li class="rule-item" data-id="security/https-only" data-area="security" data-severity="serious" data-check="browser">
+<a class="rule-id" href="/rules/security/https-only/"><code>security/https-only</code></a>
+<p class="rule-title">Every page and every resource it loads use HTTPS; no mixed content and no http:// links to your own site.</p>
+<p class="rule-meta"><span class="sev sev-serious">serious</span> <span class="tag tag-browser">browser</span></p>
+</li>
+<li class="rule-item" data-id="security/no-eval" data-area="security" data-severity="serious" data-check="static">
+<a class="rule-id" href="/rules/security/no-eval/"><code>security/no-eval</code></a>
+<p class="rule-title">Front-end code never runs strings as code - no eval, new Function or string arguments to setTimeout and setInterval.</p>
+<p class="rule-meta"><span class="sev sev-serious">serious</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="security/no-secrets-in-client-env" data-area="security" data-severity="critical" data-check="static">
+<a class="rule-id" href="/rules/security/no-secrets-in-client-env/"><code>security/no-secrets-in-client-env</code></a>
+<p class="rule-title">Secrets never use a client-exposed environment prefix (NEXT_PUBLIC_, VITE_, PUBLIC_, NUXT_PUBLIC_); they stay on the server.</p>
+<p class="rule-meta"><span class="sev sev-critical">critical</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="security/postmessage-origin" data-area="security" data-severity="serious" data-check="static">
+<a class="rule-id" href="/rules/security/postmessage-origin/"><code>security/postmessage-origin</code></a>
+<p class="rule-title">postMessage names an exact target origin, and every window message listener checks event.origin against an allowlist.</p>
+<p class="rule-meta"><span class="sev sev-serious">serious</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="security/raw-html-sink" data-area="security" data-severity="serious" data-check="static">
+<a class="rule-id" href="/rules/security/raw-html-sink/"><code>security/raw-html-sink</code></a>
+<p class="rule-title">Never pass user or remote data to a raw HTML sink (innerHTML, dangerouslySetInnerHTML, v-html, {@html}) without sanitizing it.</p>
+<p class="rule-meta"><span class="sev sev-serious">serious</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="security/sri-cdn" data-area="security" data-severity="moderate" data-check="static">
+<a class="rule-id" href="/rules/security/sri-cdn/"><code>security/sri-cdn</code></a>
+<p class="rule-title">Versioned files from a public CDN carry Subresource Integrity (integrity plus crossorigin), or are self-hosted.</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="security/window-open-noopener" data-area="security" data-severity="minor" data-check="static">
+<a class="rule-id" href="/rules/security/window-open-noopener/"><code>security/window-open-noopener</code></a>
+<p class="rule-title">window.open for another site passes &quot;noopener&quot; (and &quot;noreferrer&quot; when needed) so the new page cannot control yours.</p>
+<p class="rule-meta"><span class="sev sev-minor">minor</span> <span class="tag tag-static">static</span></p>
 </li></ul>
 </section>
 <section class="rule-group" data-area="js" aria-labelledby="area-js">
@@ -487,6 +931,72 @@
 <a class="rule-id" href="/rules/ts/validate-untrusted/"><code>ts/validate-untrusted</code></a>
 <p class="rule-title">Data from outside the program (fetch, JSON.parse, storage) is validated at run time, not given a type with as or an annotation.</p>
 <p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-static">static</span></p>
+</li></ul>
+</section>
+<section class="rule-group" data-area="test" aria-labelledby="area-test">
+<h2 id="area-test">Testing <span class="count">5 rules</span></h2>
+<ul class="rule-list"><li class="rule-item" data-id="test/axe-in-e2e" data-area="test" data-severity="moderate" data-check="manual">
+<a class="rule-id" href="/rules/test/axe-in-e2e/"><code>test/axe-in-e2e</code></a>
+<p class="rule-title">End-to-end tests run an axe scan with the WCAG tags you target on each key page and state, and fail on violations.</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-manual">manual</span></p>
+</li>
+<li class="rule-item" data-id="test/no-fixed-wait" data-area="test" data-severity="moderate" data-check="static">
+<a class="rule-id" href="/rules/test/no-fixed-wait/"><code>test/no-fixed-wait</code></a>
+<p class="rule-title">Tests wait for conditions, never for a fixed time (no waitForTimeout, cy.wait(ms) or setTimeout sleeps).</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="test/no-focused-tests" data-area="test" data-severity="serious" data-check="static">
+<a class="rule-id" href="/rules/test/no-focused-tests/"><code>test/no-focused-tests</code></a>
+<p class="rule-title">No focused tests (.only, fit, fdescribe) are committed; they silently skip the rest of the suite.</p>
+<p class="rule-meta"><span class="sev sev-serious">serious</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="test/query-by-role" data-area="test" data-severity="minor" data-check="manual">
+<a class="rule-id" href="/rules/test/query-by-role/"><code>test/query-by-role</code></a>
+<p class="rule-title">Tests find elements the way users do - getByRole with a name first, then label and text; test ids only as a last resort.</p>
+<p class="rule-meta"><span class="sev sev-minor">minor</span> <span class="tag tag-manual">manual</span></p>
+</li>
+<li class="rule-item" data-id="test/web-first-assertions" data-area="test" data-severity="moderate" data-check="static">
+<a class="rule-id" href="/rules/test/web-first-assertions/"><code>test/web-first-assertions</code></a>
+<p class="rule-title">Playwright tests assert with auto-retrying web-first matchers (toBeVisible, toHaveText), not on values read once.</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-static">static</span></p>
+</li></ul>
+</section>
+<section class="rule-group" data-area="tooling" aria-labelledby="area-tooling">
+<h2 id="area-tooling">Tooling <span class="count">7 rules</span></h2>
+<ul class="rule-list"><li class="rule-item" data-id="tooling/a11y-lint" data-area="tooling" data-severity="minor" data-check="manual">
+<a class="rule-id" href="/rules/tooling/a11y-lint/"><code>tooling/a11y-lint</code></a>
+<p class="rule-title">The linter runs the framework's accessibility rules (jsx-a11y, vuejs-accessibility, angular-eslint template, Svelte a11y warnings).</p>
+<p class="rule-meta"><span class="sev sev-minor">minor</span> <span class="tag tag-manual">manual</span></p>
+</li>
+<li class="rule-item" data-id="tooling/console-clean" data-area="tooling" data-severity="minor" data-check="browser">
+<a class="rule-id" href="/rules/tooling/console-clean/"><code>tooling/console-clean</code></a>
+<p class="rule-title">Pages log no errors and use no deprecated browser APIs, as seen in the console on load and in the main flows.</p>
+<p class="rule-meta"><span class="sev sev-minor">minor</span> <span class="tag tag-browser">browser</span></p>
+</li>
+<li class="rule-item" data-id="tooling/eslint-flat-config" data-area="tooling" data-severity="moderate" data-check="manual">
+<a class="rule-id" href="/rules/tooling/eslint-flat-config/"><code>tooling/eslint-flat-config</code></a>
+<p class="rule-title">ESLint is configured in eslint.config.* (flat config); .eslintrc files and .eslintignore are migrated, not kept beside it.</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-manual">manual</span></p>
+</li>
+<li class="rule-item" data-id="tooling/ignore-with-reason" data-area="tooling" data-severity="moderate" data-check="manual">
+<a class="rule-id" href="/rules/tooling/ignore-with-reason/"><code>tooling/ignore-with-reason</code></a>
+<p class="rule-title">Every fs-ignore comment names the rule id it silences and says why; a bare fs-ignore silences every rule on the line.</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-manual">manual</span></p>
+</li>
+<li class="rule-item" data-id="tooling/one-lockfile" data-area="tooling" data-severity="moderate" data-check="manual">
+<a class="rule-id" href="/rules/tooling/one-lockfile/"><code>tooling/one-lockfile</code></a>
+<p class="rule-title">A project has exactly one committed lockfile, and CI installs from it with the frozen command (npm ci, pnpm install --frozen-lockfile).</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-manual">manual</span></p>
+</li>
+<li class="rule-item" data-id="tooling/typecheck-separately" data-area="tooling" data-severity="moderate" data-check="manual">
+<a class="rule-id" href="/rules/tooling/typecheck-separately/"><code>tooling/typecheck-separately</code></a>
+<p class="rule-title">A TypeScript project runs a separate type check (tsc --noEmit, vue-tsc, svelte-check, astro check) in CI; the bundler does not.</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-manual">manual</span></p>
+</li>
+<li class="rule-item" data-id="tooling/use-project-scripts" data-area="tooling" data-severity="minor" data-check="manual">
+<a class="rule-id" href="/rules/tooling/use-project-scripts/"><code>tooling/use-project-scripts</code></a>
+<p class="rule-title">Run checks through the project's own scripts and package manager; never install tools globally or switch package managers.</p>
+<p class="rule-meta"><span class="sev sev-minor">minor</span> <span class="tag tag-manual">manual</span></p>
 </li></ul>
 </section>
 <section class="rule-group" data-area="react" aria-labelledby="area-react">

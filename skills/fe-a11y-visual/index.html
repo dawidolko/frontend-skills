@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contrast, colour, size and reflow (fe-a11y-visual) · Frontend Skills</title>
+<meta name="description" content="Keeps visual design readable and usable to WCAG 2.2 AA as a target - text and UI contrast, no colour-only meaning, 24px targets, reflow at 320px, resize…">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#faf7fc" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0d0d0f" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://skills.dawidolko.pl/skills/fe-a11y-visual/">
+<link rel="alternate" hreflang="en" href="https://skills.dawidolko.pl/skills/fe-a11y-visual/">
+<link rel="alternate" hreflang="pl" href="https://skills.dawidolko.pl/pl/skills/fe-a11y-visual/">
+<link rel="alternate" hreflang="x-default" href="https://skills.dawidolko.pl/skills/fe-a11y-visual/">
+<link rel="preload" href="/assets/fonts/opensans-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/styles.css?v=fbc2d7ae26">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Frontend Skills">
+<meta property="og:title" content="Contrast, colour, size and reflow (fe-a11y-visual)">
+<meta property="og:description" content="Keeps visual design readable and usable to WCAG 2.2 AA as a target - text and UI contrast, no colour-only meaning, 24px targets, reflow at 320px, resize…">
+<meta property="og:url" content="https://skills.dawidolko.pl/skills/fe-a11y-visual/">
+<meta property="og:image" content="https://skills.dawidolko.pl/og-en.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Frontend Skills: one command that fits front-end skills to your project and every coding agent you use.">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="pl_PL">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="author" content="Dawid Olko">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://skills.dawidolko.pl/"},{"@type":"ListItem","position":2,"name":"Skills","item":"https://skills.dawidolko.pl/skills/"},{"@type":"ListItem","position":3,"name":"Contrast, colour, size and reflow","item":"https://skills.dawidolko.pl/skills/fe-a11y-visual/"}]}</script>
+<script src="/assets/site.js?v=dd8cab0a79" defer></script>
+<script src="/a11y/a11y-panel.js?v=39d6e82235" data-accent="#9b00c2" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+<div class="wrap header-inner">
+<a class="brand" href="/"><svg class="brand-mark" viewBox="0 0 32 32" width="32" height="32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="8" fill="currentColor"/><path d="M12.5 10 7 16l5.5 6M19.5 10 25 16l-5.5 6" fill="none" stroke="var(--logo-ink)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="brand-name">Frontend Skills</span></a>
+<nav class="main-nav" aria-label="Main"><ul><li><a href="/how-it-works/">How it works</a></li><li><a href="/rules/">Rules</a></li><li><a href="/skills/" class="is-section">Skills</a></li><li><a href="/commands/">Commands</a></li><li><a href="/faq/">FAQ</a></li></ul></nav>
+<div class="header-tools">
+<a class="lang-switch" href="/pl/skills/fe-a11y-visual/" hreflang="pl" lang="pl" title="Ta strona po polsku">Polski</a>
+<a class="gh-link" href="https://github.com/dawidolko/frontend-skills" aria-label="Source code on GitHub"><svg viewBox="0 0 16 16" width="20" height="20" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg></a>
+</div>
+</div>
+</header>
+<main id="main" tabindex="-1">
+<div class="page-head"><div class="wrap">
+<nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><a href="/skills/">Skills</a></li><li><span aria-current="page">Contrast, colour, size and reflow</span></li></ol></nav>
+<h1>Contrast, colour, size and reflow</h1>
+<p class="lead">Keeps visual design readable and usable to WCAG 2.2 AA as a target - text and UI contrast, no colour-only meaning, 24px targets, reflow at 320px, resize and text spacing, dismissible hover content. Use when choosing colours or design tokens, styling links, buttons, fields, focus rings or tooltips, building a theme or dark mode, or when asked &quot;is this contrast OK&quot;.</p>
+</div></div>
+<div class="wrap rule-layout">
+<div class="prose">
+<section aria-labelledby="rules"><h2 id="rules">Rules it teaches</h2>
+<ul class="rule-list compact"><li class="rule-item"><a class="rule-id" href="/rules/a11y/color-contrast/"><code>a11y/color-contrast</code></a><p class="rule-title">Text has a contrast ratio of at least 4.5:1 with its background; large text (24px, or 18.5px bold) at least 3:1.</p><p class="rule-meta"><span class="sev sev-serious">serious</span> <span class="tag tag-browser">browser</span></p></li><li class="rule-item"><a class="rule-id" href="/rules/a11y/non-text-contrast/"><code>a11y/non-text-contrast</code></a><p class="rule-title">Borders of fields, checkboxes, toggles, focus rings and meaningful icons have at least 3:1 contrast with their neighbours.</p><p class="rule-meta"><span class="sev sev-serious">serious</span> <span class="tag tag-manual">manual</span></p></li><li class="rule-item"><a class="rule-id" href="/rules/a11y/no-color-only/"><code>a11y/no-color-only</code></a><p class="rule-title">Colour is never the only cue; errors, states, links in text and chart series also differ by text, icon, shape or underline.</p><p class="rule-meta"><span class="sev sev-serious">serious</span> <span class="tag tag-browser">browser</span></p></li><li class="rule-item"><a class="rule-id" href="/rules/a11y/target-size/"><code>a11y/target-size</code></a><p class="rule-title">Pointer targets are at least 24 by 24 CSS pixels, or spaced so a 24px circle on each does not touch another target.</p><p class="rule-meta"><span class="sev sev-serious">serious</span> <span class="tag tag-browser">browser</span></p></li><li class="rule-item"><a class="rule-id" href="/rules/a11y/reflow/"><code>a11y/reflow</code></a><p class="rule-title">At 320 CSS pixels wide (400% zoom) content reflows into one column with no horizontal scrolling, except tables, maps and similar.</p><p class="rule-meta"><span class="sev sev-serious">serious</span> <span class="tag tag-manual">manual</span></p></li><li class="rule-item"><a class="rule-id" href="/rules/a11y/text-spacing/"><code>a11y/text-spacing</code></a><p class="rule-title">Text survives line height 1.5, paragraph spacing 2em, letter spacing 0.12em and word spacing 0.16em without being cut off.</p><p class="rule-meta"><span class="sev sev-serious">serious</span> <span class="tag tag-browser">browser</span></p></li><li class="rule-item"><a class="rule-id" href="/rules/a11y/font-size-relative/"><code>a11y/font-size-relative</code></a><p class="rule-title">The root font size is not set in pixels, so text follows the reader's default size; use rem for type.</p><p class="rule-meta"><span class="sev sev-minor">minor</span> <span class="tag tag-static">static</span></p></li><li class="rule-item"><a class="rule-id" href="/rules/a11y/hover-content-dismissible/"><code>a11y/hover-content-dismissible</code></a><p class="rule-title">Tooltips and popups shown on hover or focus close with Escape, stay while the pointer moves onto them, and do not vanish on a timer.</p><p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-manual">manual</span></p></li></ul></section>
+<section aria-labelledby="digest"><h2 id="digest">The rule digest</h2><p>This part is copied into each agent's scoped rule file, so it stands on its own:</p><div class="digest"><ul><li>Text contrast is at least 4.5:1; large text (24px, or 18.5px bold) at least 3:1; 4.49 fails (a11y/color-contrast).</li><li>Field borders, checkboxes, toggles, focus rings and meaningful icons reach 3:1 against their neighbours (a11y/non-text-contrast).</li><li>Colour is never the only cue: errors get text and an icon, links in text get an underline (a11y/no-color-only).</li><li>Pointer targets are at least 24 by 24 CSS px, or spaced 24px apart (a11y/target-size).</li><li>Layouts reflow at 320px wide with no sideways scrolling, except tables, maps and code (a11y/reflow).</li><li>Text survives the WCAG spacing overrides: no fixed heights with <code>overflow: hidden</code> on text (a11y/text-spacing).</li><li>Do not set the root font size in px; size type in <code>rem</code> (a11y/font-size-relative).</li><li>Hover and focus popups close with Escape, can be hovered, and never time out (a11y/hover-content-dismissible).</li><li>Never block zoom in the viewport meta tag (a11y/zoom-not-blocked); never use images of text.</li><li>Respect <code>prefers-reduced-motion</code> and <code>prefers-color-scheme</code>; test both themes for every rule above.</li></ul></div></section>
+<section aria-labelledby="do"><h2 id="do">Steps the agent follows</h2><ol><li>Find the colour tokens (CSS custom properties, Tailwind <code>@theme</code>, a tokens file) and fix contrast there, as tested pairs of foreground and background, for light and dark themes.</li><li>Style states visibly beyond colour: <code>:hover</code> and <code>:focus-visible</code> change shape or underline; selected items get a check mark; errors get an icon and text.</li><li>Size controls with <code>min-width</code>/<code>min-height</code> and padding, not with a fixed <code>width</code>/<code>height</code> on the icon.</li><li>Lay out with <code>flex-wrap</code>, <code>grid</code> with <code>minmax(min(…, 100%), 1fr)</code>, <code>max-width</code>, and <code>overflow-wrap: anywhere</code> for long strings.</li><li>Let text boxes grow: <code>min-height</code>, no clipping; truncation (<code>line-clamp</code>) only where the full text is reachable.</li></ol></section>
+<section aria-labelledby="check"><h2 id="check">How the agent checks the work</h2><ul><li><code>npx github:dawidolko/frontend-skills audit --changed</code> finds a root font size in px and a zoom block; the rest needs a rendered page.</li><li><code>audit --url &lt;page&gt;</code> runs axe-core for text contrast, links that rely on colour and target size.</li><li>By hand: zoom to 400% (or a 320px window), apply a text spacing bookmarklet, view in greyscale, and check field borders and focus rings with a contrast checker.</li></ul></section>
+<section aria-labelledby="refs"><h2 id="refs">Reference files</h2><ul><li><a href="https://github.com/dawidolko/frontend-skills/blob/main/skills/accessibility/fe-a11y-visual/references/visual.md"><code>references/visual.md</code></a> · 1747 tokens</li></ul></section>
+<section aria-labelledby="agents"><h2 id="agents">Written for</h2>
+<p>every agent the project uses: Claude Code, OpenAI Codex, Cursor, GitHub Copilot, Gemini CLI, Antigravity CLI, Devin / Windsurf, OpenCode, Cline, Zed, JetBrains Junie, Kiro, Augment, Trae, Continue, Amazon Q Developer, Aider.</p>
+<p>Agents that also get a rule file scoped to these files: Claude Code, Cursor, GitHub Copilot, Antigravity CLI, Devin / Windsurf, Cline, Kiro, Trae, Continue.</p></section>
+</div>
+<aside class="facts" aria-labelledby="facts-title">
+<h2 id="facts-title">Facts</h2>
+<dl><dt>Name</dt><dd><code>fe-a11y-visual</code></dd><dt>Area</dt><dd>Accessibility</dd><dt>Installed when the project uses</dt><dd>every web project</dd><dt>Files it is about</dt><dd><code>**/*.css</code> <code>**/*.scss</code> <code>**/*.less</code> <code>**/*.html</code> <code>**/*.jsx</code> <code>**/*.tsx</code> <code>**/*.vue</code> <code>**/*.svelte</code> <code>**/*.astro</code></dd><dt>Token cost</dt><dd>94 tokens always loaded, 998 tokens when used, 1747 tokens in references on demand.</dd></dl>
+<p><a href="https://github.com/dawidolko/frontend-skills/blob/main/skills/accessibility/fe-a11y-visual/SKILL.md">SKILL.md on GitHub</a></p>
+<p><a href="/skills/">All skills</a></p>
+</aside>
+</div>
+</main>
+<footer class="site-footer">
+<div class="wrap footer-inner">
+<div class="footer-text">
+<p class="footer-brand"><svg class="brand-mark" viewBox="0 0 32 32" width="32" height="32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="8" fill="currentColor"/><path d="M12.5 10 7 16l5.5 6M19.5 10 25 16l-5.5 6" fill="none" stroke="var(--logo-ink)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Frontend Skills</span></p>
+<p>Free and open source under the MIT licence, made by <a href="https://dawidolko.pl">Dawid Olko</a>.</p>
+<p>Built to WCAG 2.2 AA as a target. Automated checks find only part of the problems.</p>
+<p>No cookies, no analytics, no third-party requests. The accessibility button keeps its settings on your device.</p>
+</div>
+<nav aria-label="More"><ul class="footer-nav"><li><a href="/">Home</a></li><li><a href="/how-it-works/">How it works</a></li><li><a href="/rules/">Rules</a></li><li><a href="/skills/">Skills</a></li><li><a href="/commands/">Commands</a></li><li><a href="/faq/">FAQ</a></li><li><a href="/about/">About</a></li><li><a href="https://github.com/dawidolko/frontend-skills">GitHub</a></li></ul></nav>
+</div>
+</footer>
+<p id="live-status" class="visually-hidden" role="status" aria-live="polite"></p>
+</body>
+</html>

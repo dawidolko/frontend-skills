@@ -14,44 +14,116 @@ Start in a project folder with `npx github:dawidolko/frontend-skills init` (Node
 
 ## Skills
 
+- [fe-a11y-aria](https://skills.dawidolko.pl/skills/fe-a11y-aria/): ARIA, names and live regions
+- [fe-a11y-carousel-toast](https://skills.dawidolko.pl/skills/fe-a11y-carousel-toast/): Carousels and toasts
+- [fe-a11y-combobox](https://skills.dawidolko.pl/skills/fe-a11y-combobox/): Combobox, listbox and custom select
+- [fe-a11y-core](https://skills.dawidolko.pl/skills/fe-a11y-core/): Accessibility, WCAG 2.2 map
+- [fe-a11y-dialog](https://skills.dawidolko.pl/skills/fe-a11y-dialog/): Dialogs and modals
 - [fe-a11y-forms](https://skills.dawidolko.pl/skills/fe-a11y-forms/): Accessible forms
+- [fe-a11y-keyboard](https://skills.dawidolko.pl/skills/fe-a11y-keyboard/): Keyboard access and focus
+- [fe-a11y-media](https://skills.dawidolko.pl/skills/fe-a11y-media/): Media, motion and flashing
+- [fe-a11y-menus](https://skills.dawidolko.pl/skills/fe-a11y-menus/): Navigation, disclosures and menus
+- [fe-a11y-tables](https://skills.dawidolko.pl/skills/fe-a11y-tables/): Data tables
+- [fe-a11y-tabs-accordion](https://skills.dawidolko.pl/skills/fe-a11y-tabs-accordion/): Tabs and accordions
+- [fe-a11y-visual](https://skills.dawidolko.pl/skills/fe-a11y-visual/): Contrast, colour, size and reflow
 - [fe-angular](https://skills.dawidolko.pl/skills/fe-angular/): Angular components
 - [fe-astro](https://skills.dawidolko.pl/skills/fe-astro/): Astro sites and islands
+- [fe-audit](https://skills.dawidolko.pl/skills/fe-audit/): Audit the project
+- [fe-component](https://skills.dawidolko.pl/skills/fe-component/): Build a component
+- [fe-core-web-vitals](https://skills.dawidolko.pl/skills/fe-core-web-vitals/): Core Web Vitals
 - [fe-css-architecture](https://skills.dawidolko.pl/skills/fe-css-architecture/): CSS architecture and tokens
 - [fe-css-layout](https://skills.dawidolko.pl/skills/fe-css-layout/): CSS layout
 - [fe-css-modern](https://skills.dawidolko.pl/skills/fe-css-modern/): Modern CSS features
 - [fe-data-fetching](https://skills.dawidolko.pl/skills/fe-data-fetching/): Data fetching
+- [fe-fix](https://skills.dawidolko.pl/skills/fe-fix/): Fix findings
 - [fe-fonts](https://skills.dawidolko.pl/skills/fe-fonts/): Web fonts
 - [fe-forms](https://skills.dawidolko.pl/skills/fe-forms/): Native forms and validation
 - [fe-html](https://skills.dawidolko.pl/skills/fe-html/): HTML documents and semantics
+- [fe-i18n](https://skills.dawidolko.pl/skills/fe-i18n/): Internationalisation
 - [fe-icons](https://skills.dawidolko.pl/skills/fe-icons/): Icons
 - [fe-images](https://skills.dawidolko.pl/skills/fe-images/): Images and media delivery
 - [fe-javascript](https://skills.dawidolko.pl/skills/fe-javascript/): JavaScript in the browser
+- [fe-learn](https://skills.dawidolko.pl/skills/fe-learn/): Learn the project
+- [fe-lighthouse](https://skills.dawidolko.pl/skills/fe-lighthouse/): Lighthouse and PageSpeed
 - [fe-motion](https://skills.dawidolko.pl/skills/fe-motion/): Motion and animation
 - [fe-nextjs](https://skills.dawidolko.pl/skills/fe-nextjs/): Next.js App Router
 - [fe-nuxt](https://skills.dawidolko.pl/skills/fe-nuxt/): Nuxt apps
+- [fe-perf-delivery](https://skills.dawidolko.pl/skills/fe-perf-delivery/): JavaScript, CSS and asset delivery
 - [fe-react](https://skills.dawidolko.pl/skills/fe-react/): React components
 - [fe-responsive](https://skills.dawidolko.pl/skills/fe-responsive/): Responsive design
+- [fe-review](https://skills.dawidolko.pl/skills/fe-review/): Review a change
 - [fe-sass](https://skills.dawidolko.pl/skills/fe-sass/): Sass (SCSS)
+- [fe-security](https://skills.dawidolko.pl/skills/fe-security/): Front-end security
+- [fe-seo-metadata](https://skills.dawidolko.pl/skills/fe-seo-metadata/): SEO and metadata
 - [fe-state](https://skills.dawidolko.pl/skills/fe-state/): State and stores
 - [fe-svelte](https://skills.dawidolko.pl/skills/fe-svelte/): Svelte components
 - [fe-sveltekit](https://skills.dawidolko.pl/skills/fe-sveltekit/): SvelteKit apps
 - [fe-tailwind](https://skills.dawidolko.pl/skills/fe-tailwind/): Tailwind CSS
+- [fe-testing](https://skills.dawidolko.pl/skills/fe-testing/): Front-end testing
+- [fe-tooling](https://skills.dawidolko.pl/skills/fe-tooling/): Build, lint and format tooling
 - [fe-typescript](https://skills.dawidolko.pl/skills/fe-typescript/): TypeScript
 - [fe-vue](https://skills.dawidolko.pl/skills/fe-vue/): Vue components
 - [fe-web-components](https://skills.dawidolko.pl/skills/fe-web-components/): Web components and Lit
 
 ## Rules
 
+- [a11y/accordion-header](https://skills.dawidolko.pl/rules/a11y/accordion-header/): Each accordion header is a button with aria-expanded inside a heading of the right level; or use details and summary.
+- [a11y/aria-hidden-focusable](https://skills.dawidolko.pl/rules/a11y/aria-hidden-focusable/): aria-hidden="true" is never on a focusable element or on an element that contains one.
+- [a11y/aria-label-generic](https://skills.dawidolko.pl/rules/a11y/aria-label-generic/): aria-label and aria-labelledby go on controls, landmarks and named roles, never on a plain div, span or p.
+- [a11y/aria-ref-exists](https://skills.dawidolko.pl/rules/a11y/aria-ref-exists/): Ids named in aria-labelledby, aria-describedby and aria-errormessage exist in the page and are unique.
+- [a11y/aria-valid](https://skills.dawidolko.pl/rules/a11y/aria-valid/): Every role value is a real WAI-ARIA role and every aria- attribute name exists (aria-labelledby, not aria-labeledby).
 - [a11y/autocomplete-valid](https://skills.dawidolko.pl/rules/a11y/autocomplete-valid/): An autocomplete attribute holds only tokens the HTML standard defines (email, given-name, new-password…).
+- [a11y/carousel-controls](https://skills.dawidolko.pl/rules/a11y/carousel-controls/): A carousel has named previous and next buttons, a pause button first in its Tab order when it rotates, and stops on hover and focus.
+- [a11y/color-contrast](https://skills.dawidolko.pl/rules/a11y/color-contrast/): Text has a contrast ratio of at least 4.5:1 with its background; large text (24px, or 18.5px bold) at least 3:1.
+- [a11y/combobox-keyboard](https://skills.dawidolko.pl/rules/a11y/combobox-keyboard/): A combobox keeps focus in the input, marks the highlighted option with aria-activedescendant and supports Down, Up, Enter and Escape.
+- [a11y/combobox-on-input](https://skills.dawidolko.pl/rules/a11y/combobox-on-input/): role="combobox" sits on the input itself (ARIA 1.2), not on a wrapper element that contains the input.
+- [a11y/control-name](https://skills.dawidolko.pl/rules/a11y/control-name/): Every button and link has an accessible name; icon-only controls get visually hidden text or aria-label.
+- [a11y/dialog-focus](https://skills.dawidolko.pl/rules/a11y/dialog-focus/): A modal moves focus inside on open, keeps Tab inside, closes on Escape, and returns focus to the control that opened it.
+- [a11y/dialog-name](https://skills.dawidolko.pl/rules/a11y/dialog-name/): Every dialog has an accessible name, usually aria-labelledby pointing at its visible heading.
+- [a11y/dialog-native](https://skills.dawidolko.pl/rules/a11y/dialog-native/): Build dialogs on the native <dialog> element opened with showModal() rather than a div with role="dialog".
+- [a11y/focus-not-obscured](https://skills.dawidolko.pl/rules/a11y/focus-not-obscured/): Sticky headers, footers, cookie banners and chat widgets never fully cover the element that has keyboard focus.
+- [a11y/focus-route-change](https://skills.dawidolko.pl/rules/a11y/focus-route-change/): After a client-side route change, focus moves to the new page's heading or main region and the new title is announced.
 - [a11y/focus-visible](https://skills.dawidolko.pl/rules/a11y/focus-visible/): Never remove the focus outline without drawing a visible replacement for keyboard focus.
+- [a11y/font-size-relative](https://skills.dawidolko.pl/rules/a11y/font-size-relative/): The root font size is not set in pixels, so text follows the reader's default size; use rem for type.
 - [a11y/form-errors](https://skills.dawidolko.pl/rules/a11y/form-errors/): An input error is shown in text next to the field, tied to it with aria-describedby, and says how to fix it.
+- [a11y/hover-content-dismissible](https://skills.dawidolko.pl/rules/a11y/hover-content-dismissible/): Tooltips and popups shown on hover or focus close with Escape, stay while the pointer moves onto them, and do not vanish on a timer.
 - [a11y/html-lang](https://skills.dawidolko.pl/rules/a11y/html-lang/): The html element names the language of the page in a non-empty lang attribute.
+- [a11y/iframe-title](https://skills.dawidolko.pl/rules/a11y/iframe-title/): Every visible iframe has a title that says what it contains (map, video, payment form).
 - [a11y/img-alt](https://skills.dawidolko.pl/rules/a11y/img-alt/): Every img and area element has an alt attribute; a decorative image has alt="".
 - [a11y/input-label](https://skills.dawidolko.pl/rules/a11y/input-label/): Every form field has a programmatic label (label element, aria-label or aria-labelledby); a placeholder is not a label.
+- [a11y/landmarks](https://skills.dawidolko.pl/rules/a11y/landmarks/): Each page has one main landmark, all content sits inside landmarks, and repeated landmarks of a kind have distinct labels.
+- [a11y/lang-valid](https://skills.dawidolko.pl/rules/a11y/lang-valid/): Every lang value is a valid BCP 47 language tag ("en", "en-GB", "pl"), never "en_US" or a language name.
+- [a11y/link-is-link](https://skills.dawidolko.pl/rules/a11y/link-is-link/): An <a> is a real link with an href; an action is a <button>, never <a> without href, href="#" or javascript:.
+- [a11y/media-alternative](https://skills.dawidolko.pl/rules/a11y/media-alternative/): Recorded audio has a transcript; recorded video has audio description of what is only shown, or a full text alternative.
+- [a11y/menu-keyboard](https://skills.dawidolko.pl/rules/a11y/menu-keyboard/): Menus implement their keys - arrows move between items, Enter activates, Escape closes and returns focus to the button.
+- [a11y/menu-not-for-site-nav](https://skills.dawidolko.pl/rules/a11y/menu-not-for-site-nav/): Site navigation is a nav with a list of links and disclosure buttons, not role="menu" or role="menubar".
+- [a11y/no-autoplay-audio](https://skills.dawidolko.pl/rules/a11y/no-autoplay-audio/): No audio plays automatically; autoplaying video is muted, and any sound longer than 3 seconds can be paused or stopped.
 - [a11y/no-click-on-static](https://skills.dawidolko.pl/rules/a11y/no-click-on-static/): A click handler belongs on a button or link; a static element with one also needs a role, tabindex and a key handler.
+- [a11y/no-color-only](https://skills.dawidolko.pl/rules/a11y/no-color-only/): Colour is never the only cue; errors, states, links in text and chart series also differ by text, icon, shape or underline.
+- [a11y/no-flash](https://skills.dawidolko.pl/rules/a11y/no-flash/): Nothing flashes more than three times in any one second, unless the flash is small and below the general and red thresholds.
+- [a11y/no-keyboard-trap](https://skills.dawidolko.pl/rules/a11y/no-keyboard-trap/): Keyboard focus can always leave a component with Tab, Shift+Tab or Escape; only an open modal keeps focus inside.
+- [a11y/no-meta-refresh](https://skills.dawidolko.pl/rules/a11y/no-meta-refresh/): No meta refresh reloads or redirects the page after a delay; redirect on the server or let people choose.
+- [a11y/non-text-contrast](https://skills.dawidolko.pl/rules/a11y/non-text-contrast/): Borders of fields, checkboxes, toggles, focus rings and meaningful icons have at least 3:1 contrast with their neighbours.
+- [a11y/option-no-interactive](https://skills.dawidolko.pl/rules/a11y/option-no-interactive/): Options in a listbox or combobox popup hold only text and images, never links, buttons or fields.
 - [a11y/page-title](https://skills.dawidolko.pl/rules/a11y/page-title/): Every HTML document has a title element that says what the page is about.
+- [a11y/pause-auto-motion](https://skills.dawidolko.pl/rules/a11y/pause-auto-motion/): Anything that moves, blinks, scrolls or updates by itself for more than 5 seconds has a visible pause or stop control.
+- [a11y/popup-button-expanded](https://skills.dawidolko.pl/rules/a11y/popup-button-expanded/): A control that opens a popup (aria-haspopup or role="combobox") has aria-expanded that follows the open state.
 - [a11y/positive-tabindex](https://skills.dawidolko.pl/rules/a11y/positive-tabindex/): No element has a tabindex greater than 0; focus order follows the source order.
+- [a11y/prefer-native-element](https://skills.dawidolko.pl/rules/a11y/prefer-native-element/): Use the native element instead of a role it already provides (button, a href, input, h1–h6, nav, main, ul, li).
+- [a11y/reflow](https://skills.dawidolko.pl/rules/a11y/reflow/): At 320 CSS pixels wide (400% zoom) content reflows into one column with no horizontal scrolling, except tables, maps and similar.
+- [a11y/scrollable-region-focusable](https://skills.dawidolko.pl/rules/a11y/scrollable-region-focusable/): A scrolling region with no focusable content inside can itself take focus (tabindex="0") and has a name.
+- [a11y/skip-link](https://skills.dawidolko.pl/rules/a11y/skip-link/): Pages with repeated header or navigation start with a "Skip to main content" link whose target exists and takes focus.
+- [a11y/state-exposed](https://skills.dawidolko.pl/rules/a11y/state-exposed/): Custom toggles, disclosures and selections expose their state (aria-expanded, aria-pressed, aria-checked, aria-selected).
+- [a11y/status-message-live](https://skills.dawidolko.pl/rules/a11y/status-message-live/): Messages that appear without moving focus (saved, results, errors, progress) are announced through a live region.
+- [a11y/table-caption](https://skills.dawidolko.pl/rules/a11y/table-caption/): A data table has a name, from a caption element or aria-labelledby pointing at the heading above it.
+- [a11y/table-headers](https://skills.dawidolko.pl/rules/a11y/table-headers/): Data tables mark their header cells with th (with scope when needed); layout tables carry role="presentation".
+- [a11y/table-sort](https://skills.dawidolko.pl/rules/a11y/table-sort/): Sortable columns use a button inside the th, and aria-sort only on the header of the column that is sorted.
+- [a11y/tabs-keyboard](https://skills.dawidolko.pl/rules/a11y/tabs-keyboard/): A tab list is one Tab stop; Left and Right Arrow (Up and Down when vertical), Home and End move between tabs.
+- [a11y/tabs-selected](https://skills.dawidolko.pl/rules/a11y/tabs-selected/): Every role="tab" carries aria-selected, true on the active tab and false on the others.
+- [a11y/target-size](https://skills.dawidolko.pl/rules/a11y/target-size/): Pointer targets are at least 24 by 24 CSS pixels, or spaced so a 24px circle on each does not touch another target.
+- [a11y/text-spacing](https://skills.dawidolko.pl/rules/a11y/text-spacing/): Text survives line height 1.5, paragraph spacing 2em, letter spacing 0.12em and word spacing 0.16em without being cut off.
+- [a11y/toast-timing](https://skills.dawidolko.pl/rules/a11y/toast-timing/): Toasts with actions or information the user needs do not disappear on a timer; others stay long enough and pause on hover and focus.
+- [a11y/video-captions](https://skills.dawidolko.pl/rules/a11y/video-captions/): Recorded video with speech or meaningful sound has synchronised captions, for example a <track kind="captions">.
 - [a11y/zoom-not-blocked](https://skills.dawidolko.pl/rules/a11y/zoom-not-blocked/): The viewport never disables zoom (no user-scalable=no, no maximum-scale below 2).
 - [angular/banana-in-box](https://skills.dawidolko.pl/rules/angular/banana-in-box/): Two-way binding is written [(prop)], brackets outside; ([prop]) silently binds an event named [prop] instead.
 - [angular/computed-not-effect](https://skills.dawidolko.pl/rules/angular/computed-not-effect/): Derive state with computed() (or linkedSignal()); never copy one signal into another inside effect().
@@ -102,6 +174,13 @@ Start in a project folder with `npx github:dawidolko/frontend-skills init` (Node
 - [html/picture-img](https://skills.dawidolko.pl/rules/html/picture-img/): Every picture element ends with an img that has src, alt, width and height; source elements alone render nothing.
 - [html/project-icons](https://skills.dawidolko.pl/rules/html/project-icons/): Icons use the project's generated icon classes (its icon classes), not separate SVG image files.
 - [html/required-select-placeholder](https://skills.dawidolko.pl/rules/html/required-select-placeholder/): A required single-choice select starts with an empty placeholder option (value=""), so the required check can fail.
+- [i18n/dir-rtl](https://skills.dawidolko.pl/rules/i18n/dir-rtl/): Pages in right-to-left languages (Arabic, Hebrew, Persian, Urdu) set dir="rtl" on html together with lang.
+- [i18n/explicit-locale](https://skills.dawidolko.pl/rules/i18n/explicit-locale/): Intl formatters and toLocaleString() receive the app's active locale instead of relying on the runtime default.
+- [i18n/intl-format](https://skills.dawidolko.pl/rules/i18n/intl-format/): Dates, times, numbers and prices are formatted with Intl for the user's locale, never assembled from parts.
+- [i18n/logical-properties](https://skills.dawidolko.pl/rules/i18n/logical-properties/): In projects with a right-to-left locale, layout uses logical properties (margin-inline-start, inset-inline-end, text-align start).
+- [i18n/no-string-concat](https://skills.dawidolko.pl/rules/i18n/no-string-concat/): User-facing sentences are one message with placeholders, never joined from translated fragments and values.
+- [i18n/plural-rules](https://skills.dawidolko.pl/rules/i18n/plural-rules/): Plurals use the locale's plural rules (ICU plural or Intl.PluralRules), never count === 1 ? singular : plural.
+- [i18n/same-keys](https://skills.dawidolko.pl/rules/i18n/same-keys/): Every locale file has the same keys and placeholders as the source locale, and the plural forms its language needs.
 - [js/asset-import](https://skills.dawidolko.pl/rules/js/asset-import/): In a bundled project, images, fonts and media in component markup are imported or use the base-path helper, not hard-coded root paths.
 - [js/document-write](https://skills.dawidolko.pl/rules/js/document-write/): Never insert content with document.write; create elements or load scripts with the DOM.
 - [js/feature-detect](https://skills.dawidolko.pl/rules/js/feature-detect/): Test for the feature you need (in, CSS.supports, matchMedia), not the browser name in navigator.userAgent.
@@ -132,6 +211,11 @@ Start in a project folder with `npx github:dawidolko/frontend-skills init` (Node
 - [nuxt/public-runtime-config](https://skills.dawidolko.pl/rules/nuxt/public-runtime-config/): Secrets live in the top level of runtimeConfig, never under runtimeConfig.public, which every page sends to the browser.
 - [nuxt/route-announcer](https://skills.dawidolko.pl/rules/nuxt/route-announcer/): The app renders NuxtRouteAnnouncer (in app.vue or a layout) so client-side page changes are announced.
 - [nuxt/runtime-config-not-process-env](https://skills.dawidolko.pl/rules/nuxt/runtime-config-not-process-env/): App code reads configuration with useRuntimeConfig() and tests the side with import.meta.client, not process.env or process.client.
+- [perf/bfcache-no-unload](https://skills.dawidolko.pl/rules/perf/bfcache-no-unload/): No code listens to the unload event; use pagehide or visibilitychange so the page can use the back/forward cache.
+- [perf/cache-static-assets](https://skills.dawidolko.pl/rules/perf/cache-static-assets/): Content-hashed assets are cached for a year as immutable; HTML is revalidated (no-cache), never cached long.
+- [perf/code-split](https://skills.dawidolko.pl/rules/perf/code-split/): JavaScript is split by route, and features that most visits do not use load on demand with dynamic import().
+- [perf/css-no-import](https://skills.dawidolko.pl/rules/perf/css-no-import/): Shipped CSS does not chain stylesheets with @import; link them in the HTML or combine them in a build.
+- [perf/field-data-p75](https://skills.dawidolko.pl/rules/perf/field-data-p75/): Claims about Core Web Vitals come from field data at the 75th percentile, not from a Lighthouse score.
 - [perf/font-display](https://skills.dawidolko.pl/rules/perf/font-display/): Every @font-face and Google Fonts URL sets font-display (swap or optional) so text is visible while the font loads.
 - [perf/font-fallback-metrics](https://skills.dawidolko.pl/rules/perf/font-fallback-metrics/): The fallback font is adjusted to the web font's metrics (size-adjust and overrides) so the swap does not shift the layout.
 - [perf/font-preconnect](https://skills.dawidolko.pl/rules/perf/font-preconnect/): Fonts are self-hosted, or the font CDN's file origin (fonts.gstatic.com) is preconnected with crossorigin.
@@ -141,9 +225,18 @@ Start in a project folder with `npx github:dawidolko/frontend-skills init` (Node
 - [perf/img-dimensions](https://skills.dawidolko.pl/rules/perf/img-dimensions/): Every img has width and height attributes (or a CSS aspect ratio) so the browser reserves its space.
 - [perf/img-modern-format](https://skills.dawidolko.pl/rules/perf/img-modern-format/): Photos and large raster images are served as AVIF or WebP at the size they are shown, not as large JPEG or PNG files.
 - [perf/large-image](https://skills.dawidolko.pl/rules/perf/large-image/): An image file in the source stays under the image budget (250 KB by default); larger ones are resized or re-encoded.
+- [perf/layout-shift](https://skills.dawidolko.pl/rules/perf/layout-shift/): Nothing moves after it appears - space is reserved for images, embeds, ads and late content (CLS 0.1 or less).
+- [perf/lcp-image](https://skills.dawidolko.pl/rules/perf/lcp-image/): The LCP image is in the initial HTML, not lazy, and has fetchpriority="high"; a CSS background LCP image is preloaded.
+- [perf/lcp-image-not-lazy](https://skills.dawidolko.pl/rules/perf/lcp-image-not-lazy/): The image most likely to be the Largest Contentful Paint (hero, high priority) is never loading="lazy".
 - [perf/lcp-image-priority](https://skills.dawidolko.pl/rules/perf/lcp-image-priority/): The image that is likely the LCP element loads eagerly with fetchpriority high; it is never lazy-loaded.
+- [perf/lighthouse-ci](https://skills.dawidolko.pl/rules/perf/lighthouse-ci/): Lighthouse in CI runs each URL several times, asserts on metrics and categories with realistic thresholds, and never demands a perfect 100.
+- [perf/no-legacy-javascript](https://skills.dawidolko.pl/rules/perf/no-legacy-javascript/): Do not ship polyfills and down-level transforms for features your target browsers already support; declare targets once.
+- [perf/no-whole-library-import](https://skills.dawidolko.pl/rules/perf/no-whole-library-import/): Client code does not import all of lodash or moment; use lodash-es, per-method imports, Intl or the platform.
 - [perf/render-blocking-script](https://skills.dawidolko.pl/rules/perf/render-blocking-script/): A script in the head loads with defer, async or type="module", never as a plain blocking script.
 - [perf/srcset-sizes](https://skills.dawidolko.pl/rules/perf/srcset-sizes/): A srcset with width descriptors (400w, 800w) comes with a sizes attribute that matches the image's displayed width.
+- [perf/third-party-async](https://skills.dawidolko.pl/rules/perf/third-party-async/): Third-party scripts load with async or defer (or a framework strategy such as lazyOnload), never as parser-blocking tags.
+- [perf/third-party-cost](https://skills.dawidolko.pl/rules/perf/third-party-cost/): Each third-party script earns its place, loads late, and heavy embeds (video, maps, chat) start as a lightweight facade.
+- [perf/yield-long-tasks](https://skills.dawidolko.pl/rules/perf/yield-long-tasks/): Main-thread work over 50 ms is split and yields, and event handlers do the visible update first (INP 200 ms or less).
 - [react/no-array-index-key](https://skills.dawidolko.pl/rules/react/no-array-index-key/): A list item's key comes from the data (an id), not from the array index.
 - [react/no-derived-state-effect](https://skills.dawidolko.pl/rules/react/no-derived-state-effect/): Values computed from props or state are calculated during render, not copied into state by an effect.
 - [react/no-nested-component](https://skills.dawidolko.pl/rules/react/no-nested-component/): Components are declared at module level, never inside another component's body.
@@ -162,6 +255,24 @@ Start in a project folder with `npx github:dawidolko/frontend-skills init` (Node
 - [sass/no-legacy-color-functions](https://skills.dawidolko.pl/rules/sass/no-legacy-color-functions/): Adjust colours with color.scale or color.adjust (and read channels with color.channel), not darken, lighten, fade-out and the like.
 - [sass/no-node-sass](https://skills.dawidolko.pl/rules/sass/no-node-sass/): Compile Sass with Dart Sass (the sass or sass-embedded package), never node-sass, which is deprecated LibSass.
 - [sass/rem-helper](https://skills.dawidolko.pl/rules/sass/rem-helper/): Sizes are converted with the project's px-to-rem function, never by dividing by a hard-coded base by hand.
+- [security/csp-meta-ignored](https://skills.dawidolko.pl/rules/security/csp-meta-ignored/): frame-ancestors, report-uri, sandbox and X-Frame-Options are sent as HTTP headers; in a meta tag they do nothing.
+- [security/csp-strict](https://skills.dawidolko.pl/rules/security/csp-strict/): Production pages send a strict Content Security Policy (nonces or hashes with strict-dynamic, object-src none, base-uri none).
+- [security/https-only](https://skills.dawidolko.pl/rules/security/https-only/): Every page and every resource it loads use HTTPS; no mixed content and no http:// links to your own site.
+- [security/no-eval](https://skills.dawidolko.pl/rules/security/no-eval/): Front-end code never runs strings as code - no eval, new Function or string arguments to setTimeout and setInterval.
+- [security/no-secrets-in-client-env](https://skills.dawidolko.pl/rules/security/no-secrets-in-client-env/): Secrets never use a client-exposed environment prefix (NEXT_PUBLIC_, VITE_, PUBLIC_, NUXT_PUBLIC_); they stay on the server.
+- [security/postmessage-origin](https://skills.dawidolko.pl/rules/security/postmessage-origin/): postMessage names an exact target origin, and every window message listener checks event.origin against an allowlist.
+- [security/raw-html-sink](https://skills.dawidolko.pl/rules/security/raw-html-sink/): Never pass user or remote data to a raw HTML sink (innerHTML, dangerouslySetInnerHTML, v-html, {@html}) without sanitizing it.
+- [security/sri-cdn](https://skills.dawidolko.pl/rules/security/sri-cdn/): Versioned files from a public CDN carry Subresource Integrity (integrity plus crossorigin), or are self-hosted.
+- [security/window-open-noopener](https://skills.dawidolko.pl/rules/security/window-open-noopener/): window.open for another site passes "noopener" (and "noreferrer" when needed) so the new page cannot control yours.
+- [seo/canonical-valid](https://skills.dawidolko.pl/rules/seo/canonical-valid/): A page has at most one rel="canonical", in the head, with an absolute URL of an indexable page and no fragment.
+- [seo/hreflang-valid](https://skills.dawidolko.pl/rules/seo/hreflang-valid/): hreflang values are ISO 639-1 language codes with an optional script and ISO 3166-1 region (or x-default), linking absolute URLs.
+- [seo/http-status](https://skills.dawidolko.pl/rules/seo/http-status/): Missing pages return 404 or 410, moved pages 301 or 308, and a client-rendered error view is not served with 200.
+- [seo/indexable](https://skills.dawidolko.pl/rules/seo/indexable/): Pages meant to rank are crawlable and carry no noindex (meta robots or X-Robots-Tag) in production.
+- [seo/jsonld-type-supported](https://skills.dawidolko.pl/rules/seo/jsonld-type-supported/): Structured data for rich results uses types in Google's current search gallery, not retired ones such as FAQPage or HowTo.
+- [seo/jsonld-valid](https://skills.dawidolko.pl/rules/seo/jsonld-valid/): Every JSON-LD block is valid JSON with "@context" "https://schema.org" and a schema.org @type.
+- [seo/meta-description](https://skills.dawidolko.pl/rules/seo/meta-description/): Each indexable page has its own meta description that summarises that page.
+- [seo/og-absolute-url](https://skills.dawidolko.pl/rules/seo/og-absolute-url/): Open Graph and social image and URL tags (og:image, og:url, twitter:image) use absolute https URLs.
+- [seo/title-unique](https://skills.dawidolko.pl/rules/seo/title-unique/): Each page has its own descriptive title, page topic first and site name last, in the page's language.
 - [state/fetch-effect-cleanup](https://skills.dawidolko.pl/rules/state/fetch-effect-cleanup/): An effect that fetches into state returns a cleanup that ignores or aborts stale responses.
 - [state/immer-mutate-or-return](https://skills.dawidolko.pl/rules/state/immer-mutate-or-return/): A Redux Toolkit or Immer reducer either mutates the draft or returns a new state, never both; no arrow that returns a mutation.
 - [state/invalidate-after-mutation](https://skills.dawidolko.pl/rules/state/invalidate-after-mutation/): After a mutation succeeds, invalidate or update every cached query it changed, so lists and details show the new data.
@@ -194,6 +305,18 @@ Start in a project folder with `npx github:dawidolko/frontend-skills init` (Node
 - [tailwind/sr-only-label](https://skills.dawidolko.pl/rules/tailwind/sr-only-label/): The only text of a button or link is never hidden with hidden; use sr-only (with md:not-sr-only to show it on wider screens).
 - [tailwind/theme-tokens](https://skills.dawidolko.pl/rules/tailwind/theme-tokens/): An arbitrary value used again and again (bg-[#0a7a3e], p-[18px]) becomes a theme variable in @theme with its own utility.
 - [tailwind/v4-entry](https://skills.dawidolko.pl/rules/tailwind/v4-entry/): In Tailwind CSS 4, load Tailwind with @import "tailwindcss" and a legacy JS config with @config; @tailwind directives do nothing.
+- [test/axe-in-e2e](https://skills.dawidolko.pl/rules/test/axe-in-e2e/): End-to-end tests run an axe scan with the WCAG tags you target on each key page and state, and fail on violations.
+- [test/no-fixed-wait](https://skills.dawidolko.pl/rules/test/no-fixed-wait/): Tests wait for conditions, never for a fixed time (no waitForTimeout, cy.wait(ms) or setTimeout sleeps).
+- [test/no-focused-tests](https://skills.dawidolko.pl/rules/test/no-focused-tests/): No focused tests (.only, fit, fdescribe) are committed; they silently skip the rest of the suite.
+- [test/query-by-role](https://skills.dawidolko.pl/rules/test/query-by-role/): Tests find elements the way users do - getByRole with a name first, then label and text; test ids only as a last resort.
+- [test/web-first-assertions](https://skills.dawidolko.pl/rules/test/web-first-assertions/): Playwright tests assert with auto-retrying web-first matchers (toBeVisible, toHaveText), not on values read once.
+- [tooling/a11y-lint](https://skills.dawidolko.pl/rules/tooling/a11y-lint/): The linter runs the framework's accessibility rules (jsx-a11y, vuejs-accessibility, angular-eslint template, Svelte a11y warnings).
+- [tooling/console-clean](https://skills.dawidolko.pl/rules/tooling/console-clean/): Pages log no errors and use no deprecated browser APIs, as seen in the console on load and in the main flows.
+- [tooling/eslint-flat-config](https://skills.dawidolko.pl/rules/tooling/eslint-flat-config/): ESLint is configured in eslint.config. (flat config); .eslintrc files and .eslintignore are migrated, not kept beside it.
+- [tooling/ignore-with-reason](https://skills.dawidolko.pl/rules/tooling/ignore-with-reason/): Every fs-ignore comment names the rule id it silences and says why; a bare fs-ignore silences every rule on the line.
+- [tooling/one-lockfile](https://skills.dawidolko.pl/rules/tooling/one-lockfile/): A project has exactly one committed lockfile, and CI installs from it with the frozen command (npm ci, pnpm install --frozen-lockfile).
+- [tooling/typecheck-separately](https://skills.dawidolko.pl/rules/tooling/typecheck-separately/): A TypeScript project runs a separate type check (tsc --noEmit, vue-tsc, svelte-check, astro check) in CI; the bundler does not.
+- [tooling/use-project-scripts](https://skills.dawidolko.pl/rules/tooling/use-project-scripts/): Run checks through the project's own scripts and package manager; never install tools globally or switch package managers.
 - [ts/isolated-modules](https://skills.dawidolko.pl/rules/ts/isolated-modules/): A Vite project's tsconfig sets isolatedModules or verbatimModuleSyntax, so code the bundler compiles file by file type-checks the same way.
 - [ts/no-deprecated-options](https://skills.dawidolko.pl/rules/ts/no-deprecated-options/): A TypeScript 6 or 7 tsconfig uses no option deprecated in 6.0 and removed in 7.0 (baseUrl, moduleResolution node, target es5).
 - [ts/no-explicit-any](https://skills.dawidolko.pl/rules/ts/no-explicit-any/): Type values with a real type or unknown (then narrow), never any.

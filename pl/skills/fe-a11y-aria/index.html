@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ARIA, names and live regions (fe-a11y-aria) · Frontend Skills</title>
+<meta name="description" content="Gets names, roles, states and announcements right in any stack to WCAG 2.2 AA as a target - native elements before ARIA, accessible names for icon buttons…">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#faf7fc" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0d0d0f" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://skills.dawidolko.pl/pl/skills/fe-a11y-aria/">
+<link rel="alternate" hreflang="en" href="https://skills.dawidolko.pl/skills/fe-a11y-aria/">
+<link rel="alternate" hreflang="pl" href="https://skills.dawidolko.pl/pl/skills/fe-a11y-aria/">
+<link rel="alternate" hreflang="x-default" href="https://skills.dawidolko.pl/skills/fe-a11y-aria/">
+<link rel="preload" href="/assets/fonts/opensans-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/styles.css?v=fbc2d7ae26">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Frontend Skills">
+<meta property="og:title" content="ARIA, names and live regions (fe-a11y-aria)">
+<meta property="og:description" content="Gets names, roles, states and announcements right in any stack to WCAG 2.2 AA as a target - native elements before ARIA, accessible names for icon buttons…">
+<meta property="og:url" content="https://skills.dawidolko.pl/pl/skills/fe-a11y-aria/">
+<meta property="og:image" content="https://skills.dawidolko.pl/og-pl.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Frontend Skills: jedno polecenie, które dopasowuje skille front-endowe do Twojego projektu i każdego agenta, którego używasz.">
+<meta property="og:locale" content="pl_PL">
+<meta property="og:locale:alternate" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="author" content="Dawid Olko">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Start","item":"https://skills.dawidolko.pl/pl/"},{"@type":"ListItem","position":2,"name":"Skille","item":"https://skills.dawidolko.pl/pl/skills/"},{"@type":"ListItem","position":3,"name":"ARIA, names and live regions","item":"https://skills.dawidolko.pl/pl/skills/fe-a11y-aria/"}]}</script>
+<script src="/assets/site.js?v=dd8cab0a79" defer></script>
+<script src="/a11y/a11y-panel.js?v=39d6e82235" data-accent="#9b00c2" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Przejdź do treści</a>
+<header class="site-header">
+<div class="wrap header-inner">
+<a class="brand" href="/pl/"><svg class="brand-mark" viewBox="0 0 32 32" width="32" height="32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="8" fill="currentColor"/><path d="M12.5 10 7 16l5.5 6M19.5 10 25 16l-5.5 6" fill="none" stroke="var(--logo-ink)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="brand-name">Frontend Skills</span></a>
+<nav class="main-nav" aria-label="Główna"><ul><li><a href="/pl/how-it-works/">Jak to działa</a></li><li><a href="/pl/rules/">Reguły</a></li><li><a href="/pl/skills/" class="is-section">Skille</a></li><li><a href="/pl/commands/">Polecenia</a></li><li><a href="/pl/faq/">Pytania</a></li></ul></nav>
+<div class="header-tools">
+<a class="lang-switch" href="/skills/fe-a11y-aria/" hreflang="en" lang="en" title="This page in English">English</a>
+<a class="gh-link" href="https://github.com/dawidolko/frontend-skills" aria-label="Kod źródłowy na GitHubie"><svg viewBox="0 0 16 16" width="20" height="20" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg></a>
+</div>
+</div>
+</header>
+<main id="main" tabindex="-1">
+<div class="page-head"><div class="wrap">
+<nav class="breadcrumb" aria-label="Ścieżka nawigacji"><ol><li><a href="/pl/">Start</a></li><li><a href="/pl/skills/">Skille</a></li><li><span aria-current="page">ARIA, names and live regions</span></li></ol></nav>
+<h1>ARIA, names and live regions</h1>
+<p class="lead">Gets names, roles, states and announcements right in any stack to WCAG 2.2 AA as a target - native elements before ARIA, accessible names for icon buttons and links, valid roles and aria-* attributes, aria-hidden used safely, state attributes, live regions for status messages. Use when adding ARIA, building a custom control or toast, labelling icons, or when asked &quot;what will a screen reader say&quot;.</p>
+</div></div>
+<div class="wrap rule-layout">
+<div class="prose">
+<section aria-labelledby="rules"><h2 id="rules">Reguły, których uczy</h2>
+<ul class="rule-list compact"><li class="rule-item"><a class="rule-id" href="/pl/rules/a11y/control-name/"><code>a11y/control-name</code></a><p class="rule-title">Every button and link has an accessible name; icon-only controls get visually hidden text or aria-label.</p><p class="rule-meta"><span class="sev sev-critical">krytyczna</span> <span class="tag tag-static">statyczne</span></p></li><li class="rule-item"><a class="rule-id" href="/pl/rules/a11y/prefer-native-element/"><code>a11y/prefer-native-element</code></a><p class="rule-title">Use the native element instead of a role it already provides (button, a href, input, h1–h6, nav, main, ul, li).</p><p class="rule-meta"><span class="sev sev-minor">drobna</span> <span class="tag tag-static">statyczne</span></p></li><li class="rule-item"><a class="rule-id" href="/pl/rules/a11y/aria-valid/"><code>a11y/aria-valid</code></a><p class="rule-title">Every role value is a real WAI-ARIA role and every aria-* attribute name exists (aria-labelledby, not aria-labeledby).</p><p class="rule-meta"><span class="sev sev-serious">poważna</span> <span class="tag tag-static">statyczne</span></p></li><li class="rule-item"><a class="rule-id" href="/pl/rules/a11y/aria-hidden-focusable/"><code>a11y/aria-hidden-focusable</code></a><p class="rule-title">aria-hidden=&quot;true&quot; is never on a focusable element or on an element that contains one.</p><p class="rule-meta"><span class="sev sev-serious">poważna</span> <span class="tag tag-static">statyczne</span></p></li><li class="rule-item"><a class="rule-id" href="/pl/rules/a11y/aria-label-generic/"><code>a11y/aria-label-generic</code></a><p class="rule-title">aria-label and aria-labelledby go on controls, landmarks and named roles, never on a plain div, span or p.</p><p class="rule-meta"><span class="sev sev-serious">poważna</span> <span class="tag tag-static">statyczne</span></p></li><li class="rule-item"><a class="rule-id" href="/pl/rules/a11y/aria-ref-exists/"><code>a11y/aria-ref-exists</code></a><p class="rule-title">Ids named in aria-labelledby, aria-describedby and aria-errormessage exist in the page and are unique.</p><p class="rule-meta"><span class="sev sev-serious">poważna</span> <span class="tag tag-static">statyczne</span></p></li><li class="rule-item"><a class="rule-id" href="/pl/rules/a11y/state-exposed/"><code>a11y/state-exposed</code></a><p class="rule-title">Custom toggles, disclosures and selections expose their state (aria-expanded, aria-pressed, aria-checked, aria-selected).</p><p class="rule-meta"><span class="sev sev-serious">poważna</span> <span class="tag tag-manual">ręczne</span></p></li><li class="rule-item"><a class="rule-id" href="/pl/rules/a11y/status-message-live/"><code>a11y/status-message-live</code></a><p class="rule-title">Messages that appear without moving focus (saved, results, errors, progress) are announced through a live region.</p><p class="rule-meta"><span class="sev sev-serious">poważna</span> <span class="tag tag-manual">ręczne</span></p></li></ul></section>
+<section aria-labelledby="digest"><h2 id="digest">Skrót reguł</h2><p>Ta część jest kopiowana do zawężonego pliku reguł każdego agenta, więc musi być zrozumiała sama w sobie:</p><div class="digest"><ul><li>Every button and link has a name; icon-only controls get hidden text or <code>aria-label</code>, the icon <code>aria-hidden=&quot;true&quot;</code> (a11y/control-name).</li><li>Use the native element before a role: <code>&lt;button&gt;</code>, <code>&lt;a href&gt;</code>, <code>&lt;input type=&quot;checkbox&quot;&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;h2&gt;</code> (a11y/prefer-native-element).</li><li>Roles and <code>aria-*</code> names must exist in WAI-ARIA 1.2: <code>aria-labelledby</code>, never <code>aria-labeledby</code> (a11y/aria-valid).</li><li>Never <code>aria-hidden=&quot;true&quot;</code> on anything focusable or around it; use <code>inert</code> or <code>hidden</code> (a11y/aria-hidden-focusable).</li><li>Never <code>aria-label</code> on a plain <code>div</code>, <code>span</code> or <code>p</code>; label the control or give a fitting role (a11y/aria-label-generic).</li><li>Ids in <code>aria-labelledby</code> and <code>aria-describedby</code> exist once on the page; generate them with <code>useId()</code> (a11y/aria-ref-exists).</li><li>Custom toggles expose state: <code>aria-expanded</code>, <code>aria-pressed</code>, <code>aria-checked</code>, <code>aria-selected</code>, <code>aria-current</code> (a11y/state-exposed).</li><li>Status messages go into a live region that exists before the text: <code>role=&quot;status&quot;</code>, <code>role=&quot;alert&quot;</code> only for urgent errors (a11y/status-message-live).</li><li>The accessible name contains the visible label, best at its start (WCAG 2.5.3); never replace visible words with different ones.</li><li>Never put ARIA on an element to change its look; ARIA changes only what is announced.</li></ul></div></section>
+<section aria-labelledby="do"><h2 id="do">Kroki, które wykonuje agent</h2><ol><li>Ask first: is there a native element? <code>dialog</code>, <code>details</code>, <code>select</code>, <code>input type=&quot;range&quot;</code>, <code>progress</code>, <code>meter</code>, <code>search</code>. Use it and stop.</li><li>When there is none, follow the APG pattern for the widget (role, required children, states, keys) and the skills <code>fe-a11y-dialog</code>, <code>fe-a11y-menus</code>, <code>fe-a11y-tabs-accordion</code>, <code>fe-a11y-combobox</code>.</li><li>Name things in this order: visible text, <code>aria-labelledby</code> to visible text, <code>aria-label</code>, and never <code>title</code> or <code>placeholder</code> alone.</li><li>Bind every state attribute to the same variable that drives the visual state, so they cannot drift apart.</li><li>For async results, keep one polite live region per page area (<code>&lt;p role=&quot;status&quot;&gt;</code>) in the layout; write text into it; clear it after a few seconds only if the text stays visible elsewhere.</li></ol></section>
+<section aria-labelledby="check"><h2 id="check">Jak agent sprawdza swoją pracę</h2><ul><li><code>npx github:dawidolko/frontend-skills audit --changed</code> finds unnamed icon buttons and links, invalid roles and attributes, <code>aria-hidden</code> over focusable content, labels on generic elements and broken id references.</li><li><code>audit --url &lt;page&gt;</code> adds axe-core's name and ARIA rules on the rendered page, where names that come from components are known.</li><li>By hand: listen with a screen reader (VoiceOver, NVDA) to each changed control and message: name, role, state, and the announcement after an action.</li></ul></section>
+<section aria-labelledby="refs"><h2 id="refs">Pliki referencyjne</h2><ul><li><a href="https://github.com/dawidolko/frontend-skills/blob/main/skills/accessibility/fe-a11y-aria/references/aria.md"><code>references/aria.md</code></a> · 1372 tokeny</li></ul></section>
+<section aria-labelledby="agents"><h2 id="agents">Pisany dla</h2>
+<p>każdego agenta używanego w projekcie: Claude Code, OpenAI Codex, Cursor, GitHub Copilot, Gemini CLI, Antigravity CLI, Devin / Windsurf, OpenCode, Cline, Zed, JetBrains Junie, Kiro, Augment, Trae, Continue, Amazon Q Developer, Aider.</p>
+<p>Agenci, którzy dostają też plik reguł zawężony do tych plików: Claude Code, Cursor, GitHub Copilot, Antigravity CLI, Devin / Windsurf, Cline, Kiro, Trae, Continue.</p></section>
+</div>
+<aside class="facts" aria-labelledby="facts-title">
+<h2 id="facts-title">Fakty</h2>
+<dl><dt>Nazwa</dt><dd><code>fe-a11y-aria</code></dd><dt>Obszar</dt><dd>Dostępność</dd><dt>Instalowany, gdy projekt używa</dt><dd>każdego projektu webowego</dd><dt>Pliki, których dotyczy</dt><dd><code>**/*.html</code> <code>**/*.jsx</code> <code>**/*.tsx</code> <code>**/*.vue</code> <code>**/*.svelte</code> <code>**/*.astro</code> <code>**/*.component.html</code></dd><dt>Koszt w tokenach</dt><dd>ładowane zawsze: 91 tokenów; przy użyciu: 1070 tokenów; w referencjach na żądanie: 1372 tokeny.</dd></dl>
+<p><a href="https://github.com/dawidolko/frontend-skills/blob/main/skills/accessibility/fe-a11y-aria/SKILL.md">SKILL.md na GitHubie</a></p>
+<p><a href="/pl/skills/">Wszystkie skille</a></p>
+</aside>
+</div>
+</main>
+<footer class="site-footer">
+<div class="wrap footer-inner">
+<div class="footer-text">
+<p class="footer-brand"><svg class="brand-mark" viewBox="0 0 32 32" width="32" height="32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="8" fill="currentColor"/><path d="M12.5 10 7 16l5.5 6M19.5 10 25 16l-5.5 6" fill="none" stroke="var(--logo-ink)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Frontend Skills</span></p>
+<p>Darmowy i otwarty, na licencji MIT. Autor: <a href="https://dawidolko.pl">Dawid Olko</a>.</p>
+<p>Budowana z WCAG 2.2 AA jako celem. Automatyczne testy wykrywają tylko część problemów.</p>
+<p>Bez ciasteczek, bez analityki, bez zapytań do innych serwisów. Przycisk dostępności zapisuje ustawienia tylko na Twoim urządzeniu.</p>
+</div>
+<nav aria-label="Więcej"><ul class="footer-nav"><li><a href="/pl/">Start</a></li><li><a href="/pl/how-it-works/">Jak to działa</a></li><li><a href="/pl/rules/">Reguły</a></li><li><a href="/pl/skills/">Skille</a></li><li><a href="/pl/commands/">Polecenia</a></li><li><a href="/pl/faq/">Pytania</a></li><li><a href="/pl/about/">O projekcie</a></li><li><a href="https://github.com/dawidolko/frontend-skills">GitHub</a></li></ul></nav>
+</div>
+</footer>
+<p id="live-status" class="visually-hidden" role="status" aria-live="polite"></p>
+</body>
+</html>

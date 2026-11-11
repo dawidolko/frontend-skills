@@ -61,8 +61,8 @@
 <div class="wrap">
 <h2 id="stats-title" class="visually-hidden">In numbers</h2>
 <ul class="stat-list">
-<li><a href="/rules/"><strong>176</strong> <span>rules with a stable id</span></a></li>
-<li><a href="/skills/"><strong>26</strong> <span>skills</span></a></li>
+<li><a href="/rules/"><strong>275</strong> <span>rules with a stable id</span></a></li>
+<li><a href="/skills/"><strong>50</strong> <span>skills</span></a></li>
 <li><a href="#agents-title"><strong>17</strong> <span>coding agents</span></a></li>
 <li><a href="/about/"><strong>0</strong> <span>runtime dependencies</span></a></li>
 </ul>
@@ -106,7 +106,7 @@
 <div>
 <h3>Summary in the terminal</h3>
 <pre class="terminal" tabindex="0"><code><span class="prompt">$ </span>npx github:dawidolko/frontend-skills audit fixtures/projects/react-vite
-3 files, 80 rules: 2 critical, 3 serious, 1 moderate, 3 minor.
+3 files, 124 rules: 2 critical, 3 serious, 2 moderate, 3 minor.
   critical a11y/img-alt  1× (first: fixtures/projects/react-vite/src/App.tsx:8)
   critical a11y/input-label  1× (first: fixtures/projects/react-vite/src/App.tsx:15)
   serious  a11y/focus-visible  2× (first: fixtures/projects/react-vite/src/App.tsx:16)
@@ -147,7 +147,7 @@ Failed: findings at serious or above.</code></pre>
 </div>
 <div class="card">
 <h2>Cheap to keep loaded</h2>
-<p>An agent always loads only the name and description of each installed skill. For all 26 skills that is about 2102 tokens; a skill's body (about 977 tokens on average) loads only when a task needs it.</p>
+<p>An agent always loads only the name and description of each installed skill. For all 50 skills that is about 4219 tokens; a skill's body (about 937 tokens on average) loads only when a task needs it.</p>
 <p class="note">Tokens are estimates by <code>frontend-skills estimate v1 (calibrated on o200k)</code>, measured with <code>frontend-skills tokens --all</code> when this site was built.</p>
 </div>
 <div class="card card-honest">

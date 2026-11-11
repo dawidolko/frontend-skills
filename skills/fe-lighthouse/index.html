@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lighthouse and PageSpeed (fe-lighthouse) · Frontend Skills</title>
+<meta name="description" content="Runs and reads Lighthouse 13 for performance, accessibility, best practices and SEO - locally, in Chrome DevTools, PageSpeed Insights and CI with…">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#faf7fc" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0d0d0f" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://skills.dawidolko.pl/skills/fe-lighthouse/">
+<link rel="alternate" hreflang="en" href="https://skills.dawidolko.pl/skills/fe-lighthouse/">
+<link rel="alternate" hreflang="pl" href="https://skills.dawidolko.pl/pl/skills/fe-lighthouse/">
+<link rel="alternate" hreflang="x-default" href="https://skills.dawidolko.pl/skills/fe-lighthouse/">
+<link rel="preload" href="/assets/fonts/opensans-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/styles.css?v=fbc2d7ae26">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Frontend Skills">
+<meta property="og:title" content="Lighthouse and PageSpeed (fe-lighthouse)">
+<meta property="og:description" content="Runs and reads Lighthouse 13 for performance, accessibility, best practices and SEO - locally, in Chrome DevTools, PageSpeed Insights and CI with…">
+<meta property="og:url" content="https://skills.dawidolko.pl/skills/fe-lighthouse/">
+<meta property="og:image" content="https://skills.dawidolko.pl/og-en.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Frontend Skills: one command that fits front-end skills to your project and every coding agent you use.">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="pl_PL">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="author" content="Dawid Olko">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://skills.dawidolko.pl/"},{"@type":"ListItem","position":2,"name":"Skills","item":"https://skills.dawidolko.pl/skills/"},{"@type":"ListItem","position":3,"name":"Lighthouse and PageSpeed","item":"https://skills.dawidolko.pl/skills/fe-lighthouse/"}]}</script>
+<script src="/assets/site.js?v=dd8cab0a79" defer></script>
+<script src="/a11y/a11y-panel.js?v=39d6e82235" data-accent="#9b00c2" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+<div class="wrap header-inner">
+<a class="brand" href="/"><svg class="brand-mark" viewBox="0 0 32 32" width="32" height="32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="8" fill="currentColor"/><path d="M12.5 10 7 16l5.5 6M19.5 10 25 16l-5.5 6" fill="none" stroke="var(--logo-ink)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="brand-name">Frontend Skills</span></a>
+<nav class="main-nav" aria-label="Main"><ul><li><a href="/how-it-works/">How it works</a></li><li><a href="/rules/">Rules</a></li><li><a href="/skills/" class="is-section">Skills</a></li><li><a href="/commands/">Commands</a></li><li><a href="/faq/">FAQ</a></li></ul></nav>
+<div class="header-tools">
+<a class="lang-switch" href="/pl/skills/fe-lighthouse/" hreflang="pl" lang="pl" title="Ta strona po polsku">Polski</a>
+<a class="gh-link" href="https://github.com/dawidolko/frontend-skills" aria-label="Source code on GitHub"><svg viewBox="0 0 16 16" width="20" height="20" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg></a>
+</div>
+</div>
+</header>
+<main id="main" tabindex="-1">
+<div class="page-head"><div class="wrap">
+<nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><a href="/skills/">Skills</a></li><li><span aria-current="page">Lighthouse and PageSpeed</span></li></ol></nav>
+<h1>Lighthouse and PageSpeed</h1>
+<p class="lead">Runs and reads Lighthouse 13 for performance, accessibility, best practices and SEO - locally, in Chrome DevTools, PageSpeed Insights and CI with Lighthouse CI - and turns the report into fixes without chasing the score. Use when asked to run Lighthouse or PageSpeed, set up performance budgets or a CI gate, explain a score or an insight, or &quot;get the page to green&quot;.</p>
+</div></div>
+<div class="wrap rule-layout">
+<div class="prose">
+<section aria-labelledby="rules"><h2 id="rules">Rules it teaches</h2>
+<ul class="rule-list compact"><li class="rule-item"><a class="rule-id" href="/rules/perf/lighthouse-ci/"><code>perf/lighthouse-ci</code></a><p class="rule-title">Lighthouse in CI runs each URL several times, asserts on metrics and categories with realistic thresholds, and never demands a perfect 100.</p><p class="rule-meta"><span class="sev sev-minor">minor</span> <span class="tag tag-manual">manual</span></p></li><li class="rule-item"><a class="rule-id" href="/rules/perf/field-data-p75/"><code>perf/field-data-p75</code></a><p class="rule-title">Claims about Core Web Vitals come from field data at the 75th percentile, not from a Lighthouse score.</p><p class="rule-meta"><span class="sev sev-minor">minor</span> <span class="tag tag-manual">manual</span></p></li><li class="rule-item"><a class="rule-id" href="/rules/tooling/console-clean/"><code>tooling/console-clean</code></a><p class="rule-title">Pages log no errors and use no deprecated browser APIs, as seen in the console on load and in the main flows.</p><p class="rule-meta"><span class="sev sev-minor">minor</span> <span class="tag tag-browser">browser</span></p></li><li class="rule-item"><a class="rule-id" href="/rules/perf/lcp-image/"><code>perf/lcp-image</code></a><p class="rule-title">The LCP image is in the initial HTML, not lazy, and has fetchpriority=&quot;high&quot;; a CSS background LCP image is preloaded.</p><p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-browser">browser</span></p></li><li class="rule-item"><a class="rule-id" href="/rules/perf/layout-shift/"><code>perf/layout-shift</code></a><p class="rule-title">Nothing moves after it appears - space is reserved for images, embeds, ads and late content (CLS 0.1 or less).</p><p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-browser">browser</span></p></li><li class="rule-item"><a class="rule-id" href="/rules/perf/code-split/"><code>perf/code-split</code></a><p class="rule-title">JavaScript is split by route, and features that most visits do not use load on demand with dynamic import().</p><p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-browser">browser</span></p></li></ul></section>
+<section aria-labelledby="digest"><h2 id="digest">The rule digest</h2><p>This part is copied into each agent's scoped rule file, so it stands on its own:</p><div class="digest"><ul><li>The performance score weights TBT 30, LCP 25, CLS 25, FCP 10, Speed Index 10; fix the heaviest failing metric first.</li><li>Run the mobile preset (the default) and <code>--preset=desktop</code> separately; report which one.</li><li>Run at least three times and use the median; never gate CI on one run or on 100 (<a href="/rules/perf/lighthouse-ci/">perf/lighthouse-ci</a>).</li><li>A lab score is not a Core Web Vitals result; vitals come from field data at p75 (<a href="/rules/perf/field-data-p75/">perf/field-data-p75</a>).</li><li>Lighthouse 13 shows insights (LCP discovery, layout shift culprits, render blocking, third parties) instead of the old opportunities; read them for causes (<a href="/rules/perf/lcp-image/">perf/lcp-image</a>, <a href="/rules/perf/layout-shift/">perf/layout-shift</a>, <a href="/rules/perf/code-split/">perf/code-split</a>).</li><li>Accessibility 100 means no automated audit failed, not that the page is accessible; do the manual checks.</li><li>Keep the console free of errors and deprecated APIs (<a href="/rules/tooling/console-clean/">tooling/console-clean</a>).</li><li>Test production builds on a quiet machine in a clean profile (no extensions), not the dev server.</li><li>Never optimise for the score by hiding content from Lighthouse or detecting its user agent.</li></ul></div></section>
+<section aria-labelledby="do"><h2 id="do">Steps the agent follows</h2><ol><li>Build and serve the production output locally (<code>npm run build</code> then the framework's preview), or use the deployed URL.</li><li>Run <code>npx github:dawidolko/frontend-skills audit --url &lt;url&gt;</code>: it runs Lighthouse and axe-core in the local Chrome (after a yes) and maps results to rule ids. Or run <code>npx lighthouse@13.6.0 &lt;url&gt; --output=json --output-path=./lh.json --quiet</code>.</li><li>Read in order: metric values, then the insights for the failing metric, then diagnostics. Fix one cause, rebuild, rerun three times.</li><li>For CI, add <code>@lhci/cli</code> with a <code>lighthouserc.json</code>: several URLs, <code>numberOfRuns: 3</code>, metric assertions, results kept as artefacts.</li><li>Write results with the tool version, preset, number of runs and date.</li></ol></section>
+<section aria-labelledby="check"><h2 id="check">How the agent checks the work</h2><ul><li><code>npx github:dawidolko/frontend-skills audit --url &lt;url&gt;</code> gives the four category scores, the lab metrics and findings by rule id.</li><li>PageSpeed Insights (<a href="https://pagespeed.web.dev/">https://pagespeed.web.dev/</a>) adds field data for public URLs with enough traffic.</li><li>Compare two runs with the Lighthouse viewer or <code>lhci</code> server only when both used the same preset and machine.</li></ul></section>
+<section aria-labelledby="refs"><h2 id="refs">Reference files</h2><ul><li><a href="https://github.com/dawidolko/frontend-skills/blob/main/skills/performance/fe-lighthouse/references/lighthouse.md"><code>references/lighthouse.md</code></a> · 1485 tokens</li></ul></section>
+<section aria-labelledby="agents"><h2 id="agents">Written for</h2>
+<p>every agent the project uses: Claude Code, OpenAI Codex, Cursor, GitHub Copilot, Gemini CLI, Antigravity CLI, Devin / Windsurf, OpenCode, Cline, Zed, JetBrains Junie, Kiro, Augment, Trae, Continue, Amazon Q Developer, Aider.</p>
+<p>Agents that also get a rule file scoped to these files: Claude Code, Cursor, GitHub Copilot, Antigravity CLI, Devin / Windsurf, Cline, Kiro, Trae, Continue.</p></section>
+</div>
+<aside class="facts" aria-labelledby="facts-title">
+<h2 id="facts-title">Facts</h2>
+<dl><dt>Name</dt><dd><code>fe-lighthouse</code></dd><dt>Area</dt><dd>Performance</dd><dt>Installed when the project uses</dt><dd>every web project</dd><dt>Files it is about</dt><dd><code>**/lighthouserc*</code> <code>**/.lighthouserc*</code> <code>**/*.html</code></dd><dt>Token cost</dt><dd>82 tokens always loaded, 820 tokens when used, 1485 tokens in references on demand.</dd></dl>
+<p><a href="https://github.com/dawidolko/frontend-skills/blob/main/skills/performance/fe-lighthouse/SKILL.md">SKILL.md on GitHub</a></p>
+<p><a href="/skills/">All skills</a></p>
+</aside>
+</div>
+</main>
+<footer class="site-footer">
+<div class="wrap footer-inner">
+<div class="footer-text">
+<p class="footer-brand"><svg class="brand-mark" viewBox="0 0 32 32" width="32" height="32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="8" fill="currentColor"/><path d="M12.5 10 7 16l5.5 6M19.5 10 25 16l-5.5 6" fill="none" stroke="var(--logo-ink)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Frontend Skills</span></p>
+<p>Free and open source under the MIT licence, made by <a href="https://dawidolko.pl">Dawid Olko</a>.</p>
+<p>Built to WCAG 2.2 AA as a target. Automated checks find only part of the problems.</p>
+<p>No cookies, no analytics, no third-party requests. The accessibility button keeps its settings on your device.</p>
+</div>
+<nav aria-label="More"><ul class="footer-nav"><li><a href="/">Home</a></li><li><a href="/how-it-works/">How it works</a></li><li><a href="/rules/">Rules</a></li><li><a href="/skills/">Skills</a></li><li><a href="/commands/">Commands</a></li><li><a href="/faq/">FAQ</a></li><li><a href="/about/">About</a></li><li><a href="https://github.com/dawidolko/frontend-skills">GitHub</a></li></ul></nav>
+</div>
+</footer>
+<p id="live-status" class="visually-hidden" role="status" aria-live="polite"></p>
+</body>
+</html>

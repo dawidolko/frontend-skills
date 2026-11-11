@@ -61,8 +61,8 @@
 <div class="wrap">
 <h2 id="stats-title" class="visually-hidden">W liczbach</h2>
 <ul class="stat-list">
-<li><a href="/pl/rules/"><strong>176</strong> <span>reguły ze stałym identyfikatorem</span></a></li>
-<li><a href="/pl/skills/"><strong>26</strong> <span>skille</span></a></li>
+<li><a href="/pl/rules/"><strong>275</strong> <span>reguły ze stałym identyfikatorem</span></a></li>
+<li><a href="/pl/skills/"><strong>50</strong> <span>skille</span></a></li>
 <li><a href="#agents-title"><strong>17</strong> <span>agenci AI</span></a></li>
 <li><a href="/pl/about/"><strong>0</strong> <span>zależności w działaniu</span></a></li>
 </ul>
@@ -106,7 +106,7 @@
 <div>
 <h3>Podsumowanie w terminalu</h3>
 <pre class="terminal" tabindex="0"><code><span class="prompt">$ </span>npx github:dawidolko/frontend-skills audit fixtures/projects/react-vite
-3 files, 80 rules: 2 critical, 3 serious, 1 moderate, 3 minor.
+3 files, 124 rules: 2 critical, 3 serious, 2 moderate, 3 minor.
   critical a11y/img-alt  1× (first: fixtures/projects/react-vite/src/App.tsx:8)
   critical a11y/input-label  1× (first: fixtures/projects/react-vite/src/App.tsx:15)
   serious  a11y/focus-visible  2× (first: fixtures/projects/react-vite/src/App.tsx:16)
@@ -147,7 +147,7 @@ Failed: findings at serious or above.</code></pre>
 </div>
 <div class="card">
 <h2>Tanie w utrzymaniu w kontekście</h2>
-<p>Agent stale ładuje tylko nazwę i opis każdego zainstalowanego skilla. Dla wszystkich skilli (26) to około 2102 tokeny; treść skilla (średnio około 977 tokenów) ładuje się dopiero wtedy, gdy zadanie jej potrzebuje.</p>
+<p>Agent stale ładuje tylko nazwę i opis każdego zainstalowanego skilla. Dla wszystkich skilli (50) to około 4219 tokenów; treść skilla (średnio około 937 tokenów) ładuje się dopiero wtedy, gdy zadanie jej potrzebuje.</p>
 <p class="note">Tokeny to szacunek <code>frontend-skills estimate v1 (calibrated on o200k)</code>, zmierzony poleceniem <code>frontend-skills tokens --all</code> podczas budowania tej strony.</p>
 </div>
 <div class="card card-honest">
