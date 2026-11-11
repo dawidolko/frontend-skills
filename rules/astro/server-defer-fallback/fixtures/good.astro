@@ -1,0 +1,15 @@
+---
+import Avatar from '../components/Avatar.astro'
+import Cart from '../components/Cart.astro'
+import genericAvatar from '../images/avatar.png'
+const { user } = Astro.locals
+const islandProps = { region: 'eu' }
+---
+<header>
+  <a href="/">Home</a>
+  <Avatar server:defer userId={user.id}>
+    <img slot="fallback" src={genericAvatar.src} alt="" width="40" height="40" />
+  </Avatar>
+  <Cart server:defer {...islandProps} />
+  <Avatar userId={user.id} />
+</header>

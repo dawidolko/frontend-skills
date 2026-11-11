@@ -1,0 +1,16 @@
+---
+const apiUrl = import.meta.env.PUBLIC_API_URL
+const schema = { '@context': 'https://schema.org', '@type': 'Organization', name: 'Example' }
+---
+<div id="feed" data-api-url={apiUrl}></div>
+<script>
+  import confetti from 'canvas-confetti'
+  const feed = document.getElementById('feed')
+  if (feed) fetch(feed.dataset.apiUrl!).then(() => confetti())
+</script>
+<script src="../scripts/menu.ts"></script>
+<script is:inline>
+  document.documentElement.dataset.theme = localStorage.getItem('theme') ?? 'light'
+</script>
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />
+<script async src="https://plausible.io/js/script.js" data-domain="example.com"></script>
