@@ -1,0 +1,18 @@
+<!-- @for (user of users(); track user) { {{ user.name }} } in a comment is ignored -->
+<ul>
+  @for (user of users(); track user.id) {
+    <li>{{ user.name }}</li>
+  }
+  @for (day of weekdays; track $index; let last = $last) {
+    <li>{{ day }}</li>
+  }
+  @for (tag of tags(); track tagKey(tag)) {
+    <li>{{ tag.label }}</li>
+  }
+  @for (genre of genres; track genre) {
+    <li><button type="button" (click)="pick(genre)">{{ genre.toUpperCase() }}</button></li>
+  }
+  @for (star of [1, 2, 3, 4, 5]; track star) {
+    <span>{{ star }}</span>
+  }
+</ul>

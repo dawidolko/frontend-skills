@@ -1,0 +1,16 @@
+<!-- *ngFor in a comment is not a directive -->
+<ul>
+  @for (item of items(); track item.id) {
+    <li [class.done]="item.done">{{ item.name }}</li>
+  } @empty {
+    <li>No items yet.</li>
+  }
+</ul>
+@if (loading()) {
+  <p>Loading…</p>
+}
+@switch (status()) {
+  @case ('done') { <span>Done</span> }
+  @default { <span>Pending</span> }
+}
+<p>Write *ngIf only in old code.</p>
