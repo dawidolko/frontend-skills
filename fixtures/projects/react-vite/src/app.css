@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "Brand";
+  src: url("/brand.woff2") format("woff2");
+}
+
+a:focus {
+  outline: none;
+}

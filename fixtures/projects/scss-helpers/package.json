@@ -1,0 +1,6 @@
+{
+  "name": "brand-site",
+  "private": true,
+  "scripts": { "icons": "fantasticon", "build": "sass src/styles/main.scss dist/main.css" },
+  "devDependencies": { "sass": "^1.108.2", "fantasticon": "^3.0.0", "style-dictionary": "^5.0.0" }
+}
