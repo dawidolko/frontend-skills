@@ -16,7 +16,7 @@ Status: ✅ written (reference examples), ⬜ to write. Every skill follows `doc
 | ✅ `fe-forms` | foundations | web | Native inputs and types, constraint validation, submission, file inputs; accessibility is in `fe-a11y-forms`. |
 | ✅ `fe-images` | performance | web | Formats (AVIF, WebP), `srcset`/`sizes`, `<picture>`, lazy loading, the LCP image, SVG. Owns `perf/img-dimensions`, `perf/large-image`, `perf/lcp-image-priority`, `perf/srcset-sizes`, `perf/img-modern-format`, `perf/gif-to-video`, `html/picture-img`. |
 | ✅ `fe-fonts` | performance | web | Self-hosting, `font-display`, preload, subsetting, variable fonts, fallback metrics. Owns `perf/font-display`. |
-| ⬜ `fe-motion` | styling | web | Animating compositor properties, `prefers-reduced-motion`, View Transitions, scroll-driven animations. |
+| ✅ `fe-motion` | styling | web | Animating compositor properties, `prefers-reduced-motion`, View Transitions, scroll-driven animations. |
 
 ## Lane B: JavaScript, TypeScript, frameworks, styling tools, state and data
 
