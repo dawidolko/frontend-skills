@@ -13,10 +13,12 @@ export default {
       const code = literal(el.attrs.get('hreflang'))
       if (code === null) continue
       const c = code.trim()
-      if (!CODE.test(c)) ctx.report(el, `hreflang="${c}" is not valid; use a language code with an optional region, such as "en", "en-GB", "pt-BR" or "x-default".`)
+      if (!CODE.test(c))
+        ctx.report(el, `hreflang="${c}" is not valid; use a language code with an optional region, such as "en", "en-GB", "pt-BR" or "x-default".`)
       else if (/-uk$/i.test(c)) ctx.report(el, `hreflang="${c}": the region code for the United Kingdom is GB ("en-GB").`)
       const href = literal(el.attrs.get('href'))
-      if (href !== null && !/\{\{|\$\{/.test(href) && !/^https?:\/\//i.test(href.trim())) ctx.report(el, `hreflang link href="${href}" must be an absolute URL.`)
+      if (href !== null && !/\{\{|\$\{/.test(href) && !/^https?:\/\//i.test(href.trim()))
+        ctx.report(el, `hreflang link href="${href}" must be an absolute URL.`)
     }
   }
 }

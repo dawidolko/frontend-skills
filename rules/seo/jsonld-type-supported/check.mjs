@@ -8,7 +8,7 @@ import { literal } from '../../../engine/helpers.mjs'
 const RETIRED = new Set(['FAQPage', 'HowTo', 'ClaimReview', 'SpecialAnnouncement'])
 
 function types(node, out) {
-  if (Array.isArray(node)) node.forEach((n) => types(n, out))
+  if (Array.isArray(node)) for (const n of node) types(n, out)
   else if (node && typeof node === 'object') {
     for (const t of [].concat(node['@type'] || [])) out.add(String(t))
     for (const v of Object.values(node)) if (typeof v === 'object') types(v, out)
@@ -28,7 +28,8 @@ export default {
       } catch {
         continue
       }
-      for (const t of types(data, new Set())) if (RETIRED.has(t)) ctx.report(el, `@type "${t}" no longer produces a rich result in Google Search; keep it only if another consumer needs it.`)
+      for (const t of types(data, new Set()))
+        if (RETIRED.has(t)) ctx.report(el, `@type "${t}" no longer produces a rich result in Google Search; keep it only if another consumer needs it.`)
     }
   }
 }

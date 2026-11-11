@@ -13,7 +13,8 @@ export default {
       if (eq !== 'content-security-policy') continue
       const policy = (literal(el.attrs.get('content')) || '').toLowerCase()
       const ignored = ['frame-ancestors', 'report-uri', 'sandbox'].filter((d) => new RegExp(`(^|;)\\s*${d}(\\s|;|$)`).test(policy))
-      if (ignored.length) ctx.report(el, `${ignored.join(', ')} in a CSP meta tag ${ignored.length > 1 ? 'are' : 'is'} ignored; send the policy as an HTTP header.`)
+      if (ignored.length)
+        ctx.report(el, `${ignored.join(', ')} in a CSP meta tag ${ignored.length > 1 ? 'are' : 'is'} ignored; send the policy as an HTTP header.`)
     }
   }
 }

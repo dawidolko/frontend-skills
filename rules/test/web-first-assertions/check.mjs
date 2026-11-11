@@ -28,13 +28,27 @@ function codeOnly(s) {
   return out
 }
 
-const RE = /\bexpect\(\s*await\s+[^;\n]*?\.(isVisible|isHidden|isEnabled|isDisabled|isChecked|isEditable|textContent|innerText|inputValue|getAttribute|count)\(/g
-const BETTER = { isVisible: 'toBeVisible()', isHidden: 'toBeHidden()', isEnabled: 'toBeEnabled()', isDisabled: 'toBeDisabled()', isChecked: 'toBeChecked()', isEditable: 'toBeEditable()', textContent: 'toHaveText()', innerText: 'toHaveText()', inputValue: 'toHaveValue()', getAttribute: 'toHaveAttribute()', count: 'toHaveCount()' }
+const RE =
+  /\bexpect\(\s*await\s+[^;\n]*?\.(isVisible|isHidden|isEnabled|isDisabled|isChecked|isEditable|textContent|innerText|inputValue|getAttribute|count)\(/g
+const BETTER = {
+  isVisible: 'toBeVisible()',
+  isHidden: 'toBeHidden()',
+  isEnabled: 'toBeEnabled()',
+  isDisabled: 'toBeDisabled()',
+  isChecked: 'toBeChecked()',
+  isEditable: 'toBeEditable()',
+  textContent: 'toHaveText()',
+  innerText: 'toHaveText()',
+  inputValue: 'toHaveValue()',
+  getAttribute: 'toHaveAttribute()',
+  count: 'toHaveCount()'
+}
 
 export default {
   check(ctx) {
     const code = codeOnly(ctx.text)
     if (!/@playwright\/test/.test(code)) return
-    for (const m of code.matchAll(RE)) ctx.report(ctx.lineOf(m.index), `expect(await ….${m[1]}()) checks once; use await expect(locator).${BETTER[m[1]]}, which retries until it passes.`)
+    for (const m of code.matchAll(RE))
+      ctx.report(ctx.lineOf(m.index), `expect(await ….${m[1]}()) checks once; use await expect(locator).${BETTER[m[1]]}, which retries until it passes.`)
   }
 }

@@ -10,7 +10,8 @@ export default {
       if (el.component || el.spread || el.attrs.has('aria-expanded')) continue
       const popup = el.attrs.get('aria-haspopup')
       const role = (literal(el.attrs.get('role')) || '').trim().toLowerCase()
-      if (popup && literal(popup) !== 'false') ctx.report(el, `<${el.name} aria-haspopup> has no aria-expanded; set it to true or false as the popup opens and closes.`)
+      if (popup && literal(popup) !== 'false')
+        ctx.report(el, `<${el.name} aria-haspopup> has no aria-expanded; set it to true or false as the popup opens and closes.`)
       else if (role === 'combobox') ctx.report(el, `<${el.name} role="combobox"> has no aria-expanded; set it to true or false as the list opens and closes.`)
     }
   }

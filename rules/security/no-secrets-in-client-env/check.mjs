@@ -34,6 +34,7 @@ const RE = /\b(?:NEXT_PUBLIC|VITE|PUBLIC|NUXT_PUBLIC|REACT_APP|EXPO_PUBLIC|GATSB
 export default {
   check(ctx) {
     const code = codeOnly(ctx.text)
-    for (const m of code.matchAll(RE)) ctx.report(ctx.lineOf(m.index), `${m[0]} is a public (bundled) variable named like a secret; anything with that prefix is shipped to every browser.`)
+    for (const m of code.matchAll(RE))
+      ctx.report(ctx.lineOf(m.index), `${m[0]} is a public (bundled) variable named like a secret; anything with that prefix is shipped to every browser.`)
   }
 }

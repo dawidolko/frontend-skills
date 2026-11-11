@@ -34,8 +34,10 @@ const LISTEN = /\b(?:window|globalThis)\.addEventListener\(\s*['"`]message['"`]|
 export default {
   check(ctx) {
     const code = codeOnly(ctx.text)
-    for (const m of code.matchAll(STAR)) ctx.report(ctx.lineOf(m.index), 'postMessage with targetOrigin "*" sends the data to any page in that window; name the exact origin.')
+    for (const m of code.matchAll(STAR))
+      ctx.report(ctx.lineOf(m.index), 'postMessage with targetOrigin "*" sends the data to any page in that window; name the exact origin.')
     if (/\.origin\b/.test(code)) return
-    for (const m of code.matchAll(LISTEN)) ctx.report(ctx.lineOf(m.index), 'A window message listener never checks event.origin; accept messages only from an exact allowlist.')
+    for (const m of code.matchAll(LISTEN))
+      ctx.report(ctx.lineOf(m.index), 'A window message listener never checks event.origin; accept messages only from an exact allowlist.')
   }
 }

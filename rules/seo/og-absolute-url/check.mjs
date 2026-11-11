@@ -13,7 +13,8 @@ export default {
       if (!key || !KEYS.test(key.trim())) continue
       const content = literal(el.attrs.get('content'))
       if (content === null || /\{\{|\$\{/.test(content)) continue
-      if (!/^https?:\/\//i.test(content.trim())) ctx.report(el, `${key} content="${content}" must be an absolute URL; social platforms do not resolve relative paths.`)
+      if (!/^https?:\/\//i.test(content.trim()))
+        ctx.report(el, `${key} content="${content}" must be an absolute URL; social platforms do not resolve relative paths.`)
     }
   }
 }

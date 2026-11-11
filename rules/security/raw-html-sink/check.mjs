@@ -46,7 +46,7 @@ export default {
       if (el.component) continue
       for (const name of ATTRS) {
         const a = el.attrs.get(name)
-        if (!a || !a.dynamic && name !== 'v-html') continue
+        if (!a || (!a.dynamic && name !== 'v-html')) continue
         const v = a.value || ''
         if (SAFE.test(v) || literalOnly(v)) continue
         if (el.name === 'script' && /JSON\.stringify/.test(v)) continue
@@ -58,7 +58,10 @@ export default {
       for (const m of code.matchAll(re)) {
         const v = m[1] || ''
         if (SAFE.test(v) || (sink !== 'bypassSecurityTrust' && literalOnly(v)) || /^\s*['"`]{2}\s*;?\s*$/.test(v)) continue
-        ctx.report(ctx.lineOf(m.index), `${sink} with "${v.trim().slice(0, 40)}" can run injected script; use textContent or framework text, or sanitize with DOMPurify.`)
+        ctx.report(
+          ctx.lineOf(m.index),
+          `${sink} with "${v.trim().slice(0, 40)}" can run injected script; use textContent or framework text, or sanitize with DOMPurify.`
+        )
       }
   }
 }

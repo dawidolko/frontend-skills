@@ -7,9 +7,12 @@ const RE = /(?:\bimport\s+(?:[\w*{}\s,]+\s+from\s+)?|\brequire\s*\(\s*|\bimport\
 
 export default {
   check(ctx) {
-    const text = ctx.text.replace(/\/\*[\s\S]*?\*\//g, (c) => c.replace(/[^\n]/g, ' ')).replace(/(^|[^:'"`])\/\/[^\n]*/g, (c, p) => p + ' '.repeat(c.length - p.length))
+    const text = ctx.text
+      .replace(/\/\*[\s\S]*?\*\//g, (c) => c.replace(/[^\n]/g, ' '))
+      .replace(/(^|[^:'"`])\/\/[^\n]*/g, (c, p) => p + ' '.repeat(c.length - p.length))
     for (const m of text.matchAll(RE)) {
-      const tip = m[1] === 'lodash' ? 'import from lodash-es or use the platform (structuredClone, Array methods)' : 'use Intl.DateTimeFormat or a small date library'
+      const tip =
+        m[1] === 'lodash' ? 'import from lodash-es or use the platform (structuredClone, Array methods)' : 'use Intl.DateTimeFormat or a small date library'
       ctx.report(ctx.lineOf(m.index), `"${m[1]}" ships the whole library to the browser; ${tip}.`)
     }
   }

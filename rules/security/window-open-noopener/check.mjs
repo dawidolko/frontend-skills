@@ -33,6 +33,7 @@ const RE = /\bwindow\.open\(\s*[^,()]+(?:\([^()]*\))?[^,()]*,\s*['"`]_blank['"`]
 export default {
   check(ctx) {
     const code = codeOnly(ctx.text)
-    for (const m of code.matchAll(RE)) ctx.report(ctx.lineOf(m.index), 'window.open(url, "_blank") gives the new page access to window.opener; add "noopener,noreferrer" as the third argument.')
+    for (const m of code.matchAll(RE))
+      ctx.report(ctx.lineOf(m.index), 'window.open(url, "_blank") gives the new page access to window.opener; add "noopener,noreferrer" as the third argument.')
   }
 }

@@ -22,7 +22,8 @@ export default {
         continue
       }
       const items = Array.isArray(data) ? data : [data]
-      if (!items.every((d) => d && typeof d === 'object' && /schema\.org/.test(JSON.stringify(d['@context'] ?? '')))) ctx.report(el, 'JSON-LD has no "@context": "https://schema.org".')
+      if (!items.every((d) => d && typeof d === 'object' && /schema\.org/.test(JSON.stringify(d['@context'] ?? ''))))
+        ctx.report(el, 'JSON-LD has no "@context": "https://schema.org".')
     }
   }
 }

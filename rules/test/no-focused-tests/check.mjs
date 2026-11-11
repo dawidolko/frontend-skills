@@ -33,6 +33,7 @@ const RE = /\b(?:describe|it|test|context|suite)\.only\s*\(|\b(?:fit|fdescribe)\
 export default {
   check(ctx) {
     const code = codeOnly(ctx.text)
-    for (const m of code.matchAll(RE)) ctx.report(ctx.lineOf(m.index), `${m[0].replace(/\s*\($/, '')} runs only this test and silently skips the rest; remove it before committing.`)
+    for (const m of code.matchAll(RE))
+      ctx.report(ctx.lineOf(m.index), `${m[0].replace(/\s*\($/, '')} runs only this test and silently skips the rest; remove it before committing.`)
   }
 }

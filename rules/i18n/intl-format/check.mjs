@@ -28,8 +28,14 @@ function codeOnly(s) {
 }
 
 const PATTERNS = [
-  [/\.get(?:Date|Month|FullYear|Hours|Minutes)\(\)\s*(?:\+\s*1\s*\)?\s*)?\+\s*['"\x60]\s*[/.\-:]\s*['"\x60]/g, 'A date is assembled by hand; use Intl.DateTimeFormat with the user\'s locale.'],
-  [/\.toFixed\(\s*\d\s*\)\s*\+\s*['"\x60]\s*(?:zł|€|\$|£|PLN|EUR|USD|GBP|CHF|kr)/g, 'A price is assembled by hand; use Intl.NumberFormat with style "currency".'],
+  [
+    /\.get(?:Date|Month|FullYear|Hours|Minutes)\(\)\s*(?:\+\s*1\s*\)?\s*)?\+\s*['"\x60]\s*[/.\-:]\s*['"\x60]/g,
+    "A date is assembled by hand; use Intl.DateTimeFormat with the user's locale."
+  ],
+  [
+    /\.toFixed\(\s*\d\s*\)\s*\+\s*['"\x60]\s*(?:zł|€|\$|£|PLN|EUR|USD|GBP|CHF|kr)/g,
+    'A price is assembled by hand; use Intl.NumberFormat with style "currency".'
+  ],
   [/['"\x60](?:\$|€|£)\s*['"\x60]\s*\+\s*[\w$.()[\]]+\.toFixed\(/g, 'A price is assembled by hand; use Intl.NumberFormat with style "currency".']
 ]
 

@@ -28,7 +28,8 @@ function codeOnly(s) {
   return out
 }
 
-const RE = /\.toLocale(?:Date|Time)?String\(\s*\)|\bnew Intl\.(?:DateTimeFormat|NumberFormat|RelativeTimeFormat|PluralRules|ListFormat|Collator|DisplayNames)\(\s*\)/g
+const RE =
+  /\.toLocale(?:Date|Time)?String\(\s*\)|\bnew Intl\.(?:DateTimeFormat|NumberFormat|RelativeTimeFormat|PluralRules|ListFormat|Collator|DisplayNames)\(\s*\)/g
 
 export default {
   check(ctx) {

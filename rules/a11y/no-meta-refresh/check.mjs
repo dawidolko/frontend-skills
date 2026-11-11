@@ -10,7 +10,8 @@ export default {
       if ((literal(el.attrs.get('http-equiv')) || '').trim().toLowerCase() !== 'refresh') continue
       const content = literal(el.attrs.get('content'))
       const m = content === null ? null : /^\s*(\d+(?:\.\d+)?)/.exec(content)
-      if (m && Number(m[1]) > 0) ctx.report(el, `<meta http-equiv="refresh" content="${content.trim()}"> changes the page after ${m[1]} s; redirect on the server or let people choose.`)
+      if (m && Number(m[1]) > 0)
+        ctx.report(el, `<meta http-equiv="refresh" content="${content.trim()}"> changes the page after ${m[1]} s; redirect on the server or let people choose.`)
     }
   }
 }

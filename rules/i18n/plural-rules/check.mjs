@@ -32,6 +32,7 @@ const PLURAL = /\b([\w$.]*(?:count|length|total|num|qty|quantity|size|amount)\w*
 export default {
   check(ctx) {
     const code = codeOnly(ctx.text)
-    for (const m of code.matchAll(PLURAL)) ctx.report(ctx.lineOf(m.index), `Plural chosen with ${m[1]} ${m[2]} 1; use the locale's plural rules (ICU plural or Intl.PluralRules).`)
+    for (const m of code.matchAll(PLURAL))
+      ctx.report(ctx.lineOf(m.index), `Plural chosen with ${m[1]} ${m[2]} 1; use the locale's plural rules (ICU plural or Intl.PluralRules).`)
   }
 }

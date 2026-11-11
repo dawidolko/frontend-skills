@@ -34,6 +34,7 @@ const CONCAT = new RegExp(String.raw`${T}\s*\+|\+\s*${T}|\$\{\s*${T}\s*\}[^\x60]
 export default {
   check(ctx) {
     const code = codeOnly(ctx.text)
-    for (const m of code.matchAll(CONCAT)) ctx.report(ctx.lineOf(m.index), 'A sentence is built from translated pieces; use one message with placeholders, such as t("cart.items", { count }).')
+    for (const m of code.matchAll(CONCAT))
+      ctx.report(ctx.lineOf(m.index), 'A sentence is built from translated pieces; use one message with placeholders, such as t("cart.items", { count }).')
   }
 }

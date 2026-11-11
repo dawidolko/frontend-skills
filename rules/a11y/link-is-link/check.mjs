@@ -15,7 +15,8 @@ export default {
       if (href?.dynamic) continue
       const click = el.attrs.has('onclick')
       const value = href ? staticValue(el, 'href').trim() : null
-      if (value !== null && /^javascript:/i.test(value)) ctx.report(el, `<a href="${value.slice(0, 30)}"> is a script link; use <button type="button"> for the action.`)
+      if (value !== null && /^javascript:/i.test(value))
+        ctx.report(el, `<a href="${value.slice(0, 30)}"> is a script link; use <button type="button"> for the action.`)
       else if (click && value === null) ctx.report(el, '<a> with a click handler and no href cannot be reached with the keyboard; use <button type="button">.')
       else if (click && value === '#') ctx.report(el, '<a href="#"> used as a button; use <button type="button">, or give the link a real URL.')
     }

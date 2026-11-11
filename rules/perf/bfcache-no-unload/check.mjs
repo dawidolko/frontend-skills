@@ -30,6 +30,7 @@ export default {
   check(ctx) {
     const code = codeOnly(ctx.text)
     for (const re of PATTERNS)
-      for (const m of code.matchAll(re)) ctx.report(ctx.lineOf(m.index), 'An unload listener keeps the page out of the back/forward cache; use pagehide or visibilitychange.')
+      for (const m of code.matchAll(re))
+        ctx.report(ctx.lineOf(m.index), 'An unload listener keeps the page out of the back/forward cache; use pagehide or visibilitychange.')
   }
 }
