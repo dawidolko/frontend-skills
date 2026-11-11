@@ -58,7 +58,7 @@ Status: ✅ written (reference examples), ⬜ to write. Every skill follows `doc
 | ✅ `fe-lighthouse` | performance | web | Running Lighthouse 13 locally and in CI, reading the score (weights: TBT 30, LCP 25, CLS 25, FCP 10, SI 10), budgets. |
 | ✅ `fe-perf-delivery` | performance | web | JavaScript and CSS delivery, code splitting, hydration cost, third-party scripts, caching and resource hints; cites `perf/render-blocking-script` (owned by `fe-html`). |
 | ✅ `fe-seo-metadata` | quality | web | Titles, descriptions, canonical, Open Graph, structured data, sitemap and robots, per framework. |
-| ⬜ `fe-i18n` | quality | web | `lang` and `dir`, `Intl` formatting, message formats, RTL with logical properties, framework i18n libraries. |
+| ✅ `fe-i18n` | quality | web | `lang` and `dir`, `Intl` formatting, message formats, RTL with logical properties, framework i18n libraries. |
 | ⬜ `fe-security` | quality | web | XSS sinks (`innerHTML`, `dangerouslySetInnerHTML`, `v-html`, `{@html}`), CSP, Trusted Types, SRI, third-party code. |
 | ⬜ `fe-testing` | quality | vitest jest playwright cypress testing-library | Unit, component (Testing Library queries by role), end-to-end (Playwright 1.65), accessibility in tests (axe-core). |
 | ⬜ `fe-tooling` | quality | vite eslint prettier biome | Vite 8, ESLint 10 flat config with a11y plugins, Prettier 3 or Biome 2, browserslist and Baseline. |
