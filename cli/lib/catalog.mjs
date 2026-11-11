@@ -14,8 +14,29 @@ export const PACKAGE_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.
 export const SEVERITIES = ['critical', 'serious', 'moderate', 'minor']
 export const CHECK_KINDS = ['static', 'browser', 'manual']
 export const RULE_AREAS = [
-  'html', 'css', 'responsive', 'a11y', 'perf', 'seo', 'i18n', 'security', 'js', 'ts', 'test', 'tooling',
-  'react', 'next', 'vue', 'nuxt', 'angular', 'svelte', 'astro', 'webc', 'tailwind', 'sass', 'state'
+  'html',
+  'css',
+  'responsive',
+  'a11y',
+  'perf',
+  'seo',
+  'i18n',
+  'security',
+  'js',
+  'ts',
+  'test',
+  'tooling',
+  'react',
+  'next',
+  'vue',
+  'nuxt',
+  'angular',
+  'svelte',
+  'astro',
+  'webc',
+  'tailwind',
+  'sass',
+  'state'
 ]
 export const SKILL_AREAS = ['foundations', 'styling', 'frameworks', 'accessibility', 'performance', 'quality', 'workflow']
 export const APPLIES = ['html', 'angular', 'vue', 'svelte', 'astro', 'jsx', 'css', 'scss', 'less', 'image', 'svg', 'font', 'project', 'page']

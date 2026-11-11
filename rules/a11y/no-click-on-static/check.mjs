@@ -3,8 +3,38 @@
  * mouse-down handler but lacks a role, a tabindex or a keyboard handler. Elements with a spread are skipped.
  */
 const STATIC = new Set([
-  'div', 'span', 'p', 'li', 'ul', 'ol', 'section', 'article', 'header', 'footer', 'main', 'aside', 'nav', 'td', 'tr',
-  'th', 'img', 'i', 'b', 'strong', 'em', 'svg', 'figure', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'dt', 'dd', 'label'
+  'div',
+  'span',
+  'p',
+  'li',
+  'ul',
+  'ol',
+  'section',
+  'article',
+  'header',
+  'footer',
+  'main',
+  'aside',
+  'nav',
+  'td',
+  'tr',
+  'th',
+  'img',
+  'i',
+  'b',
+  'strong',
+  'em',
+  'svg',
+  'figure',
+  'h1',
+  'h2',
+  'h3',
+  'h4',
+  'h5',
+  'h6',
+  'dt',
+  'dd',
+  'label'
 ])
 
 export default {

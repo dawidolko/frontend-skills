@@ -1,0 +1,11 @@
+/* Native nesting: compound, descendant, pseudo and at-rule nesting. */
+.card {
+  padding: 1rem;
+  &.card--featured { border-color: gold; }
+  & .card__title { font-size: 1.25rem; }
+  &:hover { box-shadow: var(--shadow-2); }
+  &::after { content: ""; }
+  & > p { margin: 0; }
+  @media (width >= 48em) { padding: 2rem; }
+}
+.card__title { margin: 0; }

@@ -1,0 +1,4 @@
+{ "files": [
+  { "path": "good.layers.scss", "kind": "scss", "size": 100 },
+  { "path": "good.local.css", "kind": "css", "size": 200 }
+] }

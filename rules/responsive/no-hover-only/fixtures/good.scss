@@ -1,0 +1,12 @@
+// Revealed on hover and on keyboard focus; hover-only styling that reveals nothing is fine.
+.card .card__actions { display: none; }
+.card:hover .card__actions,
+.card:focus-within .card__actions { display: flex; }
+.menu {
+  &:hover > .submenu { visibility: visible; }
+  &:focus-within > .submenu { visibility: visible; }
+}
+.button:hover { background: var(--color-brand-hover); }
+.card:hover .card__title { text-decoration: underline; }
+.list:is(.a, .b):hover .tools,
+.list:is(.a, .b):focus-within .tools { opacity: 1; }

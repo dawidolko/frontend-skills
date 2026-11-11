@@ -9,13 +9,25 @@
  * skipped, never guessed. The audit engine and the rules read the result through ctx.elements().
  */
 
-export const VOID = new Set([
-  'area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input', 'keygen', 'link', 'meta', 'param', 'source', 'track', 'wbr'
-])
+export const VOID = new Set(['area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input', 'keygen', 'link', 'meta', 'param', 'source', 'track', 'wbr'])
 const RAW_TEXT = new Set(['script', 'style', 'textarea', 'title'])
 const CLOSES_SELF = new Set(['li', 'p', 'option', 'tr', 'td', 'th', 'dt', 'dd'])
 const EXPR_KEYWORDS = new Set([
-  'return', 'yield', 'await', 'case', 'default', 'else', 'in', 'of', 'typeof', 'void', 'delete', 'new', 'do', 'throw', 'instanceof'
+  'return',
+  'yield',
+  'await',
+  'case',
+  'default',
+  'else',
+  'in',
+  'of',
+  'typeof',
+  'void',
+  'delete',
+  'new',
+  'do',
+  'throw',
+  'instanceof'
 ])
 const NAME_START = /[A-Za-z_$]/
 const JSX_NAME = /[\w$.:-]/
@@ -98,8 +110,7 @@ class Scan {
   addAttr(el, raw, value, dynamic, index) {
     const n = normalizeAttr(raw, el.dialect)
     if (!n.name) return
-    if (!el.attrs.has(n.name))
-      el.attrs.set(n.name, { name: n.name, raw, value, dynamic: dynamic || n.dynamic, event: n.event, line: this.line(index) })
+    if (!el.attrs.has(n.name)) el.attrs.set(n.name, { name: n.name, raw, value, dynamic: dynamic || n.dynamic, event: n.event, line: this.line(index) })
   }
 
   /* ---------- JavaScript / JSX ---------- */
@@ -515,9 +526,7 @@ export function parseMarkup(text, kind) {
       const close = text.lastIndexOf('</template>')
       if (close > open.index) scan.scanMarkup(open.index + open[0].length, close, 'vue', [])
     }
-    const re = blockRe('style')
-    let m
-    while ((m = re.exec(text))) {
+    for (const m of text.matchAll(blockRe('style'))) {
       const close = text.indexOf('</style>', m.index)
       if (close === -1) break
       const lang = /lang=["']?(\w+)/.exec(m[1] || '')?.[1] || 'css'

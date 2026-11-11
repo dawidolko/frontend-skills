@@ -1,0 +1,5 @@
+/* Grid for layout; float only to wrap text around media. */
+.row { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(18rem, 100%), 1fr)); gap: 1rem; }
+.article__figure { float: inline-start; max-width: 40%; margin: 0 1rem 1rem 0; }
+.pull-quote { float: right; width: 16rem; }
+.media { display: flow-root; }

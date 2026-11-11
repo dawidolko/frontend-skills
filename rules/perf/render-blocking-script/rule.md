@@ -6,7 +6,7 @@ check: static
 applies:
   - html
 lighthouse:
-  - render-blocking-resources
+  - render-blocking-insight
 skill: fe-html
 since: 0.1.0
 sources:

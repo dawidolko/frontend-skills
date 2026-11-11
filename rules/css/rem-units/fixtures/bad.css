@@ -1,0 +1,5 @@
+/* Font sizes in px. */
+html { font-size: 14px; }
+.card { padding: 16px; }
+.card__title { font-size: 20px; }
+.lead { font-size: clamp(16px, 2vw, 24px); }

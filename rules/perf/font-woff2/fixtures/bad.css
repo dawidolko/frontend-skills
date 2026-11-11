@@ -1,0 +1,7 @@
+/* Old formats only. */
+@font-face {
+  font-family: "Brand";
+  src: url("../fonts/brand.eot");
+  src: url("../fonts/brand.woff") format("woff"), url("../fonts/brand.ttf") format("truetype");
+  font-display: swap;
+}

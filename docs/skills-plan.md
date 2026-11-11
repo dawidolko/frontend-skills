@@ -9,14 +9,14 @@ Status: ✅ written (reference examples), ⬜ to write. Every skill follows `doc
 | Skill | Area | requires | One line |
 | --- | --- | --- | --- |
 | ✅ `fe-html` | foundations | web | Documents, head, landmarks, headings, semantic elements, images and buttons. |
-| ⬜ `fe-css-architecture` | styling | web | Cascade layers, custom properties as tokens, specificity, naming, file organisation, what to avoid. |
-| ⬜ `fe-css-layout` | styling | web | Flexbox, grid, container queries, logical properties, spacing systems, no fixed heights. |
-| ⬜ `fe-css-modern` | styling | web | Baseline features worth using today (`:has()`, nesting, `@scope`, `color-mix()`, `@starting-style`), with their Baseline status. |
-| ⬜ `fe-responsive` | foundations | web | Viewport, fluid type and space, breakpoints vs container queries, reflow at 320 CSS px, touch targets, print. Owns `responsive/*` and `a11y/zoom-not-blocked`. |
-| ⬜ `fe-forms` | foundations | web | Native inputs and types, constraint validation, submission, file inputs; accessibility is in `fe-a11y-forms`. |
-| ⬜ `fe-images` | performance | web | Formats (AVIF, WebP), `srcset`/`sizes`, `<picture>`, lazy loading, the LCP image, SVG. Owns `perf/img-dimensions`, `perf/large-image`. |
-| ⬜ `fe-fonts` | performance | web | Self-hosting, `font-display`, preload, subsetting, variable fonts, fallback metrics. Owns `perf/font-display`. |
-| ⬜ `fe-motion` | styling | web | Animating compositor properties, `prefers-reduced-motion`, View Transitions, scroll-driven animations. |
+| ✅ `fe-css-architecture` | styling | web | Cascade layers, custom properties as tokens, specificity, naming, file organisation, what to avoid. |
+| ✅ `fe-css-layout` | styling | web | Flexbox, grid, container queries, logical properties, spacing systems, no fixed heights. |
+| ✅ `fe-css-modern` | styling | web | Baseline features worth using today (`:has()`, nesting, `@scope`, `color-mix()`, `@starting-style`), with their Baseline status. |
+| ✅ `fe-responsive` | foundations | web | Viewport, fluid type and space, breakpoints vs container queries, reflow at 320 CSS px, touch targets, print. Owns `responsive/*` and `a11y/zoom-not-blocked`. |
+| ✅ `fe-forms` | foundations | web | Native inputs and types, constraint validation, submission, file inputs; accessibility is in `fe-a11y-forms`. |
+| ✅ `fe-images` | performance | web | Formats (AVIF, WebP), `srcset`/`sizes`, `<picture>`, lazy loading, the LCP image, SVG. Owns `perf/img-dimensions`, `perf/large-image`, `perf/lcp-image-priority`, `perf/srcset-sizes`, `perf/img-modern-format`, `perf/gif-to-video`, `html/picture-img`. |
+| ✅ `fe-fonts` | performance | web | Self-hosting, `font-display`, preload, subsetting, variable fonts, fallback metrics. Owns `perf/font-display`. |
+| ✅ `fe-motion` | styling | web | Animating compositor properties, `prefers-reduced-motion`, View Transitions, scroll-driven animations. |
 
 ## Lane B: JavaScript, TypeScript, frameworks, styling tools, state and data
 
@@ -46,14 +46,14 @@ The owner asked for rules that follow the project's own helpers: icons from a ge
 | Id | Lane | Skill | requires | One line |
 | --- | --- | --- | --- | --- |
 | ✅ `css/rem-helper` | A | `fe-css-architecture` | `rem-function` | Font sizes and spacing in raw `px` where the project has a px-to-rem function (written by fs-core). |
-| `css/rem-units` | A | `fe-css-architecture` | – | Font sizes, spacing and breakpoints in `rem`, not raw `px`, in projects without a rem helper (skips files `css/rem-helper` covers). |
-| `css/unitless-line-height` | A | `fe-css-architecture` | – | `line-height` is a unitless number (`1.5`), never `px`. |
-| `css/design-tokens` | A | `fe-css-architecture` | `custom-properties` or `design-tokens` | A colour or spacing literal repeated across rules becomes the project's custom property or token. |
-| `css/no-magic-numbers` | A | `fe-css-architecture` | – | One-off offsets and sizes (`top: 37px`, `margin-left: -3px`) are derived from tokens or layout, not tuned by hand. |
-| `css/no-important` | A | `fe-css-architecture` | – | `!important` only in utility classes and overrides of third-party CSS, with a reason. |
-| `css/z-index-scale` | A | `fe-css-architecture` | – | `z-index` values come from a named scale (custom properties or Sass map), not ad hoc numbers. |
-| `css/icon-from-set` | A | `fe-css-architecture` | `icon-classes` or `icon-sprite` | The CSS half of the icon rule: no `url()` to an icon file in `background`/`mask`/`content`; use the generated icon classes. |
-| `css/asset-url` | A | `fe-css-architecture` | – | The CSS half of the asset rule: `url()` to images and fonts is relative and resolved by the bundler, not a hard-coded root path. |
+| ✅ `css/rem-units` | A | `fe-css-architecture` | – | Font sizes in `rem`, not raw `px`, in projects without a rem helper; silent when the profile records `rem-function` (then `css/rem-helper`) or `px-to-rem-build`. Spacing and breakpoints in px are left to `css/rem-helper`, because outside a helper project they are too often the convention. |
+| ✅ `css/unitless-line-height` | A | `fe-css-architecture` | – | `line-height` is a unitless number (`1.5`), never `px`. |
+| ✅ `css/design-tokens` | A | `fe-css-architecture` | – | A colour or spacing literal that equals a global token becomes that token; a colour written three times with no token becomes one. The check reads the tokens itself, so it needs no helper. |
+| ✅ `css/no-magic-numbers` | A | `fe-css-architecture` | – | One-off offsets and sizes (`top: 37px`, `margin-left: -3px`) are derived from tokens or layout, not tuned by hand. |
+| ✅ `css/no-important` | A | `fe-css-architecture` | – | `!important` only in utility classes and overrides of third-party CSS, with a reason. |
+| ✅ `css/z-index-scale` | A | `fe-css-architecture` | – | `z-index` values come from a named scale (custom properties or Sass map), not ad hoc numbers. |
+| ✅ `css/icon-from-set` | A | `fe-css-architecture` | – (runs with `icon-classes` or `icon-sprite`, or icon classes or an icons module seen in the file; `requires` cannot say "or") | The CSS half of the icon rule: no `url()` to an icon file in `background`/`mask`/`content`; use the generated icon classes. |
+| ✅ `css/asset-url` | A | `fe-css-architecture` | – | The CSS half of the asset rule: `url()` to images and fonts is relative and resolved by the bundler, not a hard-coded root path. |
 | ✅ `html/project-icons` | A | `fe-images` | `icon-classes` | `<img>` of an SVG from the icon folder where the project builds icon classes (written by fs-core). |
 | ✅ `html/icon-from-set` | B | `fe-icons` | – | The markup half for the other sets: no `<img src>` or `<use href="…svg#…">` to an icon file when the project has an icon sprite (`icon-sprite`) or an icon component or icon classes are used in the same file; skips projects with `icon-classes`, which `html/project-icons` covers. |
 | ✅ `js/asset-import` | B | `fe-javascript` | – | In a bundled project, images, fonts and media in component markup are imported or go through the framework's base-path helper, not hard-coded root paths. |

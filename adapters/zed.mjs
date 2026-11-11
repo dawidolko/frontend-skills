@@ -6,7 +6,17 @@
 import { statSync } from 'node:fs'
 import path from 'node:path'
 
-export const ZED_ORDER = ['.rules', '.cursorrules', '.windsurfrules', '.clinerules', '.github/copilot-instructions.md', 'AGENT.md', 'AGENTS.md', 'CLAUDE.md', 'GEMINI.md']
+export const ZED_ORDER = [
+  '.rules',
+  '.cursorrules',
+  '.windsurfrules',
+  '.clinerules',
+  '.github/copilot-instructions.md',
+  'AGENT.md',
+  'AGENTS.md',
+  'CLAUDE.md',
+  'GEMINI.md'
+]
 
 const isFile = (p) => {
   try {

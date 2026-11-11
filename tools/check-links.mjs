@@ -12,11 +12,40 @@ import { pathToFileURL } from 'node:url'
 import { loadRules, loadSkills, PACKAGE_ROOT } from '../cli/lib/catalog.mjs'
 
 export const PUBLISHERS = [
-  'w3.org', 'whatwg.org', 'developer.mozilla.org', 'web.dev', 'developer.chrome.com', 'w3schools.com', 'react.dev',
-  'nextjs.org', 'vuejs.org', 'nuxt.com', 'angular.dev', 'svelte.dev', 'docs.astro.build', 'tailwindcss.com',
-  'sass-lang.com', 'typescriptlang.org', 'lit.dev', 'tanstack.com', 'pinia.vuejs.org', 'vite.dev', 'vitest.dev',
-  'playwright.dev', 'testing-library.com', 'eslint.org', 'prettier.io', 'biomejs.dev', 'dequeuniversity.com',
-  'github.com', 'unicode.org', 'ecma-international.org', 'tc39.es', 'nodejs.org', 'storybook.js.org', 'jestjs.io'
+  'w3.org',
+  'whatwg.org',
+  'developer.mozilla.org',
+  'web.dev',
+  'developer.chrome.com',
+  'w3schools.com',
+  'react.dev',
+  'nextjs.org',
+  'vuejs.org',
+  'nuxt.com',
+  'angular.dev',
+  'svelte.dev',
+  'docs.astro.build',
+  'tailwindcss.com',
+  'sass-lang.com',
+  'typescriptlang.org',
+  'lit.dev',
+  'tanstack.com',
+  'pinia.vuejs.org',
+  'vite.dev',
+  'vitest.dev',
+  'playwright.dev',
+  'testing-library.com',
+  'eslint.org',
+  'prettier.io',
+  'biomejs.dev',
+  'dequeuniversity.com',
+  'github.com',
+  'unicode.org',
+  'ecma-international.org',
+  'tc39.es',
+  'nodejs.org',
+  'storybook.js.org',
+  'jestjs.io'
 ]
 
 const URL_RE = /https?:\/\/[^\s)<>"'`\]]+/g
@@ -43,7 +72,8 @@ export function collect(root = PACKAGE_ROOT) {
   const out = []
   for (const r of loadRules(root)) for (const s of r.sources) out.push({ url: s.url, file: rel(path.join(r.dir, 'rule.md')), ruleSource: true })
   const files = [...loadSkills(root).flatMap((s) => [s.file, ...markdownFiles(s.dir).filter((f) => f !== s.file)]), ...markdownFiles(path.join(root, 'docs'))]
-  for (const f of files) for (const m of readFileSync(f, 'utf8').matchAll(URL_RE)) out.push({ url: m[0].replace(/[.,;:]+$/, ''), file: rel(f), ruleSource: false })
+  for (const f of files)
+    for (const m of readFileSync(f, 'utf8').matchAll(URL_RE)) out.push({ url: m[0].replace(/[.,;:]+$/, ''), file: rel(f), ruleSource: false })
   return out
 }
 
@@ -60,7 +90,8 @@ export function offline(links) {
     }
     if (!ok) continue
     if (!l.url.startsWith('https://') && !/^http:\/\/localhost/.test(l.url)) problems.push({ ...l, problem: 'use https' })
-    if (l.ruleSource && !allowed(l.url)) problems.push({ ...l, problem: `rule source from ${host(l.url)}, which is not in the list of accepted publishers (tools/check-links.mjs)` })
+    if (l.ruleSource && !allowed(l.url))
+      problems.push({ ...l, problem: `rule source from ${host(l.url)}, which is not in the list of accepted publishers (tools/check-links.mjs)` })
   }
   return problems
 }
@@ -99,7 +130,9 @@ if (isMain) {
   if (process.argv.includes('--json')) process.stdout.write(`${JSON.stringify(problems)}\n`)
   else {
     for (const p of problems) process.stdout.write(`${p.file}: ${p.url}: ${p.problem}\n`)
-    process.stdout.write(`${new Set(links.map((l) => l.url)).size} unique links${process.argv.includes('--online') ? ' requested' : ' checked offline'}, ${problems.length} problem(s).\n`)
+    process.stdout.write(
+      `${new Set(links.map((l) => l.url)).size} unique links${process.argv.includes('--online') ? ' requested' : ' checked offline'}, ${problems.length} problem(s).\n`
+    )
   }
   process.exitCode = problems.length ? 1 : 0
 }

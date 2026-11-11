@@ -40,8 +40,14 @@ for (const rule of rules.filter((r) => r.hasCheck)) {
     /* checked below */
   }
   test(`${rule.id} has bad and good fixtures`, () => {
-    assert.ok(files.some((f) => f.startsWith('bad.')), 'no fixtures/bad.* file')
-    assert.ok(files.some((f) => f.startsWith('good.')), 'no fixtures/good.* file')
+    assert.ok(
+      files.some((f) => f.startsWith('bad.')),
+      'no fixtures/bad.* file'
+    )
+    assert.ok(
+      files.some((f) => f.startsWith('good.')),
+      'no fixtures/good.* file'
+    )
   })
   for (const file of files.filter((f) => f !== 'profile.json')) {
     const bad = file.startsWith('bad.')

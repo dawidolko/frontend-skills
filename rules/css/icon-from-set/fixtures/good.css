@@ -1,0 +1,2 @@
+/* No icon set in this project (none in the profile, none visible here), so the rule does not run. */
+.dialog__close::after { content: url("../icons/close.svg"); }

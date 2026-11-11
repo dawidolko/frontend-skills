@@ -69,4 +69,10 @@ export async function choose(question, options, { input = process.stdin, output 
 /** The project root from --cwd or the current folder. */
 export const rootOf = (args) => path.resolve(typeof args.cwd === 'string' ? args.cwd : '.')
 
-export const list = (v) => (typeof v === 'string' ? v.split(',').map((x) => x.trim()).filter(Boolean) : [])
+export const list = (v) =>
+  typeof v === 'string'
+    ? v
+        .split(',')
+        .map((x) => x.trim())
+        .filter(Boolean)
+    : []

@@ -1,0 +1,7 @@
+// Unitless numbers, keywords and variables.
+body { line-height: 1.5; }
+h1 { line-height: 1.1; }
+.small { font: 0.875rem/1.4 system-ui, sans-serif; }
+.code { line-height: normal; }
+.prose { line-height: var(--leading-body); }
+.tight { line-height: $leading-tight; }

@@ -4,12 +4,11 @@
  * inside the project that points elsewhere is never followed for writing or deleting.
  */
 import assert from 'node:assert/strict'
-import { existsSync, mkdirSync, mkdtempSync, readFileSync, symlinkSync, writeFileSync } from 'node:fs'
-import { tmpdir } from 'node:os'
+import { existsSync, mkdirSync, readFileSync, symlinkSync, writeFileSync } from 'node:fs'
 import path from 'node:path'
 import { test } from 'node:test'
 import { readRecord, safeRelative } from '../cli/lib/install.mjs'
-import { copyFixture, run } from './helpers.mjs'
+import { copyFixture, run, tempDir } from './helpers.mjs'
 
 test('only plain relative paths are accepted', () => {
   for (const ok of ['AGENTS.md', '.claude/skills/fe-x/SKILL.md', '.github/instructions/fe-x.instructions.md']) assert.ok(safeRelative(ok), ok)
@@ -18,7 +17,7 @@ test('only plain relative paths are accepted', () => {
 })
 
 test('a crafted install record cannot make uninstall touch files outside the project', () => {
-  const outside = mkdtempSync(path.join(tmpdir(), 'fs outside '))
+  const outside = tempDir('fs outside ')
   writeFileSync(path.join(outside, 'victim.md'), 'keep me\n<!-- frontend-skills:start -->\nx\n<!-- frontend-skills:end -->\n')
   const root = copyFixture('react-vite')
   const rel = path.relative(root, path.join(outside, 'victim.md'))
@@ -37,7 +36,7 @@ test('a crafted install record cannot make uninstall touch files outside the pro
 })
 
 test('a symbolic link inside the project is not followed', { skip: process.platform === 'win32' && 'symlinks need privileges on Windows' }, () => {
-  const outside = mkdtempSync(path.join(tmpdir(), 'fs outside '))
+  const outside = tempDir('fs outside ')
   const root = copyFixture('react-vite')
   symlinkSync(outside, path.join(root, '.claude'), 'dir')
   const r = run(['init', '--cwd', root, '--yes', '--no-audit'])

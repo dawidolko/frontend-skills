@@ -93,7 +93,9 @@ export function planInstall({ root, skills, agents, format = 'both', helpers = {
 
   for (const dir of copyDirs) {
     const readers = adapters.filter((a) => a.skillDirs.includes(dir)).map((a) => a.id)
-    for (const s of skills) for (const f of skillFiles(s)) add({ type: 'file', path: `${dir}/${s.name}/${f.rel}`, text: f.text, agents: readers.length ? readers : ['support'], what: 'skill' })
+    for (const s of skills)
+      for (const f of skillFiles(s))
+        add({ type: 'file', path: `${dir}/${s.name}/${f.rel}`, text: f.text, agents: readers.length ? readers : ['support'], what: 'skill' })
   }
 
   if (format !== 'skills')
@@ -109,7 +111,13 @@ export function planInstall({ root, skills, agents, format = 'both', helpers = {
     blocks.set(file, entry)
   }
   for (const [file, { agents: ids, index }] of blocks)
-    add({ type: 'block', path: file, text: renderBlock({ index: index ? skillIndex(skills, skillPath) : null, helpers: helperLines(helpers) }), agents: ids, what: 'instructions' })
+    add({
+      type: 'block',
+      path: file,
+      text: renderBlock({ index: index ? skillIndex(skills, skillPath) : null, helpers: helperLines(helpers) }),
+      agents: ids,
+      what: 'instructions'
+    })
 
   const hints = []
   for (const a of adapters)

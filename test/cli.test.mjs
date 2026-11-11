@@ -91,7 +91,7 @@ test('project helpers reach the profile, the instruction block and helper rules'
   const r = run(['init', '--cwd', root, '--yes'])
   assert.equal(r.code, 0, r.stderr)
   assert.match(r.stdout, /Coding agents found in this project: copilot/)
-  assert.ok(!existsSync(path.join(root, 'AGENTS.md')), 'Copilot\'s own instructions file exists, so no AGENTS.md is created')
+  assert.ok(!existsSync(path.join(root, 'AGENTS.md')), "Copilot's own instructions file exists, so no AGENTS.md is created")
   const block = readFileSync(path.join(root, '.github/copilot-instructions.md'), 'utf8')
   assert.match(block, /write rem with `rem-calc\(\)`/)
   assert.match(block, /`ico-<name>`/)

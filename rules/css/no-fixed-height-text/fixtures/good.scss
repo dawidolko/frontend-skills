@@ -1,0 +1,8 @@
+// Content sets the height; fixed boxes for media and squares; line clamp for truncation.
+.card__excerpt { min-height: 4.5rem; }
+.avatar { width: 40px; height: 40px; overflow: hidden; border-radius: 50%; }
+.card__image { height: 200px; overflow: hidden; }
+.chip { width: 2rem; height: 2rem; overflow: hidden; }
+.teaser { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; height: 4.5em; overflow: hidden; }
+.panel { height: 100%; overflow: hidden; }
+.scroller { height: 20rem; overflow: auto; }
