@@ -8,7 +8,7 @@ import { readdirSync, readFileSync, statSync, writeFileSync } from 'node:fs'
 import path from 'node:path'
 import { gzipSync } from 'node:zlib'
 import { buildDirs, listFiles } from '../../engine/files.mjs'
-import { runAudit } from '../../engine/index.mjs'
+import { runAudit, sortFindings } from '../../engine/index.mjs'
 import { loadRules, loadSkills, SEVERITIES } from '../lib/catalog.mjs'
 import { detectHelpers } from '../lib/conventions.mjs'
 import { detectStack } from '../lib/detect.mjs'
@@ -55,7 +55,10 @@ export async function runProjectAudit(root, { scope = null, changed = false, bas
   const rules = loadRules()
   let files
   if (scope) {
-    const prefix = scope.replace(/\\/g, '/').replace(/^\.\/?/, '').replace(/\/$/, '')
+    const prefix = scope
+      .replace(/\\/g, '/')
+      .replace(/^\.\/?/, '')
+      .replace(/\/$/, '')
     files = listFiles(root).filter((f) => !prefix || f.path === prefix || f.path.startsWith(`${prefix}/`))
   }
   const result = await runAudit({ root, rules, profile: { ...(profile || {}), helpers }, stack, changed, base, files })
@@ -63,10 +66,13 @@ export async function runProjectAudit(root, { scope = null, changed = false, bas
   if (url) {
     const { runBrowserAudit } = await import('../../engine/browser.mjs')
     browser = await runBrowserAudit({ url, rules, yes, log })
-    result.findings.push(...browser.findings)
+    result.findings.push(...(browser.findings || []))
+    sortFindings(result.findings)
   }
   const installed = new Set(profile?.skills || matchSkills(loadSkills(), [...stack]).map((s) => s.name))
-  const manual = rules.filter((r) => r.check === 'manual' && r.status === 'active' && installed.has(r.skill) && (r.stack.length === 0 || r.stack.some((s) => stack.has(s))))
+  const manual = rules.filter(
+    (r) => r.check === 'manual' && r.status === 'active' && installed.has(r.skill) && (r.stack.length === 0 || r.stack.some((s) => stack.has(s)))
+  )
   const effectiveFailOn = failOn || profile?.audit?.failOn || 'serious'
   if (![...SEVERITIES, 'none'].includes(effectiveFailOn)) throw new UsageError(`--fail-on must be one of ${SEVERITIES.join(', ')}, none`)
   return { ...result, rulesRun: result.rules, rules, helpers, manual, browser, build: buildSummary(root), failOn: effectiveFailOn }
@@ -97,10 +103,24 @@ export default async function audit(argv) {
   let reportPath = null
   if (args.report !== false) {
     reportPath = typeof args.report === 'string' ? args.report : 'frontend-report.md'
-    const md = toMarkdown({ findings: res.findings, rules: res.rules, failOn: res.failOn, root: path.basename(root), date: today(), stats, manual: res.manual, browser: res.browser, build: res.build, helpers: res.helpers })
+    const md = toMarkdown({
+      findings: res.findings,
+      rules: res.rules,
+      failOn: res.failOn,
+      root: path.basename(root),
+      date: today(),
+      stats,
+      manual: res.manual,
+      browser: res.browser,
+      build: res.build,
+      helpers: res.helpers
+    })
     writeFileSync(path.resolve(root, reportPath), md)
   }
-  if (args.json) process.stdout.write(`${JSON.stringify(toJson({ findings: res.findings, rules: res.rules, failOn: res.failOn, helpers: res.helpers, extra: reportPath ? { report: reportPath } : {} }))}\n`)
+  if (args.json)
+    process.stdout.write(
+      `${JSON.stringify(toJson({ findings: res.findings, rules: res.rules, failOn: res.failOn, helpers: res.helpers, extra: reportPath ? { report: reportPath } : {} }))}\n`
+    )
   else process.stdout.write(`${toSummary({ findings: res.findings, failOn: res.failOn, reportPath, stats })}\n`)
   return toJson({ findings: res.findings, rules: res.rules, failOn: res.failOn }).failed ? 1 : 0
 }

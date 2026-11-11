@@ -47,17 +47,34 @@ function entryOf(dir, name, sub = '.') {
 function npmCli() {
   if (process.env.npm_execpath && /npm-cli\.js$/.test(process.env.npm_execpath)) return process.env.npm_execpath
   const bin = path.dirname(process.execPath)
-  for (const p of [path.join(bin, 'node_modules', 'npm', 'bin', 'npm-cli.js'), path.join(bin, '..', 'lib', 'node_modules', 'npm', 'bin', 'npm-cli.js')]) if (existsSync(p)) return p
+  for (const p of [path.join(bin, 'node_modules', 'npm', 'bin', 'npm-cli.js'), path.join(bin, '..', 'lib', 'node_modules', 'npm', 'bin', 'npm-cli.js')])
+    if (existsSync(p)) return p
   return null
 }
 
 function install(dir, log) {
   const cli = npmCli()
-  if (!cli) throw new Error('npm was not found next to this Node.js; install the tools by hand: npm install --prefix "' + dir + '" ' + Object.entries(TOOLS).map(([n, v]) => `${n}@${v}`).join(' '))
+  if (!cli)
+    throw new Error(
+      'npm was not found next to this Node.js; install the tools by hand: npm install --prefix "' +
+        dir +
+        '" ' +
+        Object.entries(TOOLS)
+          .map(([n, v]) => `${n}@${v}`)
+          .join(' ')
+    )
   mkdirSync(dir, { recursive: true })
   if (!existsSync(path.join(dir, 'package.json'))) writeFileSync(path.join(dir, 'package.json'), '{ "private": true }\n')
-  log(`Installing ${Object.entries(TOOLS).map(([n, v]) => `${n}@${v}`).join(' and ')} into ${dir} …`)
-  execFileSync(process.execPath, [cli, 'install', '--prefix', dir, '--no-audit', '--no-fund', '--save-exact', ...Object.entries(TOOLS).map(([n, v]) => `${n}@${v}`)], { stdio: ['ignore', 'ignore', 'inherit'] })
+  log(
+    `Installing ${Object.entries(TOOLS)
+      .map(([n, v]) => `${n}@${v}`)
+      .join(' and ')} into ${dir} …`
+  )
+  execFileSync(
+    process.execPath,
+    [cli, 'install', '--prefix', dir, '--no-audit', '--no-fund', '--save-exact', ...Object.entries(TOOLS).map(([n, v]) => `${n}@${v}`)],
+    { stdio: ['ignore', 'ignore', 'inherit'] }
+  )
 }
 
 /** Maps a Lighthouse result (lhr) to findings and a short score summary. */
@@ -71,7 +88,10 @@ export function mapLighthouse(lhr, rules, url) {
     if (['manual', 'notApplicable', 'informative'].includes(audit.scoreDisplayMode)) continue
     const rule = byAudit.get(id)
     const items = audit.details?.items || []
-    const selectors = items.map((i) => i.node?.selector || i.url).filter(Boolean).slice(0, 5)
+    const selectors = items
+      .map((i) => i.node?.selector || i.url)
+      .filter(Boolean)
+      .slice(0, 5)
     findings.push({
       id: rule ? rule.id : `lighthouse/${id}`,
       severity: rule ? rule.severity : audit.score < 0.5 ? 'serious' : 'moderate',
@@ -83,7 +103,17 @@ export function mapLighthouse(lhr, rules, url) {
   }
   const scores = Object.fromEntries(Object.entries(lhr.categories || {}).map(([k, c]) => [k, c.score === null ? null : Math.round(c.score * 100)]))
   const metric = (id) => lhr.audits?.[id]?.displayValue || null
-  return { findings, scores, metrics: { LCP: metric('largest-contentful-paint'), CLS: metric('cumulative-layout-shift'), TBT: metric('total-blocking-time'), FCP: metric('first-contentful-paint'), SI: metric('speed-index') } }
+  return {
+    findings,
+    scores,
+    metrics: {
+      LCP: metric('largest-contentful-paint'),
+      CLS: metric('cumulative-layout-shift'),
+      TBT: metric('total-blocking-time'),
+      FCP: metric('first-contentful-paint'),
+      SI: metric('speed-index')
+    }
+  }
 }
 
 /** Maps axe-core results to findings (one per rule and page, with the first selectors). */
@@ -115,8 +145,13 @@ export async function runBrowserAudit({ url, rules, yes = false, log = () => {},
   if (!/^https?:$/.test(parsed.protocol)) return { unavailable: 'only http and https pages can be audited' }
   const dir = cacheDir(env)
   if (!toolsReady(dir)) {
-    const what = Object.entries(TOOLS).map(([n, v]) => `${n}@${v}`).join(' and ')
-    const ok = yes || (interactive() && (await confirm(`The page audit needs ${what} (several tens of MB, fetched once from the npm registry into ${dir}). Fetch them now?`)))
+    const what = Object.entries(TOOLS)
+      .map(([n, v]) => `${n}@${v}`)
+      .join(' and ')
+    const ok =
+      yes ||
+      (interactive() &&
+        (await confirm(`The page audit needs ${what} (about 200 MB with their dependencies, fetched once from the npm registry into ${dir}). Fetch them now?`)))
     if (!ok) return { unavailable: `the page audit needs ${what}; run again with --yes to fetch them into ${dir}, or without --url for the static audit` }
     try {
       install(dir, log)
@@ -134,7 +169,12 @@ export async function runBrowserAudit({ url, rules, yes = false, log = () => {},
   try {
     log(`Lighthouse on ${url} …`)
     const lighthouse = (await import(entryOf(dir, 'lighthouse'))).default
-    const lh = await lighthouse(url, { port: chrome.port, output: 'json', logLevel: 'error', onlyCategories: ['performance', 'accessibility', 'best-practices', 'seo'] })
+    const lh = await lighthouse(url, {
+      port: chrome.port,
+      output: 'json',
+      logLevel: 'error',
+      onlyCategories: ['performance', 'accessibility', 'best-practices', 'seo']
+    })
     const fromLh = mapLighthouse(lh.lhr, rules, url)
     log('axe-core …')
     const puppeteer = (await import(entryOf(dir, 'puppeteer-core'))).default

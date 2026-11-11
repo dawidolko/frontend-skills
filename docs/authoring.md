@@ -117,7 +117,7 @@ Project helpers: when a rule enforces a project's own convention (its rem functi
 Choosing `check`:
 
 - `static` when the source alone proves the problem in most real projects, without guessing what a component renders. Write `check.mjs` and both fixtures.
-- `browser` when only the rendered page knows (contrast, names computed through components, Lighthouse metrics). Fill `axe` or `lighthouse` so `audit --url` reports it under this id.
+- `browser` when only the rendered page knows (contrast, names computed through components, Lighthouse metrics). Fill `axe` or `lighthouse` so `audit --url` reports it under this id. Take the ids from the pinned versions (`TOOLS` in `engine/browser.mjs`): Lighthouse 13 names many performance audits `*-insight` (`render-blocking-insight`, `image-delivery-insight`, `font-display-insight`); the older names no longer appear.
 - `manual` when a person must judge (quality of alt text, wording of errors). The skill's `## Check` says how.
 
 ## Sources

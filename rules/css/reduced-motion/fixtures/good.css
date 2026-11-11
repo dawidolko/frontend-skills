@@ -1,0 +1,9 @@
+/* Motion only for people who have not asked for less. */
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+  .hero__title { animation: slide-in 0.8s ease-out both; }
+}
+@keyframes slide-in {
+  from { transform: translateY(2rem); opacity: 0; }
+  to { transform: none; opacity: 1; }
+}

@@ -1,0 +1,10 @@
+{
+  "files": [
+    {"path": "../projects/good/src/routes/about/+page.svelte", "kind": "svelte", "size": 120},
+    {"path": "../projects/good/src/routes/blog/post/+page.svelte", "kind": "svelte", "size": 80},
+    {"path": "../projects/good/src/routes/shop/+page.svelte", "kind": "svelte", "size": 80},
+    {"path": "../projects/good/src/lib/Card.svelte", "kind": "svelte", "size": 80},
+    {"path": "../projects/good/src/routes/docs/removed/+page.svelte", "kind": "svelte", "size": 90},
+    {"path": "../projects/good/src/routes/blocks/list/+page.svelte", "kind": "svelte", "size": 40}
+  ]
+}

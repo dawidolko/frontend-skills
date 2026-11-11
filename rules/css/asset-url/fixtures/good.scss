@@ -1,0 +1,9 @@
+// Relative paths and aliases go through the bundler; data URIs, fragments and full URLs are not local files.
+.hero { background-image: url('../assets/images/hero.jpg'); }
+.card { background: url(@/assets/card.png); }
+.pattern { background-image: url("~/assets/pattern.svg"); }
+.dot { background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'/%3E"); }
+.shadow { filter: url(#soft-shadow); }
+.cdn { background: url(https://images.example.org/a.jpg); }
+.dynamic { background-image: var(--hero-url); }
+.arrow { background-image: url(/src/assets/arrow.svg); }

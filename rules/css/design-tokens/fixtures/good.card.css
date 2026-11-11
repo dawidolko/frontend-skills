@@ -1,0 +1,6 @@
+/* Alone this has no tokens to use and writes the colour only twice, so nothing is reported. */
+.card {
+  padding: 1rem;
+  border: 1px solid #0a58ca;
+  color: #0A58CA;
+}

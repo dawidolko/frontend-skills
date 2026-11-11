@@ -1,0 +1,3 @@
+/* Generated icon classes live beside a hand-written path to an icon file. */
+.icon-close { mask-image: var(--icon-close); }
+.dialog__close::after { content: url("../icons/close.svg"); }

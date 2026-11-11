@@ -1,0 +1,6 @@
+<nav aria-label="Main">
+  <a routerLink="/orders" routerLinkActive="active" ariaCurrentWhenActive="page">Orders</a>
+  <a routerLink="/settings" [routerLinkActive]="['active']" [ariaCurrentWhenActive]="current()">Settings</a>
+  <a routerLink="/help" routerLinkActive="active" [attr.aria-current]="isHelp() ? 'page' : null">Help</a>
+  <a routerLink="/about">About</a>
+</nav>

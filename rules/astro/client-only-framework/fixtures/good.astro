@@ -1,0 +1,13 @@
+---
+import Map from '../components/Map.jsx'
+import Chart from '../components/Chart.svelte'
+const framework = 'svelte'
+---
+<section>
+  <h2>Find us</h2>
+  <Map client:only="react">
+    <p slot="fallback">Loading the map…</p>
+  </Map>
+  <Chart client:only={framework} />
+  <Chart client:visible />
+</section>

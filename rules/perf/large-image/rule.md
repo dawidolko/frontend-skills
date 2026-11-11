@@ -6,8 +6,7 @@ check: static
 applies:
   - project
 lighthouse:
-  - uses-optimized-images
-  - modern-image-formats
+  - image-delivery-insight
 skill: fe-images
 since: 0.1.0
 sources:

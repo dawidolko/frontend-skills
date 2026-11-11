@@ -1,0 +1,13 @@
+// @extend .btn; in a comment
+%button-base {
+  padding: 0.5rem 1rem;
+}
+
+.btn,
+.save-button {
+  @extend %button-base;
+}
+
+.link-button {
+  @extend %button-base !optional;
+}

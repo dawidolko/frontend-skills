@@ -14,8 +14,12 @@ export default {
   rule: (skill, ctx) => ({
     path: `.continue/rules/${skill.name}.md`,
     text:
-      frontMatter([yamlQuoted('name', skill.title), yamlQuoted('description', oneLine(skill.description)), yamlFlow('globs', skill.globs), 'alwaysApply: false']) +
-      digest(skill, ctx.skillPath(skill), { description: false })
+      frontMatter([
+        yamlQuoted('name', skill.title),
+        yamlQuoted('description', oneLine(skill.description)),
+        yamlFlow('globs', skill.globs),
+        'alwaysApply: false'
+      ]) + digest(skill, ctx.skillPath(skill), { description: false })
   }),
   ruleGlobs: (text) => JSON.parse(/^globs: (\[.*\])$/m.exec(text)?.[1] || '[]'),
   ruleAlways: true,

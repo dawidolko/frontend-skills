@@ -22,7 +22,25 @@ import opencode from './opencode.mjs'
 import trae from './trae.mjs'
 import zed from './zed.mjs'
 
-export const ADAPTERS = [claude, codex, cursor, copilot, gemini, antigravity, devin, opencode, cline, zed, junie, kiro, augment, trae, continueAgent, amazonq, aider]
+export const ADAPTERS = [
+  claude,
+  codex,
+  cursor,
+  copilot,
+  gemini,
+  antigravity,
+  devin,
+  opencode,
+  cline,
+  zed,
+  junie,
+  kiro,
+  augment,
+  trae,
+  continueAgent,
+  amazonq,
+  aider
+]
 
 const BY_ID = new Map()
 for (const a of ADAPTERS) {
@@ -45,7 +63,23 @@ export function resolveAgents(names) {
   return { ids, unknown }
 }
 
-const PREFERENCE = ['.agents/skills', '.claude/skills', '.github/skills', '.kiro/skills', '.trae/skills', '.cline/skills', '.junie/skills', '.devin/skills', '.opencode/skills', '.augment/skills', '.gemini/skills', '.cursor/skills', '.codex/skills', '.windsurf/skills', '.clinerules/skills']
+const PREFERENCE = [
+  '.agents/skills',
+  '.claude/skills',
+  '.github/skills',
+  '.kiro/skills',
+  '.trae/skills',
+  '.cline/skills',
+  '.junie/skills',
+  '.devin/skills',
+  '.opencode/skills',
+  '.augment/skills',
+  '.gemini/skills',
+  '.cursor/skills',
+  '.codex/skills',
+  '.windsurf/skills',
+  '.clinerules/skills'
+]
 const rank = (d) => {
   const i = PREFERENCE.indexOf(d)
   return i === -1 ? PREFERENCE.length : i
@@ -64,7 +98,7 @@ function* subsets(items, size, start = 0, acc = []) {
  * { agent: dir } } where readers names the folder each agent reads (null for agents with no skills folder).
  */
 export function chooseSkillDirs(ids) {
-  const agents = ids.map(adapter).filter((a) => a && a.skillDirs.length)
+  const agents = ids.map(adapter).filter((a) => a?.skillDirs.length)
   const candidates = [...new Set(agents.flatMap((a) => a.skillDirs))].sort((a, b) => rank(a) - rank(b))
   let best = null
   for (let size = 1; size <= Math.min(4, candidates.length) && !best; size++) {

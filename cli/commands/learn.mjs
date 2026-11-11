@@ -54,7 +54,9 @@ export default async function learn(argv) {
   writeProfile(root, profile)
   ensureLessons(root)
   if (plan) {
-    const res = applyPlan(root, plan, { meta: { ...record, files: undefined, tool: `frontend-skills ${version()}`, skills: skills.map((s) => s.name), updated: today() } })
+    const res = applyPlan(root, plan, {
+      meta: { ...record, files: undefined, tool: `frontend-skills ${version()}`, skills: skills.map((s) => s.name), updated: today() }
+    })
     out(`Written ${res.written.length}, updated ${res.updated.length}, removed ${res.removed.length}, kept ${res.kept.length}.`)
   }
   return 0

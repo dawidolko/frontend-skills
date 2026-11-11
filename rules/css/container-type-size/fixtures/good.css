@@ -1,0 +1,6 @@
+/* Inline-size for width queries; size only with a height. */
+.card-list { container-type: inline-size; }
+.sidebar { container: sidebar / inline-size; }
+.stage { container-type: size; block-size: 60vh; }
+.tile { container-type: size; aspect-ratio: 1; }
+@container (width > 40rem) { .card { display: grid; } }

@@ -12,13 +12,40 @@ import { renderBlock } from '../cli/lib/blocks.mjs'
 import { APPLIES, CHECK_KINDS, loadRules, loadSkills, PACKAGE_ROOT, RULE_AREAS, sections, SEVERITIES, SKILL_AREAS } from '../cli/lib/catalog.mjs'
 import { HELPER_IDS } from '../cli/lib/conventions.mjs'
 import { STACK_KEYS } from '../cli/lib/detect.mjs'
-import { parseFrontMatter } from '../cli/lib/frontmatter.mjs'
 import { estimateTokens } from '../cli/lib/tokens.mjs'
 
-export const BUDGETS = { description: 400, skillLines: 120, skillTokens: 1800, rulesBullets: 12, rulesTokens: 450, refLines: 300, refTokens: 4000, block: 250, title: 140 }
+export const BUDGETS = {
+  description: 400,
+  skillLines: 120,
+  skillTokens: 1800,
+  rulesBullets: 12,
+  rulesTokens: 450,
+  refLines: 300,
+  refTokens: 4000,
+  block: 250,
+  title: 140
+}
 const SKILL_KEYS = ['name', 'description', 'license', 'compatibility', 'metadata', 'allowed-tools']
 const META_KEYS = ['title', 'area', 'lane', 'requires', 'globs', 'rules', 'version']
-const RULE_KEYS = ['id', 'title', 'severity', 'check', 'applies', 'stack', 'requires', 'wcag', 'level', 'axe', 'lighthouse', 'sources', 'skill', 'since', 'status', 'replaced-by', 'tags']
+const RULE_KEYS = [
+  'id',
+  'title',
+  'severity',
+  'check',
+  'applies',
+  'stack',
+  'requires',
+  'wcag',
+  'level',
+  'axe',
+  'lighthouse',
+  'sources',
+  'skill',
+  'since',
+  'status',
+  'replaced-by',
+  'tags'
+]
 const NAME = /^[a-z0-9]+(-[a-z0-9]+)*$/
 
 /** Returns a list of { file, problem } for the package at root. */
@@ -80,7 +107,8 @@ export function validate(root = PACKAGE_ROOT) {
     if (tokens > BUDGETS.skillTokens) bad(f, `SKILL.md is ~${tokens} tokens (budget ${BUDGETS.skillTokens})`)
     const sec = sections(s.body)
     for (const h of ['rules', 'do this', 'check', 'references']) if (!sec[h]) bad(f, `missing section "## ${h[0].toUpperCase()}${h.slice(1)}"`)
-    if (!/profile\.json/.test(sec._ || '') || !/lessons\.md/.test(sec._ || '')) bad(f, 'the line after the title must point to .frontend-skills/profile.json and lessons.md')
+    if (!/profile\.json/.test(sec._ || '') || !/lessons\.md/.test(sec._ || ''))
+      bad(f, 'the line after the title must point to .frontend-skills/profile.json and lessons.md')
     if (sec.rules) {
       const bullets = sec.rules.split('\n').filter((l) => /^- /.test(l)).length
       if (bullets > BUDGETS.rulesBullets) bad(f, `## Rules has ${bullets} bullets (budget ${BUDGETS.rulesBullets})`)
@@ -119,7 +147,8 @@ export function validate(root = PACKAGE_ROOT) {
     for (const a of r.applies) if (!APPLIES.includes(a)) bad(f, `applies: unknown kind "${a}"`)
     for (const k of r.stack) if (!STACK_KEYS.includes(k)) bad(f, `stack: unknown key "${k}"`)
     for (const h of r.requires) if (!HELPER_IDS.includes(h)) bad(f, `requires: unknown helper "${h}"`)
-    for (const [, id] of `${r.title}\n${r.fix}\n${r.why}`.matchAll(/\{\{([\w-]+)\.[\w-]+(?:\|[^}]*)?\}\}/g)) if (!r.requires.includes(id)) bad(f, `placeholder for helper "${id}" without requires: [${id}]`)
+    for (const [, id] of `${r.title}\n${r.fix}\n${r.why}`.matchAll(/\{\{([\w-]+)\.[\w-]+(?:\|[^}]*)?\}\}/g))
+      if (!r.requires.includes(id)) bad(f, `placeholder for helper "${id}" without requires: [${id}]`)
     if (r.area === 'a11y' && !r.wcag.length) bad(f, 'accessibility rules name their WCAG success criteria')
     for (const w of r.wcag) if (!/^\d\.\d{1,2}\.\d{1,2}$/.test(w)) bad(f, `wcag "${w}" is not a success criterion number`)
     if (r.level && !['A', 'AA', 'AAA'].includes(r.level)) bad(f, 'level must be A, AA or AAA')

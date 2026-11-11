@@ -1,0 +1,14 @@
+/* Uses the tokens of good.tokens.css; good.json audits both together. */
+.card {
+  padding: var(--space-4);
+  border: 1px solid var(--color-brand);
+  color: var(--color-brand);
+  filter: url(#shadow);
+  margin: 0 auto;
+}
+.card:hover {
+  color: var(--color-brand-hover);
+}
+@media (forced-colors: active) {
+  .card { border-color: #0a58ca; }
+}

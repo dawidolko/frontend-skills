@@ -1,0 +1,15 @@
+// Utilities, user-preference overrides, a utilities layer and print are where !important belongs.
+.sr-only { position: absolute !important; width: 1px !important; }
+.mt-0, .mb-0 { margin-block: 0 !important; }
+.md\:hidden { display: none !important; }
+@layer utilities {
+  .text-center { text-align: center !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after { animation-duration: 0.01ms !important; }
+}
+@media print {
+  .site-nav { display: none !important; }
+}
+.card { color: var(--text); }
+html.high-contrast body, html.high-contrast body *:not(svg, svg *, img) { color: CanvasText !important; }

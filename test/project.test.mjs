@@ -25,7 +25,10 @@ test('React + Vite project', () => {
   assert.equal(d.projects[0].frameworks.react, '19.3.1')
   for (const k of ['web', 'react', 'typescript', 'tailwind', 'vite', 'vitest', 'testing-library', 'tanstack-query']) assert.ok(d.stack.includes(k), k)
   assert.deepEqual(detectAgents(root, ADAPTERS).sort(), ['claude', 'cursor'])
-  assert.deepEqual(matchSkills(loadSkills(), d.stack).map((s) => s.name), ['fe-a11y-forms', 'fe-html', 'fe-react'])
+  assert.deepEqual(
+    matchSkills(loadSkills(), d.stack).map((s) => s.name),
+    ['fe-a11y-forms', 'fe-html', 'fe-react']
+  )
 })
 
 test('plain HTML site with no package.json, in a folder named with spaces', () => {
@@ -34,14 +37,20 @@ test('plain HTML site with no package.json, in a folder named with spaces', () =
   assert.equal(d.projects[0].plainHtml, true)
   assert.deepEqual(d.stack, ['web', 'html'])
   assert.equal(d.packageManager, null)
-  assert.deepEqual(matchSkills(loadSkills(), d.stack).map((s) => s.name), ['fe-a11y-forms', 'fe-html'])
+  assert.deepEqual(
+    matchSkills(loadSkills(), d.stack).map((s) => s.name),
+    ['fe-a11y-forms', 'fe-html']
+  )
 })
 
 test('pnpm monorepo with Next.js, Astro and Lit packages', () => {
   const root = copyFixture('monorepo')
   const d = detectStack(root)
   assert.deepEqual(d.monorepo, { tool: 'pnpm', packages: ['apps/docs', 'apps/web', 'packages/ui'] })
-  assert.deepEqual(d.projects.map((p) => p.path), ['apps/docs', 'apps/web', 'packages/ui'])
+  assert.deepEqual(
+    d.projects.map((p) => p.path),
+    ['apps/docs', 'apps/web', 'packages/ui']
+  )
   assert.equal(d.projects[1].frameworks.next, '16.4.6')
   for (const k of ['next', 'react', 'astro', 'lit', 'playwright', 'i18n']) assert.ok(d.stack.includes(k), k)
   assert.deepEqual(detectAgents(root, ADAPTERS).sort(), ['gemini', 'kiro'])
@@ -64,7 +73,10 @@ test('project helpers: rem-calc, icon font, tokens, custom properties', () => {
 })
 
 test('helpers a person added survive detection; placeholders fill with fallbacks', () => {
-  const merged = mergeHelpers({ 'custom-properties': { count: 9 } }, { 'rem-function': { name: 'to-rem', source: 'person' }, 'icon-sprite': { tool: 'x', source: 'detected' } })
+  const merged = mergeHelpers(
+    { 'custom-properties': { count: 9 } },
+    { 'rem-function': { name: 'to-rem', source: 'person' }, 'icon-sprite': { tool: 'x', source: 'detected' } }
+  )
   assert.equal(merged['rem-function'].name, 'to-rem')
   assert.equal(merged['icon-sprite'], undefined)
   assert.equal(fillHelpers('Use {{rem-function.name|your helper}}.', merged), 'Use to-rem.')

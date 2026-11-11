@@ -1,0 +1,4 @@
+{ "files": [
+  { "path": "good.scale.css", "kind": "css", "size": 200 },
+  { "path": "good.offsets.css", "kind": "css", "size": 200 }
+] }

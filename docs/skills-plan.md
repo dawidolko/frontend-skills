@@ -9,34 +9,57 @@ Status: ✅ written (reference examples), ⬜ to write. Every skill follows `doc
 | Skill | Area | requires | One line |
 | --- | --- | --- | --- |
 | ✅ `fe-html` | foundations | web | Documents, head, landmarks, headings, semantic elements, images and buttons. |
-| ⬜ `fe-css-architecture` | styling | web | Cascade layers, custom properties as tokens, specificity, naming, file organisation, what to avoid. |
-| ⬜ `fe-css-layout` | styling | web | Flexbox, grid, container queries, logical properties, spacing systems, no fixed heights. |
-| ⬜ `fe-css-modern` | styling | web | Baseline features worth using today (`:has()`, nesting, `@scope`, `color-mix()`, `@starting-style`), with their Baseline status. |
-| ⬜ `fe-responsive` | foundations | web | Viewport, fluid type and space, breakpoints vs container queries, reflow at 320 CSS px, touch targets, print. Owns `responsive/*` and `a11y/zoom-not-blocked`. |
-| ⬜ `fe-forms` | foundations | web | Native inputs and types, constraint validation, submission, file inputs; accessibility is in `fe-a11y-forms`. |
-| ⬜ `fe-images` | performance | web | Formats (AVIF, WebP), `srcset`/`sizes`, `<picture>`, lazy loading, the LCP image, SVG. Owns `perf/img-dimensions`, `perf/large-image`. |
-| ⬜ `fe-fonts` | performance | web | Self-hosting, `font-display`, preload, subsetting, variable fonts, fallback metrics. Owns `perf/font-display`. |
-| ⬜ `fe-motion` | styling | web | Animating compositor properties, `prefers-reduced-motion`, View Transitions, scroll-driven animations. |
+| ✅ `fe-css-architecture` | styling | web | Cascade layers, custom properties as tokens, specificity, naming, file organisation, what to avoid. |
+| ✅ `fe-css-layout` | styling | web | Flexbox, grid, container queries, logical properties, spacing systems, no fixed heights. |
+| ✅ `fe-css-modern` | styling | web | Baseline features worth using today (`:has()`, nesting, `@scope`, `color-mix()`, `@starting-style`), with their Baseline status. |
+| ✅ `fe-responsive` | foundations | web | Viewport, fluid type and space, breakpoints vs container queries, reflow at 320 CSS px, touch targets, print. Owns `responsive/*` and `a11y/zoom-not-blocked`. |
+| ✅ `fe-forms` | foundations | web | Native inputs and types, constraint validation, submission, file inputs; accessibility is in `fe-a11y-forms`. |
+| ✅ `fe-images` | performance | web | Formats (AVIF, WebP), `srcset`/`sizes`, `<picture>`, lazy loading, the LCP image, SVG. Owns `perf/img-dimensions`, `perf/large-image`, `perf/lcp-image-priority`, `perf/srcset-sizes`, `perf/img-modern-format`, `perf/gif-to-video`, `html/picture-img`. |
+| ✅ `fe-fonts` | performance | web | Self-hosting, `font-display`, preload, subsetting, variable fonts, fallback metrics. Owns `perf/font-display`. |
+| ✅ `fe-motion` | styling | web | Animating compositor properties, `prefers-reduced-motion`, View Transitions, scroll-driven animations. |
 
 ## Lane B: JavaScript, TypeScript, frameworks, styling tools, state and data
 
 | Skill | Area | requires | Version (2026-11-11) | One line |
 | --- | --- | --- | --- | --- |
-| ⬜ `fe-javascript` | foundations | web | ES2025 | Modules, DOM and events, async and errors, W3Schools JS conventions, no globals. |
-| ⬜ `fe-typescript` | foundations | typescript | 7.0 | Strict config, types at the boundaries (API, forms, storage), narrowing, no `any`. |
+| ✅ `fe-javascript` | foundations | web | ES2025 | Modules, DOM and events, async and errors, W3Schools JS conventions, no globals. |
+| ✅ `fe-typescript` | foundations | typescript | 7.0 | Strict config, types at the boundaries (API, forms, storage), narrowing, no `any`. |
 | ✅ `fe-react` | frameworks | react | 19.3 | Components, keys, state, effects, React 19 APIs, compiler. |
-| ⬜ `fe-nextjs` | frameworks | next | 16.4 | App Router, Server and Client Components, caching and data, metadata, `next/image`, `next/font`. |
-| ⬜ `fe-vue` | frameworks | vue | 3.5 | `<script setup>`, Composition API, reactivity pitfalls, `v-for` keys, `useId`. |
-| ⬜ `fe-nuxt` | frameworks | nuxt | 4.6 | Directory structure, data fetching (`useFetch`, `useAsyncData`), `useHead`/`useSeoMeta`, rendering modes. |
-| ⬜ `fe-angular` | frameworks | angular | 22.2 | Standalone components, signals, built-in control flow, zoneless, `NgOptimizedImage`, CDK a11y. |
-| ⬜ `fe-svelte` | frameworks | svelte | 5.57 | Runes (`$state`, `$derived`, `$effect`, `$props`), snippets, events, a11y warnings. |
-| ⬜ `fe-sveltekit` | frameworks | sveltekit | 3.2 | Routing, `load`, form actions with progressive enhancement, `app.html`, rendering options. |
-| ⬜ `fe-astro` | frameworks | astro | 7.4 | Islands and `client:*` directives, content collections, `astro:assets`, layouts. |
-| ⬜ `fe-web-components` | frameworks | lit webc | Lit 3.3 | Custom elements, shadow DOM and forms (`ElementInternals`), slots, accessibility across the shadow boundary. |
-| ⬜ `fe-tailwind` | styling | tailwind | 4.3 | CSS-first config (`@theme`), utilities vs components, `focus-visible:`, `dvh`, no arbitrary-value sprawl. |
-| ⬜ `fe-sass` | styling | sass | 1.108 | `@use`/`@forward` (no `@import`), modules, when plain CSS now suffices. |
-| ⬜ `fe-state` | frameworks | react vue svelte angular | Pinia 4.1 | Where state lives, stores (Pinia, Zustand, Redux Toolkit, signals), URL state, no duplicated server state. |
-| ⬜ `fe-data-fetching` | frameworks | react vue svelte angular next nuxt | TanStack Query 5.107 | Server-state libraries vs framework loaders, caching, loading and error UI, race conditions. |
+| ✅ `fe-nextjs` | frameworks | next | 16.4 | App Router, Server and Client Components, caching and data, metadata, `next/image`, `next/font`. |
+| ✅ `fe-vue` | frameworks | vue | 3.5 | `<script setup>`, Composition API, reactivity pitfalls, `v-for` keys, `useId`. |
+| ✅ `fe-nuxt` | frameworks | nuxt | 4.6 | Directory structure, data fetching (`useFetch`, `useAsyncData`), `useHead`/`useSeoMeta`, rendering modes. |
+| ✅ `fe-angular` | frameworks | angular | 22.2 | Standalone components, signals, built-in control flow, zoneless, `NgOptimizedImage`, CDK a11y. |
+| ✅ `fe-svelte` | frameworks | svelte | 5.57 | Runes (`$state`, `$derived`, `$effect`, `$props`), snippets, events, a11y warnings. |
+| ✅ `fe-sveltekit` | frameworks | sveltekit | 3.2 | Routing, `load`, form actions with progressive enhancement, `app.html`, rendering options. |
+| ✅ `fe-astro` | frameworks | astro | 7.4 | Islands and `client:*` directives, content collections, `astro:assets`, layouts. |
+| ✅ `fe-web-components` | frameworks | lit webc | Lit 3.3 | Custom elements, shadow DOM and forms (`ElementInternals`), slots, accessibility across the shadow boundary. |
+| ✅ `fe-tailwind` | styling | tailwind | 4.3 | CSS-first config (`@theme`), utilities vs components, `focus-visible:`, `dvh`, no arbitrary-value sprawl. |
+| ✅ `fe-sass` | styling | sass | 1.108 | `@use`/`@forward` (no `@import`), modules, when plain CSS now suffices. |
+| ✅ `fe-state` | frameworks | react vue svelte angular | Pinia 4.1 | Where state lives, stores (Pinia, Zustand, Redux Toolkit, signals), URL state, no duplicated server state. |
+| ✅ `fe-data-fetching` | frameworks | react vue svelte angular next nuxt | TanStack Query 5.107 | Server-state libraries vs framework loaders, caching, loading and error UI, race conditions. |
+| ✅ `fe-icons` | styling | web | – | Icons from the set the build generates (SVG sprite, icon classes or an icon component), never a hard-coded icon file path; decorative vs meaningful icons. Owns `html/icon-from-set`. Added 2026-11-11 for the owner's icon practice: the icon component of each framework and the sprite or class generator need one home. |
+
+## Project conventions: the owner's practices (2026-11-11)
+
+The owner asked for rules that follow the project's own helpers: icons from a generated set, no hard-coded asset paths, sizes in rem through the project's px-to-rem helper, unitless `line-height`, tokens instead of repeated literals, no magic numbers, `!important` only in utilities, `z-index` from a scale. Lane A owns the CSS rules, lane B the framework icon component and the markup half; detection is `cli/lib/conventions.mjs` (see "Helper ids" below). These ids are reserved here so no id is made twice; the owning lane creates the rule. Rows marked ✅ exist.
+
+| Id | Lane | Skill | requires | One line |
+| --- | --- | --- | --- | --- |
+| ✅ `css/rem-helper` | A | `fe-css-architecture` | `rem-function` | Font sizes and spacing in raw `px` where the project has a px-to-rem function (written by fs-core). |
+| ✅ `css/rem-units` | A | `fe-css-architecture` | – | Font sizes in `rem`, not raw `px`, in projects without a rem helper; silent when the profile records `rem-function` (then `css/rem-helper`) or `px-to-rem-build`. Spacing and breakpoints in px are left to `css/rem-helper`, because outside a helper project they are too often the convention. |
+| ✅ `css/unitless-line-height` | A | `fe-css-architecture` | – | `line-height` is a unitless number (`1.5`), never `px`. |
+| ✅ `css/design-tokens` | A | `fe-css-architecture` | – | A colour or spacing literal that equals a global token becomes that token; a colour written three times with no token becomes one. The check reads the tokens itself, so it needs no helper. |
+| ✅ `css/no-magic-numbers` | A | `fe-css-architecture` | – | One-off offsets and sizes (`top: 37px`, `margin-left: -3px`) are derived from tokens or layout, not tuned by hand. |
+| ✅ `css/no-important` | A | `fe-css-architecture` | – | `!important` only in utility classes and overrides of third-party CSS, with a reason. |
+| ✅ `css/z-index-scale` | A | `fe-css-architecture` | – | `z-index` values come from a named scale (custom properties or Sass map), not ad hoc numbers. |
+| ✅ `css/icon-from-set` | A | `fe-css-architecture` | – (runs with `icon-classes` or `icon-sprite`, or icon classes or an icons module seen in the file; `requires` cannot say "or") | The CSS half of the icon rule: no `url()` to an icon file in `background`/`mask`/`content`; use the generated icon classes. |
+| ✅ `css/asset-url` | A | `fe-css-architecture` | – | The CSS half of the asset rule: `url()` to images and fonts is relative and resolved by the bundler, not a hard-coded root path. |
+| ✅ `html/project-icons` | A | `fe-images` | `icon-classes` | `<img>` of an SVG from the icon folder where the project builds icon classes (written by fs-core). |
+| ✅ `html/icon-from-set` | B | `fe-icons` | – | The markup half for the other sets: no `<img src>` or `<use href="…svg#…">` to an icon file when the project has an icon sprite (`icon-sprite`) or an icon component or icon classes are used in the same file; skips projects with `icon-classes`, which `html/project-icons` covers. |
+| ✅ `js/asset-import` | B | `fe-javascript` | – | In a bundled project, images, fonts and media in component markup are imported or go through the framework's base-path helper, not hard-coded root paths. |
+| ✅ `sass/rem-helper` | B | `fe-sass` | `rem-function` | Hand-made conversions (`math.div(24px, 16px) * 1rem`, `#{24/16}rem`) that bypass the project's px-to-rem function; raw `px` is `css/rem-helper`'s. |
+
+An icon component helper (`<Icon name>` over a sprite or `unplugin-icons`) is not among the helper ids yet; `html/icon-from-set` finds it in the file it reads. Proposed for `cli/lib/conventions.mjs`: `icon-component` (`name`, `file`, `example`).
 
 ## Lane C: accessibility, performance, SEO, i18n, security, testing, tooling
 

@@ -45,8 +45,7 @@ export function parseFrontMatter(input) {
   const text = normalizeText(input)
   if (!text.startsWith('---\n')) return { data: null, body: text, bodyLine: 1 }
   const end = text.indexOf('\n---', 3)
-  if (end === -1 || (text[end + 4] !== undefined && text[end + 4] !== '\n'))
-    throw new FrontMatterError('front matter is not closed by a line with ---')
+  if (end === -1 || (text[end + 4] !== undefined && text[end + 4] !== '\n')) throw new FrontMatterError('front matter is not closed by a line with ---')
   const lines = text.slice(4, end + 1).split('\n')
   lines.pop()
   const body = text.slice(end + 5)
