@@ -1,6 +1,6 @@
 ---
 id: ts/no-deprecated-options
-title: The tsconfig of a TypeScript 6 or 7 project uses no option deprecated in 6.0 and removed in 7.0 (baseUrl, moduleResolution node, target es5...).
+title: A TypeScript 6 or 7 tsconfig uses no option deprecated in 6.0 and removed in 7.0 (baseUrl, moduleResolution node, target es5).
 severity: moderate
 check: static
 applies:

@@ -1,9 +1,10 @@
 /*
- * Shared by the project-level ts rules: finds the tsconfig files of a project (the root one, the nearest one above
- * every audited file, and the configs they list under "references"), reads them as JSON with comments and trailing
- * commas, finds the TypeScript version the nearest package.json asks for, and the line of a key for the report.
- * Paths are relative to the audit root with "/" separators (a leading "../" is kept, which the rule fixtures use
- * to point at their sample projects); ctx.read returns "" for a file that does not exist.
+ * Shared by the project-level ts rules: finds the tsconfig files that govern the audited files (the nearest one
+ * above every audited .tsx, Vue, Svelte or Astro file, and the configs they list under "references"), so an audit
+ * scoped to a path or to changed files reads only the configs of those files. It reads them as JSON with comments
+ * and trailing commas, finds the TypeScript version the nearest package.json asks for, and the line of a key for
+ * the report. Paths are relative to the audit root with "/" separators (a leading "../" is kept, which the rule
+ * fixtures use to point at their sample projects); ctx.read returns "" for a file that does not exist.
  */
 
 const dirOf = (p) => (p.includes('/') ? p.slice(0, p.lastIndexOf('/')) : '')
@@ -57,8 +58,8 @@ export function tsconfigs(ctx) {
       add(/\.json$/i.test(target) ? target : join(target, 'tsconfig.json'))
     }
   }
-  add('tsconfig.json')
-  const dirs = new Set(ctx.files.map((f) => dirOf(f.path)))
+  const typed = ctx.files.filter((f) => /\.(?:tsx|ts|mts|cts)$/i.test(f.path) || ['vue', 'svelte', 'astro'].includes(f.kind))
+  const dirs = new Set(typed.map((f) => dirOf(f.path)))
   for (let dir of dirs) {
     for (;;) {
       const p = join(dir, 'tsconfig.json')
