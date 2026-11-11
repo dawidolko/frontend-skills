@@ -10,8 +10,8 @@
   <a href="LICENSE"><img src="https://img.shields.io/badge/licence-MIT-8a00ad" alt="Licence: MIT"></a>
   <img src="https://img.shields.io/badge/node-%E2%89%A5%2020-8a00ad" alt="Node.js 20 or newer">
   <img src="https://img.shields.io/badge/runtime%20deps-0-8a00ad" alt="Runtime dependencies: 0">
-  <a href="https://skills.dawidolko.pl/skills/"><img src="https://img.shields.io/badge/skills-26-2a1733" alt="26 skills"></a>
-  <a href="https://skills.dawidolko.pl/rules/"><img src="https://img.shields.io/badge/rules-176-2a1733" alt="176 rules"></a>
+  <a href="https://skills.dawidolko.pl/skills/"><img src="https://img.shields.io/badge/skills-50-2a1733" alt="50 skills"></a>
+  <a href="https://skills.dawidolko.pl/rules/"><img src="https://img.shields.io/badge/rules-275-2a1733" alt="275 rules"></a>
   <a href="#supported-agents"><img src="https://img.shields.io/badge/agents-17-2a1733" alt="17 coding agents"></a>
 </p>
 
@@ -65,18 +65,18 @@ From then on your agent reads the profile and the skills before it writes front-
 
 Real sessions on [`fixtures/projects/react-vite`](fixtures/projects/react-vite), a small React, TypeScript and Tailwind project with a few typical mistakes. Recorded with [`tools/record.mjs`](tools/record.mjs), which runs the command, keeps its real output and timing, and draws it as an animated SVG (with reduced motion, the final screen is shown).
 
-**`init`**: detects React 19, TypeScript and Tailwind, finds Claude Code and Cursor, installs 17 of the 26 skills into one folder both read, and runs the first audit.
+**`init`**: detects React 19, TypeScript and Tailwind, finds Claude Code and Cursor, installs 41 of the 50 skills into one folder both read, and runs the first audit.
 
 <picture>
   <source media="(prefers-reduced-motion: reduce)" srcset="docs/media/init.png">
-  <img src="docs/media/init.svg" alt="Terminal: frontend-skills init detects react 19.3.1, typescript 7.0.2, tailwind, vitest and testing-library, installs 17 skills for Claude Code and Cursor into .claude/skills, writes 69 files, updates CLAUDE.md and runs the first audit: 2 critical, 3 serious, 3 moderate, 5 minor findings." width="100%">
+  <img src="docs/media/init.svg" alt="Terminal: frontend-skills init detects react 19.3.1, typescript 7.0.2, tailwind, vitest and testing-library, installs 41 skills for Claude Code and Cursor into .claude/skills, writes 165 files, updates CLAUDE.md and runs the first audit: 2 critical, 3 serious, 4 moderate, 5 minor findings." width="100%">
 </picture>
 
 **`audit`**: counts by severity, the rules found most, where the report is. The exit code is 1 because something is at `serious` or above, so CI can stop on it.
 
 <picture>
   <source media="(prefers-reduced-motion: reduce)" srcset="docs/media/audit.png">
-  <img src="docs/media/audit.svg" alt="Terminal: frontend-skills audit reads 3 files with 86 rules and reports a11y/img-alt and a11y/input-label as critical, a11y/focus-visible and a11y/no-click-on-static as serious, js/asset-import as moderate, each with its first file and line." width="100%">
+  <img src="docs/media/audit.svg" alt="Terminal: frontend-skills audit reads 3 files with 131 rules and reports a11y/img-alt and a11y/input-label as critical, a11y/focus-visible and a11y/no-click-on-static as serious, js/asset-import as moderate, each with its first file and line." width="100%">
 </picture>
 
 **`explain a11y/img-alt`**: the rule in full, the same text the report, the agents and the website use.
@@ -95,11 +95,11 @@ An excerpt of the `frontend-report.md` that the recording above wrote:
 ````markdown
 # Front-end report
 
-Project: `shop` · 2026-11-11 · 3 files read, 86 static rules run.
+Project: `shop` · 2026-11-11 · 3 files read, 131 static rules run.
 
 | critical | serious | moderate | minor |
 | ---: | ---: | ---: | ---: |
-| 2 | 3 | 3 | 5 |
+| 2 | 3 | 4 | 5 |
 
 **Result: findings at `serious` or above.**
 
@@ -130,7 +130,7 @@ The full report ends with what was not checked: the rules that need a rendered p
 For agents, `audit --json` prints one entry per rule and no prose beyond the fix (shortened here):
 
 ```json
-{"v":1,"failOn":"serious","failed":true,"counts":{"critical":2,"serious":3,"moderate":3,"minor":5},"rules":{"a11y/img-alt":{"s":"critical","fix":"Describe what the image says in this context (alt=\"Revenue grew 20% in 2026\"), not what it looks like.","at":["src/App.tsx:8"]},"a11y/focus-visible":{"s":"serious","fix":"Style :focus-visible instead of removing focus styles: …","at":["src/App.tsx:16","src/app.css:9"]}, …}}
+{"v":1,"failOn":"serious","failed":true,"counts":{"critical":2,"serious":3,"moderate":4,"minor":5},"rules":{"a11y/img-alt":{"s":"critical","fix":"Describe what the image says in this context (alt=\"Revenue grew 20% in 2026\"), not what it looks like.","at":["src/App.tsx:8"]},"a11y/focus-visible":{"s":"serious","fix":"Style :focus-visible instead of removing focus styles: …","at":["src/App.tsx:16","src/app.css:9"]}, …}}
 ```
 
 ## Supported agents
@@ -163,7 +163,7 @@ When several agents read the same folder, one copy serves them all; when a dupli
 
 Every rule has an id such as `a11y/img-alt`, `css/rem-helper` or `perf/lcp-image-priority`, one sentence, a severity (`critical`, `serious`, `moderate`, `minor`, the scale axe-core uses) and at least one source: WCAG 2.2 with the success criterion, WAI-ARIA Authoring Practices, the WHATWG and W3C specifications, MDN, web.dev, the framework's own docs or the W3Schools style guides. The prose is our own; the source is linked. The same id is used in skills, findings, `explain`, reviews and the [website's dictionary](https://skills.dawidolko.pl/rules/), so a person and an agent always talk about the same thing.
 
-Today: **176 rules** in 18 areas (148 checked in the source, 1 in the browser, 27 reviewed by a person or the agent) and **26 skills** for HTML, forms, JavaScript, TypeScript, responsive layout, CSS architecture, layout and modern CSS, Sass, Tailwind, icons, motion, fonts, images, data fetching, state, React, Next.js, Vue, Nuxt, Angular, Svelte, SvelteKit, Astro and web components.
+Today: **275 rules** in 23 areas (195 checked in the source, 19 in the browser, 61 reviewed by a person or the agent) and **50 skills**: accessibility (core, ARIA, keyboard, forms, dialogs, menus, tabs and accordions, comboboxes, tables, media, carousels and toasts, visual design), foundations (HTML, forms, JavaScript, TypeScript, responsive layout), styling (CSS architecture, layout, modern CSS, Sass, Tailwind, icons, motion), performance (Core Web Vitals, Lighthouse, delivery, fonts, images), quality (security, SEO metadata, internationalisation, testing, tooling), frameworks (React, Next.js, Vue, Nuxt, Angular, Svelte, SvelteKit, Astro, web components, data fetching, state) and workflow (audit, fix, review, learn, component).
 
 **Rules follow your project's own tools.** `init` records helpers it finds, and the rules that depend on one name it in their fix. On [`fixtures/projects/scss-helpers`](fixtures/projects/scss-helpers), which has a `rem-calc()` Sass function and a Fantasticon icon font with the prefix `ico-`, the always-on block every agent reads gets:
 
@@ -206,15 +206,15 @@ Exit codes of `audit`: `0` nothing at or above `--fail-on` (default `serious`), 
 
 What an agent always pays for is the list of skill names and descriptions plus the instruction block; a skill's body is loaded only when the agent uses it, and its reference file only when a step needs it. The budgets are enforced by `npm run check`: at most 400 characters per description, 1,800 tokens per `SKILL.md`, 250 tokens for the instruction block.
 
-Measured on 2026-11-11 on `fixtures/projects/react-vite` after `init` (Claude Code and Cursor, 17 skills), with `npx github:dawidolko/frontend-skills tokens`:
+Measured on 2026-11-11 on `fixtures/projects/react-vite` after `init` (Claude Code and Cursor, 41 skills), with `npx github:dawidolko/frontend-skills tokens`:
 
 | What | When it is loaded | Tokens |
 | --- | --- | ---: |
-| 17 skill listings + instruction block | always, per agent | ~1,538 (~1,403 + ~135) |
+| 41 skill listings + instruction block | always, per agent | ~3,655 (~3,520 + ~135) |
 | one glob-scoped rule file | while a matching file is open | ~460 |
-| one skill body | when the agent uses the skill | ~794 to ~1,097 |
-| one reference file | when a step needs it | ~1,070 to ~2,297 |
-| all 26 skill listings | if every skill were installed | ~2,102 |
+| one skill body | when the agent uses the skill | ~670 to ~1,127 |
+| one reference file | when a step needs it | ~731 to ~2,711 |
+| all 50 skill listings | if every skill were installed | ~4,219 |
 
 The numbers come from the command's own estimator, calibrated on the o200k tokenizer (total error +0.5% on this repository's Markdown; method in [`docs/tokens.md`](docs/tokens.md)). Other models' tokenizers count somewhat differently, so use them to compare, not to predict a bill. `tokens --all` prints the cost of every skill in the package; `--format skills` is the cheapest install.
 
@@ -269,7 +269,7 @@ node cli/index.mjs --help
 4. Add the id to the owning skill's `metadata.rules` and, if it matters enough, to its `## Rules` digest.
 5. Run `npm run check` and never raise a budget or weaken a check to pass.
 
-How it is built: [`docs/architecture.md`](docs/architecture.md). The website: [`docs/site.md`](docs/site.md). To record the terminal sessions again: `PLAYWRIGHT_MODULE=<path to playwright/index.mjs> node tools/record.mjs --png` (without `--png` no browser is needed). Changes are listed in [`CHANGELOG.md`](CHANGELOG.md).
+How it is built: [`docs/architecture.md`](docs/architecture.md). The website: [`docs/site.md`](docs/site.md). To record the terminal sessions again: `PLAYWRIGHT_MODULE=<path to playwright/index.mjs> node tools/record.mjs --png` (without `--png` no browser is needed). The video of the tool is rebuilt from [`media/video/`](media/video/README.md). Changes are listed in [`CHANGELOG.md`](CHANGELOG.md).
 
 ## Licence
 
