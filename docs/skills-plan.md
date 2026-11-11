@@ -55,7 +55,7 @@ Status: ✅ written (reference examples), ⬜ to write. Every skill follows `doc
 | ✅ `fe-a11y-carousel-toast` | accessibility | web | Carousels with pause and controls; toasts and status messages that are announced and not timed out (APG Carousel). |
 | ✅ `fe-a11y-tables` | accessibility | web | Data tables, headers and captions, sortable columns, responsive tables. |
 | ✅ `fe-core-web-vitals` | performance | web | LCP (≤ 2.5 s), INP (≤ 200 ms), CLS (≤ 0.1) at the 75th percentile: causes and fixes per framework. |
-| ⬜ `fe-lighthouse` | performance | web | Running Lighthouse 13 locally and in CI, reading the score (weights: TBT 30, LCP 25, CLS 25, FCP 10, SI 10), budgets. |
+| ✅ `fe-lighthouse` | performance | web | Running Lighthouse 13 locally and in CI, reading the score (weights: TBT 30, LCP 25, CLS 25, FCP 10, SI 10), budgets. |
 | ✅ `fe-perf-delivery` | performance | web | JavaScript and CSS delivery, code splitting, hydration cost, third-party scripts, caching and resource hints; cites `perf/render-blocking-script` (owned by `fe-html`). |
 | ⬜ `fe-seo-metadata` | quality | web | Titles, descriptions, canonical, Open Graph, structured data, sitemap and robots, per framework. |
 | ⬜ `fe-i18n` | quality | web | `lang` and `dir`, `Intl` formatting, message formats, RTL with logical properties, framework i18n libraries. |
