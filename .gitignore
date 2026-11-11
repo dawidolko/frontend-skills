@@ -5,3 +5,7 @@ coverage/
 *.log
 .env
 .env.*
+
+# Finished videos are too big for git (GitHub refuses files over 100 MB); they live here locally and in the release.
+media/launch/*.mp4
+media/launch/*.wav
