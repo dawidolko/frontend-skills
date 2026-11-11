@@ -10,8 +10,8 @@
   <a href="LICENSE"><img src="https://img.shields.io/badge/licencja-MIT-8a00ad" alt="Licencja: MIT"></a>
   <img src="https://img.shields.io/badge/node-%E2%89%A5%2020-8a00ad" alt="Node.js 20 lub nowszy">
   <img src="https://img.shields.io/badge/zale%C5%BCno%C5%9Bci-0-8a00ad" alt="Zależności w działaniu: 0">
-  <a href="https://skills.dawidolko.pl/pl/skills/"><img src="https://img.shields.io/badge/skille-26-2a1733" alt="26 skilli"></a>
-  <a href="https://skills.dawidolko.pl/pl/rules/"><img src="https://img.shields.io/badge/regu%C5%82y-176-2a1733" alt="176 reguł"></a>
+  <a href="https://skills.dawidolko.pl/pl/skills/"><img src="https://img.shields.io/badge/skille-50-2a1733" alt="50 skilli"></a>
+  <a href="https://skills.dawidolko.pl/pl/rules/"><img src="https://img.shields.io/badge/regu%C5%82y-275-2a1733" alt="275 reguł"></a>
   <a href="#obsługiwani-agenci"><img src="https://img.shields.io/badge/agenci-17-2a1733" alt="17 agentów kodujących"></a>
 </p>
 
@@ -67,18 +67,18 @@ Od tej chwili agent czyta profil i skille, zanim napisze kod front-endu, urucham
 
 Prawdziwe sesje na [`fixtures/projects/react-vite`](fixtures/projects/react-vite), małym projekcie React, TypeScript i Tailwind z kilkoma typowymi błędami. Nagrane skryptem [`tools/record.mjs`](tools/record.mjs), który uruchamia komendę, zachowuje jej prawdziwy wynik i czas, i rysuje go jako animowany SVG (przy ograniczonym ruchu widać od razu ostatni ekran).
 
-**`init`**: wykrywa React 19, TypeScript i Tailwind, znajduje Claude Code i Cursora, instaluje 17 z 26 skilli w jednym folderze, który czytają oba, i uruchamia pierwszy audyt.
+**`init`**: wykrywa React 19, TypeScript i Tailwind, znajduje Claude Code i Cursora, instaluje 41 z 50 skilli w jednym folderze, który czytają oba, i uruchamia pierwszy audyt.
 
 <picture>
   <source media="(prefers-reduced-motion: reduce)" srcset="docs/media/init.png">
-  <img src="docs/media/init.svg" alt="Terminal: frontend-skills init wykrywa react 19.3.1, typescript 7.0.2, tailwind, vitest i testing-library, instaluje 17 skilli dla Claude Code i Cursora w .claude/skills, zapisuje 69 plików, aktualizuje CLAUDE.md i uruchamia pierwszy audyt: 2 krytyczne, 3 poważne, 3 umiarkowane i 5 drobnych znalezisk." width="100%">
+  <img src="docs/media/init.svg" alt="Terminal: frontend-skills init wykrywa react 19.3.1, typescript 7.0.2, tailwind, vitest i testing-library, instaluje 41 skilli dla Claude Code i Cursora w .claude/skills, zapisuje 165 plików, aktualizuje CLAUDE.md i uruchamia pierwszy audyt: 2 krytyczne, 3 poważne, 4 umiarkowane i 5 drobnych znalezisk." width="100%">
 </picture>
 
 **`audit`**: liczby według wagi, najczęstsze reguły, gdzie jest raport. Kod wyjścia to 1, bo coś ma wagę `serious` lub wyższą, więc CI może się na tym zatrzymać.
 
 <picture>
   <source media="(prefers-reduced-motion: reduce)" srcset="docs/media/audit.png">
-  <img src="docs/media/audit.svg" alt="Terminal: frontend-skills audit czyta 3 pliki 86 regułami i zgłasza a11y/img-alt i a11y/input-label jako krytyczne, a11y/focus-visible i a11y/no-click-on-static jako poważne, js/asset-import jako umiarkowane, każde z pierwszym plikiem i linią." width="100%">
+  <img src="docs/media/audit.svg" alt="Terminal: frontend-skills audit czyta 3 pliki 131 regułami i zgłasza a11y/img-alt i a11y/input-label jako krytyczne, a11y/focus-visible i a11y/no-click-on-static jako poważne, js/asset-import jako umiarkowane, każde z pierwszym plikiem i linią." width="100%">
 </picture>
 
 **`explain a11y/img-alt`**: cała reguła, ten sam tekst, którego używają raport, agenci i strona.
@@ -97,11 +97,11 @@ Fragment pliku `frontend-report.md`, który zapisało powyższe nagranie (raport
 ````markdown
 # Front-end report
 
-Project: `shop` · 2026-11-11 · 3 files read, 86 static rules run.
+Project: `shop` · 2026-11-11 · 3 files read, 131 static rules run.
 
 | critical | serious | moderate | minor |
 | ---: | ---: | ---: | ---: |
-| 2 | 3 | 3 | 5 |
+| 2 | 3 | 4 | 5 |
 
 **Result: findings at `serious` or above.**
 
@@ -132,7 +132,7 @@ Pełny raport kończy się tym, czego nie sprawdzono: regułami, które potrzebu
 Dla agentów `audit --json` wypisuje jeden wpis na regułę i żadnej prozy poza poprawką (tu skrócone):
 
 ```json
-{"v":1,"failOn":"serious","failed":true,"counts":{"critical":2,"serious":3,"moderate":3,"minor":5},"rules":{"a11y/img-alt":{"s":"critical","fix":"Describe what the image says in this context (alt=\"Revenue grew 20% in 2026\"), not what it looks like.","at":["src/App.tsx:8"]},"a11y/focus-visible":{"s":"serious","fix":"Style :focus-visible instead of removing focus styles: …","at":["src/App.tsx:16","src/app.css:9"]}, …}}
+{"v":1,"failOn":"serious","failed":true,"counts":{"critical":2,"serious":3,"moderate":4,"minor":5},"rules":{"a11y/img-alt":{"s":"critical","fix":"Describe what the image says in this context (alt=\"Revenue grew 20% in 2026\"), not what it looks like.","at":["src/App.tsx:8"]},"a11y/focus-visible":{"s":"serious","fix":"Style :focus-visible instead of removing focus styles: …","at":["src/App.tsx:16","src/app.css:9"]}, …}}
 ```
 
 ## Obsługiwani agenci
@@ -165,7 +165,7 @@ Gdy kilku agentów czyta ten sam folder, jedna kopia służy wszystkim; gdy dupl
 
 Każda reguła ma identyfikator, na przykład `a11y/img-alt`, `css/rem-helper` albo `perf/lcp-image-priority`, jedno zdanie, wagę (`critical`, `serious`, `moderate`, `minor`, ta sama skala co w axe-core) i co najmniej jedno źródło: WCAG 2.2 z numerem kryterium sukcesu, WAI-ARIA Authoring Practices, specyfikacje WHATWG i W3C, MDN, web.dev, dokumentację frameworka albo przewodniki stylu W3Schools. Tekst jest nasz własny; źródło jest podlinkowane. Ten sam identyfikator pojawia się w skillach, znaleziskach, `explain`, code review i w [słowniku na stronie](https://skills.dawidolko.pl/pl/rules/), więc człowiek i agent zawsze mówią o tym samym.
 
-Dziś: **176 reguł** w 18 obszarach (148 sprawdzanych w kodzie, 1 w przeglądarce, 27 do przejrzenia przez człowieka albo agenta) i **26 skilli** dla HTML, formularzy, JavaScriptu, TypeScriptu, układów responsywnych, architektury CSS, layoutu i nowoczesnego CSS, Sassa, Tailwinda, ikon, animacji, fontów, obrazów, pobierania danych, stanu, Reacta, Next.js, Vue, Nuxta, Angulara, Svelte, SvelteKita, Astro i web components.
+Dziś: **275 reguł** w 23 obszarach (195 sprawdzanych w kodzie, 19 w przeglądarce, 61 do przejrzenia przez człowieka albo agenta) i **50 skilli**: dostępność (podstawy, ARIA, klawiatura, formularze, okna dialogowe, menu, zakładki i akordeony, comboboxy, tabele, multimedia, karuzele i powiadomienia, warstwa wizualna), podstawy (HTML, formularze, JavaScript, TypeScript, układy responsywne), stylowanie (architektura CSS, layout, nowoczesny CSS, Sass, Tailwind, ikony, animacje), wydajność (Core Web Vitals, Lighthouse, dostarczanie, fonty, obrazy), jakość (bezpieczeństwo, metadane SEO, internacjonalizacja, testy, narzędzia), frameworki (React, Next.js, Vue, Nuxt, Angular, Svelte, SvelteKit, Astro, web components, pobieranie danych, stan) i praca (audyt, poprawki, review, nauka projektu, komponenty).
 
 **Reguły używają narzędzi Twojego projektu.** `init` zapisuje znalezione helpery, a reguły, które od nich zależą, podają je w poprawce. Na [`fixtures/projects/scss-helpers`](fixtures/projects/scss-helpers), gdzie jest funkcja Sass `rem-calc()` i font z ikonami z Fantasticona z prefiksem `ico-`, blok wczytywany przez każdego agenta dostaje:
 
@@ -208,15 +208,15 @@ Kody wyjścia `audit`: `0` nic na poziomie `--fail-on` lub wyżej (domyślnie `s
 
 Agent zawsze płaci za listę nazw i opisów skilli oraz blok instrukcji; treść skilla jest wczytywana dopiero, gdy agent go używa, a plik referencyjny dopiero, gdy potrzebuje go konkretny krok. Budżety pilnuje `npm run check`: najwyżej 400 znaków na opis, 1800 tokenów na `SKILL.md`, 250 tokenów na blok instrukcji.
 
-Zmierzone 11 listopada 2026 na `fixtures/projects/react-vite` po `init` (Claude Code i Cursor, 17 skilli) komendą `npx github:dawidolko/frontend-skills tokens`:
+Zmierzone 11 listopada 2026 na `fixtures/projects/react-vite` po `init` (Claude Code i Cursor, 41 skilli) komendą `npx github:dawidolko/frontend-skills tokens`:
 
 | Co | Kiedy jest wczytywane | Tokeny |
 | --- | --- | ---: |
-| 17 opisów skilli + blok instrukcji | zawsze, w każdym agencie | ~1538 (~1403 + ~135) |
+| 41 opisów skilli + blok instrukcji | zawsze, w każdym agencie | ~3655 (~3520 + ~135) |
 | jeden plik reguł ograniczony do plików | gdy otwarty jest pasujący plik | ~460 |
-| treść jednego skilla | gdy agent używa skilla | od ~794 do ~1097 |
-| jeden plik referencyjny | gdy potrzebuje go krok | od ~1070 do ~2297 |
-| opisy wszystkich 26 skilli | gdyby zainstalować wszystkie | ~2102 |
+| treść jednego skilla | gdy agent używa skilla | od ~670 do ~1127 |
+| jeden plik referencyjny | gdy potrzebuje go krok | od ~731 do ~2711 |
+| opisy wszystkich 50 skilli | gdyby zainstalować wszystkie | ~4219 |
 
 Liczby pochodzą z estymatora samej komendy, skalibrowanego na tokenizerze o200k (łączny błąd +0,5% na Markdownie tego repozytorium; metoda w [`docs/tokens.md`](docs/tokens.md)). Tokenizery innych modeli liczą trochę inaczej, więc służą do porównań, nie do przewidywania rachunku. `tokens --all` wypisuje koszt każdego skilla w pakiecie; `--format skills` to najtańsza instalacja.
 
@@ -271,7 +271,7 @@ node cli/index.mjs --help
 4. Dodaj identyfikator do `metadata.rules` skilla, który jest jej właścicielem, a jeśli jest dość ważna, do jego sekcji `## Rules`.
 5. Uruchom `npm run check` i nigdy nie podnoś budżetu ani nie osłabiaj testu, żeby przeszedł.
 
-Jak to jest zbudowane: [`docs/architecture.md`](docs/architecture.md). Strona: [`docs/site.md`](docs/site.md). Ponowne nagranie sesji terminala: `PLAYWRIGHT_MODULE=<ścieżka do playwright/index.mjs> node tools/record.mjs --png` (bez `--png` przeglądarka nie jest potrzebna). Zmiany są w [`CHANGELOG.md`](CHANGELOG.md).
+Jak to jest zbudowane: [`docs/architecture.md`](docs/architecture.md). Strona: [`docs/site.md`](docs/site.md). Ponowne nagranie sesji terminala: `PLAYWRIGHT_MODULE=<ścieżka do playwright/index.mjs> node tools/record.mjs --png` (bez `--png` przeglądarka nie jest potrzebna). Film o narzędziu buduje się z [`media/video/`](media/video/README.md). Zmiany są w [`CHANGELOG.md`](CHANGELOG.md).
 
 ## Licencja
 
