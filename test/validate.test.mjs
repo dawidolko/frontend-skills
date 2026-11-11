@@ -4,19 +4,18 @@
  * fixtures, a placeholder for a helper the rule does not require.
  */
 import assert from 'node:assert/strict'
-import { cpSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs'
-import { tmpdir } from 'node:os'
+import { cpSync, readFileSync, rmSync, writeFileSync } from 'node:fs'
 import path from 'node:path'
 import { test } from 'node:test'
 import { validate } from '../tools/validate.mjs'
-import { REPO } from './helpers.mjs'
+import { REPO, tempDir } from './helpers.mjs'
 
 test('the repository is valid', () => {
   assert.deepEqual(validate(REPO), [])
 })
 
 test('broken skills and rules are reported', () => {
-  const root = mkdtempSync(path.join(tmpdir(), 'fs validate '))
+  const root = tempDir('fs validate ')
   for (const p of ['package.json', 'docs/skills-plan.md', 'skills', 'rules', 'cli', 'engine', 'adapters'])
     cpSync(path.join(REPO, p), path.join(root, p), { recursive: true })
   const edit = (rel, fn) => writeFileSync(path.join(root, rel), fn(readFileSync(path.join(root, rel), 'utf8')))

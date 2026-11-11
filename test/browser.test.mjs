@@ -4,12 +4,11 @@
  * the tools and without --yes nothing is fetched and the reason is returned.
  */
 import assert from 'node:assert/strict'
-import { mkdtempSync, readdirSync } from 'node:fs'
-import { tmpdir } from 'node:os'
-import path from 'node:path'
+import { readdirSync } from 'node:fs'
 import { test } from 'node:test'
 import { loadRules } from '../cli/lib/catalog.mjs'
 import { cacheDir, mapAxe, mapLighthouse, runBrowserAudit } from '../engine/browser.mjs'
+import { tempDir } from './helpers.mjs'
 
 const rules = loadRules()
 const url = 'http://localhost:5173/'
@@ -74,7 +73,7 @@ test('Lighthouse audits below 0.9 map to rule ids; scores and lab metrics are ke
 })
 
 test('no tools, no --yes, no terminal: nothing is fetched and the reason says how', async () => {
-  const cache = mkdtempSync(path.join(tmpdir(), 'fs cache '))
+  const cache = tempDir('fs cache ')
   const r = await runBrowserAudit({ url, rules, env: { FRONTEND_SKILLS_CACHE: cache } })
   assert.match(r.unavailable, /--yes/)
   assert.deepEqual(readdirSync(cache), [])
