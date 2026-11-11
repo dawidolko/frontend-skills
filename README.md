@@ -68,25 +68,25 @@ Real sessions on [`fixtures/projects/react-vite`](fixtures/projects/react-vite),
 **`init`**: detects React 19, TypeScript and Tailwind, finds Claude Code and Cursor, installs 41 of the 50 skills into one folder both read, and runs the first audit.
 
 <picture>
-  <source media="(prefers-reduced-motion: reduce)" srcset="docs/media/init.png">
-  <img src="docs/media/init.svg" alt="Terminal: frontend-skills init detects react 19.3.1, typescript 7.0.2, tailwind, vitest and testing-library, installs 41 skills for Claude Code and Cursor into .claude/skills, writes 165 files, updates CLAUDE.md and runs the first audit: 2 critical, 3 serious, 4 moderate, 5 minor findings." width="100%">
+  <source media="(prefers-reduced-motion: reduce)" srcset="https://skills.dawidolko.pl/media/init.png">
+  <img src="https://skills.dawidolko.pl/media/init.svg" alt="Terminal: frontend-skills init detects react 19.3.1, typescript 7.0.2, tailwind, vitest and testing-library, installs 41 skills for Claude Code and Cursor into .claude/skills, writes 165 files, updates CLAUDE.md and runs the first audit: 2 critical, 3 serious, 4 moderate, 5 minor findings." width="100%">
 </picture>
 
 **`audit`**: counts by severity, the rules found most, where the report is. The exit code is 1 because something is at `serious` or above, so CI can stop on it.
 
 <picture>
-  <source media="(prefers-reduced-motion: reduce)" srcset="docs/media/audit.png">
-  <img src="docs/media/audit.svg" alt="Terminal: frontend-skills audit reads 3 files with 131 rules and reports a11y/img-alt and a11y/input-label as critical, a11y/focus-visible and a11y/no-click-on-static as serious, js/asset-import as moderate, each with its first file and line." width="100%">
+  <source media="(prefers-reduced-motion: reduce)" srcset="https://skills.dawidolko.pl/media/audit.png">
+  <img src="https://skills.dawidolko.pl/media/audit.svg" alt="Terminal: frontend-skills audit reads 3 files with 131 rules and reports a11y/img-alt and a11y/input-label as critical, a11y/focus-visible and a11y/no-click-on-static as serious, js/asset-import as moderate, each with its first file and line." width="100%">
 </picture>
 
 **`explain a11y/img-alt`**: the rule in full, the same text the report, the agents and the website use.
 
 <picture>
-  <source media="(prefers-reduced-motion: reduce)" srcset="docs/media/explain.png">
-  <img src="docs/media/explain.svg" alt="Terminal: frontend-skills explain a11y/img-alt prints the rule (critical, static, WCAG 1.1.1 level A), why it matters, how to fix it, bad and good examples, three sources and the skill that teaches it." width="100%">
+  <source media="(prefers-reduced-motion: reduce)" srcset="https://skills.dawidolko.pl/media/explain.png">
+  <img src="https://skills.dawidolko.pl/media/explain.svg" alt="Terminal: frontend-skills explain a11y/img-alt prints the rule (critical, static, WCAG 1.1.1 level A), why it matters, how to fix it, bad and good examples, three sources and the skill that teaches it." width="100%">
 </picture>
 
-Static images: [init](docs/media/init.png) · [audit](docs/media/audit.png) · [explain](docs/media/explain.png).
+Static images: [init](https://skills.dawidolko.pl/media/init.png) · [audit](https://skills.dawidolko.pl/media/audit.png) · [explain](https://skills.dawidolko.pl/media/explain.png).
 
 ## An example report
 
@@ -269,7 +269,7 @@ node cli/index.mjs --help
 4. Add the id to the owning skill's `metadata.rules` and, if it matters enough, to its `## Rules` digest.
 5. Run `npm run check` and never raise a budget or weaken a check to pass.
 
-How it is built: [`docs/architecture.md`](docs/architecture.md). The website: [`docs/site.md`](docs/site.md). To record the terminal sessions again: `PLAYWRIGHT_MODULE=<path to playwright/index.mjs> node tools/record.mjs --png` (without `--png` no browser is needed). The video of the tool is rebuilt from [`media/video/`](media/video/README.md). Changes are listed in [`CHANGELOG.md`](CHANGELOG.md).
+How it is built: [`docs/architecture.md`](docs/architecture.md).
 
 ## Licence
 
