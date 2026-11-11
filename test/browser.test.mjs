@@ -24,10 +24,10 @@ test('axe-core violations map to rule ids, unknown ones keep the axe id', () => 
         nodes: [{ target: ['main > img'] }]
       },
       {
-        id: 'color-contrast',
+        id: 'list',
         impact: 'serious',
-        help: 'Elements must meet minimum color contrast ratio thresholds',
-        helpUrl: 'https://example.test/cc',
+        help: '<ul> and <ol> must only directly contain <li>, <script> or <template> elements',
+        helpUrl: 'https://example.test/list',
         nodes: [{ target: ['.muted'] }, { target: ['.hint'] }]
       }
     ]
@@ -37,7 +37,7 @@ test('axe-core violations map to rule ids, unknown ones keep the axe id', () => 
     f.map((x) => [x.id, x.severity, x.line]),
     [
       ['a11y/img-alt', 'critical', 0],
-      ['axe/color-contrast', 'serious', 0]
+      ['axe/list', 'serious', 0]
     ]
   )
   assert.match(f[1].message, /\(2×\): \.muted, \.hint/)
