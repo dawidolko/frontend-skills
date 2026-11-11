@@ -1,9 +1,10 @@
 /*
  * html/icon-from-set: reports <img> elements whose literal src points to an icon file (a file in an icons or
  * sprites folder, or named icon-* or ic_*) and <use> elements that point into an SVG file (sprite.svg#close),
- * when the project has an icon set. The set is known from the profile (conventions.icons) or seen in the same
- * file: an icon component (<Icon>, <SvgIcon>, <mat-icon>, <iconify-icon>), a <use href="#..."> of an inline sprite,
- * or icon classes (icon-*, fa-*, bi-*, i-*, material-symbols). Without a set nothing is reported. Bound values are
+ * when the project has an icon set. The set is the profile's icon-sprite helper or one seen in the same file: an
+ * icon component (<Icon>, <SvgIcon>, <mat-icon>, <iconify-icon>), a <use href="#..."> of an inline sprite, or icon
+ * classes (icon-*, fa-*, bi-*, i-*, material-symbols). Without a set nothing is reported. Projects whose profile
+ * records icon-classes are left to html/project-icons, so one image is never reported twice. Bound values are
  * left out.
  */
 import { classTokens, staticValue } from '../../../engine/helpers.mjs'
@@ -13,11 +14,10 @@ const ICON_CLASS = /^(?:icon|fa|bi|ri|mdi|ph|i)-[\w-]+$|^material-(?:icons|symbo
 const iconName = (src) => (/([^/]+?)\.(?:svg|png|webp|gif|avif)/i.exec(src)?.[1] || 'name').replace(/^(?:icon|ic)[-_]/i, '')
 
 function iconSet(ctx) {
-  const icons = ctx.profile?.conventions?.icons
-  if (icons) return { component: icons.component, classPrefix: icons.classPrefix, profile: true }
   const all = ctx.elements()
   const comp = all.find((e) => (e.component && /Icon/.test(e.rawName)) || /(?:^|-)icon$/.test(e.name))
   if (comp) return { component: comp.rawName }
+  if (ctx.helpers?.['icon-sprite']) return { sprite: true, profile: true }
   if (all.some((e) => e.name === 'use' && /^#/.test(staticValue(e, 'href') || staticValue(e, 'xlink:href') || ''))) return { sprite: true }
   const cls = all.flatMap(classTokens).find((t) => ICON_CLASS.test(t) && !/^i-$/.test(t))
   if (cls) return { classPrefix: /^(material-\w+)/.exec(cls)?.[1] || cls.replace(/^((?:icon|fa|bi|ri|mdi|ph|i)-).*$/, '$1') }
@@ -32,6 +32,7 @@ function hint(set, name) {
 
 export default {
   check(ctx) {
+    if (ctx.helpers?.['icon-classes']) return
     const set = iconSet(ctx)
     if (!set) return
     for (const el of ctx.elements(['img', 'use'])) {

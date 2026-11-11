@@ -10,7 +10,7 @@ Depth for the `fe-icons` skill. Packages and licences from the npm registry, che
 | Component per icon | One component per SVG (compiled at build time) | `<IconClose />`, `import IconClose from '~icons/app/close'` | Frameworks; only the icons used are bundled |
 | Icon classes | A CSS file with one class per icon (mask image or font glyph) | `<i class="icon icon-close" aria-hidden="true"></i>` | Plain sites and CMS templates |
 
-In each case the source of truth is one folder of SVG files (for example `src/icons/`); adding `src/icons/cart.svg` and rebuilding makes `cart` available everywhere [html/icon-from-set]. A hand-placed `public/icons/cart.svg` linked by path skips the set.
+In each case the source of truth is one folder of SVG files (for example `src/icons/`); adding `src/icons/cart.svg` and rebuilding makes `cart` available everywhere [html/project-icons, html/icon-from-set]. `learn` records the set in the profile as the `icon-classes` or `icon-sprite` helper. A hand-placed `public/icons/cart.svg` linked by path skips the set.
 
 ## Generators
 
@@ -78,7 +78,7 @@ Angular: register once (`iconRegistry.addSvgIconSet(sanitizer.bypassSecurityTrus
 
 ## Moving from hard-coded files to a set
 
-1. List the icon files referenced by path: `npx github:dawidolko/frontend-skills audit` and look for `html/icon-from-set` (markup) and `css/icon-from-set` (CSS).
+1. List the icon files referenced by path: `npx github:dawidolko/frontend-skills audit` and look for `html/project-icons` and `html/icon-from-set` (markup) and `css/icon-from-set` (CSS, lane A).
 2. Move each SVG into the source folder, strip fixed `fill`, `stroke` colours (use `currentColor`) and `width`/`height`, keep `viewBox`.
 3. Replace each reference with the component, class or `<use>`, adding `aria-hidden` or a label as above.
 4. Delete the old files from `public/` once nothing links them.

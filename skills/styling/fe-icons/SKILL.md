@@ -9,17 +9,17 @@ metadata:
   lane: B
   requires: web
   globs: "**/*.html **/*.jsx **/*.tsx **/*.vue **/*.svelte **/*.astro **/*.component.html **/icons/*.svg"
-  rules: "html/icon-from-set js/asset-import a11y/img-alt"
+  rules: "html/icon-from-set html/project-icons js/asset-import a11y/img-alt"
   version: 0.1.0
 ---
 
 # Icons
 
-Read `.frontend-skills/profile.json` (`conventions.icons`: kind, component, class prefix, source folder, generator) and `.frontend-skills/lessons.md` first when they exist; a confirmed lesson wins over this skill.
+Read `.frontend-skills/profile.json` (`helpers`: `icon-classes` or `icon-sprite`, with tool, prefix and source folder) and `.frontend-skills/lessons.md` first when they exist; a confirmed lesson wins over this skill.
 
 ## Rules
 
-- Use the project's icon set: its component, its classes or a `<use href="#id">` of its generated sprite (html/icon-from-set).
+- Use the project's icon set: its generated classes (html/project-icons), its component or a `<use href="#id">` of its sprite (html/icon-from-set).
 - Never hard-code a path to an icon file (`<img src="/icons/x.svg">`, `sprite.svg#x`) in markup; in CSS, no `url()` to an icon file (`css/icon-from-set`).
 - Add an icon by putting its SVG in the set's source folder and rebuilding; never copy it into `public/`.
 - One source folder, one generator, one naming scheme (`close`, `chevron-down`): no second set beside it.
@@ -30,7 +30,7 @@ Read `.frontend-skills/profile.json` (`conventions.icons`: kind, component, clas
 
 ## Do this
 
-1. Find the set: `conventions.icons` in the profile; otherwise run `node <skills>/fe-sass/scripts/find-conventions.mjs --json` (it reads `package.json` and the folders) and confirm the result with the person, then record it as a lesson.
+1. Find the set: `helpers` in the profile (`icon-classes`, `icon-sprite`); if it is missing, run `npx github:dawidolko/frontend-skills learn` and confirm what it finds with the person; an Icon component it does not detect goes into `lessons.md` as a convention.
 2. Use it the framework's way: React or Preact `<Icon name="close" />` over a sprite or SVGR imports; Vue `<SvgIcon name="close" />` (vite-plugin-svg-icons) or `~icons/` components (unplugin-icons); Svelte `<Icon name="close" />`; Angular `<mat-icon svgIcon="close">` with `MatIconRegistry`; Astro `<Icon name="close" />` from `astro-icon/components` (SVGs in `src/icons/`); plain sites a sprite `<use href="#icon-close">` or the generated classes.
 3. No set yet: create one from `src/icons/*.svg` with the build (sprite plugin or unplugin-icons custom collection) and one small `Icon` component; remove fixed `fill` and `width`/`height` from the SVG files so the component controls them.
 4. Icon-only controls: `<button type="button" aria-label="Close"><Icon name="close" aria-hidden="true" /></button>`; touch targets at least 24 by 24 CSS px.

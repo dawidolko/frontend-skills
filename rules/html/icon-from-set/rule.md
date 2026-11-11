@@ -1,7 +1,7 @@
 ---
 id: html/icon-from-set
 title: When the project has an icon set (sprite, icon classes or an Icon component), markup uses it, never a hard-coded path to an icon file.
-severity: moderate
+severity: minor
 check: static
 applies:
   - html
@@ -31,7 +31,9 @@ An icon set that the build generates from one folder of SVG files (a sprite, ico
 
 ## Fix
 
-Use the project's own set, named in `.frontend-skills/profile.json` under `conventions.icons`: its component (`<Icon name="close" />`, `<SvgIcon name="close" />`, `<mat-icon svgIcon="close">`, `<Icon name="close" />` from `astro-icon`), its classes (`<i class="icon icon-close" aria-hidden="true"></i>`), or a `<use href="#icon-close">` of the generated sprite. Add a new icon by dropping its SVG into the source folder (for example `src/icons/`) and rebuilding; never copy it into `public/` and link it. Decorative icons get `aria-hidden="true"`; an icon-only button gets an accessible name on the button.
+Use the project's own set (the `icon-sprite` helper in `.frontend-skills/profile.json`, or the component or classes the file already uses): its component (`<Icon name="close" />`, `<SvgIcon name="close" />`, `<mat-icon svgIcon="close">`, `<Icon name="close" />` from `astro-icon`), its classes (`<i class="icon icon-close" aria-hidden="true"></i>`), or a `<use href="#icon-close">` of the generated sprite. Add a new icon by dropping its SVG into the source folder (for example `src/icons/`) and rebuilding; never copy it into `public/` and link it. Decorative icons get `aria-hidden="true"`; an icon-only button gets an accessible name on the button.
+
+Projects whose profile records the `icon-classes` helper are covered by `html/project-icons` instead.
 
 ## Examples
 
