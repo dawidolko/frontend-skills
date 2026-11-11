@@ -87,7 +87,7 @@ skill: fe-<topic>
 since: 0.1.0
 sources:
   - title: <Publisher, page title (section)>
-    url: <https://…>
+    url: <the URL of that page>
 ---
 
 ## Why
