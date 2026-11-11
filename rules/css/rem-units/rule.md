@@ -1,6 +1,6 @@
 ---
 id: css/rem-units
-title: Font sizes are in rem, and in a project with a px-to-rem helper (such as rem-calc) spacing and breakpoints go through it, not raw px.
+title: Font sizes are written in rem (or em), never px, in projects without a rem helper; with one, css/rem-helper applies.
 severity: minor
 check: static
 applies:
@@ -20,23 +20,21 @@ sources:
     url: https://get.foundation/sites/docs/sass-functions.html#rem-calc
   - title: WCAG 2.2, Understanding SC 1.4.4 Resize Text
     url: https://www.w3.org/WAI/WCAG22/Understanding/resize-text.html
-  - title: web.dev, Learn Responsive Design, Media queries
-    url: https://web.dev/learn/design/media-queries
 ---
 
 ## Why
 
-A `px` font size ignores the text size the person set in their browser, so text that is comfortable for the designer stays small for someone who needs it larger. In a project that converts sizes with a helper (Foundation's `rem-calc()`, its own `to-rem()` or a token), raw `px` beside the helper mixes two systems: those values do not follow the base size and the next change of the scale misses them.
+A `px` font size ignores the text size the person set in their browser, so text that is comfortable for the designer stays small for someone who needs it larger. Browser zoom still works, but the text-size setting is how many people with low vision read every site.
 
 ## Fix
 
-Write font sizes in `rem` (or `em` inside a component that should follow its parent). When the project has a helper, use it for font sizes, spacing and breakpoints: `padding: rem-calc(16)`, `@media (min-width: rem-calc(768))`. The profile names the helper under `conventions.remHelper`; borders and hairlines stay in `px`.
+Write font sizes in `rem` (or `em` inside a component that should follow its parent): `16px` is `1rem` at the default size. Fluid sizes keep rem bounds: `clamp(1rem, 0.9rem + 0.5vw, 1.25rem)`. When the profile records a px-to-rem function (helper `rem-function`, for example Foundation's `rem-calc()`), this rule steps aside and `css/rem-helper` asks for that function instead; with a build step that converts px (`px-to-rem-build`) px in the source is the convention.
 
 ## Examples
 
-```scss
-// bad: the project uses rem-calc()
-.card { margin-bottom: 24px; font-size: 18px; }
-// good
-.card { margin-bottom: rem-calc(24); font-size: rem-calc(18); }
+```css
+/* bad */
+.card__title { font-size: 20px; }
+/* good */
+.card__title { font-size: 1.25rem; }
 ```

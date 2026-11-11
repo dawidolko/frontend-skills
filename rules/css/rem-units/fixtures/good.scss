@@ -1,14 +1,8 @@
-// The helper everywhere; hairlines, zero and shadows stay in px.
-@use 'functions' as *;
-.card {
-  padding: rem-calc(16) rem-calc(24);
-  margin-bottom: rem-calc(24);
-  font-size: rem-calc(18);
-  border: 1px solid;
-  margin-top: -1px;
-  padding-top: 0;
-  box-shadow: 0 2px 8px rgb(0 0 0 / 0.2);
-}
-@media (min-width: rem-calc(768)) {
-  .card { gap: rem-calc(12); }
-}
+// Relative font sizes; px elsewhere is not this rule's business.
+html { font-size: 100%; }
+.card { padding: 16px; border: 1px solid; }
+.card__title { font-size: 1.25rem; }
+.lead { font-size: clamp(1.125rem, 1rem + 0.5vw, 1.375rem); }
+.note { font-size: 0.875em; }
+.title { font-size: var(--step-2); }
+.small { font-size: $font-size-sm; }

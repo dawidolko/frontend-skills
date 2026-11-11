@@ -1,9 +1,0 @@
-/* Without a helper in the project, px spacing is not this rule's business; font sizes are relative. */
-html { font-size: 100%; }
-.card { padding: 16px; gap: 12px; }
-.card__title { font-size: 1.25rem; }
-.lead { font-size: clamp(1.125rem, 1rem + 0.5vw, 1.375rem); }
-.note { font-size: 0.875em; }
-@media (min-width: 48em) {
-  .card { padding: 24px; }
-}

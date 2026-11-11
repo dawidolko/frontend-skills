@@ -77,7 +77,7 @@ Sources offer formats (`type`) or crops (`media`); the `<img>` renders and carri
 
 - As `<img src="logo.svg" alt="Shop">` for logos and illustrations: cached, no script, needs `alt`.
 - Inline `<svg>` when it must take `currentColor` or be animated; decorative: `aria-hidden="true"`; meaningful: `role="img"` and `<title>`.
-- Icons come from the project's generated icon set, not hand-copied files (`css/icon-from-set`, `html/icon-from-set`).
+- Icons come from the project's generated icon set (helper `icon-classes` or `icon-sprite` in the profile), not hand-copied files [html/project-icons]; see also `css/icon-from-set` and `html/icon-from-set`.
 
 ## Video instead of GIF
 

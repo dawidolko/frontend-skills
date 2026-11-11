@@ -1,6 +1,6 @@
 ---
 id: css/icon-from-set
-title: In a project with a generated icon set, CSS uses the set's classes or mixin, never a url() hard-coded to an icon file.
+title: With a generated icon set, CSS uses its classes ({{icon-classes.example|icon-<name>}}) or mixin, never a url() to an icon file.
 severity: minor
 check: static
 applies:
@@ -24,11 +24,11 @@ sources:
 
 ## Why
 
-When the build turns a folder of source SVGs into a sprite or into icon classes, that output is the one place where an icon is sized, coloured, optimised and renamed. A `url()` written by hand to one SVG file skips all of it: the icon is not optimised, does not take `currentColor`, keeps working only until the file moves, and a second copy of the icon starts to drift. The rule runs only when the project has such a set (`conventions.icons` in the profile, or icon classes in the file).
+When the build turns a folder of source SVGs into a sprite or into icon classes, that output is the one place where an icon is sized, coloured, optimised and renamed. A `url()` written by hand to one SVG file skips all of it: the icon is not optimised, does not take `currentColor`, keeps working only until the file moves, and a second copy of the icon starts to drift. The rule runs only when the project has such a set: the helper `icon-classes` or `icon-sprite` in the profile, or icon classes or an icons module in the file.
 
 ## Fix
 
-Add the SVG to the icon source folder, rebuild, and use what the build generates: the class (`.icon-search`), the mixin (`@include icons.icon(search)`) or, in markup, the icon component or `<use href="#icon-search">` (see `html/icon-from-set`). Illustrations and photos are not icons and keep their `url()`.
+Add the SVG to the icon source folder, rebuild, and use what the build generates: the class (`.icon-search`), the mixin (`@include icons.icon(search)`) or, in markup, the icon component or `<use href="#icon-search">` (see `html/project-icons` and `html/icon-from-set`). Illustrations and photos are not icons and keep their `url()`.
 
 ## Examples
 

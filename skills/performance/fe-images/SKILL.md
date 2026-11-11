@@ -9,7 +9,7 @@ metadata:
   lane: A
   requires: web
   globs: "**/*.html **/*.jsx **/*.tsx **/*.vue **/*.svelte **/*.astro **/*.component.html"
-  rules: "perf/img-dimensions perf/lcp-image-priority perf/srcset-sizes html/picture-img perf/img-modern-format perf/large-image perf/gif-to-video a11y/img-alt"
+  rules: "perf/img-dimensions perf/lcp-image-priority perf/srcset-sizes html/picture-img perf/img-modern-format perf/large-image perf/gif-to-video html/project-icons a11y/img-alt"
   version: 0.1.0
 ---
 
@@ -28,7 +28,8 @@ Read `.frontend-skills/profile.json` and `.frontend-skills/lessons.md` first whe
 - No image file over the budget, 250 KB by default (perf/large-image); no GIF over 100 KiB, use a muted looping video (perf/gif-to-video).
 - Every image has `alt`: the meaning, or `alt=""` when decorative (a11y/img-alt).
 - Use the framework's image component when there is one; it writes `srcset`, sizes and formats for you.
-- Logos and icons are SVG; the LCP image is in the HTML, not injected by JavaScript or hidden in a CSS background.
+- Logos are SVG; icons come from the project's generated icon set, never an `<img>` of an icon file (html/project-icons).
+- The LCP image is in the HTML, not injected by JavaScript or hidden in a CSS background.
 
 ## Do this
 

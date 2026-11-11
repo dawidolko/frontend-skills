@@ -9,7 +9,7 @@ metadata:
   lane: A
   requires: web
   globs: "**/*.css **/*.scss **/*.less **/*.vue **/*.svelte **/*.astro"
-  rules: "css/design-tokens css/no-magic-numbers css/z-index-scale css/rem-units css/unitless-line-height css/no-important css/no-id-selectors css/icon-from-set css/asset-url css/no-stale-prefixes"
+  rules: "css/design-tokens css/no-magic-numbers css/z-index-scale css/rem-helper css/rem-units css/unitless-line-height css/no-important css/no-id-selectors css/icon-from-set css/asset-url css/no-stale-prefixes"
   version: 0.1.0
 ---
 
@@ -22,7 +22,7 @@ Read `.frontend-skills/profile.json` and `.frontend-skills/lessons.md` first whe
 - Take colours and spacing from the project's tokens; a literal used three times becomes a custom property (css/design-tokens).
 - No hand-tuned offsets (`top: -7px`): use a step of the spacing scale or derive it from layout (css/no-magic-numbers).
 - `z-index` comes from a named scale; inside a component use `isolation: isolate` and small values (css/z-index-scale).
-- Font sizes in `rem`; when the project has a px-to-rem helper (`rem-calc()`), spacing and breakpoints use it too (css/rem-units).
+- Sizes go through the project's px-to-rem function when it has one, `rem-calc(16px)` (css/rem-helper); otherwise font sizes are `rem` (css/rem-units).
 - `line-height` is unitless, such as `1.5` (css/unitless-line-height).
 - Order the cascade once with `@layer reset, base, components, utilities;`; `!important` only in utilities (css/no-important).
 - Style classes, not ids; keep selectors to one or two classes and wrap resets in `:where()` (css/no-id-selectors).
@@ -33,7 +33,7 @@ Read `.frontend-skills/profile.json` and `.frontend-skills/lessons.md` first whe
 
 ## Do this
 
-1. Find the project's conventions before writing a value: `conventions` in the profile (`remHelper`, `icons`), the tokens file (`:root` custom properties, `_tokens.scss`, Tailwind `@theme`), the layer order statement and the naming pattern of existing components.
+1. Find the project's conventions before writing a value: `helpers` in the profile (`rem-function`, `icon-classes`, `icon-sprite`, `custom-properties`, `design-tokens`), the tokens file (`:root` custom properties, `_tokens.scss`, Tailwind `@theme`), the layer order statement and the naming pattern of existing components.
 2. Look every colour, space, radius, shadow and layer up in the tokens. A new value gets a token named by role (`--color-text-muted`, `--space-3`), not by hue or size.
 3. Structure: layer order once at the top of the entry stylesheet; resets and base styles in `:where()`; a component is one class plus modifiers; utilities last.
 4. Units: `rem` (or the project's helper) for type, space and breakpoints; `em` for spacing that follows the component's font; `px` only for borders, hairlines and shadows; unitless `line-height`.
@@ -42,9 +42,9 @@ Read `.frontend-skills/profile.json` and `.frontend-skills/lessons.md` first whe
 
 ## Check
 
-- `npx github:dawidolko/frontend-skills audit --changed` reports literals that have a token, values off the spacing scale, ad hoc `z-index`, px sizes, unit line heights, `!important`, id selectors, icon and asset paths, stale prefixes.
+- `npx github:dawidolko/frontend-skills audit --changed` reports literals that have a token, values off the spacing scale, ad hoc `z-index`, px sizes beside the rem function, unit line heights, `!important`, id selectors, icon and asset paths, stale prefixes.
 - By hand: change one token (the brand colour, the base spacing) and see the whole interface follow; run the project's Stylelint when it has one.
 
 ## References
 
-- [references/architecture.md](references/architecture.md): token tiers and naming, spacing and z-index scales, units, cascade layers, naming conventions, the profile's `conventions` and how the checks adapt, icon and asset pipelines per bundler. Read it when you set up or refactor a stylesheet structure.
+- [references/architecture.md](references/architecture.md): token tiers and naming, spacing and z-index scales, units, cascade layers, naming conventions, the profile's `helpers` and how the checks adapt, icon and asset pipelines per bundler. Read it when you set up or refactor a stylesheet structure.

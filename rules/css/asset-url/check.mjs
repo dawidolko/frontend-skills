@@ -10,7 +10,8 @@ const URL = /url\(\s*(['"]?)([^'")]+)\1\s*\)/g
 
 export default {
   check(ctx) {
-    const icons = Boolean(ctx.profile?.conventions?.icons)
+    const helpers = ctx.helpers || ctx.profile?.helpers || {}
+    const icons = Boolean(helpers['icon-classes'] || helpers['icon-sprite'])
     for (const b of ctx.css())
       for (const d of b.decls)
         for (const m of d.value.matchAll(URL)) {

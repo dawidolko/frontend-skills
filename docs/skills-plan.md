@@ -41,32 +41,25 @@ Status: ✅ written (reference examples), ⬜ to write. Every skill follows `doc
 
 ## Project conventions: the owner's practices (2026-11-11)
 
-The owner asked for rules that follow the project's own helpers: icons from a generated set, no hard-coded asset paths, sizes in rem through the project's px-to-rem helper, unitless `line-height`, tokens instead of repeated literals, no magic numbers, `!important` only in utilities, `z-index` from a scale. Lane A owns the CSS rules, lane B the Sass helper detection, the framework icon component and the markup half. These ids are reserved here so no id is made twice; the owning lane creates the rule.
+The owner asked for rules that follow the project's own helpers: icons from a generated set, no hard-coded asset paths, sizes in rem through the project's px-to-rem helper, unitless `line-height`, tokens instead of repeated literals, no magic numbers, `!important` only in utilities, `z-index` from a scale. Lane A owns the CSS rules, lane B the framework icon component and the markup half; detection is `cli/lib/conventions.mjs` (see "Helper ids" below). These ids are reserved here so no id is made twice; the owning lane creates the rule. Rows marked ✅ exist.
 
-| Id | Lane | Skill | One line |
-| --- | --- | --- | --- |
-| `css/rem-units` | A | `fe-css-architecture` | Font sizes, spacing and breakpoints in `rem` (through `conventions.remHelper` when the profile names one), not raw `px`. |
-| `css/unitless-line-height` | A | `fe-css-architecture` | `line-height` is a unitless number (`1.5`), never `px`. |
-| `css/design-tokens` | A | `fe-css-architecture` | A colour or spacing literal repeated across rules becomes a custom property or token. |
-| `css/no-magic-numbers` | A | `fe-css-architecture` | One-off offsets and sizes (`top: 37px`, `margin-left: -3px`) are derived from tokens or layout, not tuned by hand. |
-| `css/no-important` | A | `fe-css-architecture` | `!important` only in utility classes and overrides of third-party CSS, with a reason. |
-| `css/z-index-scale` | A | `fe-css-architecture` | `z-index` values come from a named scale (custom properties or Sass map), not ad hoc numbers. |
-| `css/icon-from-set` | A | `fe-css-architecture` | The CSS half of the icon rule: no `url()` to an icon file in `background`/`mask`/`content`; use the generated icon classes. |
-| `css/asset-url` | A | `fe-css-architecture` | The CSS half of the asset rule: `url()` to images and fonts is relative and resolved by the bundler, not a hard-coded root path. |
-| `html/icon-from-set` | B | `fe-icons` | The markup half of the icon rule: no `<img src>` or `<use href>` hard-coded to an icon file when the project has an icon set; use its component or classes. |
-| `js/asset-import` | B | `fe-javascript` | In a bundled project, images, fonts and media in component markup are imported or go through the framework's base-path helper, not hard-coded root paths. |
-| `sass/rem-helper` | B | `fe-sass` | When the project has a px-to-rem function (Foundation's `rem-calc()` or its own), sizes call it instead of dividing by a hard-coded base. |
+| Id | Lane | Skill | requires | One line |
+| --- | --- | --- | --- | --- |
+| ✅ `css/rem-helper` | A | `fe-css-architecture` | `rem-function` | Font sizes and spacing in raw `px` where the project has a px-to-rem function (written by fs-core). |
+| ✅ `css/rem-units` | A | `fe-css-architecture` | – | Font sizes in `rem`, not raw `px`, in projects without a rem helper; silent when the profile records `rem-function` (then `css/rem-helper`) or `px-to-rem-build`. Spacing and breakpoints in px are left to `css/rem-helper`, because outside a helper project they are too often the convention. |
+| ✅ `css/unitless-line-height` | A | `fe-css-architecture` | – | `line-height` is a unitless number (`1.5`), never `px`. |
+| ✅ `css/design-tokens` | A | `fe-css-architecture` | – | A colour or spacing literal that equals a global token becomes that token; a colour written three times with no token becomes one. The check reads the tokens itself, so it needs no helper. |
+| ✅ `css/no-magic-numbers` | A | `fe-css-architecture` | – | One-off offsets and sizes (`top: 37px`, `margin-left: -3px`) are derived from tokens or layout, not tuned by hand. |
+| ✅ `css/no-important` | A | `fe-css-architecture` | – | `!important` only in utility classes and overrides of third-party CSS, with a reason. |
+| ✅ `css/z-index-scale` | A | `fe-css-architecture` | – | `z-index` values come from a named scale (custom properties or Sass map), not ad hoc numbers. |
+| ✅ `css/icon-from-set` | A | `fe-css-architecture` | – (runs with `icon-classes` or `icon-sprite`, or icon classes or an icons module seen in the file; `requires` cannot say "or") | The CSS half of the icon rule: no `url()` to an icon file in `background`/`mask`/`content`; use the generated icon classes. |
+| ✅ `css/asset-url` | A | `fe-css-architecture` | – | The CSS half of the asset rule: `url()` to images and fonts is relative and resolved by the bundler, not a hard-coded root path. |
+| ✅ `html/project-icons` | A | `fe-images` | `icon-classes` | `<img>` of an SVG from the icon folder where the project builds icon classes (written by fs-core). |
+| ✅ `html/icon-from-set` | B | `fe-icons` | – | The markup half for the other sets: no `<img src>` or `<use href="…svg#…">` to an icon file when the project has an icon sprite (`icon-sprite`) or an icon component or icon classes are used in the same file; skips projects with `icon-classes`, which `html/project-icons` covers. |
+| ✅ `js/asset-import` | B | `fe-javascript` | – | In a bundled project, images, fonts and media in component markup are imported or go through the framework's base-path helper, not hard-coded root paths. |
+| ✅ `sass/rem-helper` | B | `fe-sass` | `rem-function` | Hand-made conversions (`math.div(24px, 16px) * 1rem`, `#{24/16}rem`) that bypass the project's px-to-rem function; raw `px` is `css/rem-helper`'s. |
 
-**Profile contract.** A check that needs a project helper runs only when the helper is known, and its fix names that helper. The helpers are recorded under `conventions` in `.frontend-skills/profile.json` (proposed for `cli/lib/detect.mjs`; until then `fe-learn` runs `node skills/styling/fe-sass/scripts/find-conventions.mjs --json` and confirms the result with the person):
-
-```json
-"conventions": {
-  "remHelper": { "name": "rem-calc", "file": "src/styles/_functions.scss", "base": 16 },
-  "icons": { "kind": "sprite", "component": "Icon", "classPrefix": "icon-", "source": "src/icons", "generator": "vite-plugin-svg-icons" }
-}
-```
-
-`kind` is `sprite`, `classes` or `component`. A check also accepts the helper when the file it reads already uses it (a `rem-calc(` call, an `<Icon>` element), so a project without a profile still gets the finding where the mix is visible.
+An icon component helper (`<Icon name>` over a sprite or `unplugin-icons`) is not among the helper ids yet; `html/icon-from-set` finds it in the file it reads. Proposed for `cli/lib/conventions.mjs`: `icon-component` (`name`, `file`, `example`).
 
 ## Lane C: accessibility, performance, SEO, i18n, security, testing, tooling
 

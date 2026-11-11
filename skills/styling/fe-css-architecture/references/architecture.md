@@ -4,25 +4,27 @@ Depth for the `fe-css-architecture` skill. Rule ids in brackets: `frontend-skill
 
 ## The project's conventions come first
 
-The checks adapt to what the project already has. `fe-learn` records it in `.frontend-skills/profile.json`:
+The checks adapt to what the project already has. `init` and `learn` record the project's helpers in `.frontend-skills/profile.json` (`profile.helpers`; a person can correct them with `"source": "person"`):
 
 ```json
-"conventions": {
-  "remHelper": { "name": "rem-calc", "file": "src/styles/_functions.scss", "base": 16 },
-  "icons": { "kind": "classes", "classPrefix": "icon-", "source": "src/icons" }
+"helpers": {
+  "rem-function": { "kind": "sass-function", "name": "rem-calc", "call": "rem-calc(16px)", "file": "src/styles/_functions.scss" },
+  "icon-classes": { "kind": "icon-font", "prefix": "icon-", "sourceDir": "src/icons", "example": "icon-<name>" },
+  "custom-properties": { "file": "src/styles/tokens.css", "prefixes": ["--color-*", "--space-*"] }
 }
 ```
 
 | Rule | Runs when | Its fix names |
 | --- | --- | --- |
-| [css/design-tokens] | always; matches literals against the tokens the project defines | the token (`var(--color-brand)`, `$color-brand`) |
+| [css/design-tokens] | always; matches literals against the global tokens the project defines | the token (`var(--color-brand)`, `$color-brand`) |
 | [css/no-magic-numbers] | the project has a spacing scale (3 or more `--space-*`, `$spacer-*` tokens) | the nearest step |
 | [css/z-index-scale] | always; stricter when a `--z-*`/`$z-*` scale exists | the scale's layers |
-| [css/rem-units] | font sizes always; spacing and breakpoints when a helper is known | `remHelper.name` (`rem-calc(24)`) or the rem value |
-| [css/icon-from-set] | `conventions.icons` exists, or the file already uses icon classes or an icons module | the class prefix (`.icon-search`) |
+| [css/rem-helper] | the profile records `rem-function` | the function (`rem-calc(16px)`) |
+| [css/rem-units] | no `rem-function` and no `px-to-rem-build` | the rem value |
+| [css/icon-from-set] | the profile records `icon-classes` or `icon-sprite`, or the file uses icon classes or an icons module | the class prefix (`.icon-search`) |
 | [css/asset-url] | the project is built by Vite, webpack, Next.js, Nuxt, Angular, Astro or SvelteKit | a relative path or alias |
 
-A profile without `conventions` still gets the in-file evidence: a stylesheet that calls `rem-calc(` once is held to it everywhere.
+Hand-made conversions such as `math.div(24px, 16px) * 1rem` are `sass/rem-helper` (see `fe-sass`).
 
 ## Tokens
 
@@ -53,7 +55,7 @@ A profile without `conventions` still gets the in-file evidence: a stylesheet th
 
 | Value | Unit | Why |
 | --- | --- | --- |
-| Font size | `rem` (or the project's helper) | follows the user's text size [css/rem-units] |
+| Font size | `rem` (or the project's helper) | follows the user's text size [css/rem-helper, css/rem-units] |
 | Spacing | `rem` or tokens; `em` inside a component that should scale with its own text | consistent rhythm |
 | Breakpoints | `em`/`rem` or the helper | follow the text size, not the device |
 | Line height | unitless (`1.5` body, `1.1`–`1.3` headings) | inherits as a ratio [css/unitless-line-height] |
