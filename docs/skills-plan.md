@@ -67,7 +67,7 @@ Status: ✅ written (reference examples), ⬜ to write. Every skill follows `doc
 
 | Skill | One line |
 | --- | --- |
-| ⬜ `fe-learn` | Run `init`/`learn`, read the profile, confirm conventions with the person, record lessons. |
+| ⬜ `fe-learn` | Run `init`/`learn`, read the profile, confirm the detected project helpers (rem function, icon build, tokens, custom properties) with the person, add missed ones to `profile.helpers` with `"source": "person"`, record lessons. |
 | ⬜ `fe-audit` | Run `audit` (and `--url` when a page is running), read the JSON, explain the top findings, propose an order of fixes. |
 | ⬜ `fe-fix` | Fix findings by rule id, smallest change first, re-run `audit --changed`, never suppress without a reason. |
 | ⬜ `fe-review` | Review a diff of front-end code: run `audit --changed`, then the manual rules of the touched skills; report by rule id. |
@@ -78,6 +78,10 @@ Status: ✅ written (reference examples), ⬜ to write. Every skill follows `doc
 What `requires` and a rule's `stack` may name. `cli/lib/detect.mjs` produces exactly these.
 
 `web` (every front-end project), `html` (a plain site without a framework), `react`, `next`, `preact`, `vue`, `nuxt`, `angular`, `svelte`, `sveltekit`, `astro`, `solid`, `lit`, `webc` (custom elements without Lit), `tailwind`, `sass`, `less`, `css-modules`, `typescript`, `vite`, `webpack`, `vitest`, `jest`, `playwright`, `cypress`, `testing-library`, `storybook`, `eslint`, `prettier`, `biome`, `tanstack-query`, `swr`, `redux`, `zustand`, `pinia`, `jotai`, `i18n`.
+
+## Helper ids
+
+What a rule's `requires` may name (detected by `cli/lib/conventions.mjs`, recorded in `profile.helpers`): `rem-function`, `px-to-rem-build`, `icon-classes`, `icon-sprite`, `design-tokens`, `custom-properties`. Lane A's `fe-css-architecture` owns `css/rem-helper`; `fe-images` owns `html/project-icons`. Skills that touch sizes, icons or colours tell the agent to follow `profile.helpers` first.
 
 ## Rule areas by lane
 

@@ -81,6 +81,8 @@ lighthouse:
   - <audit id>         (when Lighthouse reports it)
 stack:
   - <stack key>        (only when the rule is framework-specific)
+requires:
+  - <helper id>        (only when the rule follows a project helper: rem-function, icon-classes…)
 skill: fe-<topic>
 since: 0.1.0
 sources:
@@ -109,6 +111,8 @@ Severity guide (the axe-core scale):
 | serious | Makes a task very hard or measurably slows every visit (no `lang`, focus removed, keyboard cannot reach a control). |
 | moderate | Degrades the experience or a metric (layout shift from unsized images, blocking scripts, index keys). |
 | minor | Good practice with a small effect (missing `type` on a button, `100vh` on mobile). |
+
+Project helpers: when a rule enforces a project's own convention (its rem function, its icon classes, its tokens), declare `requires: [<helper id>]` and write the title and fix with placeholders, `{{rem-function.call|rem-calc(16px)}}`, so the report names the project's helper and still reads well without it. Add a `fixtures/profile.json` with the `helpers` the fixtures assume. See `docs/architecture.md`, "Project helpers", and `rules/css/rem-helper/`.
 
 Choosing `check`:
 
