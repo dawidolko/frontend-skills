@@ -1,0 +1,437 @@
+{
+  "lang": "en",
+  "locale": "en_US",
+  "langName": "English",
+  "plurals": {
+    "tokens": [
+      "token",
+      "tokens"
+    ],
+    "rules": [
+      "rule",
+      "rules"
+    ],
+    "agents": [
+      "coding agent",
+      "coding agents"
+    ],
+    "skills": [
+      "skill",
+      "skills"
+    ]
+  },
+  "site": {
+    "name": "Frontend Skills",
+    "tagline": "Skills and a rule dictionary for AI coding agents that write front-end code",
+    "skip": "Skip to content",
+    "brandLabel": "Frontend Skills, home",
+    "switchLabel": "Polski",
+    "switchTitle": "Ta strona po polsku",
+    "github": "GitHub",
+    "githubLabel": "Source code on GitHub",
+    "navLabel": "Main",
+    "footerNavLabel": "More",
+    "footerAbout": "Free and open source under the MIT licence, made by [Dawid Olko](https://dawidolko.pl).",
+    "footerHonest": "Built to WCAG 2.2 AA as a target. Automated checks find only part of the problems.",
+    "footerPrivacy": "No cookies, no analytics, no third-party requests. The accessibility button keeps its settings on your device.",
+    "ogAlt": "Frontend Skills: one command that fits front-end skills to your project and every coding agent you use.",
+    "breadcrumb": "Breadcrumb"
+  },
+  "nav": {
+    "home": "Home",
+    "how": "How it works",
+    "rules": "Rules",
+    "skills": "Skills",
+    "commands": "Commands",
+    "faq": "FAQ",
+    "about": "About"
+  },
+  "common": {
+    "copy": "Copy",
+    "copied": "Copied to the clipboard.",
+    "copyFailed": "Copying failed; select the text and copy it by hand.",
+    "copyLabel": "Copy the command",
+    "example": "Example",
+    "source": "Source",
+    "sources": "Sources",
+    "onGithub": "View on GitHub",
+    "tokensNote": "Tokens are estimates by `{estimator}`, measured with `frontend-skills tokens --all` when this site was built.",
+    "builtOn": "Built from version {version} of the repository.",
+    "none": "none",
+    "and": "and",
+    "seeAll": "See all"
+  },
+  "severity": {
+    "label": "Severity",
+    "critical": "critical",
+    "serious": "serious",
+    "moderate": "moderate",
+    "minor": "minor"
+  },
+  "check": {
+    "label": "Check",
+    "static": "static",
+    "browser": "browser",
+    "manual": "manual",
+    "staticLong": "checked in the source by `audit`",
+    "browserLong": "needs a rendered page: `audit --url`",
+    "manualLong": "a person reviews it; the report lists it as a checklist"
+  },
+  "ruleArea": {
+    "html": "HTML",
+    "css": "CSS",
+    "responsive": "Responsive layout",
+    "a11y": "Accessibility",
+    "perf": "Performance",
+    "seo": "SEO",
+    "i18n": "Internationalisation",
+    "security": "Security",
+    "js": "JavaScript",
+    "ts": "TypeScript",
+    "test": "Testing",
+    "tooling": "Tooling",
+    "react": "React",
+    "next": "Next.js",
+    "vue": "Vue",
+    "nuxt": "Nuxt",
+    "angular": "Angular",
+    "svelte": "Svelte",
+    "astro": "Astro",
+    "webc": "Web Components",
+    "tailwind": "Tailwind CSS",
+    "sass": "Sass",
+    "state": "State"
+  },
+  "skillArea": {
+    "foundations": "Foundations",
+    "styling": "Styling",
+    "frameworks": "Frameworks",
+    "accessibility": "Accessibility",
+    "performance": "Performance",
+    "quality": "Quality",
+    "workflow": "Workflow"
+  },
+  "home": {
+    "title": "Frontend Skills: front-end skills for every AI coding agent",
+    "description": "One command learns your project's stack, installs the matching front-end skills for Claude Code, Codex, Cursor, Copilot and other agents, and reports what to fix with the rule, the line and the source. Free, MIT.",
+    "eyebrow": "Free and open source · MIT",
+    "h1": "Front-end skills for every AI coding agent",
+    "lead": "One command learns your project's stack, installs only the skills that fit it for each coding agent you use, and reports what to fix in your HTML, CSS, JavaScript and framework code: the rule, the line, why it matters and the source.",
+    "startLabel": "Run it in your project's folder (Node.js 20 or newer):",
+    "ctaHow": "How it works",
+    "ctaRules": "Browse the rules",
+    "statsLabel": "In numbers",
+    "statRules": "rules with a stable id",
+    "statSkills": "skills",
+    "statAgents": "coding agents",
+    "statDeps": "runtime dependencies",
+    "stepsTitle": "Three steps, one command",
+    "stepsIntro": "`init` runs all three. Each step is also a command of its own.",
+    "step1Title": "Learn your stack",
+    "step1Text": "Reads `package.json`, lockfiles and config files, with no network. Writes `.frontend-skills/profile.json`: frameworks and versions, styling, tests, and your own helpers, such as a rem function or generated icon classes.",
+    "step1Out": "profile.json",
+    "step2Title": "Install for your agents",
+    "step2Text": "Finds the agents the project uses and writes only the skills that match the stack, in each agent's own format: skills folders, rule files scoped to file types, one short block in `AGENTS.md` or `CLAUDE.md`. Every file is recorded.",
+    "step2Out": "skills + rule files",
+    "step3Title": "Audit and fix",
+    "step3Text": "Checks the source against the dictionary and writes a report a person can act on. Your agent reads the condensed JSON and fixes the code; you read the Markdown report.",
+    "step3Out": "frontend-report.md",
+    "diagramLabel": "From your project to fixed code in three steps",
+    "diagramIn": "your project",
+    "diagramOut": "code your agent writes to the rules",
+    "reportTitle": "What a finding looks like",
+    "reportIntro": "This is real output: `audit` run on the `react-vite` example project in the repository when this site was built.",
+    "reportSummary": "Summary in the terminal",
+    "reportFinding": "One finding from the report",
+    "reportRule": "Rule",
+    "reportWhere": "Where",
+    "reportWhy": "Why",
+    "reportFix": "Fix",
+    "reportSource": "Source",
+    "reportExplain": "The same text in the terminal:",
+    "agentsTitle": "Works with the agents you already use",
+    "agentsIntro": "Each skill is written once in the open Agent Skills format and turned into each agent's own files. What each agent reads, with links to its documentation, is in [docs/agents.md]({agentsDoc}).",
+    "agentsRules": "with rule files scoped to file types",
+    "freeTitle": "Free, open source, yours to read",
+    "freeText": "MIT licence. No account, no payment, no telemetry. The tool makes no network call unless you start one: `audit --url` asks before it fetches Lighthouse and axe-core. It runs straight from GitHub with `npx`; nothing is installed globally.",
+    "tokensTitle": "Cheap to keep loaded",
+    "tokensText": "An agent always loads only the name and description of each installed skill. For all {skills:skills} that is about {listing:tokens}; a skill's body (about {body:tokens} on average) loads only when a task needs it.",
+    "honestTitle": "What automated checks cannot do",
+    "honestText": "Static checks and browser audits find only part of the accessibility problems. Whether an alt text says the right thing, whether the reading order makes sense, whether a custom widget traps the keyboard: a person has to look. The report lists those as a checklist next to the findings. The tool helps you work to WCAG 2.2 AA; it certifies nothing.",
+    "nextTitle": "Where next",
+    "nextHow": "How the profile, the agent files and the token budgets work",
+    "nextRules": "Every rule, with its why, fix and sources",
+    "nextSkills": "Skills by technology",
+    "nextCommands": "All commands and their options"
+  },
+  "how": {
+    "title": "How it works",
+    "description": "How Frontend Skills learns a project, writes files for each coding agent, scopes rules to file types, keeps token cost low and records lessons.",
+    "h1": "How it works",
+    "lead": "Two things in one repository: a dictionary (skills that tell an agent how to write front-end code, and rules with stable ids) and a command that fits the dictionary to one project.",
+    "tocLabel": "On this page",
+    "profileTitle": "The project profile",
+    "profileText": "`init` and `learn` read the project in one pass with no network: `package.json` files (and workspaces in a monorepo), lockfiles, config files such as `next.config.*`, `angular.json` or `tailwind.config.*`, and installed versions from `node_modules`. A folder without `package.json` that holds HTML, CSS and JavaScript counts as a plain site. The result is `.frontend-skills/profile.json`, committed with the project:",
+    "profileAfter": "`stack` decides which skills are installed: a skill is installed when the profile has any of the keys it requires. The `audit` object is yours; `learn` and `update` keep it.",
+    "helpersTitle": "Your project's own helpers",
+    "helpersText": "Rules follow the project's conventions when it has them. The profile records helpers such as a px-to-rem function, generated icon classes, an SVG sprite, design tokens or a set of custom properties, and the rules that depend on them name your helper: \"write sizes with `rem-calc(16px)`\" instead of a generic hint. You can correct or add a helper in the profile; your entries survive `learn` and `update`.",
+    "agentsTitle": "Files for each agent",
+    "agentsText": "A skill is written once as an Agent Skills folder (`SKILL.md`, `references/`, `scripts/`). Each agent has an adapter that knows where that agent looks and in which format. Nobody edits the generated files; `update` rewrites them and `uninstall` removes them.",
+    "agentsTable": "What is written for each agent",
+    "colAgent": "Agent",
+    "colSkills": "Skills folders it reads",
+    "colRules": "Rule files scoped to file types",
+    "colInstructions": "Always-on instructions",
+    "coverTitle": "One folder for most agents",
+    "coverText": "Many agents read the shared `.agents/skills/` folder, and some read two folders and would list each skill twice. The installer picks the smallest set of folders that every chosen agent reads, with the fewest duplicates, and names any duplicate it could not avoid; `doctor` checks it again later.",
+    "blocksTitle": "Your instruction files stay yours",
+    "blocksText": "Shared files such as `AGENTS.md`, `CLAUDE.md` or `GEMINI.md` get one short block between `<!-- frontend-skills:start -->` and `<!-- frontend-skills:end -->`. Text outside the block is never touched, a second run replaces the block in place, and a file is created only when it did not exist.",
+    "globsTitle": "Rules scoped to file types",
+    "globsText": "Where an agent supports it, each skill also gets a short rule file with the skill's rule digest and the file patterns it is about, so a CSS rule is not loaded while the agent edits a test. Eight formats exist, each with its own key (`paths`, `globs`, `applyTo`, `fileMatchPattern`…). This is the real file written for Cursor from the `{skill}` skill:",
+    "tokensTitle": "Token budgets",
+    "tokensText": "What an agent always pays for is the list of skill names and descriptions, the instruction block and any always-on rule. What it pays per use is a skill's body, a reference file only when needed, and command output. The budgets are enforced by the repository's validator:",
+    "budgetsCaption": "Budgets the validator enforces",
+    "budgetPart": "Part",
+    "budgetOurs": "Budget",
+    "budgetSpec": "Agent Skills specification",
+    "budgetDescription": "`description`",
+    "budgetSkill": "`SKILL.md` in total",
+    "budgetDigest": "`## Rules` digest",
+    "budgetReference": "one reference file",
+    "budgetBlock": "instruction block",
+    "budgetNone": "no limit",
+    "measuredTitle": "Measured cost of every skill",
+    "measuredText": "Always loaded: {listing:tokens} for the names and descriptions of all {skills:skills}. A project gets only the skills its stack needs, so its list is shorter.",
+    "colSkill": "Skill",
+    "colListing": "Always loaded",
+    "colBody": "Skill body, on use",
+    "colRefs": "References, on demand",
+    "colTotal": "Total",
+    "lessonsTitle": "Lessons",
+    "lessonsText": "When you confirm something about your project (\"form fields use our Field component\"), it is kept as one line in `.frontend-skills/lessons.md`, and every skill reads that file first. A lesson is at most 300 characters, may name the rule ids it concerns, and is refused when it looks like a secret.",
+    "lessonsCommand": "Record a lesson:",
+    "auditTitle": "The audit and its report",
+    "auditText": "`audit` reads the source and checks it against every rule that has a static check. With `--url` it also runs Lighthouse and axe-core in your own Chrome, after asking, and maps their results to the same rule ids. Rules a machine cannot judge are listed as a checklist.",
+    "auditStatic": "In the source",
+    "auditStaticText": "Missing `alt`, `lang`, title or viewport; zoom blocked; positive `tabindex`; click handlers on static elements; unlabelled fields; invalid `autocomplete`; focus outline removed; images without size; render-blocking scripts; fonts without `font-display`; oversized images; index keys; `100vh`.",
+    "auditBrowser": "In a rendered page",
+    "auditBrowserText": "Colour contrast, accessible names computed through components, landmarks and headings of the final page, focus order, target size, Lighthouse performance, SEO and best-practice audits.",
+    "auditManual": "By a person",
+    "auditManualText": "Whether alt text means the right thing, the quality of error messages, reading order, keyboard traps in custom widgets, screen reader announcements, cognitive load.",
+    "jsonTitle": "Condensed output for agents",
+    "jsonText": "With `--json` the audit prints one line per rule, with the fix and every location as `file:line` and no other prose, so an agent spends tokens on findings. This is the real output for the `react-vite` example project:",
+    "exitText": "Exit codes: `0` when nothing is at or above `--fail-on` (default `serious`), `1` when something is, `2` for a usage error, `3` when a requested tool is not available.",
+    "ignoreTitle": "Ignoring a finding",
+    "ignoreText": "Write `fs-ignore <rule id>` in a comment on the line or the line above, or list rule ids and paths under `audit.ignore` and `audit.exclude` in the profile.",
+    "safeTitle": "Safe by default",
+    "safeText": "Nothing you wrote is overwritten. Every file and block the command writes is recorded in `.frontend-skills/install.json` with its hash; `uninstall` removes a file only while its hash still matches and keeps a file you changed. `--dry-run` shows the plan and writes nothing."
+  },
+  "rules": {
+    "title": "The rule dictionary",
+    "description": "Every rule of Frontend Skills with its stable id, severity, check kind and sources in WCAG, WHATWG, MDN, web.dev and framework documentation. Search and filter by area.",
+    "h1": "The rule dictionary",
+    "lead": "Every rule has a stable id such as `a11y/img-alt`, one sentence, a severity and at least one source in a public standard or the vendor's documentation. People, agents, the report and `explain` all use the same id.",
+    "filtersLabel": "Filter the rules",
+    "search": "Search",
+    "searchHint": "Id, words of the title, WCAG criterion or skill",
+    "area": "Area",
+    "severity": "Severity",
+    "check": "Check",
+    "all": "All",
+    "reset": "Clear the filters",
+    "count": "{shown} of {total} rules shown.",
+    "countAll": "{total} rules.",
+    "empty": "No rule matches these filters.",
+    "areaCount": "{n:rules}",
+    "explainHint": "In a terminal: `npx github:dawidolko/frontend-skills explain <id>`."
+  },
+  "rule": {
+    "titleSuffix": "rule",
+    "facts": "Facts",
+    "id": "Id",
+    "area": "Area",
+    "applies": "Applies to",
+    "stack": "Only in projects with",
+    "requires": "Needs the project helper",
+    "wcag": "WCAG 2.2",
+    "level": "level",
+    "tools": "Same problem in",
+    "skill": "Taught by the skill",
+    "since": "Since version",
+    "deprecated": "This rule is deprecated. Use {replacement} instead.",
+    "why": "Why",
+    "fix": "Fix",
+    "examples": "Examples",
+    "explain": "Read it in the terminal",
+    "editOnGithub": "Rule file on GitHub",
+    "prev": "Previous rule",
+    "next": "Next rule",
+    "back": "All rules",
+    "placeholderNote": "Inside a project, the report and `explain` replace the example in braces with your project's own helper."
+  },
+  "skills": {
+    "title": "Skills by technology",
+    "description": "Every Frontend Skills skill with the stack it is installed for, the rules it teaches, the agents it is written for and its measured token cost.",
+    "h1": "Skills by technology",
+    "lead": "A skill is a short instruction for a coding agent, in the open Agent Skills format. Only the skills that match your project's stack are installed; each one names the rules it teaches.",
+    "installedFor": "Installed when the project uses",
+    "rulesCount": "{n:rules}",
+    "tokens": "{n:tokens} on use",
+    "web": "every web project",
+    "open": "Open the skill"
+  },
+  "skill": {
+    "titleSuffix": "skill",
+    "facts": "Facts",
+    "name": "Name",
+    "area": "Area",
+    "installedFor": "Installed when the project uses",
+    "globs": "Files it is about",
+    "agents": "Written for",
+    "agentsText": "every agent the project uses: {list}.",
+    "agentsRules": "Agents that also get a rule file scoped to these files: {list}.",
+    "cost": "Token cost",
+    "costText": "{listing:tokens} always loaded, {body:tokens} when used, {refs:tokens} in references on demand.",
+    "rules": "Rules it teaches",
+    "digest": "The rule digest",
+    "digestText": "This part is copied into each agent's scoped rule file, so it stands on its own:",
+    "doThis": "Steps the agent follows",
+    "checkTitle": "How the agent checks the work",
+    "references": "Reference files",
+    "editOnGithub": "SKILL.md on GitHub",
+    "back": "All skills"
+  },
+  "commands": {
+    "title": "Commands",
+    "description": "Every command of Frontend Skills: init, audit, learn, list, explain, doctor, update, uninstall and tokens, with their options.",
+    "h1": "Commands",
+    "lead": "Every command runs with `npx github:dawidolko/frontend-skills <command>` and accepts `--cwd <dir>` and `--help`. Output is short by default; `--json` gives machine output where it makes sense.",
+    "available": "available",
+    "coming": "coming",
+    "usage": "Options, as printed by `--help`",
+    "items": {
+      "init": "Detects the stack and the agents, writes the profile, plans the files for each agent, shows the plan, asks, writes, records every file and runs the first audit. With no agent found it asks which ones.",
+      "audit": "Checks the source against the rules and writes `frontend-report.md`. With `--url` it also checks a running page in your Chrome; with `--changed` only the files you changed; with `--json` it prints the condensed output for agents.",
+      "learn": "Re-detects the stack after it changed, shows the difference and updates the profile and the installed skills. With `--lesson` it records a lesson you confirmed.",
+      "list": "Lists the skills that fit this project with their token cost; `--all` for every skill, `--rules` for the dictionary.",
+      "explain": "Prints one rule: title, severity, why, fix, examples, sources and the skill that teaches it. A deprecated id leads to the rule that replaced it.",
+      "doctor": "Checks, per agent, which files exist, whether they are current and whether any skill is listed twice. Exits with 1 when something is missing or stale.",
+      "update": "Re-installs the recorded selection from the current version. Files you changed are kept and listed.",
+      "uninstall": "Removes exactly what the install record lists; a file you changed is kept.",
+      "tokens": "Shows the estimated token cost of what is installed: what each agent always loads and what it loads on use."
+    }
+  },
+  "faq": {
+    "title": "Questions and answers",
+    "description": "Answers about Frontend Skills: cost, privacy, supported agents, WCAG, your own instruction files, removing it, token use and contributing.",
+    "h1": "Questions and answers",
+    "items": [
+      [
+        "Is it free?",
+        "Yes. The code, the skills and the rules are under the MIT licence. There is no account, no paid plan and nothing to sign up for."
+      ],
+      [
+        "Does it send my code anywhere?",
+        "No. The tool has no telemetry and makes no network call unless you start one: `npx` fetches the tool from GitHub, and `audit --url` asks before it fetches Lighthouse and axe-core and opens only the address you pass."
+      ],
+      [
+        "Which agents does it support?",
+        "{agents}. What each one reads, with links to its documentation, is in [docs/agents.md]({agentsDoc})."
+      ],
+      [
+        "Will it make my site WCAG compliant?",
+        "No tool can. The rules cite WCAG 2.2 success criteria and the audit finds problems a machine can see, but only part of them. Meaning, reading order and many keyboard and screen reader issues need a person; the report lists them as a checklist."
+      ],
+      [
+        "Will it overwrite my AGENTS.md or CLAUDE.md?",
+        "No. It adds one block between marker comments and never touches the text around it. Files it creates and files it changes are recorded, and `--dry-run` shows everything before it writes."
+      ],
+      [
+        "How do I remove it?",
+        "Run `npx github:dawidolko/frontend-skills uninstall`. It removes the files it wrote while they are unchanged, removes its blocks from shared files and keeps anything you edited."
+      ],
+      [
+        "How many tokens does it cost?",
+        "An agent always loads only the names and descriptions of the installed skills; the rest loads when a task needs it. `frontend-skills tokens` prints the numbers for your project; the [measured cost of every skill](/how-it-works/#tokens) is on the How it works page."
+      ],
+      [
+        "My project has its own helpers. Will the rules fight them?",
+        "No. A rem function, generated icon classes, design tokens or custom properties are detected and recorded in the profile, and the rules that depend on them tell the agent to use your helper. You can correct or add one in the profile."
+      ],
+      [
+        "Can I switch a rule off?",
+        "Yes: `fs-ignore <rule id>` in a comment on the line or the line above, or `audit.ignore` and `audit.exclude` in `.frontend-skills/profile.json`."
+      ],
+      [
+        "Does it work in a monorepo?",
+        "Yes. Workspaces from npm, pnpm, Yarn, Lerna, Nx and Turborepo are read, each package gets its own entry in the profile, and the skills match the union of their stacks."
+      ],
+      [
+        "Why does it run from GitHub and not from npm?",
+        "So that it needs no install step: `npx github:dawidolko/frontend-skills` runs the repository as it is, with Node.js 20 or newer and no dependencies."
+      ],
+      [
+        "How can I add a rule or a skill?",
+        "The authoring guide in [docs/authoring.md]({authoringDoc}) describes the format, the checks and the tests. Issues and pull requests on GitHub are welcome."
+      ]
+    ]
+  },
+  "about": {
+    "title": "Licence, credits and author",
+    "description": "Frontend Skills is free and open source under the MIT licence, made by Dawid Olko. Credits for the fonts, the accessibility panel and the standards the rules cite.",
+    "h1": "Licence, credits and author",
+    "licenceTitle": "Licence",
+    "licenceText": "Frontend Skills is free and open source under the [MIT licence]({licence}): you may use, copy, change and share it, also in commercial work, as long as the licence notice stays with it.",
+    "authorTitle": "Author",
+    "authorText": "Made by Dawid Olko as a personal open-source project. More about him at [dawidolko.pl](https://dawidolko.pl); the code is at [github.com/dawidolko](https://github.com/dawidolko).",
+    "creditsTitle": "Credits",
+    "creditsText": "Third-party material used by the project is listed with its licence in [THIRD-PARTY.md]({thirdParty}). This site uses:",
+    "creditsSite": "This site uses:",
+    "creditFont": "[Open Sans](https://github.com/googlefonts/opensans) by the Open Sans Project Authors, under the SIL Open Font License 1.1, served from this site.",
+    "creditPanel": "The accessibility panel from [dawidolko.pl](https://dawidolko.pl), the same one as on the author's other sites, MIT.",
+    "standardsTitle": "The standards behind the rules",
+    "standardsText": "Every rule links its sources. The rules are written in our own words; the sources are:",
+    "standards": [
+      [
+        "W3C Web Accessibility Initiative: WCAG 2.2 and Understanding WCAG",
+        "https://www.w3.org/WAI/standards-guidelines/wcag/"
+      ],
+      [
+        "WAI-ARIA Authoring Practices Guide",
+        "https://www.w3.org/WAI/ARIA/apg/"
+      ],
+      [
+        "WHATWG HTML Living Standard",
+        "https://html.spec.whatwg.org/"
+      ],
+      [
+        "MDN Web Docs",
+        "https://developer.mozilla.org/"
+      ],
+      [
+        "web.dev and Chrome for Developers",
+        "https://web.dev/"
+      ],
+      [
+        "W3Schools style guides for HTML and JavaScript",
+        "https://www.w3schools.com/html/html5_syntax.asp"
+      ],
+      [
+        "The documentation of each framework the skills cover",
+        ""
+      ]
+    ],
+    "siteTitle": "About this site",
+    "siteText": "Plain HTML built by a small Node.js script from the skills and rules in the repository, one stylesheet and two small scripts (this page's copy and search helpers, and the accessibility panel). No cookies, no analytics, no requests to other sites. The panel stores your reader settings in this browser's local storage, on your device only.",
+    "accessibilityTitle": "Accessibility of this site",
+    "accessibilityText": "The site is built to WCAG 2.2 AA as a target: it works with a keyboard and a screen reader, follows your light or dark preference and reduced motion, and reflows down to 320 pixels. If something stands in your way, please [open an issue]({issues})."
+  },
+  "notFound": {
+    "title": "Page not found",
+    "description": "This page does not exist on skills.dawidolko.pl.",
+    "h1": "Page not found",
+    "text": "This address does not lead to a page. A rule may have a different id; the dictionary has every one.",
+    "home": "Go to the home page",
+    "rules": "Search the rules"
+  }
+}
