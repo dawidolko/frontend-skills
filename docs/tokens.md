@@ -44,4 +44,4 @@ From `node cli/index.mjs tokens --all` on 2026-11-11:
 | `fe-html` | ~76 | ~869 | `document.md` ~1,289 |
 | `fe-react` | ~83 | ~794 | `react.md` ~1,070 |
 
-On the React fixture project with Claude Code and Cursor (17 matching skills on 2026-11-11), each agent always loads about 1,538 tokens (17 skill listings ~1,403 and the instruction block ~135); a glob rule file adds about 460 when a matching file is open (`tokens` on `fixtures/projects/react-vite` after `init`). The listings of all 26 skills come to ~2,102 (`tokens --all`).
+On the React fixture project with Claude Code and Cursor (41 matching skills on 2026-11-11), each agent always loads about 3,655 tokens (41 skill listings ~3,520 and the instruction block ~135); a glob rule file adds about 460 when a matching file is open (`tokens` on `fixtures/projects/react-vite` after `init`). The listings of all 50 skills come to ~4,219 (`tokens --all`).
