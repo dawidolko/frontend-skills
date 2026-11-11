@@ -70,25 +70,25 @@ Prawdziwe sesje na [`fixtures/projects/react-vite`](fixtures/projects/react-vite
 **`init`**: wykrywa React 19, TypeScript i Tailwind, znajduje Claude Code i Cursora, instaluje 41 z 50 skilli w jednym folderze, który czytają oba, i uruchamia pierwszy audyt.
 
 <picture>
-  <source media="(prefers-reduced-motion: reduce)" srcset="docs/media/init.png">
-  <img src="docs/media/init.svg" alt="Terminal: frontend-skills init wykrywa react 19.3.1, typescript 7.0.2, tailwind, vitest i testing-library, instaluje 41 skilli dla Claude Code i Cursora w .claude/skills, zapisuje 165 plików, aktualizuje CLAUDE.md i uruchamia pierwszy audyt: 2 krytyczne, 3 poważne, 4 umiarkowane i 5 drobnych znalezisk." width="100%">
+  <source media="(prefers-reduced-motion: reduce)" srcset="https://skills.dawidolko.pl/media/init.png">
+  <img src="https://skills.dawidolko.pl/media/init.svg" alt="Terminal: frontend-skills init wykrywa react 19.3.1, typescript 7.0.2, tailwind, vitest i testing-library, instaluje 41 skilli dla Claude Code i Cursora w .claude/skills, zapisuje 165 plików, aktualizuje CLAUDE.md i uruchamia pierwszy audyt: 2 krytyczne, 3 poważne, 4 umiarkowane i 5 drobnych znalezisk." width="100%">
 </picture>
 
 **`audit`**: liczby według wagi, najczęstsze reguły, gdzie jest raport. Kod wyjścia to 1, bo coś ma wagę `serious` lub wyższą, więc CI może się na tym zatrzymać.
 
 <picture>
-  <source media="(prefers-reduced-motion: reduce)" srcset="docs/media/audit.png">
-  <img src="docs/media/audit.svg" alt="Terminal: frontend-skills audit czyta 3 pliki 131 regułami i zgłasza a11y/img-alt i a11y/input-label jako krytyczne, a11y/focus-visible i a11y/no-click-on-static jako poważne, js/asset-import jako umiarkowane, każde z pierwszym plikiem i linią." width="100%">
+  <source media="(prefers-reduced-motion: reduce)" srcset="https://skills.dawidolko.pl/media/audit.png">
+  <img src="https://skills.dawidolko.pl/media/audit.svg" alt="Terminal: frontend-skills audit czyta 3 pliki 131 regułami i zgłasza a11y/img-alt i a11y/input-label jako krytyczne, a11y/focus-visible i a11y/no-click-on-static jako poważne, js/asset-import jako umiarkowane, każde z pierwszym plikiem i linią." width="100%">
 </picture>
 
 **`explain a11y/img-alt`**: cała reguła, ten sam tekst, którego używają raport, agenci i strona.
 
 <picture>
-  <source media="(prefers-reduced-motion: reduce)" srcset="docs/media/explain.png">
-  <img src="docs/media/explain.svg" alt="Terminal: frontend-skills explain a11y/img-alt wypisuje regułę (critical, static, WCAG 1.1.1 poziom A), dlaczego jest ważna, jak ją poprawić, zły i dobry przykład, trzy źródła i skill, który jej uczy." width="100%">
+  <source media="(prefers-reduced-motion: reduce)" srcset="https://skills.dawidolko.pl/media/explain.png">
+  <img src="https://skills.dawidolko.pl/media/explain.svg" alt="Terminal: frontend-skills explain a11y/img-alt wypisuje regułę (critical, static, WCAG 1.1.1 poziom A), dlaczego jest ważna, jak ją poprawić, zły i dobry przykład, trzy źródła i skill, który jej uczy." width="100%">
 </picture>
 
-Obrazy statyczne: [init](docs/media/init.png) · [audit](docs/media/audit.png) · [explain](docs/media/explain.png).
+Obrazy statyczne: [init](https://skills.dawidolko.pl/media/init.png) · [audit](https://skills.dawidolko.pl/media/audit.png) · [explain](https://skills.dawidolko.pl/media/explain.png).
 
 ## Przykładowy raport
 
@@ -271,7 +271,7 @@ node cli/index.mjs --help
 4. Dodaj identyfikator do `metadata.rules` skilla, który jest jej właścicielem, a jeśli jest dość ważna, do jego sekcji `## Rules`.
 5. Uruchom `npm run check` i nigdy nie podnoś budżetu ani nie osłabiaj testu, żeby przeszedł.
 
-Jak to jest zbudowane: [`docs/architecture.md`](docs/architecture.md). Strona: [`docs/site.md`](docs/site.md). Ponowne nagranie sesji terminala: `PLAYWRIGHT_MODULE=<ścieżka do playwright/index.mjs> node tools/record.mjs --png` (bez `--png` przeglądarka nie jest potrzebna). Film o narzędziu buduje się z [`media/video/`](media/video/README.md). Zmiany są w [`CHANGELOG.md`](CHANGELOG.md).
+Jak to jest zbudowane: [`docs/architecture.md`](docs/architecture.md).
 
 ## Licencja
 

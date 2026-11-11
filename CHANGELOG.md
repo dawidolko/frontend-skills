@@ -15,6 +15,4 @@ All notable changes are listed here. The format follows [Keep a Changelog](https
 - 23 rules with stable ids and sources, 20 of them checked statically with bad and good fixtures; the reference skills `fe-html`, `fe-a11y-forms` and `fe-react`.
 - The format, the architecture, the authoring guide, the agent table and the skills plan in `docs/`.
 - The README in English and Polish (`README.pl.md`): quick start, the three steps, an example report, the agent table, the dictionary and project helpers, commands, measured token cost, the limits of automated checks, FAQ and how to add a rule.
-- Terminal recordings of `init`, `audit` and `explain` as animated SVG with PNG fallbacks in `docs/media/`, made by `tools/record.mjs` from real runs on a fixture project; the banner and the mark in `docs/media/`.
-- A 2:30 video of the tool in `media/video/`, rebuilt from real runs: MP4 (H.264 and AAC) for YouTube 16:9 and TikTok or Reels 9:16, English and Polish, with the mark as a watermark, light transition sounds synthesised and mixed in, and a voice-over script with narration slots in Polish and English; encoded with AVFoundation, no ffmpeg needed.
-- A launch kit in `media/launch/`: thumbnails for YouTube and LinkedIn and the announcement post in English and Polish.
+- Terminal recordings of `init`, `audit` and `explain` as animated SVG with PNG fallbacks, made from real runs on a fixture project and shown on skills.dawidolko.pl; the banner and the mark in `docs/media/`.

@@ -9,3 +9,13 @@ coverage/
 # Finished videos are too big for git (GitHub refuses files over 100 MB); they live here locally and in the release.
 media/launch/*.mp4
 media/launch/*.wav
+
+# Local only (the owner keeps these on his machine; the repository holds what the skills need to run):
+# the launch videos and thumbnails, the video sources, the website source, the research notes and the recordings.
+media/
+site/
+docs/sources/
+docs/site.md
+docs/media/*
+!docs/media/banner.svg
+tools/record.mjs
