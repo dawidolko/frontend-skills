@@ -1,0 +1,3 @@
+/* Size containment without a height. */
+.card-list { container-type: size; }
+.sidebar { container: sidebar / size; }
