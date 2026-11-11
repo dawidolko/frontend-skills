@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en">
+  <head><title>Elements</title></head>
+  <body>
+    <acme-date-picker></acme-date-picker>
+    <script type="module">
+      // customElements.define('Bad', X) in a comment is not code
+      class DatePicker extends HTMLElement {}
+      customElements.define('acme-date-picker', DatePicker)
+      const prefix = 'acme'
+      customElements.define(`${prefix}-card`, class extends HTMLElement {})
+      customElements.define('math-α', class extends HTMLElement {})
+    </script>
+  </body>
+</html>

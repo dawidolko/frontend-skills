@@ -1,0 +1,5 @@
+// Sass joins suffixes at build time, so this is fine in .scss.
+.card {
+  &__title { font-size: 1.25rem; }
+  &--featured { border-color: gold; }
+}

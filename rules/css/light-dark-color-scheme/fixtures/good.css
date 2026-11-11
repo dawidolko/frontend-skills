@@ -1,0 +1,6 @@
+/* The scheme is declared, so light-dark() follows the user's setting. */
+:root {
+  color-scheme: light dark;
+  --bg: light-dark(#ffffff, #121212);
+}
+body { background: var(--bg); }

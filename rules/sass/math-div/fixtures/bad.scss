@@ -1,0 +1,7 @@
+$gutter: 2rem;
+$half: $gutter / 2;
+
+.col {
+  padding-inline: $gutter / 2;
+  width: (100% / 3);
+}

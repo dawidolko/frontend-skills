@@ -1,0 +1,9 @@
+$brand: #0a7a3e;
+
+.btn:hover {
+  background: darken($brand, 10%);
+  border-color: fade-out($brand, 0.5);
+  outline-color: saturate($brand, 20%);
+}
+
+$is-dark: lightness($brand) < 50%;

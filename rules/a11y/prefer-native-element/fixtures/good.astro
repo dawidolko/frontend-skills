@@ -1,0 +1,10 @@
+---
+const { role } = Astro.props
+---
+<button type="button">Save</button>
+<input type="checkbox" role="switch" aria-checked="false" />
+<ul role="list"><li>One</li></ul>
+<nav aria-label="Main"><a href="/">Home</a></nav>
+<svg role="img" aria-label="Logo"></svg>
+<div role="tablist"><button role="tab">One</button></div>
+<div role={role}></div>

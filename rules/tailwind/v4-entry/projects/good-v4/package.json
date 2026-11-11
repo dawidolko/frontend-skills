@@ -1,0 +1,1 @@
+{ "name": "good-v4", "private": true, "devDependencies": { "tailwindcss": "^4.3.5", "@tailwindcss/vite": "^4.3.5" } }

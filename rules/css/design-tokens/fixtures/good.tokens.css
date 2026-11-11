@@ -1,0 +1,7 @@
+/* The project's tokens. Alone this file is fine; bad.json pairs it with good.card.css, which repeats its values. */
+:root {
+  --color-brand: #0a58ca;
+  --color-brand-hover: #084298;
+  --space-2: 0.5rem;
+  --space-4: 1rem;
+}

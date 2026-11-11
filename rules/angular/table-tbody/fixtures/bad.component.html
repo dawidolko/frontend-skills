@@ -1,0 +1,8 @@
+<table>
+  <caption>Orders</caption>
+  @for (order of orders(); track order.id) {
+    <tr>
+      <td>{{ order.number }}</td>
+    </tr>
+  }
+</table>

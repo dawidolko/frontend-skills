@@ -1,0 +1,6 @@
+// Uses the scale; small local values below 10 are fine.
+@use 'layers' as *;
+.dropdown { position: absolute; z-index: $z-dropdown; }
+.modal { position: fixed; z-index: $z-modal; }
+.card { position: relative; z-index: 2; }
+.card::before { z-index: -1; }
