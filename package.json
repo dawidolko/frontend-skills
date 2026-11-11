@@ -25,7 +25,9 @@
     "node": ">=20"
   },
   "scripts": {
-    "test": "node --test test/"
+    "test": "node --test test/",
+    "site:build": "node site/build.mjs",
+    "site:check": "node site/check.mjs"
   },
   "keywords": [
     "agent-skills",
