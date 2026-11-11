@@ -1306,6 +1306,24 @@ figcaption {
   color: var(--accent);
 }
 
+.detect summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.7rem;
+  border-radius: 8px;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.detect summary:is(:hover, :focus-visible) {
+  background: var(--accent-soft);
+}
+
+.detect[open] summary {
+  margin-bottom: 0.5rem;
+}
+
 .compact-table {
   font-size: 0.875rem;
 }
@@ -1344,7 +1362,7 @@ figcaption {
 .tile {
   position: relative;
   display: grid;
-  grid-template-columns: auto 1fr;
+  grid-template-columns: auto minmax(0, 1fr);
   align-items: center;
   column-gap: 0.8rem;
   margin: 0;
@@ -1367,6 +1385,8 @@ figcaption {
 }
 
 .tile-link {
+  overflow-wrap: anywhere;
+  hyphens: auto;
   font-weight: 700;
   text-decoration: none;
   color: var(--ink);

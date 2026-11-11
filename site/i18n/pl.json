@@ -477,7 +477,8 @@
     "kindConfig": "konfiguracja",
     "preview": "Prawdziwy plik",
     "noRule": "{agent} nie ma plików reguł zawężonych do typów plików; czyta skille i blok instrukcji.",
-    "more": "… i jeszcze plików: {n}"
+    "more": "… i jeszcze plików: {n}",
+    "detectSummary": "Po czym init rozpoznaje każdego z agentów ({n})"
   },
   "showcase": {
     "title": "Zobacz, jak działa",

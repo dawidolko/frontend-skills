@@ -114,9 +114,11 @@ function installPicker(t, lang, data, { skill = null, headingId, headingLevel = 
     .join('')
   const auto = `<div class="agent-panel" data-agent="auto">
 <p>${inline(t('install.autoText'))}</p>
+<details class="detect"><summary>${icon('search', 16)}${esc(t('install.detectSummary', { n: data.agents.length }))}</summary>
 <div class="table-wrap" tabindex="0" role="region" aria-label="${esc(t('install.colDetect'))}"><table class="compact-table"><thead><tr><th scope="col">${esc(t('install.colAgent'))}</th><th scope="col">${esc(t('install.colDetect'))}</th></tr></thead><tbody>${data.agents
     .map((a) => `<tr><th scope="row">${esc(a.label)}</th><td>${a.detect.map((d) => `<code>${esc(d)}</code>`).join(' ') || '—'}</td></tr>`)
     .join('')}</tbody></table></div>
+</details>
 </div>`
   const panels = data.agents
     .map((a) => {

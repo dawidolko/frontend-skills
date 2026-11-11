@@ -473,7 +473,8 @@
     "kindConfig": "config",
     "preview": "The real file",
     "noRule": "{agent} has no rule files scoped to file types; it reads the skills and the instruction block.",
-    "more": "… and {n} more files"
+    "more": "… and {n} more files",
+    "detectSummary": "How init finds each of the {n} agents"
   },
   "showcase": {
     "title": "See it run",
