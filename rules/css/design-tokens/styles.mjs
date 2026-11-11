@@ -63,18 +63,26 @@ export function toPx(token) {
   return m[2] === 'px' ? n : n * 16
 }
 
-/** The design tokens: [{ name, ref, value, file, line }], ref being how code uses it: var(--x), $x or @x. */
+/* A custom property is a project token only when it is defined globally: on :root, html, :host, a theme scope or
+ * in Tailwind's @theme. One defined on a component class (.widget { --widget-bg: … }) belongs to that component. */
+const GLOBAL_SCOPE = /^(:root|html|:host|body)\b|^\[data-(theme|mode|color-scheme)[^\]]*\]$|^\.(dark|light|theme-[\w-]+)$|^@theme\b/
+
+/** The design tokens: [{ name, ref, value, kind, file, line }], ref being how code uses it: var(--x), $x or @x. */
 export function collectTokens(sources) {
   const out = []
   for (const src of sources) {
-    for (const b of src.blocks)
-      for (const d of b.decls) if (d.prop.startsWith('--')) out.push({ name: d.prop.slice(2), ref: `var(${d.prop})`, value: d.value, file: src.file, line: d.line })
+    for (const b of src.blocks) {
+      const scope = [b.prelude, ...b.parents].filter((p) => !/^@(media|supports|layer|container)\b/.test(p))
+      if (!scope.every((p) => p.split(',').every((sel) => GLOBAL_SCOPE.test(sel.trim())))) continue
+      for (const d of b.decls)
+        if (d.prop.startsWith('--')) out.push({ name: d.prop.slice(2), ref: `var(${d.prop})`, value: d.value, kind: 'custom', file: src.file, line: d.line })
+    }
     const vars = src.kind === 'less' ? /^[ \t]*@([\w-]+)\s*:\s*([^;{}]+);/gm : src.kind === 'scss' ? /^[ \t]*\$([\w-]+)\s*:\s*([^;{}]+);/gm : null
     if (!vars) continue
     let m
     while ((m = vars.exec(src.text))) {
       const sigil = src.kind === 'less' ? '@' : '$'
-      out.push({ name: m[1], ref: `${sigil}${m[1]}`, value: m[2].replace(/\s*!default\s*$/, '').trim(), file: src.file, line: src.lineOf(m.index) })
+      out.push({ name: m[1], ref: `${sigil}${m[1]}`, value: m[2].replace(/\s*!default\s*$/, '').trim(), kind: src.kind, file: src.file, line: src.lineOf(m.index) })
     }
   }
   return out
@@ -83,6 +91,9 @@ export function collectTokens(sources) {
 export const SPACE_NAME = /(^|[-_])(space|spacing|spacer|gap|gutter)s?([-_]|$)/i
 export const SPACING_PROPS = /^(margin|padding)(-(top|right|bottom|left|inline|block)(-(start|end))?)?$|^(gap|row-gap|column-gap)$/
 export const OFFSET_PROPS = /^(top|right|bottom|left|inset(-(inline|block)(-(start|end))?)?)$/
+
+/** True when code in a source of this kind can use the token: custom properties anywhere, Sass and Less only in their own files. */
+export const usableIn = (token, kind) => token.kind === 'custom' || token.kind === kind
 
 /** Spacing tokens whose value is one length: Map px → token (first definition wins). */
 export function spacingScale(tokens) {

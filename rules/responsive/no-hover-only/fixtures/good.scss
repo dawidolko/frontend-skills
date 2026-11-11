@@ -8,3 +8,5 @@
 }
 .button:hover { background: var(--color-brand-hover); }
 .card:hover .card__title { text-decoration: underline; }
+.list:is(.a, .b):hover .tools,
+.list:is(.a, .b):focus-within .tools { opacity: 1; }

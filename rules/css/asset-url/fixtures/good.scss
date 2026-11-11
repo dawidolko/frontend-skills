@@ -6,3 +6,4 @@
 .shadow { filter: url(#soft-shadow); }
 .cdn { background: url(https://images.example.org/a.jpg); }
 .dynamic { background-image: var(--hero-url); }
+.arrow { background-image: url(/src/assets/arrow.svg); }

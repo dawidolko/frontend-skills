@@ -4,15 +4,17 @@
  * offset (top, inset…) lengths that are not a step of that scale, naming the nearest step. Zero, hairlines up to 2px,
  * percentages, auto and values computed with a function are left alone; an exact step is css/design-tokens' finding.
  */
-import { collectTokens, OFFSET_PROPS, SPACING_PROPS, spacingScale, styleSources, toPx } from '../design-tokens/styles.mjs'
+import { collectTokens, OFFSET_PROPS, SPACING_PROPS, spacingScale, styleSources, toPx, usableIn } from '../design-tokens/styles.mjs'
 
 export default {
   check(ctx) {
     const sources = styleSources(ctx)
-    const scale = spacingScale(collectTokens(sources))
-    if (scale.size < 3) return
-    const steps = [...scale.keys()].sort((a, b) => a - b)
-    for (const src of sources)
+    const tokens = collectTokens(sources)
+    if (spacingScale(tokens).size < 3) return
+    for (const src of sources) {
+      const scale = spacingScale(tokens.filter((t) => usableIn(t, src.kind)))
+      if (scale.size < 3) continue
+      const steps = [...scale.keys()].sort((a, b) => a - b)
       for (const b of src.blocks)
         for (const d of b.decls) {
           if (!(SPACING_PROPS.test(d.prop) || OFFSET_PROPS.test(d.prop)) || /[($@]/.test(d.value)) continue
@@ -25,5 +27,6 @@ export default {
           const near = steps.reduce((a, s) => (Math.abs(s - px) < Math.abs(a - px) ? s : a), steps[0])
           ctx.report({ file: src.file, line: d.line }, `${d.prop}: ${odd} is not on the spacing scale; use the nearest step ${scale.get(near).ref} (${near}px) or derive it from layout.`)
         }
+    }
   }
 }

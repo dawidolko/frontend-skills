@@ -13,14 +13,32 @@ const FOCUS = /:focus(-within|-visible)?/
 const FOCUS_ALL = /:focus(-within|-visible)?/g
 const TW_REVEAL = /^group-hover:(block|flex|inline-flex|grid|inline-block|visible|opacity-100)$/
 
+/** Splits a selector list on its top-level commas (not those inside :is(), :not(), :where() or attribute values). */
+function selectorList(sel) {
+  const out = []
+  let depth = 0
+  let start = 0
+  for (let i = 0; i < sel.length; i++) {
+    const c = sel[i]
+    if (c === '(' || c === '[') depth++
+    else if (c === ')' || c === ']') depth--
+    else if (c === ',' && depth === 0) {
+      out.push(sel.slice(start, i).trim())
+      start = i + 1
+    }
+  }
+  out.push(sel.slice(start).trim())
+  return out.filter(Boolean)
+}
+
 export default {
   check(ctx) {
     const blocks = ctx.css()
-    const selectors = blocks.filter((b) => !b.atRule).flatMap((b) => fullSelector(b).split(',').map((s) => s.trim()))
+    const selectors = blocks.filter((b) => !b.atRule).flatMap((b) => selectorList(fullSelector(b)))
     const focusKeys = new Set(selectors.filter((s) => FOCUS.test(s)).map((s) => s.replace(FOCUS_ALL, ':STATE')))
     for (const b of blocks) {
       if (b.atRule || !b.decls.some(REVEAL)) continue
-      const own = fullSelector(b).split(',').map((s) => s.trim())
+      const own = selectorList(fullSelector(b))
       for (const s of own) {
         if (!/:hover(?=\s|[>+~])/.test(s)) continue
         if (focusKeys.has(s.replace(/:hover/g, ':STATE'))) continue

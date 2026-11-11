@@ -12,3 +12,4 @@
   .site-nav { display: none !important; }
 }
 .card { color: var(--text); }
+html.high-contrast body, html.high-contrast body *:not(svg, svg *, img) { color: CanvasText !important; }
