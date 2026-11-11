@@ -61,7 +61,7 @@ Status: ✅ written (reference examples), ⬜ to write. Every skill follows `doc
 | ✅ `fe-i18n` | quality | web | `lang` and `dir`, `Intl` formatting, message formats, RTL with logical properties, framework i18n libraries. |
 | ✅ `fe-security` | quality | web | XSS sinks (`innerHTML`, `dangerouslySetInnerHTML`, `v-html`, `{@html}`), CSP, Trusted Types, SRI, third-party code. |
 | ✅ `fe-testing` | quality | vitest jest playwright cypress testing-library | Unit, component (Testing Library queries by role), end-to-end (Playwright 1.65), accessibility in tests (axe-core). |
-| ⬜ `fe-tooling` | quality | vite eslint prettier biome | Vite 8, ESLint 10 flat config with a11y plugins, Prettier 3 or Biome 2, browserslist and Baseline. |
+| ✅ `fe-tooling` | quality | vite eslint prettier biome | Vite 8, ESLint 10 flat config with a11y plugins, Prettier 3 or Biome 2, browserslist and Baseline. |
 
 ## Workflow skills (lane C after its first three skills, or a fourth agent)
 
