@@ -1,0 +1,6 @@
+$colors: (danger: #b00020, ok: #0a7a3e);
+
+.alert {
+  color: map-get($colors, danger);
+  width: percentage(0.33);
+}

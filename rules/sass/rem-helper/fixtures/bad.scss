@@ -1,0 +1,12 @@
+@use 'sass:math';
+@use 'functions' as *;
+
+$base: 16px;
+
+.card {
+  margin-block-end: rem-calc(32px);
+  padding: math.div(24px, $base) * 1rem;
+  font-size: #{18 / 16}rem;
+  gap: calc(12rem / 16);
+  border-radius: (8 / 16) * 1rem;
+}

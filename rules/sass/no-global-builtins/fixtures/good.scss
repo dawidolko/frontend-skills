@@ -1,0 +1,18 @@
+@use 'sass:map';
+@use 'sass:math';
+
+// map-get($colors, danger) in a comment
+$colors: (danger: #b00020, ok: #0a7a3e);
+
+@function length($list) {
+  @return 3;
+}
+
+.alert {
+  color: map.get($colors, danger);
+  width: math.percentage(0.33);
+  height: min(100%, 40rem);
+  filter: saturate(1.4) grayscale(0.2);
+  content: 'map-get(not code)';
+  --count: index(a b c);
+}

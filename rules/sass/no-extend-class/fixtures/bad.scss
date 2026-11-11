@@ -1,0 +1,8 @@
+.btn {
+  padding: 0.5rem 1rem;
+}
+
+.save-button {
+  @extend .btn;
+  background: green;
+}

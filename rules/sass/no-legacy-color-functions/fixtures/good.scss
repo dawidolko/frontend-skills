@@ -1,0 +1,14 @@
+@use 'sass:color';
+
+// darken($brand, 10%) in a comment
+$brand: #0a7a3e;
+
+.btn:hover {
+  background: color.scale($brand, $lightness: -10%, $space: oklch);
+  border-color: color.change($brand, $alpha: 0.5);
+  filter: saturate(1.5);
+  color: red;
+  font-family: 'Lighten Sans';
+}
+
+$is-dark: color.channel($brand, 'lightness', $space: hsl) < 50%;
