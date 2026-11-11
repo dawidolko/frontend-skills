@@ -38,7 +38,7 @@ Checked: audit --changed (0 critical, 1 serious, 2 minor), keyboard walk of the 
 Blocking
 - a11y/dialog-name src/components/ShareDialog.tsx:12, the dialog is announced without a name; add aria-labelledby="share-title".
 Suggestions
-- perf/no-whole-library-import src/utils/date.ts:1, moment adds ~70 kB; Intl.DateTimeFormat covers this use.
+- perf/no-whole-library-import src/utils/date.ts:1, moment ships the whole library and its locales; Intl.DateTimeFormat covers this use.
 Left for a person
 - Screen reader pass on the share dialog (VoiceOver or NVDA).
 ```
