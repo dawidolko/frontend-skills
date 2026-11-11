@@ -14,8 +14,8 @@ since: 0.1.0
 sources:
   - title: MDN, Window open() (windowFeatures, noopener)
     url: https://developer.mozilla.org/en-US/docs/Web/API/Window/open
-  - title: OWASP Cheat Sheet Series, HTML5 Security (tabnabbing)
-    url: https://cheatsheetseries.owasp.org/cheatsheets/HTML5_Security_Cheat_Sheet.html
+  - title: MDN, rel="noopener"
+    url: https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/rel/noopener
 ---
 
 ## Why

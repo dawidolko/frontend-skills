@@ -40,7 +40,7 @@ Depth for the `fe-perf-delivery` skill. Rule ids in brackets: `frontend-skills e
 
 | Hint | When |
 | --- | --- |
-| `<link rel="preconnect" href="https://cdn.example" crossorigin>` | 1–3 origins needed for the first screen |
+| `<link rel="preconnect" href="https://cdn.example.com" crossorigin>` | 1–3 origins needed for the first screen |
 | `<link rel="dns-prefetch">` | Origins used later; cheap |
 | `<link rel="preload" as="image" fetchpriority="high">` | LCP image found late (CSS background) |
 | `<link rel="preload" as="font" type="font/woff2" crossorigin>` | One or two above-the-fold fonts |
@@ -83,10 +83,11 @@ Run it in CI so a pull request that crosses the budget fails with the size diffe
 - web.dev, Efficiently load third-party JavaScript: https://web.dev/articles/efficiently-load-third-party-javascript
 - web.dev, Code splitting: https://web.dev/articles/reduce-javascript-payloads-with-code-splitting
 - web.dev, HTTP cache: https://web.dev/articles/http-cache
-- web.dev, Third-party facades: https://web.dev/articles/third-party-facades
+- Chrome for Developers, Third-party facades: https://developer.chrome.com/docs/lighthouse/performance/third-party-facades
 - MDN, Speculation Rules API: https://developer.mozilla.org/en-US/docs/Web/API/Speculation_Rules_API
 - Lighthouse insights: https://developer.chrome.com/docs/performance/insights
 - Next.js Script: https://nextjs.org/docs/app/api-reference/components/script
 - Angular defer: https://angular.dev/guide/templates/defer
 - Astro islands: https://docs.astro.build/en/concepts/islands/
 - size-limit: https://github.com/ai/size-limit
+- Moment.js project status (maintenance mode): https://momentjs.com/docs/#/-project-status/

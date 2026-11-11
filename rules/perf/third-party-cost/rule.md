@@ -12,8 +12,10 @@ since: 0.1.0
 sources:
   - title: web.dev, Efficiently load third-party JavaScript
     url: https://web.dev/articles/efficiently-load-third-party-javascript
-  - title: web.dev, Lazy load third-party resources with facades
-    url: https://web.dev/articles/third-party-facades
+  - title: Chrome for Developers, Lazy load third-party resources with facades
+    url: https://developer.chrome.com/docs/lighthouse/performance/third-party-facades
+  - title: web.dev, Best practices for using third-party embeds
+    url: https://web.dev/articles/embed-best-practices
   - title: Chrome for Developers, Third parties insight
     url: https://developer.chrome.com/docs/performance/insights/third-parties
 ---

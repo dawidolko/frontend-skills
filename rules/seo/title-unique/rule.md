@@ -14,8 +14,8 @@ lighthouse:
 skill: fe-seo-metadata
 since: 0.1.0
 sources:
-  - title: Google Search Central, Influencing your title links in search results
-    url: https://developers.google.com/search/docs/appearance/title-link
+  - title: Deque University, axe rule document-title (used by Lighthouse)
+    url: https://dequeuniversity.com/rules/axe/4.10/document-title
   - title: WCAG 2.2, Understanding SC 2.4.2 Page Titled
     url: https://www.w3.org/WAI/WCAG22/Understanding/page-titled.html
 ---

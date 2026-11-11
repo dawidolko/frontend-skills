@@ -14,8 +14,8 @@ since: 0.1.0
 sources:
   - title: MDN, Window postMessage() (security concerns)
     url: https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage
-  - title: OWASP Cheat Sheet Series, HTML5 Security (Web Messaging)
-    url: https://cheatsheetseries.owasp.org/cheatsheets/HTML5_Security_Cheat_Sheet.html
+  - title: HTML Standard, Cross-document messaging (security)
+    url: https://html.spec.whatwg.org/multipage/web-messaging.html#authors
 ---
 
 ## Why

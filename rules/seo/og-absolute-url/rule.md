@@ -12,8 +12,10 @@ applies:
 skill: fe-seo-metadata
 since: 0.1.0
 sources:
-  - title: The Open Graph protocol
-    url: https://ogp.me/
+  - title: Frontend Skills research notes, SEO (social metadata, read 2026-11-11)
+    url: https://github.com/dawidolko/frontend-skills/blob/main/docs/sources/seo.md
+  - title: MDN, URL resolution of relative references
+    url: https://developer.mozilla.org/en-US/docs/Web/API/URL_API/Resolving_relative_references
 ---
 
 ## Why

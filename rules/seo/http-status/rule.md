@@ -10,10 +10,10 @@ lighthouse:
 skill: fe-seo-metadata
 since: 0.1.0
 sources:
-  - title: Google Search Central, How HTTP status codes affect Google Search
-    url: https://developers.google.com/search/docs/crawling-indexing/http-network-errors
-  - title: Google Search Central, JavaScript SEO basics (soft 404 errors in single-page apps)
-    url: https://developers.google.com/search/docs/crawling-indexing/javascript/javascript-seo-basics
+  - title: Chrome for Developers, Page has unsuccessful HTTP status code (Lighthouse audit)
+    url: https://developer.chrome.com/docs/lighthouse/seo/http-status-code
+  - title: MDN, HTTP response status codes
+    url: https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status
 ---
 
 ## Why

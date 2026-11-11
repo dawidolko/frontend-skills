@@ -13,8 +13,6 @@ since: 0.1.0
 sources:
   - title: web.dev, Reduce JavaScript payloads with tree shaking
     url: https://web.dev/articles/reduce-javascript-payloads-with-tree-shaking
-  - title: Moment.js, project status
-    url: https://momentjs.com/docs/#/-project-status/
   - title: MDN, Intl.DateTimeFormat
     url: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat
 ---

@@ -12,10 +12,8 @@ applies:
 skill: fe-seo-metadata
 since: 0.1.0
 sources:
-  - title: Google Search Central, Structured data markup that Google Search supports (search gallery)
-    url: https://developers.google.com/search/docs/appearance/structured-data/search-gallery
-  - title: Google Search Central, Latest updates to the documentation
-    url: https://developers.google.com/search/updates
+  - title: Frontend Skills research notes, SEO (Google search gallery and retired rich results, read 2026-11-11)
+    url: https://github.com/dawidolko/frontend-skills/blob/main/docs/sources/seo.md
 ---
 
 ## Why

@@ -8,10 +8,10 @@ applies:
 skill: fe-tooling
 since: 0.1.0
 sources:
-  - title: npm Docs, npm ci
-    url: https://docs.npmjs.com/cli/commands/npm-ci
-  - title: pnpm, pnpm install (--frozen-lockfile)
-    url: https://pnpm.io/cli/install
+  - title: npm CLI documentation, npm ci
+    url: https://github.com/npm/cli/blob/latest/docs/lib/content/commands/npm-ci.md
+  - title: Node.js, Corepack (packageManager field)
+    url: https://nodejs.org/api/corepack.html
 ---
 
 ## Why

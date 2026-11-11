@@ -10,10 +10,10 @@ lighthouse:
 skill: fe-seo-metadata
 since: 0.1.0
 sources:
-  - title: Google Search Central, Block search indexing with noindex
-    url: https://developers.google.com/search/docs/crawling-indexing/block-indexing
-  - title: Google Search Central, Robots meta tag specifications
-    url: https://developers.google.com/search/docs/crawling-indexing/robots-meta-tag
+  - title: Chrome for Developers, Page is blocked from indexing (Lighthouse audit)
+    url: https://developer.chrome.com/docs/lighthouse/seo/is-crawlable
+  - title: MDN, X-Robots-Tag header
+    url: https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/X-Robots-Tag
 ---
 
 ## Why

@@ -14,8 +14,8 @@ since: 0.1.0
 sources:
   - title: MDN, eval() (never use eval)
     url: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval
-  - title: OWASP Cheat Sheet Series, DOM based XSS Prevention
-    url: https://cheatsheetseries.owasp.org/cheatsheets/DOM_based_XSS_Prevention_Cheat_Sheet.html
+  - title: MDN, Content-Security-Policy script-src ('unsafe-eval')
+    url: https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/script-src
 ---
 
 ## Why

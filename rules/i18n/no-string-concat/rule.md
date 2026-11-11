@@ -14,8 +14,8 @@ since: 0.1.0
 sources:
   - title: W3C Internationalization, Working with composite messages
     url: https://www.w3.org/International/articles/composite-messages/
-  - title: FormatJS, Message syntax
-    url: https://formatjs.github.io/docs/core-concepts/icu-syntax/
+  - title: MDN, Intl.PluralRules
+    url: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/PluralRules
 ---
 
 ## Why

@@ -91,3 +91,5 @@ A community proposal, not a standard and not a Google ranking signal. Lighthouse
 - Next.js metadata: https://nextjs.org/docs/app/getting-started/metadata-and-og-images
 - Nuxt SEO and meta: https://nuxt.com/docs/getting-started/seo-meta
 - Open Graph protocol: https://ogp.me/
+- Schema.org: https://schema.org/
+- Lighthouse SEO audits: https://developer.chrome.com/docs/lighthouse/seo/

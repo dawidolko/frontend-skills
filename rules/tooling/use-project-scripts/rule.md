@@ -8,8 +8,8 @@ applies:
 skill: fe-tooling
 since: 0.1.0
 sources:
-  - title: npm Docs, scripts
-    url: https://docs.npmjs.com/cli/using-npm/scripts
+  - title: npm CLI documentation, scripts
+    url: https://github.com/npm/cli/blob/latest/docs/lib/content/using-npm/scripts.md
   - title: Node.js, Corepack (packageManager field)
     url: https://nodejs.org/api/corepack.html
 ---

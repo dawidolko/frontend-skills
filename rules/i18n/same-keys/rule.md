@@ -10,8 +10,8 @@ since: 0.1.0
 sources:
   - title: Unicode CLDR, Language plural rules
     url: https://www.unicode.org/cldr/charts/latest/supplemental/language_plural_rules.html
-  - title: FormatJS, Message syntax (arguments and plural)
-    url: https://formatjs.github.io/docs/core-concepts/icu-syntax/
+  - title: MDN, Intl.PluralRules resolvedOptions() (pluralCategories)
+    url: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/PluralRules/resolvedOptions
 ---
 
 ## Why

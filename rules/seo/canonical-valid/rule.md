@@ -14,8 +14,8 @@ lighthouse:
 skill: fe-seo-metadata
 since: 0.1.0
 sources:
-  - title: Google Search Central, How to specify a canonical URL with rel="canonical"
-    url: https://developers.google.com/search/docs/crawling-indexing/consolidate-duplicate-urls
+  - title: Chrome for Developers, Document does not have a valid rel=canonical (Lighthouse audit)
+    url: https://developer.chrome.com/docs/lighthouse/seo/canonical
 ---
 
 ## Why

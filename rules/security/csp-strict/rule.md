@@ -12,8 +12,6 @@ since: 0.1.0
 sources:
   - title: web.dev, Mitigate cross-site scripting (XSS) with a strict Content Security Policy
     url: https://web.dev/articles/strict-csp
-  - title: OWASP Cheat Sheet Series, Content Security Policy
-    url: https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html
   - title: MDN, Content Security Policy
     url: https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CSP
 ---

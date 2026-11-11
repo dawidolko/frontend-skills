@@ -15,8 +15,6 @@ since: 0.1.0
 sources:
   - title: Playwright, Page waitForTimeout (discouraged)
     url: https://playwright.dev/docs/api/class-page#page-wait-for-timeout
-  - title: Cypress, Best Practices (unnecessary waiting)
-    url: https://docs.cypress.io/app/core-concepts/best-practices#Unnecessary-Waiting
   - title: Vitest, Mocking timers
     url: https://vitest.dev/guide/mocking/timers
 ---

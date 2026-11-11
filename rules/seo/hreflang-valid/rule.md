@@ -14,8 +14,10 @@ lighthouse:
 skill: fe-seo-metadata
 since: 0.1.0
 sources:
-  - title: Google Search Central, Tell Google about localized versions of your page
-    url: https://developers.google.com/search/docs/specialty/international/localized-versions
+  - title: Chrome for Developers, Document doesn't have a valid hreflang (Lighthouse audit)
+    url: https://developer.chrome.com/docs/lighthouse/seo/hreflang
+  - title: W3C Internationalization, Language tags in HTML and XML
+    url: https://www.w3.org/International/articles/language-tags/
 ---
 
 ## Why

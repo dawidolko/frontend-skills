@@ -10,8 +10,8 @@ lighthouse:
 skill: fe-seo-metadata
 since: 0.1.0
 sources:
-  - title: Google Search Central, Control your snippets in search results (meta descriptions)
-    url: https://developers.google.com/search/docs/appearance/snippet
+  - title: Chrome for Developers, Document does not have a meta description (Lighthouse audit)
+    url: https://developer.chrome.com/docs/lighthouse/seo/meta-description
   - title: MDN, the meta element (name="description")
     url: https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/meta/name
 ---

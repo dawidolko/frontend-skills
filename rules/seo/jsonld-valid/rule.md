@@ -12,10 +12,10 @@ applies:
 skill: fe-seo-metadata
 since: 0.1.0
 sources:
-  - title: Google Search Central, Introduction to structured data markup
-    url: https://developers.google.com/search/docs/appearance/structured-data/intro-structured-data
-  - title: Schema.org, Getting started
-    url: https://schema.org/docs/gs.html
+  - title: Chrome for Developers, Structured data is valid (Lighthouse audit)
+    url: https://developer.chrome.com/docs/lighthouse/seo/structured-data
+  - title: W3C, JSON-LD 1.1
+    url: https://www.w3.org/TR/json-ld11/
 ---
 
 ## Why

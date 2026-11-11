@@ -12,8 +12,8 @@ applies:
 skill: fe-security
 since: 0.1.0
 sources:
-  - title: OWASP Cheat Sheet Series, Cross Site Scripting Prevention
-    url: https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html
+  - title: MDN, Cross-site scripting (XSS)
+    url: https://developer.mozilla.org/en-US/docs/Web/Security/Attacks/XSS
   - title: React, dangerouslySetInnerHTML
     url: https://react.dev/reference/react-dom/components/common#dangerously-setting-the-inner-html
   - title: Vue.js, Security (HTML injection)

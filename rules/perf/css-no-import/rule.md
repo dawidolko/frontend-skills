@@ -11,8 +11,8 @@ stack:
 skill: fe-perf-delivery
 since: 0.1.0
 sources:
-  - title: web.dev, Avoid chaining critical requests
-    url: https://web.dev/articles/critical-request-chains
+  - title: Chrome for Developers, Network dependency tree insight
+    url: https://developer.chrome.com/docs/performance/insights/network-dependency-tree
   - title: MDN, @import
     url: https://developer.mozilla.org/en-US/docs/Web/CSS/@import
   - title: Chrome for Developers, Render blocking requests insight
