@@ -7,6 +7,9 @@
  */
 
 export const FPS = 30
+
+/** The numbers the narration says aloud; build.mjs stops when the recorded data no longer matches them. */
+export const SPOKEN = { installed: 41, skills: 50, rules: 275 }
 export const FADE = 0.35
 
 const LENGTHS = [
@@ -106,9 +109,9 @@ const LINES = [
     scene: 'init',
     from: 1.0,
     to: 19.2,
-    screen: 'The real init output; callouts: the stack, the agents found, 17 of 26 skills.',
-    pl: 'W tym projekcie Reacta wykrywa Reacta 19, TypeScript i Tailwinda, widzi Claude Code i Cursora i instaluje siedemnaście z dwudziestu sześciu skilli. Od razu robi też pierwszy audyt.',
-    en: 'In this React project it finds React 19, TypeScript and Tailwind, sees Claude Code and Cursor, and installs seventeen of the twenty-six skills. Then it runs the first audit straight away.'
+    screen: 'The real init output; callouts: the stack, the agents found, 41 of 50 skills.',
+    pl: 'W tym projekcie Reacta wykrywa Reacta 19, TypeScript i Tailwinda, widzi Claude Code i Cursora i instaluje czterdzieści jeden z pięćdziesięciu skilli. Od razu robi też pierwszy audyt.',
+    en: 'In this React project it finds React 19, TypeScript and Tailwind, sees Claude Code and Cursor, and installs forty-one of the fifty skills. Then it runs the first audit straight away.'
   },
   {
     scene: 'agents',
@@ -147,14 +150,14 @@ const LINES = [
     from: 0.8,
     to: 13.2,
     screen: 'The dictionary page of skills.dawidolko.pl scrolls; then the page of a11y/img-alt.',
-    pl: 'Wszystkie sto siedemdziesiąt sześć reguł jest też na stronie, po polsku i po angielsku, z tymi samymi identyfikatorami, których używa agent.',
-    en: 'All one hundred and seventy-six rules are on the website too, in English and Polish, with the same ids your agent uses.'
+    pl: 'Wszystkie dwieście siedemdziesiąt pięć reguł jest też na stronie, po polsku i po angielsku, z tymi samymi identyfikatorami, których używa agent.',
+    en: 'All two hundred and seventy-five rules are on the website too, in English and Polish, with the same ids your agent uses.'
   },
   {
     scene: 'fix',
     from: 0.8,
     to: 20.2,
-    screen: 'Eight edits appear in App.tsx (app.css and tsconfig.json are fixed too), then the audit again: 0 findings, "Passed", a green check.',
+    screen: 'Eight edits appear in App.tsx (app.css, index.html and tsconfig.json are fixed too), then the audit again: 0 findings, "Passed", a green check.',
     pl: 'Teraz agent albo Ty poprawiacie kod: prawdziwy tekst alternatywny, przycisk zamiast diva, etykieta, widoczny fokus. Audyt jeszcze raz i jest zielono.',
     en: "Now the agent, or you, fixes the code: a real alt text, a button instead of a div, a label, a visible focus style. Run the audit again, and it's green."
   },

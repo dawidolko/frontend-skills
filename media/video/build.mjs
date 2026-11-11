@@ -3,27 +3,39 @@
  * Builds the Frontend Skills video from the scenes in this folder. It records the real command on copies of the
  * fixture projects (init, audit, explain, the per-agent files, a project with its own helpers, and the audit after the
  * fixes in fix/), builds the site and screenshots its dictionary, then opens index.html in Playwright at 1920x1080
- * (YouTube) or 1080x1920 (TikTok), steps the scenes frame by frame and encodes the frames to VP9 WebM with the ffmpeg
- * build that ships with Playwright. It also writes the sound track (audio.mjs) and voiceover.md. --live records
- * the page in real time with Playwright's own video recording instead. Nothing is installed; the paths of Playwright
- * and ffmpeg come from PLAYWRIGHT_MODULE and FFMPEG (default: the newest ffmpeg in ~/Library/Caches/ms-playwright).
- * Usage: node media/video/build.mjs [--format youtube,tiktok] [--lang en,pl] [--out <dir>] [--stills 3,40] [--live]
+ * (YouTube) or 1080x1920 (TikTok/Reels), steps the scenes frame by frame and streams the frames with the synthesised
+ * sound track (audio.mjs) into encode.swift, which writes one MP4 (H.264 and AAC) with AVFoundation; then it checks each
+ * file with encode --inspect and saves a few frames. It also writes the WAV and voiceover.md. --live records the page
+ * in real time with Playwright's own video recording instead (WebM, no sound). Nothing is installed: Playwright comes
+ * from PLAYWRIGHT_MODULE and the encoder is compiled with the system's swiftc (macOS).
+ * Usage: node media/video/build.mjs [--format youtube,tiktok] [--lang en,pl] [--out <dir>]  [--stills 3,40] [--seconds 10] [--live]
  *        node media/video/build.mjs --voiceover   (rewrites media/video/voiceover.md only)
  */
 import { execFileSync, spawn } from 'node:child_process'
-import { cpSync, existsSync, mkdirSync, mkdtempSync, readdirSync, readFileSync, renameSync, rmSync, writeFileSync } from 'node:fs'
-import { homedir, tmpdir } from 'node:os'
+import { cpSync, existsSync, mkdirSync, mkdtempSync, readFileSync, renameSync, rmSync, statfsSync, writeFileSync } from 'node:fs'
+import { tmpdir } from 'node:os'
 import path from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
 import { ADAPTERS } from '../../adapters/index.mjs'
 import { loadRules, loadSkills, PACKAGE_ROOT } from '../../cli/lib/catalog.mjs'
 import { capture, colorize, wrap } from '../../tools/record.mjs'
 import { mix, wav } from './audio.mjs'
-import { CUES, FPS, SCENES, TOTAL, VOICE } from './timeline.mjs'
+import { CUES, FPS, SCENES, SPOKEN, TOTAL, VOICE } from './timeline.mjs'
 
 const HERE = path.dirname(fileURLToPath(import.meta.url))
 const SHOWN = 'npx github:dawidolko/frontend-skills'
 const SIZES = { youtube: { width: 1920, height: 1080, name: 'youtube-16x9' }, tiktok: { width: 1080, height: 1920, name: 'tiktok-9x16' } }
+const BITRATE = 8_000_000
+const PROBES = [3.5, 40, 87, 133]
+const MIN_FREE = 2 * 1024 ** 3
+
+/** Stops the build when the disk that holds the output has less than 2 GB free. */
+function checkDisk(dir) {
+  const { bavail, bsize } = statfsSync(dir)
+  const free = bavail * bsize
+  if (free < MIN_FREE) throw new Error(`only ${(free / 1024 ** 3).toFixed(1)} GB free under ${dir}; stopping (frames are streamed, but each MP4 needs room)`)
+  return free
+}
 const COLS = { youtube: { init: 84, audit: 84, explain: 84, pass: 52 }, tiktok: { init: 54, audit: 54, explain: 54, pass: 54 } }
 const CLI = path.join(PACKAGE_ROOT, 'cli/index.mjs')
 
@@ -225,13 +237,11 @@ function forFormat(data, format) {
   return { ...data, sessions, format, diff: diff(data.code.before, data.code.after) }
 }
 
-function findFfmpeg() {
-  if (process.env.FFMPEG) return process.env.FFMPEG
-  const cache = path.join(homedir(), 'Library/Caches/ms-playwright')
-  const dirs = existsSync(cache) ? readdirSync(cache).filter((d) => d.startsWith('ffmpeg-')) : []
-  for (const d of dirs.sort().reverse())
-    for (const bin of ['ffmpeg-mac', 'ffmpeg-linux', 'ffmpeg-win64.exe']) if (existsSync(path.join(cache, d, bin))) return path.join(cache, d, bin)
-  throw new Error('no ffmpeg found: set FFMPEG to an ffmpeg with libvpx-vp9 (the one Playwright downloads is enough)')
+/** Compiles encode.swift once into the temporary folder and returns the binary's path. */
+function compileEncoder() {
+  const bin = path.join(tmpdir(), 'frontend-skills-encode')
+  execFileSync('swiftc', ['-O', path.join(HERE, 'encode.swift'), '-o', bin], { stdio: 'inherit' })
+  return bin
 }
 
 const TYPES = {
@@ -309,52 +319,26 @@ async function openStage(browser, format, lang, data, shots, extra = {}) {
   return { context, page }
 }
 
-async function renderFrames(page, file, ffmpeg) {
-  const ff = spawn(
-    ffmpeg,
-    [
-      '-y',
-      '-loglevel',
-      'error',
-      '-f',
-      'image2pipe',
-      '-c:v',
-      'mjpeg',
-      '-framerate',
-      String(FPS),
-      '-i',
-      'pipe:0',
-      '-c:v',
-      'libvpx-vp9',
-      '-pix_fmt',
-      'yuv420p',
-      '-crf',
-      '30',
-      '-b:v',
-      '0',
-      '-deadline',
-      'good',
-      '-cpu-used',
-      '4',
-      '-row-mt',
-      '1',
-      '-tile-columns',
-      '2',
-      '-threads',
-      '4',
-      file
-    ],
-    { stdio: ['pipe', 'inherit', 'inherit'] }
-  )
-  const done = new Promise((resolve, reject) => ff.on('close', (code) => (code === 0 ? resolve() : reject(new Error(`ffmpeg exited ${code}`)))))
-  const frames = Math.round(TOTAL * FPS)
+async function renderFrames(page, file, encoder, { width, height }, soundtrack, seconds = TOTAL) {
+  const enc = spawn(encoder, [file, String(width), String(height), String(FPS), String(BITRATE), soundtrack], { stdio: ['pipe', 'inherit', 'inherit'] })
+  const done = new Promise((resolve, reject) => enc.on('close', (code) => (code === 0 ? resolve() : reject(new Error(`encode exited ${code}`)))))
+  const write = async (buf) => {
+    if (!enc.stdin.write(buf)) await new Promise((r) => enc.stdin.once('drain', r))
+  }
+  const frames = Math.round(Math.min(seconds, TOTAL) * FPS)
   for (let f = 0; f < frames; f++) {
     await page.evaluate((t) => window.seek(t), f / FPS)
-    const jpeg = await page.screenshot({ type: 'jpeg', quality: 92 })
-    if (!ff.stdin.write(jpeg)) await new Promise((r) => ff.stdin.once('drain', r))
-    if (f % (FPS * 10) === 0) process.stdout.write(`  ${path.basename(file)} ${clock(f / FPS)} / ${clock(TOTAL)}\n`)
+    const jpeg = await page.screenshot({ type: 'jpeg', quality: 95 })
+    const head = Buffer.alloc(4)
+    head.writeUInt32BE(jpeg.length)
+    await write(head)
+    await write(jpeg)
+    if (f % (FPS * 10) === 0) {
+      checkDisk(path.dirname(file))
+      process.stdout.write(`  ${path.basename(file)} ${clock(f / FPS)} / ${clock(TOTAL)}\n`)
+    }
   }
-  ff.stdin.end()
+  enc.stdin.end()
   await done
 }
 
@@ -388,24 +372,22 @@ ${scenes.join('\n')}
 
 ${cues}
 
-## Putting picture, sound and voice together
+## Adding the voice
 
-The build encodes with the ffmpeg that ships with Playwright, which writes video only, so the video files are silent
-and the sound track is a separate WAV. Line them up at 0:00.
+The MP4 files already carry the effects (AAC, 192 kbit/s) under the picture (H.264, 30 fps); only the voice is missing.
+\`frontend-skills-soundtrack.wav\` is the same effects track on its own, for an editor that wants it separately.
 
-- **CapCut or DaVinci Resolve**: import the WebM and \`frontend-skills-soundtrack.wav\`, put both at 0:00 on the
-  timeline, record or import the voice on a third track using the slots above, export as MP4 (H.264, AAC).
-- **ffmpeg** (once installed, for example with \`brew install ffmpeg\`), with the voice in \`voice.wav\`:
+- **CapCut, DaVinci Resolve, iMovie or Final Cut**: import the MP4 at 0:00, record or import the voice on a second audio
+  track using the slots above, keep the MP4's own audio at about −6 dB under the voice, export as MP4 (H.264, AAC).
+- **ffmpeg**, if it is installed one day, with the voice in \`voice.wav\`:
 
 \`\`\`sh
-ffmpeg -i frontend-skills-youtube-16x9-en.webm -i frontend-skills-soundtrack.wav -i voice.wav \\
-  -filter_complex "[1:a][2:a]amix=inputs=2:duration=first:normalize=0[a]" -map 0:v -map "[a]" \\
-  -c:v libx264 -crf 18 -pix_fmt yuv420p -c:a aac -b:a 192k -movflags +faststart frontend-skills-youtube.mp4
+ffmpeg -i frontend-skills-youtube-16x9-en.mp4 -i voice.wav \\
+  -filter_complex "[0:a][1:a]amix=inputs=2:duration=first:normalize=0[a]" -map 0:v -map "[a]" \\
+  -c:v copy -c:a aac -b:a 192k -movflags +faststart frontend-skills-youtube-with-voice.mp4
 \`\`\`
 
-Without a voice yet: \`ffmpeg -i frontend-skills-youtube-16x9-en.webm -i frontend-skills-soundtrack.wav -map 0:v -map 1:a
--c:v libx264 -crf 18 -pix_fmt yuv420p -c:a aac -b:a 192k -shortest frontend-skills-youtube.mp4\`. The same commands work
-for the TikTok file.
+The same works for the TikTok/Reels file.
 
 ## Rebuilding
 
@@ -437,8 +419,13 @@ async function main(argv) {
   const data = await record()
   const shots = await siteShots(chromium, out)
   writeFileSync(path.join(out, 'frontend-skills-soundtrack.wav'), wav(mix()))
+
   writeFileSync(path.join(out, 'voiceover.md'), voiceoverMarkdown())
-  const ffmpeg = stills ? null : findFfmpeg()
+  for (const [key, value] of Object.entries(SPOKEN))
+    if (data.counts[key] !== value)
+      throw new Error(`the narration says ${key} = ${value} but the recording found ${data.counts[key]}; update SPOKEN and VOICE in timeline.mjs`)
+  const soundtrack = path.join(out, 'frontend-skills-soundtrack.wav')
+  const encoder = stills ? null : compileEncoder()
   const browser = await chromium.launch()
   try {
     for (const format of formats)
@@ -466,9 +453,11 @@ async function main(argv) {
           process.stdout.write(`${name}-live.webm\n`)
         } else {
           const { context, page } = await openStage(browser, format, lang, fdata, shots)
-          await renderFrames(page, path.join(out, `${name}.webm`), ffmpeg)
+          const file = path.join(out, `${name}.mp4`)
+          process.stdout.write(`${name}: ${(checkDisk(out) / 1024 ** 3).toFixed(1)} GB free\n`)
+          await renderFrames(page, file, encoder, SIZES[format], soundtrack, Number(opt('--seconds', TOTAL)))
           await context.close()
-          process.stdout.write(`${name}.webm\n`)
+          process.stdout.write(execFileSync(encoder, ['--inspect', file, ...PROBES.map(String)], { encoding: 'utf8' }))
         }
       }
   } finally {
