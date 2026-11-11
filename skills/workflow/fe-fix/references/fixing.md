@@ -23,10 +23,12 @@ Depth for the `fe-fix` skill. Rule ids in brackets: `frontend-skills explain <id
 
 | File | Comment on the line or the line above |
 | --- | --- |
-| HTML, Vue, Svelte, Astro, Angular templates | `<!-- fs-ignore a11y/positive-tabindex: reason -->` |
-| JSX | `{/* fs-ignore a11y/no-click-on-static: reason */}` |
-| JavaScript, TypeScript | `// fs-ignore security/no-eval: reason` |
-| CSS, SCSS, Less | `/* fs-ignore a11y/focus-visible: reason */` |
+| HTML, Vue, Svelte, Astro, Angular templates | `<!-- fs-ignore a11y/positive-tabindex -- reason -->` |
+| JSX | `{/* fs-ignore a11y/no-click-on-static -- reason */}` |
+| JavaScript, TypeScript | `// fs-ignore security/no-eval -- reason` |
+| CSS, SCSS, Less | `/* fs-ignore a11y/focus-visible -- reason */` |
+
+Write the id, a space, `--` and the reason; a colon glued to the id (`a11y/x:`) is not read as an id and silences every rule on the line.
 
 Project-wide, in `.frontend-skills/profile.json` (the person's settings, keep them):
 

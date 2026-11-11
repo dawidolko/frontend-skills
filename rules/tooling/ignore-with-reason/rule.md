@@ -28,7 +28,7 @@ A suppression without an id hides every rule on that line, including problems ad
 
 ## Fix
 
-Fix the code when you can. When a finding is a real exception, write the id and a reason in the same comment: `<!-- fs-ignore a11y/positive-tabindex: third-party widget sets it, tracked in #123 -->`. For a rule the team does not follow at all, put it in `audit.ignore` in the profile and record why with `learn --lesson`.
+Fix the code when you can. When a finding is a real exception, write the id, then ` -- ` and a reason, in the same comment: `<!-- fs-ignore a11y/positive-tabindex -- third-party widget sets it, issue #123 -->`. Do not put a colon right after the id: `a11y/positive-tabindex:` is not read as an id, so the comment silences every rule. For a rule the team does not follow at all, put it in `audit.ignore` in the profile and record why with `learn --lesson`.
 
 ## Examples
 
@@ -36,6 +36,6 @@ Fix the code when you can. When a finding is a real exception, write the id and 
 <!-- bad -->
 <div tabindex="3"> <!-- fs-ignore -->
 <!-- good -->
-<!-- fs-ignore a11y/positive-tabindex: embedded vendor widget, cannot change, issue #123 -->
+<!-- fs-ignore a11y/positive-tabindex -- embedded vendor widget, cannot change, issue #123 -->
 <div tabindex="3">
 ```
