@@ -1,0 +1,42 @@
+{
+  "name": "frontend-skills",
+  "version": "0.1.0",
+  "description": "Skills and a rule dictionary for AI coding agents that write front-end code, fitted to your project's stack and checked by a static audit.",
+  "type": "module",
+  "license": "MIT",
+  "author": "Dawid Olko (https://dawidolko.pl)",
+  "homepage": "https://skills.dawidolko.pl",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dawidolko/frontend-skills.git"
+  },
+  "bugs": "https://github.com/dawidolko/frontend-skills/issues",
+  "bin": {
+    "frontend-skills": "cli/index.mjs"
+  },
+  "files": [
+    "cli",
+    "engine",
+    "adapters",
+    "rules",
+    "skills"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "test": "node --test test/"
+  },
+  "keywords": [
+    "agent-skills",
+    "accessibility",
+    "wcag",
+    "lighthouse",
+    "frontend",
+    "claude-code",
+    "codex",
+    "cursor",
+    "copilot",
+    "gemini-cli"
+  ]
+}
