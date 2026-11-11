@@ -14,3 +14,5 @@ All notable changes are listed here. The format follows [Keep a Changelog](https
 - A static audit engine for HTML, JSX and TSX, Vue, Svelte, Astro and Angular templates, CSS, SCSS and Less, with a Markdown report, condensed JSON for agents and exit codes by severity; `--url` adds Lighthouse and axe-core on a running page, fetched only after consent.
 - 23 rules with stable ids and sources, 20 of them checked statically with bad and good fixtures; the reference skills `fe-html`, `fe-a11y-forms` and `fe-react`.
 - The format, the architecture, the authoring guide, the agent table and the skills plan in `docs/`.
+- The README in English and Polish (`README.pl.md`): quick start, the three steps, an example report, the agent table, the dictionary and project helpers, commands, measured token cost, the limits of automated checks, FAQ and how to add a rule.
+- Terminal recordings of `init`, `audit` and `explain` as animated SVG with PNG fallbacks in `docs/media/`, made by `tools/record.mjs` from real runs on a fixture project; the banner and the mark in `docs/media/`.
