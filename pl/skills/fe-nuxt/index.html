@@ -5,17 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Nuxt apps (fe-nuxt) · Frontend Skills</title>
 <meta name="description" content="Writes and reviews Nuxt 4 apps - useFetch and useAsyncData vs $fetch, keys, per-request state, server-safe setup, runtime config, route announcements - so…">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-V2yAsoxJIibu4bEYhDOwR/ucB/Zr0RzUJUEQYpXs6vQ='; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="color-scheme" content="light dark">
-<meta name="theme-color" content="#faf7fc" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#0d0d0f" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#0d0d0f">
+<script>(function(){try{var t=localStorage.getItem("fs-theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}})();</script>
 <link rel="canonical" href="https://skills.dawidolko.pl/pl/skills/fe-nuxt/">
 <link rel="alternate" hreflang="en" href="https://skills.dawidolko.pl/skills/fe-nuxt/">
 <link rel="alternate" hreflang="pl" href="https://skills.dawidolko.pl/pl/skills/fe-nuxt/">
 <link rel="alternate" hreflang="x-default" href="https://skills.dawidolko.pl/skills/fe-nuxt/">
 <link rel="preload" href="/assets/fonts/opensans-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/styles.css?v=fbc2d7ae26">
+<link rel="stylesheet" href="/assets/styles.css?v=c56b96b9b9">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Frontend Skills">
@@ -31,56 +31,558 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="author" content="Dawid Olko">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Start","item":"https://skills.dawidolko.pl/pl/"},{"@type":"ListItem","position":2,"name":"Skille","item":"https://skills.dawidolko.pl/pl/skills/"},{"@type":"ListItem","position":3,"name":"Nuxt apps","item":"https://skills.dawidolko.pl/pl/skills/fe-nuxt/"}]}</script>
-<script src="/assets/site.js?v=dd8cab0a79" defer></script>
+<script src="/assets/site.js?v=6b0081a976" defer></script>
 <script src="/a11y/a11y-panel.js?v=39d6e82235" data-accent="#9b00c2" defer></script>
 </head>
 <body>
 <a class="skip-link" href="#main">Przejdź do treści</a>
 <header class="site-header">
-<div class="wrap header-inner">
+<div class="wrap-wide header-inner">
 <a class="brand" href="/pl/"><svg class="brand-mark" viewBox="0 0 32 32" width="32" height="32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="8" fill="currentColor"/><path d="M12.5 10 7 16l5.5 6M19.5 10 25 16l-5.5 6" fill="none" stroke="var(--logo-ink)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="brand-name">Frontend Skills</span></a>
 <nav class="main-nav" aria-label="Główna"><ul><li><a href="/pl/how-it-works/">Jak to działa</a></li><li><a href="/pl/rules/">Reguły</a></li><li><a href="/pl/skills/" class="is-section">Skille</a></li><li><a href="/pl/commands/">Polecenia</a></li><li><a href="/pl/faq/">Pytania</a></li></ul></nav>
 <div class="header-tools">
+<div class="theme-switch" role="group" aria-label="Motyw kolorów" hidden><button type="button" class="theme-btn" data-theme-set="light" aria-pressed="false" aria-label="Jasny motyw" title="Jasny motyw"><svg class="icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#sun"/></svg></button><button type="button" class="theme-btn" data-theme-set="system" aria-pressed="true" aria-label="Motyw systemu" title="Motyw systemu"><svg class="icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#system"/></svg></button><button type="button" class="theme-btn" data-theme-set="dark" aria-pressed="false" aria-label="Ciemny motyw" title="Ciemny motyw"><svg class="icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#moon"/></svg></button></div>
 <a class="lang-switch" href="/skills/fe-nuxt/" hreflang="en" lang="en" title="This page in English">English</a>
-<a class="gh-link" href="https://github.com/dawidolko/frontend-skills" aria-label="Kod źródłowy na GitHubie"><svg viewBox="0 0 16 16" width="20" height="20" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg></a>
+<a class="gh-link" href="https://github.com/dawidolko/frontend-skills" aria-label="Kod źródłowy na GitHubie"><svg class="icon" width="22" height="22" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#github"/></svg></a>
 </div>
 </div>
 </header>
-<main id="main" tabindex="-1">
-<div class="page-head"><div class="wrap">
+<div class="docs wrap-wide">
+<button type="button" class="docs-toggle" popovertarget="docs-nav" aria-controls="docs-nav"><svg class="icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#menu"/></svg><span>Grupy skilli</span></button>
+<nav id="docs-nav" class="docs-nav" popover aria-label="Grupy skilli">
+<div class="docs-nav-head"><span>Grupy skilli</span><button type="button" class="docs-close" popovertarget="docs-nav" popovertargetaction="hide" aria-label="Zamknij rozdziały"><svg class="icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#close"/></svg></button></div>
+<a class="side-top" href="/pl/skills/"><svg class="icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#layers"/></svg><span>Wszystkie skille</span><span class="side-count">50</span></a>
+<ul class="side-chapters"><li><details><summary><svg class="icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#foundations"/></svg><span class="side-label">Podstawy</span><span class="side-count">5</span></summary><ul>
+<li><a href="/pl/skills/fe-forms/">Native forms and validation</a></li><li><a href="/pl/skills/fe-html/">HTML documents and semantics</a></li><li><a href="/pl/skills/fe-javascript/">JavaScript in the browser</a></li><li><a href="/pl/skills/fe-responsive/">Responsive design</a></li><li><a href="/pl/skills/fe-typescript/">TypeScript</a></li>
+</ul></details></li><li><details><summary><svg class="icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#styling"/></svg><span class="side-label">Style</span><span class="side-count">7</span></summary><ul>
+<li><a href="/pl/skills/fe-css-architecture/">CSS architecture and tokens</a></li><li><a href="/pl/skills/fe-css-layout/">CSS layout</a></li><li><a href="/pl/skills/fe-css-modern/">Modern CSS features</a></li><li><a href="/pl/skills/fe-icons/">Icons</a></li><li><a href="/pl/skills/fe-motion/">Motion and animation</a></li><li><a href="/pl/skills/fe-sass/">Sass (SCSS)</a></li><li><a href="/pl/skills/fe-tailwind/">Tailwind CSS</a></li>
+</ul></details></li><li><details open><summary><svg class="icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#framework"/></svg><span class="side-label">Frameworki</span><span class="side-count">11</span></summary><ul>
+<li><a href="/pl/skills/fe-angular/">Angular components</a></li><li><a href="/pl/skills/fe-astro/">Astro sites and islands</a></li><li><a href="/pl/skills/fe-data-fetching/">Data fetching</a></li><li><a href="/pl/skills/fe-nextjs/">Next.js App Router</a></li><li><a href="/pl/skills/fe-nuxt/" aria-current="page">Nuxt apps</a></li><li><a href="/pl/skills/fe-react/">React components</a></li><li><a href="/pl/skills/fe-state/">State and stores</a></li><li><a href="/pl/skills/fe-svelte/">Svelte components</a></li><li><a href="/pl/skills/fe-sveltekit/">SvelteKit apps</a></li><li><a href="/pl/skills/fe-vue/">Vue components</a></li><li><a href="/pl/skills/fe-web-components/">Web components and Lit</a></li>
+</ul></details></li><li><details><summary><svg class="icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#a11y"/></svg><span class="side-label">Dostępność</span><span class="side-count">12</span></summary><ul>
+<li><a href="/pl/skills/fe-a11y-aria/">ARIA, names and live regions</a></li><li><a href="/pl/skills/fe-a11y-carousel-toast/">Carousels and toasts</a></li><li><a href="/pl/skills/fe-a11y-combobox/">Combobox, listbox and custom select</a></li><li><a href="/pl/skills/fe-a11y-core/">Accessibility, WCAG 2.2 map</a></li><li><a href="/pl/skills/fe-a11y-dialog/">Dialogs and modals</a></li><li><a href="/pl/skills/fe-a11y-forms/">Accessible forms</a></li><li><a href="/pl/skills/fe-a11y-keyboard/">Keyboard access and focus</a></li><li><a href="/pl/skills/fe-a11y-media/">Media, motion and flashing</a></li><li><a href="/pl/skills/fe-a11y-menus/">Navigation, disclosures and menus</a></li><li><a href="/pl/skills/fe-a11y-tables/">Data tables</a></li><li><a href="/pl/skills/fe-a11y-tabs-accordion/">Tabs and accordions</a></li><li><a href="/pl/skills/fe-a11y-visual/">Contrast, colour, size and reflow</a></li>
+</ul></details></li><li><details><summary><svg class="icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#perf"/></svg><span class="side-label">Wydajność</span><span class="side-count">5</span></summary><ul>
+<li><a href="/pl/skills/fe-core-web-vitals/">Core Web Vitals</a></li><li><a href="/pl/skills/fe-fonts/">Web fonts</a></li><li><a href="/pl/skills/fe-images/">Images and media delivery</a></li><li><a href="/pl/skills/fe-lighthouse/">Lighthouse and PageSpeed</a></li><li><a href="/pl/skills/fe-perf-delivery/">JavaScript, CSS and asset delivery</a></li>
+</ul></details></li><li><details><summary><svg class="icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#quality"/></svg><span class="side-label">Jakość</span><span class="side-count">5</span></summary><ul>
+<li><a href="/pl/skills/fe-i18n/">Internationalisation</a></li><li><a href="/pl/skills/fe-security/">Front-end security</a></li><li><a href="/pl/skills/fe-seo-metadata/">SEO and metadata</a></li><li><a href="/pl/skills/fe-testing/">Front-end testing</a></li><li><a href="/pl/skills/fe-tooling/">Build, lint and format tooling</a></li>
+</ul></details></li><li><details><summary><svg class="icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#workflow"/></svg><span class="side-label">Praca z narzędziem</span><span class="side-count">5</span></summary><ul>
+<li><a href="/pl/skills/fe-audit/">Audit the project</a></li><li><a href="/pl/skills/fe-component/">Build a component</a></li><li><a href="/pl/skills/fe-fix/">Fix findings</a></li><li><a href="/pl/skills/fe-learn/">Learn the project</a></li><li><a href="/pl/skills/fe-review/">Review a change</a></li>
+</ul></details></li></ul>
+</nav>
+<main id="main" tabindex="-1" class="docs-main">
+<div class="page-head">
 <nav class="breadcrumb" aria-label="Ścieżka nawigacji"><ol><li><a href="/pl/">Start</a></li><li><a href="/pl/skills/">Skille</a></li><li><span aria-current="page">Nuxt apps</span></li></ol></nav>
+<p class="eyebrow eyebrow-docs"><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#framework"/></svg>Frameworki</p>
 <h1>Nuxt apps</h1>
 <p class="lead">Writes and reviews Nuxt 4 apps - useFetch and useAsyncData vs $fetch, keys, per-request state, server-safe setup, runtime config, route announcements - so pages render on the server without leaks, double requests or hydration errors. Use when editing files in a Nuxt project (app/, pages, composables, nuxt.config), fixing a hydration mismatch, or when asked to review Nuxt code.</p>
-</div></div>
-<div class="wrap rule-layout">
-<div class="prose">
-<section aria-labelledby="rules"><h2 id="rules">Reguły, których uczy</h2>
-<ul class="rule-list compact"><li class="rule-item"><a class="rule-id" href="/pl/rules/nuxt/no-bare-fetch-in-setup/"><code>nuxt/no-bare-fetch-in-setup</code></a><p class="rule-title">Load a page's initial data with useFetch or useAsyncData, not a bare $fetch at the top of script setup.</p><p class="rule-meta"><span class="sev sev-moderate">umiarkowana</span> <span class="tag tag-static">statyczne</span></p></li><li class="rule-item"><a class="rule-id" href="/pl/rules/nuxt/fetch-composable-in-handler/"><code>nuxt/fetch-composable-in-handler</code></a><p class="rule-title">Call useFetch and useAsyncData only in setup, plugins or composables; in event handlers use $fetch.</p><p class="rule-meta"><span class="sev sev-moderate">umiarkowana</span> <span class="tag tag-static">statyczne</span></p></li><li class="rule-item"><a class="rule-id" href="/pl/rules/nuxt/async-data-key/"><code>nuxt/async-data-key</code></a><p class="rule-title">A composable that wraps useAsyncData passes an explicit, unique key built from its inputs.</p><p class="rule-meta"><span class="sev sev-moderate">umiarkowana</span> <span class="tag tag-static">statyczne</span></p></li><li class="rule-item"><a class="rule-id" href="/pl/rules/nuxt/no-module-scope-state/"><code>nuxt/no-module-scope-state</code></a><p class="rule-title">Never create ref() or reactive() state at module scope in a Nuxt app; use useState or a Pinia store.</p><p class="rule-meta"><span class="sev sev-serious">poważna</span> <span class="tag tag-static">statyczne</span></p></li><li class="rule-item"><a class="rule-id" href="/pl/rules/nuxt/no-browser-api-in-setup/"><code>nuxt/no-browser-api-in-setup</code></a><p class="rule-title">Never touch window, document, localStorage or navigator at the top of script setup; it also runs on the server.</p><p class="rule-meta"><span class="sev sev-serious">poważna</span> <span class="tag tag-static">statyczne</span></p></li><li class="rule-item"><a class="rule-id" href="/pl/rules/nuxt/runtime-config-not-process-env/"><code>nuxt/runtime-config-not-process-env</code></a><p class="rule-title">App code reads configuration with useRuntimeConfig() and tests the side with import.meta.client, not process.env or process.client.</p><p class="rule-meta"><span class="sev sev-moderate">umiarkowana</span> <span class="tag tag-static">statyczne</span></p></li><li class="rule-item"><a class="rule-id" href="/pl/rules/nuxt/public-runtime-config/"><code>nuxt/public-runtime-config</code></a><p class="rule-title">Secrets live in the top level of runtimeConfig, never under runtimeConfig.public, which every page sends to the browser.</p><p class="rule-meta"><span class="sev sev-serious">poważna</span> <span class="tag tag-static">statyczne</span></p></li><li class="rule-item"><a class="rule-id" href="/pl/rules/nuxt/route-announcer/"><code>nuxt/route-announcer</code></a><p class="rule-title">The app renders NuxtRouteAnnouncer (in app.vue or a layout) so client-side page changes are announced.</p><p class="rule-meta"><span class="sev sev-moderate">umiarkowana</span> <span class="tag tag-static">statyczne</span></p></li><li class="rule-item"><a class="rule-id" href="/pl/rules/vue/link-for-navigation/"><code>vue/link-for-navigation</code></a><p class="rule-title">Navigate with RouterLink or NuxtLink, not a button whose click handler only calls router.push or navigateTo.</p><p class="rule-meta"><span class="sev sev-moderate">umiarkowana</span> <span class="tag tag-static">statyczne</span></p></li><li class="rule-item"><a class="rule-id" href="/pl/rules/js/asset-import/"><code>js/asset-import</code></a><p class="rule-title">In a bundled project, images, fonts and media in component markup are imported or use the base-path helper, not hard-coded root paths.</p><p class="rule-meta"><span class="sev sev-moderate">umiarkowana</span> <span class="tag tag-static">statyczne</span></p></li></ul></section>
-<section aria-labelledby="digest"><h2 id="digest">Skrót reguł</h2><p>Ta część jest kopiowana do zawężonego pliku reguł każdego agenta, więc musi być zrozumiała sama w sobie:</p><div class="digest"><ul><li>Load initial data with <code>useFetch</code>/<code>useAsyncData</code>, never a bare <code>$fetch</code> at the top of setup (<a href="/pl/rules/nuxt/no-bare-fetch-in-setup/">nuxt/no-bare-fetch-in-setup</a>).</li><li>In event handlers use <code>$fetch</code>, then <code>refresh()</code>; never <code>useFetch</code> there (<a href="/pl/rules/nuxt/fetch-composable-in-handler/">nuxt/fetch-composable-in-handler</a>).</li><li>Give <code>useAsyncData</code> in a composable a key built from its inputs (<a href="/pl/rules/nuxt/async-data-key/">nuxt/async-data-key</a>).</li><li>No <code>ref</code>/<code>reactive</code> at module scope; <code>useState('key')</code> or a Pinia store (<a href="/pl/rules/nuxt/no-module-scope-state/">nuxt/no-module-scope-state</a>).</li><li>No <code>window</code>, <code>document</code>, <code>localStorage</code> at the top of setup; <code>onMounted</code>, <code>useCookie</code>, <code>&lt;ClientOnly&gt;</code> (<a href="/pl/rules/nuxt/no-browser-api-in-setup/">nuxt/no-browser-api-in-setup</a>).</li><li>Read config with <code>useRuntimeConfig()</code> and test sides with <code>import.meta.client</code> (<a href="/pl/rules/nuxt/runtime-config-not-process-env/">nuxt/runtime-config-not-process-env</a>).</li><li>Never put secrets under <code>runtimeConfig.public</code> (<a href="/pl/rules/nuxt/public-runtime-config/">nuxt/public-runtime-config</a>).</li><li>Render <code>&lt;NuxtRouteAnnouncer /&gt;</code> and give each page its own title (<a href="/pl/rules/nuxt/route-announcer/">nuxt/route-announcer</a>).</li><li>Navigate with <code>&lt;NuxtLink&gt;</code> (<a href="/pl/rules/vue/link-for-navigation/">vue/link-for-navigation</a>); import assets or use <code>~/assets</code> (<a href="/pl/rules/js/asset-import/">js/asset-import</a>).</li><li>Treat every hydration warning as a bug.</li></ul></div></section>
-<section aria-labelledby="do"><h2 id="do">Kroki, które wykonuje agent</h2><ol><li>Nuxt 4 layout: app code in <code>app/</code> (<code>pages/</code>, <code>layouts/</code>, <code>components/</code>, <code>composables/</code>, <code>middleware/</code>, <code>plugins/</code>, <code>app.vue</code>), API routes in <code>server/</code>, shared types in <code>shared/</code>, static files in <code>public/</code>. Nuxt 3 is end-of-life since 2026-07-31.</li><li>Data: <code>const { data, status, error, refresh } = await useFetch('/api/x', { pick: [...] })</code>; show <code>status === 'pending'</code> and <code>error</code> states; <code>lazy: true</code> for below-the-fold data; <code>Promise.all</code> inside one <code>useAsyncData</code> for parallel calls. <code>data</code> starts as <code>undefined</code>.</li><li>State shared across components: <code>useState('cart', () =&gt; [])</code> with JSON-serializable values, or Pinia (<code>@pinia/nuxt</code>).</li><li>Head and SEO per page: <code>useSeoMeta({ title, description })</code>, a <code>titleTemplate</code> in <code>app.vue</code>; <code>definePageMeta</code> takes only static values.</li><li>Rendering per route with <code>routeRules</code> (<code>prerender</code>, <code>swr</code>, <code>isr</code>, <code>ssr: false</code>); with <code>ssr: false</code> add <code>app/spa-loading-template.html</code>.</li><li>Images through <code>&lt;NuxtImg&gt;</code> (<code>@nuxt/image</code>), fonts through <code>@nuxt/fonts</code>, third-party scripts through <code>@nuxt/scripts</code>; <code>Lazy</code> prefix and <code>hydrate-on-visible</code> for heavy components below the fold.</li><li>Secrets only in server code: top-level <code>runtimeConfig</code> read with <code>useRuntimeConfig(event)</code> in <code>server/</code>, set with <code>NUXT_</code> variables.</li></ol></section>
-<section aria-labelledby="check"><h2 id="check">Jak agent sprawdza swoją pracę</h2><ul><li><code>npx github:dawidolko/frontend-skills audit --changed</code> reports bare <code>$fetch</code> in setup, data composables in handlers, keyless <code>useAsyncData</code> in composables, module-scope state, browser APIs in setup, <code>process.env</code> in app code, public secrets and a missing route announcer.</li><li>Run <code>@nuxt/eslint</code> (it includes <code>eslint-plugin-vue</code>) and <code>nuxi typecheck</code>.</li><li>Load a page with JavaScript off and on, and read the browser console for hydration warnings; navigate with a screen reader to hear the announcer.</li></ul></section>
-<section aria-labelledby="refs"><h2 id="refs">Pliki referencyjne</h2><ul><li><a href="https://github.com/dawidolko/frontend-skills/blob/main/skills/frameworks/fe-nuxt/references/nuxt.md"><code>references/nuxt.md</code></a> · 2024 tokeny</li></ul></section>
-<section aria-labelledby="agents"><h2 id="agents">Pisany dla</h2>
-<p>każdego agenta używanego w projekcie: Claude Code, OpenAI Codex, Cursor, GitHub Copilot, Gemini CLI, Antigravity CLI, Devin / Windsurf, OpenCode, Cline, Zed, JetBrains Junie, Kiro, Augment, Trae, Continue, Amazon Q Developer, Aider.</p>
-<p>Agenci, którzy dostają też plik reguł zawężony do tych plików: Claude Code, Cursor, GitHub Copilot, Antigravity CLI, Devin / Windsurf, Cline, Kiro, Trae, Continue.</p></section>
+<p class="chips"><span class="tag"><code>fe-nuxt</code></span><span class="tag"><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#framework"/></svg><code>nuxt</code></span><span class="tag"><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg>10 reguł</span><span class="tag"><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#perf"/></svg>ładowane zawsze: 81 tokenów; przy użyciu: 1136 tokenów; w referencjach na żądanie: 2024 tokeny.</span></p>
 </div>
-<aside class="facts" aria-labelledby="facts-title">
-<h2 id="facts-title">Fakty</h2>
-<dl><dt>Nazwa</dt><dd><code>fe-nuxt</code></dd><dt>Obszar</dt><dd>Frameworki</dd><dt>Instalowany, gdy projekt używa</dt><dd><code>nuxt</code></dd><dt>Pliki, których dotyczy</dt><dd><code>**/*.vue</code> <code>app/**/*.ts</code> <code>app/**/*.js</code> <code>server/**/*.ts</code> <code>**/nuxt.config.ts</code> <code>**/nuxt.config.js</code> <code>**/nuxt.config.mjs</code></dd><dt>Koszt w tokenach</dt><dd>ładowane zawsze: 81 tokenów; przy użyciu: 1136 tokenów; w referencjach na żądanie: 2024 tokeny.</dd></dl>
-<p><a href="https://github.com/dawidolko/frontend-skills/blob/main/skills/frameworks/fe-nuxt/SKILL.md">SKILL.md na GitHubie</a></p>
-<p><a href="/pl/skills/">Wszystkie skille</a></p>
-</aside>
+<section class="install" data-install aria-labelledby="install">
+<h2 id="install"><svg class="icon heading-icon" width="24" height="24" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#terminal"/></svg>Instalacja</h2>
+<p><code>init</code> instaluje ten skill, gdy projekt używa: nuxt. Wybierz agenta, aby zobaczyć, gdzie trafią jego pliki.</p>
+<div class="install-controls">
+<fieldset class="seg" data-runners hidden><legend>Uruchom przez</legend><div class="seg-options"><label class="seg-opt"><input type="radio" name="runner-ins-1" value="npx" data-template="npx github:dawidolko/frontend-skills {args}" checked><span>npx</span></label><label class="seg-opt"><input type="radio" name="runner-ins-1" value="pnpm" data-template="pnpm dlx github:dawidolko/frontend-skills {args}"><span>pnpm dlx</span></label><label class="seg-opt"><input type="radio" name="runner-ins-1" value="yarn" data-template="yarn dlx -p github:dawidolko/frontend-skills frontend-skills {args}"><span>yarn dlx</span></label><label class="seg-opt"><input type="radio" name="runner-ins-1" value="bun" data-template="bunx github:dawidolko/frontend-skills {args}"><span>bunx</span></label></div></fieldset>
+<fieldset class="seg seg-agents"><legend>Agent</legend><div class="seg-options"><label class="seg-opt"><input type="radio" name="agent-ins-1" value="auto" checked><span>Wykryj</span></label><label class="seg-opt"><input type="radio" name="agent-ins-1" value="claude"><span>Claude Code</span></label><label class="seg-opt"><input type="radio" name="agent-ins-1" value="codex"><span>OpenAI Codex</span></label><label class="seg-opt"><input type="radio" name="agent-ins-1" value="cursor"><span>Cursor</span></label><label class="seg-opt"><input type="radio" name="agent-ins-1" value="copilot"><span>GitHub Copilot</span></label><label class="seg-opt"><input type="radio" name="agent-ins-1" value="gemini"><span>Gemini CLI</span></label><label class="seg-opt"><input type="radio" name="agent-ins-1" value="antigravity"><span>Antigravity CLI</span></label><label class="seg-opt"><input type="radio" name="agent-ins-1" value="devin"><span>Devin / Windsurf</span></label><label class="seg-opt"><input type="radio" name="agent-ins-1" value="opencode"><span>OpenCode</span></label><label class="seg-opt"><input type="radio" name="agent-ins-1" value="cline"><span>Cline</span></label><label class="seg-opt"><input type="radio" name="agent-ins-1" value="zed"><span>Zed</span></label><label class="seg-opt"><input type="radio" name="agent-ins-1" value="junie"><span>JetBrains Junie</span></label><label class="seg-opt"><input type="radio" name="agent-ins-1" value="kiro"><span>Kiro</span></label><label class="seg-opt"><input type="radio" name="agent-ins-1" value="augment"><span>Augment</span></label><label class="seg-opt"><input type="radio" name="agent-ins-1" value="trae"><span>Trae</span></label><label class="seg-opt"><input type="radio" name="agent-ins-1" value="continue"><span>Continue</span></label><label class="seg-opt"><input type="radio" name="agent-ins-1" value="amazonq"><span>Amazon Q Developer</span></label><label class="seg-opt"><input type="radio" name="agent-ins-1" value="aider"><span>Aider</span></label></div></fieldset>
 </div>
+<div class="command"><pre class="command-text"><code id="cmd-2" data-args="init">npx github:<wbr>dawidolko/<wbr>frontend-skills init</code></pre><button type="button" class="copy-button" data-copy="cmd-2" data-done="Skopiowano do schowka." data-fail="Nie udało się skopiować; zaznacz tekst i skopiuj go ręcznie." aria-label="Skopiuj polecenie" hidden><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#copy"/></svg><span>Skopiuj</span></button></div>
+<p class="callout callout-warn runner-note" hidden>Ten sposób nie był jeszcze testowany. <code>npx</code> i <code>pnpm dlx</code> są przetestowane; jeśli ten zawiedzie, użyj jednego z nich.</p>
+<div class="agent-panel" data-agent="auto">
+<p>Bez <code>--agents</code> polecenie <code>init</code> rozpoznaje agentów po tym, co projekt już ma, a gdy nie znajdzie żadnego, pyta:</p>
+<div class="table-wrap" tabindex="0" role="region" aria-label="Rozpoznawany po"><table class="compact-table"><thead><tr><th scope="col">Agent</th><th scope="col">Rozpoznawany po</th></tr></thead><tbody><tr><th scope="row">Claude Code</th><td><code>CLAUDE.md</code> <code>.claude</code> <code>CLAUDE.local.md</code></td></tr><tr><th scope="row">OpenAI Codex</th><td><code>.codex</code> <code>AGENTS.override.md</code></td></tr><tr><th scope="row">Cursor</th><td><code>.cursor</code> <code>.cursorrules</code></td></tr><tr><th scope="row">GitHub Copilot</th><td><code>.github/copilot-instructions.md</code> <code>.github/instructions</code> <code>.github/skills</code> <code>.github/prompts</code></td></tr><tr><th scope="row">Gemini CLI</th><td><code>GEMINI.md</code> <code>.gemini</code></td></tr><tr><th scope="row">Antigravity CLI</th><td><code>.agents/rules</code> <code>.agent/rules</code></td></tr><tr><th scope="row">Devin / Windsurf</th><td><code>.devin</code> <code>.windsurf</code> <code>.windsurfrules</code></td></tr><tr><th scope="row">OpenCode</th><td><code>opencode.json</code> <code>opencode.jsonc</code> <code>.opencode</code></td></tr><tr><th scope="row">Cline</th><td><code>.clinerules</code> <code>.cline</code></td></tr><tr><th scope="row">Zed</th><td><code>.rules</code> <code>.zed</code></td></tr><tr><th scope="row">JetBrains Junie</th><td><code>.junie</code></td></tr><tr><th scope="row">Kiro</th><td><code>.kiro</code></td></tr><tr><th scope="row">Augment</th><td><code>.augment</code> <code>.augment-guidelines</code></td></tr><tr><th scope="row">Trae</th><td><code>.trae</code></td></tr><tr><th scope="row">Continue</th><td><code>.continue</code></td></tr><tr><th scope="row">Amazon Q Developer</th><td><code>.amazonq</code></td></tr><tr><th scope="row">Aider</th><td><code>.aider.conf.yml</code> <code>CONVENTIONS.md</code></td></tr></tbody></table></div>
+</div>
+<div class="agent-panel" data-agent="claude">
+<h3 class="panel-title">Gdzie trafia fe-nuxt dla: Claude Code</h3>
+<div class="panel-grid">
+<div>
+<ul class="file-list"><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.claude/skills/fe-nuxt/SKILL.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.claude/skills/fe-nuxt/references/nuxt.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#layers"/></svg><code>.claude/rules/fe-nuxt.md</code><span class="kind kind-rule">plik reguł</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg><code>CLAUDE.md</code><span class="kind kind-instructions">blok instrukcji</span></li></ul>
+<p class="note">Dla każdego agenta także: <code>.frontend-skills/profile.json</code>, <code>.frontend-skills/lessons.md</code> i <code>.frontend-skills/install.json</code>.</p>
+
+
+<p class="note">Zaplanowane przez sam instalator dla przykładowego projektu React z repozytorium.</p>
+</div>
+<figure class="shot"><div class="window "><div class="window-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="window-title"><code>.claude/rules/fe-nuxt.md</code></span></div><div class="window-body"><pre data-lang="markdown" tabindex="0"><code class="language-markdown">---
+paths:
+  - &quot;**/*.vue&quot;
+  - &quot;app/**/*.ts&quot;
+  - &quot;app/**/*.js&quot;
+  - &quot;server/**/*.ts&quot;
+  - &quot;**/nuxt.config.ts&quot;
+  - &quot;**/nuxt.config.js&quot;
+  - &quot;**/nuxt.config.mjs&quot;
+---
+
+# Nuxt apps (frontend-skills)
+
+Writes and reviews Nuxt 4 apps - useFetch and useAsyncData vs $fetch, keys, per-request state, server-safe setup, runtime config, route announcements - so pages render on the server without leaks, double requests or hydration errors. Use when editing files in a Nuxt project (app/, pages, composables, nuxt.config), fixing a hydration mismatch, or when asked to review Nuxt code.
+
+- Load initial data with `useFetch`/`useAsyncData`, never a bare `$fetch` at the top of setup (nuxt/no-bare-fetch-in-setup).
+- In event handlers use `$fetch`, then `refresh()`; never `useFetch` there (nuxt/fetch-composable-in-handler).
+- Give `useAsyncData` in a composable a key built from its inputs (nuxt/async-data-key).
+- No `ref`/`reactive` at module scope; `useState('key')` or a Pinia store (nuxt/no-module-scope-state).
+- No `window`, `document`, `localStorage` at the top of setup; `onMounted`, `useCookie`, `&lt;ClientOnly&gt;` (nuxt/no-browser-api-in-setup).
+- Read config with `useRuntimeConfig()` and test sides with `import.meta.client` (nuxt/runtime-config-not-process-env).
+- Never put secrets under `runtimeConfig.public` (nuxt/public-runtime-config).
+- Render `&lt;NuxtRouteAnnouncer /&gt;` and give each page its own title (nuxt/route-announcer).
+- Navigate with `&lt;NuxtLink&gt;` (vue/link-for-navigation); import assets or use `~/assets` (js/asset-import).
+- Treat every hydration warning as a bug.
+
+Before larger changes, read the full skill: `.claude/skills/fe-nuxt/SKILL.md`. Explain any rule id with `npx github:dawidolko/frontend-skills explain &lt;id&gt;`.</code></pre></div></div><figcaption>Prawdziwy plik</figcaption></figure>
+</div>
+</div>
+<div class="agent-panel" data-agent="codex">
+<h3 class="panel-title">Gdzie trafia fe-nuxt dla: OpenAI Codex</h3>
+<div class="panel-grid">
+<div>
+<ul class="file-list"><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-nuxt/SKILL.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-nuxt/references/nuxt.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg><code>AGENTS.md</code><span class="kind kind-instructions">blok instrukcji</span></li></ul>
+<p class="note">Dla każdego agenta także: <code>.frontend-skills/profile.json</code>, <code>.frontend-skills/lessons.md</code> i <code>.frontend-skills/install.json</code>.</p>
+
+<p class="note">OpenAI Codex nie ma plików reguł zawężonych do typów plików; czyta skille i blok instrukcji.</p>
+<p class="note">Zaplanowane przez sam instalator dla przykładowego projektu React z repozytorium.</p>
+</div>
+<figure class="shot"><div class="window "><div class="window-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="window-title"><code>AGENTS.md</code></span></div><div class="window-body"><pre data-lang="markdown" tabindex="0"><code class="language-markdown">## Front-end work (frontend-skills)
+
+- Before front-end work, read `.frontend-skills/profile.json` (the stack) and `.frontend-skills/lessons.md` (confirmed conventions of this project; they win over any skill).
+- Use the installed `fe-*` skill that matches the files you edit.
+- After changing UI code, run `npx github:dawidolko/frontend-skills audit --changed --json` and fix findings at `serious` and above; `explain &lt;rule id&gt;` gives the reason, the source and the fix.
+- Name rule ids (such as `a11y/img-alt`) in reviews and commit messages.</code></pre></div></div><figcaption>Prawdziwy plik</figcaption></figure>
+</div>
+</div>
+<div class="agent-panel" data-agent="cursor">
+<h3 class="panel-title">Gdzie trafia fe-nuxt dla: Cursor</h3>
+<div class="panel-grid">
+<div>
+<ul class="file-list"><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-nuxt/SKILL.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-nuxt/references/nuxt.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#layers"/></svg><code>.cursor/rules/fe-nuxt.mdc</code><span class="kind kind-rule">plik reguł</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg><code>AGENTS.md</code><span class="kind kind-instructions">blok instrukcji</span></li></ul>
+<p class="note">Dla każdego agenta także: <code>.frontend-skills/profile.json</code>, <code>.frontend-skills/lessons.md</code> i <code>.frontend-skills/install.json</code>.</p>
+
+
+<p class="note">Zaplanowane przez sam instalator dla przykładowego projektu React z repozytorium.</p>
+</div>
+<figure class="shot"><div class="window "><div class="window-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="window-title"><code>.cursor/rules/fe-nuxt.mdc</code></span></div><div class="window-body"><pre data-lang="markdown" tabindex="0"><code class="language-markdown">---
+description: Writes and reviews Nuxt 4 apps - useFetch and useAsyncData vs $fetch, keys, per-request state, server-safe setup, runtime config, route announcements - so pages render on the server without leaks, double requests or hydration errors. Use when editing files in a Nuxt project (app/, pages, composables, nuxt.config), fixing a hydration mismatch, or when asked to review Nuxt code.
+globs: **/*.vue, app/**/*.ts, app/**/*.js, server/**/*.ts, **/nuxt.config.ts, **/nuxt.config.js, **/nuxt.config.mjs
+alwaysApply: false
+---
+
+# Nuxt apps (frontend-skills)
+
+- Load initial data with `useFetch`/`useAsyncData`, never a bare `$fetch` at the top of setup (nuxt/no-bare-fetch-in-setup).
+- In event handlers use `$fetch`, then `refresh()`; never `useFetch` there (nuxt/fetch-composable-in-handler).
+- Give `useAsyncData` in a composable a key built from its inputs (nuxt/async-data-key).
+- No `ref`/`reactive` at module scope; `useState('key')` or a Pinia store (nuxt/no-module-scope-state).
+- No `window`, `document`, `localStorage` at the top of setup; `onMounted`, `useCookie`, `&lt;ClientOnly&gt;` (nuxt/no-browser-api-in-setup).
+- Read config with `useRuntimeConfig()` and test sides with `import.meta.client` (nuxt/runtime-config-not-process-env).
+- Never put secrets under `runtimeConfig.public` (nuxt/public-runtime-config).
+- Render `&lt;NuxtRouteAnnouncer /&gt;` and give each page its own title (nuxt/route-announcer).
+- Navigate with `&lt;NuxtLink&gt;` (vue/link-for-navigation); import assets or use `~/assets` (js/asset-import).
+- Treat every hydration warning as a bug.
+
+Before larger changes, read the full skill: `.agents/skills/fe-nuxt/SKILL.md`. Explain any rule id with `npx github:dawidolko/frontend-skills explain &lt;id&gt;`.</code></pre></div></div><figcaption>Prawdziwy plik</figcaption></figure>
+</div>
+</div>
+<div class="agent-panel" data-agent="copilot">
+<h3 class="panel-title">Gdzie trafia fe-nuxt dla: GitHub Copilot</h3>
+<div class="panel-grid">
+<div>
+<ul class="file-list"><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-nuxt/SKILL.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-nuxt/references/nuxt.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#layers"/></svg><code>.github/instructions/fe-nuxt.instructions.md</code><span class="kind kind-rule">plik reguł</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg><code>AGENTS.md</code><span class="kind kind-instructions">blok instrukcji</span></li></ul>
+<p class="note">Dla każdego agenta także: <code>.frontend-skills/profile.json</code>, <code>.frontend-skills/lessons.md</code> i <code>.frontend-skills/install.json</code>.</p>
+
+
+<p class="note">Zaplanowane przez sam instalator dla przykładowego projektu React z repozytorium.</p>
+</div>
+<figure class="shot"><div class="window "><div class="window-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="window-title"><code>.github/instructions/fe-nuxt.instructions.md</code></span></div><div class="window-body"><pre data-lang="markdown" tabindex="0"><code class="language-markdown">---
+applyTo: &quot;**/*.vue,app/**/*.ts,app/**/*.js,server/**/*.ts,**/nuxt.config.ts,**/nuxt.config.js,**/nuxt.config.mjs&quot;
+description: &quot;Writes and reviews Nuxt 4 apps - useFetch and useAsyncData vs $fetch, keys, per-request state, server-safe setup, runtime config, route announcements - so pages render on the server without leaks, double requests or hydration errors. Use when editing files in a Nuxt project (app/, pages, composables, nuxt.config), fixing a hydration mismatch, or when asked to review Nuxt code.&quot;
+---
+
+# Nuxt apps (frontend-skills)
+
+- Load initial data with `useFetch`/`useAsyncData`, never a bare `$fetch` at the top of setup (nuxt/no-bare-fetch-in-setup).
+- In event handlers use `$fetch`, then `refresh()`; never `useFetch` there (nuxt/fetch-composable-in-handler).
+- Give `useAsyncData` in a composable a key built from its inputs (nuxt/async-data-key).
+- No `ref`/`reactive` at module scope; `useState('key')` or a Pinia store (nuxt/no-module-scope-state).
+- No `window`, `document`, `localStorage` at the top of setup; `onMounted`, `useCookie`, `&lt;ClientOnly&gt;` (nuxt/no-browser-api-in-setup).
+- Read config with `useRuntimeConfig()` and test sides with `import.meta.client` (nuxt/runtime-config-not-process-env).
+- Never put secrets under `runtimeConfig.public` (nuxt/public-runtime-config).
+- Render `&lt;NuxtRouteAnnouncer /&gt;` and give each page its own title (nuxt/route-announcer).
+- Navigate with `&lt;NuxtLink&gt;` (vue/link-for-navigation); import assets or use `~/assets` (js/asset-import).
+- Treat every hydration warning as a bug.
+
+Before larger changes, read the full skill: `.agents/skills/fe-nuxt/SKILL.md`. Explain any rule id with `npx github:dawidolko/frontend-skills explain &lt;id&gt;`.</code></pre></div></div><figcaption>Prawdziwy plik</figcaption></figure>
+</div>
+</div>
+<div class="agent-panel" data-agent="gemini">
+<h3 class="panel-title">Gdzie trafia fe-nuxt dla: Gemini CLI</h3>
+<div class="panel-grid">
+<div>
+<ul class="file-list"><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-nuxt/SKILL.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-nuxt/references/nuxt.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg><code>GEMINI.md</code><span class="kind kind-instructions">blok instrukcji</span></li></ul>
+<p class="note">Dla każdego agenta także: <code>.frontend-skills/profile.json</code>, <code>.frontend-skills/lessons.md</code> i <code>.frontend-skills/install.json</code>.</p>
+<p class="callout callout-info">Gemini CLI: Gemini CLI was replaced by Antigravity CLI for unpaid tiers on 2026-06-18; choose &quot;antigravity&quot; too if you use it.</p>
+<p class="note">Gemini CLI nie ma plików reguł zawężonych do typów plików; czyta skille i blok instrukcji.</p>
+<p class="note">Zaplanowane przez sam instalator dla przykładowego projektu React z repozytorium.</p>
+</div>
+<figure class="shot"><div class="window "><div class="window-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="window-title"><code>GEMINI.md</code></span></div><div class="window-body"><pre data-lang="markdown" tabindex="0"><code class="language-markdown">## Front-end work (frontend-skills)
+
+- Before front-end work, read `.frontend-skills/profile.json` (the stack) and `.frontend-skills/lessons.md` (confirmed conventions of this project; they win over any skill).
+- Use the installed `fe-*` skill that matches the files you edit.
+- After changing UI code, run `npx github:dawidolko/frontend-skills audit --changed --json` and fix findings at `serious` and above; `explain &lt;rule id&gt;` gives the reason, the source and the fix.
+- Name rule ids (such as `a11y/img-alt`) in reviews and commit messages.</code></pre></div></div><figcaption>Prawdziwy plik</figcaption></figure>
+</div>
+</div>
+<div class="agent-panel" data-agent="antigravity">
+<h3 class="panel-title">Gdzie trafia fe-nuxt dla: Antigravity CLI</h3>
+<div class="panel-grid">
+<div>
+<ul class="file-list"><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-nuxt/SKILL.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-nuxt/references/nuxt.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#layers"/></svg><code>.agents/rules/fe-nuxt.md</code><span class="kind kind-rule">plik reguł</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg><code>AGENTS.md</code><span class="kind kind-instructions">blok instrukcji</span></li></ul>
+<p class="note">Dla każdego agenta także: <code>.frontend-skills/profile.json</code>, <code>.frontend-skills/lessons.md</code> i <code>.frontend-skills/install.json</code>.</p>
+
+
+<p class="note">Zaplanowane przez sam instalator dla przykładowego projektu React z repozytorium.</p>
+</div>
+<figure class="shot"><div class="window "><div class="window-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="window-title"><code>.agents/rules/fe-nuxt.md</code></span></div><div class="window-body"><pre data-lang="markdown" tabindex="0"><code class="language-markdown">---
+trigger: glob
+globs: &quot;**/*.vue, app/**/*.ts, app/**/*.js, server/**/*.ts, **/nuxt.config.ts, **/nuxt.config.js, **/nuxt.config.mjs&quot;
+description: &quot;Writes and reviews Nuxt 4 apps - useFetch and useAsyncData vs $fetch, keys, per-request state, server-safe setup, runtime config, route announcements - so pages render on the server without leaks, double requests or hydration errors. Use when editing files in a Nuxt project (app/, pages, composables, nuxt.config), fixing a hydration mismatch, or when asked to review Nuxt code.&quot;
+---
+
+# Nuxt apps (frontend-skills)
+
+- Load initial data with `useFetch`/`useAsyncData`, never a bare `$fetch` at the top of setup (nuxt/no-bare-fetch-in-setup).
+- In event handlers use `$fetch`, then `refresh()`; never `useFetch` there (nuxt/fetch-composable-in-handler).
+- Give `useAsyncData` in a composable a key built from its inputs (nuxt/async-data-key).
+- No `ref`/`reactive` at module scope; `useState('key')` or a Pinia store (nuxt/no-module-scope-state).
+- No `window`, `document`, `localStorage` at the top of setup; `onMounted`, `useCookie`, `&lt;ClientOnly&gt;` (nuxt/no-browser-api-in-setup).
+- Read config with `useRuntimeConfig()` and test sides with `import.meta.client` (nuxt/runtime-config-not-process-env).
+- Never put secrets under `runtimeConfig.public` (nuxt/public-runtime-config).
+- Render `&lt;NuxtRouteAnnouncer /&gt;` and give each page its own title (nuxt/route-announcer).
+- Navigate with `&lt;NuxtLink&gt;` (vue/link-for-navigation); import assets or use `~/assets` (js/asset-import).
+- Treat every hydration warning as a bug.
+
+Before larger changes, read the full skill: `.agents/skills/fe-nuxt/SKILL.md`. Explain any rule id with `npx github:dawidolko/frontend-skills explain &lt;id&gt;`.</code></pre></div></div><figcaption>Prawdziwy plik</figcaption></figure>
+</div>
+</div>
+<div class="agent-panel" data-agent="devin">
+<h3 class="panel-title">Gdzie trafia fe-nuxt dla: Devin / Windsurf</h3>
+<div class="panel-grid">
+<div>
+<ul class="file-list"><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-nuxt/SKILL.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-nuxt/references/nuxt.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#layers"/></svg><code>.devin/rules/fe-nuxt.md</code><span class="kind kind-rule">plik reguł</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg><code>AGENTS.md</code><span class="kind kind-instructions">blok instrukcji</span></li></ul>
+<p class="note">Dla każdego agenta także: <code>.frontend-skills/profile.json</code>, <code>.frontend-skills/lessons.md</code> i <code>.frontend-skills/install.json</code>.</p>
+<p class="callout callout-info">Devin / Windsurf: Devin CLI also reads .cursor/rules; with Cursor chosen too, the CLI sees both rule files of a skill.</p>
+
+<p class="note">Zaplanowane przez sam instalator dla przykładowego projektu React z repozytorium.</p>
+</div>
+<figure class="shot"><div class="window "><div class="window-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="window-title"><code>.devin/rules/fe-nuxt.md</code></span></div><div class="window-body"><pre data-lang="markdown" tabindex="0"><code class="language-markdown">---
+trigger: glob
+globs: &quot;**/*.vue,app/**/*.ts,app/**/*.js,server/**/*.ts,**/nuxt.config.ts,**/nuxt.config.js,**/nuxt.config.mjs&quot;
+---
+
+# Nuxt apps (frontend-skills)
+
+Writes and reviews Nuxt 4 apps - useFetch and useAsyncData vs $fetch, keys, per-request state, server-safe setup, runtime config, route announcements - so pages render on the server without leaks, double requests or hydration errors. Use when editing files in a Nuxt project (app/, pages, composables, nuxt.config), fixing a hydration mismatch, or when asked to review Nuxt code.
+
+- Load initial data with `useFetch`/`useAsyncData`, never a bare `$fetch` at the top of setup (nuxt/no-bare-fetch-in-setup).
+- In event handlers use `$fetch`, then `refresh()`; never `useFetch` there (nuxt/fetch-composable-in-handler).
+- Give `useAsyncData` in a composable a key built from its inputs (nuxt/async-data-key).
+- No `ref`/`reactive` at module scope; `useState('key')` or a Pinia store (nuxt/no-module-scope-state).
+- No `window`, `document`, `localStorage` at the top of setup; `onMounted`, `useCookie`, `&lt;ClientOnly&gt;` (nuxt/no-browser-api-in-setup).
+- Read config with `useRuntimeConfig()` and test sides with `import.meta.client` (nuxt/runtime-config-not-process-env).
+- Never put secrets under `runtimeConfig.public` (nuxt/public-runtime-config).
+- Render `&lt;NuxtRouteAnnouncer /&gt;` and give each page its own title (nuxt/route-announcer).
+- Navigate with `&lt;NuxtLink&gt;` (vue/link-for-navigation); import assets or use `~/assets` (js/asset-import).
+- Treat every hydration warning as a bug.
+
+Before larger changes, read the full skill: `.agents/skills/fe-nuxt/SKILL.md`. Explain any rule id with `npx github:dawidolko/frontend-skills explain &lt;id&gt;`.</code></pre></div></div><figcaption>Prawdziwy plik</figcaption></figure>
+</div>
+</div>
+<div class="agent-panel" data-agent="opencode">
+<h3 class="panel-title">Gdzie trafia fe-nuxt dla: OpenCode</h3>
+<div class="panel-grid">
+<div>
+<ul class="file-list"><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-nuxt/SKILL.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-nuxt/references/nuxt.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg><code>AGENTS.md</code><span class="kind kind-instructions">blok instrukcji</span></li></ul>
+<p class="note">Dla każdego agenta także: <code>.frontend-skills/profile.json</code>, <code>.frontend-skills/lessons.md</code> i <code>.frontend-skills/install.json</code>.</p>
+
+<p class="note">OpenCode nie ma plików reguł zawężonych do typów plików; czyta skille i blok instrukcji.</p>
+<p class="note">Zaplanowane przez sam instalator dla przykładowego projektu React z repozytorium.</p>
+</div>
+<figure class="shot"><div class="window "><div class="window-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="window-title"><code>AGENTS.md</code></span></div><div class="window-body"><pre data-lang="markdown" tabindex="0"><code class="language-markdown">## Front-end work (frontend-skills)
+
+- Before front-end work, read `.frontend-skills/profile.json` (the stack) and `.frontend-skills/lessons.md` (confirmed conventions of this project; they win over any skill).
+- Use the installed `fe-*` skill that matches the files you edit.
+- After changing UI code, run `npx github:dawidolko/frontend-skills audit --changed --json` and fix findings at `serious` and above; `explain &lt;rule id&gt;` gives the reason, the source and the fix.
+- Name rule ids (such as `a11y/img-alt`) in reviews and commit messages.</code></pre></div></div><figcaption>Prawdziwy plik</figcaption></figure>
+</div>
+</div>
+<div class="agent-panel" data-agent="cline">
+<h3 class="panel-title">Gdzie trafia fe-nuxt dla: Cline</h3>
+<div class="panel-grid">
+<div>
+<ul class="file-list"><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.claude/skills/fe-nuxt/SKILL.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.claude/skills/fe-nuxt/references/nuxt.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#layers"/></svg><code>.clinerules/fe-nuxt.md</code><span class="kind kind-rule">plik reguł</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg><code>AGENTS.md</code><span class="kind kind-instructions">blok instrukcji</span></li></ul>
+<p class="note">Dla każdego agenta także: <code>.frontend-skills/profile.json</code>, <code>.frontend-skills/lessons.md</code> i <code>.frontend-skills/install.json</code>.</p>
+<p class="callout callout-info">Cline: If .clinerules is a single file rather than a folder, Cline rule files are not written; skills still are.</p>
+
+<p class="note">Zaplanowane przez sam instalator dla przykładowego projektu React z repozytorium.</p>
+</div>
+<figure class="shot"><div class="window "><div class="window-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="window-title"><code>.clinerules/fe-nuxt.md</code></span></div><div class="window-body"><pre data-lang="markdown" tabindex="0"><code class="language-markdown">---
+paths:
+  - &quot;**/*.vue&quot;
+  - &quot;app/**/*.ts&quot;
+  - &quot;app/**/*.js&quot;
+  - &quot;server/**/*.ts&quot;
+  - &quot;**/nuxt.config.ts&quot;
+  - &quot;**/nuxt.config.js&quot;
+  - &quot;**/nuxt.config.mjs&quot;
+---
+
+# Nuxt apps (frontend-skills)
+
+Writes and reviews Nuxt 4 apps - useFetch and useAsyncData vs $fetch, keys, per-request state, server-safe setup, runtime config, route announcements - so pages render on the server without leaks, double requests or hydration errors. Use when editing files in a Nuxt project (app/, pages, composables, nuxt.config), fixing a hydration mismatch, or when asked to review Nuxt code.
+
+- Load initial data with `useFetch`/`useAsyncData`, never a bare `$fetch` at the top of setup (nuxt/no-bare-fetch-in-setup).
+- In event handlers use `$fetch`, then `refresh()`; never `useFetch` there (nuxt/fetch-composable-in-handler).
+- Give `useAsyncData` in a composable a key built from its inputs (nuxt/async-data-key).
+- No `ref`/`reactive` at module scope; `useState('key')` or a Pinia store (nuxt/no-module-scope-state).
+- No `window`, `document`, `localStorage` at the top of setup; `onMounted`, `useCookie`, `&lt;ClientOnly&gt;` (nuxt/no-browser-api-in-setup).
+- Read config with `useRuntimeConfig()` and test sides with `import.meta.client` (nuxt/runtime-config-not-process-env).
+- Never put secrets under `runtimeConfig.public` (nuxt/public-runtime-config).
+- Render `&lt;NuxtRouteAnnouncer /&gt;` and give each page its own title (nuxt/route-announcer).
+- Navigate with `&lt;NuxtLink&gt;` (vue/link-for-navigation); import assets or use `~/assets` (js/asset-import).
+- Treat every hydration warning as a bug.
+
+Before larger changes, read the full skill: `.claude/skills/fe-nuxt/SKILL.md`. Explain any rule id with `npx github:dawidolko/frontend-skills explain &lt;id&gt;`.</code></pre></div></div><figcaption>Prawdziwy plik</figcaption></figure>
+</div>
+</div>
+<div class="agent-panel" data-agent="zed">
+<h3 class="panel-title">Gdzie trafia fe-nuxt dla: Zed</h3>
+<div class="panel-grid">
+<div>
+<ul class="file-list"><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-nuxt/SKILL.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-nuxt/references/nuxt.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg><code>CLAUDE.md</code><span class="kind kind-instructions">blok instrukcji</span></li></ul>
+<p class="note">Dla każdego agenta także: <code>.frontend-skills/profile.json</code>, <code>.frontend-skills/lessons.md</code> i <code>.frontend-skills/install.json</code>.</p>
+<p class="callout callout-info">Zed: Zed reads only the first instruction file of its list; the block is placed in that file.</p>
+<p class="note">Zed nie ma plików reguł zawężonych do typów plików; czyta skille i blok instrukcji.</p>
+<p class="note">Zaplanowane przez sam instalator dla przykładowego projektu React z repozytorium.</p>
+</div>
+<figure class="shot"><div class="window "><div class="window-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="window-title"><code>CLAUDE.md</code></span></div><div class="window-body"><pre data-lang="markdown" tabindex="0"><code class="language-markdown">## Front-end work (frontend-skills)
+
+- Before front-end work, read `.frontend-skills/profile.json` (the stack) and `.frontend-skills/lessons.md` (confirmed conventions of this project; they win over any skill).
+- Use the installed `fe-*` skill that matches the files you edit.
+- After changing UI code, run `npx github:dawidolko/frontend-skills audit --changed --json` and fix findings at `serious` and above; `explain &lt;rule id&gt;` gives the reason, the source and the fix.
+- Name rule ids (such as `a11y/img-alt`) in reviews and commit messages.</code></pre></div></div><figcaption>Prawdziwy plik</figcaption></figure>
+</div>
+</div>
+<div class="agent-panel" data-agent="junie">
+<h3 class="panel-title">Gdzie trafia fe-nuxt dla: JetBrains Junie</h3>
+<div class="panel-grid">
+<div>
+<ul class="file-list"><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-nuxt/SKILL.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-nuxt/references/nuxt.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg><code>AGENTS.md</code><span class="kind kind-instructions">blok instrukcji</span></li></ul>
+<p class="note">Dla każdego agenta także: <code>.frontend-skills/profile.json</code>, <code>.frontend-skills/lessons.md</code> i <code>.frontend-skills/install.json</code>.</p>
+<p class="callout callout-info">JetBrains Junie: Junie reads .agents/skills only in a trusted project.</p>
+<p class="note">JetBrains Junie nie ma plików reguł zawężonych do typów plików; czyta skille i blok instrukcji.</p>
+<p class="note">Zaplanowane przez sam instalator dla przykładowego projektu React z repozytorium.</p>
+</div>
+<figure class="shot"><div class="window "><div class="window-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="window-title"><code>AGENTS.md</code></span></div><div class="window-body"><pre data-lang="markdown" tabindex="0"><code class="language-markdown">## Front-end work (frontend-skills)
+
+- Before front-end work, read `.frontend-skills/profile.json` (the stack) and `.frontend-skills/lessons.md` (confirmed conventions of this project; they win over any skill).
+- Use the installed `fe-*` skill that matches the files you edit.
+- After changing UI code, run `npx github:dawidolko/frontend-skills audit --changed --json` and fix findings at `serious` and above; `explain &lt;rule id&gt;` gives the reason, the source and the fix.
+- Name rule ids (such as `a11y/img-alt`) in reviews and commit messages.</code></pre></div></div><figcaption>Prawdziwy plik</figcaption></figure>
+</div>
+</div>
+<div class="agent-panel" data-agent="kiro">
+<h3 class="panel-title">Gdzie trafia fe-nuxt dla: Kiro</h3>
+<div class="panel-grid">
+<div>
+<ul class="file-list"><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.kiro/skills/fe-nuxt/SKILL.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.kiro/skills/fe-nuxt/references/nuxt.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#layers"/></svg><code>.kiro/steering/fe-nuxt.md</code><span class="kind kind-rule">plik reguł</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg><code>AGENTS.md</code><span class="kind kind-instructions">blok instrukcji</span></li></ul>
+<p class="note">Dla każdego agenta także: <code>.frontend-skills/profile.json</code>, <code>.frontend-skills/lessons.md</code> i <code>.frontend-skills/install.json</code>.</p>
+
+
+<p class="note">Zaplanowane przez sam instalator dla przykładowego projektu React z repozytorium.</p>
+</div>
+<figure class="shot"><div class="window "><div class="window-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="window-title"><code>.kiro/steering/fe-nuxt.md</code></span></div><div class="window-body"><pre data-lang="markdown" tabindex="0"><code class="language-markdown">---
+inclusion: fileMatch
+fileMatchPattern: [&quot;**/*.vue&quot;, &quot;app/**/*.ts&quot;, &quot;app/**/*.js&quot;, &quot;server/**/*.ts&quot;, &quot;**/nuxt.config.ts&quot;, &quot;**/nuxt.config.js&quot;, &quot;**/nuxt.config.mjs&quot;]
+---
+
+# Nuxt apps (frontend-skills)
+
+Writes and reviews Nuxt 4 apps - useFetch and useAsyncData vs $fetch, keys, per-request state, server-safe setup, runtime config, route announcements - so pages render on the server without leaks, double requests or hydration errors. Use when editing files in a Nuxt project (app/, pages, composables, nuxt.config), fixing a hydration mismatch, or when asked to review Nuxt code.
+
+- Load initial data with `useFetch`/`useAsyncData`, never a bare `$fetch` at the top of setup (nuxt/no-bare-fetch-in-setup).
+- In event handlers use `$fetch`, then `refresh()`; never `useFetch` there (nuxt/fetch-composable-in-handler).
+- Give `useAsyncData` in a composable a key built from its inputs (nuxt/async-data-key).
+- No `ref`/`reactive` at module scope; `useState('key')` or a Pinia store (nuxt/no-module-scope-state).
+- No `window`, `document`, `localStorage` at the top of setup; `onMounted`, `useCookie`, `&lt;ClientOnly&gt;` (nuxt/no-browser-api-in-setup).
+- Read config with `useRuntimeConfig()` and test sides with `import.meta.client` (nuxt/runtime-config-not-process-env).
+- Never put secrets under `runtimeConfig.public` (nuxt/public-runtime-config).
+- Render `&lt;NuxtRouteAnnouncer /&gt;` and give each page its own title (nuxt/route-announcer).
+- Navigate with `&lt;NuxtLink&gt;` (vue/link-for-navigation); import assets or use `~/assets` (js/asset-import).
+- Treat every hydration warning as a bug.
+
+Before larger changes, read the full skill: `.kiro/skills/fe-nuxt/SKILL.md`. Explain any rule id with `npx github:dawidolko/frontend-skills explain &lt;id&gt;`.</code></pre></div></div><figcaption>Prawdziwy plik</figcaption></figure>
+</div>
+</div>
+<div class="agent-panel" data-agent="augment">
+<h3 class="panel-title">Gdzie trafia fe-nuxt dla: Augment</h3>
+<div class="panel-grid">
+<div>
+<ul class="file-list"><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-nuxt/SKILL.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-nuxt/references/nuxt.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg><code>AGENTS.md</code><span class="kind kind-instructions">blok instrukcji</span></li></ul>
+<p class="note">Dla każdego agenta także: <code>.frontend-skills/profile.json</code>, <code>.frontend-skills/lessons.md</code> i <code>.frontend-skills/install.json</code>.</p>
+
+<p class="note">Augment nie ma plików reguł zawężonych do typów plików; czyta skille i blok instrukcji.</p>
+<p class="note">Zaplanowane przez sam instalator dla przykładowego projektu React z repozytorium.</p>
+</div>
+<figure class="shot"><div class="window "><div class="window-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="window-title"><code>AGENTS.md</code></span></div><div class="window-body"><pre data-lang="markdown" tabindex="0"><code class="language-markdown">## Front-end work (frontend-skills)
+
+- Before front-end work, read `.frontend-skills/profile.json` (the stack) and `.frontend-skills/lessons.md` (confirmed conventions of this project; they win over any skill).
+- Use the installed `fe-*` skill that matches the files you edit.
+- After changing UI code, run `npx github:dawidolko/frontend-skills audit --changed --json` and fix findings at `serious` and above; `explain &lt;rule id&gt;` gives the reason, the source and the fix.
+- Name rule ids (such as `a11y/img-alt`) in reviews and commit messages.</code></pre></div></div><figcaption>Prawdziwy plik</figcaption></figure>
+</div>
+</div>
+<div class="agent-panel" data-agent="trae">
+<h3 class="panel-title">Gdzie trafia fe-nuxt dla: Trae</h3>
+<div class="panel-grid">
+<div>
+<ul class="file-list"><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.trae/skills/fe-nuxt/SKILL.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.trae/skills/fe-nuxt/references/nuxt.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#layers"/></svg><code>.trae/rules/fe-nuxt.md</code><span class="kind kind-rule">plik reguł</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg><code>AGENTS.md</code><span class="kind kind-instructions">blok instrukcji</span></li></ul>
+<p class="note">Dla każdego agenta także: <code>.frontend-skills/profile.json</code>, <code>.frontend-skills/lessons.md</code> i <code>.frontend-skills/install.json</code>.</p>
+<p class="callout callout-info">Trae: Trae reads AGENTS.md only after it is enabled in its settings.</p>
+
+<p class="note">Zaplanowane przez sam instalator dla przykładowego projektu React z repozytorium.</p>
+</div>
+<figure class="shot"><div class="window "><div class="window-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="window-title"><code>.trae/rules/fe-nuxt.md</code></span></div><div class="window-body"><pre data-lang="markdown" tabindex="0"><code class="language-markdown">---
+description: &quot;Writes and reviews Nuxt 4 apps - useFetch and useAsyncData vs $fetch, keys, per-request state, server-safe setup, runtime config, route announcements - so pages render on the server without leaks, double requests or hydration errors. Use when editing files in a Nuxt project (app/, pages, composables, nuxt.config), fixing a hydration mismatch, or when asked to review Nuxt code.&quot;
+globs: **/*.vue,app/**/*.ts,app/**/*.js,server/**/*.ts,**/nuxt.config.ts,**/nuxt.config.js,**/nuxt.config.mjs
+alwaysApply: false
+---
+
+# Nuxt apps (frontend-skills)
+
+- Load initial data with `useFetch`/`useAsyncData`, never a bare `$fetch` at the top of setup (nuxt/no-bare-fetch-in-setup).
+- In event handlers use `$fetch`, then `refresh()`; never `useFetch` there (nuxt/fetch-composable-in-handler).
+- Give `useAsyncData` in a composable a key built from its inputs (nuxt/async-data-key).
+- No `ref`/`reactive` at module scope; `useState('key')` or a Pinia store (nuxt/no-module-scope-state).
+- No `window`, `document`, `localStorage` at the top of setup; `onMounted`, `useCookie`, `&lt;ClientOnly&gt;` (nuxt/no-browser-api-in-setup).
+- Read config with `useRuntimeConfig()` and test sides with `import.meta.client` (nuxt/runtime-config-not-process-env).
+- Never put secrets under `runtimeConfig.public` (nuxt/public-runtime-config).
+- Render `&lt;NuxtRouteAnnouncer /&gt;` and give each page its own title (nuxt/route-announcer).
+- Navigate with `&lt;NuxtLink&gt;` (vue/link-for-navigation); import assets or use `~/assets` (js/asset-import).
+- Treat every hydration warning as a bug.
+
+Before larger changes, read the full skill: `.trae/skills/fe-nuxt/SKILL.md`. Explain any rule id with `npx github:dawidolko/frontend-skills explain &lt;id&gt;`.</code></pre></div></div><figcaption>Prawdziwy plik</figcaption></figure>
+</div>
+</div>
+<div class="agent-panel" data-agent="continue">
+<h3 class="panel-title">Gdzie trafia fe-nuxt dla: Continue</h3>
+<div class="panel-grid">
+<div>
+<ul class="file-list"><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.frontend-skills/skills/fe-nuxt/SKILL.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.frontend-skills/skills/fe-nuxt/references/nuxt.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#layers"/></svg><code>.continue/rules/fe-nuxt.md</code><span class="kind kind-rule">plik reguł</span></li></ul>
+<p class="note">Dla każdego agenta także: <code>.frontend-skills/profile.json</code>, <code>.frontend-skills/lessons.md</code> i <code>.frontend-skills/install.json</code>.</p>
+
+
+<p class="note">Zaplanowane przez sam instalator dla przykładowego projektu React z repozytorium.</p>
+</div>
+<figure class="shot"><div class="window "><div class="window-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="window-title"><code>.continue/rules/fe-nuxt.md</code></span></div><div class="window-body"><pre data-lang="markdown" tabindex="0"><code class="language-markdown">---
+name: &quot;Nuxt apps&quot;
+description: &quot;Writes and reviews Nuxt 4 apps - useFetch and useAsyncData vs $fetch, keys, per-request state, server-safe setup, runtime config, route announcements - so pages render on the server without leaks, double requests or hydration errors. Use when editing files in a Nuxt project (app/, pages, composables, nuxt.config), fixing a hydration mismatch, or when asked to review Nuxt code.&quot;
+globs: [&quot;**/*.vue&quot;, &quot;app/**/*.ts&quot;, &quot;app/**/*.js&quot;, &quot;server/**/*.ts&quot;, &quot;**/nuxt.config.ts&quot;, &quot;**/nuxt.config.js&quot;, &quot;**/nuxt.config.mjs&quot;]
+alwaysApply: false
+---
+
+# Nuxt apps (frontend-skills)
+
+- Load initial data with `useFetch`/`useAsyncData`, never a bare `$fetch` at the top of setup (nuxt/no-bare-fetch-in-setup).
+- In event handlers use `$fetch`, then `refresh()`; never `useFetch` there (nuxt/fetch-composable-in-handler).
+- Give `useAsyncData` in a composable a key built from its inputs (nuxt/async-data-key).
+- No `ref`/`reactive` at module scope; `useState('key')` or a Pinia store (nuxt/no-module-scope-state).
+- No `window`, `document`, `localStorage` at the top of setup; `onMounted`, `useCookie`, `&lt;ClientOnly&gt;` (nuxt/no-browser-api-in-setup).
+- Read config with `useRuntimeConfig()` and test sides with `import.meta.client` (nuxt/runtime-config-not-process-env).
+- Never put secrets under `runtimeConfig.public` (nuxt/public-runtime-config).
+- Render `&lt;NuxtRouteAnnouncer /&gt;` and give each page its own title (nuxt/route-announcer).
+- Navigate with `&lt;NuxtLink&gt;` (vue/link-for-navigation); import assets or use `~/assets` (js/asset-import).
+- Treat every hydration warning as a bug.
+
+Before larger changes, read the full skill: `.frontend-skills/skills/fe-nuxt/SKILL.md`. Explain any rule id with `npx github:dawidolko/frontend-skills explain &lt;id&gt;`.</code></pre></div></div><figcaption>Prawdziwy plik</figcaption></figure>
+</div>
+</div>
+<div class="agent-panel" data-agent="amazonq">
+<h3 class="panel-title">Gdzie trafia fe-nuxt dla: Amazon Q Developer</h3>
+<div class="panel-grid">
+<div>
+<ul class="file-list"><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.frontend-skills/skills/fe-nuxt/SKILL.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.frontend-skills/skills/fe-nuxt/references/nuxt.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg><code>.amazonq/rules/frontend-skills.md</code><span class="kind kind-instructions">blok instrukcji</span></li></ul>
+<p class="note">Dla każdego agenta także: <code>.frontend-skills/profile.json</code>, <code>.frontend-skills/lessons.md</code> i <code>.frontend-skills/install.json</code>.</p>
+<p class="callout callout-info">Amazon Q Developer: Amazon Q Developer IDE plugins reach end of support on 2027-04-30; AWS points to Kiro.</p>
+<p class="note">Amazon Q Developer nie ma plików reguł zawężonych do typów plików; czyta skille i blok instrukcji.</p>
+<p class="note">Zaplanowane przez sam instalator dla przykładowego projektu React z repozytorium.</p>
+</div>
+<figure class="shot"><div class="window "><div class="window-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="window-title"><code>.amazonq/rules/frontend-skills.md</code></span></div><div class="window-body"><pre data-lang="markdown" tabindex="0"><code class="language-markdown">## Front-end work (frontend-skills)
+
+- Before front-end work, read `.frontend-skills/profile.json` (the stack) and `.frontend-skills/lessons.md` (confirmed conventions of this project; they win over any skill).
+- Use the installed `fe-*` skill that matches the files you edit.
+- After changing UI code, run `npx github:dawidolko/frontend-skills audit --changed --json` and fix findings at `serious` and above; `explain &lt;rule id&gt;` gives the reason, the source and the fix.
+- Name rule ids (such as `a11y/img-alt`) in reviews and commit messages.
+
+### Skills
+
+- `fe-nuxt` (Nuxt apps): when editing `**/*.vue`, `app/**/*.ts`, `app/**/*.js`, `server/**/*.ts`, `**/nuxt.config.ts`, `**/nuxt.config.js`, `**/nuxt.config.mjs`, first read `.frontend-skills/skills/fe-nuxt/SKILL.md`.</code></pre></div></div><figcaption>Prawdziwy plik</figcaption></figure>
+</div>
+</div>
+<div class="agent-panel" data-agent="aider">
+<h3 class="panel-title">Gdzie trafia fe-nuxt dla: Aider</h3>
+<div class="panel-grid">
+<div>
+<ul class="file-list"><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.frontend-skills/skills/fe-nuxt/SKILL.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.frontend-skills/skills/fe-nuxt/references/nuxt.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg><code>CONVENTIONS.md</code><span class="kind kind-instructions">blok instrukcji</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.aider.conf.yml</code><span class="kind kind-config">konfiguracja</span></li></ul>
+<p class="note">Dla każdego agenta także: <code>.frontend-skills/profile.json</code>, <code>.frontend-skills/lessons.md</code> i <code>.frontend-skills/install.json</code>.</p>
+
+<p class="note">Aider nie ma plików reguł zawężonych do typów plików; czyta skille i blok instrukcji.</p>
+<p class="note">Zaplanowane przez sam instalator dla przykładowego projektu React z repozytorium.</p>
+</div>
+<figure class="shot"><div class="window "><div class="window-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="window-title"><code>CONVENTIONS.md</code></span></div><div class="window-body"><pre data-lang="markdown" tabindex="0"><code class="language-markdown">## Front-end work (frontend-skills)
+
+- Before front-end work, read `.frontend-skills/profile.json` (the stack) and `.frontend-skills/lessons.md` (confirmed conventions of this project; they win over any skill).
+- Use the installed `fe-*` skill that matches the files you edit.
+- After changing UI code, run `npx github:dawidolko/frontend-skills audit --changed --json` and fix findings at `serious` and above; `explain &lt;rule id&gt;` gives the reason, the source and the fix.
+- Name rule ids (such as `a11y/img-alt`) in reviews and commit messages.
+
+### Skills
+
+- `fe-nuxt` (Nuxt apps): when editing `**/*.vue`, `app/**/*.ts`, `app/**/*.js`, `server/**/*.ts`, `**/nuxt.config.ts`, `**/nuxt.config.js`, `**/nuxt.config.mjs`, first read `.frontend-skills/skills/fe-nuxt/SKILL.md`.</code></pre></div></div><figcaption>Prawdziwy plik</figcaption></figure>
+</div>
+</div>
+</section>
+<section aria-labelledby="how-to"><h2 id="how-to"><svg class="icon heading-icon" width="24" height="24" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#chat"/></svg>Jak go używać</h2>
+<p>Po instalacji agent sam ładuje skill, gdy zadanie pasuje do jego opisu. Możesz też poprosić o niego własnymi słowami, na przykład:</p>
+
+<p>A żeby sprawdzić i poprawić pracę:</p><ul class="prompts"><li><svg class="icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#chat"/></svg><span>Użyj skilla fe-nuxt na tym pliku.</span></li><li><svg class="icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#chat"/></svg><span>Uruchom audyt front-endu na moich zmianach i popraw wszystko, co poważne.</span></li><li><svg class="icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#chat"/></svg><span>Wyjaśnij nuxt/no-bare-fetch-in-setup i popraw to tutaj.</span></li></ul>
+</section>
+<section aria-labelledby="rules"><h2 id="rules"><svg class="icon heading-icon" width="24" height="24" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg>Reguły, których uczy</h2>
+<ul class="rule-cards"><li class="rule-card lift sev-edge-moderate"><a class="rule-id tile-link" href="/pl/rules/nuxt/no-bare-fetch-in-setup/"><code>nuxt/no-bare-fetch-in-setup</code></a><p>Load a page's initial data with useFetch or useAsyncData, not a bare $fetch at the top of script setup.</p><p class="rule-meta"><span class="sev sev-moderate">umiarkowana</span><span class="tag">statyczne</span></p></li><li class="rule-card lift sev-edge-moderate"><a class="rule-id tile-link" href="/pl/rules/nuxt/fetch-composable-in-handler/"><code>nuxt/fetch-composable-in-handler</code></a><p>Call useFetch and useAsyncData only in setup, plugins or composables; in event handlers use $fetch.</p><p class="rule-meta"><span class="sev sev-moderate">umiarkowana</span><span class="tag">statyczne</span></p></li><li class="rule-card lift sev-edge-moderate"><a class="rule-id tile-link" href="/pl/rules/nuxt/async-data-key/"><code>nuxt/async-data-key</code></a><p>A composable that wraps useAsyncData passes an explicit, unique key built from its inputs.</p><p class="rule-meta"><span class="sev sev-moderate">umiarkowana</span><span class="tag">statyczne</span></p></li><li class="rule-card lift sev-edge-serious"><a class="rule-id tile-link" href="/pl/rules/nuxt/no-module-scope-state/"><code>nuxt/no-module-scope-state</code></a><p>Never create ref() or reactive() state at module scope in a Nuxt app; use useState or a Pinia store.</p><p class="rule-meta"><span class="sev sev-serious">poważna</span><span class="tag">statyczne</span></p></li><li class="rule-card lift sev-edge-serious"><a class="rule-id tile-link" href="/pl/rules/nuxt/no-browser-api-in-setup/"><code>nuxt/no-browser-api-in-setup</code></a><p>Never touch window, document, localStorage or navigator at the top of script setup; it also runs on the server.</p><p class="rule-meta"><span class="sev sev-serious">poważna</span><span class="tag">statyczne</span></p></li><li class="rule-card lift sev-edge-moderate"><a class="rule-id tile-link" href="/pl/rules/nuxt/runtime-config-not-process-env/"><code>nuxt/runtime-config-not-process-env</code></a><p>App code reads configuration with useRuntimeConfig() and tests the side with import.meta.client, not process.env or process.client.</p><p class="rule-meta"><span class="sev sev-moderate">umiarkowana</span><span class="tag">statyczne</span></p></li><li class="rule-card lift sev-edge-serious"><a class="rule-id tile-link" href="/pl/rules/nuxt/public-runtime-config/"><code>nuxt/public-runtime-config</code></a><p>Secrets live in the top level of runtimeConfig, never under runtimeConfig.public, which every page sends to the browser.</p><p class="rule-meta"><span class="sev sev-serious">poważna</span><span class="tag">statyczne</span></p></li><li class="rule-card lift sev-edge-moderate"><a class="rule-id tile-link" href="/pl/rules/nuxt/route-announcer/"><code>nuxt/route-announcer</code></a><p>The app renders NuxtRouteAnnouncer (in app.vue or a layout) so client-side page changes are announced.</p><p class="rule-meta"><span class="sev sev-moderate">umiarkowana</span><span class="tag">statyczne</span><span class="tag">WCAG 4.1.3</span></p></li><li class="rule-card lift sev-edge-moderate"><a class="rule-id tile-link" href="/pl/rules/vue/link-for-navigation/"><code>vue/link-for-navigation</code></a><p>Navigate with RouterLink or NuxtLink, not a button whose click handler only calls router.push or navigateTo.</p><p class="rule-meta"><span class="sev sev-moderate">umiarkowana</span><span class="tag">statyczne</span><span class="tag">WCAG 4.1.2</span></p></li><li class="rule-card lift sev-edge-moderate"><a class="rule-id tile-link" href="/pl/rules/js/asset-import/"><code>js/asset-import</code></a><p>In a bundled project, images, fonts and media in component markup are imported or use the base-path helper, not hard-coded root paths.</p><p class="rule-meta"><span class="sev sev-moderate">umiarkowana</span><span class="tag">statyczne</span></p></li></ul>
+</section>
+<section aria-labelledby="digest"><h2 id="digest"><svg class="icon heading-icon" width="24" height="24" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#layers"/></svg>Skrót reguł</h2><p>Ta część jest kopiowana do zawężonego pliku reguł każdego agenta, więc musi być zrozumiała sama w sobie:</p><div class="digest" lang="en"><ul><li>Load initial data with <code>useFetch</code>/<code>useAsyncData</code>, never a bare <code>$fetch</code> at the top of setup (<a href="/pl/rules/nuxt/no-bare-fetch-in-setup/">nuxt/no-bare-fetch-in-setup</a>).</li><li>In event handlers use <code>$fetch</code>, then <code>refresh()</code>; never <code>useFetch</code> there (<a href="/pl/rules/nuxt/fetch-composable-in-handler/">nuxt/fetch-composable-in-handler</a>).</li><li>Give <code>useAsyncData</code> in a composable a key built from its inputs (<a href="/pl/rules/nuxt/async-data-key/">nuxt/async-data-key</a>).</li><li>No <code>ref</code>/<code>reactive</code> at module scope; <code>useState('key')</code> or a Pinia store (<a href="/pl/rules/nuxt/no-module-scope-state/">nuxt/no-module-scope-state</a>).</li><li>No <code>window</code>, <code>document</code>, <code>localStorage</code> at the top of setup; <code>onMounted</code>, <code>useCookie</code>, <code>&lt;ClientOnly&gt;</code> (<a href="/pl/rules/nuxt/no-browser-api-in-setup/">nuxt/no-browser-api-in-setup</a>).</li><li>Read config with <code>useRuntimeConfig()</code> and test sides with <code>import.meta.client</code> (<a href="/pl/rules/nuxt/runtime-config-not-process-env/">nuxt/runtime-config-not-process-env</a>).</li><li>Never put secrets under <code>runtimeConfig.public</code> (<a href="/pl/rules/nuxt/public-runtime-config/">nuxt/public-runtime-config</a>).</li><li>Render <code>&lt;NuxtRouteAnnouncer /&gt;</code> and give each page its own title (<a href="/pl/rules/nuxt/route-announcer/">nuxt/route-announcer</a>).</li><li>Navigate with <code>&lt;NuxtLink&gt;</code> (<a href="/pl/rules/vue/link-for-navigation/">vue/link-for-navigation</a>); import assets or use <code>~/assets</code> (<a href="/pl/rules/js/asset-import/">js/asset-import</a>).</li><li>Treat every hydration warning as a bug.</li></ul></div></section>
+<section aria-labelledby="do"><h2 id="do"><svg class="icon heading-icon" width="24" height="24" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#workflow"/></svg>Kroki, które wykonuje agent</h2><div lang="en"><ol><li>Nuxt 4 layout: app code in <code>app/</code> (<code>pages/</code>, <code>layouts/</code>, <code>components/</code>, <code>composables/</code>, <code>middleware/</code>, <code>plugins/</code>, <code>app.vue</code>), API routes in <code>server/</code>, shared types in <code>shared/</code>, static files in <code>public/</code>. Nuxt 3 is end-of-life since 2026-07-31.</li><li>Data: <code>const { data, status, error, refresh } = await useFetch('/api/x', { pick: [...] })</code>; show <code>status === 'pending'</code> and <code>error</code> states; <code>lazy: true</code> for below-the-fold data; <code>Promise.all</code> inside one <code>useAsyncData</code> for parallel calls. <code>data</code> starts as <code>undefined</code>.</li><li>State shared across components: <code>useState('cart', () =&gt; [])</code> with JSON-serializable values, or Pinia (<code>@pinia/nuxt</code>).</li><li>Head and SEO per page: <code>useSeoMeta({ title, description })</code>, a <code>titleTemplate</code> in <code>app.vue</code>; <code>definePageMeta</code> takes only static values.</li><li>Rendering per route with <code>routeRules</code> (<code>prerender</code>, <code>swr</code>, <code>isr</code>, <code>ssr: false</code>); with <code>ssr: false</code> add <code>app/spa-loading-template.html</code>.</li><li>Images through <code>&lt;NuxtImg&gt;</code> (<code>@nuxt/image</code>), fonts through <code>@nuxt/fonts</code>, third-party scripts through <code>@nuxt/scripts</code>; <code>Lazy</code> prefix and <code>hydrate-on-visible</code> for heavy components below the fold.</li><li>Secrets only in server code: top-level <code>runtimeConfig</code> read with <code>useRuntimeConfig(event)</code> in <code>server/</code>, set with <code>NUXT_</code> variables.</li></ol></div></section>
+<section aria-labelledby="check"><h2 id="check"><svg class="icon heading-icon" width="24" height="24" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#check"/></svg>Jak agent sprawdza swoją pracę</h2><div lang="en"><ul><li><code>npx github:dawidolko/frontend-skills audit --changed</code> reports bare <code>$fetch</code> in setup, data composables in handlers, keyless <code>useAsyncData</code> in composables, module-scope state, browser APIs in setup, <code>process.env</code> in app code, public secrets and a missing route announcer.</li><li>Run <code>@nuxt/eslint</code> (it includes <code>eslint-plugin-vue</code>) and <code>nuxi typecheck</code>.</li><li>Load a page with JavaScript off and on, and read the browser console for hydration warnings; navigate with a screen reader to hear the announcer.</li></ul></div></section>
+<section aria-labelledby="checked"><h2 id="checked"><svg class="icon heading-icon" width="24" height="24" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#report"/></svg>Sprawdzane audytem</h2>
+<p>Testy statyczne tych reguł działają w <code>audit</code>; to prawdziwa sesja na przykładowym projekcie:</p>
+<figure class="recording"><picture><source media="(prefers-reduced-motion: reduce)" srcset="/media/audit.png" width="842" height="584"><img src="/media/audit.svg" width="842" height="584" alt="Nagranie terminala: audit wypisuje znaleziska według wagi z identyfikatorami reguł i miejscem plik:linia i kończy się błędem od progu serious." data-still="/media/audit.png" loading="lazy" decoding="async"></picture><figcaption><code>audit</code>: liczby według wagi, każda reguła z pierwszym miejscem, kod wyjścia.</figcaption></figure>
+</section>
+<section aria-labelledby="refs"><h2 id="refs"><svg class="icon heading-icon" width="24" height="24" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg>Pliki referencyjne</h2><ul class="file-list"><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><a href="https://github.com/dawidolko/frontend-skills/blob/main/skills/frameworks/fe-nuxt/references/nuxt.md"><code>references/nuxt.md</code></a><span class="kind">2024 tokeny</span></li></ul></section>
+<p class="source-link"><a href="https://github.com/dawidolko/frontend-skills/blob/main/skills/frameworks/fe-nuxt/SKILL.md"><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#github"/></svg>SKILL.md na GitHubie</a></p>
 </main>
+<aside class="docs-outline"><nav aria-labelledby="outline-title"><h2 id="outline-title">Na tej stronie</h2><ol><li><a href="#install">Instalacja</a></li><li><a href="#how-to">Jak go używać</a></li><li><a href="#rules">Reguły, których uczy</a></li><li><a href="#digest">Skrót reguł</a></li><li><a href="#do">Kroki, które wykonuje agent</a></li><li><a href="#check">Jak agent sprawdza swoją pracę</a></li><li><a href="#checked">Sprawdzane audytem</a></li><li><a href="#refs">Pliki referencyjne</a></li></ol></nav></aside>
+</div>
 <footer class="site-footer">
-<div class="wrap footer-inner">
-<div class="footer-text">
+<div class="wrap footer-grid">
+<div class="footer-brand-col">
 <p class="footer-brand"><svg class="brand-mark" viewBox="0 0 32 32" width="32" height="32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="8" fill="currentColor"/><path d="M12.5 10 7 16l5.5 6M19.5 10 25 16l-5.5 6" fill="none" stroke="var(--logo-ink)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Frontend Skills</span></p>
+<p>Skille i słownik reguł dla agentów AI, które piszą kod front-endu.</p>
 <p>Darmowy i otwarty, na licencji MIT. Autor: <a href="https://dawidolko.pl">Dawid Olko</a>.</p>
+</div>
+<nav class="footer-nav" aria-label="Więcej">
+<div class="footer-col"><h2>Przewodnik</h2><ul><li><a href="/pl/">Start</a></li><li><a href="/pl/how-it-works/">Jak to działa</a></li><li><a href="/pl/commands/">Polecenia</a></li><li><a href="/pl/faq/">Pytania</a></li></ul></div>
+<div class="footer-col"><h2>Słownik</h2><ul><li><a href="/pl/rules/">Wszystkie reguły</a></li><li><a href="/pl/rules/#area-a11y">Dostępność</a></li><li><a href="/pl/rules/#area-perf">Wydajność</a></li><li><a href="/pl/rules/#area-html">HTML</a></li><li><a href="/pl/rules/#area-css">CSS</a></li><li><a href="/pl/rules/#area-responsive">Responsywność</a></li><li><a href="/pl/rules/#area-js">JavaScript</a></li></ul></div>
+<div class="footer-col"><h2>Skille</h2><ul><li><a href="/pl/skills/">Wszystkie skille</a></li><li><a href="/pl/skills/#sa-foundations">Podstawy</a></li><li><a href="/pl/skills/#sa-styling">Style</a></li><li><a href="/pl/skills/#sa-frameworks">Frameworki</a></li><li><a href="/pl/skills/#sa-accessibility">Dostępność</a></li><li><a href="/pl/skills/#sa-performance">Wydajność</a></li><li><a href="/pl/skills/#sa-quality">Jakość</a></li></ul></div>
+<div class="footer-col"><h2>Projekt</h2><ul><li><a href="https://github.com/dawidolko/frontend-skills">GitHub</a></li><li><a href="https://github.com/dawidolko/frontend-skills/issues">Zgłoś problem</a></li><li><a href="/pl/about/#licence">Licencja MIT</a></li><li><a href="/pl/about/">O projekcie</a></li><li><a href="https://dawidolko.pl">dawidolko.pl</a></li></ul></div>
+</nav>
+</div>
+<div class="wrap footer-legal">
 <p>Budowana z WCAG 2.2 AA jako celem. Automatyczne testy wykrywają tylko część problemów.</p>
 <p>Bez ciasteczek, bez analityki, bez zapytań do innych serwisów. Przycisk dostępności zapisuje ustawienia tylko na Twoim urządzeniu.</p>
-</div>
-<nav aria-label="Więcej"><ul class="footer-nav"><li><a href="/pl/">Start</a></li><li><a href="/pl/how-it-works/">Jak to działa</a></li><li><a href="/pl/rules/">Reguły</a></li><li><a href="/pl/skills/">Skille</a></li><li><a href="/pl/commands/">Polecenia</a></li><li><a href="/pl/faq/">Pytania</a></li><li><a href="/pl/about/">O projekcie</a></li><li><a href="https://github.com/dawidolko/frontend-skills">GitHub</a></li></ul></nav>
 </div>
 </footer>
 <p id="live-status" class="visually-hidden" role="status" aria-live="polite"></p>

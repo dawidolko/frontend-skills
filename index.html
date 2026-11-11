@@ -5,17 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Frontend Skills: front-end skills for every AI coding agent</title>
 <meta name="description" content="One command learns your project's stack, installs the matching front-end skills for Claude Code, Codex, Cursor, Copilot and other agents, and reports what to fix with the rule, the line and the source. Free, MIT.">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-V2yAsoxJIibu4bEYhDOwR/ucB/Zr0RzUJUEQYpXs6vQ='; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="color-scheme" content="light dark">
-<meta name="theme-color" content="#faf7fc" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#0d0d0f" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#0d0d0f">
+<script>(function(){try{var t=localStorage.getItem("fs-theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}})();</script>
 <link rel="canonical" href="https://skills.dawidolko.pl/">
 <link rel="alternate" hreflang="en" href="https://skills.dawidolko.pl/">
 <link rel="alternate" hreflang="pl" href="https://skills.dawidolko.pl/pl/">
 <link rel="alternate" hreflang="x-default" href="https://skills.dawidolko.pl/">
 <link rel="preload" href="/assets/fonts/opensans-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/styles.css?v=fbc2d7ae26">
+<link rel="stylesheet" href="/assets/styles.css?v=c56b96b9b9">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Frontend Skills">
@@ -31,152 +31,632 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="author" content="Dawid Olko">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Frontend Skills","description":"One command learns your project's stack, installs the matching front-end skills for Claude Code, Codex, Cursor, Copilot and other agents, and reports what to fix with the rule, the line and the source. Free, MIT.","url":"https://skills.dawidolko.pl/","inLanguage":"en","applicationCategory":"DeveloperApplication","operatingSystem":"Windows, macOS, Linux","softwareVersion":"0.1.0","softwareRequirements":"Node.js 20 or newer","license":"https://opensource.org/license/mit","isAccessibleForFree":true,"sameAs":"https://github.com/dawidolko/frontend-skills","author":{"@type":"Person","name":"Dawid Olko","url":"https://dawidolko.pl"}}</script>
-<script src="/assets/site.js?v=dd8cab0a79" defer></script>
+<script src="/assets/site.js?v=6b0081a976" defer></script>
 <script src="/a11y/a11y-panel.js?v=39d6e82235" data-accent="#9b00c2" defer></script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="site-header">
-<div class="wrap header-inner">
+<div class="wrap-wide header-inner">
 <a class="brand" href="/" aria-current="page"><svg class="brand-mark" viewBox="0 0 32 32" width="32" height="32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="8" fill="currentColor"/><path d="M12.5 10 7 16l5.5 6M19.5 10 25 16l-5.5 6" fill="none" stroke="var(--logo-ink)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="brand-name">Frontend Skills</span></a>
 <nav class="main-nav" aria-label="Main"><ul><li><a href="/how-it-works/">How it works</a></li><li><a href="/rules/">Rules</a></li><li><a href="/skills/">Skills</a></li><li><a href="/commands/">Commands</a></li><li><a href="/faq/">FAQ</a></li></ul></nav>
 <div class="header-tools">
+<div class="theme-switch" role="group" aria-label="Colour theme" hidden><button type="button" class="theme-btn" data-theme-set="light" aria-pressed="false" aria-label="Light theme" title="Light theme"><svg class="icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#sun"/></svg></button><button type="button" class="theme-btn" data-theme-set="system" aria-pressed="true" aria-label="Follow the system theme" title="Follow the system theme"><svg class="icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#system"/></svg></button><button type="button" class="theme-btn" data-theme-set="dark" aria-pressed="false" aria-label="Dark theme" title="Dark theme"><svg class="icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#moon"/></svg></button></div>
 <a class="lang-switch" href="/pl/" hreflang="pl" lang="pl" title="Ta strona po polsku">Polski</a>
-<a class="gh-link" href="https://github.com/dawidolko/frontend-skills" aria-label="Source code on GitHub"><svg viewBox="0 0 16 16" width="20" height="20" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg></a>
+<a class="gh-link" href="https://github.com/dawidolko/frontend-skills" aria-label="Source code on GitHub"><svg class="icon" width="22" height="22" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#github"/></svg></a>
 </div>
 </div>
 </header>
 <main id="main" tabindex="-1">
 <section class="hero" aria-labelledby="hero-title">
-<div class="wrap hero-inner">
-<p class="eyebrow">Free and open source · MIT</p>
+<div class="wrap hero-grid">
+<div class="hero-text">
+<p class="eyebrow"><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#gift"/></svg>Free and open source · MIT</p>
 <h1 id="hero-title">Front-end skills for every AI coding agent</h1>
 <p class="lead">One command learns your project's stack, installs only the skills that fit it for each coding agent you use, and reports what to fix in your HTML, CSS, JavaScript and framework code: the rule, the line, why it matters and the source.</p>
-<p class="start-label" id="start-label">Run it in your project's folder (Node.js 20 or newer):</p>
-<div class="command"><pre class="command-text"><code id="cmd-1">npx github:<wbr>dawidolko/<wbr>frontend-skills init</code></pre><button type="button" class="copy-button" data-copy="cmd-1" data-done="Copied to the clipboard." data-fail="Copying failed; select the text and copy it by hand." aria-label="Copy the command" hidden>Copy</button></div>
-<p class="cta"><a class="button" href="/how-it-works/">How it works</a> <a class="button button-ghost" href="/rules/">Browse the rules</a></p>
+<p class="start-label">Run it in your project's folder (Node.js 20 or newer):</p>
+<div class="command"><pre class="command-text"><code id="cmd-1">npx github:<wbr>dawidolko/<wbr>frontend-skills init</code></pre><button type="button" class="copy-button" data-copy="cmd-1" data-done="Copied to the clipboard." data-fail="Copying failed; select the text and copy it by hand." aria-label="Copy the command" hidden><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#copy"/></svg><span>Copy</span></button></div>
+<p class="cta"><a class="button lift" href="/how-it-works/">How it works<svg class="icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#arrow"/></svg></a><a class="button button-ghost lift" href="/skills/#install">Install for your agent</a></p>
+</div>
+<div class="hero-visual"><div class="demo">
+<fieldset class="seg seg-demo"><legend class="visually-hidden">Show</legend><div class="seg-options"><label class="seg-opt"><input type="radio" name="demo" value="init" checked><span><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#terminal"/></svg>init</span></label><label class="seg-opt"><input type="radio" name="demo" value="audit"><span><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#terminal"/></svg>audit</span></label><label class="seg-opt"><input type="radio" name="demo" value="explain"><span><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#terminal"/></svg>explain</span></label></div></fieldset>
+<figure class="demo-panel" data-demo="init"><picture><source media="(prefers-reduced-motion: reduce)" srcset="/media/init.png" width="842" height="584"><img src="/media/init.svg" width="842" height="584" alt="Terminal recording: init learns a React and Tailwind project, installs the matching skills for Claude Code, writes the profile and runs the first audit." data-still="/media/init.png" fetchpriority="high" decoding="async"></picture><figcaption><code>init</code> on the example project: the stack it found, the skills and files it planned, the first audit.</figcaption></figure>
+<figure class="demo-panel" data-demo="audit"><picture><source media="(prefers-reduced-motion: reduce)" srcset="/media/audit.png" width="842" height="584"><img src="/media/audit.svg" width="842" height="584" alt="Terminal recording: audit lists findings by severity with rule ids and file:line, and fails at serious." data-still="/media/audit.png" loading="lazy" decoding="async"></picture><figcaption><code>audit</code>: counts by severity, each rule with its first location, the exit code.</figcaption></figure>
+<figure class="demo-panel" data-demo="explain"><picture><source media="(prefers-reduced-motion: reduce)" srcset="/media/explain.png" width="842" height="584"><img src="/media/explain.svg" width="842" height="584" alt="Terminal recording: explain a11y/img-alt prints the rule, why it matters, the fix, examples and sources." data-still="/media/explain.png" loading="lazy" decoding="async"></picture><figcaption><code>explain a11y/img-alt</code>: the dictionary entry in the terminal.</figcaption></figure>
+</div></div>
 </div>
 </section>
 <section class="stats" aria-labelledby="stats-title">
 <div class="wrap">
 <h2 id="stats-title" class="visually-hidden">In numbers</h2>
 <ul class="stat-list">
-<li><a href="/rules/"><strong>275</strong> <span>rules with a stable id</span></a></li>
-<li><a href="/skills/"><strong>50</strong> <span>skills</span></a></li>
-<li><a href="#agents-title"><strong>17</strong> <span>coding agents</span></a></li>
-<li><a href="/about/"><strong>0</strong> <span>runtime dependencies</span></a></li>
+<li><a class="lift" href="/rules/"><svg class="icon" width="28" height="28" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg><strong>275</strong><span>rules with a stable id</span></a></li>
+<li><a class="lift" href="/skills/"><svg class="icon" width="28" height="28" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#layers"/></svg><strong>50</strong><span>skills</span></a></li>
+<li><a class="lift" href="#agents-title"><svg class="icon" width="28" height="28" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#agent"/></svg><strong>17</strong><span>coding agents</span></a></li>
+<li><a class="lift" href="/about/"><svg class="icon" width="28" height="28" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#gift"/></svg><strong>0</strong><span>runtime dependencies</span></a></li>
 </ul>
 </div>
 </section>
-<section class="section" aria-labelledby="steps-title">
+<section class="section band-dots" aria-labelledby="steps-title">
 <div class="wrap">
 <h2 id="steps-title">Three steps, one command</h2>
-<p><code>init</code> runs all three. Each step is also a command of its own.</p>
+<p class="section-lead"><code>init</code> runs all three. Each step is also a command of its own.</p>
 <div class="flow" role="group" aria-label="From your project to fixed code in three steps">
-<p class="flow-end flow-in"><span>your project</span></p>
+<p class="flow-end flow-in"><span><svg class="icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#folder"/></svg>your project</span></p>
 <ol class="flow-steps">
-<li class="flow-step">
-<div class="flow-icon"><svg viewBox="0 0 48 48" width="48" height="48" aria-hidden="true" focusable="false"><path d="M12 6h16l8 8v12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/><path d="M12 6v34h12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><path d="M28 6v8h8" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/><circle cx="33" cy="33" r="7" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="m38 38 5 5" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg></div>
+<li class="flow-step lift">
+<div class="flow-icon"><svg class="icon" width="40" height="40" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#search"/></svg></div>
 <h3><span class="flow-num">1.</span> Learn your stack</h3>
 <p>Reads <code>package.json</code>, lockfiles and config files, with no network. Writes <code>.frontend-skills/profile.json</code>: frameworks and versions, styling, tests, and your own helpers, such as a rem function or generated icon classes.</p>
-<p class="flow-out"><code>profile.json</code></p>
+<p class="flow-out"><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>profile.json</code></p>
 </li>
-<li class="flow-step">
-<div class="flow-icon"><svg viewBox="0 0 48 48" width="48" height="48" aria-hidden="true" focusable="false"><path d="M6 14h12l3 4h21v20H6z" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/><path d="M14 27h20M14 32h12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><path d="M10 9h10l2 3" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+<li class="flow-step lift">
+<div class="flow-icon"><svg class="icon" width="40" height="40" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#folder"/></svg></div>
 <h3><span class="flow-num">2.</span> Install for your agents</h3>
 <p>Finds the agents the project uses and writes only the skills that match the stack, in each agent's own format: skills folders, rule files scoped to file types, one short block in <code>AGENTS.md</code> or <code>CLAUDE.md</code>. Every file is recorded.</p>
-<p class="flow-out"><code>skills + rule files</code></p>
+<p class="flow-out"><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>skills + rule files</code></p>
 </li>
-<li class="flow-step">
-<div class="flow-icon"><svg viewBox="0 0 48 48" width="48" height="48" aria-hidden="true" focusable="false"><rect x="8" y="6" width="32" height="36" rx="4" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="m14 17 3 3 6-6M14 31l3 3 6-6" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M27 18h8M27 32h8" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></div>
+<li class="flow-step lift">
+<div class="flow-icon"><svg class="icon" width="40" height="40" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#report"/></svg></div>
 <h3><span class="flow-num">3.</span> Audit and fix</h3>
 <p>Checks the source against the dictionary and writes a report a person can act on. Your agent reads the condensed JSON and fixes the code; you read the Markdown report.</p>
-<p class="flow-out"><code>frontend-report.md</code></p>
+<p class="flow-out"><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>frontend-report.md</code></p>
 </li>
 </ol>
-<p class="flow-end flow-result"><span>code your agent writes to the rules</span></p>
+<p class="flow-end flow-result"><span><svg class="icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#check"/></svg>code your agent writes to the rules</span></p>
 </div>
 </div>
 </section>
-<section class="section section-alt" aria-labelledby="report-title">
+<section class="section" aria-labelledby="show-title">
 <div class="wrap">
-<h2 id="report-title">What a finding looks like</h2>
-<p>This is real output: <code>audit</code> run on the <code>react-vite</code> example project in the repository when this site was built.</p>
-<div class="report-grid">
+<h2 id="show-title">See it run</h2>
+<p class="section-lead">Real terminal sessions and real files from this repository, recorded on its example React project.</p>
+<div class="showcase">
+<fieldset class="seg seg-tabs"><legend class="visually-hidden">Show</legend><div class="seg-options"><label class="seg-opt"><input type="radio" name="show" value="audit" checked><span>audit</span></label><label class="seg-opt"><input type="radio" name="show" value="explain"><span>explain</span></label><label class="seg-opt"><input type="radio" name="show" value="report"><span>Report</span></label><label class="seg-opt"><input type="radio" name="show" value="files"><span>Agent files</span></label></div></fieldset>
+<div class="show-panel" data-show="audit"><figure class="recording"><picture><source media="(prefers-reduced-motion: reduce)" srcset="/media/audit.png" width="842" height="584"><img src="/media/audit.svg" width="842" height="584" alt="Terminal recording: audit lists findings by severity with rule ids and file:line, and fails at serious." data-still="/media/audit.png" loading="lazy" decoding="async"></picture><figcaption><code>audit</code>: counts by severity, each rule with its first location, the exit code.</figcaption></figure></div>
+<div class="show-panel" data-show="explain"><figure class="recording"><picture><source media="(prefers-reduced-motion: reduce)" srcset="/media/explain.png" width="842" height="584"><img src="/media/explain.svg" width="842" height="584" alt="Terminal recording: explain a11y/img-alt prints the rule, why it matters, the fix, examples and sources." data-still="/media/explain.png" loading="lazy" decoding="async"></picture><figcaption><code>explain a11y/img-alt</code>: the dictionary entry in the terminal.</figcaption></figure></div>
+<div class="show-panel" data-show="report"><figure class="shot"><div class="window window-light"><div class="window-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="window-title"><code>frontend-report.md</code></span></div><div class="window-body"><div class="report-view" tabindex="0" role="region" aria-label="frontend-report.md"><p>Project: <code>react-vite</code> · 2026-11-11 · 3 files read, 131 static rules run.</p>
+<div class="table-wrap" tabindex="0" role="region" aria-label="critical, serious, moderate, minor"><table><thead><tr><th scope="col">critical</th><th scope="col">serious</th><th scope="col">moderate</th><th scope="col">minor</th></tr></thead><tbody><tr><td>2</td><td>3</td><td>4</td><td>5</td></tr></tbody></table></div>
+<p>**Result: findings at <code>serious</code> or above.**</p>
+<p>Automated checks find only part of the problems; the checklist at the end needs a person.</p>
+<h3>Critical</h3>
+<h4><code>a11y/img-alt</code> Every img and area element has an alt attribute; a decorative image has alt=&quot;&quot;.</h4>
+<p>Why: Without alt, a screen reader announces the file name or nothing, and the image's meaning is lost; when the image fails to load, nothing replaces it.</p>
+<p>Fix: Describe what the image says in this context (<code>alt=&quot;Revenue grew 20% in 2026&quot;</code>), not what it looks like. For an image that only decorates, write <code>alt=&quot;&quot;</code> so assistive technology skips it. An image inside a link that has no other text needs the link's purpose as its alt.</p>
+<p>Sources: <a href="https://www.w3.org/WAI/WCAG22/Understanding/non-text-content.html">WCAG 2.2, Understanding SC 1.1.1 Non-text Content</a> · <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/img">MDN, the img element (alt)</a> · <a href="https://www.w3.org/WAI/tutorials/images/decorative/">WAI Images Tutorial, decorative images</a></p>
+<ul><li><code>src/App.tsx:8</code> &lt;img&gt; has no alt attribute; describe it, or use alt=&quot;&quot; if it is decorative.</li></ul>
+<h4><code>a11y/input-label</code> Every form field has a programmatic label (label element, aria-label or aria-labelledby); a placeholder is not a label.</h4>
+<p>Why: A field without a programmatic label is announced only as &quot;edit text&quot;: the user does not know what to type.</p>
+<p>Fix: Pair a visible <code>&lt;label for=&quot;email&quot;&gt;</code> with <code>&lt;input id=&quot;email&quot;&gt;</code>, or wrap the field in the label. When the design has no visible label (a search field next to its button), use <code>aria-label</code> or <code>aria-labelledby</code>; keep a visible label wherever you can.</p>
+<p>Sources: <a href="https://www.w3.org/WAI/WCAG22/Understanding/labels-or-instructions.html">WCAG 2.2, Understanding SC 3.3.2 Labels or Instructions</a> · <a href="https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html">WCAG 2.2, Understanding SC 1.3.1 Info and Relationships</a> · <a href="https://www.w3.org/WAI/tutorials/forms/labels/">WAI Forms Tutorial, labeling controls</a> · <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/label">MDN, the label element</a></p>
+<ul><li><code>src/App.tsx:15</code> &lt;input type=&quot;email&quot;&gt; has no label; add &lt;label for&gt;, wrap it in &lt;label&gt; or use aria-label.</li></ul>
+<h3>Serious</h3>
+<h4><code>a11y/focus-visible</code> Never remove the focus outline without drawing a visible replacement for keyboard focus.</h4>
+<p>Why: Keyboard users see where they are only through the focus indicator.</p>
+<p>Fix: Style <code>:focus-visible</code> instead of removing focus styles: <code>button:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }</code>. If the design needs no ring for mouse clicks, <code>:focus:not(:focus-visible) { outline: none; }</code> is acceptable. With Tailwind, pair <code>outline-none</code> with a <code>focus-visible:ring-*</code> or <code>focus-visible:outline-*</code> class.</p>
+<p>Sources: <a href="https://www.w3.org/WAI/WCAG22/Understanding/focus-visible.html">WCAG 2.2, Understanding SC 2.4.7 Focus Visible</a> · <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-visible">MDN, the :focus-visible pseudo-class</a> · <a href="https://tailwindcss.com/docs/outline-style">Tailwind CSS, outline-style (outline-hidden and outline-none)</a></p>
+<ul><li><code>src/App.tsx:16</code> outline-none removes the focus indicator; add a focus-visible:ring-* or focus-visible:outline-* class.</li><li><code>src/app.css:9</code> &quot;a:focus&quot; removes the focus outline with no visible replacement.</li></ul></div></div></div><figcaption><code>frontend-report.md</code>, the report <code>audit</code> writes, as a person reads it.</figcaption></figure></div>
+<div class="show-panel" data-show="files"><figure class="shot"><div class="window "><div class="window-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="window-title"><code>.cursor/rules/fe-react.mdc</code></span></div><div class="window-body"><pre data-lang="markdown" tabindex="0"><code class="language-markdown">---
+description: Writes and reviews React 19 components (also inside Next.js, Vite or React Router apps) - keys, state, effects, events, refs, forms with actions, memoization and React Compiler - so they stay correct, accessible and fast. Use when creating or editing a .jsx or .tsx component or hook, fixing a re-render or stale-state bug, or when asked &quot;review this React code&quot;.
+globs: **/*.jsx, **/*.tsx
+alwaysApply: false
+---
+
+# React components (frontend-skills)
+
+- Keys come from the data (`key={item.id}`), never the array index for lists that change (react/no-array-index-key).
+- Compute derived values during render; an effect only synchronises with something outside React (react/no-derived-state-effect).
+- Declare components at module level; never define a component inside another (react/no-nested-component).
+- Keep state minimal and close to where it is used; lift it only as far as the nearest shared parent.
+- Handle user actions in event handlers, not in effects that watch state.
+- Every effect that subscribes, listens or starts a timer returns a cleanup.
+- Interactive elements are `&lt;button&gt;` and `&lt;a&gt;`, not `div` with `onClick` (a11y/no-click-on-static); every `&lt;img&gt;` has `alt` (a11y/img-alt).
+- Never mutate state or props; never call hooks conditionally; never read `ref.current` during render.
+
+Before larger changes, read the full skill: `.agents/skills/fe-react/SKILL.md`. Explain any rule id with `npx github:dawidolko/frontend-skills explain &lt;id&gt;`.</code></pre></div></div><figcaption>The rule file the installer writes for Cursor from the <code>fe-react</code> skill.</figcaption></figure></div>
+<p class="note">Recorded with <code>tools/record.mjs</code>; the animation stops when you ask for less motion.</p>
+</div>
+</div>
+</section>
+<section class="section band-lines" id="install">
+<div class="wrap">
+<section class="install" data-install aria-labelledby="install-title">
+<h2 id="install-title"><svg class="icon heading-icon" width="24" height="24" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#terminal"/></svg>Install for your agent</h2>
+<p>Pick how you run Node.js packages and which agent you use. <code>init</code> learns the stack and installs only the skills that fit; below are the files it writes for that agent.</p>
+<div class="install-controls">
+<fieldset class="seg" data-runners hidden><legend>Run with</legend><div class="seg-options"><label class="seg-opt"><input type="radio" name="runner-ins-2" value="npx" data-template="npx github:dawidolko/frontend-skills {args}" checked><span>npx</span></label><label class="seg-opt"><input type="radio" name="runner-ins-2" value="pnpm" data-template="pnpm dlx github:dawidolko/frontend-skills {args}"><span>pnpm dlx</span></label><label class="seg-opt"><input type="radio" name="runner-ins-2" value="yarn" data-template="yarn dlx -p github:dawidolko/frontend-skills frontend-skills {args}"><span>yarn dlx</span></label><label class="seg-opt"><input type="radio" name="runner-ins-2" value="bun" data-template="bunx github:dawidolko/frontend-skills {args}"><span>bunx</span></label></div></fieldset>
+<fieldset class="seg seg-agents"><legend>Agent</legend><div class="seg-options"><label class="seg-opt"><input type="radio" name="agent-ins-2" value="auto" checked><span>Detect</span></label><label class="seg-opt"><input type="radio" name="agent-ins-2" value="claude"><span>Claude Code</span></label><label class="seg-opt"><input type="radio" name="agent-ins-2" value="codex"><span>OpenAI Codex</span></label><label class="seg-opt"><input type="radio" name="agent-ins-2" value="cursor"><span>Cursor</span></label><label class="seg-opt"><input type="radio" name="agent-ins-2" value="copilot"><span>GitHub Copilot</span></label><label class="seg-opt"><input type="radio" name="agent-ins-2" value="gemini"><span>Gemini CLI</span></label><label class="seg-opt"><input type="radio" name="agent-ins-2" value="antigravity"><span>Antigravity CLI</span></label><label class="seg-opt"><input type="radio" name="agent-ins-2" value="devin"><span>Devin / Windsurf</span></label><label class="seg-opt"><input type="radio" name="agent-ins-2" value="opencode"><span>OpenCode</span></label><label class="seg-opt"><input type="radio" name="agent-ins-2" value="cline"><span>Cline</span></label><label class="seg-opt"><input type="radio" name="agent-ins-2" value="zed"><span>Zed</span></label><label class="seg-opt"><input type="radio" name="agent-ins-2" value="junie"><span>JetBrains Junie</span></label><label class="seg-opt"><input type="radio" name="agent-ins-2" value="kiro"><span>Kiro</span></label><label class="seg-opt"><input type="radio" name="agent-ins-2" value="augment"><span>Augment</span></label><label class="seg-opt"><input type="radio" name="agent-ins-2" value="trae"><span>Trae</span></label><label class="seg-opt"><input type="radio" name="agent-ins-2" value="continue"><span>Continue</span></label><label class="seg-opt"><input type="radio" name="agent-ins-2" value="amazonq"><span>Amazon Q Developer</span></label><label class="seg-opt"><input type="radio" name="agent-ins-2" value="aider"><span>Aider</span></label></div></fieldset>
+</div>
+<div class="command"><pre class="command-text"><code id="cmd-3" data-args="init">npx github:<wbr>dawidolko/<wbr>frontend-skills init</code></pre><button type="button" class="copy-button" data-copy="cmd-3" data-done="Copied to the clipboard." data-fail="Copying failed; select the text and copy it by hand." aria-label="Copy the command" hidden><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#copy"/></svg><span>Copy</span></button></div>
+<p class="callout callout-warn runner-note" hidden>Not tested yet with this runner. <code>npx</code> and <code>pnpm dlx</code> are tested; if this one fails, use one of them.</p>
+<div class="agent-panel" data-agent="auto">
+<p>Without <code>--agents</code>, <code>init</code> finds the agents from what the project already has, and asks when it finds none:</p>
+<div class="table-wrap" tabindex="0" role="region" aria-label="Found by"><table class="compact-table"><thead><tr><th scope="col">Agent</th><th scope="col">Found by</th></tr></thead><tbody><tr><th scope="row">Claude Code</th><td><code>CLAUDE.md</code> <code>.claude</code> <code>CLAUDE.local.md</code></td></tr><tr><th scope="row">OpenAI Codex</th><td><code>.codex</code> <code>AGENTS.override.md</code></td></tr><tr><th scope="row">Cursor</th><td><code>.cursor</code> <code>.cursorrules</code></td></tr><tr><th scope="row">GitHub Copilot</th><td><code>.github/copilot-instructions.md</code> <code>.github/instructions</code> <code>.github/skills</code> <code>.github/prompts</code></td></tr><tr><th scope="row">Gemini CLI</th><td><code>GEMINI.md</code> <code>.gemini</code></td></tr><tr><th scope="row">Antigravity CLI</th><td><code>.agents/rules</code> <code>.agent/rules</code></td></tr><tr><th scope="row">Devin / Windsurf</th><td><code>.devin</code> <code>.windsurf</code> <code>.windsurfrules</code></td></tr><tr><th scope="row">OpenCode</th><td><code>opencode.json</code> <code>opencode.jsonc</code> <code>.opencode</code></td></tr><tr><th scope="row">Cline</th><td><code>.clinerules</code> <code>.cline</code></td></tr><tr><th scope="row">Zed</th><td><code>.rules</code> <code>.zed</code></td></tr><tr><th scope="row">JetBrains Junie</th><td><code>.junie</code></td></tr><tr><th scope="row">Kiro</th><td><code>.kiro</code></td></tr><tr><th scope="row">Augment</th><td><code>.augment</code> <code>.augment-guidelines</code></td></tr><tr><th scope="row">Trae</th><td><code>.trae</code></td></tr><tr><th scope="row">Continue</th><td><code>.continue</code></td></tr><tr><th scope="row">Amazon Q Developer</th><td><code>.amazonq</code></td></tr><tr><th scope="row">Aider</th><td><code>.aider.conf.yml</code> <code>CONVENTIONS.md</code></td></tr></tbody></table></div>
+</div>
+<div class="agent-panel" data-agent="claude">
+<h3 class="panel-title">What lands where for Claude Code</h3>
+<div class="panel-grid">
 <div>
-<h3>Summary in the terminal</h3>
-<pre class="terminal" tabindex="0"><code><span class="prompt">$ </span>npx github:dawidolko/frontend-skills audit fixtures/projects/react-vite
-3 files, 124 rules: 2 critical, 3 serious, 2 moderate, 3 minor.
-  critical a11y/img-alt  1× (first: fixtures/projects/react-vite/src/App.tsx:8)
-  critical a11y/input-label  1× (first: fixtures/projects/react-vite/src/App.tsx:15)
-  serious  a11y/focus-visible  2× (first: fixtures/projects/react-vite/src/App.tsx:16)
-  serious  a11y/no-click-on-static  1× (first: fixtures/projects/react-vite/src/App.tsx:9)
-  moderate perf/img-dimensions  1× (first: fixtures/projects/react-vite/src/App.tsx:8)
-Explain a rule: frontend-skills explain a11y/img-alt
-Failed: findings at serious or above.</code></pre>
+<ul class="file-list"><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.claude/skills/fe-react/SKILL.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.claude/skills/fe-react/references/react.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#layers"/></svg><code>.claude/rules/fe-react.md</code><span class="kind kind-rule">rule file</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg><code>CLAUDE.md</code><span class="kind kind-instructions">instruction block</span></li></ul>
+<p class="note">For every agent also: <code>.frontend-skills/profile.json</code>, <code>.frontend-skills/lessons.md</code> and <code>.frontend-skills/install.json</code>.</p>
+
+
+<p class="note">Planned by the installer itself for the example React project in the repository.</p>
 </div>
+<figure class="shot"><div class="window "><div class="window-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="window-title"><code>.claude/rules/fe-react.md</code></span></div><div class="window-body"><pre data-lang="markdown" tabindex="0"><code class="language-markdown">---
+paths:
+  - &quot;**/*.jsx&quot;
+  - &quot;**/*.tsx&quot;
+---
+
+# React components (frontend-skills)
+
+Writes and reviews React 19 components (also inside Next.js, Vite or React Router apps) - keys, state, effects, events, refs, forms with actions, memoization and React Compiler - so they stay correct, accessible and fast. Use when creating or editing a .jsx or .tsx component or hook, fixing a re-render or stale-state bug, or when asked &quot;review this React code&quot;.
+
+- Keys come from the data (`key={item.id}`), never the array index for lists that change (react/no-array-index-key).
+- Compute derived values during render; an effect only synchronises with something outside React (react/no-derived-state-effect).
+- Declare components at module level; never define a component inside another (react/no-nested-component).
+- Keep state minimal and close to where it is used; lift it only as far as the nearest shared parent.
+- Handle user actions in event handlers, not in effects that watch state.
+- Every effect that subscribes, listens or starts a timer returns a cleanup.
+- Interactive elements are `&lt;button&gt;` and `&lt;a&gt;`, not `div` with `onClick` (a11y/no-click-on-static); every `&lt;img&gt;` has `alt` (a11y/img-alt).
+- Never mutate state or props; never call hooks conditionally; never read `ref.current` during render.
+
+Before larger changes, read the full skill: `.claude/skills/fe-react/SKILL.md`. Explain any rule id with `npx github:dawidolko/frontend-skills explain &lt;id&gt;`.</code></pre></div></div><figcaption>The real file</figcaption></figure>
+</div>
+</div>
+<div class="agent-panel" data-agent="codex">
+<h3 class="panel-title">What lands where for OpenAI Codex</h3>
+<div class="panel-grid">
 <div>
-<h3>One finding from the report</h3>
-<article class="finding" aria-labelledby="finding-title">
-<h3 id="finding-title" class="visually-hidden">One finding from the report</h3>
-<dl class="finding-grid">
-<dt>Rule</dt><dd><a href="/rules/a11y/img-alt/"><code>a11y/img-alt</code></a> <span class="sev sev-critical">critical</span></dd>
-<dt>Where</dt><dd><code>fixtures/projects/react-vite/src/App.tsx:8</code></dd>
-<dt>Why</dt><dd>Without <code>alt</code>, a screen reader announces the file name or nothing, and the image's meaning is lost; when the image fails to load, nothing replaces it.</dd>
-<dt>Fix</dt><dd>Describe what the image says in this context (alt=&quot;Revenue grew 20% in 2026&quot;), not what it looks like.</dd>
-<dt>Source</dt><dd><a href="https://www.w3.org/WAI/WCAG22/Understanding/non-text-content.html">WCAG 2.2, Understanding SC 1.1.1 Non-text Content</a></dd>
-</dl>
-</article>
+<ul class="file-list"><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-react/SKILL.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-react/references/react.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg><code>AGENTS.md</code><span class="kind kind-instructions">instruction block</span></li></ul>
+<p class="note">For every agent also: <code>.frontend-skills/profile.json</code>, <code>.frontend-skills/lessons.md</code> and <code>.frontend-skills/install.json</code>.</p>
+
+<p class="note">OpenAI Codex has no rule files scoped to file types; it reads the skills and the instruction block.</p>
+<p class="note">Planned by the installer itself for the example React project in the repository.</p>
+</div>
+<figure class="shot"><div class="window "><div class="window-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="window-title"><code>AGENTS.md</code></span></div><div class="window-body"><pre data-lang="markdown" tabindex="0"><code class="language-markdown">## Front-end work (frontend-skills)
+
+- Before front-end work, read `.frontend-skills/profile.json` (the stack) and `.frontend-skills/lessons.md` (confirmed conventions of this project; they win over any skill).
+- Use the installed `fe-*` skill that matches the files you edit.
+- After changing UI code, run `npx github:dawidolko/frontend-skills audit --changed --json` and fix findings at `serious` and above; `explain &lt;rule id&gt;` gives the reason, the source and the fix.
+- Name rule ids (such as `a11y/img-alt`) in reviews and commit messages.</code></pre></div></div><figcaption>The real file</figcaption></figure>
 </div>
 </div>
+<div class="agent-panel" data-agent="cursor">
+<h3 class="panel-title">What lands where for Cursor</h3>
+<div class="panel-grid">
+<div>
+<ul class="file-list"><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-react/SKILL.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-react/references/react.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#layers"/></svg><code>.cursor/rules/fe-react.mdc</code><span class="kind kind-rule">rule file</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg><code>AGENTS.md</code><span class="kind kind-instructions">instruction block</span></li></ul>
+<p class="note">For every agent also: <code>.frontend-skills/profile.json</code>, <code>.frontend-skills/lessons.md</code> and <code>.frontend-skills/install.json</code>.</p>
+
+
+<p class="note">Planned by the installer itself for the example React project in the repository.</p>
+</div>
+<figure class="shot"><div class="window "><div class="window-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="window-title"><code>.cursor/rules/fe-react.mdc</code></span></div><div class="window-body"><pre data-lang="markdown" tabindex="0"><code class="language-markdown">---
+description: Writes and reviews React 19 components (also inside Next.js, Vite or React Router apps) - keys, state, effects, events, refs, forms with actions, memoization and React Compiler - so they stay correct, accessible and fast. Use when creating or editing a .jsx or .tsx component or hook, fixing a re-render or stale-state bug, or when asked &quot;review this React code&quot;.
+globs: **/*.jsx, **/*.tsx
+alwaysApply: false
+---
+
+# React components (frontend-skills)
+
+- Keys come from the data (`key={item.id}`), never the array index for lists that change (react/no-array-index-key).
+- Compute derived values during render; an effect only synchronises with something outside React (react/no-derived-state-effect).
+- Declare components at module level; never define a component inside another (react/no-nested-component).
+- Keep state minimal and close to where it is used; lift it only as far as the nearest shared parent.
+- Handle user actions in event handlers, not in effects that watch state.
+- Every effect that subscribes, listens or starts a timer returns a cleanup.
+- Interactive elements are `&lt;button&gt;` and `&lt;a&gt;`, not `div` with `onClick` (a11y/no-click-on-static); every `&lt;img&gt;` has `alt` (a11y/img-alt).
+- Never mutate state or props; never call hooks conditionally; never read `ref.current` during render.
+
+Before larger changes, read the full skill: `.agents/skills/fe-react/SKILL.md`. Explain any rule id with `npx github:dawidolko/frontend-skills explain &lt;id&gt;`.</code></pre></div></div><figcaption>The real file</figcaption></figure>
+</div>
+</div>
+<div class="agent-panel" data-agent="copilot">
+<h3 class="panel-title">What lands where for GitHub Copilot</h3>
+<div class="panel-grid">
+<div>
+<ul class="file-list"><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-react/SKILL.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-react/references/react.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#layers"/></svg><code>.github/instructions/fe-react.instructions.md</code><span class="kind kind-rule">rule file</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg><code>AGENTS.md</code><span class="kind kind-instructions">instruction block</span></li></ul>
+<p class="note">For every agent also: <code>.frontend-skills/profile.json</code>, <code>.frontend-skills/lessons.md</code> and <code>.frontend-skills/install.json</code>.</p>
+
+
+<p class="note">Planned by the installer itself for the example React project in the repository.</p>
+</div>
+<figure class="shot"><div class="window "><div class="window-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="window-title"><code>.github/instructions/fe-react.instructions.md</code></span></div><div class="window-body"><pre data-lang="markdown" tabindex="0"><code class="language-markdown">---
+applyTo: &quot;**/*.jsx,**/*.tsx&quot;
+description: &quot;Writes and reviews React 19 components (also inside Next.js, Vite or React Router apps) - keys, state, effects, events, refs, forms with actions, memoization and React Compiler - so they stay correct, accessible and fast. Use when creating or editing a .jsx or .tsx component or hook, fixing a re-render or stale-state bug, or when asked \&quot;review this React code\&quot;.&quot;
+---
+
+# React components (frontend-skills)
+
+- Keys come from the data (`key={item.id}`), never the array index for lists that change (react/no-array-index-key).
+- Compute derived values during render; an effect only synchronises with something outside React (react/no-derived-state-effect).
+- Declare components at module level; never define a component inside another (react/no-nested-component).
+- Keep state minimal and close to where it is used; lift it only as far as the nearest shared parent.
+- Handle user actions in event handlers, not in effects that watch state.
+- Every effect that subscribes, listens or starts a timer returns a cleanup.
+- Interactive elements are `&lt;button&gt;` and `&lt;a&gt;`, not `div` with `onClick` (a11y/no-click-on-static); every `&lt;img&gt;` has `alt` (a11y/img-alt).
+- Never mutate state or props; never call hooks conditionally; never read `ref.current` during render.
+
+Before larger changes, read the full skill: `.agents/skills/fe-react/SKILL.md`. Explain any rule id with `npx github:dawidolko/frontend-skills explain &lt;id&gt;`.</code></pre></div></div><figcaption>The real file</figcaption></figure>
+</div>
+</div>
+<div class="agent-panel" data-agent="gemini">
+<h3 class="panel-title">What lands where for Gemini CLI</h3>
+<div class="panel-grid">
+<div>
+<ul class="file-list"><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-react/SKILL.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-react/references/react.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg><code>GEMINI.md</code><span class="kind kind-instructions">instruction block</span></li></ul>
+<p class="note">For every agent also: <code>.frontend-skills/profile.json</code>, <code>.frontend-skills/lessons.md</code> and <code>.frontend-skills/install.json</code>.</p>
+<p class="callout callout-info">Gemini CLI: Gemini CLI was replaced by Antigravity CLI for unpaid tiers on 2026-06-18; choose &quot;antigravity&quot; too if you use it.</p>
+<p class="note">Gemini CLI has no rule files scoped to file types; it reads the skills and the instruction block.</p>
+<p class="note">Planned by the installer itself for the example React project in the repository.</p>
+</div>
+<figure class="shot"><div class="window "><div class="window-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="window-title"><code>GEMINI.md</code></span></div><div class="window-body"><pre data-lang="markdown" tabindex="0"><code class="language-markdown">## Front-end work (frontend-skills)
+
+- Before front-end work, read `.frontend-skills/profile.json` (the stack) and `.frontend-skills/lessons.md` (confirmed conventions of this project; they win over any skill).
+- Use the installed `fe-*` skill that matches the files you edit.
+- After changing UI code, run `npx github:dawidolko/frontend-skills audit --changed --json` and fix findings at `serious` and above; `explain &lt;rule id&gt;` gives the reason, the source and the fix.
+- Name rule ids (such as `a11y/img-alt`) in reviews and commit messages.</code></pre></div></div><figcaption>The real file</figcaption></figure>
+</div>
+</div>
+<div class="agent-panel" data-agent="antigravity">
+<h3 class="panel-title">What lands where for Antigravity CLI</h3>
+<div class="panel-grid">
+<div>
+<ul class="file-list"><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-react/SKILL.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-react/references/react.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#layers"/></svg><code>.agents/rules/fe-react.md</code><span class="kind kind-rule">rule file</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg><code>AGENTS.md</code><span class="kind kind-instructions">instruction block</span></li></ul>
+<p class="note">For every agent also: <code>.frontend-skills/profile.json</code>, <code>.frontend-skills/lessons.md</code> and <code>.frontend-skills/install.json</code>.</p>
+
+
+<p class="note">Planned by the installer itself for the example React project in the repository.</p>
+</div>
+<figure class="shot"><div class="window "><div class="window-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="window-title"><code>.agents/rules/fe-react.md</code></span></div><div class="window-body"><pre data-lang="markdown" tabindex="0"><code class="language-markdown">---
+trigger: glob
+globs: &quot;**/*.jsx, **/*.tsx&quot;
+description: &quot;Writes and reviews React 19 components (also inside Next.js, Vite or React Router apps) - keys, state, effects, events, refs, forms with actions, memoization and React Compiler - so they stay correct, accessible and fast. Use when creating or editing a .jsx or .tsx component or hook, fixing a re-render or stale-state bug, or when asked \&quot;review this React code\&quot;.&quot;
+---
+
+# React components (frontend-skills)
+
+- Keys come from the data (`key={item.id}`), never the array index for lists that change (react/no-array-index-key).
+- Compute derived values during render; an effect only synchronises with something outside React (react/no-derived-state-effect).
+- Declare components at module level; never define a component inside another (react/no-nested-component).
+- Keep state minimal and close to where it is used; lift it only as far as the nearest shared parent.
+- Handle user actions in event handlers, not in effects that watch state.
+- Every effect that subscribes, listens or starts a timer returns a cleanup.
+- Interactive elements are `&lt;button&gt;` and `&lt;a&gt;`, not `div` with `onClick` (a11y/no-click-on-static); every `&lt;img&gt;` has `alt` (a11y/img-alt).
+- Never mutate state or props; never call hooks conditionally; never read `ref.current` during render.
+
+Before larger changes, read the full skill: `.agents/skills/fe-react/SKILL.md`. Explain any rule id with `npx github:dawidolko/frontend-skills explain &lt;id&gt;`.</code></pre></div></div><figcaption>The real file</figcaption></figure>
+</div>
+</div>
+<div class="agent-panel" data-agent="devin">
+<h3 class="panel-title">What lands where for Devin / Windsurf</h3>
+<div class="panel-grid">
+<div>
+<ul class="file-list"><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-react/SKILL.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-react/references/react.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#layers"/></svg><code>.devin/rules/fe-react.md</code><span class="kind kind-rule">rule file</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg><code>AGENTS.md</code><span class="kind kind-instructions">instruction block</span></li></ul>
+<p class="note">For every agent also: <code>.frontend-skills/profile.json</code>, <code>.frontend-skills/lessons.md</code> and <code>.frontend-skills/install.json</code>.</p>
+<p class="callout callout-info">Devin / Windsurf: Devin CLI also reads .cursor/rules; with Cursor chosen too, the CLI sees both rule files of a skill.</p>
+
+<p class="note">Planned by the installer itself for the example React project in the repository.</p>
+</div>
+<figure class="shot"><div class="window "><div class="window-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="window-title"><code>.devin/rules/fe-react.md</code></span></div><div class="window-body"><pre data-lang="markdown" tabindex="0"><code class="language-markdown">---
+trigger: glob
+globs: &quot;**/*.jsx,**/*.tsx&quot;
+---
+
+# React components (frontend-skills)
+
+Writes and reviews React 19 components (also inside Next.js, Vite or React Router apps) - keys, state, effects, events, refs, forms with actions, memoization and React Compiler - so they stay correct, accessible and fast. Use when creating or editing a .jsx or .tsx component or hook, fixing a re-render or stale-state bug, or when asked &quot;review this React code&quot;.
+
+- Keys come from the data (`key={item.id}`), never the array index for lists that change (react/no-array-index-key).
+- Compute derived values during render; an effect only synchronises with something outside React (react/no-derived-state-effect).
+- Declare components at module level; never define a component inside another (react/no-nested-component).
+- Keep state minimal and close to where it is used; lift it only as far as the nearest shared parent.
+- Handle user actions in event handlers, not in effects that watch state.
+- Every effect that subscribes, listens or starts a timer returns a cleanup.
+- Interactive elements are `&lt;button&gt;` and `&lt;a&gt;`, not `div` with `onClick` (a11y/no-click-on-static); every `&lt;img&gt;` has `alt` (a11y/img-alt).
+- Never mutate state or props; never call hooks conditionally; never read `ref.current` during render.
+
+Before larger changes, read the full skill: `.agents/skills/fe-react/SKILL.md`. Explain any rule id with `npx github:dawidolko/frontend-skills explain &lt;id&gt;`.</code></pre></div></div><figcaption>The real file</figcaption></figure>
+</div>
+</div>
+<div class="agent-panel" data-agent="opencode">
+<h3 class="panel-title">What lands where for OpenCode</h3>
+<div class="panel-grid">
+<div>
+<ul class="file-list"><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-react/SKILL.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-react/references/react.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg><code>AGENTS.md</code><span class="kind kind-instructions">instruction block</span></li></ul>
+<p class="note">For every agent also: <code>.frontend-skills/profile.json</code>, <code>.frontend-skills/lessons.md</code> and <code>.frontend-skills/install.json</code>.</p>
+
+<p class="note">OpenCode has no rule files scoped to file types; it reads the skills and the instruction block.</p>
+<p class="note">Planned by the installer itself for the example React project in the repository.</p>
+</div>
+<figure class="shot"><div class="window "><div class="window-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="window-title"><code>AGENTS.md</code></span></div><div class="window-body"><pre data-lang="markdown" tabindex="0"><code class="language-markdown">## Front-end work (frontend-skills)
+
+- Before front-end work, read `.frontend-skills/profile.json` (the stack) and `.frontend-skills/lessons.md` (confirmed conventions of this project; they win over any skill).
+- Use the installed `fe-*` skill that matches the files you edit.
+- After changing UI code, run `npx github:dawidolko/frontend-skills audit --changed --json` and fix findings at `serious` and above; `explain &lt;rule id&gt;` gives the reason, the source and the fix.
+- Name rule ids (such as `a11y/img-alt`) in reviews and commit messages.</code></pre></div></div><figcaption>The real file</figcaption></figure>
+</div>
+</div>
+<div class="agent-panel" data-agent="cline">
+<h3 class="panel-title">What lands where for Cline</h3>
+<div class="panel-grid">
+<div>
+<ul class="file-list"><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.claude/skills/fe-react/SKILL.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.claude/skills/fe-react/references/react.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#layers"/></svg><code>.clinerules/fe-react.md</code><span class="kind kind-rule">rule file</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg><code>AGENTS.md</code><span class="kind kind-instructions">instruction block</span></li></ul>
+<p class="note">For every agent also: <code>.frontend-skills/profile.json</code>, <code>.frontend-skills/lessons.md</code> and <code>.frontend-skills/install.json</code>.</p>
+<p class="callout callout-info">Cline: If .clinerules is a single file rather than a folder, Cline rule files are not written; skills still are.</p>
+
+<p class="note">Planned by the installer itself for the example React project in the repository.</p>
+</div>
+<figure class="shot"><div class="window "><div class="window-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="window-title"><code>.clinerules/fe-react.md</code></span></div><div class="window-body"><pre data-lang="markdown" tabindex="0"><code class="language-markdown">---
+paths:
+  - &quot;**/*.jsx&quot;
+  - &quot;**/*.tsx&quot;
+---
+
+# React components (frontend-skills)
+
+Writes and reviews React 19 components (also inside Next.js, Vite or React Router apps) - keys, state, effects, events, refs, forms with actions, memoization and React Compiler - so they stay correct, accessible and fast. Use when creating or editing a .jsx or .tsx component or hook, fixing a re-render or stale-state bug, or when asked &quot;review this React code&quot;.
+
+- Keys come from the data (`key={item.id}`), never the array index for lists that change (react/no-array-index-key).
+- Compute derived values during render; an effect only synchronises with something outside React (react/no-derived-state-effect).
+- Declare components at module level; never define a component inside another (react/no-nested-component).
+- Keep state minimal and close to where it is used; lift it only as far as the nearest shared parent.
+- Handle user actions in event handlers, not in effects that watch state.
+- Every effect that subscribes, listens or starts a timer returns a cleanup.
+- Interactive elements are `&lt;button&gt;` and `&lt;a&gt;`, not `div` with `onClick` (a11y/no-click-on-static); every `&lt;img&gt;` has `alt` (a11y/img-alt).
+- Never mutate state or props; never call hooks conditionally; never read `ref.current` during render.
+
+Before larger changes, read the full skill: `.claude/skills/fe-react/SKILL.md`. Explain any rule id with `npx github:dawidolko/frontend-skills explain &lt;id&gt;`.</code></pre></div></div><figcaption>The real file</figcaption></figure>
+</div>
+</div>
+<div class="agent-panel" data-agent="zed">
+<h3 class="panel-title">What lands where for Zed</h3>
+<div class="panel-grid">
+<div>
+<ul class="file-list"><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-react/SKILL.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-react/references/react.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg><code>CLAUDE.md</code><span class="kind kind-instructions">instruction block</span></li></ul>
+<p class="note">For every agent also: <code>.frontend-skills/profile.json</code>, <code>.frontend-skills/lessons.md</code> and <code>.frontend-skills/install.json</code>.</p>
+<p class="callout callout-info">Zed: Zed reads only the first instruction file of its list; the block is placed in that file.</p>
+<p class="note">Zed has no rule files scoped to file types; it reads the skills and the instruction block.</p>
+<p class="note">Planned by the installer itself for the example React project in the repository.</p>
+</div>
+<figure class="shot"><div class="window "><div class="window-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="window-title"><code>CLAUDE.md</code></span></div><div class="window-body"><pre data-lang="markdown" tabindex="0"><code class="language-markdown">## Front-end work (frontend-skills)
+
+- Before front-end work, read `.frontend-skills/profile.json` (the stack) and `.frontend-skills/lessons.md` (confirmed conventions of this project; they win over any skill).
+- Use the installed `fe-*` skill that matches the files you edit.
+- After changing UI code, run `npx github:dawidolko/frontend-skills audit --changed --json` and fix findings at `serious` and above; `explain &lt;rule id&gt;` gives the reason, the source and the fix.
+- Name rule ids (such as `a11y/img-alt`) in reviews and commit messages.</code></pre></div></div><figcaption>The real file</figcaption></figure>
+</div>
+</div>
+<div class="agent-panel" data-agent="junie">
+<h3 class="panel-title">What lands where for JetBrains Junie</h3>
+<div class="panel-grid">
+<div>
+<ul class="file-list"><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-react/SKILL.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-react/references/react.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg><code>AGENTS.md</code><span class="kind kind-instructions">instruction block</span></li></ul>
+<p class="note">For every agent also: <code>.frontend-skills/profile.json</code>, <code>.frontend-skills/lessons.md</code> and <code>.frontend-skills/install.json</code>.</p>
+<p class="callout callout-info">JetBrains Junie: Junie reads .agents/skills only in a trusted project.</p>
+<p class="note">JetBrains Junie has no rule files scoped to file types; it reads the skills and the instruction block.</p>
+<p class="note">Planned by the installer itself for the example React project in the repository.</p>
+</div>
+<figure class="shot"><div class="window "><div class="window-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="window-title"><code>AGENTS.md</code></span></div><div class="window-body"><pre data-lang="markdown" tabindex="0"><code class="language-markdown">## Front-end work (frontend-skills)
+
+- Before front-end work, read `.frontend-skills/profile.json` (the stack) and `.frontend-skills/lessons.md` (confirmed conventions of this project; they win over any skill).
+- Use the installed `fe-*` skill that matches the files you edit.
+- After changing UI code, run `npx github:dawidolko/frontend-skills audit --changed --json` and fix findings at `serious` and above; `explain &lt;rule id&gt;` gives the reason, the source and the fix.
+- Name rule ids (such as `a11y/img-alt`) in reviews and commit messages.</code></pre></div></div><figcaption>The real file</figcaption></figure>
+</div>
+</div>
+<div class="agent-panel" data-agent="kiro">
+<h3 class="panel-title">What lands where for Kiro</h3>
+<div class="panel-grid">
+<div>
+<ul class="file-list"><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.kiro/skills/fe-react/SKILL.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.kiro/skills/fe-react/references/react.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#layers"/></svg><code>.kiro/steering/fe-react.md</code><span class="kind kind-rule">rule file</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg><code>AGENTS.md</code><span class="kind kind-instructions">instruction block</span></li></ul>
+<p class="note">For every agent also: <code>.frontend-skills/profile.json</code>, <code>.frontend-skills/lessons.md</code> and <code>.frontend-skills/install.json</code>.</p>
+
+
+<p class="note">Planned by the installer itself for the example React project in the repository.</p>
+</div>
+<figure class="shot"><div class="window "><div class="window-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="window-title"><code>.kiro/steering/fe-react.md</code></span></div><div class="window-body"><pre data-lang="markdown" tabindex="0"><code class="language-markdown">---
+inclusion: fileMatch
+fileMatchPattern: [&quot;**/*.jsx&quot;, &quot;**/*.tsx&quot;]
+---
+
+# React components (frontend-skills)
+
+Writes and reviews React 19 components (also inside Next.js, Vite or React Router apps) - keys, state, effects, events, refs, forms with actions, memoization and React Compiler - so they stay correct, accessible and fast. Use when creating or editing a .jsx or .tsx component or hook, fixing a re-render or stale-state bug, or when asked &quot;review this React code&quot;.
+
+- Keys come from the data (`key={item.id}`), never the array index for lists that change (react/no-array-index-key).
+- Compute derived values during render; an effect only synchronises with something outside React (react/no-derived-state-effect).
+- Declare components at module level; never define a component inside another (react/no-nested-component).
+- Keep state minimal and close to where it is used; lift it only as far as the nearest shared parent.
+- Handle user actions in event handlers, not in effects that watch state.
+- Every effect that subscribes, listens or starts a timer returns a cleanup.
+- Interactive elements are `&lt;button&gt;` and `&lt;a&gt;`, not `div` with `onClick` (a11y/no-click-on-static); every `&lt;img&gt;` has `alt` (a11y/img-alt).
+- Never mutate state or props; never call hooks conditionally; never read `ref.current` during render.
+
+Before larger changes, read the full skill: `.kiro/skills/fe-react/SKILL.md`. Explain any rule id with `npx github:dawidolko/frontend-skills explain &lt;id&gt;`.</code></pre></div></div><figcaption>The real file</figcaption></figure>
+</div>
+</div>
+<div class="agent-panel" data-agent="augment">
+<h3 class="panel-title">What lands where for Augment</h3>
+<div class="panel-grid">
+<div>
+<ul class="file-list"><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-react/SKILL.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-react/references/react.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg><code>AGENTS.md</code><span class="kind kind-instructions">instruction block</span></li></ul>
+<p class="note">For every agent also: <code>.frontend-skills/profile.json</code>, <code>.frontend-skills/lessons.md</code> and <code>.frontend-skills/install.json</code>.</p>
+
+<p class="note">Augment has no rule files scoped to file types; it reads the skills and the instruction block.</p>
+<p class="note">Planned by the installer itself for the example React project in the repository.</p>
+</div>
+<figure class="shot"><div class="window "><div class="window-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="window-title"><code>AGENTS.md</code></span></div><div class="window-body"><pre data-lang="markdown" tabindex="0"><code class="language-markdown">## Front-end work (frontend-skills)
+
+- Before front-end work, read `.frontend-skills/profile.json` (the stack) and `.frontend-skills/lessons.md` (confirmed conventions of this project; they win over any skill).
+- Use the installed `fe-*` skill that matches the files you edit.
+- After changing UI code, run `npx github:dawidolko/frontend-skills audit --changed --json` and fix findings at `serious` and above; `explain &lt;rule id&gt;` gives the reason, the source and the fix.
+- Name rule ids (such as `a11y/img-alt`) in reviews and commit messages.</code></pre></div></div><figcaption>The real file</figcaption></figure>
+</div>
+</div>
+<div class="agent-panel" data-agent="trae">
+<h3 class="panel-title">What lands where for Trae</h3>
+<div class="panel-grid">
+<div>
+<ul class="file-list"><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.trae/skills/fe-react/SKILL.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.trae/skills/fe-react/references/react.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#layers"/></svg><code>.trae/rules/fe-react.md</code><span class="kind kind-rule">rule file</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg><code>AGENTS.md</code><span class="kind kind-instructions">instruction block</span></li></ul>
+<p class="note">For every agent also: <code>.frontend-skills/profile.json</code>, <code>.frontend-skills/lessons.md</code> and <code>.frontend-skills/install.json</code>.</p>
+<p class="callout callout-info">Trae: Trae reads AGENTS.md only after it is enabled in its settings.</p>
+
+<p class="note">Planned by the installer itself for the example React project in the repository.</p>
+</div>
+<figure class="shot"><div class="window "><div class="window-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="window-title"><code>.trae/rules/fe-react.md</code></span></div><div class="window-body"><pre data-lang="markdown" tabindex="0"><code class="language-markdown">---
+description: &quot;Writes and reviews React 19 components (also inside Next.js, Vite or React Router apps) - keys, state, effects, events, refs, forms with actions, memoization and React Compiler - so they stay correct, accessible and fast. Use when creating or editing a .jsx or .tsx component or hook, fixing a re-render or stale-state bug, or when asked \&quot;review this React code\&quot;.&quot;
+globs: **/*.jsx,**/*.tsx
+alwaysApply: false
+---
+
+# React components (frontend-skills)
+
+- Keys come from the data (`key={item.id}`), never the array index for lists that change (react/no-array-index-key).
+- Compute derived values during render; an effect only synchronises with something outside React (react/no-derived-state-effect).
+- Declare components at module level; never define a component inside another (react/no-nested-component).
+- Keep state minimal and close to where it is used; lift it only as far as the nearest shared parent.
+- Handle user actions in event handlers, not in effects that watch state.
+- Every effect that subscribes, listens or starts a timer returns a cleanup.
+- Interactive elements are `&lt;button&gt;` and `&lt;a&gt;`, not `div` with `onClick` (a11y/no-click-on-static); every `&lt;img&gt;` has `alt` (a11y/img-alt).
+- Never mutate state or props; never call hooks conditionally; never read `ref.current` during render.
+
+Before larger changes, read the full skill: `.trae/skills/fe-react/SKILL.md`. Explain any rule id with `npx github:dawidolko/frontend-skills explain &lt;id&gt;`.</code></pre></div></div><figcaption>The real file</figcaption></figure>
+</div>
+</div>
+<div class="agent-panel" data-agent="continue">
+<h3 class="panel-title">What lands where for Continue</h3>
+<div class="panel-grid">
+<div>
+<ul class="file-list"><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.frontend-skills/skills/fe-react/SKILL.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.frontend-skills/skills/fe-react/references/react.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#layers"/></svg><code>.continue/rules/fe-react.md</code><span class="kind kind-rule">rule file</span></li></ul>
+<p class="note">For every agent also: <code>.frontend-skills/profile.json</code>, <code>.frontend-skills/lessons.md</code> and <code>.frontend-skills/install.json</code>.</p>
+
+
+<p class="note">Planned by the installer itself for the example React project in the repository.</p>
+</div>
+<figure class="shot"><div class="window "><div class="window-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="window-title"><code>.continue/rules/fe-react.md</code></span></div><div class="window-body"><pre data-lang="markdown" tabindex="0"><code class="language-markdown">---
+name: &quot;React components&quot;
+description: &quot;Writes and reviews React 19 components (also inside Next.js, Vite or React Router apps) - keys, state, effects, events, refs, forms with actions, memoization and React Compiler - so they stay correct, accessible and fast. Use when creating or editing a .jsx or .tsx component or hook, fixing a re-render or stale-state bug, or when asked \&quot;review this React code\&quot;.&quot;
+globs: [&quot;**/*.jsx&quot;, &quot;**/*.tsx&quot;]
+alwaysApply: false
+---
+
+# React components (frontend-skills)
+
+- Keys come from the data (`key={item.id}`), never the array index for lists that change (react/no-array-index-key).
+- Compute derived values during render; an effect only synchronises with something outside React (react/no-derived-state-effect).
+- Declare components at module level; never define a component inside another (react/no-nested-component).
+- Keep state minimal and close to where it is used; lift it only as far as the nearest shared parent.
+- Handle user actions in event handlers, not in effects that watch state.
+- Every effect that subscribes, listens or starts a timer returns a cleanup.
+- Interactive elements are `&lt;button&gt;` and `&lt;a&gt;`, not `div` with `onClick` (a11y/no-click-on-static); every `&lt;img&gt;` has `alt` (a11y/img-alt).
+- Never mutate state or props; never call hooks conditionally; never read `ref.current` during render.
+
+Before larger changes, read the full skill: `.frontend-skills/skills/fe-react/SKILL.md`. Explain any rule id with `npx github:dawidolko/frontend-skills explain &lt;id&gt;`.</code></pre></div></div><figcaption>The real file</figcaption></figure>
+</div>
+</div>
+<div class="agent-panel" data-agent="amazonq">
+<h3 class="panel-title">What lands where for Amazon Q Developer</h3>
+<div class="panel-grid">
+<div>
+<ul class="file-list"><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.frontend-skills/skills/fe-react/SKILL.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.frontend-skills/skills/fe-react/references/react.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg><code>.amazonq/rules/frontend-skills.md</code><span class="kind kind-instructions">instruction block</span></li></ul>
+<p class="note">For every agent also: <code>.frontend-skills/profile.json</code>, <code>.frontend-skills/lessons.md</code> and <code>.frontend-skills/install.json</code>.</p>
+<p class="callout callout-info">Amazon Q Developer: Amazon Q Developer IDE plugins reach end of support on 2027-04-30; AWS points to Kiro.</p>
+<p class="note">Amazon Q Developer has no rule files scoped to file types; it reads the skills and the instruction block.</p>
+<p class="note">Planned by the installer itself for the example React project in the repository.</p>
+</div>
+<figure class="shot"><div class="window "><div class="window-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="window-title"><code>.amazonq/rules/frontend-skills.md</code></span></div><div class="window-body"><pre data-lang="markdown" tabindex="0"><code class="language-markdown">## Front-end work (frontend-skills)
+
+- Before front-end work, read `.frontend-skills/profile.json` (the stack) and `.frontend-skills/lessons.md` (confirmed conventions of this project; they win over any skill).
+- Use the installed `fe-*` skill that matches the files you edit.
+- After changing UI code, run `npx github:dawidolko/frontend-skills audit --changed --json` and fix findings at `serious` and above; `explain &lt;rule id&gt;` gives the reason, the source and the fix.
+- Name rule ids (such as `a11y/img-alt`) in reviews and commit messages.
+
+### Skills
+
+- `fe-react` (React components): when editing `**/*.jsx`, `**/*.tsx`, first read `.frontend-skills/skills/fe-react/SKILL.md`.</code></pre></div></div><figcaption>The real file</figcaption></figure>
+</div>
+</div>
+<div class="agent-panel" data-agent="aider">
+<h3 class="panel-title">What lands where for Aider</h3>
+<div class="panel-grid">
+<div>
+<ul class="file-list"><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.frontend-skills/skills/fe-react/SKILL.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.frontend-skills/skills/fe-react/references/react.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg><code>CONVENTIONS.md</code><span class="kind kind-instructions">instruction block</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.aider.conf.yml</code><span class="kind kind-config">config</span></li></ul>
+<p class="note">For every agent also: <code>.frontend-skills/profile.json</code>, <code>.frontend-skills/lessons.md</code> and <code>.frontend-skills/install.json</code>.</p>
+
+<p class="note">Aider has no rule files scoped to file types; it reads the skills and the instruction block.</p>
+<p class="note">Planned by the installer itself for the example React project in the repository.</p>
+</div>
+<figure class="shot"><div class="window "><div class="window-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="window-title"><code>CONVENTIONS.md</code></span></div><div class="window-body"><pre data-lang="markdown" tabindex="0"><code class="language-markdown">## Front-end work (frontend-skills)
+
+- Before front-end work, read `.frontend-skills/profile.json` (the stack) and `.frontend-skills/lessons.md` (confirmed conventions of this project; they win over any skill).
+- Use the installed `fe-*` skill that matches the files you edit.
+- After changing UI code, run `npx github:dawidolko/frontend-skills audit --changed --json` and fix findings at `serious` and above; `explain &lt;rule id&gt;` gives the reason, the source and the fix.
+- Name rule ids (such as `a11y/img-alt`) in reviews and commit messages.
+
+### Skills
+
+- `fe-react` (React components): when editing `**/*.jsx`, `**/*.tsx`, first read `.frontend-skills/skills/fe-react/SKILL.md`.</code></pre></div></div><figcaption>The real file</figcaption></figure>
+</div>
+</div>
+</section>
+</div>
+</section>
+<section class="section" aria-labelledby="chapters-title">
+<div class="wrap">
+<h2 id="chapters-title">The dictionary, chapter by chapter</h2>
+<p class="section-lead">275 rules with a stable id, each with why, fix, examples and sources.</p>
+<ul class="tile-grid"><li class="tile lift"><span class="tile-icon"><svg class="icon" width="26" height="26" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#a11y"/></svg></span><a class="tile-link" href="/rules/#area-a11y">Accessibility</a><span class="tile-meta">58 rules</span></li><li class="tile lift"><span class="tile-icon"><svg class="icon" width="26" height="26" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#perf"/></svg></span><a class="tile-link" href="/rules/#area-perf">Performance</a><span class="tile-meta">26 rules</span></li><li class="tile lift"><span class="tile-icon"><svg class="icon" width="26" height="26" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#html"/></svg></span><a class="tile-link" href="/rules/#area-html">HTML</a><span class="tile-meta">11 rules</span></li><li class="tile lift"><span class="tile-icon"><svg class="icon" width="26" height="26" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#css"/></svg></span><a class="tile-link" href="/rules/#area-css">CSS</a><span class="tile-meta">23 rules</span></li><li class="tile lift"><span class="tile-icon"><svg class="icon" width="26" height="26" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#responsive"/></svg></span><a class="tile-link" href="/rules/#area-responsive">Responsive layout</a><span class="tile-meta">7 rules</span></li><li class="tile lift"><span class="tile-icon"><svg class="icon" width="26" height="26" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#js"/></svg></span><a class="tile-link" href="/rules/#area-js">JavaScript</a><span class="tile-meta">13 rules</span></li><li class="tile lift"><span class="tile-icon"><svg class="icon" width="26" height="26" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#ts"/></svg></span><a class="tile-link" href="/rules/#area-ts">TypeScript</a><span class="tile-meta">6 rules</span></li><li class="tile lift"><span class="tile-icon"><svg class="icon" width="26" height="26" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#framework"/></svg></span><a class="tile-link" href="/rules/#area-react">React</a><span class="tile-meta">3 rules</span></li><li class="tile lift"><span class="tile-icon"><svg class="icon" width="26" height="26" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#framework"/></svg></span><a class="tile-link" href="/rules/#area-next">Next.js</a><span class="tile-meta">9 rules</span></li><li class="tile lift"><span class="tile-icon"><svg class="icon" width="26" height="26" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#framework"/></svg></span><a class="tile-link" href="/rules/#area-vue">Vue</a><span class="tile-meta">10 rules</span></li><li class="tile lift"><span class="tile-icon"><svg class="icon" width="26" height="26" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#framework"/></svg></span><a class="tile-link" href="/rules/#area-nuxt">Nuxt</a><span class="tile-meta">8 rules</span></li><li class="tile lift"><span class="tile-icon"><svg class="icon" width="26" height="26" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#framework"/></svg></span><a class="tile-link" href="/rules/#area-angular">Angular</a><span class="tile-meta">9 rules</span></li><li class="tile lift"><span class="tile-icon"><svg class="icon" width="26" height="26" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#framework"/></svg></span><a class="tile-link" href="/rules/#area-svelte">Svelte</a><span class="tile-meta">10 rules</span></li><li class="tile lift"><span class="tile-icon"><svg class="icon" width="26" height="26" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#framework"/></svg></span><a class="tile-link" href="/rules/#area-astro">Astro</a><span class="tile-meta">6 rules</span></li><li class="tile lift"><span class="tile-icon"><svg class="icon" width="26" height="26" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#framework"/></svg></span><a class="tile-link" href="/rules/#area-webc">Web Components</a><span class="tile-meta">9 rules</span></li><li class="tile lift"><span class="tile-icon"><svg class="icon" width="26" height="26" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#css"/></svg></span><a class="tile-link" href="/rules/#area-tailwind">Tailwind CSS</a><span class="tile-meta">9 rules</span></li><li class="tile lift"><span class="tile-icon"><svg class="icon" width="26" height="26" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#css"/></svg></span><a class="tile-link" href="/rules/#area-sass">Sass</a><span class="tile-meta">8 rules</span></li><li class="tile lift"><span class="tile-icon"><svg class="icon" width="26" height="26" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#state"/></svg></span><a class="tile-link" href="/rules/#area-state">State</a><span class="tile-meta">13 rules</span></li><li class="tile lift"><span class="tile-icon"><svg class="icon" width="26" height="26" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#seo"/></svg></span><a class="tile-link" href="/rules/#area-seo">SEO</a><span class="tile-meta">9 rules</span></li><li class="tile lift"><span class="tile-icon"><svg class="icon" width="26" height="26" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#i18n"/></svg></span><a class="tile-link" href="/rules/#area-i18n">Internationalisation</a><span class="tile-meta">7 rules</span></li><li class="tile lift"><span class="tile-icon"><svg class="icon" width="26" height="26" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#security"/></svg></span><a class="tile-link" href="/rules/#area-security">Security</a><span class="tile-meta">9 rules</span></li><li class="tile lift"><span class="tile-icon"><svg class="icon" width="26" height="26" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#test"/></svg></span><a class="tile-link" href="/rules/#area-test">Testing</a><span class="tile-meta">5 rules</span></li><li class="tile lift"><span class="tile-icon"><svg class="icon" width="26" height="26" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#tooling"/></svg></span><a class="tile-link" href="/rules/#area-tooling">Tooling</a><span class="tile-meta">7 rules</span></li></ul>
+</div>
+</section>
+<section class="section band-dots" aria-labelledby="skills-title">
+<div class="wrap">
+<h2 id="skills-title">Skills for your stack</h2>
+<p class="section-lead">50 skills in seven groups. <code>init</code> installs only those your stack needs.</p>
+<ul class="tile-grid tile-grid-wide"><li class="tile tile-wide lift"><span class="tile-icon"><svg class="icon" width="26" height="26" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#foundations"/></svg></span><a class="tile-link" href="/skills/#sa-foundations">Foundations</a><span class="tile-meta">5 · Native forms and validation, HTML documents and semantics, JavaScript in the browser, Responsive design…</span></li><li class="tile tile-wide lift"><span class="tile-icon"><svg class="icon" width="26" height="26" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#styling"/></svg></span><a class="tile-link" href="/skills/#sa-styling">Styling</a><span class="tile-meta">7 · CSS architecture and tokens, CSS layout, Modern CSS features, Icons…</span></li><li class="tile tile-wide lift"><span class="tile-icon"><svg class="icon" width="26" height="26" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#framework"/></svg></span><a class="tile-link" href="/skills/#sa-frameworks">Frameworks</a><span class="tile-meta">11 · Angular components, Astro sites and islands, Data fetching, Next.js App Router…</span></li><li class="tile tile-wide lift"><span class="tile-icon"><svg class="icon" width="26" height="26" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#a11y"/></svg></span><a class="tile-link" href="/skills/#sa-accessibility">Accessibility</a><span class="tile-meta">12 · ARIA, names and live regions, Carousels and toasts, Combobox, listbox and custom select, Accessibility, WCAG 2.2 map…</span></li><li class="tile tile-wide lift"><span class="tile-icon"><svg class="icon" width="26" height="26" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#perf"/></svg></span><a class="tile-link" href="/skills/#sa-performance">Performance</a><span class="tile-meta">5 · Core Web Vitals, Web fonts, Images and media delivery, Lighthouse and PageSpeed…</span></li><li class="tile tile-wide lift"><span class="tile-icon"><svg class="icon" width="26" height="26" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#quality"/></svg></span><a class="tile-link" href="/skills/#sa-quality">Quality</a><span class="tile-meta">5 · Internationalisation, Front-end security, SEO and metadata, Front-end testing…</span></li><li class="tile tile-wide lift"><span class="tile-icon"><svg class="icon" width="26" height="26" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#workflow"/></svg></span><a class="tile-link" href="/skills/#sa-workflow">Workflow</a><span class="tile-meta">5 · Audit the project, Build a component, Fix findings, Learn the project…</span></li></ul>
 </div>
 </section>
 <section class="section" aria-labelledby="agents-title">
 <div class="wrap">
 <h2 id="agents-title" tabindex="-1">Works with the agents you already use</h2>
-<p>Each skill is written once in the open Agent Skills format and turned into each agent's own files. What each agent reads, with links to its documentation, is in <a href="https://github.com/dawidolko/frontend-skills/blob/main/docs/agents.md">docs/agents.md</a>.</p>
+<p class="section-lead">Each skill is written once in the open Agent Skills format and turned into each agent's own files. What each agent reads, with links to its documentation, is in <a href="https://github.com/dawidolko/frontend-skills/blob/main/docs/agents.md">docs/agents.md</a>.</p>
 <ul class="agents"><li><span class="mono" aria-hidden="true">CC</span><span>Claude Code</span><span class="agent-dot" aria-hidden="true"></span></li><li><span class="mono" aria-hidden="true">OC</span><span>OpenAI Codex</span></li><li><span class="mono" aria-hidden="true">C</span><span>Cursor</span><span class="agent-dot" aria-hidden="true"></span></li><li><span class="mono" aria-hidden="true">GC</span><span>GitHub Copilot</span><span class="agent-dot" aria-hidden="true"></span></li><li><span class="mono" aria-hidden="true">GC</span><span>Gemini CLI</span></li><li><span class="mono" aria-hidden="true">AC</span><span>Antigravity CLI</span><span class="agent-dot" aria-hidden="true"></span></li><li><span class="mono" aria-hidden="true">DW</span><span>Devin / Windsurf</span><span class="agent-dot" aria-hidden="true"></span></li><li><span class="mono" aria-hidden="true">O</span><span>OpenCode</span></li><li><span class="mono" aria-hidden="true">C</span><span>Cline</span><span class="agent-dot" aria-hidden="true"></span></li><li><span class="mono" aria-hidden="true">Z</span><span>Zed</span></li><li><span class="mono" aria-hidden="true">JJ</span><span>JetBrains Junie</span></li><li><span class="mono" aria-hidden="true">K</span><span>Kiro</span><span class="agent-dot" aria-hidden="true"></span></li><li><span class="mono" aria-hidden="true">A</span><span>Augment</span></li><li><span class="mono" aria-hidden="true">T</span><span>Trae</span><span class="agent-dot" aria-hidden="true"></span></li><li><span class="mono" aria-hidden="true">C</span><span>Continue</span><span class="agent-dot" aria-hidden="true"></span></li><li><span class="mono" aria-hidden="true">AQ</span><span>Amazon Q Developer</span></li><li><span class="mono" aria-hidden="true">A</span><span>Aider</span></li></ul>
 <p class="agents-key"><span class="agent-dot" aria-hidden="true"></span> with rule files scoped to file types: Claude Code, Cursor, GitHub Copilot, Antigravity CLI, Devin / Windsurf, Cline, Kiro, Trae, Continue.</p>
 </div>
 </section>
-<section class="section section-alt" aria-labelledby="free-title">
+<section class="section band-lines" aria-labelledby="free-title">
 <div class="wrap cards">
-<div class="card">
-<h2 id="free-title">Free, open source, yours to read</h2>
-<p>MIT licence. No account, no payment, no telemetry. The tool makes no network call unless you start one: <code>audit --url</code> asks before it fetches Lighthouse and axe-core. It runs straight from GitHub with <code>npx</code>; nothing is installed globally.</p>
-</div>
-<div class="card">
-<h2>Cheap to keep loaded</h2>
-<p>An agent always loads only the name and description of each installed skill. For all 50 skills that is about 4219 tokens; a skill's body (about 937 tokens on average) loads only when a task needs it.</p>
-<p class="note">Tokens are estimates by <code>frontend-skills estimate v1 (calibrated on o200k)</code>, measured with <code>frontend-skills tokens --all</code> when this site was built.</p>
-</div>
-<div class="card card-honest">
-<h2>What automated checks cannot do</h2>
-<p>Static checks and browser audits find only part of the accessibility problems. Whether an alt text says the right thing, whether the reading order makes sense, whether a custom widget traps the keyboard: a person has to look. The report lists those as a checklist next to the findings. The tool helps you work to WCAG 2.2 AA; it certifies nothing.</p>
-</div>
+<div class="card lift"><span class="card-icon"><svg class="icon" width="28" height="28" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#gift"/></svg></span><h2 id="free-title">Free, open source, yours to read</h2><p>MIT licence. No account, no payment, no telemetry. The tool makes no network call unless you start one: <code>audit --url</code> asks before it fetches Lighthouse and axe-core. It runs straight from GitHub with <code>npx</code>; nothing is installed globally.</p></div>
+<div class="card lift"><span class="card-icon"><svg class="icon" width="28" height="28" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#perf"/></svg></span><h2>Cheap to keep loaded</h2><p>An agent always loads only the name and description of each installed skill. For all 50 skills that is about 4219 tokens; a skill's body (about 937 tokens on average) loads only when a task needs it.</p><p class="note">Tokens are estimates by <code>frontend-skills estimate v1 (calibrated on o200k)</code>, measured with <code>frontend-skills tokens --all</code> when this site was built.</p></div>
+<div class="card card-honest lift"><span class="card-icon"><svg class="icon" width="28" height="28" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#warning"/></svg></span><h2>What automated checks cannot do</h2><p>Static checks and browser audits find only part of the accessibility problems. Whether an alt text says the right thing, whether the reading order makes sense, whether a custom widget traps the keyboard: a person has to look. The report lists those as a checklist next to the findings. The tool helps you work to WCAG 2.2 AA; it certifies nothing.</p></div>
 </div>
 </section>
-<section class="section" aria-labelledby="next-title">
-<div class="wrap">
-<h2 id="next-title">Where next</h2>
-<ul class="next-links">
-<li><a href="/how-it-works/">How it works</a><span>How the profile, the agent files and the token budgets work</span></li>
-<li><a href="/rules/">Rules</a><span>Every rule, with its why, fix and sources</span></li>
-<li><a href="/skills/">Skills</a><span>Skills by technology</span></li>
-<li><a href="/commands/">Commands</a><span>All commands and their options</span></li>
-</ul>
+<section class="cta-band" aria-labelledby="cta-title">
+<div class="wrap cta-inner">
+<div><h2 id="cta-title">Try it on your project</h2><p>One command, nothing to install globally, everything it writes can be removed with <code>uninstall</code>.</p></div>
+<div class="command"><pre class="command-text"><code id="cmd-4">npx github:<wbr>dawidolko/<wbr>frontend-skills init</code></pre><button type="button" class="copy-button" data-copy="cmd-4" data-done="Copied to the clipboard." data-fail="Copying failed; select the text and copy it by hand." aria-label="Copy the command" hidden><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#copy"/></svg><span>Copy</span></button></div>
 </div>
 </section>
 </main>
 <footer class="site-footer">
-<div class="wrap footer-inner">
-<div class="footer-text">
+<div class="wrap footer-grid">
+<div class="footer-brand-col">
 <p class="footer-brand"><svg class="brand-mark" viewBox="0 0 32 32" width="32" height="32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="8" fill="currentColor"/><path d="M12.5 10 7 16l5.5 6M19.5 10 25 16l-5.5 6" fill="none" stroke="var(--logo-ink)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Frontend Skills</span></p>
+<p>Skills and a rule dictionary for AI coding agents that write front-end code.</p>
 <p>Free and open source under the MIT licence, made by <a href="https://dawidolko.pl">Dawid Olko</a>.</p>
+</div>
+<nav class="footer-nav" aria-label="More">
+<div class="footer-col"><h2>Guide</h2><ul><li><a href="/">Home</a></li><li><a href="/how-it-works/">How it works</a></li><li><a href="/commands/">Commands</a></li><li><a href="/faq/">FAQ</a></li></ul></div>
+<div class="footer-col"><h2>Dictionary</h2><ul><li><a href="/rules/">All rules</a></li><li><a href="/rules/#area-a11y">Accessibility</a></li><li><a href="/rules/#area-perf">Performance</a></li><li><a href="/rules/#area-html">HTML</a></li><li><a href="/rules/#area-css">CSS</a></li><li><a href="/rules/#area-responsive">Responsive layout</a></li><li><a href="/rules/#area-js">JavaScript</a></li></ul></div>
+<div class="footer-col"><h2>Skills</h2><ul><li><a href="/skills/">All skills</a></li><li><a href="/skills/#sa-foundations">Foundations</a></li><li><a href="/skills/#sa-styling">Styling</a></li><li><a href="/skills/#sa-frameworks">Frameworks</a></li><li><a href="/skills/#sa-accessibility">Accessibility</a></li><li><a href="/skills/#sa-performance">Performance</a></li><li><a href="/skills/#sa-quality">Quality</a></li></ul></div>
+<div class="footer-col"><h2>Project</h2><ul><li><a href="https://github.com/dawidolko/frontend-skills">GitHub</a></li><li><a href="https://github.com/dawidolko/frontend-skills/issues">Report an issue</a></li><li><a href="/about/#licence">MIT licence</a></li><li><a href="/about/">About</a></li><li><a href="https://dawidolko.pl">dawidolko.pl</a></li></ul></div>
+</nav>
+</div>
+<div class="wrap footer-legal">
 <p>Built to WCAG 2.2 AA as a target. Automated checks find only part of the problems.</p>
 <p>No cookies, no analytics, no third-party requests. The accessibility button keeps its settings on your device.</p>
-</div>
-<nav aria-label="More"><ul class="footer-nav"><li><a href="/" aria-current="page">Home</a></li><li><a href="/how-it-works/">How it works</a></li><li><a href="/rules/">Rules</a></li><li><a href="/skills/">Skills</a></li><li><a href="/commands/">Commands</a></li><li><a href="/faq/">FAQ</a></li><li><a href="/about/">About</a></li><li><a href="https://github.com/dawidolko/frontend-skills">GitHub</a></li></ul></nav>
 </div>
 </footer>
 <p id="live-status" class="visually-hidden" role="status" aria-live="polite"></p>

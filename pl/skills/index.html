@@ -5,17 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Skille według technologii · Frontend Skills</title>
 <meta name="description" content="Każdy skill Frontend Skills ze stackiem, dla którego jest instalowany, regułami, których uczy, agentami, dla których jest pisany, i zmierzonym kosztem w tokenach.">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-V2yAsoxJIibu4bEYhDOwR/ucB/Zr0RzUJUEQYpXs6vQ='; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="color-scheme" content="light dark">
-<meta name="theme-color" content="#faf7fc" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#0d0d0f" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#0d0d0f">
+<script>(function(){try{var t=localStorage.getItem("fs-theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}})();</script>
 <link rel="canonical" href="https://skills.dawidolko.pl/pl/skills/">
 <link rel="alternate" hreflang="en" href="https://skills.dawidolko.pl/skills/">
 <link rel="alternate" hreflang="pl" href="https://skills.dawidolko.pl/pl/skills/">
 <link rel="alternate" hreflang="x-default" href="https://skills.dawidolko.pl/skills/">
 <link rel="preload" href="/assets/fonts/opensans-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/styles.css?v=fbc2d7ae26">
+<link rel="stylesheet" href="/assets/styles.css?v=c56b96b9b9">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Frontend Skills">
@@ -31,300 +31,776 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="author" content="Dawid Olko">
 
-<script src="/assets/site.js?v=dd8cab0a79" defer></script>
+<script src="/assets/site.js?v=6b0081a976" defer></script>
 <script src="/a11y/a11y-panel.js?v=39d6e82235" data-accent="#9b00c2" defer></script>
 </head>
 <body>
 <a class="skip-link" href="#main">Przejdź do treści</a>
 <header class="site-header">
-<div class="wrap header-inner">
+<div class="wrap-wide header-inner">
 <a class="brand" href="/pl/"><svg class="brand-mark" viewBox="0 0 32 32" width="32" height="32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="8" fill="currentColor"/><path d="M12.5 10 7 16l5.5 6M19.5 10 25 16l-5.5 6" fill="none" stroke="var(--logo-ink)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="brand-name">Frontend Skills</span></a>
 <nav class="main-nav" aria-label="Główna"><ul><li><a href="/pl/how-it-works/">Jak to działa</a></li><li><a href="/pl/rules/">Reguły</a></li><li><a href="/pl/skills/" aria-current="page">Skille</a></li><li><a href="/pl/commands/">Polecenia</a></li><li><a href="/pl/faq/">Pytania</a></li></ul></nav>
 <div class="header-tools">
+<div class="theme-switch" role="group" aria-label="Motyw kolorów" hidden><button type="button" class="theme-btn" data-theme-set="light" aria-pressed="false" aria-label="Jasny motyw" title="Jasny motyw"><svg class="icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#sun"/></svg></button><button type="button" class="theme-btn" data-theme-set="system" aria-pressed="true" aria-label="Motyw systemu" title="Motyw systemu"><svg class="icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#system"/></svg></button><button type="button" class="theme-btn" data-theme-set="dark" aria-pressed="false" aria-label="Ciemny motyw" title="Ciemny motyw"><svg class="icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#moon"/></svg></button></div>
 <a class="lang-switch" href="/skills/" hreflang="en" lang="en" title="This page in English">English</a>
-<a class="gh-link" href="https://github.com/dawidolko/frontend-skills" aria-label="Kod źródłowy na GitHubie"><svg viewBox="0 0 16 16" width="20" height="20" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg></a>
+<a class="gh-link" href="https://github.com/dawidolko/frontend-skills" aria-label="Kod źródłowy na GitHubie"><svg class="icon" width="22" height="22" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#github"/></svg></a>
 </div>
 </div>
 </header>
-<main id="main" tabindex="-1">
-<div class="page-head"><div class="wrap"><h1>Skille według technologii</h1><p class="lead">Skill to krótka instrukcja dla agenta AI w otwartym formacie Agent Skills. Instalowane są tylko skille pasujące do stacku projektu; każdy wymienia reguły, których uczy. Treść skilli jest po angielsku, bo czytają ją agenci.</p></div></div>
-<div class="wrap">
-<section aria-labelledby="sa-foundations"><h2 id="sa-foundations">Podstawy</h2>
-<ul class="skill-grid"><li class="skill-card">
-<h3><a href="/pl/skills/fe-forms/">Native forms and validation</a></h3>
-<p class="skill-name"><code>fe-forms</code></p>
+<div class="docs wrap-wide">
+<button type="button" class="docs-toggle" popovertarget="docs-nav" aria-controls="docs-nav"><svg class="icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#menu"/></svg><span>Grupy skilli</span></button>
+<nav id="docs-nav" class="docs-nav" popover aria-label="Grupy skilli">
+<div class="docs-nav-head"><span>Grupy skilli</span><button type="button" class="docs-close" popovertarget="docs-nav" popovertargetaction="hide" aria-label="Zamknij rozdziały"><svg class="icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#close"/></svg></button></div>
+<a class="side-top" href="/pl/skills/" aria-current="page"><svg class="icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#layers"/></svg><span>Wszystkie skille</span><span class="side-count">50</span></a>
+<ul class="side-chapters"><li><details open><summary><svg class="icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#foundations"/></svg><span class="side-label">Podstawy</span><span class="side-count">5</span></summary><ul>
+<li><a href="/pl/skills/fe-forms/">Native forms and validation</a></li><li><a href="/pl/skills/fe-html/">HTML documents and semantics</a></li><li><a href="/pl/skills/fe-javascript/">JavaScript in the browser</a></li><li><a href="/pl/skills/fe-responsive/">Responsive design</a></li><li><a href="/pl/skills/fe-typescript/">TypeScript</a></li>
+</ul></details></li><li><details open><summary><svg class="icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#styling"/></svg><span class="side-label">Style</span><span class="side-count">7</span></summary><ul>
+<li><a href="/pl/skills/fe-css-architecture/">CSS architecture and tokens</a></li><li><a href="/pl/skills/fe-css-layout/">CSS layout</a></li><li><a href="/pl/skills/fe-css-modern/">Modern CSS features</a></li><li><a href="/pl/skills/fe-icons/">Icons</a></li><li><a href="/pl/skills/fe-motion/">Motion and animation</a></li><li><a href="/pl/skills/fe-sass/">Sass (SCSS)</a></li><li><a href="/pl/skills/fe-tailwind/">Tailwind CSS</a></li>
+</ul></details></li><li><details open><summary><svg class="icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#framework"/></svg><span class="side-label">Frameworki</span><span class="side-count">11</span></summary><ul>
+<li><a href="/pl/skills/fe-angular/">Angular components</a></li><li><a href="/pl/skills/fe-astro/">Astro sites and islands</a></li><li><a href="/pl/skills/fe-data-fetching/">Data fetching</a></li><li><a href="/pl/skills/fe-nextjs/">Next.js App Router</a></li><li><a href="/pl/skills/fe-nuxt/">Nuxt apps</a></li><li><a href="/pl/skills/fe-react/">React components</a></li><li><a href="/pl/skills/fe-state/">State and stores</a></li><li><a href="/pl/skills/fe-svelte/">Svelte components</a></li><li><a href="/pl/skills/fe-sveltekit/">SvelteKit apps</a></li><li><a href="/pl/skills/fe-vue/">Vue components</a></li><li><a href="/pl/skills/fe-web-components/">Web components and Lit</a></li>
+</ul></details></li><li><details open><summary><svg class="icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#a11y"/></svg><span class="side-label">Dostępność</span><span class="side-count">12</span></summary><ul>
+<li><a href="/pl/skills/fe-a11y-aria/">ARIA, names and live regions</a></li><li><a href="/pl/skills/fe-a11y-carousel-toast/">Carousels and toasts</a></li><li><a href="/pl/skills/fe-a11y-combobox/">Combobox, listbox and custom select</a></li><li><a href="/pl/skills/fe-a11y-core/">Accessibility, WCAG 2.2 map</a></li><li><a href="/pl/skills/fe-a11y-dialog/">Dialogs and modals</a></li><li><a href="/pl/skills/fe-a11y-forms/">Accessible forms</a></li><li><a href="/pl/skills/fe-a11y-keyboard/">Keyboard access and focus</a></li><li><a href="/pl/skills/fe-a11y-media/">Media, motion and flashing</a></li><li><a href="/pl/skills/fe-a11y-menus/">Navigation, disclosures and menus</a></li><li><a href="/pl/skills/fe-a11y-tables/">Data tables</a></li><li><a href="/pl/skills/fe-a11y-tabs-accordion/">Tabs and accordions</a></li><li><a href="/pl/skills/fe-a11y-visual/">Contrast, colour, size and reflow</a></li>
+</ul></details></li><li><details open><summary><svg class="icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#perf"/></svg><span class="side-label">Wydajność</span><span class="side-count">5</span></summary><ul>
+<li><a href="/pl/skills/fe-core-web-vitals/">Core Web Vitals</a></li><li><a href="/pl/skills/fe-fonts/">Web fonts</a></li><li><a href="/pl/skills/fe-images/">Images and media delivery</a></li><li><a href="/pl/skills/fe-lighthouse/">Lighthouse and PageSpeed</a></li><li><a href="/pl/skills/fe-perf-delivery/">JavaScript, CSS and asset delivery</a></li>
+</ul></details></li><li><details open><summary><svg class="icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#quality"/></svg><span class="side-label">Jakość</span><span class="side-count">5</span></summary><ul>
+<li><a href="/pl/skills/fe-i18n/">Internationalisation</a></li><li><a href="/pl/skills/fe-security/">Front-end security</a></li><li><a href="/pl/skills/fe-seo-metadata/">SEO and metadata</a></li><li><a href="/pl/skills/fe-testing/">Front-end testing</a></li><li><a href="/pl/skills/fe-tooling/">Build, lint and format tooling</a></li>
+</ul></details></li><li><details open><summary><svg class="icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#workflow"/></svg><span class="side-label">Praca z narzędziem</span><span class="side-count">5</span></summary><ul>
+<li><a href="/pl/skills/fe-audit/">Audit the project</a></li><li><a href="/pl/skills/fe-component/">Build a component</a></li><li><a href="/pl/skills/fe-fix/">Fix findings</a></li><li><a href="/pl/skills/fe-learn/">Learn the project</a></li><li><a href="/pl/skills/fe-review/">Review a change</a></li>
+</ul></details></li></ul>
+</nav>
+<main id="main" tabindex="-1" class="docs-main">
+<div class="page-head">
+<nav class="breadcrumb" aria-label="Ścieżka nawigacji"><ol><li><a href="/pl/">Start</a></li><li><span aria-current="page">Skille</span></li></ol></nav>
+<h1>Skille według technologii</h1>
+<p class="lead">Skill to krótka instrukcja dla agenta AI w otwartym formacie Agent Skills. Instalowane są tylko skille pasujące do stacku projektu; każdy wymienia reguły, których uczy. Treść skilli jest po angielsku, bo czytają ją agenci.</p>
+</div>
+<section class="install" data-install aria-labelledby="install">
+<h2 id="install"><svg class="icon heading-icon" width="24" height="24" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#terminal"/></svg>Instalacja dla Twojego agenta</h2>
+<p>Wybierz, czym uruchamiasz pakiety Node.js i którego agenta używasz. <code>init</code> poznaje stack i instaluje tylko pasujące skille; poniżej pliki, które zapisze dla tego agenta.</p>
+<div class="install-controls">
+<fieldset class="seg" data-runners hidden><legend>Uruchom przez</legend><div class="seg-options"><label class="seg-opt"><input type="radio" name="runner-ins-1" value="npx" data-template="npx github:dawidolko/frontend-skills {args}" checked><span>npx</span></label><label class="seg-opt"><input type="radio" name="runner-ins-1" value="pnpm" data-template="pnpm dlx github:dawidolko/frontend-skills {args}"><span>pnpm dlx</span></label><label class="seg-opt"><input type="radio" name="runner-ins-1" value="yarn" data-template="yarn dlx -p github:dawidolko/frontend-skills frontend-skills {args}"><span>yarn dlx</span></label><label class="seg-opt"><input type="radio" name="runner-ins-1" value="bun" data-template="bunx github:dawidolko/frontend-skills {args}"><span>bunx</span></label></div></fieldset>
+<fieldset class="seg seg-agents"><legend>Agent</legend><div class="seg-options"><label class="seg-opt"><input type="radio" name="agent-ins-1" value="auto" checked><span>Wykryj</span></label><label class="seg-opt"><input type="radio" name="agent-ins-1" value="claude"><span>Claude Code</span></label><label class="seg-opt"><input type="radio" name="agent-ins-1" value="codex"><span>OpenAI Codex</span></label><label class="seg-opt"><input type="radio" name="agent-ins-1" value="cursor"><span>Cursor</span></label><label class="seg-opt"><input type="radio" name="agent-ins-1" value="copilot"><span>GitHub Copilot</span></label><label class="seg-opt"><input type="radio" name="agent-ins-1" value="gemini"><span>Gemini CLI</span></label><label class="seg-opt"><input type="radio" name="agent-ins-1" value="antigravity"><span>Antigravity CLI</span></label><label class="seg-opt"><input type="radio" name="agent-ins-1" value="devin"><span>Devin / Windsurf</span></label><label class="seg-opt"><input type="radio" name="agent-ins-1" value="opencode"><span>OpenCode</span></label><label class="seg-opt"><input type="radio" name="agent-ins-1" value="cline"><span>Cline</span></label><label class="seg-opt"><input type="radio" name="agent-ins-1" value="zed"><span>Zed</span></label><label class="seg-opt"><input type="radio" name="agent-ins-1" value="junie"><span>JetBrains Junie</span></label><label class="seg-opt"><input type="radio" name="agent-ins-1" value="kiro"><span>Kiro</span></label><label class="seg-opt"><input type="radio" name="agent-ins-1" value="augment"><span>Augment</span></label><label class="seg-opt"><input type="radio" name="agent-ins-1" value="trae"><span>Trae</span></label><label class="seg-opt"><input type="radio" name="agent-ins-1" value="continue"><span>Continue</span></label><label class="seg-opt"><input type="radio" name="agent-ins-1" value="amazonq"><span>Amazon Q Developer</span></label><label class="seg-opt"><input type="radio" name="agent-ins-1" value="aider"><span>Aider</span></label></div></fieldset>
+</div>
+<div class="command"><pre class="command-text"><code id="cmd-2" data-args="init">npx github:<wbr>dawidolko/<wbr>frontend-skills init</code></pre><button type="button" class="copy-button" data-copy="cmd-2" data-done="Skopiowano do schowka." data-fail="Nie udało się skopiować; zaznacz tekst i skopiuj go ręcznie." aria-label="Skopiuj polecenie" hidden><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#copy"/></svg><span>Skopiuj</span></button></div>
+<p class="callout callout-warn runner-note" hidden>Ten sposób nie był jeszcze testowany. <code>npx</code> i <code>pnpm dlx</code> są przetestowane; jeśli ten zawiedzie, użyj jednego z nich.</p>
+<div class="agent-panel" data-agent="auto">
+<p>Bez <code>--agents</code> polecenie <code>init</code> rozpoznaje agentów po tym, co projekt już ma, a gdy nie znajdzie żadnego, pyta:</p>
+<div class="table-wrap" tabindex="0" role="region" aria-label="Rozpoznawany po"><table class="compact-table"><thead><tr><th scope="col">Agent</th><th scope="col">Rozpoznawany po</th></tr></thead><tbody><tr><th scope="row">Claude Code</th><td><code>CLAUDE.md</code> <code>.claude</code> <code>CLAUDE.local.md</code></td></tr><tr><th scope="row">OpenAI Codex</th><td><code>.codex</code> <code>AGENTS.override.md</code></td></tr><tr><th scope="row">Cursor</th><td><code>.cursor</code> <code>.cursorrules</code></td></tr><tr><th scope="row">GitHub Copilot</th><td><code>.github/copilot-instructions.md</code> <code>.github/instructions</code> <code>.github/skills</code> <code>.github/prompts</code></td></tr><tr><th scope="row">Gemini CLI</th><td><code>GEMINI.md</code> <code>.gemini</code></td></tr><tr><th scope="row">Antigravity CLI</th><td><code>.agents/rules</code> <code>.agent/rules</code></td></tr><tr><th scope="row">Devin / Windsurf</th><td><code>.devin</code> <code>.windsurf</code> <code>.windsurfrules</code></td></tr><tr><th scope="row">OpenCode</th><td><code>opencode.json</code> <code>opencode.jsonc</code> <code>.opencode</code></td></tr><tr><th scope="row">Cline</th><td><code>.clinerules</code> <code>.cline</code></td></tr><tr><th scope="row">Zed</th><td><code>.rules</code> <code>.zed</code></td></tr><tr><th scope="row">JetBrains Junie</th><td><code>.junie</code></td></tr><tr><th scope="row">Kiro</th><td><code>.kiro</code></td></tr><tr><th scope="row">Augment</th><td><code>.augment</code> <code>.augment-guidelines</code></td></tr><tr><th scope="row">Trae</th><td><code>.trae</code></td></tr><tr><th scope="row">Continue</th><td><code>.continue</code></td></tr><tr><th scope="row">Amazon Q Developer</th><td><code>.amazonq</code></td></tr><tr><th scope="row">Aider</th><td><code>.aider.conf.yml</code> <code>CONVENTIONS.md</code></td></tr></tbody></table></div>
+</div>
+<div class="agent-panel" data-agent="claude">
+<h3 class="panel-title">Co trafia gdzie dla: Claude Code</h3>
+<div class="panel-grid">
+<div>
+<ul class="file-list"><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.claude/skills/fe-react/SKILL.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.claude/skills/fe-react/references/react.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#layers"/></svg><code>.claude/rules/fe-react.md</code><span class="kind kind-rule">plik reguł</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg><code>CLAUDE.md</code><span class="kind kind-instructions">blok instrukcji</span></li></ul>
+<p class="note">Dla każdego agenta także: <code>.frontend-skills/profile.json</code>, <code>.frontend-skills/lessons.md</code> i <code>.frontend-skills/install.json</code>.</p>
+
+
+<p class="note">Zaplanowane przez sam instalator dla przykładowego projektu React z repozytorium.</p>
+</div>
+<figure class="shot"><div class="window "><div class="window-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="window-title"><code>.claude/rules/fe-react.md</code></span></div><div class="window-body"><pre data-lang="markdown" tabindex="0"><code class="language-markdown">---
+paths:
+  - &quot;**/*.jsx&quot;
+  - &quot;**/*.tsx&quot;
+---
+
+# React components (frontend-skills)
+
+Writes and reviews React 19 components (also inside Next.js, Vite or React Router apps) - keys, state, effects, events, refs, forms with actions, memoization and React Compiler - so they stay correct, accessible and fast. Use when creating or editing a .jsx or .tsx component or hook, fixing a re-render or stale-state bug, or when asked &quot;review this React code&quot;.
+
+- Keys come from the data (`key={item.id}`), never the array index for lists that change (react/no-array-index-key).
+- Compute derived values during render; an effect only synchronises with something outside React (react/no-derived-state-effect).
+- Declare components at module level; never define a component inside another (react/no-nested-component).
+- Keep state minimal and close to where it is used; lift it only as far as the nearest shared parent.
+- Handle user actions in event handlers, not in effects that watch state.
+- Every effect that subscribes, listens or starts a timer returns a cleanup.
+- Interactive elements are `&lt;button&gt;` and `&lt;a&gt;`, not `div` with `onClick` (a11y/no-click-on-static); every `&lt;img&gt;` has `alt` (a11y/img-alt).
+- Never mutate state or props; never call hooks conditionally; never read `ref.current` during render.
+
+Before larger changes, read the full skill: `.claude/skills/fe-react/SKILL.md`. Explain any rule id with `npx github:dawidolko/frontend-skills explain &lt;id&gt;`.</code></pre></div></div><figcaption>Prawdziwy plik</figcaption></figure>
+</div>
+</div>
+<div class="agent-panel" data-agent="codex">
+<h3 class="panel-title">Co trafia gdzie dla: OpenAI Codex</h3>
+<div class="panel-grid">
+<div>
+<ul class="file-list"><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-react/SKILL.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-react/references/react.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg><code>AGENTS.md</code><span class="kind kind-instructions">blok instrukcji</span></li></ul>
+<p class="note">Dla każdego agenta także: <code>.frontend-skills/profile.json</code>, <code>.frontend-skills/lessons.md</code> i <code>.frontend-skills/install.json</code>.</p>
+
+<p class="note">OpenAI Codex nie ma plików reguł zawężonych do typów plików; czyta skille i blok instrukcji.</p>
+<p class="note">Zaplanowane przez sam instalator dla przykładowego projektu React z repozytorium.</p>
+</div>
+<figure class="shot"><div class="window "><div class="window-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="window-title"><code>AGENTS.md</code></span></div><div class="window-body"><pre data-lang="markdown" tabindex="0"><code class="language-markdown">## Front-end work (frontend-skills)
+
+- Before front-end work, read `.frontend-skills/profile.json` (the stack) and `.frontend-skills/lessons.md` (confirmed conventions of this project; they win over any skill).
+- Use the installed `fe-*` skill that matches the files you edit.
+- After changing UI code, run `npx github:dawidolko/frontend-skills audit --changed --json` and fix findings at `serious` and above; `explain &lt;rule id&gt;` gives the reason, the source and the fix.
+- Name rule ids (such as `a11y/img-alt`) in reviews and commit messages.</code></pre></div></div><figcaption>Prawdziwy plik</figcaption></figure>
+</div>
+</div>
+<div class="agent-panel" data-agent="cursor">
+<h3 class="panel-title">Co trafia gdzie dla: Cursor</h3>
+<div class="panel-grid">
+<div>
+<ul class="file-list"><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-react/SKILL.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-react/references/react.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#layers"/></svg><code>.cursor/rules/fe-react.mdc</code><span class="kind kind-rule">plik reguł</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg><code>AGENTS.md</code><span class="kind kind-instructions">blok instrukcji</span></li></ul>
+<p class="note">Dla każdego agenta także: <code>.frontend-skills/profile.json</code>, <code>.frontend-skills/lessons.md</code> i <code>.frontend-skills/install.json</code>.</p>
+
+
+<p class="note">Zaplanowane przez sam instalator dla przykładowego projektu React z repozytorium.</p>
+</div>
+<figure class="shot"><div class="window "><div class="window-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="window-title"><code>.cursor/rules/fe-react.mdc</code></span></div><div class="window-body"><pre data-lang="markdown" tabindex="0"><code class="language-markdown">---
+description: Writes and reviews React 19 components (also inside Next.js, Vite or React Router apps) - keys, state, effects, events, refs, forms with actions, memoization and React Compiler - so they stay correct, accessible and fast. Use when creating or editing a .jsx or .tsx component or hook, fixing a re-render or stale-state bug, or when asked &quot;review this React code&quot;.
+globs: **/*.jsx, **/*.tsx
+alwaysApply: false
+---
+
+# React components (frontend-skills)
+
+- Keys come from the data (`key={item.id}`), never the array index for lists that change (react/no-array-index-key).
+- Compute derived values during render; an effect only synchronises with something outside React (react/no-derived-state-effect).
+- Declare components at module level; never define a component inside another (react/no-nested-component).
+- Keep state minimal and close to where it is used; lift it only as far as the nearest shared parent.
+- Handle user actions in event handlers, not in effects that watch state.
+- Every effect that subscribes, listens or starts a timer returns a cleanup.
+- Interactive elements are `&lt;button&gt;` and `&lt;a&gt;`, not `div` with `onClick` (a11y/no-click-on-static); every `&lt;img&gt;` has `alt` (a11y/img-alt).
+- Never mutate state or props; never call hooks conditionally; never read `ref.current` during render.
+
+Before larger changes, read the full skill: `.agents/skills/fe-react/SKILL.md`. Explain any rule id with `npx github:dawidolko/frontend-skills explain &lt;id&gt;`.</code></pre></div></div><figcaption>Prawdziwy plik</figcaption></figure>
+</div>
+</div>
+<div class="agent-panel" data-agent="copilot">
+<h3 class="panel-title">Co trafia gdzie dla: GitHub Copilot</h3>
+<div class="panel-grid">
+<div>
+<ul class="file-list"><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-react/SKILL.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-react/references/react.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#layers"/></svg><code>.github/instructions/fe-react.instructions.md</code><span class="kind kind-rule">plik reguł</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg><code>AGENTS.md</code><span class="kind kind-instructions">blok instrukcji</span></li></ul>
+<p class="note">Dla każdego agenta także: <code>.frontend-skills/profile.json</code>, <code>.frontend-skills/lessons.md</code> i <code>.frontend-skills/install.json</code>.</p>
+
+
+<p class="note">Zaplanowane przez sam instalator dla przykładowego projektu React z repozytorium.</p>
+</div>
+<figure class="shot"><div class="window "><div class="window-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="window-title"><code>.github/instructions/fe-react.instructions.md</code></span></div><div class="window-body"><pre data-lang="markdown" tabindex="0"><code class="language-markdown">---
+applyTo: &quot;**/*.jsx,**/*.tsx&quot;
+description: &quot;Writes and reviews React 19 components (also inside Next.js, Vite or React Router apps) - keys, state, effects, events, refs, forms with actions, memoization and React Compiler - so they stay correct, accessible and fast. Use when creating or editing a .jsx or .tsx component or hook, fixing a re-render or stale-state bug, or when asked \&quot;review this React code\&quot;.&quot;
+---
+
+# React components (frontend-skills)
+
+- Keys come from the data (`key={item.id}`), never the array index for lists that change (react/no-array-index-key).
+- Compute derived values during render; an effect only synchronises with something outside React (react/no-derived-state-effect).
+- Declare components at module level; never define a component inside another (react/no-nested-component).
+- Keep state minimal and close to where it is used; lift it only as far as the nearest shared parent.
+- Handle user actions in event handlers, not in effects that watch state.
+- Every effect that subscribes, listens or starts a timer returns a cleanup.
+- Interactive elements are `&lt;button&gt;` and `&lt;a&gt;`, not `div` with `onClick` (a11y/no-click-on-static); every `&lt;img&gt;` has `alt` (a11y/img-alt).
+- Never mutate state or props; never call hooks conditionally; never read `ref.current` during render.
+
+Before larger changes, read the full skill: `.agents/skills/fe-react/SKILL.md`. Explain any rule id with `npx github:dawidolko/frontend-skills explain &lt;id&gt;`.</code></pre></div></div><figcaption>Prawdziwy plik</figcaption></figure>
+</div>
+</div>
+<div class="agent-panel" data-agent="gemini">
+<h3 class="panel-title">Co trafia gdzie dla: Gemini CLI</h3>
+<div class="panel-grid">
+<div>
+<ul class="file-list"><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-react/SKILL.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-react/references/react.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg><code>GEMINI.md</code><span class="kind kind-instructions">blok instrukcji</span></li></ul>
+<p class="note">Dla każdego agenta także: <code>.frontend-skills/profile.json</code>, <code>.frontend-skills/lessons.md</code> i <code>.frontend-skills/install.json</code>.</p>
+<p class="callout callout-info">Gemini CLI: Gemini CLI was replaced by Antigravity CLI for unpaid tiers on 2026-06-18; choose &quot;antigravity&quot; too if you use it.</p>
+<p class="note">Gemini CLI nie ma plików reguł zawężonych do typów plików; czyta skille i blok instrukcji.</p>
+<p class="note">Zaplanowane przez sam instalator dla przykładowego projektu React z repozytorium.</p>
+</div>
+<figure class="shot"><div class="window "><div class="window-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="window-title"><code>GEMINI.md</code></span></div><div class="window-body"><pre data-lang="markdown" tabindex="0"><code class="language-markdown">## Front-end work (frontend-skills)
+
+- Before front-end work, read `.frontend-skills/profile.json` (the stack) and `.frontend-skills/lessons.md` (confirmed conventions of this project; they win over any skill).
+- Use the installed `fe-*` skill that matches the files you edit.
+- After changing UI code, run `npx github:dawidolko/frontend-skills audit --changed --json` and fix findings at `serious` and above; `explain &lt;rule id&gt;` gives the reason, the source and the fix.
+- Name rule ids (such as `a11y/img-alt`) in reviews and commit messages.</code></pre></div></div><figcaption>Prawdziwy plik</figcaption></figure>
+</div>
+</div>
+<div class="agent-panel" data-agent="antigravity">
+<h3 class="panel-title">Co trafia gdzie dla: Antigravity CLI</h3>
+<div class="panel-grid">
+<div>
+<ul class="file-list"><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-react/SKILL.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-react/references/react.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#layers"/></svg><code>.agents/rules/fe-react.md</code><span class="kind kind-rule">plik reguł</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg><code>AGENTS.md</code><span class="kind kind-instructions">blok instrukcji</span></li></ul>
+<p class="note">Dla każdego agenta także: <code>.frontend-skills/profile.json</code>, <code>.frontend-skills/lessons.md</code> i <code>.frontend-skills/install.json</code>.</p>
+
+
+<p class="note">Zaplanowane przez sam instalator dla przykładowego projektu React z repozytorium.</p>
+</div>
+<figure class="shot"><div class="window "><div class="window-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="window-title"><code>.agents/rules/fe-react.md</code></span></div><div class="window-body"><pre data-lang="markdown" tabindex="0"><code class="language-markdown">---
+trigger: glob
+globs: &quot;**/*.jsx, **/*.tsx&quot;
+description: &quot;Writes and reviews React 19 components (also inside Next.js, Vite or React Router apps) - keys, state, effects, events, refs, forms with actions, memoization and React Compiler - so they stay correct, accessible and fast. Use when creating or editing a .jsx or .tsx component or hook, fixing a re-render or stale-state bug, or when asked \&quot;review this React code\&quot;.&quot;
+---
+
+# React components (frontend-skills)
+
+- Keys come from the data (`key={item.id}`), never the array index for lists that change (react/no-array-index-key).
+- Compute derived values during render; an effect only synchronises with something outside React (react/no-derived-state-effect).
+- Declare components at module level; never define a component inside another (react/no-nested-component).
+- Keep state minimal and close to where it is used; lift it only as far as the nearest shared parent.
+- Handle user actions in event handlers, not in effects that watch state.
+- Every effect that subscribes, listens or starts a timer returns a cleanup.
+- Interactive elements are `&lt;button&gt;` and `&lt;a&gt;`, not `div` with `onClick` (a11y/no-click-on-static); every `&lt;img&gt;` has `alt` (a11y/img-alt).
+- Never mutate state or props; never call hooks conditionally; never read `ref.current` during render.
+
+Before larger changes, read the full skill: `.agents/skills/fe-react/SKILL.md`. Explain any rule id with `npx github:dawidolko/frontend-skills explain &lt;id&gt;`.</code></pre></div></div><figcaption>Prawdziwy plik</figcaption></figure>
+</div>
+</div>
+<div class="agent-panel" data-agent="devin">
+<h3 class="panel-title">Co trafia gdzie dla: Devin / Windsurf</h3>
+<div class="panel-grid">
+<div>
+<ul class="file-list"><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-react/SKILL.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-react/references/react.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#layers"/></svg><code>.devin/rules/fe-react.md</code><span class="kind kind-rule">plik reguł</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg><code>AGENTS.md</code><span class="kind kind-instructions">blok instrukcji</span></li></ul>
+<p class="note">Dla każdego agenta także: <code>.frontend-skills/profile.json</code>, <code>.frontend-skills/lessons.md</code> i <code>.frontend-skills/install.json</code>.</p>
+<p class="callout callout-info">Devin / Windsurf: Devin CLI also reads .cursor/rules; with Cursor chosen too, the CLI sees both rule files of a skill.</p>
+
+<p class="note">Zaplanowane przez sam instalator dla przykładowego projektu React z repozytorium.</p>
+</div>
+<figure class="shot"><div class="window "><div class="window-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="window-title"><code>.devin/rules/fe-react.md</code></span></div><div class="window-body"><pre data-lang="markdown" tabindex="0"><code class="language-markdown">---
+trigger: glob
+globs: &quot;**/*.jsx,**/*.tsx&quot;
+---
+
+# React components (frontend-skills)
+
+Writes and reviews React 19 components (also inside Next.js, Vite or React Router apps) - keys, state, effects, events, refs, forms with actions, memoization and React Compiler - so they stay correct, accessible and fast. Use when creating or editing a .jsx or .tsx component or hook, fixing a re-render or stale-state bug, or when asked &quot;review this React code&quot;.
+
+- Keys come from the data (`key={item.id}`), never the array index for lists that change (react/no-array-index-key).
+- Compute derived values during render; an effect only synchronises with something outside React (react/no-derived-state-effect).
+- Declare components at module level; never define a component inside another (react/no-nested-component).
+- Keep state minimal and close to where it is used; lift it only as far as the nearest shared parent.
+- Handle user actions in event handlers, not in effects that watch state.
+- Every effect that subscribes, listens or starts a timer returns a cleanup.
+- Interactive elements are `&lt;button&gt;` and `&lt;a&gt;`, not `div` with `onClick` (a11y/no-click-on-static); every `&lt;img&gt;` has `alt` (a11y/img-alt).
+- Never mutate state or props; never call hooks conditionally; never read `ref.current` during render.
+
+Before larger changes, read the full skill: `.agents/skills/fe-react/SKILL.md`. Explain any rule id with `npx github:dawidolko/frontend-skills explain &lt;id&gt;`.</code></pre></div></div><figcaption>Prawdziwy plik</figcaption></figure>
+</div>
+</div>
+<div class="agent-panel" data-agent="opencode">
+<h3 class="panel-title">Co trafia gdzie dla: OpenCode</h3>
+<div class="panel-grid">
+<div>
+<ul class="file-list"><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-react/SKILL.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-react/references/react.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg><code>AGENTS.md</code><span class="kind kind-instructions">blok instrukcji</span></li></ul>
+<p class="note">Dla każdego agenta także: <code>.frontend-skills/profile.json</code>, <code>.frontend-skills/lessons.md</code> i <code>.frontend-skills/install.json</code>.</p>
+
+<p class="note">OpenCode nie ma plików reguł zawężonych do typów plików; czyta skille i blok instrukcji.</p>
+<p class="note">Zaplanowane przez sam instalator dla przykładowego projektu React z repozytorium.</p>
+</div>
+<figure class="shot"><div class="window "><div class="window-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="window-title"><code>AGENTS.md</code></span></div><div class="window-body"><pre data-lang="markdown" tabindex="0"><code class="language-markdown">## Front-end work (frontend-skills)
+
+- Before front-end work, read `.frontend-skills/profile.json` (the stack) and `.frontend-skills/lessons.md` (confirmed conventions of this project; they win over any skill).
+- Use the installed `fe-*` skill that matches the files you edit.
+- After changing UI code, run `npx github:dawidolko/frontend-skills audit --changed --json` and fix findings at `serious` and above; `explain &lt;rule id&gt;` gives the reason, the source and the fix.
+- Name rule ids (such as `a11y/img-alt`) in reviews and commit messages.</code></pre></div></div><figcaption>Prawdziwy plik</figcaption></figure>
+</div>
+</div>
+<div class="agent-panel" data-agent="cline">
+<h3 class="panel-title">Co trafia gdzie dla: Cline</h3>
+<div class="panel-grid">
+<div>
+<ul class="file-list"><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.claude/skills/fe-react/SKILL.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.claude/skills/fe-react/references/react.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#layers"/></svg><code>.clinerules/fe-react.md</code><span class="kind kind-rule">plik reguł</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg><code>AGENTS.md</code><span class="kind kind-instructions">blok instrukcji</span></li></ul>
+<p class="note">Dla każdego agenta także: <code>.frontend-skills/profile.json</code>, <code>.frontend-skills/lessons.md</code> i <code>.frontend-skills/install.json</code>.</p>
+<p class="callout callout-info">Cline: If .clinerules is a single file rather than a folder, Cline rule files are not written; skills still are.</p>
+
+<p class="note">Zaplanowane przez sam instalator dla przykładowego projektu React z repozytorium.</p>
+</div>
+<figure class="shot"><div class="window "><div class="window-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="window-title"><code>.clinerules/fe-react.md</code></span></div><div class="window-body"><pre data-lang="markdown" tabindex="0"><code class="language-markdown">---
+paths:
+  - &quot;**/*.jsx&quot;
+  - &quot;**/*.tsx&quot;
+---
+
+# React components (frontend-skills)
+
+Writes and reviews React 19 components (also inside Next.js, Vite or React Router apps) - keys, state, effects, events, refs, forms with actions, memoization and React Compiler - so they stay correct, accessible and fast. Use when creating or editing a .jsx or .tsx component or hook, fixing a re-render or stale-state bug, or when asked &quot;review this React code&quot;.
+
+- Keys come from the data (`key={item.id}`), never the array index for lists that change (react/no-array-index-key).
+- Compute derived values during render; an effect only synchronises with something outside React (react/no-derived-state-effect).
+- Declare components at module level; never define a component inside another (react/no-nested-component).
+- Keep state minimal and close to where it is used; lift it only as far as the nearest shared parent.
+- Handle user actions in event handlers, not in effects that watch state.
+- Every effect that subscribes, listens or starts a timer returns a cleanup.
+- Interactive elements are `&lt;button&gt;` and `&lt;a&gt;`, not `div` with `onClick` (a11y/no-click-on-static); every `&lt;img&gt;` has `alt` (a11y/img-alt).
+- Never mutate state or props; never call hooks conditionally; never read `ref.current` during render.
+
+Before larger changes, read the full skill: `.claude/skills/fe-react/SKILL.md`. Explain any rule id with `npx github:dawidolko/frontend-skills explain &lt;id&gt;`.</code></pre></div></div><figcaption>Prawdziwy plik</figcaption></figure>
+</div>
+</div>
+<div class="agent-panel" data-agent="zed">
+<h3 class="panel-title">Co trafia gdzie dla: Zed</h3>
+<div class="panel-grid">
+<div>
+<ul class="file-list"><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-react/SKILL.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-react/references/react.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg><code>CLAUDE.md</code><span class="kind kind-instructions">blok instrukcji</span></li></ul>
+<p class="note">Dla każdego agenta także: <code>.frontend-skills/profile.json</code>, <code>.frontend-skills/lessons.md</code> i <code>.frontend-skills/install.json</code>.</p>
+<p class="callout callout-info">Zed: Zed reads only the first instruction file of its list; the block is placed in that file.</p>
+<p class="note">Zed nie ma plików reguł zawężonych do typów plików; czyta skille i blok instrukcji.</p>
+<p class="note">Zaplanowane przez sam instalator dla przykładowego projektu React z repozytorium.</p>
+</div>
+<figure class="shot"><div class="window "><div class="window-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="window-title"><code>CLAUDE.md</code></span></div><div class="window-body"><pre data-lang="markdown" tabindex="0"><code class="language-markdown">## Front-end work (frontend-skills)
+
+- Before front-end work, read `.frontend-skills/profile.json` (the stack) and `.frontend-skills/lessons.md` (confirmed conventions of this project; they win over any skill).
+- Use the installed `fe-*` skill that matches the files you edit.
+- After changing UI code, run `npx github:dawidolko/frontend-skills audit --changed --json` and fix findings at `serious` and above; `explain &lt;rule id&gt;` gives the reason, the source and the fix.
+- Name rule ids (such as `a11y/img-alt`) in reviews and commit messages.</code></pre></div></div><figcaption>Prawdziwy plik</figcaption></figure>
+</div>
+</div>
+<div class="agent-panel" data-agent="junie">
+<h3 class="panel-title">Co trafia gdzie dla: JetBrains Junie</h3>
+<div class="panel-grid">
+<div>
+<ul class="file-list"><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-react/SKILL.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-react/references/react.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg><code>AGENTS.md</code><span class="kind kind-instructions">blok instrukcji</span></li></ul>
+<p class="note">Dla każdego agenta także: <code>.frontend-skills/profile.json</code>, <code>.frontend-skills/lessons.md</code> i <code>.frontend-skills/install.json</code>.</p>
+<p class="callout callout-info">JetBrains Junie: Junie reads .agents/skills only in a trusted project.</p>
+<p class="note">JetBrains Junie nie ma plików reguł zawężonych do typów plików; czyta skille i blok instrukcji.</p>
+<p class="note">Zaplanowane przez sam instalator dla przykładowego projektu React z repozytorium.</p>
+</div>
+<figure class="shot"><div class="window "><div class="window-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="window-title"><code>AGENTS.md</code></span></div><div class="window-body"><pre data-lang="markdown" tabindex="0"><code class="language-markdown">## Front-end work (frontend-skills)
+
+- Before front-end work, read `.frontend-skills/profile.json` (the stack) and `.frontend-skills/lessons.md` (confirmed conventions of this project; they win over any skill).
+- Use the installed `fe-*` skill that matches the files you edit.
+- After changing UI code, run `npx github:dawidolko/frontend-skills audit --changed --json` and fix findings at `serious` and above; `explain &lt;rule id&gt;` gives the reason, the source and the fix.
+- Name rule ids (such as `a11y/img-alt`) in reviews and commit messages.</code></pre></div></div><figcaption>Prawdziwy plik</figcaption></figure>
+</div>
+</div>
+<div class="agent-panel" data-agent="kiro">
+<h3 class="panel-title">Co trafia gdzie dla: Kiro</h3>
+<div class="panel-grid">
+<div>
+<ul class="file-list"><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.kiro/skills/fe-react/SKILL.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.kiro/skills/fe-react/references/react.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#layers"/></svg><code>.kiro/steering/fe-react.md</code><span class="kind kind-rule">plik reguł</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg><code>AGENTS.md</code><span class="kind kind-instructions">blok instrukcji</span></li></ul>
+<p class="note">Dla każdego agenta także: <code>.frontend-skills/profile.json</code>, <code>.frontend-skills/lessons.md</code> i <code>.frontend-skills/install.json</code>.</p>
+
+
+<p class="note">Zaplanowane przez sam instalator dla przykładowego projektu React z repozytorium.</p>
+</div>
+<figure class="shot"><div class="window "><div class="window-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="window-title"><code>.kiro/steering/fe-react.md</code></span></div><div class="window-body"><pre data-lang="markdown" tabindex="0"><code class="language-markdown">---
+inclusion: fileMatch
+fileMatchPattern: [&quot;**/*.jsx&quot;, &quot;**/*.tsx&quot;]
+---
+
+# React components (frontend-skills)
+
+Writes and reviews React 19 components (also inside Next.js, Vite or React Router apps) - keys, state, effects, events, refs, forms with actions, memoization and React Compiler - so they stay correct, accessible and fast. Use when creating or editing a .jsx or .tsx component or hook, fixing a re-render or stale-state bug, or when asked &quot;review this React code&quot;.
+
+- Keys come from the data (`key={item.id}`), never the array index for lists that change (react/no-array-index-key).
+- Compute derived values during render; an effect only synchronises with something outside React (react/no-derived-state-effect).
+- Declare components at module level; never define a component inside another (react/no-nested-component).
+- Keep state minimal and close to where it is used; lift it only as far as the nearest shared parent.
+- Handle user actions in event handlers, not in effects that watch state.
+- Every effect that subscribes, listens or starts a timer returns a cleanup.
+- Interactive elements are `&lt;button&gt;` and `&lt;a&gt;`, not `div` with `onClick` (a11y/no-click-on-static); every `&lt;img&gt;` has `alt` (a11y/img-alt).
+- Never mutate state or props; never call hooks conditionally; never read `ref.current` during render.
+
+Before larger changes, read the full skill: `.kiro/skills/fe-react/SKILL.md`. Explain any rule id with `npx github:dawidolko/frontend-skills explain &lt;id&gt;`.</code></pre></div></div><figcaption>Prawdziwy plik</figcaption></figure>
+</div>
+</div>
+<div class="agent-panel" data-agent="augment">
+<h3 class="panel-title">Co trafia gdzie dla: Augment</h3>
+<div class="panel-grid">
+<div>
+<ul class="file-list"><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-react/SKILL.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-react/references/react.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg><code>AGENTS.md</code><span class="kind kind-instructions">blok instrukcji</span></li></ul>
+<p class="note">Dla każdego agenta także: <code>.frontend-skills/profile.json</code>, <code>.frontend-skills/lessons.md</code> i <code>.frontend-skills/install.json</code>.</p>
+
+<p class="note">Augment nie ma plików reguł zawężonych do typów plików; czyta skille i blok instrukcji.</p>
+<p class="note">Zaplanowane przez sam instalator dla przykładowego projektu React z repozytorium.</p>
+</div>
+<figure class="shot"><div class="window "><div class="window-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="window-title"><code>AGENTS.md</code></span></div><div class="window-body"><pre data-lang="markdown" tabindex="0"><code class="language-markdown">## Front-end work (frontend-skills)
+
+- Before front-end work, read `.frontend-skills/profile.json` (the stack) and `.frontend-skills/lessons.md` (confirmed conventions of this project; they win over any skill).
+- Use the installed `fe-*` skill that matches the files you edit.
+- After changing UI code, run `npx github:dawidolko/frontend-skills audit --changed --json` and fix findings at `serious` and above; `explain &lt;rule id&gt;` gives the reason, the source and the fix.
+- Name rule ids (such as `a11y/img-alt`) in reviews and commit messages.</code></pre></div></div><figcaption>Prawdziwy plik</figcaption></figure>
+</div>
+</div>
+<div class="agent-panel" data-agent="trae">
+<h3 class="panel-title">Co trafia gdzie dla: Trae</h3>
+<div class="panel-grid">
+<div>
+<ul class="file-list"><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.trae/skills/fe-react/SKILL.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.trae/skills/fe-react/references/react.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#layers"/></svg><code>.trae/rules/fe-react.md</code><span class="kind kind-rule">plik reguł</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg><code>AGENTS.md</code><span class="kind kind-instructions">blok instrukcji</span></li></ul>
+<p class="note">Dla każdego agenta także: <code>.frontend-skills/profile.json</code>, <code>.frontend-skills/lessons.md</code> i <code>.frontend-skills/install.json</code>.</p>
+<p class="callout callout-info">Trae: Trae reads AGENTS.md only after it is enabled in its settings.</p>
+
+<p class="note">Zaplanowane przez sam instalator dla przykładowego projektu React z repozytorium.</p>
+</div>
+<figure class="shot"><div class="window "><div class="window-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="window-title"><code>.trae/rules/fe-react.md</code></span></div><div class="window-body"><pre data-lang="markdown" tabindex="0"><code class="language-markdown">---
+description: &quot;Writes and reviews React 19 components (also inside Next.js, Vite or React Router apps) - keys, state, effects, events, refs, forms with actions, memoization and React Compiler - so they stay correct, accessible and fast. Use when creating or editing a .jsx or .tsx component or hook, fixing a re-render or stale-state bug, or when asked \&quot;review this React code\&quot;.&quot;
+globs: **/*.jsx,**/*.tsx
+alwaysApply: false
+---
+
+# React components (frontend-skills)
+
+- Keys come from the data (`key={item.id}`), never the array index for lists that change (react/no-array-index-key).
+- Compute derived values during render; an effect only synchronises with something outside React (react/no-derived-state-effect).
+- Declare components at module level; never define a component inside another (react/no-nested-component).
+- Keep state minimal and close to where it is used; lift it only as far as the nearest shared parent.
+- Handle user actions in event handlers, not in effects that watch state.
+- Every effect that subscribes, listens or starts a timer returns a cleanup.
+- Interactive elements are `&lt;button&gt;` and `&lt;a&gt;`, not `div` with `onClick` (a11y/no-click-on-static); every `&lt;img&gt;` has `alt` (a11y/img-alt).
+- Never mutate state or props; never call hooks conditionally; never read `ref.current` during render.
+
+Before larger changes, read the full skill: `.trae/skills/fe-react/SKILL.md`. Explain any rule id with `npx github:dawidolko/frontend-skills explain &lt;id&gt;`.</code></pre></div></div><figcaption>Prawdziwy plik</figcaption></figure>
+</div>
+</div>
+<div class="agent-panel" data-agent="continue">
+<h3 class="panel-title">Co trafia gdzie dla: Continue</h3>
+<div class="panel-grid">
+<div>
+<ul class="file-list"><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.frontend-skills/skills/fe-react/SKILL.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.frontend-skills/skills/fe-react/references/react.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#layers"/></svg><code>.continue/rules/fe-react.md</code><span class="kind kind-rule">plik reguł</span></li></ul>
+<p class="note">Dla każdego agenta także: <code>.frontend-skills/profile.json</code>, <code>.frontend-skills/lessons.md</code> i <code>.frontend-skills/install.json</code>.</p>
+
+
+<p class="note">Zaplanowane przez sam instalator dla przykładowego projektu React z repozytorium.</p>
+</div>
+<figure class="shot"><div class="window "><div class="window-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="window-title"><code>.continue/rules/fe-react.md</code></span></div><div class="window-body"><pre data-lang="markdown" tabindex="0"><code class="language-markdown">---
+name: &quot;React components&quot;
+description: &quot;Writes and reviews React 19 components (also inside Next.js, Vite or React Router apps) - keys, state, effects, events, refs, forms with actions, memoization and React Compiler - so they stay correct, accessible and fast. Use when creating or editing a .jsx or .tsx component or hook, fixing a re-render or stale-state bug, or when asked \&quot;review this React code\&quot;.&quot;
+globs: [&quot;**/*.jsx&quot;, &quot;**/*.tsx&quot;]
+alwaysApply: false
+---
+
+# React components (frontend-skills)
+
+- Keys come from the data (`key={item.id}`), never the array index for lists that change (react/no-array-index-key).
+- Compute derived values during render; an effect only synchronises with something outside React (react/no-derived-state-effect).
+- Declare components at module level; never define a component inside another (react/no-nested-component).
+- Keep state minimal and close to where it is used; lift it only as far as the nearest shared parent.
+- Handle user actions in event handlers, not in effects that watch state.
+- Every effect that subscribes, listens or starts a timer returns a cleanup.
+- Interactive elements are `&lt;button&gt;` and `&lt;a&gt;`, not `div` with `onClick` (a11y/no-click-on-static); every `&lt;img&gt;` has `alt` (a11y/img-alt).
+- Never mutate state or props; never call hooks conditionally; never read `ref.current` during render.
+
+Before larger changes, read the full skill: `.frontend-skills/skills/fe-react/SKILL.md`. Explain any rule id with `npx github:dawidolko/frontend-skills explain &lt;id&gt;`.</code></pre></div></div><figcaption>Prawdziwy plik</figcaption></figure>
+</div>
+</div>
+<div class="agent-panel" data-agent="amazonq">
+<h3 class="panel-title">Co trafia gdzie dla: Amazon Q Developer</h3>
+<div class="panel-grid">
+<div>
+<ul class="file-list"><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.frontend-skills/skills/fe-react/SKILL.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.frontend-skills/skills/fe-react/references/react.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg><code>.amazonq/rules/frontend-skills.md</code><span class="kind kind-instructions">blok instrukcji</span></li></ul>
+<p class="note">Dla każdego agenta także: <code>.frontend-skills/profile.json</code>, <code>.frontend-skills/lessons.md</code> i <code>.frontend-skills/install.json</code>.</p>
+<p class="callout callout-info">Amazon Q Developer: Amazon Q Developer IDE plugins reach end of support on 2027-04-30; AWS points to Kiro.</p>
+<p class="note">Amazon Q Developer nie ma plików reguł zawężonych do typów plików; czyta skille i blok instrukcji.</p>
+<p class="note">Zaplanowane przez sam instalator dla przykładowego projektu React z repozytorium.</p>
+</div>
+<figure class="shot"><div class="window "><div class="window-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="window-title"><code>.amazonq/rules/frontend-skills.md</code></span></div><div class="window-body"><pre data-lang="markdown" tabindex="0"><code class="language-markdown">## Front-end work (frontend-skills)
+
+- Before front-end work, read `.frontend-skills/profile.json` (the stack) and `.frontend-skills/lessons.md` (confirmed conventions of this project; they win over any skill).
+- Use the installed `fe-*` skill that matches the files you edit.
+- After changing UI code, run `npx github:dawidolko/frontend-skills audit --changed --json` and fix findings at `serious` and above; `explain &lt;rule id&gt;` gives the reason, the source and the fix.
+- Name rule ids (such as `a11y/img-alt`) in reviews and commit messages.
+
+### Skills
+
+- `fe-react` (React components): when editing `**/*.jsx`, `**/*.tsx`, first read `.frontend-skills/skills/fe-react/SKILL.md`.</code></pre></div></div><figcaption>Prawdziwy plik</figcaption></figure>
+</div>
+</div>
+<div class="agent-panel" data-agent="aider">
+<h3 class="panel-title">Co trafia gdzie dla: Aider</h3>
+<div class="panel-grid">
+<div>
+<ul class="file-list"><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.frontend-skills/skills/fe-react/SKILL.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.frontend-skills/skills/fe-react/references/react.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg><code>CONVENTIONS.md</code><span class="kind kind-instructions">blok instrukcji</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.aider.conf.yml</code><span class="kind kind-config">konfiguracja</span></li></ul>
+<p class="note">Dla każdego agenta także: <code>.frontend-skills/profile.json</code>, <code>.frontend-skills/lessons.md</code> i <code>.frontend-skills/install.json</code>.</p>
+
+<p class="note">Aider nie ma plików reguł zawężonych do typów plików; czyta skille i blok instrukcji.</p>
+<p class="note">Zaplanowane przez sam instalator dla przykładowego projektu React z repozytorium.</p>
+</div>
+<figure class="shot"><div class="window "><div class="window-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="window-title"><code>CONVENTIONS.md</code></span></div><div class="window-body"><pre data-lang="markdown" tabindex="0"><code class="language-markdown">## Front-end work (frontend-skills)
+
+- Before front-end work, read `.frontend-skills/profile.json` (the stack) and `.frontend-skills/lessons.md` (confirmed conventions of this project; they win over any skill).
+- Use the installed `fe-*` skill that matches the files you edit.
+- After changing UI code, run `npx github:dawidolko/frontend-skills audit --changed --json` and fix findings at `serious` and above; `explain &lt;rule id&gt;` gives the reason, the source and the fix.
+- Name rule ids (such as `a11y/img-alt`) in reviews and commit messages.
+
+### Skills
+
+- `fe-react` (React components): when editing `**/*.jsx`, `**/*.tsx`, first read `.frontend-skills/skills/fe-react/SKILL.md`.</code></pre></div></div><figcaption>Prawdziwy plik</figcaption></figure>
+</div>
+</div>
+</section>
+<section class="skill-group" aria-labelledby="sa-foundations"><h2 id="sa-foundations"><svg class="icon heading-icon" width="24" height="24" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#foundations"/></svg>Podstawy <span class="count">5</span></h2>
+<ul class="skill-grid"><li class="skill-tile lift">
+<div class="skill-tile-head"><span class="tile-icon"><svg class="icon" width="22" height="22" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#foundations"/></svg></span><div><h3><a class="tile-link" href="/pl/skills/fe-forms/">Native forms and validation</a></h3><p class="skill-name"><code>fe-forms</code></p></div></div>
 <p>Builds and reviews HTML forms that work natively - the right input types and inputmode, autocomplete tokens, constraint validation and custom messages, select placeholders, file inputs, and submission through the form's submit event. Accessibility of forms is in fe-a11y-forms.</p>
-<p class="skill-meta"><span>Instalowany, gdy projekt używa: każdego projektu webowego</span><span>9 reguł</span><span>przy użyciu: 954 tokeny</span></p>
-</li><li class="skill-card">
-<h3><a href="/pl/skills/fe-html/">HTML documents and semantics</a></h3>
-<p class="skill-name"><code>fe-html</code></p>
+<p class="skill-meta"><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#framework"/></svg>każdego projektu webowego</span><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg>9 reguł</span><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#perf"/></svg>przy użyciu: 954 tokeny</span></p>
+<p class="sev-mix"><span class="sev sev-critical">1 krytyczna</span> <span class="sev sev-serious">1 poważna</span> <span class="sev sev-moderate">5 umiarkowana</span> <span class="sev sev-minor">2 drobna</span></p>
+</li><li class="skill-tile lift">
+<div class="skill-tile-head"><span class="tile-icon"><svg class="icon" width="22" height="22" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#foundations"/></svg></span><div><h3><a class="tile-link" href="/pl/skills/fe-html/">HTML documents and semantics</a></h3><p class="skill-name"><code>fe-html</code></p></div></div>
 <p>Writes and reviews HTML documents and templates (plain HTML, JSX, Vue, Svelte, Astro, Angular) with valid structure, semantic elements, landmarks, headings, images and buttons that work for everyone.</p>
-<p class="skill-meta"><span>Instalowany, gdy projekt używa: każdego projektu webowego</span><span>6 reguł</span><span>przy użyciu: 869 tokenów</span></p>
-</li><li class="skill-card">
-<h3><a href="/pl/skills/fe-javascript/">JavaScript in the browser</a></h3>
-<p class="skill-name"><code>fe-javascript</code></p>
+<p class="skill-meta"><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#framework"/></svg>każdego projektu webowego</span><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg>6 reguł</span><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#perf"/></svg>przy użyciu: 869 tokenów</span></p>
+<p class="sev-mix"><span class="sev sev-critical">1 krytyczna</span> <span class="sev sev-serious">2 poważna</span> <span class="sev sev-moderate">2 umiarkowana</span> <span class="sev sev-minor">1 drobna</span></p>
+</li><li class="skill-tile lift">
+<div class="skill-tile-head"><span class="tile-icon"><svg class="icon" width="22" height="22" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#foundations"/></svg></span><div><h3><a class="tile-link" href="/pl/skills/fe-javascript/">JavaScript in the browser</a></h3><p class="skill-name"><code>fe-javascript</code></p></div></div>
 <p>Writes and reviews browser JavaScript (plain scripts, modules, framework script blocks) - equality, declarations, async and fetch errors, DOM events, assets through the bundler - so it fails loudly, stays fast and keeps working when moved.</p>
-<p class="skill-meta"><span>Instalowany, gdy projekt używa: każdego projektu webowego</span><span>13 reguł</span><span>przy użyciu: 1070 tokenów</span></p>
-</li><li class="skill-card">
-<h3><a href="/pl/skills/fe-responsive/">Responsive design</a></h3>
-<p class="skill-name"><code>fe-responsive</code></p>
+<p class="skill-meta"><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#framework"/></svg>każdego projektu webowego</span><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg>13 reguł</span><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#perf"/></svg>przy użyciu: 1070 tokenów</span></p>
+<p class="sev-mix"><span class="sev sev-serious">1 poważna</span> <span class="sev sev-moderate">8 umiarkowana</span> <span class="sev sev-minor">4 drobna</span></p>
+</li><li class="skill-tile lift">
+<div class="skill-tile-head"><span class="tile-icon"><svg class="icon" width="22" height="22" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#foundations"/></svg></span><div><h3><a class="tile-link" href="/pl/skills/fe-responsive/">Responsive design</a></h3><p class="skill-name"><code>fe-responsive</code></p></div></div>
 <p>Makes pages and components work from 320 CSS px phones to wide screens and at 400% zoom - viewport meta, fluid type and space, content breakpoints and container queries, no fixed wide boxes, dvh units, touch targets, no hover-only content, orientation and print.</p>
-<p class="skill-meta"><span>Instalowany, gdy projekt używa: każdego projektu webowego</span><span>9 reguł</span><span>przy użyciu: 1080 tokenów</span></p>
-</li><li class="skill-card">
-<h3><a href="/pl/skills/fe-typescript/">TypeScript</a></h3>
-<p class="skill-name"><code>fe-typescript</code></p>
+<p class="skill-meta"><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#framework"/></svg>każdego projektu webowego</span><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg>9 reguł</span><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#perf"/></svg>przy użyciu: 1080 tokenów</span></p>
+<p class="sev-mix"><span class="sev sev-critical">1 krytyczna</span> <span class="sev sev-serious">6 poważna</span> <span class="sev sev-minor">2 drobna</span></p>
+</li><li class="skill-tile lift">
+<div class="skill-tile-head"><span class="tile-icon"><svg class="icon" width="22" height="22" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#foundations"/></svg></span><div><h3><a class="tile-link" href="/pl/skills/fe-typescript/">TypeScript</a></h3><p class="skill-name"><code>fe-typescript</code></p></div></div>
 <p>Writes and reviews TypeScript for front-end apps (TypeScript 7, React, Vue, Svelte, Angular, Astro) - strict config, no any, types checked at the boundaries (API, storage, forms), narrowing instead of casts, a tsconfig that builds on 6 and 7.</p>
-<p class="skill-meta"><span>Instalowany, gdy projekt używa: <code>typescript</code></span><span>6 reguł</span><span>przy użyciu: 1016 tokenów</span></p>
+<p class="skill-meta"><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#framework"/></svg><code>typescript</code></span><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg>6 reguł</span><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#perf"/></svg>przy użyciu: 1016 tokenów</span></p>
+<p class="sev-mix"><span class="sev sev-moderate">4 umiarkowana</span> <span class="sev sev-minor">2 drobna</span></p>
 </li></ul></section>
-<section aria-labelledby="sa-styling"><h2 id="sa-styling">Style</h2>
-<ul class="skill-grid"><li class="skill-card">
-<h3><a href="/pl/skills/fe-css-architecture/">CSS architecture and tokens</a></h3>
-<p class="skill-name"><code>fe-css-architecture</code></p>
+<section class="skill-group" aria-labelledby="sa-styling"><h2 id="sa-styling"><svg class="icon heading-icon" width="24" height="24" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#styling"/></svg>Style <span class="count">7</span></h2>
+<ul class="skill-grid"><li class="skill-tile lift">
+<div class="skill-tile-head"><span class="tile-icon"><svg class="icon" width="22" height="22" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#styling"/></svg></span><div><h3><a class="tile-link" href="/pl/skills/fe-css-architecture/">CSS architecture and tokens</a></h3><p class="skill-name"><code>fe-css-architecture</code></p></div></div>
 <p>Organises and reviews stylesheets (CSS, SCSS, Less, component styles) around the project's own tokens, helpers and icon set - cascade layers, specificity, rem sizing, unitless line-height, z-index scale, no magic numbers or hard-coded asset paths.</p>
-<p class="skill-meta"><span>Instalowany, gdy projekt używa: każdego projektu webowego</span><span>11 reguł</span><span>przy użyciu: 1053 tokeny</span></p>
-</li><li class="skill-card">
-<h3><a href="/pl/skills/fe-css-layout/">CSS layout</a></h3>
-<p class="skill-name"><code>fe-css-layout</code></p>
+<p class="skill-meta"><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#framework"/></svg>każdego projektu webowego</span><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg>11 reguł</span><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#perf"/></svg>przy użyciu: 1053 tokeny</span></p>
+<p class="sev-mix"><span class="sev sev-minor">11 drobna</span></p>
+</li><li class="skill-tile lift">
+<div class="skill-tile-head"><span class="tile-icon"><svg class="icon" width="22" height="22" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#styling"/></svg></span><div><h3><a class="tile-link" href="/pl/skills/fe-css-layout/">CSS layout</a></h3><p class="skill-name"><code>fe-css-layout</code></p></div></div>
 <p>Builds and reviews page and component layout in CSS with grid, flexbox, gap, container queries and logical properties, with no float columns, no fixed heights on text and no magic offsets.</p>
-<p class="skill-meta"><span>Instalowany, gdy projekt używa: każdego projektu webowego</span><span>6 reguł</span><span>przy użyciu: 879 tokenów</span></p>
-</li><li class="skill-card">
-<h3><a href="/pl/skills/fe-css-modern/">Modern CSS features</a></h3>
-<p class="skill-name"><code>fe-css-modern</code></p>
+<p class="skill-meta"><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#framework"/></svg>każdego projektu webowego</span><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg>6 reguł</span><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#perf"/></svg>przy użyciu: 879 tokenów</span></p>
+<p class="sev-mix"><span class="sev sev-serious">1 poważna</span> <span class="sev sev-moderate">1 umiarkowana</span> <span class="sev sev-minor">4 drobna</span></p>
+</li><li class="skill-tile lift">
+<div class="skill-tile-head"><span class="tile-icon"><svg class="icon" width="22" height="22" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#styling"/></svg></span><div><h3><a class="tile-link" href="/pl/skills/fe-css-modern/">Modern CSS features</a></h3><p class="skill-name"><code>fe-css-modern</code></p></div></div>
 <p>Uses current CSS features where they replace JavaScript or preprocessor work - native nesting, :has(), @scope, color-mix() and oklch, light-dark(), @starting-style, @property, text-wrap, anchor positioning - each with its Baseline status and a fallback.</p>
-<p class="skill-meta"><span>Instalowany, gdy projekt używa: każdego projektu webowego</span><span>4 reguły</span><span>przy użyciu: 839 tokenów</span></p>
-</li><li class="skill-card">
-<h3><a href="/pl/skills/fe-icons/">Icons</a></h3>
-<p class="skill-name"><code>fe-icons</code></p>
+<p class="skill-meta"><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#framework"/></svg>każdego projektu webowego</span><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg>4 reguły</span><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#perf"/></svg>przy użyciu: 839 tokenów</span></p>
+<p class="sev-mix"><span class="sev sev-serious">1 poważna</span> <span class="sev sev-moderate">2 umiarkowana</span> <span class="sev sev-minor">1 drobna</span></p>
+</li><li class="skill-tile lift">
+<div class="skill-tile-head"><span class="tile-icon"><svg class="icon" width="22" height="22" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#styling"/></svg></span><div><h3><a class="tile-link" href="/pl/skills/fe-icons/">Icons</a></h3><p class="skill-name"><code>fe-icons</code></p></div></div>
 <p>Uses and builds icons the way the project does - one icon set generated by the build from a folder of SVG files (sprite, icon classes or an Icon component per framework), currentColor sizing, decorative vs meaningful icons - and never a hard-coded icon file path.</p>
-<p class="skill-meta"><span>Instalowany, gdy projekt używa: każdego projektu webowego</span><span>4 reguły</span><span>przy użyciu: 968 tokenów</span></p>
-</li><li class="skill-card">
-<h3><a href="/pl/skills/fe-motion/">Motion and animation</a></h3>
-<p class="skill-name"><code>fe-motion</code></p>
+<p class="skill-meta"><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#framework"/></svg>każdego projektu webowego</span><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg>4 reguły</span><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#perf"/></svg>przy użyciu: 968 tokenów</span></p>
+<p class="sev-mix"><span class="sev sev-critical">1 krytyczna</span> <span class="sev sev-moderate">1 umiarkowana</span> <span class="sev sev-minor">2 drobna</span></p>
+</li><li class="skill-tile lift">
+<div class="skill-tile-head"><span class="tile-icon"><svg class="icon" width="22" height="22" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#styling"/></svg></span><div><h3><a class="tile-link" href="/pl/skills/fe-motion/">Motion and animation</a></h3><p class="skill-name"><code>fe-motion</code></p></div></div>
 <p>Adds smooth, safe motion - transitions and keyframes on transform and opacity, prefers-reduced-motion, pause controls for auto-playing content, View Transitions and scroll-driven animations with feature checks, @starting-style for entry effects, and motion libraries set for reduced motion.</p>
-<p class="skill-meta"><span>Instalowany, gdy projekt używa: każdego projektu webowego</span><span>4 reguły</span><span>przy użyciu: 838 tokenów</span></p>
-</li><li class="skill-card">
-<h3><a href="/pl/skills/fe-sass/">Sass (SCSS)</a></h3>
-<p class="skill-name"><code>fe-sass</code></p>
+<p class="skill-meta"><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#framework"/></svg>każdego projektu webowego</span><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg>4 reguły</span><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#perf"/></svg>przy użyciu: 838 tokenów</span></p>
+<p class="sev-mix"><span class="sev sev-serious">1 poważna</span> <span class="sev sev-moderate">3 umiarkowana</span></p>
+</li><li class="skill-tile lift">
+<div class="skill-tile-head"><span class="tile-icon"><svg class="icon" width="22" height="22" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#styling"/></svg></span><div><h3><a class="tile-link" href="/pl/skills/fe-sass/">Sass (SCSS)</a></h3><p class="skill-name"><code>fe-sass</code></p></div></div>
 <p>Writes and reviews Sass (SCSS) for Dart Sass - the module system with @use and @forward, sass:math and sass:color, division, placeholders, the project's px-to-rem helper - and says when plain CSS now does the job.</p>
-<p class="skill-meta"><span>Instalowany, gdy projekt używa: <code>sass</code></span><span>9 reguł</span><span>przy użyciu: 1016 tokenów</span></p>
-</li><li class="skill-card">
-<h3><a href="/pl/skills/fe-tailwind/">Tailwind CSS</a></h3>
-<p class="skill-name"><code>fe-tailwind</code></p>
+<p class="skill-meta"><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#framework"/></svg><code>sass</code></span><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg>9 reguł</span><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#perf"/></svg>przy użyciu: 1016 tokenów</span></p>
+<p class="sev-mix"><span class="sev sev-moderate">2 umiarkowana</span> <span class="sev sev-minor">7 drobna</span></p>
+</li><li class="skill-tile lift">
+<div class="skill-tile-head"><span class="tile-icon"><svg class="icon" width="22" height="22" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#styling"/></svg></span><div><h3><a class="tile-link" href="/pl/skills/fe-tailwind/">Tailwind CSS</a></h3><p class="skill-name"><code>fe-tailwind</code></p></div></div>
 <p>Writes and reviews Tailwind CSS 4 code - CSS-first setup with @import and @theme, complete class names, tokens instead of arbitrary values, conflict-free class lists, sr-only labels, focus and reduced-motion variants.</p>
-<p class="skill-meta"><span>Instalowany, gdy projekt używa: <code>tailwind</code></span><span>10 reguł</span><span>przy użyciu: 1097 tokenów</span></p>
+<p class="skill-meta"><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#framework"/></svg><code>tailwind</code></span><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg>10 reguł</span><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#perf"/></svg>przy użyciu: 1097 tokenów</span></p>
+<p class="sev-mix"><span class="sev sev-serious">2 poważna</span> <span class="sev sev-moderate">4 umiarkowana</span> <span class="sev sev-minor">4 drobna</span></p>
 </li></ul></section>
-<section aria-labelledby="sa-frameworks"><h2 id="sa-frameworks">Frameworki</h2>
-<ul class="skill-grid"><li class="skill-card">
-<h3><a href="/pl/skills/fe-angular/">Angular components</a></h3>
-<p class="skill-name"><code>fe-angular</code></p>
+<section class="skill-group" aria-labelledby="sa-frameworks"><h2 id="sa-frameworks"><svg class="icon heading-icon" width="24" height="24" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#framework"/></svg>Frameworki <span class="count">11</span></h2>
+<ul class="skill-grid"><li class="skill-tile lift">
+<div class="skill-tile-head"><span class="tile-icon"><svg class="icon" width="22" height="22" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#framework"/></svg></span><div><h3><a class="tile-link" href="/pl/skills/fe-angular/">Angular components</a></h3><p class="skill-name"><code>fe-angular</code></p></div></div>
 <p>Writes and reviews Angular 22 components, templates and services - signals, built-in control flow, zoneless and OnPush defaults, SSR and hydration, NgOptimizedImage, router accessibility, DomSanitizer - for fast, accessible apps.</p>
-<p class="skill-meta"><span>Instalowany, gdy projekt używa: <code>angular</code></span><span>9 reguł</span><span>przy użyciu: 1152 tokeny</span></p>
-</li><li class="skill-card">
-<h3><a href="/pl/skills/fe-astro/">Astro sites and islands</a></h3>
-<p class="skill-name"><code>fe-astro</code></p>
+<p class="skill-meta"><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#framework"/></svg><code>angular</code></span><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg>9 reguł</span><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#perf"/></svg>przy użyciu: 1152 tokeny</span></p>
+<p class="sev-mix"><span class="sev sev-serious">2 poważna</span> <span class="sev sev-moderate">6 umiarkowana</span> <span class="sev sev-minor">1 drobna</span></p>
+</li><li class="skill-tile lift">
+<div class="skill-tile-head"><span class="tile-icon"><svg class="icon" width="22" height="22" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#framework"/></svg></span><div><h3><a class="tile-link" href="/pl/skills/fe-astro/">Astro sites and islands</a></h3><p class="skill-name"><code>fe-astro</code></p></div></div>
 <p>Writes and reviews Astro 7 sites - islands and client directives, server islands, processed scripts, astro:assets images, content collections and environment variables - so pages ship little JavaScript and stay safe.</p>
-<p class="skill-meta"><span>Instalowany, gdy projekt używa: <code>astro</code></span><span>7 reguł</span><span>przy użyciu: 920 tokenów</span></p>
-</li><li class="skill-card">
-<h3><a href="/pl/skills/fe-data-fetching/">Data fetching</a></h3>
-<p class="skill-name"><code>fe-data-fetching</code></p>
+<p class="skill-meta"><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#framework"/></svg><code>astro</code></span><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg>7 reguł</span><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#perf"/></svg>przy użyciu: 920 tokenów</span></p>
+<p class="sev-mix"><span class="sev sev-serious">1 poważna</span> <span class="sev sev-moderate">6 umiarkowana</span></p>
+</li><li class="skill-tile lift">
+<div class="skill-tile-head"><span class="tile-icon"><svg class="icon" width="22" height="22" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#framework"/></svg></span><div><h3><a class="tile-link" href="/pl/skills/fe-data-fetching/">Data fetching</a></h3><p class="skill-name"><code>fe-data-fetching</code></p></div></div>
 <p>Loads and changes server data in front-end apps - framework loaders, TanStack Query, SWR, Nuxt useFetch, Angular httpResource - with correct cache keys, one stable client, loading and error states, race-free effects and invalidation after mutations.</p>
-<p class="skill-meta"><span>Instalowany, gdy projekt używa: <code>react</code>, <code>vue</code>, <code>svelte</code>, <code>angular</code>, <code>next</code>, <code>nuxt</code></span><span>8 reguł</span><span>przy użyciu: 876 tokenów</span></p>
-</li><li class="skill-card">
-<h3><a href="/pl/skills/fe-nextjs/">Next.js App Router</a></h3>
-<p class="skill-name"><code>fe-nextjs</code></p>
+<p class="skill-meta"><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#framework"/></svg><code>react</code>, <code>vue</code>, <code>svelte</code>, <code>angular</code>, <code>next</code>, <code>nuxt</code></span><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg>8 reguł</span><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#perf"/></svg>przy użyciu: 876 tokenów</span></p>
+<p class="sev-mix"><span class="sev sev-serious">3 poważna</span> <span class="sev sev-moderate">5 umiarkowana</span></p>
+</li><li class="skill-tile lift">
+<div class="skill-tile-head"><span class="tile-icon"><svg class="icon" width="22" height="22" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#framework"/></svg></span><div><h3><a class="tile-link" href="/pl/skills/fe-nextjs/">Next.js App Router</a></h3><p class="skill-name"><code>fe-nextjs</code></p></div></div>
 <p>Writes and reviews Next.js 16 App Router code - Server and Client Components, async params, Server Actions, caching, metadata, next/image, next/font and environment variables - so routes stay fast, safe and correct.</p>
-<p class="skill-meta"><span>Instalowany, gdy projekt używa: <code>next</code></span><span>9 reguł</span><span>przy użyciu: 1053 tokeny</span></p>
-</li><li class="skill-card">
-<h3><a href="/pl/skills/fe-nuxt/">Nuxt apps</a></h3>
-<p class="skill-name"><code>fe-nuxt</code></p>
+<p class="skill-meta"><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#framework"/></svg><code>next</code></span><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg>9 reguł</span><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#perf"/></svg>przy użyciu: 1053 tokeny</span></p>
+<p class="sev-mix"><span class="sev sev-serious">5 poważna</span> <span class="sev sev-moderate">4 umiarkowana</span></p>
+</li><li class="skill-tile lift">
+<div class="skill-tile-head"><span class="tile-icon"><svg class="icon" width="22" height="22" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#framework"/></svg></span><div><h3><a class="tile-link" href="/pl/skills/fe-nuxt/">Nuxt apps</a></h3><p class="skill-name"><code>fe-nuxt</code></p></div></div>
 <p>Writes and reviews Nuxt 4 apps - useFetch and useAsyncData vs $fetch, keys, per-request state, server-safe setup, runtime config, route announcements - so pages render on the server without leaks, double requests or hydration errors.</p>
-<p class="skill-meta"><span>Instalowany, gdy projekt używa: <code>nuxt</code></span><span>10 reguł</span><span>przy użyciu: 1136 tokenów</span></p>
-</li><li class="skill-card">
-<h3><a href="/pl/skills/fe-react/">React components</a></h3>
-<p class="skill-name"><code>fe-react</code></p>
+<p class="skill-meta"><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#framework"/></svg><code>nuxt</code></span><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg>10 reguł</span><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#perf"/></svg>przy użyciu: 1136 tokenów</span></p>
+<p class="sev-mix"><span class="sev sev-serious">3 poważna</span> <span class="sev sev-moderate">7 umiarkowana</span></p>
+</li><li class="skill-tile lift">
+<div class="skill-tile-head"><span class="tile-icon"><svg class="icon" width="22" height="22" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#framework"/></svg></span><div><h3><a class="tile-link" href="/pl/skills/fe-react/">React components</a></h3><p class="skill-name"><code>fe-react</code></p></div></div>
 <p>Writes and reviews React 19 components (also inside Next.js, Vite or React Router apps) - keys, state, effects, events, refs, forms with actions, memoization and React Compiler - so they stay correct, accessible and fast.</p>
-<p class="skill-meta"><span>Instalowany, gdy projekt używa: <code>react</code></span><span>5 reguł</span><span>przy użyciu: 794 tokeny</span></p>
-</li><li class="skill-card">
-<h3><a href="/pl/skills/fe-state/">State and stores</a></h3>
-<p class="skill-name"><code>fe-state</code></p>
+<p class="skill-meta"><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#framework"/></svg><code>react</code></span><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg>5 reguł</span><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#perf"/></svg>przy użyciu: 794 tokeny</span></p>
+<p class="sev-mix"><span class="sev sev-critical">1 krytyczna</span> <span class="sev sev-serious">2 poważna</span> <span class="sev sev-moderate">2 umiarkowana</span></p>
+</li><li class="skill-tile lift">
+<div class="skill-tile-head"><span class="tile-icon"><svg class="icon" width="22" height="22" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#framework"/></svg></span><div><h3><a class="tile-link" href="/pl/skills/fe-state/">State and stores</a></h3><p class="skill-name"><code>fe-state</code></p></div></div>
 <p>Decides where front-end state lives and writes stores that stay correct - component state, URL, context, Pinia, Zustand, Redux Toolkit, Svelte runes, Angular signals - with stable selectors and no server data copied into stores.</p>
-<p class="skill-meta"><span>Instalowany, gdy projekt używa: <code>react</code>, <code>vue</code>, <code>svelte</code>, <code>angular</code></span><span>6 reguł</span><span>przy użyciu: 888 tokenów</span></p>
-</li><li class="skill-card">
-<h3><a href="/pl/skills/fe-svelte/">Svelte components</a></h3>
-<p class="skill-name"><code>fe-svelte</code></p>
+<p class="skill-meta"><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#framework"/></svg><code>react</code>, <code>vue</code>, <code>svelte</code>, <code>angular</code></span><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg>6 reguł</span><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#perf"/></svg>przy użyciu: 888 tokenów</span></p>
+<p class="sev-mix"><span class="sev sev-serious">3 poważna</span> <span class="sev sev-moderate">1 umiarkowana</span> <span class="sev sev-minor">2 drobna</span></p>
+</li><li class="skill-tile lift">
+<div class="skill-tile-head"><span class="tile-icon"><svg class="icon" width="22" height="22" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#framework"/></svg></span><div><h3><a class="tile-link" href="/pl/skills/fe-svelte/">Svelte components</a></h3><p class="skill-name"><code>fe-svelte</code></p></div></div>
 <p>Writes and reviews Svelte 5 components in runes mode - $state, $derived, $effect, $props, snippets, event attributes, keyed each blocks - and moves Svelte 4 syntax forward, so components stay reactive, correct and accessible.</p>
-<p class="skill-meta"><span>Instalowany, gdy projekt używa: <code>svelte</code></span><span>8 reguł</span><span>przy użyciu: 963 tokeny</span></p>
-</li><li class="skill-card">
-<h3><a href="/pl/skills/fe-sveltekit/">SvelteKit apps</a></h3>
-<p class="skill-name"><code>fe-sveltekit</code></p>
+<p class="skill-meta"><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#framework"/></svg><code>svelte</code></span><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg>8 reguł</span><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#perf"/></svg>przy użyciu: 963 tokeny</span></p>
+<p class="sev-mix"><span class="sev sev-critical">1 krytyczna</span> <span class="sev sev-serious">1 poważna</span> <span class="sev sev-moderate">4 umiarkowana</span> <span class="sev sev-minor">2 drobna</span></p>
+</li><li class="skill-tile lift">
+<div class="skill-tile-head"><span class="tile-icon"><svg class="icon" width="22" height="22" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#framework"/></svg></span><div><h3><a class="tile-link" href="/pl/skills/fe-sveltekit/">SvelteKit apps</a></h3><p class="skill-name"><code>fe-sveltekit</code></p></div></div>
 <p>Builds and reviews SvelteKit 3 apps (and Kit 2 projects on the way up) - routes, load functions, form actions with progressive enhancement, page titles, server-only state and rendering options - so pages work before JavaScript, load without waterfalls and never leak data between users.</p>
-<p class="skill-meta"><span>Instalowany, gdy projekt używa: <code>sveltekit</code></span><span>7 reguł</span><span>przy użyciu: 1033 tokeny</span></p>
-</li><li class="skill-card">
-<h3><a href="/pl/skills/fe-vue/">Vue components</a></h3>
-<p class="skill-name"><code>fe-vue</code></p>
+<p class="skill-meta"><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#framework"/></svg><code>sveltekit</code></span><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg>7 reguł</span><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#perf"/></svg>przy użyciu: 1033 tokeny</span></p>
+<p class="sev-mix"><span class="sev sev-serious">2 poważna</span> <span class="sev sev-moderate">5 umiarkowana</span></p>
+</li><li class="skill-tile lift">
+<div class="skill-tile-head"><span class="tile-icon"><svg class="icon" width="22" height="22" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#framework"/></svg></span><div><h3><a class="tile-link" href="/pl/skills/fe-vue/">Vue components</a></h3><p class="skill-name"><code>fe-vue</code></p></div></div>
 <p>Writes and reviews Vue 3.5 single-file components with script setup and the Composition API - keyed lists, props and emits, refs and reactive, pure computeds, watchers with cleanup, navigation links - so they stay reactive, correct and accessible.</p>
-<p class="skill-meta"><span>Instalowany, gdy projekt używa: <code>vue</code>, <code>nuxt</code></span><span>12 reguł</span><span>przy użyciu: 1070 tokenów</span></p>
-</li><li class="skill-card">
-<h3><a href="/pl/skills/fe-web-components/">Web components and Lit</a></h3>
-<p class="skill-name"><code>fe-web-components</code></p>
+<p class="skill-meta"><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#framework"/></svg><code>vue</code>, <code>nuxt</code></span><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg>12 reguł</span><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#perf"/></svg>przy użyciu: 1070 tokenów</span></p>
+<p class="sev-mix"><span class="sev sev-critical">1 krytyczna</span> <span class="sev sev-serious">1 poważna</span> <span class="sev sev-moderate">8 umiarkowana</span> <span class="sev sev-minor">2 drobna</span></p>
+</li><li class="skill-tile lift">
+<div class="skill-tile-head"><span class="tile-icon"><svg class="icon" width="22" height="22" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#framework"/></svg></span><div><h3><a class="tile-link" href="/pl/skills/fe-web-components/">Web components and Lit</a></h3><p class="skill-name"><code>fe-web-components</code></p></div></div>
 <p>Writes and reviews custom elements, plain or with Lit 3 - names, lifecycle, attributes and properties, shadow DOM styling, events, form-associated controls with ElementInternals, accessibility across the shadow boundary.</p>
-<p class="skill-meta"><span>Instalowany, gdy projekt używa: <code>lit</code>, <code>webc</code></span><span>9 reguł</span><span>przy użyciu: 1077 tokenów</span></p>
+<p class="skill-meta"><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#framework"/></svg><code>lit</code>, <code>webc</code></span><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg>9 reguł</span><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#perf"/></svg>przy użyciu: 1077 tokenów</span></p>
+<p class="sev-mix"><span class="sev sev-serious">6 poważna</span> <span class="sev sev-moderate">3 umiarkowana</span></p>
 </li></ul></section>
-<section aria-labelledby="sa-accessibility"><h2 id="sa-accessibility">Dostępność</h2>
-<ul class="skill-grid"><li class="skill-card">
-<h3><a href="/pl/skills/fe-a11y-aria/">ARIA, names and live regions</a></h3>
-<p class="skill-name"><code>fe-a11y-aria</code></p>
+<section class="skill-group" aria-labelledby="sa-accessibility"><h2 id="sa-accessibility"><svg class="icon heading-icon" width="24" height="24" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#a11y"/></svg>Dostępność <span class="count">12</span></h2>
+<ul class="skill-grid"><li class="skill-tile lift">
+<div class="skill-tile-head"><span class="tile-icon"><svg class="icon" width="22" height="22" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#a11y"/></svg></span><div><h3><a class="tile-link" href="/pl/skills/fe-a11y-aria/">ARIA, names and live regions</a></h3><p class="skill-name"><code>fe-a11y-aria</code></p></div></div>
 <p>Gets names, roles, states and announcements right in any stack to WCAG 2.2 AA as a target - native elements before ARIA, accessible names for icon buttons and links, valid roles and aria-* attributes, aria-hidden used safely, state attributes, live regions for status messages.</p>
-<p class="skill-meta"><span>Instalowany, gdy projekt używa: każdego projektu webowego</span><span>8 reguł</span><span>przy użyciu: 1070 tokenów</span></p>
-</li><li class="skill-card">
-<h3><a href="/pl/skills/fe-a11y-carousel-toast/">Carousels and toasts</a></h3>
-<p class="skill-name"><code>fe-a11y-carousel-toast</code></p>
+<p class="skill-meta"><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#framework"/></svg>każdego projektu webowego</span><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg>8 reguł</span><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#perf"/></svg>przy użyciu: 1070 tokenów</span></p>
+<p class="sev-mix"><span class="sev sev-critical">1 krytyczna</span> <span class="sev sev-serious">6 poważna</span> <span class="sev sev-minor">1 drobna</span></p>
+</li><li class="skill-tile lift">
+<div class="skill-tile-head"><span class="tile-icon"><svg class="icon" width="22" height="22" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#a11y"/></svg></span><div><h3><a class="tile-link" href="/pl/skills/fe-a11y-carousel-toast/">Carousels and toasts</a></h3><p class="skill-name"><code>fe-a11y-carousel-toast</code></p></div></div>
 <p>Builds carousels, sliders of content, toasts, snackbars and notifications that people can pause, operate and hear (WAI-ARIA APG Carousel and Alert patterns, WCAG 2.2.1, 2.2.2, 4.1.3 at AA as a target).</p>
-<p class="skill-meta"><span>Instalowany, gdy projekt używa: każdego projektu webowego</span><span>5 reguł</span><span>przy użyciu: 791 tokenów</span></p>
-</li><li class="skill-card">
-<h3><a href="/pl/skills/fe-a11y-combobox/">Combobox, listbox and custom select</a></h3>
-<p class="skill-name"><code>fe-a11y-combobox</code></p>
+<p class="skill-meta"><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#framework"/></svg>każdego projektu webowego</span><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg>5 reguł</span><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#perf"/></svg>przy użyciu: 791 tokenów</span></p>
+<p class="sev-mix"><span class="sev sev-critical">1 krytyczna</span> <span class="sev sev-serious">3 poważna</span> <span class="sev sev-moderate">1 umiarkowana</span></p>
+</li><li class="skill-tile lift">
+<div class="skill-tile-head"><span class="tile-icon"><svg class="icon" width="22" height="22" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#a11y"/></svg></span><div><h3><a class="tile-link" href="/pl/skills/fe-a11y-combobox/">Combobox, listbox and custom select</a></h3><p class="skill-name"><code>fe-a11y-combobox</code></p></div></div>
 <p>Builds autocomplete inputs, searchable selects, select-only comboboxes and listboxes that work with keyboard and screen readers (WAI-ARIA APG Combobox and Listbox patterns), after checking whether a native select or datalist is enough.</p>
-<p class="skill-meta"><span>Instalowany, gdy projekt używa: każdego projektu webowego</span><span>6 reguł</span><span>przy użyciu: 872 tokeny</span></p>
-</li><li class="skill-card">
-<h3><a href="/pl/skills/fe-a11y-core/">Accessibility, WCAG 2.2 map</a></h3>
-<p class="skill-name"><code>fe-a11y-core</code></p>
+<p class="skill-meta"><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#framework"/></svg>każdego projektu webowego</span><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg>6 reguł</span><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#perf"/></svg>przy użyciu: 872 tokeny</span></p>
+<p class="sev-mix"><span class="sev sev-critical">1 krytyczna</span> <span class="sev sev-serious">5 poważna</span></p>
+</li><li class="skill-tile lift">
+<div class="skill-tile-head"><span class="tile-icon"><svg class="icon" width="22" height="22" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#a11y"/></svg></span><div><h3><a class="tile-link" href="/pl/skills/fe-a11y-core/">Accessibility, WCAG 2.2 map</a></h3><p class="skill-name"><code>fe-a11y-core</code></p></div></div>
 <p>The entry point for accessibility in any front-end stack - WCAG 2.2 A and AA mapped to code, the page basics (language, title, landmarks, iframes, timing), what automated checks find and what needs a person, and which accessibility skill to load next.</p>
-<p class="skill-meta"><span>Instalowany, gdy projekt używa: każdego projektu webowego</span><span>12 reguł</span><span>przy użyciu: 1097 tokenów</span></p>
-</li><li class="skill-card">
-<h3><a href="/pl/skills/fe-a11y-dialog/">Dialogs and modals</a></h3>
-<p class="skill-name"><code>fe-a11y-dialog</code></p>
+<p class="skill-meta"><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#framework"/></svg>każdego projektu webowego</span><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg>12 reguł</span><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#perf"/></svg>przy użyciu: 1097 tokenów</span></p>
+<p class="sev-mix"><span class="sev sev-critical">3 krytyczna</span> <span class="sev sev-serious">8 poważna</span> <span class="sev sev-moderate">1 umiarkowana</span></p>
+</li><li class="skill-tile lift">
+<div class="skill-tile-head"><span class="tile-icon"><svg class="icon" width="22" height="22" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#a11y"/></svg></span><div><h3><a class="tile-link" href="/pl/skills/fe-a11y-dialog/">Dialogs and modals</a></h3><p class="skill-name"><code>fe-a11y-dialog</code></p></div></div>
 <p>Builds modal and non-modal dialogs, alert dialogs, drawers and confirmations that work with keyboard and screen readers (WAI-ARIA APG Dialog pattern) on the native dialog element - name, initial focus, inert background, Escape, focus return.</p>
-<p class="skill-meta"><span>Instalowany, gdy projekt używa: każdego projektu webowego</span><span>5 reguł</span><span>przy użyciu: 846 tokenów</span></p>
-</li><li class="skill-card">
-<h3><a href="/pl/skills/fe-a11y-forms/">Accessible forms</a></h3>
-<p class="skill-name"><code>fe-a11y-forms</code></p>
+<p class="skill-meta"><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#framework"/></svg>każdego projektu webowego</span><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg>5 reguł</span><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#perf"/></svg>przy użyciu: 846 tokenów</span></p>
+<p class="sev-mix"><span class="sev sev-critical">1 krytyczna</span> <span class="sev sev-serious">3 poważna</span> <span class="sev sev-minor">1 drobna</span></p>
+</li><li class="skill-tile lift">
+<div class="skill-tile-head"><span class="tile-icon"><svg class="icon" width="22" height="22" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#a11y"/></svg></span><div><h3><a class="tile-link" href="/pl/skills/fe-a11y-forms/">Accessible forms</a></h3><p class="skill-name"><code>fe-a11y-forms</code></p></div></div>
 <p>Builds and reviews accessible forms in any stack (HTML, React, Vue, Svelte, Angular, Astro) to WCAG 2.2 AA as a target - labels, autocomplete, required fields, grouping, error messages, focus after submit, sign-in without memory tests.</p>
-<p class="skill-meta"><span>Instalowany, gdy projekt używa: każdego projektu webowego</span><span>4 reguły</span><span>przy użyciu: 875 tokenów</span></p>
-</li><li class="skill-card">
-<h3><a href="/pl/skills/fe-a11y-keyboard/">Keyboard access and focus</a></h3>
-<p class="skill-name"><code>fe-a11y-keyboard</code></p>
+<p class="skill-meta"><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#framework"/></svg>każdego projektu webowego</span><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg>4 reguły</span><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#perf"/></svg>przy użyciu: 875 tokenów</span></p>
+<p class="sev-mix"><span class="sev sev-critical">1 krytyczna</span> <span class="sev sev-serious">2 poważna</span> <span class="sev sev-minor">1 drobna</span></p>
+</li><li class="skill-tile lift">
+<div class="skill-tile-head"><span class="tile-icon"><svg class="icon" width="22" height="22" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#a11y"/></svg></span><div><h3><a class="tile-link" href="/pl/skills/fe-a11y-keyboard/">Keyboard access and focus</a></h3><p class="skill-name"><code>fe-a11y-keyboard</code></p></div></div>
 <p>Makes every control work from the keyboard in any stack (HTML, React, Vue, Svelte, Angular, Astro) to WCAG 2.2 AA as a target - native controls, focus order, visible focus, focus not hidden by sticky bars, skip links, focus after route changes, no traps.</p>
-<p class="skill-meta"><span>Instalowany, gdy projekt używa: każdego projektu webowego</span><span>9 reguł</span><span>przy użyciu: 1127 tokenów</span></p>
-</li><li class="skill-card">
-<h3><a href="/pl/skills/fe-a11y-media/">Media, motion and flashing</a></h3>
-<p class="skill-name"><code>fe-a11y-media</code></p>
+<p class="skill-meta"><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#framework"/></svg>każdego projektu webowego</span><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg>9 reguł</span><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#perf"/></svg>przy użyciu: 1127 tokenów</span></p>
+<p class="sev-mix"><span class="sev sev-critical">1 krytyczna</span> <span class="sev sev-serious">6 poważna</span> <span class="sev sev-moderate">2 umiarkowana</span></p>
+</li><li class="skill-tile lift">
+<div class="skill-tile-head"><span class="tile-icon"><svg class="icon" width="22" height="22" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#a11y"/></svg></span><div><h3><a class="tile-link" href="/pl/skills/fe-a11y-media/">Media, motion and flashing</a></h3><p class="skill-name"><code>fe-a11y-media</code></p></div></div>
 <p>Makes audio, video and moving content usable to WCAG 2.2 AA as a target - captions with track, transcripts, audio description, no autoplaying sound, pause controls for anything that moves or loops, no flashing, reduced motion.</p>
-<p class="skill-meta"><span>Instalowany, gdy projekt używa: każdego projektu webowego</span><span>5 reguł</span><span>przy użyciu: 781 tokenów</span></p>
-</li><li class="skill-card">
-<h3><a href="/pl/skills/fe-a11y-menus/">Navigation, disclosures and menus</a></h3>
-<p class="skill-name"><code>fe-a11y-menus</code></p>
+<p class="skill-meta"><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#framework"/></svg>każdego projektu webowego</span><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg>5 reguł</span><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#perf"/></svg>przy użyciu: 781 tokenów</span></p>
+<p class="sev-mix"><span class="sev sev-critical">2 krytyczna</span> <span class="sev sev-serious">2 poważna</span> <span class="sev sev-moderate">1 umiarkowana</span></p>
+</li><li class="skill-tile lift">
+<div class="skill-tile-head"><span class="tile-icon"><svg class="icon" width="22" height="22" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#a11y"/></svg></span><div><h3><a class="tile-link" href="/pl/skills/fe-a11y-menus/">Navigation, disclosures and menus</a></h3><p class="skill-name"><code>fe-a11y-menus</code></p></div></div>
 <p>Builds site navigation, dropdowns, disclosure menus and menu buttons that work with keyboard and screen readers (WAI-ARIA APG Disclosure and Menu Button patterns) - links in a nav, aria-expanded, aria-current, when role=&quot;menu&quot; is right and its keys.</p>
-<p class="skill-meta"><span>Instalowany, gdy projekt używa: każdego projektu webowego</span><span>5 reguł</span><span>przy użyciu: 872 tokeny</span></p>
-</li><li class="skill-card">
-<h3><a href="/pl/skills/fe-a11y-tables/">Data tables</a></h3>
-<p class="skill-name"><code>fe-a11y-tables</code></p>
+<p class="skill-meta"><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#framework"/></svg>każdego projektu webowego</span><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg>5 reguł</span><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#perf"/></svg>przy użyciu: 872 tokeny</span></p>
+<p class="sev-mix"><span class="sev sev-serious">4 poważna</span> <span class="sev sev-moderate">1 umiarkowana</span></p>
+</li><li class="skill-tile lift">
+<div class="skill-tile-head"><span class="tile-icon"><svg class="icon" width="22" height="22" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#a11y"/></svg></span><div><h3><a class="tile-link" href="/pl/skills/fe-a11y-tables/">Data tables</a></h3><p class="skill-name"><code>fe-a11y-tables</code></p></div></div>
 <p>Builds data tables that screen readers can navigate and small screens can show (WCAG 2.2 AA as a target) - th with scope, captions, sortable headers with aria-sort, responsive scroll containers, and when a table should be a list or a grid.</p>
-<p class="skill-meta"><span>Instalowany, gdy projekt używa: każdego projektu webowego</span><span>5 reguł</span><span>przy użyciu: 864 tokeny</span></p>
-</li><li class="skill-card">
-<h3><a href="/pl/skills/fe-a11y-tabs-accordion/">Tabs and accordions</a></h3>
-<p class="skill-name"><code>fe-a11y-tabs-accordion</code></p>
+<p class="skill-meta"><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#framework"/></svg>każdego projektu webowego</span><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg>5 reguł</span><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#perf"/></svg>przy użyciu: 864 tokeny</span></p>
+<p class="sev-mix"><span class="sev sev-serious">3 poważna</span> <span class="sev sev-moderate">1 umiarkowana</span> <span class="sev sev-minor">1 drobna</span></p>
+</li><li class="skill-tile lift">
+<div class="skill-tile-head"><span class="tile-icon"><svg class="icon" width="22" height="22" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#a11y"/></svg></span><div><h3><a class="tile-link" href="/pl/skills/fe-a11y-tabs-accordion/">Tabs and accordions</a></h3><p class="skill-name"><code>fe-a11y-tabs-accordion</code></p></div></div>
 <p>Builds tabs, accordions and FAQ sections with the right roles, states and keyboard model (WAI-ARIA APG Tabs and Accordion patterns), preferring details and summary where they fit.</p>
-<p class="skill-meta"><span>Instalowany, gdy projekt używa: każdego projektu webowego</span><span>5 reguł</span><span>przy użyciu: 821 tokenów</span></p>
-</li><li class="skill-card">
-<h3><a href="/pl/skills/fe-a11y-visual/">Contrast, colour, size and reflow</a></h3>
-<p class="skill-name"><code>fe-a11y-visual</code></p>
+<p class="skill-meta"><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#framework"/></svg>każdego projektu webowego</span><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg>5 reguł</span><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#perf"/></svg>przy użyciu: 821 tokenów</span></p>
+<p class="sev-mix"><span class="sev sev-serious">4 poważna</span> <span class="sev sev-moderate">1 umiarkowana</span></p>
+</li><li class="skill-tile lift">
+<div class="skill-tile-head"><span class="tile-icon"><svg class="icon" width="22" height="22" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#a11y"/></svg></span><div><h3><a class="tile-link" href="/pl/skills/fe-a11y-visual/">Contrast, colour, size and reflow</a></h3><p class="skill-name"><code>fe-a11y-visual</code></p></div></div>
 <p>Keeps visual design readable and usable to WCAG 2.2 AA as a target - text and UI contrast, no colour-only meaning, 24px targets, reflow at 320px, resize and text spacing, dismissible hover content.</p>
-<p class="skill-meta"><span>Instalowany, gdy projekt używa: każdego projektu webowego</span><span>8 reguł</span><span>przy użyciu: 998 tokenów</span></p>
+<p class="skill-meta"><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#framework"/></svg>każdego projektu webowego</span><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg>8 reguł</span><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#perf"/></svg>przy użyciu: 998 tokenów</span></p>
+<p class="sev-mix"><span class="sev sev-serious">6 poważna</span> <span class="sev sev-moderate">1 umiarkowana</span> <span class="sev sev-minor">1 drobna</span></p>
 </li></ul></section>
-<section aria-labelledby="sa-performance"><h2 id="sa-performance">Wydajność</h2>
-<ul class="skill-grid"><li class="skill-card">
-<h3><a href="/pl/skills/fe-core-web-vitals/">Core Web Vitals</a></h3>
-<p class="skill-name"><code>fe-core-web-vitals</code></p>
+<section class="skill-group" aria-labelledby="sa-performance"><h2 id="sa-performance"><svg class="icon heading-icon" width="24" height="24" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#perf"/></svg>Wydajność <span class="count">5</span></h2>
+<ul class="skill-grid"><li class="skill-tile lift">
+<div class="skill-tile-head"><span class="tile-icon"><svg class="icon" width="22" height="22" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#perf"/></svg></span><div><h3><a class="tile-link" href="/pl/skills/fe-core-web-vitals/">Core Web Vitals</a></h3><p class="skill-name"><code>fe-core-web-vitals</code></p></div></div>
 <p>Improves Core Web Vitals in any stack - LCP 2.5 s, INP 200 ms and CLS 0.1 at the 75th percentile - with causes and fixes per framework (Next.js, Nuxt, Angular, Astro, SvelteKit, plain HTML), field measurement with web-vitals and the back/forward cache.</p>
-<p class="skill-meta"><span>Instalowany, gdy projekt używa: każdego projektu webowego</span><span>8 reguł</span><span>przy użyciu: 956 tokenów</span></p>
-</li><li class="skill-card">
-<h3><a href="/pl/skills/fe-fonts/">Web fonts</a></h3>
-<p class="skill-name"><code>fe-fonts</code></p>
+<p class="skill-meta"><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#framework"/></svg>każdego projektu webowego</span><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg>8 reguł</span><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#perf"/></svg>przy użyciu: 956 tokenów</span></p>
+<p class="sev-mix"><span class="sev sev-moderate">7 umiarkowana</span> <span class="sev sev-minor">1 drobna</span></p>
+</li><li class="skill-tile lift">
+<div class="skill-tile-head"><span class="tile-icon"><svg class="icon" width="22" height="22" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#perf"/></svg></span><div><h3><a class="tile-link" href="/pl/skills/fe-fonts/">Web fonts</a></h3><p class="skill-name"><code>fe-fonts</code></p></div></div>
 <p>Loads web fonts fast and without layout shift - self-hosted WOFF2, font-display, a correct preload with crossorigin, subsetting and unicode-range, variable fonts, metric-matched fallbacks, system font stacks, and next/font or @nuxt/fonts.</p>
-<p class="skill-meta"><span>Instalowany, gdy projekt używa: każdego projektu webowego</span><span>6 reguł</span><span>przy użyciu: 875 tokenów</span></p>
-</li><li class="skill-card">
-<h3><a href="/pl/skills/fe-images/">Images and media delivery</a></h3>
-<p class="skill-name"><code>fe-images</code></p>
+<p class="skill-meta"><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#framework"/></svg>każdego projektu webowego</span><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg>6 reguł</span><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#perf"/></svg>przy użyciu: 875 tokenów</span></p>
+<p class="sev-mix"><span class="sev sev-moderate">2 umiarkowana</span> <span class="sev sev-minor">4 drobna</span></p>
+</li><li class="skill-tile lift">
+<div class="skill-tile-head"><span class="tile-icon"><svg class="icon" width="22" height="22" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#perf"/></svg></span><div><h3><a class="tile-link" href="/pl/skills/fe-images/">Images and media delivery</a></h3><p class="skill-name"><code>fe-images</code></p></div></div>
 <p>Delivers images that are light, sharp and stable - AVIF or WebP, srcset and sizes, picture for formats and art direction, width and height against layout shift, an eager high-priority LCP image, lazy loading below the fold, video instead of GIF, SVG for icons and logos, and the framework image components.</p>
-<p class="skill-meta"><span>Instalowany, gdy projekt używa: każdego projektu webowego</span><span>9 reguł</span><span>przy użyciu: 1008 tokenów</span></p>
-</li><li class="skill-card">
-<h3><a href="/pl/skills/fe-lighthouse/">Lighthouse and PageSpeed</a></h3>
-<p class="skill-name"><code>fe-lighthouse</code></p>
+<p class="skill-meta"><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#framework"/></svg>każdego projektu webowego</span><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg>9 reguł</span><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#perf"/></svg>przy użyciu: 1008 tokenów</span></p>
+<p class="sev-mix"><span class="sev sev-critical">1 krytyczna</span> <span class="sev sev-serious">2 poważna</span> <span class="sev sev-moderate">5 umiarkowana</span> <span class="sev sev-minor">1 drobna</span></p>
+</li><li class="skill-tile lift">
+<div class="skill-tile-head"><span class="tile-icon"><svg class="icon" width="22" height="22" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#perf"/></svg></span><div><h3><a class="tile-link" href="/pl/skills/fe-lighthouse/">Lighthouse and PageSpeed</a></h3><p class="skill-name"><code>fe-lighthouse</code></p></div></div>
 <p>Runs and reads Lighthouse 13 for performance, accessibility, best practices and SEO - locally, in Chrome DevTools, PageSpeed Insights and CI with Lighthouse CI - and turns the report into fixes without chasing the score.</p>
-<p class="skill-meta"><span>Instalowany, gdy projekt używa: każdego projektu webowego</span><span>6 reguł</span><span>przy użyciu: 820 tokenów</span></p>
-</li><li class="skill-card">
-<h3><a href="/pl/skills/fe-perf-delivery/">JavaScript, CSS and asset delivery</a></h3>
-<p class="skill-name"><code>fe-perf-delivery</code></p>
+<p class="skill-meta"><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#framework"/></svg>każdego projektu webowego</span><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg>6 reguł</span><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#perf"/></svg>przy użyciu: 820 tokenów</span></p>
+<p class="sev-mix"><span class="sev sev-moderate">3 umiarkowana</span> <span class="sev sev-minor">3 drobna</span></p>
+</li><li class="skill-tile lift">
+<div class="skill-tile-head"><span class="tile-icon"><svg class="icon" width="22" height="22" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#perf"/></svg></span><div><h3><a class="tile-link" href="/pl/skills/fe-perf-delivery/">JavaScript, CSS and asset delivery</a></h3><p class="skill-name"><code>fe-perf-delivery</code></p></div></div>
 <p>Ships less and earlier - JavaScript and CSS delivery, code splitting, hydration cost, third-party scripts and facades, resource hints, caching headers and modern browser targets - in any stack.</p>
-<p class="skill-meta"><span>Instalowany, gdy projekt używa: każdego projektu webowego</span><span>8 reguł</span><span>przy użyciu: 837 tokenów</span></p>
+<p class="skill-meta"><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#framework"/></svg>każdego projektu webowego</span><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg>8 reguł</span><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#perf"/></svg>przy użyciu: 837 tokenów</span></p>
+<p class="sev-mix"><span class="sev sev-moderate">7 umiarkowana</span> <span class="sev sev-minor">1 drobna</span></p>
 </li></ul></section>
-<section aria-labelledby="sa-quality"><h2 id="sa-quality">Jakość</h2>
-<ul class="skill-grid"><li class="skill-card">
-<h3><a href="/pl/skills/fe-i18n/">Internationalisation</a></h3>
-<p class="skill-name"><code>fe-i18n</code></p>
+<section class="skill-group" aria-labelledby="sa-quality"><h2 id="sa-quality"><svg class="icon heading-icon" width="24" height="24" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#quality"/></svg>Jakość <span class="count">5</span></h2>
+<ul class="skill-grid"><li class="skill-tile lift">
+<div class="skill-tile-head"><span class="tile-icon"><svg class="icon" width="22" height="22" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#quality"/></svg></span><div><h3><a class="tile-link" href="/pl/skills/fe-i18n/">Internationalisation</a></h3><p class="skill-name"><code>fe-i18n</code></p></div></div>
 <p>Makes front-end code ready for more than one language and region - lang and dir, right-to-left layout with logical properties, whole messages with ICU plurals, Intl for dates, numbers, prices and sorting, complete locale files.</p>
-<p class="skill-meta"><span>Instalowany, gdy projekt używa: każdego projektu webowego</span><span>9 reguł</span><span>przy użyciu: 1010 tokenów</span></p>
-</li><li class="skill-card">
-<h3><a href="/pl/skills/fe-security/">Front-end security</a></h3>
-<p class="skill-name"><code>fe-security</code></p>
+<p class="skill-meta"><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#framework"/></svg>każdego projektu webowego</span><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg>9 reguł</span><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#perf"/></svg>przy użyciu: 1010 tokenów</span></p>
+<p class="sev-mix"><span class="sev sev-serious">4 poważna</span> <span class="sev sev-moderate">4 umiarkowana</span> <span class="sev sev-minor">1 drobna</span></p>
+</li><li class="skill-tile lift">
+<div class="skill-tile-head"><span class="tile-icon"><svg class="icon" width="22" height="22" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#quality"/></svg></span><div><h3><a class="tile-link" href="/pl/skills/fe-security/">Front-end security</a></h3><p class="skill-name"><code>fe-security</code></p></div></div>
 <p>Keeps front-end code from opening security holes in any stack - XSS sinks (innerHTML, dangerouslySetInnerHTML, v-html, {@html}) and sanitizing, no eval, postMessage origins, secrets kept out of public env variables, CSP and HTTP-only headers, SRI, window.open, HTTPS.</p>
-<p class="skill-meta"><span>Instalowany, gdy projekt używa: każdego projektu webowego</span><span>9 reguł</span><span>przy użyciu: 971 tokenów</span></p>
-</li><li class="skill-card">
-<h3><a href="/pl/skills/fe-seo-metadata/">SEO and metadata</a></h3>
-<p class="skill-name"><code>fe-seo-metadata</code></p>
+<p class="skill-meta"><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#framework"/></svg>każdego projektu webowego</span><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg>9 reguł</span><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#perf"/></svg>przy użyciu: 971 tokenów</span></p>
+<p class="sev-mix"><span class="sev sev-critical">1 krytyczna</span> <span class="sev sev-serious">4 poważna</span> <span class="sev sev-moderate">3 umiarkowana</span> <span class="sev sev-minor">1 drobna</span></p>
+</li><li class="skill-tile lift">
+<div class="skill-tile-head"><span class="tile-icon"><svg class="icon" width="22" height="22" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#quality"/></svg></span><div><h3><a class="tile-link" href="/pl/skills/fe-seo-metadata/">SEO and metadata</a></h3><p class="skill-name"><code>fe-seo-metadata</code></p></div></div>
 <p>Gets pages found and shared correctly - titles, meta descriptions, canonical URLs, robots and noindex, status codes, sitemaps, hreflang, Open Graph and JSON-LD structured data, with the metadata API of Next.js, Nuxt, Astro, SvelteKit and Angular.</p>
-<p class="skill-meta"><span>Instalowany, gdy projekt używa: każdego projektu webowego</span><span>10 reguł</span><span>przy użyciu: 951 tokenów</span></p>
-</li><li class="skill-card">
-<h3><a href="/pl/skills/fe-testing/">Front-end testing</a></h3>
-<p class="skill-name"><code>fe-testing</code></p>
+<p class="skill-meta"><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#framework"/></svg>każdego projektu webowego</span><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg>10 reguł</span><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#perf"/></svg>przy użyciu: 951 tokenów</span></p>
+<p class="sev-mix"><span class="sev sev-serious">2 poważna</span> <span class="sev sev-moderate">5 umiarkowana</span> <span class="sev sev-minor">3 drobna</span></p>
+</li><li class="skill-tile lift">
+<div class="skill-tile-head"><span class="tile-icon"><svg class="icon" width="22" height="22" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#quality"/></svg></span><div><h3><a class="tile-link" href="/pl/skills/fe-testing/">Front-end testing</a></h3><p class="skill-name"><code>fe-testing</code></p></div></div>
 <p>Writes reliable front-end tests with the project's own runner - unit and component tests with Vitest or Jest and Testing Library queries by role, end-to-end tests with Playwright 1.65 or Cypress, network mocking, accessibility scans with axe-core, without flakes.</p>
-<p class="skill-meta"><span>Instalowany, gdy projekt używa: <code>vitest</code>, <code>jest</code>, <code>playwright</code>, <code>cypress</code>, <code>testing-library</code></span><span>5 reguł</span><span>przy użyciu: 949 tokenów</span></p>
-</li><li class="skill-card">
-<h3><a href="/pl/skills/fe-tooling/">Build, lint and format tooling</a></h3>
-<p class="skill-name"><code>fe-tooling</code></p>
+<p class="skill-meta"><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#framework"/></svg><code>vitest</code>, <code>jest</code>, <code>playwright</code>, <code>cypress</code>, <code>testing-library</code></span><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg>5 reguł</span><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#perf"/></svg>przy użyciu: 949 tokenów</span></p>
+<p class="sev-mix"><span class="sev sev-serious">1 poważna</span> <span class="sev sev-moderate">3 umiarkowana</span> <span class="sev sev-minor">1 drobna</span></p>
+</li><li class="skill-tile lift">
+<div class="skill-tile-head"><span class="tile-icon"><svg class="icon" width="22" height="22" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#quality"/></svg></span><div><h3><a class="tile-link" href="/pl/skills/fe-tooling/">Build, lint and format tooling</a></h3><p class="skill-name"><code>fe-tooling</code></p></div></div>
 <p>Sets up front-end tooling the way the project already does - package manager and lockfile, Vite 8, ESLint 10 flat config with accessibility plugins, Prettier 3 or Biome 2, Stylelint, TypeScript type checks, browserslist with Baseline targets, Node LTS.</p>
-<p class="skill-meta"><span>Instalowany, gdy projekt używa: <code>vite</code>, <code>eslint</code>, <code>prettier</code>, <code>biome</code></span><span>6 reguł</span><span>przy użyciu: 857 tokenów</span></p>
+<p class="skill-meta"><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#framework"/></svg><code>vite</code>, <code>eslint</code>, <code>prettier</code>, <code>biome</code></span><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg>6 reguł</span><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#perf"/></svg>przy użyciu: 857 tokenów</span></p>
+<p class="sev-mix"><span class="sev sev-moderate">3 umiarkowana</span> <span class="sev sev-minor">3 drobna</span></p>
 </li></ul></section>
-<section aria-labelledby="sa-workflow"><h2 id="sa-workflow">Praca z narzędziem</h2>
-<ul class="skill-grid"><li class="skill-card">
-<h3><a href="/pl/skills/fe-audit/">Audit the project</a></h3>
-<p class="skill-name"><code>fe-audit</code></p>
+<section class="skill-group" aria-labelledby="sa-workflow"><h2 id="sa-workflow"><svg class="icon heading-icon" width="24" height="24" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#workflow"/></svg>Praca z narzędziem <span class="count">5</span></h2>
+<ul class="skill-grid"><li class="skill-tile lift">
+<div class="skill-tile-head"><span class="tile-icon"><svg class="icon" width="22" height="22" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#workflow"/></svg></span><div><h3><a class="tile-link" href="/pl/skills/fe-audit/">Audit the project</a></h3><p class="skill-name"><code>fe-audit</code></p></div></div>
 <p>Audits a front-end project with frontend-skills - runs the static audit (and the page audit with --url when a page is running), reads the condensed JSON, explains the top findings by rule id with their source, lists what needs a person, and proposes an order of fixes.</p>
-<p class="skill-meta"><span>Instalowany, gdy projekt używa: każdego projektu webowego</span><span>5 reguł</span><span>przy użyciu: 778 tokenów</span></p>
-</li><li class="skill-card">
-<h3><a href="/pl/skills/fe-component/">Build a component</a></h3>
-<p class="skill-name"><code>fe-component</code></p>
+<p class="skill-meta"><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#framework"/></svg>każdego projektu webowego</span><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg>5 reguł</span><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#perf"/></svg>przy użyciu: 778 tokenów</span></p>
+<p class="sev-mix"><span class="sev sev-critical">3 krytyczna</span> <span class="sev sev-serious">1 poważna</span> <span class="sev sev-moderate">1 umiarkowana</span></p>
+</li><li class="skill-tile lift">
+<div class="skill-tile-head"><span class="tile-icon"><svg class="icon" width="22" height="22" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#workflow"/></svg></span><div><h3><a class="tile-link" href="/pl/skills/fe-component/">Build a component</a></h3><p class="skill-name"><code>fe-component</code></p></div></div>
 <p>Builds a new UI component the right way round in any stack - native semantics first, the keyboard model from the WAI-ARIA APG pattern, names and states, every visual state, responsive and reduced motion, the project helpers and tokens, tests by role, then the audit.</p>
-<p class="skill-meta"><span>Instalowany, gdy projekt używa: każdego projektu webowego</span><span>7 reguł</span><span>przy użyciu: 972 tokeny</span></p>
-</li><li class="skill-card">
-<h3><a href="/pl/skills/fe-fix/">Fix findings</a></h3>
-<p class="skill-name"><code>fe-fix</code></p>
+<p class="skill-meta"><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#framework"/></svg>każdego projektu webowego</span><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg>7 reguł</span><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#perf"/></svg>przy użyciu: 972 tokeny</span></p>
+<p class="sev-mix"><span class="sev sev-critical">1 krytyczna</span> <span class="sev sev-serious">3 poważna</span> <span class="sev sev-minor">3 drobna</span></p>
+</li><li class="skill-tile lift">
+<div class="skill-tile-head"><span class="tile-icon"><svg class="icon" width="22" height="22" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#workflow"/></svg></span><div><h3><a class="tile-link" href="/pl/skills/fe-fix/">Fix findings</a></h3><p class="skill-name"><code>fe-fix</code></p></div></div>
 <p>Fixes front-end audit findings by rule id - smallest correct change first, shared components before pages, the rule's own fix and source, re-running audit --changed after each fix, and never suppressing a finding without the rule id and a reason.</p>
-<p class="skill-meta"><span>Instalowany, gdy projekt używa: każdego projektu webowego</span><span>2 reguły</span><span>przy użyciu: 670 tokenów</span></p>
-</li><li class="skill-card">
-<h3><a href="/pl/skills/fe-learn/">Learn the project</a></h3>
-<p class="skill-name"><code>fe-learn</code></p>
+<p class="skill-meta"><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#framework"/></svg>każdego projektu webowego</span><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg>2 reguły</span><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#perf"/></svg>przy użyciu: 670 tokenów</span></p>
+<p class="sev-mix"><span class="sev sev-moderate">1 umiarkowana</span> <span class="sev sev-minor">1 drobna</span></p>
+</li><li class="skill-tile lift">
+<div class="skill-tile-head"><span class="tile-icon"><svg class="icon" width="22" height="22" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#workflow"/></svg></span><div><h3><a class="tile-link" href="/pl/skills/fe-learn/">Learn the project</a></h3><p class="skill-name"><code>fe-learn</code></p></div></div>
 <p>Teaches the agent this project before front-end work - runs frontend-skills init or learn, reads the profile (stack, versions, helpers), confirms detected conventions such as the rem function, icon build and tokens with the person, and records confirmed lessons.</p>
-<p class="skill-meta"><span>Instalowany, gdy projekt używa: każdego projektu webowego</span><span>1 reguła</span><span>przy użyciu: 748 tokenów</span></p>
-</li><li class="skill-card">
-<h3><a href="/pl/skills/fe-review/">Review a change</a></h3>
-<p class="skill-name"><code>fe-review</code></p>
+<p class="skill-meta"><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#framework"/></svg>każdego projektu webowego</span><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg>1 reguła</span><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#perf"/></svg>przy użyciu: 748 tokenów</span></p>
+<p class="sev-mix"><span class="sev sev-minor">1 drobna</span></p>
+</li><li class="skill-tile lift">
+<div class="skill-tile-head"><span class="tile-icon"><svg class="icon" width="22" height="22" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#workflow"/></svg></span><div><h3><a class="tile-link" href="/pl/skills/fe-review/">Review a change</a></h3><p class="skill-name"><code>fe-review</code></p></div></div>
 <p>Reviews a diff or pull request of front-end code - runs audit --changed, maps the touched files to their skills, walks the manual rules of those skills (keyboard, screen reader, motion, content), and reports findings by rule id with file, line and fix.</p>
-<p class="skill-meta"><span>Instalowany, gdy projekt używa: każdego projektu webowego</span><span>5 reguł</span><span>przy użyciu: 787 tokenów</span></p>
+<p class="skill-meta"><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#framework"/></svg>każdego projektu webowego</span><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg>5 reguł</span><span><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#perf"/></svg>przy użyciu: 787 tokenów</span></p>
+<p class="sev-mix"><span class="sev sev-critical">1 krytyczna</span> <span class="sev sev-serious">3 poważna</span> <span class="sev sev-moderate">1 umiarkowana</span></p>
 </li></ul></section>
 <p class="note">Tokeny to szacunek <code>frontend-skills estimate v1 (calibrated on o200k)</code>, zmierzony poleceniem <code>frontend-skills tokens --all</code> podczas budowania tej strony.</p>
-</div>
 </main>
+<aside class="docs-outline"><nav aria-labelledby="outline-title"><h2 id="outline-title">Na tej stronie</h2><ol><li><a href="#install">Instalacja dla Twojego agenta</a></li><li><a href="#sa-foundations">Podstawy</a></li><li><a href="#sa-styling">Style</a></li><li><a href="#sa-frameworks">Frameworki</a></li><li><a href="#sa-accessibility">Dostępność</a></li><li><a href="#sa-performance">Wydajność</a></li><li><a href="#sa-quality">Jakość</a></li><li><a href="#sa-workflow">Praca z narzędziem</a></li></ol></nav></aside>
+</div>
 <footer class="site-footer">
-<div class="wrap footer-inner">
-<div class="footer-text">
+<div class="wrap footer-grid">
+<div class="footer-brand-col">
 <p class="footer-brand"><svg class="brand-mark" viewBox="0 0 32 32" width="32" height="32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="8" fill="currentColor"/><path d="M12.5 10 7 16l5.5 6M19.5 10 25 16l-5.5 6" fill="none" stroke="var(--logo-ink)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Frontend Skills</span></p>
+<p>Skille i słownik reguł dla agentów AI, które piszą kod front-endu.</p>
 <p>Darmowy i otwarty, na licencji MIT. Autor: <a href="https://dawidolko.pl">Dawid Olko</a>.</p>
+</div>
+<nav class="footer-nav" aria-label="Więcej">
+<div class="footer-col"><h2>Przewodnik</h2><ul><li><a href="/pl/">Start</a></li><li><a href="/pl/how-it-works/">Jak to działa</a></li><li><a href="/pl/commands/">Polecenia</a></li><li><a href="/pl/faq/">Pytania</a></li></ul></div>
+<div class="footer-col"><h2>Słownik</h2><ul><li><a href="/pl/rules/">Wszystkie reguły</a></li><li><a href="/pl/rules/#area-a11y">Dostępność</a></li><li><a href="/pl/rules/#area-perf">Wydajność</a></li><li><a href="/pl/rules/#area-html">HTML</a></li><li><a href="/pl/rules/#area-css">CSS</a></li><li><a href="/pl/rules/#area-responsive">Responsywność</a></li><li><a href="/pl/rules/#area-js">JavaScript</a></li></ul></div>
+<div class="footer-col"><h2>Skille</h2><ul><li><a href="/pl/skills/">Wszystkie skille</a></li><li><a href="/pl/skills/#sa-foundations">Podstawy</a></li><li><a href="/pl/skills/#sa-styling">Style</a></li><li><a href="/pl/skills/#sa-frameworks">Frameworki</a></li><li><a href="/pl/skills/#sa-accessibility">Dostępność</a></li><li><a href="/pl/skills/#sa-performance">Wydajność</a></li><li><a href="/pl/skills/#sa-quality">Jakość</a></li></ul></div>
+<div class="footer-col"><h2>Projekt</h2><ul><li><a href="https://github.com/dawidolko/frontend-skills">GitHub</a></li><li><a href="https://github.com/dawidolko/frontend-skills/issues">Zgłoś problem</a></li><li><a href="/pl/about/#licence">Licencja MIT</a></li><li><a href="/pl/about/">O projekcie</a></li><li><a href="https://dawidolko.pl">dawidolko.pl</a></li></ul></div>
+</nav>
+</div>
+<div class="wrap footer-legal">
 <p>Budowana z WCAG 2.2 AA jako celem. Automatyczne testy wykrywają tylko część problemów.</p>
 <p>Bez ciasteczek, bez analityki, bez zapytań do innych serwisów. Przycisk dostępności zapisuje ustawienia tylko na Twoim urządzeniu.</p>
-</div>
-<nav aria-label="Więcej"><ul class="footer-nav"><li><a href="/pl/">Start</a></li><li><a href="/pl/how-it-works/">Jak to działa</a></li><li><a href="/pl/rules/">Reguły</a></li><li><a href="/pl/skills/" aria-current="page">Skille</a></li><li><a href="/pl/commands/">Polecenia</a></li><li><a href="/pl/faq/">Pytania</a></li><li><a href="/pl/about/">O projekcie</a></li><li><a href="https://github.com/dawidolko/frontend-skills">GitHub</a></li></ul></nav>
 </div>
 </footer>
 <p id="live-status" class="visually-hidden" role="status" aria-live="polite"></p>

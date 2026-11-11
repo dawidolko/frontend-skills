@@ -125,92 +125,6 @@ Start in a project folder with `npx github:dawidolko/frontend-skills init` (Node
 - [a11y/toast-timing](https://skills.dawidolko.pl/rules/a11y/toast-timing/): Toasts with actions or information the user needs do not disappear on a timer; others stay long enough and pause on hover and focus.
 - [a11y/video-captions](https://skills.dawidolko.pl/rules/a11y/video-captions/): Recorded video with speech or meaningful sound has synchronised captions, for example a <track kind="captions">.
 - [a11y/zoom-not-blocked](https://skills.dawidolko.pl/rules/a11y/zoom-not-blocked/): The viewport never disables zoom (no user-scalable=no, no maximum-scale below 2).
-- [angular/banana-in-box](https://skills.dawidolko.pl/rules/angular/banana-in-box/): Two-way binding is written [(prop)], brackets outside; ([prop]) silently binds an event named [prop] instead.
-- [angular/computed-not-effect](https://skills.dawidolko.pl/rules/angular/computed-not-effect/): Derive state with computed() (or linkedSignal()); never copy one signal into another inside effect().
-- [angular/control-flow](https://skills.dawidolko.pl/rules/angular/control-flow/): Templates use the built-in @if, @for and @switch blocks, not the ngIf, ngFor and ngSwitch directives deprecated in v20.
-- [angular/for-track-id](https://skills.dawidolko.pl/rules/angular/for-track-id/): An @for block tracks a stable unique field of the item (track item.id), not the item object itself.
-- [angular/ng-optimized-image](https://skills.dawidolko.pl/rules/angular/ng-optimized-image/): Static images in Angular templates use NgOptimizedImage (ngSrc with width and height, or fill), not a plain src.
-- [angular/no-bypass-security-trust](https://skills.dawidolko.pl/rules/angular/no-bypass-security-trust/): DomSanitizer bypassSecurityTrust calls never receive user or server data; each one is a reviewed exception.
-- [angular/router-aria-current](https://skills.dawidolko.pl/rules/angular/router-aria-current/): A routerLinkActive link also sets ariaCurrentWhenActive, so the current page is announced, not only styled.
-- [angular/ssr-browser-globals](https://skills.dawidolko.pl/rules/angular/ssr-browser-globals/): Code that runs on the server never touches window, document, navigator or localStorage directly; use DI or afterNextRender.
-- [angular/table-tbody](https://skills.dawidolko.pl/rules/angular/table-tbody/): Table rows in Angular templates sit inside an explicit tbody (or thead/tfoot); the browser inserts one and hydration fails.
-- [astro/client-only-framework](https://skills.dawidolko.pl/rules/astro/client-only-framework/): Give client:only the framework of the component (client:only="react"), and a fallback slot for the space it fills.
-- [astro/directive-on-framework-component](https://skills.dawidolko.pl/rules/astro/directive-on-framework-component/): Put client: directives only on UI framework components imported into the .astro file, never on Astro components.
-- [astro/public-env-secret](https://skills.dawidolko.pl/rules/astro/public-env-secret/): Never give a secret the PUBLIC_ prefix; in Astro those variables are built into client code. Declare secrets in astro:env as server secrets.
-- [astro/script-processed](https://skills.dawidolko.pl/rules/astro/script-processed/): Astro script tags carry no attribute but src so they are bundled; is:inline only on purpose, data- instead of define:vars.
-- [astro/server-defer-fallback](https://skills.dawidolko.pl/rules/astro/server-defer-fallback/): A server island (server:defer) has slot="fallback" content of the same size, and receives only small serializable props.
-- [astro/static-by-default](https://skills.dawidolko.pl/rules/astro/static-by-default/): Render framework components without a client directive unless they need interactivity, and pick the latest directive that works.
-- [css/animate-composited](https://skills.dawidolko.pl/rules/css/animate-composited/): Animations and transitions change transform and opacity, not layout properties such as width, height, top, left or margin.
-- [css/asset-url](https://skills.dawidolko.pl/rules/css/asset-url/): In a bundled project, url() to images and fonts is a relative path or alias the bundler resolves, not a hard-coded root or public/ path.
-- [css/baseline-check](https://skills.dawidolko.pl/rules/css/baseline-check/): Before using a newer CSS feature, check its Baseline status against the project's browser targets and plan the fallback.
-- [css/container-type-size](https://skills.dawidolko.pl/rules/css/container-type-size/): Query containers use container-type inline-size; size is only for elements that get their height from elsewhere.
-- [css/design-tokens](https://skills.dawidolko.pl/rules/css/design-tokens/): Colours and spacing come from the project's tokens (custom properties or variables); a literal that has a token, or repeats, is a finding.
-- [css/gap-over-margins](https://skills.dawidolko.pl/rules/css/gap-over-margins/): Space the children of a flex or grid container with gap, not with margins on the children and last-child exceptions.
-- [css/icon-from-set](https://skills.dawidolko.pl/rules/css/icon-from-set/): With a generated icon set, CSS uses its icon classes or mixin, never a url() hard-coded to an icon file.
-- [css/light-dark-color-scheme](https://skills.dawidolko.pl/rules/css/light-dark-color-scheme/): A project that uses light-dark() declares color-scheme (light dark) on :root or in a meta tag, or the dark values never apply.
-- [css/limited-needs-supports](https://skills.dawidolko.pl/rules/css/limited-needs-supports/): CSS that is not Baseline yet (anchor positioning) or only just became Baseline (scroll-driven animations) sits in @supports with a fallback.
-- [css/logical-properties](https://skills.dawidolko.pl/rules/css/logical-properties/): Sites that run or may run right to left use logical properties (margin-inline-start, inset-inline-end), not left and right.
-- [css/nesting-no-concat](https://skills.dawidolko.pl/rules/css/nesting-no-concat/): In native CSS nesting, never build class names from "&" plus a suffix (&__title); write the full selector.
-- [css/no-fixed-height-text](https://skills.dawidolko.pl/rules/css/no-fixed-height-text/): Boxes that hold text do not combine a fixed height with hidden overflow; use min-height so enlarged or spaced text is not clipped.
-- [css/no-float-layout](https://skills.dawidolko.pl/rules/css/no-float-layout/): Page and component layout uses grid or flexbox; float is only for wrapping text around media, and clearfix hacks are gone.
-- [css/no-id-selectors](https://skills.dawidolko.pl/rules/css/no-id-selectors/): Style elements by class, not by id; an id selector outweighs any number of classes and makes the rule hard to override.
-- [css/no-important](https://skills.dawidolko.pl/rules/css/no-important/): !important appears only in utility classes, user-preference overrides and third-party overrides, never to win a specificity fight.
-- [css/no-magic-numbers](https://skills.dawidolko.pl/rules/css/no-magic-numbers/): Offsets and spacing use the project's spacing scale or come from layout; hand-tuned one-off values such as top -7px are a finding.
-- [css/no-stale-prefixes](https://skills.dawidolko.pl/rules/css/no-stale-prefixes/): No hand-written vendor prefixes for features browsers support unprefixed (border-radius, transitions, transforms, flexbox, gradients).
-- [css/pause-auto-motion](https://skills.dawidolko.pl/rules/css/pause-auto-motion/): Anything that moves, blinks or scrolls on its own for more than five seconds (carousels, marquees, background video) can be paused.
-- [css/reduced-motion](https://skills.dawidolko.pl/rules/css/reduced-motion/): Non-essential motion (entrance animations, parallax, smooth scrolling) respects prefers-reduced-motion.
-- [css/rem-helper](https://skills.dawidolko.pl/rules/css/rem-helper/): Font sizes and spacing use the project's px-to-rem helper (its rem function), not raw px.
-- [css/rem-units](https://skills.dawidolko.pl/rules/css/rem-units/): Font sizes are written in rem (or em), never px, in projects without a rem helper; with one, css/rem-helper applies.
-- [css/unitless-line-height](https://skills.dawidolko.pl/rules/css/unitless-line-height/): line-height is a unitless number (for example 1.5), never px, em or a percentage, so it scales with each element's font size.
-- [css/z-index-scale](https://skills.dawidolko.pl/rules/css/z-index-scale/): z-index values come from a named scale (custom properties or Sass variables), not ad hoc numbers such as 999 or 9999.
-- [html/button-type](https://skills.dawidolko.pl/rules/html/button-type/): Every button states its type (button, submit or reset); the default is submit.
-- [html/constraint-attr-type](https://skills.dawidolko.pl/rules/html/constraint-attr-type/): Validation attributes match the input type (pattern and maxlength on text-like types, min, max and step on number and date types).
-- [html/doctype](https://skills.dawidolko.pl/rules/html/doctype/): Every HTML document starts with <!doctype html> so the browser renders it in standards mode.
-- [html/form-submit](https://skills.dawidolko.pl/rules/html/form-submit/): Fields sit in a form that is handled on its submit event with a submit button, so Enter, autofill and native validation work.
-- [html/icon-from-set](https://skills.dawidolko.pl/rules/html/icon-from-set/): When the project has an icon set (sprite, icon classes or an Icon component), markup uses it, never a hard-coded path to an icon file.
-- [html/input-type](https://skills.dawidolko.pl/rules/html/input-type/): An input for an email address, phone number or URL uses type email, tel or url, not text.
-- [html/no-number-for-codes](https://skills.dawidolko.pl/rules/html/no-number-for-codes/): Codes made of digits (postal codes, card numbers, one-time codes, PINs) use type text with inputmode numeric, not type number.
-- [html/password-autocomplete](https://skills.dawidolko.pl/rules/html/password-autocomplete/): Password fields say current-password (sign-in) or new-password (sign-up, change) in autocomplete, and never use autocomplete off.
-- [html/picture-img](https://skills.dawidolko.pl/rules/html/picture-img/): Every picture element ends with an img that has src, alt, width and height; source elements alone render nothing.
-- [html/project-icons](https://skills.dawidolko.pl/rules/html/project-icons/): Icons use the project's generated icon classes (its icon classes), not separate SVG image files.
-- [html/required-select-placeholder](https://skills.dawidolko.pl/rules/html/required-select-placeholder/): A required single-choice select starts with an empty placeholder option (value=""), so the required check can fail.
-- [i18n/dir-rtl](https://skills.dawidolko.pl/rules/i18n/dir-rtl/): Pages in right-to-left languages (Arabic, Hebrew, Persian, Urdu) set dir="rtl" on html together with lang.
-- [i18n/explicit-locale](https://skills.dawidolko.pl/rules/i18n/explicit-locale/): Intl formatters and toLocaleString() receive the app's active locale instead of relying on the runtime default.
-- [i18n/intl-format](https://skills.dawidolko.pl/rules/i18n/intl-format/): Dates, times, numbers and prices are formatted with Intl for the user's locale, never assembled from parts.
-- [i18n/logical-properties](https://skills.dawidolko.pl/rules/i18n/logical-properties/): In projects with a right-to-left locale, layout uses logical properties (margin-inline-start, inset-inline-end, text-align start).
-- [i18n/no-string-concat](https://skills.dawidolko.pl/rules/i18n/no-string-concat/): User-facing sentences are one message with placeholders, never joined from translated fragments and values.
-- [i18n/plural-rules](https://skills.dawidolko.pl/rules/i18n/plural-rules/): Plurals use the locale's plural rules (ICU plural or Intl.PluralRules), never count === 1 ? singular : plural.
-- [i18n/same-keys](https://skills.dawidolko.pl/rules/i18n/same-keys/): Every locale file has the same keys and placeholders as the source locale, and the plural forms its language needs.
-- [js/asset-import](https://skills.dawidolko.pl/rules/js/asset-import/): In a bundled project, images, fonts and media in component markup are imported or use the base-path helper, not hard-coded root paths.
-- [js/document-write](https://skills.dawidolko.pl/rules/js/document-write/): Never insert content with document.write; create elements or load scripts with the DOM.
-- [js/feature-detect](https://skills.dawidolko.pl/rules/js/feature-detect/): Test for the feature you need (in, CSS.supports, matchMedia), not the browser name in navigator.userAgent.
-- [js/fetch-check-ok](https://skills.dawidolko.pl/rules/js/fetch-check-ok/): After fetch, check response.ok (or the status) before reading the body; fetch does not reject on 404 or 500.
-- [js/listener-cleanup](https://skills.dawidolko.pl/rules/js/listener-cleanup/): Listeners, timers and observers a view starts are removed when it goes away; one AbortController signal can end them all.
-- [js/no-empty-catch](https://skills.dawidolko.pl/rules/js/no-empty-catch/): A catch block never swallows an error silently; handle it, report it, or say in a comment why it is safe to ignore.
-- [js/no-eval](https://skills.dawidolko.pl/rules/js/no-eval/): Never run strings as code - no eval, new Function, or a string as the first argument of setTimeout or setInterval.
-- [js/no-floating-promises](https://skills.dawidolko.pl/rules/js/no-floating-promises/): Every promise is awaited, returned or given a .catch(); an async call is never left floating.
-- [js/no-inline-handlers](https://skills.dawidolko.pl/rules/js/no-inline-handlers/): Attach event handlers from script with addEventListener, not with onclick="..." attributes in HTML.
-- [js/no-var](https://skills.dawidolko.pl/rules/js/no-var/): Declare variables with const, or let when they are reassigned; never with var.
-- [js/passive-listeners](https://skills.dawidolko.pl/rules/js/passive-listeners/): Mark touchstart, touchmove and wheel listeners { passive true } unless the handler really calls preventDefault().
-- [js/strict-equality](https://skills.dawidolko.pl/rules/js/strict-equality/): Compare with === and !==; loose == and != convert types first (x == null as a deliberate null-or-undefined test is the exception).
-- [js/throw-error-objects](https://skills.dawidolko.pl/rules/js/throw-error-objects/): Throw and reject with Error objects (or subclasses), never with strings or plain objects.
-- [next/async-params](https://skills.dawidolko.pl/rules/next/async-params/): Await params and searchParams in App Router pages, layouts and generateMetadata; Next.js 16 removed synchronous access.
-- [next/image-fill-sizes](https://skills.dawidolko.pl/rules/next/image-fill-sizes/): A next/image with fill (or sized by CSS) sets sizes, so the browser does not download a viewport-wide file for a small slot.
-- [next/no-async-client-component](https://skills.dawidolko.pl/rules/next/no-async-client-component/): A Client Component is never an async function; fetch in a Server Component parent or read a promise with use().
-- [next/public-env-secret](https://skills.dawidolko.pl/rules/next/public-env-secret/): Never give a secret the NEXT_PUBLIC_ prefix; those values are copied into the JavaScript every visitor downloads.
-- [next/redirect-outside-try](https://skills.dawidolko.pl/rules/next/redirect-outside-try/): Call redirect(), notFound() and their kin outside try blocks; they work by throwing, and a catch swallows them.
-- [next/server-action-checks](https://skills.dawidolko.pl/rules/next/server-action-checks/): Every Server Action checks who is calling and what they may change, validates its input and returns only what the UI needs.
-- [next/use-client-at-leaves](https://skills.dawidolko.pl/rules/next/use-client-at-leaves/): Keep App Router pages and layouts Server Components; put 'use client' on the small interactive component they render.
-- [next/use-next-font](https://skills.dawidolko.pl/rules/next/use-next-font/): Load web fonts with next/font (google or local), not a link or @import to the Google Fonts stylesheet.
-- [next/use-next-image](https://skills.dawidolko.pl/rules/next/use-next-image/): In a Next.js app, render images with next/image instead of a plain img element (a picture element with its own sources is fine).
-- [nuxt/async-data-key](https://skills.dawidolko.pl/rules/nuxt/async-data-key/): A composable that wraps useAsyncData passes an explicit, unique key built from its inputs.
-- [nuxt/fetch-composable-in-handler](https://skills.dawidolko.pl/rules/nuxt/fetch-composable-in-handler/): Call useFetch and useAsyncData only in setup, plugins or composables; in event handlers use $fetch.
-- [nuxt/no-bare-fetch-in-setup](https://skills.dawidolko.pl/rules/nuxt/no-bare-fetch-in-setup/): Load a page's initial data with useFetch or useAsyncData, not a bare $fetch at the top of script setup.
-- [nuxt/no-browser-api-in-setup](https://skills.dawidolko.pl/rules/nuxt/no-browser-api-in-setup/): Never touch window, document, localStorage or navigator at the top of script setup; it also runs on the server.
-- [nuxt/no-module-scope-state](https://skills.dawidolko.pl/rules/nuxt/no-module-scope-state/): Never create ref() or reactive() state at module scope in a Nuxt app; use useState or a Pinia store.
-- [nuxt/public-runtime-config](https://skills.dawidolko.pl/rules/nuxt/public-runtime-config/): Secrets live in the top level of runtimeConfig, never under runtimeConfig.public, which every page sends to the browser.
-- [nuxt/route-announcer](https://skills.dawidolko.pl/rules/nuxt/route-announcer/): The app renders NuxtRouteAnnouncer (in app.vue or a layout) so client-side page changes are announced.
-- [nuxt/runtime-config-not-process-env](https://skills.dawidolko.pl/rules/nuxt/runtime-config-not-process-env/): App code reads configuration with useRuntimeConfig() and tests the side with import.meta.client, not process.env or process.client.
 - [perf/bfcache-no-unload](https://skills.dawidolko.pl/rules/perf/bfcache-no-unload/): No code listens to the unload event; use pagehide or visibilitychange so the page can use the back/forward cache.
 - [perf/cache-static-assets](https://skills.dawidolko.pl/rules/perf/cache-static-assets/): Content-hashed assets are cached for a year as immutable; HTML is revalidated (no-cache), never cached long.
 - [perf/code-split](https://skills.dawidolko.pl/rules/perf/code-split/): JavaScript is split by route, and features that most visits do not use load on demand with dynamic import().
@@ -237,9 +151,40 @@ Start in a project folder with `npx github:dawidolko/frontend-skills init` (Node
 - [perf/third-party-async](https://skills.dawidolko.pl/rules/perf/third-party-async/): Third-party scripts load with async or defer (or a framework strategy such as lazyOnload), never as parser-blocking tags.
 - [perf/third-party-cost](https://skills.dawidolko.pl/rules/perf/third-party-cost/): Each third-party script earns its place, loads late, and heavy embeds (video, maps, chat) start as a lightweight facade.
 - [perf/yield-long-tasks](https://skills.dawidolko.pl/rules/perf/yield-long-tasks/): Main-thread work over 50 ms is split and yields, and event handlers do the visible update first (INP 200 ms or less).
-- [react/no-array-index-key](https://skills.dawidolko.pl/rules/react/no-array-index-key/): A list item's key comes from the data (an id), not from the array index.
-- [react/no-derived-state-effect](https://skills.dawidolko.pl/rules/react/no-derived-state-effect/): Values computed from props or state are calculated during render, not copied into state by an effect.
-- [react/no-nested-component](https://skills.dawidolko.pl/rules/react/no-nested-component/): Components are declared at module level, never inside another component's body.
+- [html/button-type](https://skills.dawidolko.pl/rules/html/button-type/): Every button states its type (button, submit or reset); the default is submit.
+- [html/constraint-attr-type](https://skills.dawidolko.pl/rules/html/constraint-attr-type/): Validation attributes match the input type (pattern and maxlength on text-like types, min, max and step on number and date types).
+- [html/doctype](https://skills.dawidolko.pl/rules/html/doctype/): Every HTML document starts with <!doctype html> so the browser renders it in standards mode.
+- [html/form-submit](https://skills.dawidolko.pl/rules/html/form-submit/): Fields sit in a form that is handled on its submit event with a submit button, so Enter, autofill and native validation work.
+- [html/icon-from-set](https://skills.dawidolko.pl/rules/html/icon-from-set/): When the project has an icon set (sprite, icon classes or an Icon component), markup uses it, never a hard-coded path to an icon file.
+- [html/input-type](https://skills.dawidolko.pl/rules/html/input-type/): An input for an email address, phone number or URL uses type email, tel or url, not text.
+- [html/no-number-for-codes](https://skills.dawidolko.pl/rules/html/no-number-for-codes/): Codes made of digits (postal codes, card numbers, one-time codes, PINs) use type text with inputmode numeric, not type number.
+- [html/password-autocomplete](https://skills.dawidolko.pl/rules/html/password-autocomplete/): Password fields say current-password (sign-in) or new-password (sign-up, change) in autocomplete, and never use autocomplete off.
+- [html/picture-img](https://skills.dawidolko.pl/rules/html/picture-img/): Every picture element ends with an img that has src, alt, width and height; source elements alone render nothing.
+- [html/project-icons](https://skills.dawidolko.pl/rules/html/project-icons/): Icons use the project's generated icon classes (its icon classes), not separate SVG image files.
+- [html/required-select-placeholder](https://skills.dawidolko.pl/rules/html/required-select-placeholder/): A required single-choice select starts with an empty placeholder option (value=""), so the required check can fail.
+- [css/animate-composited](https://skills.dawidolko.pl/rules/css/animate-composited/): Animations and transitions change transform and opacity, not layout properties such as width, height, top, left or margin.
+- [css/asset-url](https://skills.dawidolko.pl/rules/css/asset-url/): In a bundled project, url() to images and fonts is a relative path or alias the bundler resolves, not a hard-coded root or public/ path.
+- [css/baseline-check](https://skills.dawidolko.pl/rules/css/baseline-check/): Before using a newer CSS feature, check its Baseline status against the project's browser targets and plan the fallback.
+- [css/container-type-size](https://skills.dawidolko.pl/rules/css/container-type-size/): Query containers use container-type inline-size; size is only for elements that get their height from elsewhere.
+- [css/design-tokens](https://skills.dawidolko.pl/rules/css/design-tokens/): Colours and spacing come from the project's tokens (custom properties or variables); a literal that has a token, or repeats, is a finding.
+- [css/gap-over-margins](https://skills.dawidolko.pl/rules/css/gap-over-margins/): Space the children of a flex or grid container with gap, not with margins on the children and last-child exceptions.
+- [css/icon-from-set](https://skills.dawidolko.pl/rules/css/icon-from-set/): With a generated icon set, CSS uses its icon classes or mixin, never a url() hard-coded to an icon file.
+- [css/light-dark-color-scheme](https://skills.dawidolko.pl/rules/css/light-dark-color-scheme/): A project that uses light-dark() declares color-scheme (light dark) on :root or in a meta tag, or the dark values never apply.
+- [css/limited-needs-supports](https://skills.dawidolko.pl/rules/css/limited-needs-supports/): CSS that is not Baseline yet (anchor positioning) or only just became Baseline (scroll-driven animations) sits in @supports with a fallback.
+- [css/logical-properties](https://skills.dawidolko.pl/rules/css/logical-properties/): Sites that run or may run right to left use logical properties (margin-inline-start, inset-inline-end), not left and right.
+- [css/nesting-no-concat](https://skills.dawidolko.pl/rules/css/nesting-no-concat/): In native CSS nesting, never build class names from "&" plus a suffix (&__title); write the full selector.
+- [css/no-fixed-height-text](https://skills.dawidolko.pl/rules/css/no-fixed-height-text/): Boxes that hold text do not combine a fixed height with hidden overflow; use min-height so enlarged or spaced text is not clipped.
+- [css/no-float-layout](https://skills.dawidolko.pl/rules/css/no-float-layout/): Page and component layout uses grid or flexbox; float is only for wrapping text around media, and clearfix hacks are gone.
+- [css/no-id-selectors](https://skills.dawidolko.pl/rules/css/no-id-selectors/): Style elements by class, not by id; an id selector outweighs any number of classes and makes the rule hard to override.
+- [css/no-important](https://skills.dawidolko.pl/rules/css/no-important/): !important appears only in utility classes, user-preference overrides and third-party overrides, never to win a specificity fight.
+- [css/no-magic-numbers](https://skills.dawidolko.pl/rules/css/no-magic-numbers/): Offsets and spacing use the project's spacing scale or come from layout; hand-tuned one-off values such as top -7px are a finding.
+- [css/no-stale-prefixes](https://skills.dawidolko.pl/rules/css/no-stale-prefixes/): No hand-written vendor prefixes for features browsers support unprefixed (border-radius, transitions, transforms, flexbox, gradients).
+- [css/pause-auto-motion](https://skills.dawidolko.pl/rules/css/pause-auto-motion/): Anything that moves, blinks or scrolls on its own for more than five seconds (carousels, marquees, background video) can be paused.
+- [css/reduced-motion](https://skills.dawidolko.pl/rules/css/reduced-motion/): Non-essential motion (entrance animations, parallax, smooth scrolling) respects prefers-reduced-motion.
+- [css/rem-helper](https://skills.dawidolko.pl/rules/css/rem-helper/): Font sizes and spacing use the project's px-to-rem helper (its rem function), not raw px.
+- [css/rem-units](https://skills.dawidolko.pl/rules/css/rem-units/): Font sizes are written in rem (or em), never px, in projects without a rem helper; with one, css/rem-helper applies.
+- [css/unitless-line-height](https://skills.dawidolko.pl/rules/css/unitless-line-height/): line-height is a unitless number (for example 1.5), never px, em or a percentage, so it scales with each element's font size.
+- [css/z-index-scale](https://skills.dawidolko.pl/rules/css/z-index-scale/): z-index values come from a named scale (custom properties or Sass variables), not ad hoc numbers such as 999 or 9999.
 - [responsive/dynamic-viewport-units](https://skills.dawidolko.pl/rules/responsive/dynamic-viewport-units/): A full-height layout uses 100dvh (or svh) instead of 100vh, which is taller than the visible area on mobile.
 - [responsive/no-fixed-wide-width](https://skills.dawidolko.pl/rules/responsive/no-fixed-wide-width/): No layout box gets a fixed width wider than 320 CSS px; cap it with max-width or min(100%, …) so the page reflows on narrow screens.
 - [responsive/no-hover-only](https://skills.dawidolko.pl/rules/responsive/no-hover-only/): Nothing is revealed on hover alone; content and controls shown on hover also show on keyboard focus and are reachable on touch.
@@ -247,6 +192,98 @@ Start in a project folder with `npx github:dawidolko/frontend-skills init` (Node
 - [responsive/orientation](https://skills.dawidolko.pl/rules/responsive/orientation/): The page works in portrait and landscape; it never locks the orientation or asks people to rotate unless one orientation is essential.
 - [responsive/reflow](https://skills.dawidolko.pl/rules/responsive/reflow/): The page reads without sideways scrolling at 320 CSS px and 400% zoom; only tables, maps and similar may scroll both ways.
 - [responsive/viewport-meta](https://skills.dawidolko.pl/rules/responsive/viewport-meta/): Every HTML document has <meta name="viewport" content="width=device-width, initial-scale=1">.
+- [js/asset-import](https://skills.dawidolko.pl/rules/js/asset-import/): In a bundled project, images, fonts and media in component markup are imported or use the base-path helper, not hard-coded root paths.
+- [js/document-write](https://skills.dawidolko.pl/rules/js/document-write/): Never insert content with document.write; create elements or load scripts with the DOM.
+- [js/feature-detect](https://skills.dawidolko.pl/rules/js/feature-detect/): Test for the feature you need (in, CSS.supports, matchMedia), not the browser name in navigator.userAgent.
+- [js/fetch-check-ok](https://skills.dawidolko.pl/rules/js/fetch-check-ok/): After fetch, check response.ok (or the status) before reading the body; fetch does not reject on 404 or 500.
+- [js/listener-cleanup](https://skills.dawidolko.pl/rules/js/listener-cleanup/): Listeners, timers and observers a view starts are removed when it goes away; one AbortController signal can end them all.
+- [js/no-empty-catch](https://skills.dawidolko.pl/rules/js/no-empty-catch/): A catch block never swallows an error silently; handle it, report it, or say in a comment why it is safe to ignore.
+- [js/no-eval](https://skills.dawidolko.pl/rules/js/no-eval/): Never run strings as code - no eval, new Function, or a string as the first argument of setTimeout or setInterval.
+- [js/no-floating-promises](https://skills.dawidolko.pl/rules/js/no-floating-promises/): Every promise is awaited, returned or given a .catch(); an async call is never left floating.
+- [js/no-inline-handlers](https://skills.dawidolko.pl/rules/js/no-inline-handlers/): Attach event handlers from script with addEventListener, not with onclick="..." attributes in HTML.
+- [js/no-var](https://skills.dawidolko.pl/rules/js/no-var/): Declare variables with const, or let when they are reassigned; never with var.
+- [js/passive-listeners](https://skills.dawidolko.pl/rules/js/passive-listeners/): Mark touchstart, touchmove and wheel listeners { passive true } unless the handler really calls preventDefault().
+- [js/strict-equality](https://skills.dawidolko.pl/rules/js/strict-equality/): Compare with === and !==; loose == and != convert types first (x == null as a deliberate null-or-undefined test is the exception).
+- [js/throw-error-objects](https://skills.dawidolko.pl/rules/js/throw-error-objects/): Throw and reject with Error objects (or subclasses), never with strings or plain objects.
+- [ts/isolated-modules](https://skills.dawidolko.pl/rules/ts/isolated-modules/): A Vite project's tsconfig sets isolatedModules or verbatimModuleSyntax, so code the bundler compiles file by file type-checks the same way.
+- [ts/no-deprecated-options](https://skills.dawidolko.pl/rules/ts/no-deprecated-options/): A TypeScript 6 or 7 tsconfig uses no option deprecated in 6.0 and removed in 7.0 (baseUrl, moduleResolution node, target es5).
+- [ts/no-explicit-any](https://skills.dawidolko.pl/rules/ts/no-explicit-any/): Type values with a real type or unknown (then narrow), never any.
+- [ts/no-ts-ignore](https://skills.dawidolko.pl/rules/ts/no-ts-ignore/): Silence a type error with @ts-expect-error and a reason, never @ts-ignore or @ts-nocheck.
+- [ts/strict](https://skills.dawidolko.pl/rules/ts/strict/): TypeScript runs with strict on; no config turns strict or one of its checks (strictNullChecks, noImplicitAny...) off.
+- [ts/validate-untrusted](https://skills.dawidolko.pl/rules/ts/validate-untrusted/): Data from outside the program (fetch, JSON.parse, storage) is validated at run time, not given a type with as or an annotation.
+- [react/no-array-index-key](https://skills.dawidolko.pl/rules/react/no-array-index-key/): A list item's key comes from the data (an id), not from the array index.
+- [react/no-derived-state-effect](https://skills.dawidolko.pl/rules/react/no-derived-state-effect/): Values computed from props or state are calculated during render, not copied into state by an effect.
+- [react/no-nested-component](https://skills.dawidolko.pl/rules/react/no-nested-component/): Components are declared at module level, never inside another component's body.
+- [next/async-params](https://skills.dawidolko.pl/rules/next/async-params/): Await params and searchParams in App Router pages, layouts and generateMetadata; Next.js 16 removed synchronous access.
+- [next/image-fill-sizes](https://skills.dawidolko.pl/rules/next/image-fill-sizes/): A next/image with fill (or sized by CSS) sets sizes, so the browser does not download a viewport-wide file for a small slot.
+- [next/no-async-client-component](https://skills.dawidolko.pl/rules/next/no-async-client-component/): A Client Component is never an async function; fetch in a Server Component parent or read a promise with use().
+- [next/public-env-secret](https://skills.dawidolko.pl/rules/next/public-env-secret/): Never give a secret the NEXT_PUBLIC_ prefix; those values are copied into the JavaScript every visitor downloads.
+- [next/redirect-outside-try](https://skills.dawidolko.pl/rules/next/redirect-outside-try/): Call redirect(), notFound() and their kin outside try blocks; they work by throwing, and a catch swallows them.
+- [next/server-action-checks](https://skills.dawidolko.pl/rules/next/server-action-checks/): Every Server Action checks who is calling and what they may change, validates its input and returns only what the UI needs.
+- [next/use-client-at-leaves](https://skills.dawidolko.pl/rules/next/use-client-at-leaves/): Keep App Router pages and layouts Server Components; put 'use client' on the small interactive component they render.
+- [next/use-next-font](https://skills.dawidolko.pl/rules/next/use-next-font/): Load web fonts with next/font (google or local), not a link or @import to the Google Fonts stylesheet.
+- [next/use-next-image](https://skills.dawidolko.pl/rules/next/use-next-image/): In a Next.js app, render images with next/image instead of a plain img element (a picture element with its own sources is fine).
+- [vue/computed-pure](https://skills.dawidolko.pl/rules/vue/computed-pure/): A computed getter only derives a value - no async work, no requests and no changes to other state.
+- [vue/detailed-props](https://skills.dawidolko.pl/rules/vue/detailed-props/): Declare props with their types (an object with type, or a TypeScript type), not as a bare array of names.
+- [vue/link-for-navigation](https://skills.dawidolko.pl/rules/vue/link-for-navigation/): Navigate with RouterLink or NuxtLink, not a button whose click handler only calls router.push or navigateTo.
+- [vue/multi-word-names](https://skills.dawidolko.pl/rules/vue/multi-word-names/): Name components with two or more words (TodoItem, not Item); App, pages and layouts are exempt.
+- [vue/no-index-key](https://skills.dawidolko.pl/rules/vue/no-index-key/): A v-for key comes from the item's data, not from the loop index, when the list can change.
+- [vue/no-mutating-props](https://skills.dawidolko.pl/rules/vue/no-mutating-props/): A component never changes its props (or objects and arrays inside them); it emits an event or keeps a local copy.
+- [vue/no-reactivity-loss](https://skills.dawidolko.pl/rules/vue/no-reactivity-loss/): Never destructure or reassign a reactive() object; use toRefs, a ref, or change its properties.
+- [vue/no-v-if-with-v-for](https://skills.dawidolko.pl/rules/vue/no-v-if-with-v-for/): Never put v-if and v-for on the same element; filter in a computed list or move v-if to a wrapper.
+- [vue/ref-value-in-script](https://skills.dawidolko.pl/rules/vue/ref-value-in-script/): In script code, read and compare a ref or computed through .value; the ref object itself is always truthy.
+- [vue/require-v-for-key](https://skills.dawidolko.pl/rules/vue/require-v-for-key/): Every v-for gives its items a :key from the data; on a template v-for the key goes on the template tag.
+- [nuxt/async-data-key](https://skills.dawidolko.pl/rules/nuxt/async-data-key/): A composable that wraps useAsyncData passes an explicit, unique key built from its inputs.
+- [nuxt/fetch-composable-in-handler](https://skills.dawidolko.pl/rules/nuxt/fetch-composable-in-handler/): Call useFetch and useAsyncData only in setup, plugins or composables; in event handlers use $fetch.
+- [nuxt/no-bare-fetch-in-setup](https://skills.dawidolko.pl/rules/nuxt/no-bare-fetch-in-setup/): Load a page's initial data with useFetch or useAsyncData, not a bare $fetch at the top of script setup.
+- [nuxt/no-browser-api-in-setup](https://skills.dawidolko.pl/rules/nuxt/no-browser-api-in-setup/): Never touch window, document, localStorage or navigator at the top of script setup; it also runs on the server.
+- [nuxt/no-module-scope-state](https://skills.dawidolko.pl/rules/nuxt/no-module-scope-state/): Never create ref() or reactive() state at module scope in a Nuxt app; use useState or a Pinia store.
+- [nuxt/public-runtime-config](https://skills.dawidolko.pl/rules/nuxt/public-runtime-config/): Secrets live in the top level of runtimeConfig, never under runtimeConfig.public, which every page sends to the browser.
+- [nuxt/route-announcer](https://skills.dawidolko.pl/rules/nuxt/route-announcer/): The app renders NuxtRouteAnnouncer (in app.vue or a layout) so client-side page changes are announced.
+- [nuxt/runtime-config-not-process-env](https://skills.dawidolko.pl/rules/nuxt/runtime-config-not-process-env/): App code reads configuration with useRuntimeConfig() and tests the side with import.meta.client, not process.env or process.client.
+- [angular/banana-in-box](https://skills.dawidolko.pl/rules/angular/banana-in-box/): Two-way binding is written [(prop)], brackets outside; ([prop]) silently binds an event named [prop] instead.
+- [angular/computed-not-effect](https://skills.dawidolko.pl/rules/angular/computed-not-effect/): Derive state with computed() (or linkedSignal()); never copy one signal into another inside effect().
+- [angular/control-flow](https://skills.dawidolko.pl/rules/angular/control-flow/): Templates use the built-in @if, @for and @switch blocks, not the ngIf, ngFor and ngSwitch directives deprecated in v20.
+- [angular/for-track-id](https://skills.dawidolko.pl/rules/angular/for-track-id/): An @for block tracks a stable unique field of the item (track item.id), not the item object itself.
+- [angular/ng-optimized-image](https://skills.dawidolko.pl/rules/angular/ng-optimized-image/): Static images in Angular templates use NgOptimizedImage (ngSrc with width and height, or fill), not a plain src.
+- [angular/no-bypass-security-trust](https://skills.dawidolko.pl/rules/angular/no-bypass-security-trust/): DomSanitizer bypassSecurityTrust calls never receive user or server data; each one is a reviewed exception.
+- [angular/router-aria-current](https://skills.dawidolko.pl/rules/angular/router-aria-current/): A routerLinkActive link also sets ariaCurrentWhenActive, so the current page is announced, not only styled.
+- [angular/ssr-browser-globals](https://skills.dawidolko.pl/rules/angular/ssr-browser-globals/): Code that runs on the server never touches window, document, navigator or localStorage directly; use DI or afterNextRender.
+- [angular/table-tbody](https://skills.dawidolko.pl/rules/angular/table-tbody/): Table rows in Angular templates sit inside an explicit tbody (or thead/tfoot); the browser inserts one and hydration fails.
+- [svelte/derived-not-effect](https://skills.dawidolko.pl/rules/svelte/derived-not-effect/): A value computed from state is a $derived, not a $state that an $effect keeps in sync.
+- [svelte/each-key](https://skills.dawidolko.pl/rules/svelte/each-key/): An each block whose items hold state (inputs, bindings, components, transitions) is keyed by a unique id, never by the index.
+- [svelte/kit-app-state](https://skills.dawidolko.pl/rules/svelte/kit-app-state/): Read page, navigating and updated from $app/state, not the $app/stores module that SvelteKit 3 removed.
+- [svelte/kit-form-actions](https://skills.dawidolko.pl/rules/svelte/kit-form-actions/): A SvelteKit form posts to a form action (method and action) and is enhanced with use:enhance, not handled only by onsubmit.
+- [svelte/kit-load-waterfall](https://skills.dawidolko.pl/rules/svelte/kit-load-waterfall/): A load function starts independent requests together and awaits parent() only after them, so data does not load in a chain.
+- [svelte/kit-page-title](https://skills.dawidolko.pl/rules/svelte/kit-page-title/): Every SvelteKit page sets its own descriptive title in svelte:head, or its layout renders a title from page data.
+- [svelte/kit-shared-server-state](https://skills.dawidolko.pl/rules/svelte/kit-shared-server-state/): Server code of a SvelteKit app never keeps per-request data in module-level variables; the module is shared by every user.
+- [svelte/no-legacy-syntax](https://skills.dawidolko.pl/rules/svelte/no-legacy-syntax/): New Svelte 5 code uses runes and the new syntax, not export let, $:, on:event, slot or svelte:component.
+- [svelte/props-derived](https://skills.dawidolko.pl/rules/svelte/props-derived/): A top-level value computed from props is a $derived; a plain let or const keeps only the first value.
+- [svelte/window-events](https://skills.dawidolko.pl/rules/svelte/window-events/): Listen to window and document events with svelte:window and svelte:document, not addEventListener in $effect or onMount.
+- [astro/client-only-framework](https://skills.dawidolko.pl/rules/astro/client-only-framework/): Give client:only the framework of the component (client:only="react"), and a fallback slot for the space it fills.
+- [astro/directive-on-framework-component](https://skills.dawidolko.pl/rules/astro/directive-on-framework-component/): Put client: directives only on UI framework components imported into the .astro file, never on Astro components.
+- [astro/public-env-secret](https://skills.dawidolko.pl/rules/astro/public-env-secret/): Never give a secret the PUBLIC_ prefix; in Astro those variables are built into client code. Declare secrets in astro:env as server secrets.
+- [astro/script-processed](https://skills.dawidolko.pl/rules/astro/script-processed/): Astro script tags carry no attribute but src so they are bundled; is:inline only on purpose, data- instead of define:vars.
+- [astro/server-defer-fallback](https://skills.dawidolko.pl/rules/astro/server-defer-fallback/): A server island (server:defer) has slot="fallback" content of the same size, and receives only small serializable props.
+- [astro/static-by-default](https://skills.dawidolko.pl/rules/astro/static-by-default/): Render framework components without a client directive unless they need interactivity, and pick the latest directive that works.
+- [webc/aria-idrefs-same-tree](https://skills.dawidolko.pl/rules/webc/aria-idrefs-same-tree/): id references (for, aria-labelledby, aria-describedby, aria-controls) point at an element in the same DOM tree, not across a shadow root.
+- [webc/constructor-no-attributes](https://skills.dawidolko.pl/rules/webc/constructor-no-attributes/): A custom element constructor never reads or adds attributes or children; do that in connectedCallback.
+- [webc/form-associated](https://skills.dawidolko.pl/rules/webc/form-associated/): A custom form control is form-associated (formAssociated and attachInternals) and reports its value and validity to the form.
+- [webc/host-hidden](https://skills.dawidolko.pl/rules/webc/host-hidden/): Shadow styles that give :host a display also add :host([hidden]) { display none }, or the hidden attribute stops working.
+- [webc/lit-class-fields](https://skills.dawidolko.pl/rules/webc/lit-class-fields/): In JavaScript, a Lit reactive property is never also declared as a class field; the field hides Lit's accessor and updates stop.
+- [webc/lit-immutable-updates](https://skills.dawidolko.pl/rules/webc/lit-immutable-updates/): A Lit reactive array is replaced, not mutated in place (push, splice, sort), unless requestUpdate() follows.
+- [webc/lit-unsafe-html](https://skills.dawidolko.pl/rules/webc/lit-unsafe-html/): Lit's unsafeHTML, unsafeSVG and unsafeStatic only receive strings the developer wrote or sanitized, never data.
+- [webc/no-customized-builtins](https://skills.dawidolko.pl/rules/webc/no-customized-builtins/): Build autonomous custom elements that wrap a native element; do not extend built-ins with is=, which Safari does not support.
+- [webc/valid-name](https://skills.dawidolko.pl/rules/webc/valid-name/): A custom element name is lowercase, starts with a letter, contains a hyphen and is not a reserved name, or define() throws.
+- [tailwind/components-over-apply](https://skills.dawidolko.pl/rules/tailwind/components-over-apply/): Remove repeated class lists with a component, a loop or a partial; keep @apply for small cases and third-party markup.
+- [tailwind/conflicting-utilities](https://skills.dawidolko.pl/rules/tailwind/conflicting-utilities/): One element never carries two utilities that set the same property under the same variant (p-2 p-4, flex grid).
+- [tailwind/hover-only-reveal](https://skills.dawidolko.pl/rules/tailwind/hover-only-reveal/): Content or controls revealed with hover: are also revealed on focus (focus-within:, group-focus-within:), never on hover alone.
+- [tailwind/motion-safe](https://skills.dawidolko.pl/rules/tailwind/motion-safe/): Decorative Tailwind animations (animate-bounce, animate-ping, animate-pulse) run under motion-safe: or stop under motion-reduce:.
+- [tailwind/no-dynamic-class](https://skills.dawidolko.pl/rules/tailwind/no-dynamic-class/): Write every Tailwind class as a complete string; never build one from fragments such as bg-${color}-500.
+- [tailwind/no-preprocessor](https://skills.dawidolko.pl/rules/tailwind/no-preprocessor/): Do not run Tailwind CSS 4 through Sass, Less or Stylus; use plain CSS with native nesting and variables.
+- [tailwind/sr-only-label](https://skills.dawidolko.pl/rules/tailwind/sr-only-label/): The only text of a button or link is never hidden with hidden; use sr-only (with md:not-sr-only to show it on wider screens).
+- [tailwind/theme-tokens](https://skills.dawidolko.pl/rules/tailwind/theme-tokens/): An arbitrary value used again and again (bg-[#0a7a3e], p-[18px]) becomes a theme variable in @theme with its own utility.
+- [tailwind/v4-entry](https://skills.dawidolko.pl/rules/tailwind/v4-entry/): In Tailwind CSS 4, load Tailwind with @import "tailwindcss" and a legacy JS config with @config; @tailwind directives do nothing.
 - [sass/custom-properties-for-themes](https://skills.dawidolko.pl/rules/sass/custom-properties-for-themes/): Values that change at run time (themes, dark mode, user settings) are CSS custom properties; Sass variables are for build-time constants.
 - [sass/math-div](https://skills.dawidolko.pl/rules/sass/math-div/): Divide with math.div() in Sass; a slash between Sass values is becoming a list separator, as it is in CSS.
 - [sass/no-extend-class](https://skills.dawidolko.pl/rules/sass/no-extend-class/): Extend only placeholder selectors (%name), or use a mixin; @extend of a real class copies selectors everywhere it appears.
@@ -255,24 +292,6 @@ Start in a project folder with `npx github:dawidolko/frontend-skills init` (Node
 - [sass/no-legacy-color-functions](https://skills.dawidolko.pl/rules/sass/no-legacy-color-functions/): Adjust colours with color.scale or color.adjust (and read channels with color.channel), not darken, lighten, fade-out and the like.
 - [sass/no-node-sass](https://skills.dawidolko.pl/rules/sass/no-node-sass/): Compile Sass with Dart Sass (the sass or sass-embedded package), never node-sass, which is deprecated LibSass.
 - [sass/rem-helper](https://skills.dawidolko.pl/rules/sass/rem-helper/): Sizes are converted with the project's px-to-rem function, never by dividing by a hard-coded base by hand.
-- [security/csp-meta-ignored](https://skills.dawidolko.pl/rules/security/csp-meta-ignored/): frame-ancestors, report-uri, sandbox and X-Frame-Options are sent as HTTP headers; in a meta tag they do nothing.
-- [security/csp-strict](https://skills.dawidolko.pl/rules/security/csp-strict/): Production pages send a strict Content Security Policy (nonces or hashes with strict-dynamic, object-src none, base-uri none).
-- [security/https-only](https://skills.dawidolko.pl/rules/security/https-only/): Every page and every resource it loads use HTTPS; no mixed content and no http:// links to your own site.
-- [security/no-eval](https://skills.dawidolko.pl/rules/security/no-eval/): Front-end code never runs strings as code - no eval, new Function or string arguments to setTimeout and setInterval.
-- [security/no-secrets-in-client-env](https://skills.dawidolko.pl/rules/security/no-secrets-in-client-env/): Secrets never use a client-exposed environment prefix (NEXT_PUBLIC_, VITE_, PUBLIC_, NUXT_PUBLIC_); they stay on the server.
-- [security/postmessage-origin](https://skills.dawidolko.pl/rules/security/postmessage-origin/): postMessage names an exact target origin, and every window message listener checks event.origin against an allowlist.
-- [security/raw-html-sink](https://skills.dawidolko.pl/rules/security/raw-html-sink/): Never pass user or remote data to a raw HTML sink (innerHTML, dangerouslySetInnerHTML, v-html, {@html}) without sanitizing it.
-- [security/sri-cdn](https://skills.dawidolko.pl/rules/security/sri-cdn/): Versioned files from a public CDN carry Subresource Integrity (integrity plus crossorigin), or are self-hosted.
-- [security/window-open-noopener](https://skills.dawidolko.pl/rules/security/window-open-noopener/): window.open for another site passes "noopener" (and "noreferrer" when needed) so the new page cannot control yours.
-- [seo/canonical-valid](https://skills.dawidolko.pl/rules/seo/canonical-valid/): A page has at most one rel="canonical", in the head, with an absolute URL of an indexable page and no fragment.
-- [seo/hreflang-valid](https://skills.dawidolko.pl/rules/seo/hreflang-valid/): hreflang values are ISO 639-1 language codes with an optional script and ISO 3166-1 region (or x-default), linking absolute URLs.
-- [seo/http-status](https://skills.dawidolko.pl/rules/seo/http-status/): Missing pages return 404 or 410, moved pages 301 or 308, and a client-rendered error view is not served with 200.
-- [seo/indexable](https://skills.dawidolko.pl/rules/seo/indexable/): Pages meant to rank are crawlable and carry no noindex (meta robots or X-Robots-Tag) in production.
-- [seo/jsonld-type-supported](https://skills.dawidolko.pl/rules/seo/jsonld-type-supported/): Structured data for rich results uses types in Google's current search gallery, not retired ones such as FAQPage or HowTo.
-- [seo/jsonld-valid](https://skills.dawidolko.pl/rules/seo/jsonld-valid/): Every JSON-LD block is valid JSON with "@context" "https://schema.org" and a schema.org @type.
-- [seo/meta-description](https://skills.dawidolko.pl/rules/seo/meta-description/): Each indexable page has its own meta description that summarises that page.
-- [seo/og-absolute-url](https://skills.dawidolko.pl/rules/seo/og-absolute-url/): Open Graph and social image and URL tags (og:image, og:url, twitter:image) use absolute https URLs.
-- [seo/title-unique](https://skills.dawidolko.pl/rules/seo/title-unique/): Each page has its own descriptive title, page topic first and site name last, in the page's language.
 - [state/fetch-effect-cleanup](https://skills.dawidolko.pl/rules/state/fetch-effect-cleanup/): An effect that fetches into state returns a cleanup that ignores or aborts stale responses.
 - [state/immer-mutate-or-return](https://skills.dawidolko.pl/rules/state/immer-mutate-or-return/): A Redux Toolkit or Immer reducer either mutates the draft or returns a new state, never both; no arrow that returns a mutation.
 - [state/invalidate-after-mutation](https://skills.dawidolko.pl/rules/state/invalidate-after-mutation/): After a mutation succeeds, invalidate or update every cached query it changed, so lists and details show the new data.
@@ -286,25 +305,31 @@ Start in a project folder with `npx github:dawidolko/frontend-skills init` (Node
 - [state/selector-stable-result](https://skills.dawidolko.pl/rules/state/selector-stable-result/): A store selector returns existing values, not a new object or array on every call; pick fields one by one or use useShallow or shallowEqual.
 - [state/server-state-cache](https://skills.dawidolko.pl/rules/state/server-state-cache/): Server data comes from the framework loader or a server-state library, not fetch plus useState and loading flags in each component.
 - [state/url-state](https://skills.dawidolko.pl/rules/state/url-state/): State a person would share, bookmark or restore with Back (filters, sort, page, selected tab, search) lives in the URL.
-- [svelte/derived-not-effect](https://skills.dawidolko.pl/rules/svelte/derived-not-effect/): A value computed from state is a $derived, not a $state that an $effect keeps in sync.
-- [svelte/each-key](https://skills.dawidolko.pl/rules/svelte/each-key/): An each block whose items hold state (inputs, bindings, components, transitions) is keyed by a unique id, never by the index.
-- [svelte/kit-app-state](https://skills.dawidolko.pl/rules/svelte/kit-app-state/): Read page, navigating and updated from $app/state, not the $app/stores module that SvelteKit 3 removed.
-- [svelte/kit-form-actions](https://skills.dawidolko.pl/rules/svelte/kit-form-actions/): A SvelteKit form posts to a form action (method and action) and is enhanced with use:enhance, not handled only by onsubmit.
-- [svelte/kit-load-waterfall](https://skills.dawidolko.pl/rules/svelte/kit-load-waterfall/): A load function starts independent requests together and awaits parent() only after them, so data does not load in a chain.
-- [svelte/kit-page-title](https://skills.dawidolko.pl/rules/svelte/kit-page-title/): Every SvelteKit page sets its own descriptive title in svelte:head, or its layout renders a title from page data.
-- [svelte/kit-shared-server-state](https://skills.dawidolko.pl/rules/svelte/kit-shared-server-state/): Server code of a SvelteKit app never keeps per-request data in module-level variables; the module is shared by every user.
-- [svelte/no-legacy-syntax](https://skills.dawidolko.pl/rules/svelte/no-legacy-syntax/): New Svelte 5 code uses runes and the new syntax, not export let, $:, on:event, slot or svelte:component.
-- [svelte/props-derived](https://skills.dawidolko.pl/rules/svelte/props-derived/): A top-level value computed from props is a $derived; a plain let or const keeps only the first value.
-- [svelte/window-events](https://skills.dawidolko.pl/rules/svelte/window-events/): Listen to window and document events with svelte:window and svelte:document, not addEventListener in $effect or onMount.
-- [tailwind/components-over-apply](https://skills.dawidolko.pl/rules/tailwind/components-over-apply/): Remove repeated class lists with a component, a loop or a partial; keep @apply for small cases and third-party markup.
-- [tailwind/conflicting-utilities](https://skills.dawidolko.pl/rules/tailwind/conflicting-utilities/): One element never carries two utilities that set the same property under the same variant (p-2 p-4, flex grid).
-- [tailwind/hover-only-reveal](https://skills.dawidolko.pl/rules/tailwind/hover-only-reveal/): Content or controls revealed with hover: are also revealed on focus (focus-within:, group-focus-within:), never on hover alone.
-- [tailwind/motion-safe](https://skills.dawidolko.pl/rules/tailwind/motion-safe/): Decorative Tailwind animations (animate-bounce, animate-ping, animate-pulse) run under motion-safe: or stop under motion-reduce:.
-- [tailwind/no-dynamic-class](https://skills.dawidolko.pl/rules/tailwind/no-dynamic-class/): Write every Tailwind class as a complete string; never build one from fragments such as bg-${color}-500.
-- [tailwind/no-preprocessor](https://skills.dawidolko.pl/rules/tailwind/no-preprocessor/): Do not run Tailwind CSS 4 through Sass, Less or Stylus; use plain CSS with native nesting and variables.
-- [tailwind/sr-only-label](https://skills.dawidolko.pl/rules/tailwind/sr-only-label/): The only text of a button or link is never hidden with hidden; use sr-only (with md:not-sr-only to show it on wider screens).
-- [tailwind/theme-tokens](https://skills.dawidolko.pl/rules/tailwind/theme-tokens/): An arbitrary value used again and again (bg-[#0a7a3e], p-[18px]) becomes a theme variable in @theme with its own utility.
-- [tailwind/v4-entry](https://skills.dawidolko.pl/rules/tailwind/v4-entry/): In Tailwind CSS 4, load Tailwind with @import "tailwindcss" and a legacy JS config with @config; @tailwind directives do nothing.
+- [seo/canonical-valid](https://skills.dawidolko.pl/rules/seo/canonical-valid/): A page has at most one rel="canonical", in the head, with an absolute URL of an indexable page and no fragment.
+- [seo/hreflang-valid](https://skills.dawidolko.pl/rules/seo/hreflang-valid/): hreflang values are ISO 639-1 language codes with an optional script and ISO 3166-1 region (or x-default), linking absolute URLs.
+- [seo/http-status](https://skills.dawidolko.pl/rules/seo/http-status/): Missing pages return 404 or 410, moved pages 301 or 308, and a client-rendered error view is not served with 200.
+- [seo/indexable](https://skills.dawidolko.pl/rules/seo/indexable/): Pages meant to rank are crawlable and carry no noindex (meta robots or X-Robots-Tag) in production.
+- [seo/jsonld-type-supported](https://skills.dawidolko.pl/rules/seo/jsonld-type-supported/): Structured data for rich results uses types in Google's current search gallery, not retired ones such as FAQPage or HowTo.
+- [seo/jsonld-valid](https://skills.dawidolko.pl/rules/seo/jsonld-valid/): Every JSON-LD block is valid JSON with "@context" "https://schema.org" and a schema.org @type.
+- [seo/meta-description](https://skills.dawidolko.pl/rules/seo/meta-description/): Each indexable page has its own meta description that summarises that page.
+- [seo/og-absolute-url](https://skills.dawidolko.pl/rules/seo/og-absolute-url/): Open Graph and social image and URL tags (og:image, og:url, twitter:image) use absolute https URLs.
+- [seo/title-unique](https://skills.dawidolko.pl/rules/seo/title-unique/): Each page has its own descriptive title, page topic first and site name last, in the page's language.
+- [i18n/dir-rtl](https://skills.dawidolko.pl/rules/i18n/dir-rtl/): Pages in right-to-left languages (Arabic, Hebrew, Persian, Urdu) set dir="rtl" on html together with lang.
+- [i18n/explicit-locale](https://skills.dawidolko.pl/rules/i18n/explicit-locale/): Intl formatters and toLocaleString() receive the app's active locale instead of relying on the runtime default.
+- [i18n/intl-format](https://skills.dawidolko.pl/rules/i18n/intl-format/): Dates, times, numbers and prices are formatted with Intl for the user's locale, never assembled from parts.
+- [i18n/logical-properties](https://skills.dawidolko.pl/rules/i18n/logical-properties/): In projects with a right-to-left locale, layout uses logical properties (margin-inline-start, inset-inline-end, text-align start).
+- [i18n/no-string-concat](https://skills.dawidolko.pl/rules/i18n/no-string-concat/): User-facing sentences are one message with placeholders, never joined from translated fragments and values.
+- [i18n/plural-rules](https://skills.dawidolko.pl/rules/i18n/plural-rules/): Plurals use the locale's plural rules (ICU plural or Intl.PluralRules), never count === 1 ? singular : plural.
+- [i18n/same-keys](https://skills.dawidolko.pl/rules/i18n/same-keys/): Every locale file has the same keys and placeholders as the source locale, and the plural forms its language needs.
+- [security/csp-meta-ignored](https://skills.dawidolko.pl/rules/security/csp-meta-ignored/): frame-ancestors, report-uri, sandbox and X-Frame-Options are sent as HTTP headers; in a meta tag they do nothing.
+- [security/csp-strict](https://skills.dawidolko.pl/rules/security/csp-strict/): Production pages send a strict Content Security Policy (nonces or hashes with strict-dynamic, object-src none, base-uri none).
+- [security/https-only](https://skills.dawidolko.pl/rules/security/https-only/): Every page and every resource it loads use HTTPS; no mixed content and no http:// links to your own site.
+- [security/no-eval](https://skills.dawidolko.pl/rules/security/no-eval/): Front-end code never runs strings as code - no eval, new Function or string arguments to setTimeout and setInterval.
+- [security/no-secrets-in-client-env](https://skills.dawidolko.pl/rules/security/no-secrets-in-client-env/): Secrets never use a client-exposed environment prefix (NEXT_PUBLIC_, VITE_, PUBLIC_, NUXT_PUBLIC_); they stay on the server.
+- [security/postmessage-origin](https://skills.dawidolko.pl/rules/security/postmessage-origin/): postMessage names an exact target origin, and every window message listener checks event.origin against an allowlist.
+- [security/raw-html-sink](https://skills.dawidolko.pl/rules/security/raw-html-sink/): Never pass user or remote data to a raw HTML sink (innerHTML, dangerouslySetInnerHTML, v-html, {@html}) without sanitizing it.
+- [security/sri-cdn](https://skills.dawidolko.pl/rules/security/sri-cdn/): Versioned files from a public CDN carry Subresource Integrity (integrity plus crossorigin), or are self-hosted.
+- [security/window-open-noopener](https://skills.dawidolko.pl/rules/security/window-open-noopener/): window.open for another site passes "noopener" (and "noreferrer" when needed) so the new page cannot control yours.
 - [test/axe-in-e2e](https://skills.dawidolko.pl/rules/test/axe-in-e2e/): End-to-end tests run an axe scan with the WCAG tags you target on each key page and state, and fail on violations.
 - [test/no-fixed-wait](https://skills.dawidolko.pl/rules/test/no-fixed-wait/): Tests wait for conditions, never for a fixed time (no waitForTimeout, cy.wait(ms) or setTimeout sleeps).
 - [test/no-focused-tests](https://skills.dawidolko.pl/rules/test/no-focused-tests/): No focused tests (.only, fit, fdescribe) are committed; they silently skip the rest of the suite.
@@ -317,31 +342,6 @@ Start in a project folder with `npx github:dawidolko/frontend-skills init` (Node
 - [tooling/one-lockfile](https://skills.dawidolko.pl/rules/tooling/one-lockfile/): A project has exactly one committed lockfile, and CI installs from it with the frozen command (npm ci, pnpm install --frozen-lockfile).
 - [tooling/typecheck-separately](https://skills.dawidolko.pl/rules/tooling/typecheck-separately/): A TypeScript project runs a separate type check (tsc --noEmit, vue-tsc, svelte-check, astro check) in CI; the bundler does not.
 - [tooling/use-project-scripts](https://skills.dawidolko.pl/rules/tooling/use-project-scripts/): Run checks through the project's own scripts and package manager; never install tools globally or switch package managers.
-- [ts/isolated-modules](https://skills.dawidolko.pl/rules/ts/isolated-modules/): A Vite project's tsconfig sets isolatedModules or verbatimModuleSyntax, so code the bundler compiles file by file type-checks the same way.
-- [ts/no-deprecated-options](https://skills.dawidolko.pl/rules/ts/no-deprecated-options/): A TypeScript 6 or 7 tsconfig uses no option deprecated in 6.0 and removed in 7.0 (baseUrl, moduleResolution node, target es5).
-- [ts/no-explicit-any](https://skills.dawidolko.pl/rules/ts/no-explicit-any/): Type values with a real type or unknown (then narrow), never any.
-- [ts/no-ts-ignore](https://skills.dawidolko.pl/rules/ts/no-ts-ignore/): Silence a type error with @ts-expect-error and a reason, never @ts-ignore or @ts-nocheck.
-- [ts/strict](https://skills.dawidolko.pl/rules/ts/strict/): TypeScript runs with strict on; no config turns strict or one of its checks (strictNullChecks, noImplicitAny...) off.
-- [ts/validate-untrusted](https://skills.dawidolko.pl/rules/ts/validate-untrusted/): Data from outside the program (fetch, JSON.parse, storage) is validated at run time, not given a type with as or an annotation.
-- [vue/computed-pure](https://skills.dawidolko.pl/rules/vue/computed-pure/): A computed getter only derives a value - no async work, no requests and no changes to other state.
-- [vue/detailed-props](https://skills.dawidolko.pl/rules/vue/detailed-props/): Declare props with their types (an object with type, or a TypeScript type), not as a bare array of names.
-- [vue/link-for-navigation](https://skills.dawidolko.pl/rules/vue/link-for-navigation/): Navigate with RouterLink or NuxtLink, not a button whose click handler only calls router.push or navigateTo.
-- [vue/multi-word-names](https://skills.dawidolko.pl/rules/vue/multi-word-names/): Name components with two or more words (TodoItem, not Item); App, pages and layouts are exempt.
-- [vue/no-index-key](https://skills.dawidolko.pl/rules/vue/no-index-key/): A v-for key comes from the item's data, not from the loop index, when the list can change.
-- [vue/no-mutating-props](https://skills.dawidolko.pl/rules/vue/no-mutating-props/): A component never changes its props (or objects and arrays inside them); it emits an event or keeps a local copy.
-- [vue/no-reactivity-loss](https://skills.dawidolko.pl/rules/vue/no-reactivity-loss/): Never destructure or reassign a reactive() object; use toRefs, a ref, or change its properties.
-- [vue/no-v-if-with-v-for](https://skills.dawidolko.pl/rules/vue/no-v-if-with-v-for/): Never put v-if and v-for on the same element; filter in a computed list or move v-if to a wrapper.
-- [vue/ref-value-in-script](https://skills.dawidolko.pl/rules/vue/ref-value-in-script/): In script code, read and compare a ref or computed through .value; the ref object itself is always truthy.
-- [vue/require-v-for-key](https://skills.dawidolko.pl/rules/vue/require-v-for-key/): Every v-for gives its items a :key from the data; on a template v-for the key goes on the template tag.
-- [webc/aria-idrefs-same-tree](https://skills.dawidolko.pl/rules/webc/aria-idrefs-same-tree/): id references (for, aria-labelledby, aria-describedby, aria-controls) point at an element in the same DOM tree, not across a shadow root.
-- [webc/constructor-no-attributes](https://skills.dawidolko.pl/rules/webc/constructor-no-attributes/): A custom element constructor never reads or adds attributes or children; do that in connectedCallback.
-- [webc/form-associated](https://skills.dawidolko.pl/rules/webc/form-associated/): A custom form control is form-associated (formAssociated and attachInternals) and reports its value and validity to the form.
-- [webc/host-hidden](https://skills.dawidolko.pl/rules/webc/host-hidden/): Shadow styles that give :host a display also add :host([hidden]) { display none }, or the hidden attribute stops working.
-- [webc/lit-class-fields](https://skills.dawidolko.pl/rules/webc/lit-class-fields/): In JavaScript, a Lit reactive property is never also declared as a class field; the field hides Lit's accessor and updates stop.
-- [webc/lit-immutable-updates](https://skills.dawidolko.pl/rules/webc/lit-immutable-updates/): A Lit reactive array is replaced, not mutated in place (push, splice, sort), unless requestUpdate() follows.
-- [webc/lit-unsafe-html](https://skills.dawidolko.pl/rules/webc/lit-unsafe-html/): Lit's unsafeHTML, unsafeSVG and unsafeStatic only receive strings the developer wrote or sanitized, never data.
-- [webc/no-customized-builtins](https://skills.dawidolko.pl/rules/webc/no-customized-builtins/): Build autonomous custom elements that wrap a native element; do not extend built-ins with is=, which Safari does not support.
-- [webc/valid-name](https://skills.dawidolko.pl/rules/webc/valid-name/): A custom element name is lowercase, starts with a letter, contains a hyphen and is not a reserved name, or define() throws.
 
 ## Optional
 

@@ -5,17 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Licence, credits and author · Frontend Skills</title>
 <meta name="description" content="Frontend Skills is free and open source under the MIT licence, made by Dawid Olko. Credits for the fonts, the accessibility panel and the standards the rules cite.">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-V2yAsoxJIibu4bEYhDOwR/ucB/Zr0RzUJUEQYpXs6vQ='; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="color-scheme" content="light dark">
-<meta name="theme-color" content="#faf7fc" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#0d0d0f" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#0d0d0f">
+<script>(function(){try{var t=localStorage.getItem("fs-theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}})();</script>
 <link rel="canonical" href="https://skills.dawidolko.pl/about/">
 <link rel="alternate" hreflang="en" href="https://skills.dawidolko.pl/about/">
 <link rel="alternate" hreflang="pl" href="https://skills.dawidolko.pl/pl/about/">
 <link rel="alternate" hreflang="x-default" href="https://skills.dawidolko.pl/about/">
 <link rel="preload" href="/assets/fonts/opensans-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/styles.css?v=fbc2d7ae26">
+<link rel="stylesheet" href="/assets/styles.css?v=c56b96b9b9">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Frontend Skills">
@@ -31,46 +31,65 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="author" content="Dawid Olko">
 
-<script src="/assets/site.js?v=dd8cab0a79" defer></script>
+<script src="/assets/site.js?v=6b0081a976" defer></script>
 <script src="/a11y/a11y-panel.js?v=39d6e82235" data-accent="#9b00c2" defer></script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="site-header">
-<div class="wrap header-inner">
+<div class="wrap-wide header-inner">
 <a class="brand" href="/"><svg class="brand-mark" viewBox="0 0 32 32" width="32" height="32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="8" fill="currentColor"/><path d="M12.5 10 7 16l5.5 6M19.5 10 25 16l-5.5 6" fill="none" stroke="var(--logo-ink)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="brand-name">Frontend Skills</span></a>
 <nav class="main-nav" aria-label="Main"><ul><li><a href="/how-it-works/">How it works</a></li><li><a href="/rules/">Rules</a></li><li><a href="/skills/">Skills</a></li><li><a href="/commands/">Commands</a></li><li><a href="/faq/">FAQ</a></li></ul></nav>
 <div class="header-tools">
+<div class="theme-switch" role="group" aria-label="Colour theme" hidden><button type="button" class="theme-btn" data-theme-set="light" aria-pressed="false" aria-label="Light theme" title="Light theme"><svg class="icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#sun"/></svg></button><button type="button" class="theme-btn" data-theme-set="system" aria-pressed="true" aria-label="Follow the system theme" title="Follow the system theme"><svg class="icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#system"/></svg></button><button type="button" class="theme-btn" data-theme-set="dark" aria-pressed="false" aria-label="Dark theme" title="Dark theme"><svg class="icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#moon"/></svg></button></div>
 <a class="lang-switch" href="/pl/about/" hreflang="pl" lang="pl" title="Ta strona po polsku">Polski</a>
-<a class="gh-link" href="https://github.com/dawidolko/frontend-skills" aria-label="Source code on GitHub"><svg viewBox="0 0 16 16" width="20" height="20" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg></a>
+<a class="gh-link" href="https://github.com/dawidolko/frontend-skills" aria-label="Source code on GitHub"><svg class="icon" width="22" height="22" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#github"/></svg></a>
 </div>
 </div>
 </header>
-<main id="main" tabindex="-1">
-<div class="page-head"><div class="wrap"><h1>Licence, credits and author</h1></div></div>
-<div class="wrap narrow prose">
-<section aria-labelledby="licence"><h2 id="licence">Licence</h2><p>Frontend Skills is free and open source under the <a href="https://github.com/dawidolko/frontend-skills/blob/main/LICENSE">MIT licence</a>: you may use, copy, change and share it, also in commercial work, as long as the licence notice stays with it.</p></section>
-<section aria-labelledby="author"><h2 id="author">Author</h2><p>Made by Dawid Olko as a personal open-source project. More about him at <a href="https://dawidolko.pl">dawidolko.pl</a>; the code is at <a href="https://github.com/dawidolko">github.com/dawidolko</a>.</p></section>
-<section aria-labelledby="credits"><h2 id="credits">Credits</h2>
+<div class="docs wrap-wide">
+<button type="button" class="docs-toggle" popovertarget="docs-nav" aria-controls="docs-nav"><svg class="icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#menu"/></svg><span>Guide</span></button>
+<nav id="docs-nav" class="docs-nav" popover aria-label="Guide">
+<div class="docs-nav-head"><span>Guide</span><button type="button" class="docs-close" popovertarget="docs-nav" popovertargetaction="hide" aria-label="Close the chapters"><svg class="icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#close"/></svg></button></div>
+<ul class="side-chapters side-guide"><li><a class="side-link" href="/how-it-works/"><svg class="icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg><span>How it works</span></a></li><li><a class="side-link" href="/commands/"><svg class="icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#terminal"/></svg><span>Commands</span></a></li><li><a class="side-link" href="/faq/"><svg class="icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#chat"/></svg><span>FAQ</span></a></li><li><a class="side-link" href="/about/" aria-current="page"><svg class="icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#gift"/></svg><span>About</span></a><ul class="side-sub"><li><a href="#licence">Licence</a></li><li><a href="#author">Author</a></li><li><a href="#credits">Credits</a></li><li><a href="#standards">The standards behind the rules</a></li><li><a href="#this-site">About this site</a></li><li><a href="#a11y">Accessibility of this site</a></li></ul></li></ul>
+<p class="side-cta"><a href="/rules/"><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg>All rules</a><a href="/skills/"><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#layers"/></svg>All skills</a></p>
+</nav>
+<main id="main" tabindex="-1" class="docs-main">
+<div class="page-head">
+<nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><span aria-current="page">About</span></li></ol></nav>
+<h1>Licence, credits and author</h1>
+</div>
+<section aria-labelledby="licence"><h2 id="licence"><svg class="icon heading-icon" width="24" height="24" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#gift"/></svg>Licence</h2><p>Frontend Skills is free and open source under the <a href="https://github.com/dawidolko/frontend-skills/blob/main/LICENSE">MIT licence</a>: you may use, copy, change and share it, also in commercial work, as long as the licence notice stays with it.</p></section>
+<section aria-labelledby="author"><h2 id="author"><svg class="icon heading-icon" width="24" height="24" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#chat"/></svg>Author</h2><p>Made by Dawid Olko as a personal open-source project. More about him at <a href="https://dawidolko.pl">dawidolko.pl</a>; the code is at <a href="https://github.com/dawidolko">github.com/dawidolko</a>.</p></section>
+<section aria-labelledby="credits"><h2 id="credits"><svg class="icon heading-icon" width="24" height="24" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#quality"/></svg>Credits</h2>
 <p>This site uses:</p>
 <ul><li><a href="https://github.com/googlefonts/opensans">Open Sans</a> by the Open Sans Project Authors, under the SIL Open Font License 1.1, served from this site.</li><li>The accessibility panel from <a href="https://dawidolko.pl">dawidolko.pl</a>, the same one as on the author's other sites, MIT.</li></ul>
 </section>
-<section aria-labelledby="standards"><h2 id="standards">The standards behind the rules</h2><p>Every rule links its sources. The rules are written in our own words; the sources are:</p>
+<section aria-labelledby="standards"><h2 id="standards"><svg class="icon heading-icon" width="24" height="24" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg>The standards behind the rules</h2><p>Every rule links its sources. The rules are written in our own words; the sources are:</p>
 <ul><li><a href="https://www.w3.org/WAI/standards-guidelines/wcag/">W3C Web Accessibility Initiative: WCAG 2.2 and Understanding WCAG</a></li><li><a href="https://www.w3.org/WAI/ARIA/apg/">WAI-ARIA Authoring Practices Guide</a></li><li><a href="https://html.spec.whatwg.org/">WHATWG HTML Living Standard</a></li><li><a href="https://developer.mozilla.org/">MDN Web Docs</a></li><li><a href="https://web.dev/">web.dev and Chrome for Developers</a></li><li><a href="https://www.w3schools.com/html/html5_syntax.asp">W3Schools style guides for HTML and JavaScript</a></li><li>The documentation of each framework the skills cover</li></ul></section>
-<section aria-labelledby="this-site"><h2 id="this-site">About this site</h2><p>Plain HTML built by a small Node.js script from the skills and rules in the repository, one stylesheet and two small scripts (this page's copy and search helpers, and the accessibility panel). No cookies, no analytics, no requests to other sites. The panel stores your reader settings in this browser's local storage, on your device only.</p></section>
-<section aria-labelledby="a11y"><h2 id="a11y">Accessibility of this site</h2><p>The site is built to WCAG 2.2 AA as a target: it works with a keyboard and a screen reader, follows your light or dark preference and reduced motion, and reflows down to 320 pixels. If something stands in your way, please <a href="https://github.com/dawidolko/frontend-skills/issues">open an issue</a>.</p></section>
+<section aria-labelledby="this-site"><h2 id="this-site"><svg class="icon heading-icon" width="24" height="24" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#system"/></svg>About this site</h2><p>Plain HTML built by a small Node.js script from the skills and rules in the repository, one stylesheet and two small scripts (this page's copy and search helpers, and the accessibility panel). No cookies, no analytics, no requests to other sites. The panel stores your reader settings in this browser's local storage, on your device only.</p></section>
+<section aria-labelledby="a11y"><h2 id="a11y"><svg class="icon heading-icon" width="24" height="24" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#a11y"/></svg>Accessibility of this site</h2><p>The site is built to WCAG 2.2 AA as a target: it works with a keyboard and a screen reader, follows your light or dark preference and reduced motion, and reflows down to 320 pixels. If something stands in your way, please <a href="https://github.com/dawidolko/frontend-skills/issues">open an issue</a>.</p></section>
 <p class="note">Built from version 0.1.0 of the repository.</p>
-</div>
 </main>
+<aside class="docs-outline"><nav aria-labelledby="outline-title"><h2 id="outline-title">On this page</h2><ol><li><a href="#licence">Licence</a></li><li><a href="#author">Author</a></li><li><a href="#credits">Credits</a></li><li><a href="#standards">The standards behind the rules</a></li><li><a href="#this-site">About this site</a></li><li><a href="#a11y">Accessibility of this site</a></li></ol></nav></aside>
+</div>
 <footer class="site-footer">
-<div class="wrap footer-inner">
-<div class="footer-text">
+<div class="wrap footer-grid">
+<div class="footer-brand-col">
 <p class="footer-brand"><svg class="brand-mark" viewBox="0 0 32 32" width="32" height="32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="8" fill="currentColor"/><path d="M12.5 10 7 16l5.5 6M19.5 10 25 16l-5.5 6" fill="none" stroke="var(--logo-ink)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Frontend Skills</span></p>
+<p>Skills and a rule dictionary for AI coding agents that write front-end code.</p>
 <p>Free and open source under the MIT licence, made by <a href="https://dawidolko.pl">Dawid Olko</a>.</p>
+</div>
+<nav class="footer-nav" aria-label="More">
+<div class="footer-col"><h2>Guide</h2><ul><li><a href="/">Home</a></li><li><a href="/how-it-works/">How it works</a></li><li><a href="/commands/">Commands</a></li><li><a href="/faq/">FAQ</a></li></ul></div>
+<div class="footer-col"><h2>Dictionary</h2><ul><li><a href="/rules/">All rules</a></li><li><a href="/rules/#area-a11y">Accessibility</a></li><li><a href="/rules/#area-perf">Performance</a></li><li><a href="/rules/#area-html">HTML</a></li><li><a href="/rules/#area-css">CSS</a></li><li><a href="/rules/#area-responsive">Responsive layout</a></li><li><a href="/rules/#area-js">JavaScript</a></li></ul></div>
+<div class="footer-col"><h2>Skills</h2><ul><li><a href="/skills/">All skills</a></li><li><a href="/skills/#sa-foundations">Foundations</a></li><li><a href="/skills/#sa-styling">Styling</a></li><li><a href="/skills/#sa-frameworks">Frameworks</a></li><li><a href="/skills/#sa-accessibility">Accessibility</a></li><li><a href="/skills/#sa-performance">Performance</a></li><li><a href="/skills/#sa-quality">Quality</a></li></ul></div>
+<div class="footer-col"><h2>Project</h2><ul><li><a href="https://github.com/dawidolko/frontend-skills">GitHub</a></li><li><a href="https://github.com/dawidolko/frontend-skills/issues">Report an issue</a></li><li><a href="/about/#licence">MIT licence</a></li><li><a href="/about/">About</a></li><li><a href="https://dawidolko.pl">dawidolko.pl</a></li></ul></div>
+</nav>
+</div>
+<div class="wrap footer-legal">
 <p>Built to WCAG 2.2 AA as a target. Automated checks find only part of the problems.</p>
 <p>No cookies, no analytics, no third-party requests. The accessibility button keeps its settings on your device.</p>
-</div>
-<nav aria-label="More"><ul class="footer-nav"><li><a href="/">Home</a></li><li><a href="/how-it-works/">How it works</a></li><li><a href="/rules/">Rules</a></li><li><a href="/skills/">Skills</a></li><li><a href="/commands/">Commands</a></li><li><a href="/faq/">FAQ</a></li><li><a href="/about/" aria-current="page">About</a></li><li><a href="https://github.com/dawidolko/frontend-skills">GitHub</a></li></ul></nav>
 </div>
 </footer>
 <p id="live-status" class="visually-hidden" role="status" aria-live="polite"></p>

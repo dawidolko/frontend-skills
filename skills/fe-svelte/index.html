@@ -5,17 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Svelte components (fe-svelte) · Frontend Skills</title>
 <meta name="description" content="Writes and reviews Svelte 5 components in runes mode - $state, $derived, $effect, $props, snippets, event attributes, keyed each blocks - and moves Svelte…">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-V2yAsoxJIibu4bEYhDOwR/ucB/Zr0RzUJUEQYpXs6vQ='; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="color-scheme" content="light dark">
-<meta name="theme-color" content="#faf7fc" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#0d0d0f" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#0d0d0f">
+<script>(function(){try{var t=localStorage.getItem("fs-theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}})();</script>
 <link rel="canonical" href="https://skills.dawidolko.pl/skills/fe-svelte/">
 <link rel="alternate" hreflang="en" href="https://skills.dawidolko.pl/skills/fe-svelte/">
 <link rel="alternate" hreflang="pl" href="https://skills.dawidolko.pl/pl/skills/fe-svelte/">
 <link rel="alternate" hreflang="x-default" href="https://skills.dawidolko.pl/skills/fe-svelte/">
 <link rel="preload" href="/assets/fonts/opensans-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/styles.css?v=fbc2d7ae26">
+<link rel="stylesheet" href="/assets/styles.css?v=c56b96b9b9">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Frontend Skills">
@@ -31,56 +31,541 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="author" content="Dawid Olko">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://skills.dawidolko.pl/"},{"@type":"ListItem","position":2,"name":"Skills","item":"https://skills.dawidolko.pl/skills/"},{"@type":"ListItem","position":3,"name":"Svelte components","item":"https://skills.dawidolko.pl/skills/fe-svelte/"}]}</script>
-<script src="/assets/site.js?v=dd8cab0a79" defer></script>
+<script src="/assets/site.js?v=6b0081a976" defer></script>
 <script src="/a11y/a11y-panel.js?v=39d6e82235" data-accent="#9b00c2" defer></script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="site-header">
-<div class="wrap header-inner">
+<div class="wrap-wide header-inner">
 <a class="brand" href="/"><svg class="brand-mark" viewBox="0 0 32 32" width="32" height="32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="8" fill="currentColor"/><path d="M12.5 10 7 16l5.5 6M19.5 10 25 16l-5.5 6" fill="none" stroke="var(--logo-ink)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="brand-name">Frontend Skills</span></a>
 <nav class="main-nav" aria-label="Main"><ul><li><a href="/how-it-works/">How it works</a></li><li><a href="/rules/">Rules</a></li><li><a href="/skills/" class="is-section">Skills</a></li><li><a href="/commands/">Commands</a></li><li><a href="/faq/">FAQ</a></li></ul></nav>
 <div class="header-tools">
+<div class="theme-switch" role="group" aria-label="Colour theme" hidden><button type="button" class="theme-btn" data-theme-set="light" aria-pressed="false" aria-label="Light theme" title="Light theme"><svg class="icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#sun"/></svg></button><button type="button" class="theme-btn" data-theme-set="system" aria-pressed="true" aria-label="Follow the system theme" title="Follow the system theme"><svg class="icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#system"/></svg></button><button type="button" class="theme-btn" data-theme-set="dark" aria-pressed="false" aria-label="Dark theme" title="Dark theme"><svg class="icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#moon"/></svg></button></div>
 <a class="lang-switch" href="/pl/skills/fe-svelte/" hreflang="pl" lang="pl" title="Ta strona po polsku">Polski</a>
-<a class="gh-link" href="https://github.com/dawidolko/frontend-skills" aria-label="Source code on GitHub"><svg viewBox="0 0 16 16" width="20" height="20" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg></a>
+<a class="gh-link" href="https://github.com/dawidolko/frontend-skills" aria-label="Source code on GitHub"><svg class="icon" width="22" height="22" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#github"/></svg></a>
 </div>
 </div>
 </header>
-<main id="main" tabindex="-1">
-<div class="page-head"><div class="wrap">
+<div class="docs wrap-wide">
+<button type="button" class="docs-toggle" popovertarget="docs-nav" aria-controls="docs-nav"><svg class="icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#menu"/></svg><span>Skill groups</span></button>
+<nav id="docs-nav" class="docs-nav" popover aria-label="Skill groups">
+<div class="docs-nav-head"><span>Skill groups</span><button type="button" class="docs-close" popovertarget="docs-nav" popovertargetaction="hide" aria-label="Close the chapters"><svg class="icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#close"/></svg></button></div>
+<a class="side-top" href="/skills/"><svg class="icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#layers"/></svg><span>All skills</span><span class="side-count">50</span></a>
+<ul class="side-chapters"><li><details><summary><svg class="icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#foundations"/></svg><span class="side-label">Foundations</span><span class="side-count">5</span></summary><ul>
+<li><a href="/skills/fe-forms/">Native forms and validation</a></li><li><a href="/skills/fe-html/">HTML documents and semantics</a></li><li><a href="/skills/fe-javascript/">JavaScript in the browser</a></li><li><a href="/skills/fe-responsive/">Responsive design</a></li><li><a href="/skills/fe-typescript/">TypeScript</a></li>
+</ul></details></li><li><details><summary><svg class="icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#styling"/></svg><span class="side-label">Styling</span><span class="side-count">7</span></summary><ul>
+<li><a href="/skills/fe-css-architecture/">CSS architecture and tokens</a></li><li><a href="/skills/fe-css-layout/">CSS layout</a></li><li><a href="/skills/fe-css-modern/">Modern CSS features</a></li><li><a href="/skills/fe-icons/">Icons</a></li><li><a href="/skills/fe-motion/">Motion and animation</a></li><li><a href="/skills/fe-sass/">Sass (SCSS)</a></li><li><a href="/skills/fe-tailwind/">Tailwind CSS</a></li>
+</ul></details></li><li><details open><summary><svg class="icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#framework"/></svg><span class="side-label">Frameworks</span><span class="side-count">11</span></summary><ul>
+<li><a href="/skills/fe-angular/">Angular components</a></li><li><a href="/skills/fe-astro/">Astro sites and islands</a></li><li><a href="/skills/fe-data-fetching/">Data fetching</a></li><li><a href="/skills/fe-nextjs/">Next.js App Router</a></li><li><a href="/skills/fe-nuxt/">Nuxt apps</a></li><li><a href="/skills/fe-react/">React components</a></li><li><a href="/skills/fe-state/">State and stores</a></li><li><a href="/skills/fe-svelte/" aria-current="page">Svelte components</a></li><li><a href="/skills/fe-sveltekit/">SvelteKit apps</a></li><li><a href="/skills/fe-vue/">Vue components</a></li><li><a href="/skills/fe-web-components/">Web components and Lit</a></li>
+</ul></details></li><li><details><summary><svg class="icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#a11y"/></svg><span class="side-label">Accessibility</span><span class="side-count">12</span></summary><ul>
+<li><a href="/skills/fe-a11y-aria/">ARIA, names and live regions</a></li><li><a href="/skills/fe-a11y-carousel-toast/">Carousels and toasts</a></li><li><a href="/skills/fe-a11y-combobox/">Combobox, listbox and custom select</a></li><li><a href="/skills/fe-a11y-core/">Accessibility, WCAG 2.2 map</a></li><li><a href="/skills/fe-a11y-dialog/">Dialogs and modals</a></li><li><a href="/skills/fe-a11y-forms/">Accessible forms</a></li><li><a href="/skills/fe-a11y-keyboard/">Keyboard access and focus</a></li><li><a href="/skills/fe-a11y-media/">Media, motion and flashing</a></li><li><a href="/skills/fe-a11y-menus/">Navigation, disclosures and menus</a></li><li><a href="/skills/fe-a11y-tables/">Data tables</a></li><li><a href="/skills/fe-a11y-tabs-accordion/">Tabs and accordions</a></li><li><a href="/skills/fe-a11y-visual/">Contrast, colour, size and reflow</a></li>
+</ul></details></li><li><details><summary><svg class="icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#perf"/></svg><span class="side-label">Performance</span><span class="side-count">5</span></summary><ul>
+<li><a href="/skills/fe-core-web-vitals/">Core Web Vitals</a></li><li><a href="/skills/fe-fonts/">Web fonts</a></li><li><a href="/skills/fe-images/">Images and media delivery</a></li><li><a href="/skills/fe-lighthouse/">Lighthouse and PageSpeed</a></li><li><a href="/skills/fe-perf-delivery/">JavaScript, CSS and asset delivery</a></li>
+</ul></details></li><li><details><summary><svg class="icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#quality"/></svg><span class="side-label">Quality</span><span class="side-count">5</span></summary><ul>
+<li><a href="/skills/fe-i18n/">Internationalisation</a></li><li><a href="/skills/fe-security/">Front-end security</a></li><li><a href="/skills/fe-seo-metadata/">SEO and metadata</a></li><li><a href="/skills/fe-testing/">Front-end testing</a></li><li><a href="/skills/fe-tooling/">Build, lint and format tooling</a></li>
+</ul></details></li><li><details><summary><svg class="icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#workflow"/></svg><span class="side-label">Workflow</span><span class="side-count">5</span></summary><ul>
+<li><a href="/skills/fe-audit/">Audit the project</a></li><li><a href="/skills/fe-component/">Build a component</a></li><li><a href="/skills/fe-fix/">Fix findings</a></li><li><a href="/skills/fe-learn/">Learn the project</a></li><li><a href="/skills/fe-review/">Review a change</a></li>
+</ul></details></li></ul>
+</nav>
+<main id="main" tabindex="-1" class="docs-main">
+<div class="page-head">
 <nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><a href="/skills/">Skills</a></li><li><span aria-current="page">Svelte components</span></li></ol></nav>
+<p class="eyebrow eyebrow-docs"><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#framework"/></svg>Frameworks</p>
 <h1>Svelte components</h1>
 <p class="lead">Writes and reviews Svelte 5 components in runes mode - $state, $derived, $effect, $props, snippets, event attributes, keyed each blocks - and moves Svelte 4 syntax forward, so components stay reactive, correct and accessible. Use when creating or editing a .svelte or .svelte.js file, fixing a value that does not update, or asked to review Svelte code.</p>
-</div></div>
-<div class="wrap rule-layout">
-<div class="prose">
-<section aria-labelledby="rules"><h2 id="rules">Rules it teaches</h2>
-<ul class="rule-list compact"><li class="rule-item"><a class="rule-id" href="/rules/svelte/no-legacy-syntax/"><code>svelte/no-legacy-syntax</code></a><p class="rule-title">New Svelte 5 code uses runes and the new syntax, not export let, $:, on:event, slot or svelte:component.</p><p class="rule-meta"><span class="sev sev-minor">minor</span> <span class="tag tag-static">static</span></p></li><li class="rule-item"><a class="rule-id" href="/rules/svelte/derived-not-effect/"><code>svelte/derived-not-effect</code></a><p class="rule-title">A value computed from state is a $derived, not a $state that an $effect keeps in sync.</p><p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-static">static</span></p></li><li class="rule-item"><a class="rule-id" href="/rules/svelte/props-derived/"><code>svelte/props-derived</code></a><p class="rule-title">A top-level value computed from props is a $derived; a plain let or const keeps only the first value.</p><p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-static">static</span></p></li><li class="rule-item"><a class="rule-id" href="/rules/svelte/each-key/"><code>svelte/each-key</code></a><p class="rule-title">An each block whose items hold state (inputs, bindings, components, transitions) is keyed by a unique id, never by the index.</p><p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-static">static</span></p></li><li class="rule-item"><a class="rule-id" href="/rules/svelte/window-events/"><code>svelte/window-events</code></a><p class="rule-title">Listen to window and document events with svelte:window and svelte:document, not addEventListener in $effect or onMount.</p><p class="rule-meta"><span class="sev sev-minor">minor</span> <span class="tag tag-static">static</span></p></li><li class="rule-item"><a class="rule-id" href="/rules/a11y/no-click-on-static/"><code>a11y/no-click-on-static</code></a><p class="rule-title">A click handler belongs on a button or link; a static element with one also needs a role, tabindex and a key handler.</p><p class="rule-meta"><span class="sev sev-serious">serious</span> <span class="tag tag-static">static</span></p></li><li class="rule-item"><a class="rule-id" href="/rules/a11y/img-alt/"><code>a11y/img-alt</code></a><p class="rule-title">Every img and area element has an alt attribute; a decorative image has alt=&quot;&quot;.</p><p class="rule-meta"><span class="sev sev-critical">critical</span> <span class="tag tag-static">static</span></p></li><li class="rule-item"><a class="rule-id" href="/rules/js/listener-cleanup/"><code>js/listener-cleanup</code></a><p class="rule-title">Listeners, timers and observers a view starts are removed when it goes away; one AbortController signal can end them all.</p><p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-manual">manual</span></p></li></ul></section>
-<section aria-labelledby="digest"><h2 id="digest">The rule digest</h2><p>This part is copied into each agent's scoped rule file, so it stands on its own:</p><div class="digest"><ul><li>Write runes mode: <code>$props</code>, <code>$state</code>, <code>$derived</code>, <code>onclick</code>, snippets; no <code>export let</code>, <code>$:</code>, <code>on:click</code> or <code>&lt;slot&gt;</code> (<a href="/rules/svelte/no-legacy-syntax/">svelte/no-legacy-syntax</a>).</li><li>Compute values with <code>$derived</code>, never by assigning state inside <code>$effect</code> (<a href="/rules/svelte/derived-not-effect/">svelte/derived-not-effect</a>).</li><li>A top-level value that reads a prop is a <code>$derived</code>; a plain <code>const</code> keeps the first value (<a href="/rules/svelte/props-derived/">svelte/props-derived</a>).</li><li>Key each block that holds inputs, bindings, components or transitions by a unique id, never the index (<a href="/rules/svelte/each-key/">svelte/each-key</a>).</li><li>Window and document events go on <code>&lt;svelte:window&gt;</code> and <code>&lt;svelte:document&gt;</code> (<a href="/rules/svelte/window-events/">svelte/window-events</a>); other listeners are removed on teardown (<a href="/rules/js/listener-cleanup/">js/listener-cleanup</a>).</li><li>Use <code>$state</code> only for values that drive the UI; <code>$state.raw</code> for large data that is only replaced.</li><li>Interactive elements are <code>&lt;button&gt;</code> and <code>&lt;a&gt;</code>, never <code>div</code> with <code>onclick</code> (a11y/no-click-on-static); every <code>&lt;img&gt;</code> has <code>alt</code> (a11y/img-alt).</li><li>Fix every <code>a11y_*</code> compiler warning; silence one only with <code>&lt;!-- svelte-ignore code --&gt;</code> and a reason next to it.</li><li>Never pass untrusted strings to <code>{@html}</code>; see <code>fe-security</code>.</li></ul></div></section>
-<section aria-labelledby="do"><h2 id="do">Steps the agent follows</h2><ol><li>Check the profile: on Svelte 4 keep its syntax; on Svelte 5 write runes and convert legacy files when you touch them (<code>npx sv migrate svelte-5</code>).</li><li>Props: <code>let { title, count = 0, children, ...rest } = $props()</code>; two-way only with <code>$bindable()</code>. Events are callback props (<code>onsave</code>), not <code>createEventDispatcher</code>.</li><li>Shared reactive state lives in <code>.svelte.js</code> modules as classes with <code>$state</code> fields, or in context (<code>createContext</code>) when it is per request or per subtree; stores are for existing code.</li><li>Sync with a DOM library through an attachment (<code>{@attach chart}</code>) that returns its cleanup; <code>$effect</code> is the last resort and never writes the state it reads.</li><li>Style children through custom properties (<code>&lt;Card --accent=&quot;tomato&quot; /&gt;</code>); <code>:global</code> only for third-party markup, nested under a local selector.</li><li>Debug reactivity with <code>$inspect</code> and <code>$inspect.trace()</code>, and remove them before committing.</li></ol></section>
-<section aria-labelledby="check"><h2 id="check">How the agent checks the work</h2><ul><li><code>npx github:dawidolko/frontend-skills audit --changed</code> reports legacy syntax, effects that should be derived, props read once, unkeyed stateful each blocks and hand-made window listeners.</li><li><code>npx sv check</code> (svelte-check) reports compiler warnings, including every <code>a11y_*</code> warning and <code>state_referenced_locally</code>; run it in CI with <code>--fail-on-warnings</code>.</li><li><code>eslint-plugin-svelte</code> adds <code>svelte/require-each-key</code>, <code>svelte/no-at-html-tags</code> and <code>svelte/prefer-writable-derived</code>.</li></ul></section>
-<section aria-labelledby="refs"><h2 id="refs">Reference files</h2><ul><li><a href="https://github.com/dawidolko/frontend-skills/blob/main/skills/frameworks/fe-svelte/references/svelte.md"><code>references/svelte.md</code></a> · 1544 tokens</li></ul></section>
-<section aria-labelledby="agents"><h2 id="agents">Written for</h2>
-<p>every agent the project uses: Claude Code, OpenAI Codex, Cursor, GitHub Copilot, Gemini CLI, Antigravity CLI, Devin / Windsurf, OpenCode, Cline, Zed, JetBrains Junie, Kiro, Augment, Trae, Continue, Amazon Q Developer, Aider.</p>
-<p>Agents that also get a rule file scoped to these files: Claude Code, Cursor, GitHub Copilot, Antigravity CLI, Devin / Windsurf, Cline, Kiro, Trae, Continue.</p></section>
+<p class="chips"><span class="tag"><code>fe-svelte</code></span><span class="tag"><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#framework"/></svg><code>svelte</code></span><span class="tag"><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg>8 rules</span><span class="tag"><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#perf"/></svg>77 tokens always loaded, 963 tokens when used, 1544 tokens in references on demand.</span></p>
 </div>
-<aside class="facts" aria-labelledby="facts-title">
-<h2 id="facts-title">Facts</h2>
-<dl><dt>Name</dt><dd><code>fe-svelte</code></dd><dt>Area</dt><dd>Frameworks</dd><dt>Installed when the project uses</dt><dd><code>svelte</code></dd><dt>Files it is about</dt><dd><code>**/*.svelte</code> <code>**/*.svelte.js</code> <code>**/*.svelte.ts</code></dd><dt>Token cost</dt><dd>77 tokens always loaded, 963 tokens when used, 1544 tokens in references on demand.</dd></dl>
-<p><a href="https://github.com/dawidolko/frontend-skills/blob/main/skills/frameworks/fe-svelte/SKILL.md">SKILL.md on GitHub</a></p>
-<p><a href="/skills/">All skills</a></p>
-</aside>
+<section class="install" data-install aria-labelledby="install">
+<h2 id="install"><svg class="icon heading-icon" width="24" height="24" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#terminal"/></svg>Install</h2>
+<p><code>init</code> installs this skill when the project uses svelte. Pick your agent to see where its files land.</p>
+<div class="install-controls">
+<fieldset class="seg" data-runners hidden><legend>Run with</legend><div class="seg-options"><label class="seg-opt"><input type="radio" name="runner-ins-1" value="npx" data-template="npx github:dawidolko/frontend-skills {args}" checked><span>npx</span></label><label class="seg-opt"><input type="radio" name="runner-ins-1" value="pnpm" data-template="pnpm dlx github:dawidolko/frontend-skills {args}"><span>pnpm dlx</span></label><label class="seg-opt"><input type="radio" name="runner-ins-1" value="yarn" data-template="yarn dlx -p github:dawidolko/frontend-skills frontend-skills {args}"><span>yarn dlx</span></label><label class="seg-opt"><input type="radio" name="runner-ins-1" value="bun" data-template="bunx github:dawidolko/frontend-skills {args}"><span>bunx</span></label></div></fieldset>
+<fieldset class="seg seg-agents"><legend>Agent</legend><div class="seg-options"><label class="seg-opt"><input type="radio" name="agent-ins-1" value="auto" checked><span>Detect</span></label><label class="seg-opt"><input type="radio" name="agent-ins-1" value="claude"><span>Claude Code</span></label><label class="seg-opt"><input type="radio" name="agent-ins-1" value="codex"><span>OpenAI Codex</span></label><label class="seg-opt"><input type="radio" name="agent-ins-1" value="cursor"><span>Cursor</span></label><label class="seg-opt"><input type="radio" name="agent-ins-1" value="copilot"><span>GitHub Copilot</span></label><label class="seg-opt"><input type="radio" name="agent-ins-1" value="gemini"><span>Gemini CLI</span></label><label class="seg-opt"><input type="radio" name="agent-ins-1" value="antigravity"><span>Antigravity CLI</span></label><label class="seg-opt"><input type="radio" name="agent-ins-1" value="devin"><span>Devin / Windsurf</span></label><label class="seg-opt"><input type="radio" name="agent-ins-1" value="opencode"><span>OpenCode</span></label><label class="seg-opt"><input type="radio" name="agent-ins-1" value="cline"><span>Cline</span></label><label class="seg-opt"><input type="radio" name="agent-ins-1" value="zed"><span>Zed</span></label><label class="seg-opt"><input type="radio" name="agent-ins-1" value="junie"><span>JetBrains Junie</span></label><label class="seg-opt"><input type="radio" name="agent-ins-1" value="kiro"><span>Kiro</span></label><label class="seg-opt"><input type="radio" name="agent-ins-1" value="augment"><span>Augment</span></label><label class="seg-opt"><input type="radio" name="agent-ins-1" value="trae"><span>Trae</span></label><label class="seg-opt"><input type="radio" name="agent-ins-1" value="continue"><span>Continue</span></label><label class="seg-opt"><input type="radio" name="agent-ins-1" value="amazonq"><span>Amazon Q Developer</span></label><label class="seg-opt"><input type="radio" name="agent-ins-1" value="aider"><span>Aider</span></label></div></fieldset>
 </div>
+<div class="command"><pre class="command-text"><code id="cmd-2" data-args="init">npx github:<wbr>dawidolko/<wbr>frontend-skills init</code></pre><button type="button" class="copy-button" data-copy="cmd-2" data-done="Copied to the clipboard." data-fail="Copying failed; select the text and copy it by hand." aria-label="Copy the command" hidden><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#copy"/></svg><span>Copy</span></button></div>
+<p class="callout callout-warn runner-note" hidden>Not tested yet with this runner. <code>npx</code> and <code>pnpm dlx</code> are tested; if this one fails, use one of them.</p>
+<div class="agent-panel" data-agent="auto">
+<p>Without <code>--agents</code>, <code>init</code> finds the agents from what the project already has, and asks when it finds none:</p>
+<div class="table-wrap" tabindex="0" role="region" aria-label="Found by"><table class="compact-table"><thead><tr><th scope="col">Agent</th><th scope="col">Found by</th></tr></thead><tbody><tr><th scope="row">Claude Code</th><td><code>CLAUDE.md</code> <code>.claude</code> <code>CLAUDE.local.md</code></td></tr><tr><th scope="row">OpenAI Codex</th><td><code>.codex</code> <code>AGENTS.override.md</code></td></tr><tr><th scope="row">Cursor</th><td><code>.cursor</code> <code>.cursorrules</code></td></tr><tr><th scope="row">GitHub Copilot</th><td><code>.github/copilot-instructions.md</code> <code>.github/instructions</code> <code>.github/skills</code> <code>.github/prompts</code></td></tr><tr><th scope="row">Gemini CLI</th><td><code>GEMINI.md</code> <code>.gemini</code></td></tr><tr><th scope="row">Antigravity CLI</th><td><code>.agents/rules</code> <code>.agent/rules</code></td></tr><tr><th scope="row">Devin / Windsurf</th><td><code>.devin</code> <code>.windsurf</code> <code>.windsurfrules</code></td></tr><tr><th scope="row">OpenCode</th><td><code>opencode.json</code> <code>opencode.jsonc</code> <code>.opencode</code></td></tr><tr><th scope="row">Cline</th><td><code>.clinerules</code> <code>.cline</code></td></tr><tr><th scope="row">Zed</th><td><code>.rules</code> <code>.zed</code></td></tr><tr><th scope="row">JetBrains Junie</th><td><code>.junie</code></td></tr><tr><th scope="row">Kiro</th><td><code>.kiro</code></td></tr><tr><th scope="row">Augment</th><td><code>.augment</code> <code>.augment-guidelines</code></td></tr><tr><th scope="row">Trae</th><td><code>.trae</code></td></tr><tr><th scope="row">Continue</th><td><code>.continue</code></td></tr><tr><th scope="row">Amazon Q Developer</th><td><code>.amazonq</code></td></tr><tr><th scope="row">Aider</th><td><code>.aider.conf.yml</code> <code>CONVENTIONS.md</code></td></tr></tbody></table></div>
+</div>
+<div class="agent-panel" data-agent="claude">
+<h3 class="panel-title">Where fe-svelte lands for Claude Code</h3>
+<div class="panel-grid">
+<div>
+<ul class="file-list"><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.claude/skills/fe-svelte/SKILL.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.claude/skills/fe-svelte/references/svelte.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#layers"/></svg><code>.claude/rules/fe-svelte.md</code><span class="kind kind-rule">rule file</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg><code>CLAUDE.md</code><span class="kind kind-instructions">instruction block</span></li></ul>
+<p class="note">For every agent also: <code>.frontend-skills/profile.json</code>, <code>.frontend-skills/lessons.md</code> and <code>.frontend-skills/install.json</code>.</p>
+
+
+<p class="note">Planned by the installer itself for the example React project in the repository.</p>
+</div>
+<figure class="shot"><div class="window "><div class="window-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="window-title"><code>.claude/rules/fe-svelte.md</code></span></div><div class="window-body"><pre data-lang="markdown" tabindex="0"><code class="language-markdown">---
+paths:
+  - &quot;**/*.svelte&quot;
+  - &quot;**/*.svelte.js&quot;
+  - &quot;**/*.svelte.ts&quot;
+---
+
+# Svelte components (frontend-skills)
+
+Writes and reviews Svelte 5 components in runes mode - $state, $derived, $effect, $props, snippets, event attributes, keyed each blocks - and moves Svelte 4 syntax forward, so components stay reactive, correct and accessible. Use when creating or editing a .svelte or .svelte.js file, fixing a value that does not update, or asked to review Svelte code.
+
+- Write runes mode: `$props`, `$state`, `$derived`, `onclick`, snippets; no `export let`, `$:`, `on:click` or `&lt;slot&gt;` (svelte/no-legacy-syntax).
+- Compute values with `$derived`, never by assigning state inside `$effect` (svelte/derived-not-effect).
+- A top-level value that reads a prop is a `$derived`; a plain `const` keeps the first value (svelte/props-derived).
+- Key each block that holds inputs, bindings, components or transitions by a unique id, never the index (svelte/each-key).
+- Window and document events go on `&lt;svelte:window&gt;` and `&lt;svelte:document&gt;` (svelte/window-events); other listeners are removed on teardown (js/listener-cleanup).
+- Use `$state` only for values that drive the UI; `$state.raw` for large data that is only replaced.
+- Interactive elements are `&lt;button&gt;` and `&lt;a&gt;`, never `div` with `onclick` (a11y/no-click-on-static); every `&lt;img&gt;` has `alt` (a11y/img-alt).
+- Fix every `a11y_*` compiler warning; silence one only with `&lt;!-- svelte-ignore code --&gt;` and a reason next to it.
+- Never pass untrusted strings to `{@html}`; see `fe-security`.
+
+Before larger changes, read the full skill: `.claude/skills/fe-svelte/SKILL.md`. Explain any rule id with `npx github:dawidolko/frontend-skills explain &lt;id&gt;`.</code></pre></div></div><figcaption>The real file</figcaption></figure>
+</div>
+</div>
+<div class="agent-panel" data-agent="codex">
+<h3 class="panel-title">Where fe-svelte lands for OpenAI Codex</h3>
+<div class="panel-grid">
+<div>
+<ul class="file-list"><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-svelte/SKILL.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-svelte/references/svelte.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg><code>AGENTS.md</code><span class="kind kind-instructions">instruction block</span></li></ul>
+<p class="note">For every agent also: <code>.frontend-skills/profile.json</code>, <code>.frontend-skills/lessons.md</code> and <code>.frontend-skills/install.json</code>.</p>
+
+<p class="note">OpenAI Codex has no rule files scoped to file types; it reads the skills and the instruction block.</p>
+<p class="note">Planned by the installer itself for the example React project in the repository.</p>
+</div>
+<figure class="shot"><div class="window "><div class="window-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="window-title"><code>AGENTS.md</code></span></div><div class="window-body"><pre data-lang="markdown" tabindex="0"><code class="language-markdown">## Front-end work (frontend-skills)
+
+- Before front-end work, read `.frontend-skills/profile.json` (the stack) and `.frontend-skills/lessons.md` (confirmed conventions of this project; they win over any skill).
+- Use the installed `fe-*` skill that matches the files you edit.
+- After changing UI code, run `npx github:dawidolko/frontend-skills audit --changed --json` and fix findings at `serious` and above; `explain &lt;rule id&gt;` gives the reason, the source and the fix.
+- Name rule ids (such as `a11y/img-alt`) in reviews and commit messages.</code></pre></div></div><figcaption>The real file</figcaption></figure>
+</div>
+</div>
+<div class="agent-panel" data-agent="cursor">
+<h3 class="panel-title">Where fe-svelte lands for Cursor</h3>
+<div class="panel-grid">
+<div>
+<ul class="file-list"><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-svelte/SKILL.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-svelte/references/svelte.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#layers"/></svg><code>.cursor/rules/fe-svelte.mdc</code><span class="kind kind-rule">rule file</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg><code>AGENTS.md</code><span class="kind kind-instructions">instruction block</span></li></ul>
+<p class="note">For every agent also: <code>.frontend-skills/profile.json</code>, <code>.frontend-skills/lessons.md</code> and <code>.frontend-skills/install.json</code>.</p>
+
+
+<p class="note">Planned by the installer itself for the example React project in the repository.</p>
+</div>
+<figure class="shot"><div class="window "><div class="window-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="window-title"><code>.cursor/rules/fe-svelte.mdc</code></span></div><div class="window-body"><pre data-lang="markdown" tabindex="0"><code class="language-markdown">---
+description: Writes and reviews Svelte 5 components in runes mode - $state, $derived, $effect, $props, snippets, event attributes, keyed each blocks - and moves Svelte 4 syntax forward, so components stay reactive, correct and accessible. Use when creating or editing a .svelte or .svelte.js file, fixing a value that does not update, or asked to review Svelte code.
+globs: **/*.svelte, **/*.svelte.js, **/*.svelte.ts
+alwaysApply: false
+---
+
+# Svelte components (frontend-skills)
+
+- Write runes mode: `$props`, `$state`, `$derived`, `onclick`, snippets; no `export let`, `$:`, `on:click` or `&lt;slot&gt;` (svelte/no-legacy-syntax).
+- Compute values with `$derived`, never by assigning state inside `$effect` (svelte/derived-not-effect).
+- A top-level value that reads a prop is a `$derived`; a plain `const` keeps the first value (svelte/props-derived).
+- Key each block that holds inputs, bindings, components or transitions by a unique id, never the index (svelte/each-key).
+- Window and document events go on `&lt;svelte:window&gt;` and `&lt;svelte:document&gt;` (svelte/window-events); other listeners are removed on teardown (js/listener-cleanup).
+- Use `$state` only for values that drive the UI; `$state.raw` for large data that is only replaced.
+- Interactive elements are `&lt;button&gt;` and `&lt;a&gt;`, never `div` with `onclick` (a11y/no-click-on-static); every `&lt;img&gt;` has `alt` (a11y/img-alt).
+- Fix every `a11y_*` compiler warning; silence one only with `&lt;!-- svelte-ignore code --&gt;` and a reason next to it.
+- Never pass untrusted strings to `{@html}`; see `fe-security`.
+
+Before larger changes, read the full skill: `.agents/skills/fe-svelte/SKILL.md`. Explain any rule id with `npx github:dawidolko/frontend-skills explain &lt;id&gt;`.</code></pre></div></div><figcaption>The real file</figcaption></figure>
+</div>
+</div>
+<div class="agent-panel" data-agent="copilot">
+<h3 class="panel-title">Where fe-svelte lands for GitHub Copilot</h3>
+<div class="panel-grid">
+<div>
+<ul class="file-list"><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-svelte/SKILL.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-svelte/references/svelte.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#layers"/></svg><code>.github/instructions/fe-svelte.instructions.md</code><span class="kind kind-rule">rule file</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg><code>AGENTS.md</code><span class="kind kind-instructions">instruction block</span></li></ul>
+<p class="note">For every agent also: <code>.frontend-skills/profile.json</code>, <code>.frontend-skills/lessons.md</code> and <code>.frontend-skills/install.json</code>.</p>
+
+
+<p class="note">Planned by the installer itself for the example React project in the repository.</p>
+</div>
+<figure class="shot"><div class="window "><div class="window-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="window-title"><code>.github/instructions/fe-svelte.instructions.md</code></span></div><div class="window-body"><pre data-lang="markdown" tabindex="0"><code class="language-markdown">---
+applyTo: &quot;**/*.svelte,**/*.svelte.js,**/*.svelte.ts&quot;
+description: &quot;Writes and reviews Svelte 5 components in runes mode - $state, $derived, $effect, $props, snippets, event attributes, keyed each blocks - and moves Svelte 4 syntax forward, so components stay reactive, correct and accessible. Use when creating or editing a .svelte or .svelte.js file, fixing a value that does not update, or asked to review Svelte code.&quot;
+---
+
+# Svelte components (frontend-skills)
+
+- Write runes mode: `$props`, `$state`, `$derived`, `onclick`, snippets; no `export let`, `$:`, `on:click` or `&lt;slot&gt;` (svelte/no-legacy-syntax).
+- Compute values with `$derived`, never by assigning state inside `$effect` (svelte/derived-not-effect).
+- A top-level value that reads a prop is a `$derived`; a plain `const` keeps the first value (svelte/props-derived).
+- Key each block that holds inputs, bindings, components or transitions by a unique id, never the index (svelte/each-key).
+- Window and document events go on `&lt;svelte:window&gt;` and `&lt;svelte:document&gt;` (svelte/window-events); other listeners are removed on teardown (js/listener-cleanup).
+- Use `$state` only for values that drive the UI; `$state.raw` for large data that is only replaced.
+- Interactive elements are `&lt;button&gt;` and `&lt;a&gt;`, never `div` with `onclick` (a11y/no-click-on-static); every `&lt;img&gt;` has `alt` (a11y/img-alt).
+- Fix every `a11y_*` compiler warning; silence one only with `&lt;!-- svelte-ignore code --&gt;` and a reason next to it.
+- Never pass untrusted strings to `{@html}`; see `fe-security`.
+
+Before larger changes, read the full skill: `.agents/skills/fe-svelte/SKILL.md`. Explain any rule id with `npx github:dawidolko/frontend-skills explain &lt;id&gt;`.</code></pre></div></div><figcaption>The real file</figcaption></figure>
+</div>
+</div>
+<div class="agent-panel" data-agent="gemini">
+<h3 class="panel-title">Where fe-svelte lands for Gemini CLI</h3>
+<div class="panel-grid">
+<div>
+<ul class="file-list"><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-svelte/SKILL.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-svelte/references/svelte.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg><code>GEMINI.md</code><span class="kind kind-instructions">instruction block</span></li></ul>
+<p class="note">For every agent also: <code>.frontend-skills/profile.json</code>, <code>.frontend-skills/lessons.md</code> and <code>.frontend-skills/install.json</code>.</p>
+<p class="callout callout-info">Gemini CLI: Gemini CLI was replaced by Antigravity CLI for unpaid tiers on 2026-06-18; choose &quot;antigravity&quot; too if you use it.</p>
+<p class="note">Gemini CLI has no rule files scoped to file types; it reads the skills and the instruction block.</p>
+<p class="note">Planned by the installer itself for the example React project in the repository.</p>
+</div>
+<figure class="shot"><div class="window "><div class="window-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="window-title"><code>GEMINI.md</code></span></div><div class="window-body"><pre data-lang="markdown" tabindex="0"><code class="language-markdown">## Front-end work (frontend-skills)
+
+- Before front-end work, read `.frontend-skills/profile.json` (the stack) and `.frontend-skills/lessons.md` (confirmed conventions of this project; they win over any skill).
+- Use the installed `fe-*` skill that matches the files you edit.
+- After changing UI code, run `npx github:dawidolko/frontend-skills audit --changed --json` and fix findings at `serious` and above; `explain &lt;rule id&gt;` gives the reason, the source and the fix.
+- Name rule ids (such as `a11y/img-alt`) in reviews and commit messages.</code></pre></div></div><figcaption>The real file</figcaption></figure>
+</div>
+</div>
+<div class="agent-panel" data-agent="antigravity">
+<h3 class="panel-title">Where fe-svelte lands for Antigravity CLI</h3>
+<div class="panel-grid">
+<div>
+<ul class="file-list"><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-svelte/SKILL.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-svelte/references/svelte.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#layers"/></svg><code>.agents/rules/fe-svelte.md</code><span class="kind kind-rule">rule file</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg><code>AGENTS.md</code><span class="kind kind-instructions">instruction block</span></li></ul>
+<p class="note">For every agent also: <code>.frontend-skills/profile.json</code>, <code>.frontend-skills/lessons.md</code> and <code>.frontend-skills/install.json</code>.</p>
+
+
+<p class="note">Planned by the installer itself for the example React project in the repository.</p>
+</div>
+<figure class="shot"><div class="window "><div class="window-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="window-title"><code>.agents/rules/fe-svelte.md</code></span></div><div class="window-body"><pre data-lang="markdown" tabindex="0"><code class="language-markdown">---
+trigger: glob
+globs: &quot;**/*.svelte, **/*.svelte.js, **/*.svelte.ts&quot;
+description: &quot;Writes and reviews Svelte 5 components in runes mode - $state, $derived, $effect, $props, snippets, event attributes, keyed each blocks - and moves Svelte 4 syntax forward, so components stay reactive, correct and accessible. Use when creating or editing a .svelte or .svelte.js file, fixing a value that does not update, or asked to review Svelte code.&quot;
+---
+
+# Svelte components (frontend-skills)
+
+- Write runes mode: `$props`, `$state`, `$derived`, `onclick`, snippets; no `export let`, `$:`, `on:click` or `&lt;slot&gt;` (svelte/no-legacy-syntax).
+- Compute values with `$derived`, never by assigning state inside `$effect` (svelte/derived-not-effect).
+- A top-level value that reads a prop is a `$derived`; a plain `const` keeps the first value (svelte/props-derived).
+- Key each block that holds inputs, bindings, components or transitions by a unique id, never the index (svelte/each-key).
+- Window and document events go on `&lt;svelte:window&gt;` and `&lt;svelte:document&gt;` (svelte/window-events); other listeners are removed on teardown (js/listener-cleanup).
+- Use `$state` only for values that drive the UI; `$state.raw` for large data that is only replaced.
+- Interactive elements are `&lt;button&gt;` and `&lt;a&gt;`, never `div` with `onclick` (a11y/no-click-on-static); every `&lt;img&gt;` has `alt` (a11y/img-alt).
+- Fix every `a11y_*` compiler warning; silence one only with `&lt;!-- svelte-ignore code --&gt;` and a reason next to it.
+- Never pass untrusted strings to `{@html}`; see `fe-security`.
+
+Before larger changes, read the full skill: `.agents/skills/fe-svelte/SKILL.md`. Explain any rule id with `npx github:dawidolko/frontend-skills explain &lt;id&gt;`.</code></pre></div></div><figcaption>The real file</figcaption></figure>
+</div>
+</div>
+<div class="agent-panel" data-agent="devin">
+<h3 class="panel-title">Where fe-svelte lands for Devin / Windsurf</h3>
+<div class="panel-grid">
+<div>
+<ul class="file-list"><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-svelte/SKILL.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-svelte/references/svelte.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#layers"/></svg><code>.devin/rules/fe-svelte.md</code><span class="kind kind-rule">rule file</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg><code>AGENTS.md</code><span class="kind kind-instructions">instruction block</span></li></ul>
+<p class="note">For every agent also: <code>.frontend-skills/profile.json</code>, <code>.frontend-skills/lessons.md</code> and <code>.frontend-skills/install.json</code>.</p>
+<p class="callout callout-info">Devin / Windsurf: Devin CLI also reads .cursor/rules; with Cursor chosen too, the CLI sees both rule files of a skill.</p>
+
+<p class="note">Planned by the installer itself for the example React project in the repository.</p>
+</div>
+<figure class="shot"><div class="window "><div class="window-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="window-title"><code>.devin/rules/fe-svelte.md</code></span></div><div class="window-body"><pre data-lang="markdown" tabindex="0"><code class="language-markdown">---
+trigger: glob
+globs: &quot;**/*.svelte,**/*.svelte.js,**/*.svelte.ts&quot;
+---
+
+# Svelte components (frontend-skills)
+
+Writes and reviews Svelte 5 components in runes mode - $state, $derived, $effect, $props, snippets, event attributes, keyed each blocks - and moves Svelte 4 syntax forward, so components stay reactive, correct and accessible. Use when creating or editing a .svelte or .svelte.js file, fixing a value that does not update, or asked to review Svelte code.
+
+- Write runes mode: `$props`, `$state`, `$derived`, `onclick`, snippets; no `export let`, `$:`, `on:click` or `&lt;slot&gt;` (svelte/no-legacy-syntax).
+- Compute values with `$derived`, never by assigning state inside `$effect` (svelte/derived-not-effect).
+- A top-level value that reads a prop is a `$derived`; a plain `const` keeps the first value (svelte/props-derived).
+- Key each block that holds inputs, bindings, components or transitions by a unique id, never the index (svelte/each-key).
+- Window and document events go on `&lt;svelte:window&gt;` and `&lt;svelte:document&gt;` (svelte/window-events); other listeners are removed on teardown (js/listener-cleanup).
+- Use `$state` only for values that drive the UI; `$state.raw` for large data that is only replaced.
+- Interactive elements are `&lt;button&gt;` and `&lt;a&gt;`, never `div` with `onclick` (a11y/no-click-on-static); every `&lt;img&gt;` has `alt` (a11y/img-alt).
+- Fix every `a11y_*` compiler warning; silence one only with `&lt;!-- svelte-ignore code --&gt;` and a reason next to it.
+- Never pass untrusted strings to `{@html}`; see `fe-security`.
+
+Before larger changes, read the full skill: `.agents/skills/fe-svelte/SKILL.md`. Explain any rule id with `npx github:dawidolko/frontend-skills explain &lt;id&gt;`.</code></pre></div></div><figcaption>The real file</figcaption></figure>
+</div>
+</div>
+<div class="agent-panel" data-agent="opencode">
+<h3 class="panel-title">Where fe-svelte lands for OpenCode</h3>
+<div class="panel-grid">
+<div>
+<ul class="file-list"><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-svelte/SKILL.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-svelte/references/svelte.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg><code>AGENTS.md</code><span class="kind kind-instructions">instruction block</span></li></ul>
+<p class="note">For every agent also: <code>.frontend-skills/profile.json</code>, <code>.frontend-skills/lessons.md</code> and <code>.frontend-skills/install.json</code>.</p>
+
+<p class="note">OpenCode has no rule files scoped to file types; it reads the skills and the instruction block.</p>
+<p class="note">Planned by the installer itself for the example React project in the repository.</p>
+</div>
+<figure class="shot"><div class="window "><div class="window-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="window-title"><code>AGENTS.md</code></span></div><div class="window-body"><pre data-lang="markdown" tabindex="0"><code class="language-markdown">## Front-end work (frontend-skills)
+
+- Before front-end work, read `.frontend-skills/profile.json` (the stack) and `.frontend-skills/lessons.md` (confirmed conventions of this project; they win over any skill).
+- Use the installed `fe-*` skill that matches the files you edit.
+- After changing UI code, run `npx github:dawidolko/frontend-skills audit --changed --json` and fix findings at `serious` and above; `explain &lt;rule id&gt;` gives the reason, the source and the fix.
+- Name rule ids (such as `a11y/img-alt`) in reviews and commit messages.</code></pre></div></div><figcaption>The real file</figcaption></figure>
+</div>
+</div>
+<div class="agent-panel" data-agent="cline">
+<h3 class="panel-title">Where fe-svelte lands for Cline</h3>
+<div class="panel-grid">
+<div>
+<ul class="file-list"><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.claude/skills/fe-svelte/SKILL.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.claude/skills/fe-svelte/references/svelte.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#layers"/></svg><code>.clinerules/fe-svelte.md</code><span class="kind kind-rule">rule file</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg><code>AGENTS.md</code><span class="kind kind-instructions">instruction block</span></li></ul>
+<p class="note">For every agent also: <code>.frontend-skills/profile.json</code>, <code>.frontend-skills/lessons.md</code> and <code>.frontend-skills/install.json</code>.</p>
+<p class="callout callout-info">Cline: If .clinerules is a single file rather than a folder, Cline rule files are not written; skills still are.</p>
+
+<p class="note">Planned by the installer itself for the example React project in the repository.</p>
+</div>
+<figure class="shot"><div class="window "><div class="window-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="window-title"><code>.clinerules/fe-svelte.md</code></span></div><div class="window-body"><pre data-lang="markdown" tabindex="0"><code class="language-markdown">---
+paths:
+  - &quot;**/*.svelte&quot;
+  - &quot;**/*.svelte.js&quot;
+  - &quot;**/*.svelte.ts&quot;
+---
+
+# Svelte components (frontend-skills)
+
+Writes and reviews Svelte 5 components in runes mode - $state, $derived, $effect, $props, snippets, event attributes, keyed each blocks - and moves Svelte 4 syntax forward, so components stay reactive, correct and accessible. Use when creating or editing a .svelte or .svelte.js file, fixing a value that does not update, or asked to review Svelte code.
+
+- Write runes mode: `$props`, `$state`, `$derived`, `onclick`, snippets; no `export let`, `$:`, `on:click` or `&lt;slot&gt;` (svelte/no-legacy-syntax).
+- Compute values with `$derived`, never by assigning state inside `$effect` (svelte/derived-not-effect).
+- A top-level value that reads a prop is a `$derived`; a plain `const` keeps the first value (svelte/props-derived).
+- Key each block that holds inputs, bindings, components or transitions by a unique id, never the index (svelte/each-key).
+- Window and document events go on `&lt;svelte:window&gt;` and `&lt;svelte:document&gt;` (svelte/window-events); other listeners are removed on teardown (js/listener-cleanup).
+- Use `$state` only for values that drive the UI; `$state.raw` for large data that is only replaced.
+- Interactive elements are `&lt;button&gt;` and `&lt;a&gt;`, never `div` with `onclick` (a11y/no-click-on-static); every `&lt;img&gt;` has `alt` (a11y/img-alt).
+- Fix every `a11y_*` compiler warning; silence one only with `&lt;!-- svelte-ignore code --&gt;` and a reason next to it.
+- Never pass untrusted strings to `{@html}`; see `fe-security`.
+
+Before larger changes, read the full skill: `.claude/skills/fe-svelte/SKILL.md`. Explain any rule id with `npx github:dawidolko/frontend-skills explain &lt;id&gt;`.</code></pre></div></div><figcaption>The real file</figcaption></figure>
+</div>
+</div>
+<div class="agent-panel" data-agent="zed">
+<h3 class="panel-title">Where fe-svelte lands for Zed</h3>
+<div class="panel-grid">
+<div>
+<ul class="file-list"><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-svelte/SKILL.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-svelte/references/svelte.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg><code>CLAUDE.md</code><span class="kind kind-instructions">instruction block</span></li></ul>
+<p class="note">For every agent also: <code>.frontend-skills/profile.json</code>, <code>.frontend-skills/lessons.md</code> and <code>.frontend-skills/install.json</code>.</p>
+<p class="callout callout-info">Zed: Zed reads only the first instruction file of its list; the block is placed in that file.</p>
+<p class="note">Zed has no rule files scoped to file types; it reads the skills and the instruction block.</p>
+<p class="note">Planned by the installer itself for the example React project in the repository.</p>
+</div>
+<figure class="shot"><div class="window "><div class="window-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="window-title"><code>CLAUDE.md</code></span></div><div class="window-body"><pre data-lang="markdown" tabindex="0"><code class="language-markdown">## Front-end work (frontend-skills)
+
+- Before front-end work, read `.frontend-skills/profile.json` (the stack) and `.frontend-skills/lessons.md` (confirmed conventions of this project; they win over any skill).
+- Use the installed `fe-*` skill that matches the files you edit.
+- After changing UI code, run `npx github:dawidolko/frontend-skills audit --changed --json` and fix findings at `serious` and above; `explain &lt;rule id&gt;` gives the reason, the source and the fix.
+- Name rule ids (such as `a11y/img-alt`) in reviews and commit messages.</code></pre></div></div><figcaption>The real file</figcaption></figure>
+</div>
+</div>
+<div class="agent-panel" data-agent="junie">
+<h3 class="panel-title">Where fe-svelte lands for JetBrains Junie</h3>
+<div class="panel-grid">
+<div>
+<ul class="file-list"><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-svelte/SKILL.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-svelte/references/svelte.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg><code>AGENTS.md</code><span class="kind kind-instructions">instruction block</span></li></ul>
+<p class="note">For every agent also: <code>.frontend-skills/profile.json</code>, <code>.frontend-skills/lessons.md</code> and <code>.frontend-skills/install.json</code>.</p>
+<p class="callout callout-info">JetBrains Junie: Junie reads .agents/skills only in a trusted project.</p>
+<p class="note">JetBrains Junie has no rule files scoped to file types; it reads the skills and the instruction block.</p>
+<p class="note">Planned by the installer itself for the example React project in the repository.</p>
+</div>
+<figure class="shot"><div class="window "><div class="window-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="window-title"><code>AGENTS.md</code></span></div><div class="window-body"><pre data-lang="markdown" tabindex="0"><code class="language-markdown">## Front-end work (frontend-skills)
+
+- Before front-end work, read `.frontend-skills/profile.json` (the stack) and `.frontend-skills/lessons.md` (confirmed conventions of this project; they win over any skill).
+- Use the installed `fe-*` skill that matches the files you edit.
+- After changing UI code, run `npx github:dawidolko/frontend-skills audit --changed --json` and fix findings at `serious` and above; `explain &lt;rule id&gt;` gives the reason, the source and the fix.
+- Name rule ids (such as `a11y/img-alt`) in reviews and commit messages.</code></pre></div></div><figcaption>The real file</figcaption></figure>
+</div>
+</div>
+<div class="agent-panel" data-agent="kiro">
+<h3 class="panel-title">Where fe-svelte lands for Kiro</h3>
+<div class="panel-grid">
+<div>
+<ul class="file-list"><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.kiro/skills/fe-svelte/SKILL.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.kiro/skills/fe-svelte/references/svelte.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#layers"/></svg><code>.kiro/steering/fe-svelte.md</code><span class="kind kind-rule">rule file</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg><code>AGENTS.md</code><span class="kind kind-instructions">instruction block</span></li></ul>
+<p class="note">For every agent also: <code>.frontend-skills/profile.json</code>, <code>.frontend-skills/lessons.md</code> and <code>.frontend-skills/install.json</code>.</p>
+
+
+<p class="note">Planned by the installer itself for the example React project in the repository.</p>
+</div>
+<figure class="shot"><div class="window "><div class="window-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="window-title"><code>.kiro/steering/fe-svelte.md</code></span></div><div class="window-body"><pre data-lang="markdown" tabindex="0"><code class="language-markdown">---
+inclusion: fileMatch
+fileMatchPattern: [&quot;**/*.svelte&quot;, &quot;**/*.svelte.js&quot;, &quot;**/*.svelte.ts&quot;]
+---
+
+# Svelte components (frontend-skills)
+
+Writes and reviews Svelte 5 components in runes mode - $state, $derived, $effect, $props, snippets, event attributes, keyed each blocks - and moves Svelte 4 syntax forward, so components stay reactive, correct and accessible. Use when creating or editing a .svelte or .svelte.js file, fixing a value that does not update, or asked to review Svelte code.
+
+- Write runes mode: `$props`, `$state`, `$derived`, `onclick`, snippets; no `export let`, `$:`, `on:click` or `&lt;slot&gt;` (svelte/no-legacy-syntax).
+- Compute values with `$derived`, never by assigning state inside `$effect` (svelte/derived-not-effect).
+- A top-level value that reads a prop is a `$derived`; a plain `const` keeps the first value (svelte/props-derived).
+- Key each block that holds inputs, bindings, components or transitions by a unique id, never the index (svelte/each-key).
+- Window and document events go on `&lt;svelte:window&gt;` and `&lt;svelte:document&gt;` (svelte/window-events); other listeners are removed on teardown (js/listener-cleanup).
+- Use `$state` only for values that drive the UI; `$state.raw` for large data that is only replaced.
+- Interactive elements are `&lt;button&gt;` and `&lt;a&gt;`, never `div` with `onclick` (a11y/no-click-on-static); every `&lt;img&gt;` has `alt` (a11y/img-alt).
+- Fix every `a11y_*` compiler warning; silence one only with `&lt;!-- svelte-ignore code --&gt;` and a reason next to it.
+- Never pass untrusted strings to `{@html}`; see `fe-security`.
+
+Before larger changes, read the full skill: `.kiro/skills/fe-svelte/SKILL.md`. Explain any rule id with `npx github:dawidolko/frontend-skills explain &lt;id&gt;`.</code></pre></div></div><figcaption>The real file</figcaption></figure>
+</div>
+</div>
+<div class="agent-panel" data-agent="augment">
+<h3 class="panel-title">Where fe-svelte lands for Augment</h3>
+<div class="panel-grid">
+<div>
+<ul class="file-list"><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-svelte/SKILL.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-svelte/references/svelte.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg><code>AGENTS.md</code><span class="kind kind-instructions">instruction block</span></li></ul>
+<p class="note">For every agent also: <code>.frontend-skills/profile.json</code>, <code>.frontend-skills/lessons.md</code> and <code>.frontend-skills/install.json</code>.</p>
+
+<p class="note">Augment has no rule files scoped to file types; it reads the skills and the instruction block.</p>
+<p class="note">Planned by the installer itself for the example React project in the repository.</p>
+</div>
+<figure class="shot"><div class="window "><div class="window-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="window-title"><code>AGENTS.md</code></span></div><div class="window-body"><pre data-lang="markdown" tabindex="0"><code class="language-markdown">## Front-end work (frontend-skills)
+
+- Before front-end work, read `.frontend-skills/profile.json` (the stack) and `.frontend-skills/lessons.md` (confirmed conventions of this project; they win over any skill).
+- Use the installed `fe-*` skill that matches the files you edit.
+- After changing UI code, run `npx github:dawidolko/frontend-skills audit --changed --json` and fix findings at `serious` and above; `explain &lt;rule id&gt;` gives the reason, the source and the fix.
+- Name rule ids (such as `a11y/img-alt`) in reviews and commit messages.</code></pre></div></div><figcaption>The real file</figcaption></figure>
+</div>
+</div>
+<div class="agent-panel" data-agent="trae">
+<h3 class="panel-title">Where fe-svelte lands for Trae</h3>
+<div class="panel-grid">
+<div>
+<ul class="file-list"><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.trae/skills/fe-svelte/SKILL.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.trae/skills/fe-svelte/references/svelte.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#layers"/></svg><code>.trae/rules/fe-svelte.md</code><span class="kind kind-rule">rule file</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg><code>AGENTS.md</code><span class="kind kind-instructions">instruction block</span></li></ul>
+<p class="note">For every agent also: <code>.frontend-skills/profile.json</code>, <code>.frontend-skills/lessons.md</code> and <code>.frontend-skills/install.json</code>.</p>
+<p class="callout callout-info">Trae: Trae reads AGENTS.md only after it is enabled in its settings.</p>
+
+<p class="note">Planned by the installer itself for the example React project in the repository.</p>
+</div>
+<figure class="shot"><div class="window "><div class="window-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="window-title"><code>.trae/rules/fe-svelte.md</code></span></div><div class="window-body"><pre data-lang="markdown" tabindex="0"><code class="language-markdown">---
+description: &quot;Writes and reviews Svelte 5 components in runes mode - $state, $derived, $effect, $props, snippets, event attributes, keyed each blocks - and moves Svelte 4 syntax forward, so components stay reactive, correct and accessible. Use when creating or editing a .svelte or .svelte.js file, fixing a value that does not update, or asked to review Svelte code.&quot;
+globs: **/*.svelte,**/*.svelte.js,**/*.svelte.ts
+alwaysApply: false
+---
+
+# Svelte components (frontend-skills)
+
+- Write runes mode: `$props`, `$state`, `$derived`, `onclick`, snippets; no `export let`, `$:`, `on:click` or `&lt;slot&gt;` (svelte/no-legacy-syntax).
+- Compute values with `$derived`, never by assigning state inside `$effect` (svelte/derived-not-effect).
+- A top-level value that reads a prop is a `$derived`; a plain `const` keeps the first value (svelte/props-derived).
+- Key each block that holds inputs, bindings, components or transitions by a unique id, never the index (svelte/each-key).
+- Window and document events go on `&lt;svelte:window&gt;` and `&lt;svelte:document&gt;` (svelte/window-events); other listeners are removed on teardown (js/listener-cleanup).
+- Use `$state` only for values that drive the UI; `$state.raw` for large data that is only replaced.
+- Interactive elements are `&lt;button&gt;` and `&lt;a&gt;`, never `div` with `onclick` (a11y/no-click-on-static); every `&lt;img&gt;` has `alt` (a11y/img-alt).
+- Fix every `a11y_*` compiler warning; silence one only with `&lt;!-- svelte-ignore code --&gt;` and a reason next to it.
+- Never pass untrusted strings to `{@html}`; see `fe-security`.
+
+Before larger changes, read the full skill: `.trae/skills/fe-svelte/SKILL.md`. Explain any rule id with `npx github:dawidolko/frontend-skills explain &lt;id&gt;`.</code></pre></div></div><figcaption>The real file</figcaption></figure>
+</div>
+</div>
+<div class="agent-panel" data-agent="continue">
+<h3 class="panel-title">Where fe-svelte lands for Continue</h3>
+<div class="panel-grid">
+<div>
+<ul class="file-list"><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.frontend-skills/skills/fe-svelte/SKILL.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.frontend-skills/skills/fe-svelte/references/svelte.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#layers"/></svg><code>.continue/rules/fe-svelte.md</code><span class="kind kind-rule">rule file</span></li></ul>
+<p class="note">For every agent also: <code>.frontend-skills/profile.json</code>, <code>.frontend-skills/lessons.md</code> and <code>.frontend-skills/install.json</code>.</p>
+
+
+<p class="note">Planned by the installer itself for the example React project in the repository.</p>
+</div>
+<figure class="shot"><div class="window "><div class="window-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="window-title"><code>.continue/rules/fe-svelte.md</code></span></div><div class="window-body"><pre data-lang="markdown" tabindex="0"><code class="language-markdown">---
+name: &quot;Svelte components&quot;
+description: &quot;Writes and reviews Svelte 5 components in runes mode - $state, $derived, $effect, $props, snippets, event attributes, keyed each blocks - and moves Svelte 4 syntax forward, so components stay reactive, correct and accessible. Use when creating or editing a .svelte or .svelte.js file, fixing a value that does not update, or asked to review Svelte code.&quot;
+globs: [&quot;**/*.svelte&quot;, &quot;**/*.svelte.js&quot;, &quot;**/*.svelte.ts&quot;]
+alwaysApply: false
+---
+
+# Svelte components (frontend-skills)
+
+- Write runes mode: `$props`, `$state`, `$derived`, `onclick`, snippets; no `export let`, `$:`, `on:click` or `&lt;slot&gt;` (svelte/no-legacy-syntax).
+- Compute values with `$derived`, never by assigning state inside `$effect` (svelte/derived-not-effect).
+- A top-level value that reads a prop is a `$derived`; a plain `const` keeps the first value (svelte/props-derived).
+- Key each block that holds inputs, bindings, components or transitions by a unique id, never the index (svelte/each-key).
+- Window and document events go on `&lt;svelte:window&gt;` and `&lt;svelte:document&gt;` (svelte/window-events); other listeners are removed on teardown (js/listener-cleanup).
+- Use `$state` only for values that drive the UI; `$state.raw` for large data that is only replaced.
+- Interactive elements are `&lt;button&gt;` and `&lt;a&gt;`, never `div` with `onclick` (a11y/no-click-on-static); every `&lt;img&gt;` has `alt` (a11y/img-alt).
+- Fix every `a11y_*` compiler warning; silence one only with `&lt;!-- svelte-ignore code --&gt;` and a reason next to it.
+- Never pass untrusted strings to `{@html}`; see `fe-security`.
+
+Before larger changes, read the full skill: `.frontend-skills/skills/fe-svelte/SKILL.md`. Explain any rule id with `npx github:dawidolko/frontend-skills explain &lt;id&gt;`.</code></pre></div></div><figcaption>The real file</figcaption></figure>
+</div>
+</div>
+<div class="agent-panel" data-agent="amazonq">
+<h3 class="panel-title">Where fe-svelte lands for Amazon Q Developer</h3>
+<div class="panel-grid">
+<div>
+<ul class="file-list"><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.frontend-skills/skills/fe-svelte/SKILL.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.frontend-skills/skills/fe-svelte/references/svelte.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg><code>.amazonq/rules/frontend-skills.md</code><span class="kind kind-instructions">instruction block</span></li></ul>
+<p class="note">For every agent also: <code>.frontend-skills/profile.json</code>, <code>.frontend-skills/lessons.md</code> and <code>.frontend-skills/install.json</code>.</p>
+<p class="callout callout-info">Amazon Q Developer: Amazon Q Developer IDE plugins reach end of support on 2027-04-30; AWS points to Kiro.</p>
+<p class="note">Amazon Q Developer has no rule files scoped to file types; it reads the skills and the instruction block.</p>
+<p class="note">Planned by the installer itself for the example React project in the repository.</p>
+</div>
+<figure class="shot"><div class="window "><div class="window-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="window-title"><code>.amazonq/rules/frontend-skills.md</code></span></div><div class="window-body"><pre data-lang="markdown" tabindex="0"><code class="language-markdown">## Front-end work (frontend-skills)
+
+- Before front-end work, read `.frontend-skills/profile.json` (the stack) and `.frontend-skills/lessons.md` (confirmed conventions of this project; they win over any skill).
+- Use the installed `fe-*` skill that matches the files you edit.
+- After changing UI code, run `npx github:dawidolko/frontend-skills audit --changed --json` and fix findings at `serious` and above; `explain &lt;rule id&gt;` gives the reason, the source and the fix.
+- Name rule ids (such as `a11y/img-alt`) in reviews and commit messages.
+
+### Skills
+
+- `fe-svelte` (Svelte components): when editing `**/*.svelte`, `**/*.svelte.js`, `**/*.svelte.ts`, first read `.frontend-skills/skills/fe-svelte/SKILL.md`.</code></pre></div></div><figcaption>The real file</figcaption></figure>
+</div>
+</div>
+<div class="agent-panel" data-agent="aider">
+<h3 class="panel-title">Where fe-svelte lands for Aider</h3>
+<div class="panel-grid">
+<div>
+<ul class="file-list"><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.frontend-skills/skills/fe-svelte/SKILL.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.frontend-skills/skills/fe-svelte/references/svelte.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg><code>CONVENTIONS.md</code><span class="kind kind-instructions">instruction block</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.aider.conf.yml</code><span class="kind kind-config">config</span></li></ul>
+<p class="note">For every agent also: <code>.frontend-skills/profile.json</code>, <code>.frontend-skills/lessons.md</code> and <code>.frontend-skills/install.json</code>.</p>
+
+<p class="note">Aider has no rule files scoped to file types; it reads the skills and the instruction block.</p>
+<p class="note">Planned by the installer itself for the example React project in the repository.</p>
+</div>
+<figure class="shot"><div class="window "><div class="window-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="window-title"><code>CONVENTIONS.md</code></span></div><div class="window-body"><pre data-lang="markdown" tabindex="0"><code class="language-markdown">## Front-end work (frontend-skills)
+
+- Before front-end work, read `.frontend-skills/profile.json` (the stack) and `.frontend-skills/lessons.md` (confirmed conventions of this project; they win over any skill).
+- Use the installed `fe-*` skill that matches the files you edit.
+- After changing UI code, run `npx github:dawidolko/frontend-skills audit --changed --json` and fix findings at `serious` and above; `explain &lt;rule id&gt;` gives the reason, the source and the fix.
+- Name rule ids (such as `a11y/img-alt`) in reviews and commit messages.
+
+### Skills
+
+- `fe-svelte` (Svelte components): when editing `**/*.svelte`, `**/*.svelte.js`, `**/*.svelte.ts`, first read `.frontend-skills/skills/fe-svelte/SKILL.md`.</code></pre></div></div><figcaption>The real file</figcaption></figure>
+</div>
+</div>
+</section>
+<section aria-labelledby="how-to"><h2 id="how-to"><svg class="icon heading-icon" width="24" height="24" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#chat"/></svg>How to use it</h2>
+<p>Once installed, the agent loads the skill by itself when a task matches its description. You can also ask for it in your own words, for example:</p>
+
+<p>And to check and fix the work:</p><ul class="prompts"><li><svg class="icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#chat"/></svg><span>Use the fe-svelte skill on this file.</span></li><li><svg class="icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#chat"/></svg><span>Run the front-end audit on what I changed and fix everything serious.</span></li><li><svg class="icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#chat"/></svg><span>Explain svelte/no-legacy-syntax and fix it here.</span></li></ul>
+</section>
+<section aria-labelledby="rules"><h2 id="rules"><svg class="icon heading-icon" width="24" height="24" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg>Rules it teaches</h2>
+<ul class="rule-cards"><li class="rule-card lift sev-edge-minor"><a class="rule-id tile-link" href="/rules/svelte/no-legacy-syntax/"><code>svelte/no-legacy-syntax</code></a><p>New Svelte 5 code uses runes and the new syntax, not export let, $:, on:event, slot or svelte:component.</p><p class="rule-meta"><span class="sev sev-minor">minor</span><span class="tag">static</span></p></li><li class="rule-card lift sev-edge-moderate"><a class="rule-id tile-link" href="/rules/svelte/derived-not-effect/"><code>svelte/derived-not-effect</code></a><p>A value computed from state is a $derived, not a $state that an $effect keeps in sync.</p><p class="rule-meta"><span class="sev sev-moderate">moderate</span><span class="tag">static</span></p></li><li class="rule-card lift sev-edge-moderate"><a class="rule-id tile-link" href="/rules/svelte/props-derived/"><code>svelte/props-derived</code></a><p>A top-level value computed from props is a $derived; a plain let or const keeps only the first value.</p><p class="rule-meta"><span class="sev sev-moderate">moderate</span><span class="tag">static</span></p></li><li class="rule-card lift sev-edge-moderate"><a class="rule-id tile-link" href="/rules/svelte/each-key/"><code>svelte/each-key</code></a><p>An each block whose items hold state (inputs, bindings, components, transitions) is keyed by a unique id, never by the index.</p><p class="rule-meta"><span class="sev sev-moderate">moderate</span><span class="tag">static</span></p></li><li class="rule-card lift sev-edge-minor"><a class="rule-id tile-link" href="/rules/svelte/window-events/"><code>svelte/window-events</code></a><p>Listen to window and document events with svelte:window and svelte:document, not addEventListener in $effect or onMount.</p><p class="rule-meta"><span class="sev sev-minor">minor</span><span class="tag">static</span></p></li><li class="rule-card lift sev-edge-serious"><a class="rule-id tile-link" href="/rules/a11y/no-click-on-static/"><code>a11y/no-click-on-static</code></a><p>A click handler belongs on a button or link; a static element with one also needs a role, tabindex and a key handler.</p><p class="rule-meta"><span class="sev sev-serious">serious</span><span class="tag">static</span><span class="tag">WCAG 2.1.1, 4.1.2</span></p></li><li class="rule-card lift sev-edge-critical"><a class="rule-id tile-link" href="/rules/a11y/img-alt/"><code>a11y/img-alt</code></a><p>Every img and area element has an alt attribute; a decorative image has alt=&quot;&quot;.</p><p class="rule-meta"><span class="sev sev-critical">critical</span><span class="tag">static</span><span class="tag">WCAG 1.1.1</span></p></li><li class="rule-card lift sev-edge-moderate"><a class="rule-id tile-link" href="/rules/js/listener-cleanup/"><code>js/listener-cleanup</code></a><p>Listeners, timers and observers a view starts are removed when it goes away; one AbortController signal can end them all.</p><p class="rule-meta"><span class="sev sev-moderate">moderate</span><span class="tag">manual</span></p></li></ul>
+</section>
+<section aria-labelledby="digest"><h2 id="digest"><svg class="icon heading-icon" width="24" height="24" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#layers"/></svg>The rule digest</h2><p>This part is copied into each agent's scoped rule file, so it stands on its own:</p><div class="digest" lang="en"><ul><li>Write runes mode: <code>$props</code>, <code>$state</code>, <code>$derived</code>, <code>onclick</code>, snippets; no <code>export let</code>, <code>$:</code>, <code>on:click</code> or <code>&lt;slot&gt;</code> (<a href="/rules/svelte/no-legacy-syntax/">svelte/no-legacy-syntax</a>).</li><li>Compute values with <code>$derived</code>, never by assigning state inside <code>$effect</code> (<a href="/rules/svelte/derived-not-effect/">svelte/derived-not-effect</a>).</li><li>A top-level value that reads a prop is a <code>$derived</code>; a plain <code>const</code> keeps the first value (<a href="/rules/svelte/props-derived/">svelte/props-derived</a>).</li><li>Key each block that holds inputs, bindings, components or transitions by a unique id, never the index (<a href="/rules/svelte/each-key/">svelte/each-key</a>).</li><li>Window and document events go on <code>&lt;svelte:window&gt;</code> and <code>&lt;svelte:document&gt;</code> (<a href="/rules/svelte/window-events/">svelte/window-events</a>); other listeners are removed on teardown (<a href="/rules/js/listener-cleanup/">js/listener-cleanup</a>).</li><li>Use <code>$state</code> only for values that drive the UI; <code>$state.raw</code> for large data that is only replaced.</li><li>Interactive elements are <code>&lt;button&gt;</code> and <code>&lt;a&gt;</code>, never <code>div</code> with <code>onclick</code> (a11y/no-click-on-static); every <code>&lt;img&gt;</code> has <code>alt</code> (a11y/img-alt).</li><li>Fix every <code>a11y_*</code> compiler warning; silence one only with <code>&lt;!-- svelte-ignore code --&gt;</code> and a reason next to it.</li><li>Never pass untrusted strings to <code>{@html}</code>; see <code>fe-security</code>.</li></ul></div></section>
+<section aria-labelledby="do"><h2 id="do"><svg class="icon heading-icon" width="24" height="24" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#workflow"/></svg>Steps the agent follows</h2><div lang="en"><ol><li>Check the profile: on Svelte 4 keep its syntax; on Svelte 5 write runes and convert legacy files when you touch them (<code>npx sv migrate svelte-5</code>).</li><li>Props: <code>let { title, count = 0, children, ...rest } = $props()</code>; two-way only with <code>$bindable()</code>. Events are callback props (<code>onsave</code>), not <code>createEventDispatcher</code>.</li><li>Shared reactive state lives in <code>.svelte.js</code> modules as classes with <code>$state</code> fields, or in context (<code>createContext</code>) when it is per request or per subtree; stores are for existing code.</li><li>Sync with a DOM library through an attachment (<code>{@attach chart}</code>) that returns its cleanup; <code>$effect</code> is the last resort and never writes the state it reads.</li><li>Style children through custom properties (<code>&lt;Card --accent=&quot;tomato&quot; /&gt;</code>); <code>:global</code> only for third-party markup, nested under a local selector.</li><li>Debug reactivity with <code>$inspect</code> and <code>$inspect.trace()</code>, and remove them before committing.</li></ol></div></section>
+<section aria-labelledby="check"><h2 id="check"><svg class="icon heading-icon" width="24" height="24" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#check"/></svg>How the agent checks the work</h2><div lang="en"><ul><li><code>npx github:dawidolko/frontend-skills audit --changed</code> reports legacy syntax, effects that should be derived, props read once, unkeyed stateful each blocks and hand-made window listeners.</li><li><code>npx sv check</code> (svelte-check) reports compiler warnings, including every <code>a11y_*</code> warning and <code>state_referenced_locally</code>; run it in CI with <code>--fail-on-warnings</code>.</li><li><code>eslint-plugin-svelte</code> adds <code>svelte/require-each-key</code>, <code>svelte/no-at-html-tags</code> and <code>svelte/prefer-writable-derived</code>.</li></ul></div></section>
+<section aria-labelledby="checked"><h2 id="checked"><svg class="icon heading-icon" width="24" height="24" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#report"/></svg>Checked by the audit</h2>
+<p>The static checks of these rules run in <code>audit</code>; this is a real session on the example project:</p>
+<figure class="recording"><picture><source media="(prefers-reduced-motion: reduce)" srcset="/media/audit.png" width="842" height="584"><img src="/media/audit.svg" width="842" height="584" alt="Terminal recording: audit lists findings by severity with rule ids and file:line, and fails at serious." data-still="/media/audit.png" loading="lazy" decoding="async"></picture><figcaption><code>audit</code>: counts by severity, each rule with its first location, the exit code.</figcaption></figure>
+</section>
+<section aria-labelledby="refs"><h2 id="refs"><svg class="icon heading-icon" width="24" height="24" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg>Reference files</h2><ul class="file-list"><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><a href="https://github.com/dawidolko/frontend-skills/blob/main/skills/frameworks/fe-svelte/references/svelte.md"><code>references/svelte.md</code></a><span class="kind">1544 tokens</span></li></ul></section>
+<p class="source-link"><a href="https://github.com/dawidolko/frontend-skills/blob/main/skills/frameworks/fe-svelte/SKILL.md"><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#github"/></svg>SKILL.md on GitHub</a></p>
 </main>
+<aside class="docs-outline"><nav aria-labelledby="outline-title"><h2 id="outline-title">On this page</h2><ol><li><a href="#install">Install</a></li><li><a href="#how-to">How to use it</a></li><li><a href="#rules">Rules it teaches</a></li><li><a href="#digest">The rule digest</a></li><li><a href="#do">Steps the agent follows</a></li><li><a href="#check">How the agent checks the work</a></li><li><a href="#checked">Checked by the audit</a></li><li><a href="#refs">Reference files</a></li></ol></nav></aside>
+</div>
 <footer class="site-footer">
-<div class="wrap footer-inner">
-<div class="footer-text">
+<div class="wrap footer-grid">
+<div class="footer-brand-col">
 <p class="footer-brand"><svg class="brand-mark" viewBox="0 0 32 32" width="32" height="32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="8" fill="currentColor"/><path d="M12.5 10 7 16l5.5 6M19.5 10 25 16l-5.5 6" fill="none" stroke="var(--logo-ink)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Frontend Skills</span></p>
+<p>Skills and a rule dictionary for AI coding agents that write front-end code.</p>
 <p>Free and open source under the MIT licence, made by <a href="https://dawidolko.pl">Dawid Olko</a>.</p>
+</div>
+<nav class="footer-nav" aria-label="More">
+<div class="footer-col"><h2>Guide</h2><ul><li><a href="/">Home</a></li><li><a href="/how-it-works/">How it works</a></li><li><a href="/commands/">Commands</a></li><li><a href="/faq/">FAQ</a></li></ul></div>
+<div class="footer-col"><h2>Dictionary</h2><ul><li><a href="/rules/">All rules</a></li><li><a href="/rules/#area-a11y">Accessibility</a></li><li><a href="/rules/#area-perf">Performance</a></li><li><a href="/rules/#area-html">HTML</a></li><li><a href="/rules/#area-css">CSS</a></li><li><a href="/rules/#area-responsive">Responsive layout</a></li><li><a href="/rules/#area-js">JavaScript</a></li></ul></div>
+<div class="footer-col"><h2>Skills</h2><ul><li><a href="/skills/">All skills</a></li><li><a href="/skills/#sa-foundations">Foundations</a></li><li><a href="/skills/#sa-styling">Styling</a></li><li><a href="/skills/#sa-frameworks">Frameworks</a></li><li><a href="/skills/#sa-accessibility">Accessibility</a></li><li><a href="/skills/#sa-performance">Performance</a></li><li><a href="/skills/#sa-quality">Quality</a></li></ul></div>
+<div class="footer-col"><h2>Project</h2><ul><li><a href="https://github.com/dawidolko/frontend-skills">GitHub</a></li><li><a href="https://github.com/dawidolko/frontend-skills/issues">Report an issue</a></li><li><a href="/about/#licence">MIT licence</a></li><li><a href="/about/">About</a></li><li><a href="https://dawidolko.pl">dawidolko.pl</a></li></ul></div>
+</nav>
+</div>
+<div class="wrap footer-legal">
 <p>Built to WCAG 2.2 AA as a target. Automated checks find only part of the problems.</p>
 <p>No cookies, no analytics, no third-party requests. The accessibility button keeps its settings on your device.</p>
-</div>
-<nav aria-label="More"><ul class="footer-nav"><li><a href="/">Home</a></li><li><a href="/how-it-works/">How it works</a></li><li><a href="/rules/">Rules</a></li><li><a href="/skills/">Skills</a></li><li><a href="/commands/">Commands</a></li><li><a href="/faq/">FAQ</a></li><li><a href="/about/">About</a></li><li><a href="https://github.com/dawidolko/frontend-skills">GitHub</a></li></ul></nav>
 </div>
 </footer>
 <p id="live-status" class="visually-hidden" role="status" aria-live="polite"></p>

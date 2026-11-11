@@ -5,17 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Commands · Frontend Skills</title>
 <meta name="description" content="Every command of Frontend Skills: init, audit, learn, list, explain, doctor, update, uninstall and tokens, with their options.">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-V2yAsoxJIibu4bEYhDOwR/ucB/Zr0RzUJUEQYpXs6vQ='; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="color-scheme" content="light dark">
-<meta name="theme-color" content="#faf7fc" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#0d0d0f" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#0d0d0f">
+<script>(function(){try{var t=localStorage.getItem("fs-theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}})();</script>
 <link rel="canonical" href="https://skills.dawidolko.pl/commands/">
 <link rel="alternate" hreflang="en" href="https://skills.dawidolko.pl/commands/">
 <link rel="alternate" hreflang="pl" href="https://skills.dawidolko.pl/pl/commands/">
 <link rel="alternate" hreflang="x-default" href="https://skills.dawidolko.pl/commands/">
 <link rel="preload" href="/assets/fonts/opensans-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/styles.css?v=fbc2d7ae26">
+<link rel="stylesheet" href="/assets/styles.css?v=c56b96b9b9">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Frontend Skills">
@@ -31,28 +31,40 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="author" content="Dawid Olko">
 
-<script src="/assets/site.js?v=dd8cab0a79" defer></script>
+<script src="/assets/site.js?v=6b0081a976" defer></script>
 <script src="/a11y/a11y-panel.js?v=39d6e82235" data-accent="#9b00c2" defer></script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="site-header">
-<div class="wrap header-inner">
+<div class="wrap-wide header-inner">
 <a class="brand" href="/"><svg class="brand-mark" viewBox="0 0 32 32" width="32" height="32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="8" fill="currentColor"/><path d="M12.5 10 7 16l5.5 6M19.5 10 25 16l-5.5 6" fill="none" stroke="var(--logo-ink)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="brand-name">Frontend Skills</span></a>
 <nav class="main-nav" aria-label="Main"><ul><li><a href="/how-it-works/">How it works</a></li><li><a href="/rules/">Rules</a></li><li><a href="/skills/">Skills</a></li><li><a href="/commands/" aria-current="page">Commands</a></li><li><a href="/faq/">FAQ</a></li></ul></nav>
 <div class="header-tools">
+<div class="theme-switch" role="group" aria-label="Colour theme" hidden><button type="button" class="theme-btn" data-theme-set="light" aria-pressed="false" aria-label="Light theme" title="Light theme"><svg class="icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#sun"/></svg></button><button type="button" class="theme-btn" data-theme-set="system" aria-pressed="true" aria-label="Follow the system theme" title="Follow the system theme"><svg class="icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#system"/></svg></button><button type="button" class="theme-btn" data-theme-set="dark" aria-pressed="false" aria-label="Dark theme" title="Dark theme"><svg class="icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#moon"/></svg></button></div>
 <a class="lang-switch" href="/pl/commands/" hreflang="pl" lang="pl" title="Ta strona po polsku">Polski</a>
-<a class="gh-link" href="https://github.com/dawidolko/frontend-skills" aria-label="Source code on GitHub"><svg viewBox="0 0 16 16" width="20" height="20" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg></a>
+<a class="gh-link" href="https://github.com/dawidolko/frontend-skills" aria-label="Source code on GitHub"><svg class="icon" width="22" height="22" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#github"/></svg></a>
 </div>
 </div>
 </header>
-<main id="main" tabindex="-1">
-<div class="page-head"><div class="wrap"><h1>Commands</h1><p class="lead">Every command runs with <code>npx github:dawidolko/frontend-skills &lt;command&gt;</code> and accepts <code>--cwd &lt;dir&gt;</code> and <code>--help</code>. Output is short by default; <code>--json</code> gives machine output where it makes sense.</p></div></div>
-<div class="wrap narrow">
-<section class="command-section" aria-labelledby="c-init">
-<h2 id="c-init"><code>init</code> <span class="status status-ok">available</span></h2>
+<div class="docs wrap-wide">
+<button type="button" class="docs-toggle" popovertarget="docs-nav" aria-controls="docs-nav"><svg class="icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#menu"/></svg><span>Guide</span></button>
+<nav id="docs-nav" class="docs-nav" popover aria-label="Guide">
+<div class="docs-nav-head"><span>Guide</span><button type="button" class="docs-close" popovertarget="docs-nav" popovertargetaction="hide" aria-label="Close the chapters"><svg class="icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#close"/></svg></button></div>
+<ul class="side-chapters side-guide"><li><a class="side-link" href="/how-it-works/"><svg class="icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg><span>How it works</span></a></li><li><a class="side-link" href="/commands/" aria-current="page"><svg class="icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#terminal"/></svg><span>Commands</span></a><ul class="side-sub"><li><a href="#c-init"><code>init</code></a></li><li><a href="#c-audit"><code>audit</code></a></li><li><a href="#c-learn"><code>learn</code></a></li><li><a href="#c-list"><code>list</code></a></li><li><a href="#c-explain"><code>explain</code></a></li><li><a href="#c-doctor"><code>doctor</code></a></li><li><a href="#c-update"><code>update</code></a></li><li><a href="#c-uninstall"><code>uninstall</code></a></li><li><a href="#c-tokens"><code>tokens</code></a></li></ul></li><li><a class="side-link" href="/faq/"><svg class="icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#chat"/></svg><span>FAQ</span></a></li><li><a class="side-link" href="/about/"><svg class="icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#gift"/></svg><span>About</span></a></li></ul>
+<p class="side-cta"><a href="/rules/"><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg>All rules</a><a href="/skills/"><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#layers"/></svg>All skills</a></p>
+</nav>
+<main id="main" tabindex="-1" class="docs-main">
+<div class="page-head">
+<nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><span aria-current="page">Commands</span></li></ol></nav>
+<h1>Commands</h1>
+<p class="lead">Every command runs with <code>npx github:dawidolko/frontend-skills &lt;command&gt;</code> and accepts <code>--cwd &lt;dir&gt;</code> and <code>--help</code>. Output is short by default; <code>--json</code> gives machine output where it makes sense.</p>
+</div>
+<section class="command-card" aria-labelledby="c-init">
+<h2 id="c-init"><svg class="icon heading-icon" width="24" height="24" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#gift"/></svg><code>init</code> <span class="status status-ok">available</span></h2>
 <p>Detects the stack and the agents, writes the profile, plans the files for each agent, shows the plan, asks, writes, records every file and runs the first audit. With no agent found it asks which ones.</p>
-<div class="command"><pre class="command-text"><code id="cmd-1">npx github:<wbr>dawidolko/<wbr>frontend-skills init</code></pre><button type="button" class="copy-button" data-copy="cmd-1" data-done="Copied to the clipboard." data-fail="Copying failed; select the text and copy it by hand." aria-label="Copy the command" hidden>Copy</button></div>
+<div class="command"><pre class="command-text"><code id="cmd-1">npx github:<wbr>dawidolko/<wbr>frontend-skills init</code></pre><button type="button" class="copy-button" data-copy="cmd-1" data-done="Copied to the clipboard." data-fail="Copying failed; select the text and copy it by hand." aria-label="Copy the command" hidden><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#copy"/></svg><span>Copy</span></button></div>
+<figure class="recording"><picture><source media="(prefers-reduced-motion: reduce)" srcset="/media/init.png" width="842" height="584"><img src="/media/init.svg" width="842" height="584" alt="Terminal recording: init learns a React and Tailwind project, installs the matching skills for Claude Code, writes the profile and runs the first audit." data-still="/media/init.png" loading="lazy" decoding="async"></picture><figcaption><code>init</code> on the example project: the stack it found, the skills and files it planned, the first audit.</figcaption></figure>
 <details><summary>Options, as printed by <code>--help</code></summary><pre class="terminal" tabindex="0"><code>Usage: frontend-skills init [options]
 
   --agents &lt;ids&gt;     comma-separated: claude, codex, cursor, copilot, gemini, antigravity, devin, opencode, cline, zed, junie, kiro, augment, trae, continue, amazonq, aider (windsurf = devin)
@@ -61,10 +73,11 @@
   --yes, -y          write without asking (for scripts)
   --no-audit         skip the first audit</code></pre></details>
 </section>
-<section class="command-section" aria-labelledby="c-audit">
-<h2 id="c-audit"><code>audit</code> <span class="status status-ok">available</span></h2>
+<section class="command-card" aria-labelledby="c-audit">
+<h2 id="c-audit"><svg class="icon heading-icon" width="24" height="24" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#report"/></svg><code>audit</code> <span class="status status-ok">available</span></h2>
 <p>Checks the source against the rules and writes <code>frontend-report.md</code>. With <code>--url</code> it also checks a running page in your Chrome; with <code>--changed</code> only the files you changed; with <code>--json</code> it prints the condensed output for agents.</p>
-<div class="command"><pre class="command-text"><code id="cmd-2">npx github:<wbr>dawidolko/<wbr>frontend-skills audit</code></pre><button type="button" class="copy-button" data-copy="cmd-2" data-done="Copied to the clipboard." data-fail="Copying failed; select the text and copy it by hand." aria-label="Copy the command" hidden>Copy</button></div>
+<div class="command"><pre class="command-text"><code id="cmd-2">npx github:<wbr>dawidolko/<wbr>frontend-skills audit</code></pre><button type="button" class="copy-button" data-copy="cmd-2" data-done="Copied to the clipboard." data-fail="Copying failed; select the text and copy it by hand." aria-label="Copy the command" hidden><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#copy"/></svg><span>Copy</span></button></div>
+<figure class="recording"><picture><source media="(prefers-reduced-motion: reduce)" srcset="/media/audit.png" width="842" height="584"><img src="/media/audit.svg" width="842" height="584" alt="Terminal recording: audit lists findings by severity with rule ids and file:line, and fails at serious." data-still="/media/audit.png" loading="lazy" decoding="async"></picture><figcaption><code>audit</code>: counts by severity, each rule with its first location, the exit code.</figcaption></figure>
 <details><summary>Options, as printed by <code>--help</code></summary><pre class="terminal" tabindex="0"><code>Usage: frontend-skills audit [path] [options]
 
   --url &lt;address&gt;     also check a running page (Lighthouse and axe-core in your Chrome; asks before fetching them)
@@ -76,10 +89,11 @@
   --no-report         do not write the report
   --yes               fetch the browser tools without asking (with --url)</code></pre></details>
 </section>
-<section class="command-section" aria-labelledby="c-learn">
-<h2 id="c-learn"><code>learn</code> <span class="status status-ok">available</span></h2>
+<section class="command-card" aria-labelledby="c-learn">
+<h2 id="c-learn"><svg class="icon heading-icon" width="24" height="24" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#search"/></svg><code>learn</code> <span class="status status-ok">available</span></h2>
 <p>Re-detects the stack after it changed, shows the difference and updates the profile and the installed skills. With <code>--lesson</code> it records a lesson you confirmed.</p>
-<div class="command"><pre class="command-text"><code id="cmd-3">npx github:<wbr>dawidolko/<wbr>frontend-skills learn</code></pre><button type="button" class="copy-button" data-copy="cmd-3" data-done="Copied to the clipboard." data-fail="Copying failed; select the text and copy it by hand." aria-label="Copy the command" hidden>Copy</button></div>
+<div class="command"><pre class="command-text"><code id="cmd-3">npx github:<wbr>dawidolko/<wbr>frontend-skills learn</code></pre><button type="button" class="copy-button" data-copy="cmd-3" data-done="Copied to the clipboard." data-fail="Copying failed; select the text and copy it by hand." aria-label="Copy the command" hidden><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#copy"/></svg><span>Copy</span></button></div>
+
 <details><summary>Options, as printed by <code>--help</code></summary><pre class="terminal" tabindex="0"><code>Usage: frontend-skills learn [options]
 
   (no options)          refresh the profile and the installed skills after the stack changed
@@ -88,53 +102,68 @@
   --dry-run             show the changes, write nothing
   --yes, -y             apply without asking</code></pre></details>
 </section>
-<section class="command-section" aria-labelledby="c-list">
-<h2 id="c-list"><code>list</code> <span class="status status-ok">available</span></h2>
+<section class="command-card" aria-labelledby="c-list">
+<h2 id="c-list"><svg class="icon heading-icon" width="24" height="24" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#layers"/></svg><code>list</code> <span class="status status-ok">available</span></h2>
 <p>Lists the skills that fit this project with their token cost; <code>--all</code> for every skill, <code>--rules</code> for the dictionary.</p>
-<div class="command"><pre class="command-text"><code id="cmd-4">npx github:<wbr>dawidolko/<wbr>frontend-skills list</code></pre><button type="button" class="copy-button" data-copy="cmd-4" data-done="Copied to the clipboard." data-fail="Copying failed; select the text and copy it by hand." aria-label="Copy the command" hidden>Copy</button></div>
+<div class="command"><pre class="command-text"><code id="cmd-4">npx github:<wbr>dawidolko/<wbr>frontend-skills list</code></pre><button type="button" class="copy-button" data-copy="cmd-4" data-done="Copied to the clipboard." data-fail="Copying failed; select the text and copy it by hand." aria-label="Copy the command" hidden><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#copy"/></svg><span>Copy</span></button></div>
+
 <details><summary>Options, as printed by <code>--help</code></summary><pre class="terminal" tabindex="0"><code>Usage: frontend-skills list [--all] [--rules] [--json]</code></pre></details>
 </section>
-<section class="command-section" aria-labelledby="c-explain">
-<h2 id="c-explain"><code>explain</code> <span class="status status-ok">available</span></h2>
+<section class="command-card" aria-labelledby="c-explain">
+<h2 id="c-explain"><svg class="icon heading-icon" width="24" height="24" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg><code>explain</code> <span class="status status-ok">available</span></h2>
 <p>Prints one rule: title, severity, why, fix, examples, sources and the skill that teaches it. A deprecated id leads to the rule that replaced it.</p>
-<div class="command"><pre class="command-text"><code id="cmd-5">npx github:<wbr>dawidolko/<wbr>frontend-skills explain</code></pre><button type="button" class="copy-button" data-copy="cmd-5" data-done="Copied to the clipboard." data-fail="Copying failed; select the text and copy it by hand." aria-label="Copy the command" hidden>Copy</button></div>
+<div class="command"><pre class="command-text"><code id="cmd-5">npx github:<wbr>dawidolko/<wbr>frontend-skills explain a11y/<wbr>img-alt</code></pre><button type="button" class="copy-button" data-copy="cmd-5" data-done="Copied to the clipboard." data-fail="Copying failed; select the text and copy it by hand." aria-label="Copy the command" hidden><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#copy"/></svg><span>Copy</span></button></div>
+<figure class="recording"><picture><source media="(prefers-reduced-motion: reduce)" srcset="/media/explain.png" width="842" height="584"><img src="/media/explain.svg" width="842" height="584" alt="Terminal recording: explain a11y/img-alt prints the rule, why it matters, the fix, examples and sources." data-still="/media/explain.png" loading="lazy" decoding="async"></picture><figcaption><code>explain a11y/img-alt</code>: the dictionary entry in the terminal.</figcaption></figure>
 <details><summary>Options, as printed by <code>--help</code></summary><pre class="terminal" tabindex="0"><code>Usage: frontend-skills explain &lt;rule id&gt; [--json]</code></pre></details>
 </section>
-<section class="command-section" aria-labelledby="c-doctor">
-<h2 id="c-doctor"><code>doctor</code> <span class="status status-ok">available</span></h2>
+<section class="command-card" aria-labelledby="c-doctor">
+<h2 id="c-doctor"><svg class="icon heading-icon" width="24" height="24" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#a11y"/></svg><code>doctor</code> <span class="status status-ok">available</span></h2>
 <p>Checks, per agent, which files exist, whether they are current and whether any skill is listed twice. Exits with 1 when something is missing or stale.</p>
-<div class="command"><pre class="command-text"><code id="cmd-6">npx github:<wbr>dawidolko/<wbr>frontend-skills doctor</code></pre><button type="button" class="copy-button" data-copy="cmd-6" data-done="Copied to the clipboard." data-fail="Copying failed; select the text and copy it by hand." aria-label="Copy the command" hidden>Copy</button></div>
+<div class="command"><pre class="command-text"><code id="cmd-6">npx github:<wbr>dawidolko/<wbr>frontend-skills doctor</code></pre><button type="button" class="copy-button" data-copy="cmd-6" data-done="Copied to the clipboard." data-fail="Copying failed; select the text and copy it by hand." aria-label="Copy the command" hidden><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#copy"/></svg><span>Copy</span></button></div>
+
 <details><summary>Options, as printed by <code>--help</code></summary><pre class="terminal" tabindex="0"><code>Usage: frontend-skills doctor [--json]</code></pre></details>
 </section>
-<section class="command-section" aria-labelledby="c-update">
-<h2 id="c-update"><code>update</code> <span class="status status-ok">available</span></h2>
+<section class="command-card" aria-labelledby="c-update">
+<h2 id="c-update"><svg class="icon heading-icon" width="24" height="24" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#workflow"/></svg><code>update</code> <span class="status status-ok">available</span></h2>
 <p>Re-installs the recorded selection from the current version. Files you changed are kept and listed.</p>
-<div class="command"><pre class="command-text"><code id="cmd-7">npx github:<wbr>dawidolko/<wbr>frontend-skills update</code></pre><button type="button" class="copy-button" data-copy="cmd-7" data-done="Copied to the clipboard." data-fail="Copying failed; select the text and copy it by hand." aria-label="Copy the command" hidden>Copy</button></div>
+<div class="command"><pre class="command-text"><code id="cmd-7">npx github:<wbr>dawidolko/<wbr>frontend-skills update</code></pre><button type="button" class="copy-button" data-copy="cmd-7" data-done="Copied to the clipboard." data-fail="Copying failed; select the text and copy it by hand." aria-label="Copy the command" hidden><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#copy"/></svg><span>Copy</span></button></div>
+
 <details><summary>Options, as printed by <code>--help</code></summary><pre class="terminal" tabindex="0"><code>Usage: frontend-skills update [--dry-run]</code></pre></details>
 </section>
-<section class="command-section" aria-labelledby="c-uninstall">
-<h2 id="c-uninstall"><code>uninstall</code> <span class="status status-ok">available</span></h2>
+<section class="command-card" aria-labelledby="c-uninstall">
+<h2 id="c-uninstall"><svg class="icon heading-icon" width="24" height="24" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#close"/></svg><code>uninstall</code> <span class="status status-ok">available</span></h2>
 <p>Removes exactly what the install record lists; a file you changed is kept.</p>
-<div class="command"><pre class="command-text"><code id="cmd-8">npx github:<wbr>dawidolko/<wbr>frontend-skills uninstall</code></pre><button type="button" class="copy-button" data-copy="cmd-8" data-done="Copied to the clipboard." data-fail="Copying failed; select the text and copy it by hand." aria-label="Copy the command" hidden>Copy</button></div>
+<div class="command"><pre class="command-text"><code id="cmd-8">npx github:<wbr>dawidolko/<wbr>frontend-skills uninstall</code></pre><button type="button" class="copy-button" data-copy="cmd-8" data-done="Copied to the clipboard." data-fail="Copying failed; select the text and copy it by hand." aria-label="Copy the command" hidden><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#copy"/></svg><span>Copy</span></button></div>
+
 <details><summary>Options, as printed by <code>--help</code></summary><pre class="terminal" tabindex="0"><code>Usage: frontend-skills uninstall [--dry-run] [--yes]</code></pre></details>
 </section>
-<section class="command-section" aria-labelledby="c-tokens">
-<h2 id="c-tokens"><code>tokens</code> <span class="status status-ok">available</span></h2>
+<section class="command-card" aria-labelledby="c-tokens">
+<h2 id="c-tokens"><svg class="icon heading-icon" width="24" height="24" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#perf"/></svg><code>tokens</code> <span class="status status-ok">available</span></h2>
 <p>Shows the estimated token cost of what is installed: what each agent always loads and what it loads on use.</p>
-<div class="command"><pre class="command-text"><code id="cmd-9">npx github:<wbr>dawidolko/<wbr>frontend-skills tokens</code></pre><button type="button" class="copy-button" data-copy="cmd-9" data-done="Copied to the clipboard." data-fail="Copying failed; select the text and copy it by hand." aria-label="Copy the command" hidden>Copy</button></div>
+<div class="command"><pre class="command-text"><code id="cmd-9">npx github:<wbr>dawidolko/<wbr>frontend-skills tokens</code></pre><button type="button" class="copy-button" data-copy="cmd-9" data-done="Copied to the clipboard." data-fail="Copying failed; select the text and copy it by hand." aria-label="Copy the command" hidden><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#copy"/></svg><span>Copy</span></button></div>
+
 <details><summary>Options, as printed by <code>--help</code></summary><pre class="terminal" tabindex="0"><code>Usage: frontend-skills tokens [--all] [--json]</code></pre></details>
 </section>
-</div>
 </main>
+<aside class="docs-outline"><nav aria-labelledby="outline-title"><h2 id="outline-title">On this page</h2><ol><li><a href="#c-init"><code>init</code></a></li><li><a href="#c-audit"><code>audit</code></a></li><li><a href="#c-learn"><code>learn</code></a></li><li><a href="#c-list"><code>list</code></a></li><li><a href="#c-explain"><code>explain</code></a></li><li><a href="#c-doctor"><code>doctor</code></a></li><li><a href="#c-update"><code>update</code></a></li><li><a href="#c-uninstall"><code>uninstall</code></a></li><li><a href="#c-tokens"><code>tokens</code></a></li></ol></nav></aside>
+</div>
 <footer class="site-footer">
-<div class="wrap footer-inner">
-<div class="footer-text">
+<div class="wrap footer-grid">
+<div class="footer-brand-col">
 <p class="footer-brand"><svg class="brand-mark" viewBox="0 0 32 32" width="32" height="32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="8" fill="currentColor"/><path d="M12.5 10 7 16l5.5 6M19.5 10 25 16l-5.5 6" fill="none" stroke="var(--logo-ink)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Frontend Skills</span></p>
+<p>Skills and a rule dictionary for AI coding agents that write front-end code.</p>
 <p>Free and open source under the MIT licence, made by <a href="https://dawidolko.pl">Dawid Olko</a>.</p>
+</div>
+<nav class="footer-nav" aria-label="More">
+<div class="footer-col"><h2>Guide</h2><ul><li><a href="/">Home</a></li><li><a href="/how-it-works/">How it works</a></li><li><a href="/commands/">Commands</a></li><li><a href="/faq/">FAQ</a></li></ul></div>
+<div class="footer-col"><h2>Dictionary</h2><ul><li><a href="/rules/">All rules</a></li><li><a href="/rules/#area-a11y">Accessibility</a></li><li><a href="/rules/#area-perf">Performance</a></li><li><a href="/rules/#area-html">HTML</a></li><li><a href="/rules/#area-css">CSS</a></li><li><a href="/rules/#area-responsive">Responsive layout</a></li><li><a href="/rules/#area-js">JavaScript</a></li></ul></div>
+<div class="footer-col"><h2>Skills</h2><ul><li><a href="/skills/">All skills</a></li><li><a href="/skills/#sa-foundations">Foundations</a></li><li><a href="/skills/#sa-styling">Styling</a></li><li><a href="/skills/#sa-frameworks">Frameworks</a></li><li><a href="/skills/#sa-accessibility">Accessibility</a></li><li><a href="/skills/#sa-performance">Performance</a></li><li><a href="/skills/#sa-quality">Quality</a></li></ul></div>
+<div class="footer-col"><h2>Project</h2><ul><li><a href="https://github.com/dawidolko/frontend-skills">GitHub</a></li><li><a href="https://github.com/dawidolko/frontend-skills/issues">Report an issue</a></li><li><a href="/about/#licence">MIT licence</a></li><li><a href="/about/">About</a></li><li><a href="https://dawidolko.pl">dawidolko.pl</a></li></ul></div>
+</nav>
+</div>
+<div class="wrap footer-legal">
 <p>Built to WCAG 2.2 AA as a target. Automated checks find only part of the problems.</p>
 <p>No cookies, no analytics, no third-party requests. The accessibility button keeps its settings on your device.</p>
-</div>
-<nav aria-label="More"><ul class="footer-nav"><li><a href="/">Home</a></li><li><a href="/how-it-works/">How it works</a></li><li><a href="/rules/">Rules</a></li><li><a href="/skills/">Skills</a></li><li><a href="/commands/" aria-current="page">Commands</a></li><li><a href="/faq/">FAQ</a></li><li><a href="/about/">About</a></li><li><a href="https://github.com/dawidolko/frontend-skills">GitHub</a></li></ul></nav>
 </div>
 </footer>
 <p id="live-status" class="visually-hidden" role="status" aria-live="polite"></p>

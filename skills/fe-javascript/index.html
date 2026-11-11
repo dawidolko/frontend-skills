@@ -5,17 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>JavaScript in the browser (fe-javascript) · Frontend Skills</title>
 <meta name="description" content="Writes and reviews browser JavaScript (plain scripts, modules, framework script blocks) - equality, declarations, async and fetch errors, DOM events,…">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-V2yAsoxJIibu4bEYhDOwR/ucB/Zr0RzUJUEQYpXs6vQ='; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="color-scheme" content="light dark">
-<meta name="theme-color" content="#faf7fc" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#0d0d0f" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#0d0d0f">
+<script>(function(){try{var t=localStorage.getItem("fs-theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}})();</script>
 <link rel="canonical" href="https://skills.dawidolko.pl/skills/fe-javascript/">
 <link rel="alternate" hreflang="en" href="https://skills.dawidolko.pl/skills/fe-javascript/">
 <link rel="alternate" hreflang="pl" href="https://skills.dawidolko.pl/pl/skills/fe-javascript/">
 <link rel="alternate" hreflang="x-default" href="https://skills.dawidolko.pl/skills/fe-javascript/">
 <link rel="preload" href="/assets/fonts/opensans-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/styles.css?v=fbc2d7ae26">
+<link rel="stylesheet" href="/assets/styles.css?v=c56b96b9b9">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Frontend Skills">
@@ -31,56 +31,565 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="author" content="Dawid Olko">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://skills.dawidolko.pl/"},{"@type":"ListItem","position":2,"name":"Skills","item":"https://skills.dawidolko.pl/skills/"},{"@type":"ListItem","position":3,"name":"JavaScript in the browser","item":"https://skills.dawidolko.pl/skills/fe-javascript/"}]}</script>
-<script src="/assets/site.js?v=dd8cab0a79" defer></script>
+<script src="/assets/site.js?v=6b0081a976" defer></script>
 <script src="/a11y/a11y-panel.js?v=39d6e82235" data-accent="#9b00c2" defer></script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="site-header">
-<div class="wrap header-inner">
+<div class="wrap-wide header-inner">
 <a class="brand" href="/"><svg class="brand-mark" viewBox="0 0 32 32" width="32" height="32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="8" fill="currentColor"/><path d="M12.5 10 7 16l5.5 6M19.5 10 25 16l-5.5 6" fill="none" stroke="var(--logo-ink)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="brand-name">Frontend Skills</span></a>
 <nav class="main-nav" aria-label="Main"><ul><li><a href="/how-it-works/">How it works</a></li><li><a href="/rules/">Rules</a></li><li><a href="/skills/" class="is-section">Skills</a></li><li><a href="/commands/">Commands</a></li><li><a href="/faq/">FAQ</a></li></ul></nav>
 <div class="header-tools">
+<div class="theme-switch" role="group" aria-label="Colour theme" hidden><button type="button" class="theme-btn" data-theme-set="light" aria-pressed="false" aria-label="Light theme" title="Light theme"><svg class="icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#sun"/></svg></button><button type="button" class="theme-btn" data-theme-set="system" aria-pressed="true" aria-label="Follow the system theme" title="Follow the system theme"><svg class="icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#system"/></svg></button><button type="button" class="theme-btn" data-theme-set="dark" aria-pressed="false" aria-label="Dark theme" title="Dark theme"><svg class="icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#moon"/></svg></button></div>
 <a class="lang-switch" href="/pl/skills/fe-javascript/" hreflang="pl" lang="pl" title="Ta strona po polsku">Polski</a>
-<a class="gh-link" href="https://github.com/dawidolko/frontend-skills" aria-label="Source code on GitHub"><svg viewBox="0 0 16 16" width="20" height="20" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg></a>
+<a class="gh-link" href="https://github.com/dawidolko/frontend-skills" aria-label="Source code on GitHub"><svg class="icon" width="22" height="22" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#github"/></svg></a>
 </div>
 </div>
 </header>
-<main id="main" tabindex="-1">
-<div class="page-head"><div class="wrap">
+<div class="docs wrap-wide">
+<button type="button" class="docs-toggle" popovertarget="docs-nav" aria-controls="docs-nav"><svg class="icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#menu"/></svg><span>Skill groups</span></button>
+<nav id="docs-nav" class="docs-nav" popover aria-label="Skill groups">
+<div class="docs-nav-head"><span>Skill groups</span><button type="button" class="docs-close" popovertarget="docs-nav" popovertargetaction="hide" aria-label="Close the chapters"><svg class="icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#close"/></svg></button></div>
+<a class="side-top" href="/skills/"><svg class="icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#layers"/></svg><span>All skills</span><span class="side-count">50</span></a>
+<ul class="side-chapters"><li><details open><summary><svg class="icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#foundations"/></svg><span class="side-label">Foundations</span><span class="side-count">5</span></summary><ul>
+<li><a href="/skills/fe-forms/">Native forms and validation</a></li><li><a href="/skills/fe-html/">HTML documents and semantics</a></li><li><a href="/skills/fe-javascript/" aria-current="page">JavaScript in the browser</a></li><li><a href="/skills/fe-responsive/">Responsive design</a></li><li><a href="/skills/fe-typescript/">TypeScript</a></li>
+</ul></details></li><li><details><summary><svg class="icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#styling"/></svg><span class="side-label">Styling</span><span class="side-count">7</span></summary><ul>
+<li><a href="/skills/fe-css-architecture/">CSS architecture and tokens</a></li><li><a href="/skills/fe-css-layout/">CSS layout</a></li><li><a href="/skills/fe-css-modern/">Modern CSS features</a></li><li><a href="/skills/fe-icons/">Icons</a></li><li><a href="/skills/fe-motion/">Motion and animation</a></li><li><a href="/skills/fe-sass/">Sass (SCSS)</a></li><li><a href="/skills/fe-tailwind/">Tailwind CSS</a></li>
+</ul></details></li><li><details><summary><svg class="icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#framework"/></svg><span class="side-label">Frameworks</span><span class="side-count">11</span></summary><ul>
+<li><a href="/skills/fe-angular/">Angular components</a></li><li><a href="/skills/fe-astro/">Astro sites and islands</a></li><li><a href="/skills/fe-data-fetching/">Data fetching</a></li><li><a href="/skills/fe-nextjs/">Next.js App Router</a></li><li><a href="/skills/fe-nuxt/">Nuxt apps</a></li><li><a href="/skills/fe-react/">React components</a></li><li><a href="/skills/fe-state/">State and stores</a></li><li><a href="/skills/fe-svelte/">Svelte components</a></li><li><a href="/skills/fe-sveltekit/">SvelteKit apps</a></li><li><a href="/skills/fe-vue/">Vue components</a></li><li><a href="/skills/fe-web-components/">Web components and Lit</a></li>
+</ul></details></li><li><details><summary><svg class="icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#a11y"/></svg><span class="side-label">Accessibility</span><span class="side-count">12</span></summary><ul>
+<li><a href="/skills/fe-a11y-aria/">ARIA, names and live regions</a></li><li><a href="/skills/fe-a11y-carousel-toast/">Carousels and toasts</a></li><li><a href="/skills/fe-a11y-combobox/">Combobox, listbox and custom select</a></li><li><a href="/skills/fe-a11y-core/">Accessibility, WCAG 2.2 map</a></li><li><a href="/skills/fe-a11y-dialog/">Dialogs and modals</a></li><li><a href="/skills/fe-a11y-forms/">Accessible forms</a></li><li><a href="/skills/fe-a11y-keyboard/">Keyboard access and focus</a></li><li><a href="/skills/fe-a11y-media/">Media, motion and flashing</a></li><li><a href="/skills/fe-a11y-menus/">Navigation, disclosures and menus</a></li><li><a href="/skills/fe-a11y-tables/">Data tables</a></li><li><a href="/skills/fe-a11y-tabs-accordion/">Tabs and accordions</a></li><li><a href="/skills/fe-a11y-visual/">Contrast, colour, size and reflow</a></li>
+</ul></details></li><li><details><summary><svg class="icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#perf"/></svg><span class="side-label">Performance</span><span class="side-count">5</span></summary><ul>
+<li><a href="/skills/fe-core-web-vitals/">Core Web Vitals</a></li><li><a href="/skills/fe-fonts/">Web fonts</a></li><li><a href="/skills/fe-images/">Images and media delivery</a></li><li><a href="/skills/fe-lighthouse/">Lighthouse and PageSpeed</a></li><li><a href="/skills/fe-perf-delivery/">JavaScript, CSS and asset delivery</a></li>
+</ul></details></li><li><details><summary><svg class="icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#quality"/></svg><span class="side-label">Quality</span><span class="side-count">5</span></summary><ul>
+<li><a href="/skills/fe-i18n/">Internationalisation</a></li><li><a href="/skills/fe-security/">Front-end security</a></li><li><a href="/skills/fe-seo-metadata/">SEO and metadata</a></li><li><a href="/skills/fe-testing/">Front-end testing</a></li><li><a href="/skills/fe-tooling/">Build, lint and format tooling</a></li>
+</ul></details></li><li><details><summary><svg class="icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#workflow"/></svg><span class="side-label">Workflow</span><span class="side-count">5</span></summary><ul>
+<li><a href="/skills/fe-audit/">Audit the project</a></li><li><a href="/skills/fe-component/">Build a component</a></li><li><a href="/skills/fe-fix/">Fix findings</a></li><li><a href="/skills/fe-learn/">Learn the project</a></li><li><a href="/skills/fe-review/">Review a change</a></li>
+</ul></details></li></ul>
+</nav>
+<main id="main" tabindex="-1" class="docs-main">
+<div class="page-head">
 <nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><a href="/skills/">Skills</a></li><li><span aria-current="page">JavaScript in the browser</span></li></ol></nav>
+<p class="eyebrow eyebrow-docs"><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#foundations"/></svg>Foundations</p>
 <h1>JavaScript in the browser</h1>
 <p class="lead">Writes and reviews browser JavaScript (plain scripts, modules, framework script blocks) - equality, declarations, async and fetch errors, DOM events, assets through the bundler - so it fails loudly, stays fast and keeps working when moved. Use when writing or editing .js, .mjs, .jsx or a script block, debugging a silent failure or a listener leak, or asked to review JavaScript.</p>
-</div></div>
-<div class="wrap rule-layout">
-<div class="prose">
-<section aria-labelledby="rules"><h2 id="rules">Rules it teaches</h2>
-<ul class="rule-list compact"><li class="rule-item"><a class="rule-id" href="/rules/js/strict-equality/"><code>js/strict-equality</code></a><p class="rule-title">Compare with === and !==; loose == and != convert types first (x == null as a deliberate null-or-undefined test is the exception).</p><p class="rule-meta"><span class="sev sev-minor">minor</span> <span class="tag tag-static">static</span></p></li><li class="rule-item"><a class="rule-id" href="/rules/js/no-var/"><code>js/no-var</code></a><p class="rule-title">Declare variables with const, or let when they are reassigned; never with var.</p><p class="rule-meta"><span class="sev sev-minor">minor</span> <span class="tag tag-static">static</span></p></li><li class="rule-item"><a class="rule-id" href="/rules/js/no-eval/"><code>js/no-eval</code></a><p class="rule-title">Never run strings as code - no eval, new Function, or a string as the first argument of setTimeout or setInterval.</p><p class="rule-meta"><span class="sev sev-serious">serious</span> <span class="tag tag-static">static</span></p></li><li class="rule-item"><a class="rule-id" href="/rules/js/document-write/"><code>js/document-write</code></a><p class="rule-title">Never insert content with document.write; create elements or load scripts with the DOM.</p><p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-static">static</span></p></li><li class="rule-item"><a class="rule-id" href="/rules/js/feature-detect/"><code>js/feature-detect</code></a><p class="rule-title">Test for the feature you need (in, CSS.supports, matchMedia), not the browser name in navigator.userAgent.</p><p class="rule-meta"><span class="sev sev-minor">minor</span> <span class="tag tag-static">static</span></p></li><li class="rule-item"><a class="rule-id" href="/rules/js/throw-error-objects/"><code>js/throw-error-objects</code></a><p class="rule-title">Throw and reject with Error objects (or subclasses), never with strings or plain objects.</p><p class="rule-meta"><span class="sev sev-minor">minor</span> <span class="tag tag-static">static</span></p></li><li class="rule-item"><a class="rule-id" href="/rules/js/fetch-check-ok/"><code>js/fetch-check-ok</code></a><p class="rule-title">After fetch, check response.ok (or the status) before reading the body; fetch does not reject on 404 or 500.</p><p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-static">static</span></p></li><li class="rule-item"><a class="rule-id" href="/rules/js/no-empty-catch/"><code>js/no-empty-catch</code></a><p class="rule-title">A catch block never swallows an error silently; handle it, report it, or say in a comment why it is safe to ignore.</p><p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-static">static</span></p></li><li class="rule-item"><a class="rule-id" href="/rules/js/no-floating-promises/"><code>js/no-floating-promises</code></a><p class="rule-title">Every promise is awaited, returned or given a .catch(); an async call is never left floating.</p><p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-manual">manual</span></p></li><li class="rule-item"><a class="rule-id" href="/rules/js/no-inline-handlers/"><code>js/no-inline-handlers</code></a><p class="rule-title">Attach event handlers from script with addEventListener, not with onclick=&quot;...&quot; attributes in HTML.</p><p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-static">static</span></p></li><li class="rule-item"><a class="rule-id" href="/rules/js/passive-listeners/"><code>js/passive-listeners</code></a><p class="rule-title">Mark touchstart, touchmove and wheel listeners { passive true } unless the handler really calls preventDefault().</p><p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-static">static</span></p></li><li class="rule-item"><a class="rule-id" href="/rules/js/listener-cleanup/"><code>js/listener-cleanup</code></a><p class="rule-title">Listeners, timers and observers a view starts are removed when it goes away; one AbortController signal can end them all.</p><p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-manual">manual</span></p></li><li class="rule-item"><a class="rule-id" href="/rules/js/asset-import/"><code>js/asset-import</code></a><p class="rule-title">In a bundled project, images, fonts and media in component markup are imported or use the base-path helper, not hard-coded root paths.</p><p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-static">static</span></p></li></ul></section>
-<section aria-labelledby="digest"><h2 id="digest">The rule digest</h2><p>This part is copied into each agent's scoped rule file, so it stands on its own:</p><div class="digest"><ul><li>Compare with <code>===</code> and <code>!==</code> (<a href="/rules/js/strict-equality/">js/strict-equality</a>); declare with <code>const</code>, or <code>let</code> when reassigned, never <code>var</code> (<a href="/rules/js/no-var/">js/no-var</a>).</li><li>Never run strings as code: no <code>eval</code>, <code>new Function</code>, or string timers (<a href="/rules/js/no-eval/">js/no-eval</a>); no <code>document.write</code> (<a href="/rules/js/document-write/">js/document-write</a>).</li><li>Detect features (<code>'share' in navigator</code>, <code>CSS.supports</code>), never parse <code>navigator.userAgent</code> (<a href="/rules/js/feature-detect/">js/feature-detect</a>).</li><li>Throw and reject <code>Error</code> objects, with <code>{ cause }</code> when rethrowing (<a href="/rules/js/throw-error-objects/">js/throw-error-objects</a>).</li><li>Check <code>res.ok</code> before reading a <code>fetch</code> body (<a href="/rules/js/fetch-check-ok/">js/fetch-check-ok</a>); give requests a <code>signal</code> to cancel or time out.</li><li>Never leave a <code>catch</code> empty (<a href="/rules/js/no-empty-catch/">js/no-empty-catch</a>); await, return or <code>.catch()</code> every promise (<a href="/rules/js/no-floating-promises/">js/no-floating-promises</a>).</li><li>Attach handlers with <code>addEventListener</code> from a module, not <code>onclick=&quot;...&quot;</code> attributes (<a href="/rules/js/no-inline-handlers/">js/no-inline-handlers</a>).</li><li>Make <code>touchstart</code>, <code>touchmove</code> and <code>wheel</code> listeners <code>{ passive: true }</code> unless they call <code>preventDefault()</code> (<a href="/rules/js/passive-listeners/">js/passive-listeners</a>).</li><li>Remove what a view starts (listeners, timers, observers) when it goes away; one <code>AbortController</code> signal ends them all (<a href="/rules/js/listener-cleanup/">js/listener-cleanup</a>).</li><li>Import images, fonts and media or use the base-path helper; never hard-code <code>/images/...</code> in components (<a href="/rules/js/asset-import/">js/asset-import</a>).</li><li>Read layout (<code>getBoundingClientRect</code>, <code>offsetWidth</code>) before writing styles, never alternating in a loop.</li></ul></div></section>
-<section aria-labelledby="do"><h2 id="do">Steps the agent follows</h2><ol><li>Load app code as modules: <code>&lt;script type=&quot;module&quot; src&gt;</code> (deferred and strict by default). A classic script in <code>&lt;head&gt;</code> gets <code>defer</code> (<a href="/rules/perf/render-blocking-script/">perf/render-blocking-script</a>).</li><li>Insert text with <code>textContent</code>; markup from users only through a sanitizer (see the <code>fe-security</code> skill).</li><li>Wrap <code>fetch</code> once: a helper that adds <code>signal</code> (<code>AbortSignal.any([controller.signal, AbortSignal.timeout(8000)])</code>), checks <code>ok</code>, throws an <code>Error</code> with the status, and parses JSON. Show loading, empty and error states where it is called.</li><li>Use event delegation for lists and tables: one listener on the container, <code>event.target.closest('[data-id]')</code>.</li><li>Split rarely used features with <code>import()</code>; keep work off the main thread when a handler takes longer than about 50 ms (<code>scheduler.yield()</code> where supported, or <code>setTimeout</code> chunks).</li><li>In TypeScript files also follow <code>fe-typescript</code>; in a framework, its skill decides where effects and listeners live.</li></ol></section>
-<section aria-labelledby="check"><h2 id="check">How the agent checks the work</h2><ul><li><code>npx github:dawidolko/frontend-skills audit --changed</code> reports loose equality, <code>var</code>, eval, <code>document.write</code>, user-agent sniffing, thrown literals, unchecked <code>fetch</code>, empty catches, inline handlers, non-passive scroll listeners and hard-coded asset paths.</li><li>Run the project's ESLint (<code>eqeqeq</code>, <code>no-var</code>, <code>no-implied-eval</code>, <code>no-empty</code>); with TypeScript, the typed rule <code>@typescript-eslint/no-floating-promises</code>.</li><li>In DevTools, the Performance panel's &quot;Forced reflow&quot; warnings and the Memory panel after navigating away and back show thrashing and leaks.</li></ul></section>
-<section aria-labelledby="refs"><h2 id="refs">Reference files</h2><ul><li><a href="https://github.com/dawidolko/frontend-skills/blob/main/skills/foundations/fe-javascript/references/javascript.md"><code>references/javascript.md</code></a> · 1903 tokens</li></ul></section>
-<section aria-labelledby="agents"><h2 id="agents">Written for</h2>
-<p>every agent the project uses: Claude Code, OpenAI Codex, Cursor, GitHub Copilot, Gemini CLI, Antigravity CLI, Devin / Windsurf, OpenCode, Cline, Zed, JetBrains Junie, Kiro, Augment, Trae, Continue, Amazon Q Developer, Aider.</p>
-<p>Agents that also get a rule file scoped to these files: Claude Code, Cursor, GitHub Copilot, Antigravity CLI, Devin / Windsurf, Cline, Kiro, Trae, Continue.</p></section>
+<p class="chips"><span class="tag"><code>fe-javascript</code></span><span class="tag"><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#framework"/></svg>every web project</span><span class="tag"><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg>13 rules</span><span class="tag"><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#perf"/></svg>79 tokens always loaded, 1070 tokens when used, 1903 tokens in references on demand.</span></p>
 </div>
-<aside class="facts" aria-labelledby="facts-title">
-<h2 id="facts-title">Facts</h2>
-<dl><dt>Name</dt><dd><code>fe-javascript</code></dd><dt>Area</dt><dd>Foundations</dd><dt>Installed when the project uses</dt><dd>every web project</dd><dt>Files it is about</dt><dd><code>**/*.js</code> <code>**/*.mjs</code> <code>**/*.cjs</code> <code>**/*.jsx</code> <code>**/*.ts</code> <code>**/*.tsx</code></dd><dt>Token cost</dt><dd>79 tokens always loaded, 1070 tokens when used, 1903 tokens in references on demand.</dd></dl>
-<p><a href="https://github.com/dawidolko/frontend-skills/blob/main/skills/foundations/fe-javascript/SKILL.md">SKILL.md on GitHub</a></p>
-<p><a href="/skills/">All skills</a></p>
-</aside>
+<section class="install" data-install aria-labelledby="install">
+<h2 id="install"><svg class="icon heading-icon" width="24" height="24" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#terminal"/></svg>Install</h2>
+<p><code>init</code> installs this skill when the project uses every web project. Pick your agent to see where its files land.</p>
+<div class="install-controls">
+<fieldset class="seg" data-runners hidden><legend>Run with</legend><div class="seg-options"><label class="seg-opt"><input type="radio" name="runner-ins-1" value="npx" data-template="npx github:dawidolko/frontend-skills {args}" checked><span>npx</span></label><label class="seg-opt"><input type="radio" name="runner-ins-1" value="pnpm" data-template="pnpm dlx github:dawidolko/frontend-skills {args}"><span>pnpm dlx</span></label><label class="seg-opt"><input type="radio" name="runner-ins-1" value="yarn" data-template="yarn dlx -p github:dawidolko/frontend-skills frontend-skills {args}"><span>yarn dlx</span></label><label class="seg-opt"><input type="radio" name="runner-ins-1" value="bun" data-template="bunx github:dawidolko/frontend-skills {args}"><span>bunx</span></label></div></fieldset>
+<fieldset class="seg seg-agents"><legend>Agent</legend><div class="seg-options"><label class="seg-opt"><input type="radio" name="agent-ins-1" value="auto" checked><span>Detect</span></label><label class="seg-opt"><input type="radio" name="agent-ins-1" value="claude"><span>Claude Code</span></label><label class="seg-opt"><input type="radio" name="agent-ins-1" value="codex"><span>OpenAI Codex</span></label><label class="seg-opt"><input type="radio" name="agent-ins-1" value="cursor"><span>Cursor</span></label><label class="seg-opt"><input type="radio" name="agent-ins-1" value="copilot"><span>GitHub Copilot</span></label><label class="seg-opt"><input type="radio" name="agent-ins-1" value="gemini"><span>Gemini CLI</span></label><label class="seg-opt"><input type="radio" name="agent-ins-1" value="antigravity"><span>Antigravity CLI</span></label><label class="seg-opt"><input type="radio" name="agent-ins-1" value="devin"><span>Devin / Windsurf</span></label><label class="seg-opt"><input type="radio" name="agent-ins-1" value="opencode"><span>OpenCode</span></label><label class="seg-opt"><input type="radio" name="agent-ins-1" value="cline"><span>Cline</span></label><label class="seg-opt"><input type="radio" name="agent-ins-1" value="zed"><span>Zed</span></label><label class="seg-opt"><input type="radio" name="agent-ins-1" value="junie"><span>JetBrains Junie</span></label><label class="seg-opt"><input type="radio" name="agent-ins-1" value="kiro"><span>Kiro</span></label><label class="seg-opt"><input type="radio" name="agent-ins-1" value="augment"><span>Augment</span></label><label class="seg-opt"><input type="radio" name="agent-ins-1" value="trae"><span>Trae</span></label><label class="seg-opt"><input type="radio" name="agent-ins-1" value="continue"><span>Continue</span></label><label class="seg-opt"><input type="radio" name="agent-ins-1" value="amazonq"><span>Amazon Q Developer</span></label><label class="seg-opt"><input type="radio" name="agent-ins-1" value="aider"><span>Aider</span></label></div></fieldset>
 </div>
+<div class="command"><pre class="command-text"><code id="cmd-2" data-args="init">npx github:<wbr>dawidolko/<wbr>frontend-skills init</code></pre><button type="button" class="copy-button" data-copy="cmd-2" data-done="Copied to the clipboard." data-fail="Copying failed; select the text and copy it by hand." aria-label="Copy the command" hidden><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#copy"/></svg><span>Copy</span></button></div>
+<p class="callout callout-warn runner-note" hidden>Not tested yet with this runner. <code>npx</code> and <code>pnpm dlx</code> are tested; if this one fails, use one of them.</p>
+<div class="agent-panel" data-agent="auto">
+<p>Without <code>--agents</code>, <code>init</code> finds the agents from what the project already has, and asks when it finds none:</p>
+<div class="table-wrap" tabindex="0" role="region" aria-label="Found by"><table class="compact-table"><thead><tr><th scope="col">Agent</th><th scope="col">Found by</th></tr></thead><tbody><tr><th scope="row">Claude Code</th><td><code>CLAUDE.md</code> <code>.claude</code> <code>CLAUDE.local.md</code></td></tr><tr><th scope="row">OpenAI Codex</th><td><code>.codex</code> <code>AGENTS.override.md</code></td></tr><tr><th scope="row">Cursor</th><td><code>.cursor</code> <code>.cursorrules</code></td></tr><tr><th scope="row">GitHub Copilot</th><td><code>.github/copilot-instructions.md</code> <code>.github/instructions</code> <code>.github/skills</code> <code>.github/prompts</code></td></tr><tr><th scope="row">Gemini CLI</th><td><code>GEMINI.md</code> <code>.gemini</code></td></tr><tr><th scope="row">Antigravity CLI</th><td><code>.agents/rules</code> <code>.agent/rules</code></td></tr><tr><th scope="row">Devin / Windsurf</th><td><code>.devin</code> <code>.windsurf</code> <code>.windsurfrules</code></td></tr><tr><th scope="row">OpenCode</th><td><code>opencode.json</code> <code>opencode.jsonc</code> <code>.opencode</code></td></tr><tr><th scope="row">Cline</th><td><code>.clinerules</code> <code>.cline</code></td></tr><tr><th scope="row">Zed</th><td><code>.rules</code> <code>.zed</code></td></tr><tr><th scope="row">JetBrains Junie</th><td><code>.junie</code></td></tr><tr><th scope="row">Kiro</th><td><code>.kiro</code></td></tr><tr><th scope="row">Augment</th><td><code>.augment</code> <code>.augment-guidelines</code></td></tr><tr><th scope="row">Trae</th><td><code>.trae</code></td></tr><tr><th scope="row">Continue</th><td><code>.continue</code></td></tr><tr><th scope="row">Amazon Q Developer</th><td><code>.amazonq</code></td></tr><tr><th scope="row">Aider</th><td><code>.aider.conf.yml</code> <code>CONVENTIONS.md</code></td></tr></tbody></table></div>
+</div>
+<div class="agent-panel" data-agent="claude">
+<h3 class="panel-title">Where fe-javascript lands for Claude Code</h3>
+<div class="panel-grid">
+<div>
+<ul class="file-list"><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.claude/skills/fe-javascript/SKILL.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.claude/skills/fe-javascript/references/javascript.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#layers"/></svg><code>.claude/rules/fe-javascript.md</code><span class="kind kind-rule">rule file</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg><code>CLAUDE.md</code><span class="kind kind-instructions">instruction block</span></li></ul>
+<p class="note">For every agent also: <code>.frontend-skills/profile.json</code>, <code>.frontend-skills/lessons.md</code> and <code>.frontend-skills/install.json</code>.</p>
+
+
+<p class="note">Planned by the installer itself for the example React project in the repository.</p>
+</div>
+<figure class="shot"><div class="window "><div class="window-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="window-title"><code>.claude/rules/fe-javascript.md</code></span></div><div class="window-body"><pre data-lang="markdown" tabindex="0"><code class="language-markdown">---
+paths:
+  - &quot;**/*.js&quot;
+  - &quot;**/*.mjs&quot;
+  - &quot;**/*.cjs&quot;
+  - &quot;**/*.jsx&quot;
+  - &quot;**/*.ts&quot;
+  - &quot;**/*.tsx&quot;
+---
+
+# JavaScript in the browser (frontend-skills)
+
+Writes and reviews browser JavaScript (plain scripts, modules, framework script blocks) - equality, declarations, async and fetch errors, DOM events, assets through the bundler - so it fails loudly, stays fast and keeps working when moved. Use when writing or editing .js, .mjs, .jsx or a script block, debugging a silent failure or a listener leak, or asked to review JavaScript.
+
+- Compare with `===` and `!==` (js/strict-equality); declare with `const`, or `let` when reassigned, never `var` (js/no-var).
+- Never run strings as code: no `eval`, `new Function`, or string timers (js/no-eval); no `document.write` (js/document-write).
+- Detect features (`'share' in navigator`, `CSS.supports`), never parse `navigator.userAgent` (js/feature-detect).
+- Throw and reject `Error` objects, with `{ cause }` when rethrowing (js/throw-error-objects).
+- Check `res.ok` before reading a `fetch` body (js/fetch-check-ok); give requests a `signal` to cancel or time out.
+- Never leave a `catch` empty (js/no-empty-catch); await, return or `.catch()` every promise (js/no-floating-promises).
+- Attach handlers with `addEventListener` from a module, not `onclick=&quot;...&quot;` attributes (js/no-inline-handlers).
+- Make `touchstart`, `touchmove` and `wheel` listeners `{ passive: true }` unless they call `preventDefault()` (js/passive-listeners).
+- Remove what a view starts (listeners, timers, observers) when it goes away; one `AbortController` signal ends them all (js/listener-cleanup).
+- Import images, fonts and media or use the base-path helper; never hard-code `/images/...` in components (js/asset-import).
+- Read layout (`getBoundingClientRect`, `offsetWidth`) before writing styles, never alternating in a loop.
+
+Before larger changes, read the full skill: `.claude/skills/fe-javascript/SKILL.md`. Explain any rule id with `npx github:dawidolko/frontend-skills explain &lt;id&gt;`.</code></pre></div></div><figcaption>The real file</figcaption></figure>
+</div>
+</div>
+<div class="agent-panel" data-agent="codex">
+<h3 class="panel-title">Where fe-javascript lands for OpenAI Codex</h3>
+<div class="panel-grid">
+<div>
+<ul class="file-list"><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-javascript/SKILL.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-javascript/references/javascript.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg><code>AGENTS.md</code><span class="kind kind-instructions">instruction block</span></li></ul>
+<p class="note">For every agent also: <code>.frontend-skills/profile.json</code>, <code>.frontend-skills/lessons.md</code> and <code>.frontend-skills/install.json</code>.</p>
+
+<p class="note">OpenAI Codex has no rule files scoped to file types; it reads the skills and the instruction block.</p>
+<p class="note">Planned by the installer itself for the example React project in the repository.</p>
+</div>
+<figure class="shot"><div class="window "><div class="window-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="window-title"><code>AGENTS.md</code></span></div><div class="window-body"><pre data-lang="markdown" tabindex="0"><code class="language-markdown">## Front-end work (frontend-skills)
+
+- Before front-end work, read `.frontend-skills/profile.json` (the stack) and `.frontend-skills/lessons.md` (confirmed conventions of this project; they win over any skill).
+- Use the installed `fe-*` skill that matches the files you edit.
+- After changing UI code, run `npx github:dawidolko/frontend-skills audit --changed --json` and fix findings at `serious` and above; `explain &lt;rule id&gt;` gives the reason, the source and the fix.
+- Name rule ids (such as `a11y/img-alt`) in reviews and commit messages.</code></pre></div></div><figcaption>The real file</figcaption></figure>
+</div>
+</div>
+<div class="agent-panel" data-agent="cursor">
+<h3 class="panel-title">Where fe-javascript lands for Cursor</h3>
+<div class="panel-grid">
+<div>
+<ul class="file-list"><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-javascript/SKILL.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-javascript/references/javascript.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#layers"/></svg><code>.cursor/rules/fe-javascript.mdc</code><span class="kind kind-rule">rule file</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg><code>AGENTS.md</code><span class="kind kind-instructions">instruction block</span></li></ul>
+<p class="note">For every agent also: <code>.frontend-skills/profile.json</code>, <code>.frontend-skills/lessons.md</code> and <code>.frontend-skills/install.json</code>.</p>
+
+
+<p class="note">Planned by the installer itself for the example React project in the repository.</p>
+</div>
+<figure class="shot"><div class="window "><div class="window-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="window-title"><code>.cursor/rules/fe-javascript.mdc</code></span></div><div class="window-body"><pre data-lang="markdown" tabindex="0"><code class="language-markdown">---
+description: Writes and reviews browser JavaScript (plain scripts, modules, framework script blocks) - equality, declarations, async and fetch errors, DOM events, assets through the bundler - so it fails loudly, stays fast and keeps working when moved. Use when writing or editing .js, .mjs, .jsx or a script block, debugging a silent failure or a listener leak, or asked to review JavaScript.
+globs: **/*.js, **/*.mjs, **/*.cjs, **/*.jsx, **/*.ts, **/*.tsx
+alwaysApply: false
+---
+
+# JavaScript in the browser (frontend-skills)
+
+- Compare with `===` and `!==` (js/strict-equality); declare with `const`, or `let` when reassigned, never `var` (js/no-var).
+- Never run strings as code: no `eval`, `new Function`, or string timers (js/no-eval); no `document.write` (js/document-write).
+- Detect features (`'share' in navigator`, `CSS.supports`), never parse `navigator.userAgent` (js/feature-detect).
+- Throw and reject `Error` objects, with `{ cause }` when rethrowing (js/throw-error-objects).
+- Check `res.ok` before reading a `fetch` body (js/fetch-check-ok); give requests a `signal` to cancel or time out.
+- Never leave a `catch` empty (js/no-empty-catch); await, return or `.catch()` every promise (js/no-floating-promises).
+- Attach handlers with `addEventListener` from a module, not `onclick=&quot;...&quot;` attributes (js/no-inline-handlers).
+- Make `touchstart`, `touchmove` and `wheel` listeners `{ passive: true }` unless they call `preventDefault()` (js/passive-listeners).
+- Remove what a view starts (listeners, timers, observers) when it goes away; one `AbortController` signal ends them all (js/listener-cleanup).
+- Import images, fonts and media or use the base-path helper; never hard-code `/images/...` in components (js/asset-import).
+- Read layout (`getBoundingClientRect`, `offsetWidth`) before writing styles, never alternating in a loop.
+
+Before larger changes, read the full skill: `.agents/skills/fe-javascript/SKILL.md`. Explain any rule id with `npx github:dawidolko/frontend-skills explain &lt;id&gt;`.</code></pre></div></div><figcaption>The real file</figcaption></figure>
+</div>
+</div>
+<div class="agent-panel" data-agent="copilot">
+<h3 class="panel-title">Where fe-javascript lands for GitHub Copilot</h3>
+<div class="panel-grid">
+<div>
+<ul class="file-list"><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-javascript/SKILL.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-javascript/references/javascript.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#layers"/></svg><code>.github/instructions/fe-javascript.instructions.md</code><span class="kind kind-rule">rule file</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg><code>AGENTS.md</code><span class="kind kind-instructions">instruction block</span></li></ul>
+<p class="note">For every agent also: <code>.frontend-skills/profile.json</code>, <code>.frontend-skills/lessons.md</code> and <code>.frontend-skills/install.json</code>.</p>
+
+
+<p class="note">Planned by the installer itself for the example React project in the repository.</p>
+</div>
+<figure class="shot"><div class="window "><div class="window-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="window-title"><code>.github/instructions/fe-javascript.instructions.md</code></span></div><div class="window-body"><pre data-lang="markdown" tabindex="0"><code class="language-markdown">---
+applyTo: &quot;**/*.js,**/*.mjs,**/*.cjs,**/*.jsx,**/*.ts,**/*.tsx&quot;
+description: &quot;Writes and reviews browser JavaScript (plain scripts, modules, framework script blocks) - equality, declarations, async and fetch errors, DOM events, assets through the bundler - so it fails loudly, stays fast and keeps working when moved. Use when writing or editing .js, .mjs, .jsx or a script block, debugging a silent failure or a listener leak, or asked to review JavaScript.&quot;
+---
+
+# JavaScript in the browser (frontend-skills)
+
+- Compare with `===` and `!==` (js/strict-equality); declare with `const`, or `let` when reassigned, never `var` (js/no-var).
+- Never run strings as code: no `eval`, `new Function`, or string timers (js/no-eval); no `document.write` (js/document-write).
+- Detect features (`'share' in navigator`, `CSS.supports`), never parse `navigator.userAgent` (js/feature-detect).
+- Throw and reject `Error` objects, with `{ cause }` when rethrowing (js/throw-error-objects).
+- Check `res.ok` before reading a `fetch` body (js/fetch-check-ok); give requests a `signal` to cancel or time out.
+- Never leave a `catch` empty (js/no-empty-catch); await, return or `.catch()` every promise (js/no-floating-promises).
+- Attach handlers with `addEventListener` from a module, not `onclick=&quot;...&quot;` attributes (js/no-inline-handlers).
+- Make `touchstart`, `touchmove` and `wheel` listeners `{ passive: true }` unless they call `preventDefault()` (js/passive-listeners).
+- Remove what a view starts (listeners, timers, observers) when it goes away; one `AbortController` signal ends them all (js/listener-cleanup).
+- Import images, fonts and media or use the base-path helper; never hard-code `/images/...` in components (js/asset-import).
+- Read layout (`getBoundingClientRect`, `offsetWidth`) before writing styles, never alternating in a loop.
+
+Before larger changes, read the full skill: `.agents/skills/fe-javascript/SKILL.md`. Explain any rule id with `npx github:dawidolko/frontend-skills explain &lt;id&gt;`.</code></pre></div></div><figcaption>The real file</figcaption></figure>
+</div>
+</div>
+<div class="agent-panel" data-agent="gemini">
+<h3 class="panel-title">Where fe-javascript lands for Gemini CLI</h3>
+<div class="panel-grid">
+<div>
+<ul class="file-list"><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-javascript/SKILL.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-javascript/references/javascript.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg><code>GEMINI.md</code><span class="kind kind-instructions">instruction block</span></li></ul>
+<p class="note">For every agent also: <code>.frontend-skills/profile.json</code>, <code>.frontend-skills/lessons.md</code> and <code>.frontend-skills/install.json</code>.</p>
+<p class="callout callout-info">Gemini CLI: Gemini CLI was replaced by Antigravity CLI for unpaid tiers on 2026-06-18; choose &quot;antigravity&quot; too if you use it.</p>
+<p class="note">Gemini CLI has no rule files scoped to file types; it reads the skills and the instruction block.</p>
+<p class="note">Planned by the installer itself for the example React project in the repository.</p>
+</div>
+<figure class="shot"><div class="window "><div class="window-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="window-title"><code>GEMINI.md</code></span></div><div class="window-body"><pre data-lang="markdown" tabindex="0"><code class="language-markdown">## Front-end work (frontend-skills)
+
+- Before front-end work, read `.frontend-skills/profile.json` (the stack) and `.frontend-skills/lessons.md` (confirmed conventions of this project; they win over any skill).
+- Use the installed `fe-*` skill that matches the files you edit.
+- After changing UI code, run `npx github:dawidolko/frontend-skills audit --changed --json` and fix findings at `serious` and above; `explain &lt;rule id&gt;` gives the reason, the source and the fix.
+- Name rule ids (such as `a11y/img-alt`) in reviews and commit messages.</code></pre></div></div><figcaption>The real file</figcaption></figure>
+</div>
+</div>
+<div class="agent-panel" data-agent="antigravity">
+<h3 class="panel-title">Where fe-javascript lands for Antigravity CLI</h3>
+<div class="panel-grid">
+<div>
+<ul class="file-list"><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-javascript/SKILL.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-javascript/references/javascript.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#layers"/></svg><code>.agents/rules/fe-javascript.md</code><span class="kind kind-rule">rule file</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg><code>AGENTS.md</code><span class="kind kind-instructions">instruction block</span></li></ul>
+<p class="note">For every agent also: <code>.frontend-skills/profile.json</code>, <code>.frontend-skills/lessons.md</code> and <code>.frontend-skills/install.json</code>.</p>
+
+
+<p class="note">Planned by the installer itself for the example React project in the repository.</p>
+</div>
+<figure class="shot"><div class="window "><div class="window-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="window-title"><code>.agents/rules/fe-javascript.md</code></span></div><div class="window-body"><pre data-lang="markdown" tabindex="0"><code class="language-markdown">---
+trigger: glob
+globs: &quot;**/*.js, **/*.mjs, **/*.cjs, **/*.jsx, **/*.ts, **/*.tsx&quot;
+description: &quot;Writes and reviews browser JavaScript (plain scripts, modules, framework script blocks) - equality, declarations, async and fetch errors, DOM events, assets through the bundler - so it fails loudly, stays fast and keeps working when moved. Use when writing or editing .js, .mjs, .jsx or a script block, debugging a silent failure or a listener leak, or asked to review JavaScript.&quot;
+---
+
+# JavaScript in the browser (frontend-skills)
+
+- Compare with `===` and `!==` (js/strict-equality); declare with `const`, or `let` when reassigned, never `var` (js/no-var).
+- Never run strings as code: no `eval`, `new Function`, or string timers (js/no-eval); no `document.write` (js/document-write).
+- Detect features (`'share' in navigator`, `CSS.supports`), never parse `navigator.userAgent` (js/feature-detect).
+- Throw and reject `Error` objects, with `{ cause }` when rethrowing (js/throw-error-objects).
+- Check `res.ok` before reading a `fetch` body (js/fetch-check-ok); give requests a `signal` to cancel or time out.
+- Never leave a `catch` empty (js/no-empty-catch); await, return or `.catch()` every promise (js/no-floating-promises).
+- Attach handlers with `addEventListener` from a module, not `onclick=&quot;...&quot;` attributes (js/no-inline-handlers).
+- Make `touchstart`, `touchmove` and `wheel` listeners `{ passive: true }` unless they call `preventDefault()` (js/passive-listeners).
+- Remove what a view starts (listeners, timers, observers) when it goes away; one `AbortController` signal ends them all (js/listener-cleanup).
+- Import images, fonts and media or use the base-path helper; never hard-code `/images/...` in components (js/asset-import).
+- Read layout (`getBoundingClientRect`, `offsetWidth`) before writing styles, never alternating in a loop.
+
+Before larger changes, read the full skill: `.agents/skills/fe-javascript/SKILL.md`. Explain any rule id with `npx github:dawidolko/frontend-skills explain &lt;id&gt;`.</code></pre></div></div><figcaption>The real file</figcaption></figure>
+</div>
+</div>
+<div class="agent-panel" data-agent="devin">
+<h3 class="panel-title">Where fe-javascript lands for Devin / Windsurf</h3>
+<div class="panel-grid">
+<div>
+<ul class="file-list"><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-javascript/SKILL.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-javascript/references/javascript.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#layers"/></svg><code>.devin/rules/fe-javascript.md</code><span class="kind kind-rule">rule file</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg><code>AGENTS.md</code><span class="kind kind-instructions">instruction block</span></li></ul>
+<p class="note">For every agent also: <code>.frontend-skills/profile.json</code>, <code>.frontend-skills/lessons.md</code> and <code>.frontend-skills/install.json</code>.</p>
+<p class="callout callout-info">Devin / Windsurf: Devin CLI also reads .cursor/rules; with Cursor chosen too, the CLI sees both rule files of a skill.</p>
+
+<p class="note">Planned by the installer itself for the example React project in the repository.</p>
+</div>
+<figure class="shot"><div class="window "><div class="window-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="window-title"><code>.devin/rules/fe-javascript.md</code></span></div><div class="window-body"><pre data-lang="markdown" tabindex="0"><code class="language-markdown">---
+trigger: glob
+globs: &quot;**/*.js,**/*.mjs,**/*.cjs,**/*.jsx,**/*.ts,**/*.tsx&quot;
+---
+
+# JavaScript in the browser (frontend-skills)
+
+Writes and reviews browser JavaScript (plain scripts, modules, framework script blocks) - equality, declarations, async and fetch errors, DOM events, assets through the bundler - so it fails loudly, stays fast and keeps working when moved. Use when writing or editing .js, .mjs, .jsx or a script block, debugging a silent failure or a listener leak, or asked to review JavaScript.
+
+- Compare with `===` and `!==` (js/strict-equality); declare with `const`, or `let` when reassigned, never `var` (js/no-var).
+- Never run strings as code: no `eval`, `new Function`, or string timers (js/no-eval); no `document.write` (js/document-write).
+- Detect features (`'share' in navigator`, `CSS.supports`), never parse `navigator.userAgent` (js/feature-detect).
+- Throw and reject `Error` objects, with `{ cause }` when rethrowing (js/throw-error-objects).
+- Check `res.ok` before reading a `fetch` body (js/fetch-check-ok); give requests a `signal` to cancel or time out.
+- Never leave a `catch` empty (js/no-empty-catch); await, return or `.catch()` every promise (js/no-floating-promises).
+- Attach handlers with `addEventListener` from a module, not `onclick=&quot;...&quot;` attributes (js/no-inline-handlers).
+- Make `touchstart`, `touchmove` and `wheel` listeners `{ passive: true }` unless they call `preventDefault()` (js/passive-listeners).
+- Remove what a view starts (listeners, timers, observers) when it goes away; one `AbortController` signal ends them all (js/listener-cleanup).
+- Import images, fonts and media or use the base-path helper; never hard-code `/images/...` in components (js/asset-import).
+- Read layout (`getBoundingClientRect`, `offsetWidth`) before writing styles, never alternating in a loop.
+
+Before larger changes, read the full skill: `.agents/skills/fe-javascript/SKILL.md`. Explain any rule id with `npx github:dawidolko/frontend-skills explain &lt;id&gt;`.</code></pre></div></div><figcaption>The real file</figcaption></figure>
+</div>
+</div>
+<div class="agent-panel" data-agent="opencode">
+<h3 class="panel-title">Where fe-javascript lands for OpenCode</h3>
+<div class="panel-grid">
+<div>
+<ul class="file-list"><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-javascript/SKILL.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-javascript/references/javascript.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg><code>AGENTS.md</code><span class="kind kind-instructions">instruction block</span></li></ul>
+<p class="note">For every agent also: <code>.frontend-skills/profile.json</code>, <code>.frontend-skills/lessons.md</code> and <code>.frontend-skills/install.json</code>.</p>
+
+<p class="note">OpenCode has no rule files scoped to file types; it reads the skills and the instruction block.</p>
+<p class="note">Planned by the installer itself for the example React project in the repository.</p>
+</div>
+<figure class="shot"><div class="window "><div class="window-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="window-title"><code>AGENTS.md</code></span></div><div class="window-body"><pre data-lang="markdown" tabindex="0"><code class="language-markdown">## Front-end work (frontend-skills)
+
+- Before front-end work, read `.frontend-skills/profile.json` (the stack) and `.frontend-skills/lessons.md` (confirmed conventions of this project; they win over any skill).
+- Use the installed `fe-*` skill that matches the files you edit.
+- After changing UI code, run `npx github:dawidolko/frontend-skills audit --changed --json` and fix findings at `serious` and above; `explain &lt;rule id&gt;` gives the reason, the source and the fix.
+- Name rule ids (such as `a11y/img-alt`) in reviews and commit messages.</code></pre></div></div><figcaption>The real file</figcaption></figure>
+</div>
+</div>
+<div class="agent-panel" data-agent="cline">
+<h3 class="panel-title">Where fe-javascript lands for Cline</h3>
+<div class="panel-grid">
+<div>
+<ul class="file-list"><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.claude/skills/fe-javascript/SKILL.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.claude/skills/fe-javascript/references/javascript.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#layers"/></svg><code>.clinerules/fe-javascript.md</code><span class="kind kind-rule">rule file</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg><code>AGENTS.md</code><span class="kind kind-instructions">instruction block</span></li></ul>
+<p class="note">For every agent also: <code>.frontend-skills/profile.json</code>, <code>.frontend-skills/lessons.md</code> and <code>.frontend-skills/install.json</code>.</p>
+<p class="callout callout-info">Cline: If .clinerules is a single file rather than a folder, Cline rule files are not written; skills still are.</p>
+
+<p class="note">Planned by the installer itself for the example React project in the repository.</p>
+</div>
+<figure class="shot"><div class="window "><div class="window-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="window-title"><code>.clinerules/fe-javascript.md</code></span></div><div class="window-body"><pre data-lang="markdown" tabindex="0"><code class="language-markdown">---
+paths:
+  - &quot;**/*.js&quot;
+  - &quot;**/*.mjs&quot;
+  - &quot;**/*.cjs&quot;
+  - &quot;**/*.jsx&quot;
+  - &quot;**/*.ts&quot;
+  - &quot;**/*.tsx&quot;
+---
+
+# JavaScript in the browser (frontend-skills)
+
+Writes and reviews browser JavaScript (plain scripts, modules, framework script blocks) - equality, declarations, async and fetch errors, DOM events, assets through the bundler - so it fails loudly, stays fast and keeps working when moved. Use when writing or editing .js, .mjs, .jsx or a script block, debugging a silent failure or a listener leak, or asked to review JavaScript.
+
+- Compare with `===` and `!==` (js/strict-equality); declare with `const`, or `let` when reassigned, never `var` (js/no-var).
+- Never run strings as code: no `eval`, `new Function`, or string timers (js/no-eval); no `document.write` (js/document-write).
+- Detect features (`'share' in navigator`, `CSS.supports`), never parse `navigator.userAgent` (js/feature-detect).
+- Throw and reject `Error` objects, with `{ cause }` when rethrowing (js/throw-error-objects).
+- Check `res.ok` before reading a `fetch` body (js/fetch-check-ok); give requests a `signal` to cancel or time out.
+- Never leave a `catch` empty (js/no-empty-catch); await, return or `.catch()` every promise (js/no-floating-promises).
+- Attach handlers with `addEventListener` from a module, not `onclick=&quot;...&quot;` attributes (js/no-inline-handlers).
+- Make `touchstart`, `touchmove` and `wheel` listeners `{ passive: true }` unless they call `preventDefault()` (js/passive-listeners).
+- Remove what a view starts (listeners, timers, observers) when it goes away; one `AbortController` signal ends them all (js/listener-cleanup).
+- Import images, fonts and media or use the base-path helper; never hard-code `/images/...` in components (js/asset-import).
+- Read layout (`getBoundingClientRect`, `offsetWidth`) before writing styles, never alternating in a loop.
+
+Before larger changes, read the full skill: `.claude/skills/fe-javascript/SKILL.md`. Explain any rule id with `npx github:dawidolko/frontend-skills explain &lt;id&gt;`.</code></pre></div></div><figcaption>The real file</figcaption></figure>
+</div>
+</div>
+<div class="agent-panel" data-agent="zed">
+<h3 class="panel-title">Where fe-javascript lands for Zed</h3>
+<div class="panel-grid">
+<div>
+<ul class="file-list"><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-javascript/SKILL.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-javascript/references/javascript.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg><code>CLAUDE.md</code><span class="kind kind-instructions">instruction block</span></li></ul>
+<p class="note">For every agent also: <code>.frontend-skills/profile.json</code>, <code>.frontend-skills/lessons.md</code> and <code>.frontend-skills/install.json</code>.</p>
+<p class="callout callout-info">Zed: Zed reads only the first instruction file of its list; the block is placed in that file.</p>
+<p class="note">Zed has no rule files scoped to file types; it reads the skills and the instruction block.</p>
+<p class="note">Planned by the installer itself for the example React project in the repository.</p>
+</div>
+<figure class="shot"><div class="window "><div class="window-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="window-title"><code>CLAUDE.md</code></span></div><div class="window-body"><pre data-lang="markdown" tabindex="0"><code class="language-markdown">## Front-end work (frontend-skills)
+
+- Before front-end work, read `.frontend-skills/profile.json` (the stack) and `.frontend-skills/lessons.md` (confirmed conventions of this project; they win over any skill).
+- Use the installed `fe-*` skill that matches the files you edit.
+- After changing UI code, run `npx github:dawidolko/frontend-skills audit --changed --json` and fix findings at `serious` and above; `explain &lt;rule id&gt;` gives the reason, the source and the fix.
+- Name rule ids (such as `a11y/img-alt`) in reviews and commit messages.</code></pre></div></div><figcaption>The real file</figcaption></figure>
+</div>
+</div>
+<div class="agent-panel" data-agent="junie">
+<h3 class="panel-title">Where fe-javascript lands for JetBrains Junie</h3>
+<div class="panel-grid">
+<div>
+<ul class="file-list"><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-javascript/SKILL.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-javascript/references/javascript.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg><code>AGENTS.md</code><span class="kind kind-instructions">instruction block</span></li></ul>
+<p class="note">For every agent also: <code>.frontend-skills/profile.json</code>, <code>.frontend-skills/lessons.md</code> and <code>.frontend-skills/install.json</code>.</p>
+<p class="callout callout-info">JetBrains Junie: Junie reads .agents/skills only in a trusted project.</p>
+<p class="note">JetBrains Junie has no rule files scoped to file types; it reads the skills and the instruction block.</p>
+<p class="note">Planned by the installer itself for the example React project in the repository.</p>
+</div>
+<figure class="shot"><div class="window "><div class="window-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="window-title"><code>AGENTS.md</code></span></div><div class="window-body"><pre data-lang="markdown" tabindex="0"><code class="language-markdown">## Front-end work (frontend-skills)
+
+- Before front-end work, read `.frontend-skills/profile.json` (the stack) and `.frontend-skills/lessons.md` (confirmed conventions of this project; they win over any skill).
+- Use the installed `fe-*` skill that matches the files you edit.
+- After changing UI code, run `npx github:dawidolko/frontend-skills audit --changed --json` and fix findings at `serious` and above; `explain &lt;rule id&gt;` gives the reason, the source and the fix.
+- Name rule ids (such as `a11y/img-alt`) in reviews and commit messages.</code></pre></div></div><figcaption>The real file</figcaption></figure>
+</div>
+</div>
+<div class="agent-panel" data-agent="kiro">
+<h3 class="panel-title">Where fe-javascript lands for Kiro</h3>
+<div class="panel-grid">
+<div>
+<ul class="file-list"><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.kiro/skills/fe-javascript/SKILL.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.kiro/skills/fe-javascript/references/javascript.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#layers"/></svg><code>.kiro/steering/fe-javascript.md</code><span class="kind kind-rule">rule file</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg><code>AGENTS.md</code><span class="kind kind-instructions">instruction block</span></li></ul>
+<p class="note">For every agent also: <code>.frontend-skills/profile.json</code>, <code>.frontend-skills/lessons.md</code> and <code>.frontend-skills/install.json</code>.</p>
+
+
+<p class="note">Planned by the installer itself for the example React project in the repository.</p>
+</div>
+<figure class="shot"><div class="window "><div class="window-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="window-title"><code>.kiro/steering/fe-javascript.md</code></span></div><div class="window-body"><pre data-lang="markdown" tabindex="0"><code class="language-markdown">---
+inclusion: fileMatch
+fileMatchPattern: [&quot;**/*.js&quot;, &quot;**/*.mjs&quot;, &quot;**/*.cjs&quot;, &quot;**/*.jsx&quot;, &quot;**/*.ts&quot;, &quot;**/*.tsx&quot;]
+---
+
+# JavaScript in the browser (frontend-skills)
+
+Writes and reviews browser JavaScript (plain scripts, modules, framework script blocks) - equality, declarations, async and fetch errors, DOM events, assets through the bundler - so it fails loudly, stays fast and keeps working when moved. Use when writing or editing .js, .mjs, .jsx or a script block, debugging a silent failure or a listener leak, or asked to review JavaScript.
+
+- Compare with `===` and `!==` (js/strict-equality); declare with `const`, or `let` when reassigned, never `var` (js/no-var).
+- Never run strings as code: no `eval`, `new Function`, or string timers (js/no-eval); no `document.write` (js/document-write).
+- Detect features (`'share' in navigator`, `CSS.supports`), never parse `navigator.userAgent` (js/feature-detect).
+- Throw and reject `Error` objects, with `{ cause }` when rethrowing (js/throw-error-objects).
+- Check `res.ok` before reading a `fetch` body (js/fetch-check-ok); give requests a `signal` to cancel or time out.
+- Never leave a `catch` empty (js/no-empty-catch); await, return or `.catch()` every promise (js/no-floating-promises).
+- Attach handlers with `addEventListener` from a module, not `onclick=&quot;...&quot;` attributes (js/no-inline-handlers).
+- Make `touchstart`, `touchmove` and `wheel` listeners `{ passive: true }` unless they call `preventDefault()` (js/passive-listeners).
+- Remove what a view starts (listeners, timers, observers) when it goes away; one `AbortController` signal ends them all (js/listener-cleanup).
+- Import images, fonts and media or use the base-path helper; never hard-code `/images/...` in components (js/asset-import).
+- Read layout (`getBoundingClientRect`, `offsetWidth`) before writing styles, never alternating in a loop.
+
+Before larger changes, read the full skill: `.kiro/skills/fe-javascript/SKILL.md`. Explain any rule id with `npx github:dawidolko/frontend-skills explain &lt;id&gt;`.</code></pre></div></div><figcaption>The real file</figcaption></figure>
+</div>
+</div>
+<div class="agent-panel" data-agent="augment">
+<h3 class="panel-title">Where fe-javascript lands for Augment</h3>
+<div class="panel-grid">
+<div>
+<ul class="file-list"><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-javascript/SKILL.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-javascript/references/javascript.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg><code>AGENTS.md</code><span class="kind kind-instructions">instruction block</span></li></ul>
+<p class="note">For every agent also: <code>.frontend-skills/profile.json</code>, <code>.frontend-skills/lessons.md</code> and <code>.frontend-skills/install.json</code>.</p>
+
+<p class="note">Augment has no rule files scoped to file types; it reads the skills and the instruction block.</p>
+<p class="note">Planned by the installer itself for the example React project in the repository.</p>
+</div>
+<figure class="shot"><div class="window "><div class="window-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="window-title"><code>AGENTS.md</code></span></div><div class="window-body"><pre data-lang="markdown" tabindex="0"><code class="language-markdown">## Front-end work (frontend-skills)
+
+- Before front-end work, read `.frontend-skills/profile.json` (the stack) and `.frontend-skills/lessons.md` (confirmed conventions of this project; they win over any skill).
+- Use the installed `fe-*` skill that matches the files you edit.
+- After changing UI code, run `npx github:dawidolko/frontend-skills audit --changed --json` and fix findings at `serious` and above; `explain &lt;rule id&gt;` gives the reason, the source and the fix.
+- Name rule ids (such as `a11y/img-alt`) in reviews and commit messages.</code></pre></div></div><figcaption>The real file</figcaption></figure>
+</div>
+</div>
+<div class="agent-panel" data-agent="trae">
+<h3 class="panel-title">Where fe-javascript lands for Trae</h3>
+<div class="panel-grid">
+<div>
+<ul class="file-list"><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.trae/skills/fe-javascript/SKILL.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.trae/skills/fe-javascript/references/javascript.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#layers"/></svg><code>.trae/rules/fe-javascript.md</code><span class="kind kind-rule">rule file</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg><code>AGENTS.md</code><span class="kind kind-instructions">instruction block</span></li></ul>
+<p class="note">For every agent also: <code>.frontend-skills/profile.json</code>, <code>.frontend-skills/lessons.md</code> and <code>.frontend-skills/install.json</code>.</p>
+<p class="callout callout-info">Trae: Trae reads AGENTS.md only after it is enabled in its settings.</p>
+
+<p class="note">Planned by the installer itself for the example React project in the repository.</p>
+</div>
+<figure class="shot"><div class="window "><div class="window-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="window-title"><code>.trae/rules/fe-javascript.md</code></span></div><div class="window-body"><pre data-lang="markdown" tabindex="0"><code class="language-markdown">---
+description: &quot;Writes and reviews browser JavaScript (plain scripts, modules, framework script blocks) - equality, declarations, async and fetch errors, DOM events, assets through the bundler - so it fails loudly, stays fast and keeps working when moved. Use when writing or editing .js, .mjs, .jsx or a script block, debugging a silent failure or a listener leak, or asked to review JavaScript.&quot;
+globs: **/*.js,**/*.mjs,**/*.cjs,**/*.jsx,**/*.ts,**/*.tsx
+alwaysApply: false
+---
+
+# JavaScript in the browser (frontend-skills)
+
+- Compare with `===` and `!==` (js/strict-equality); declare with `const`, or `let` when reassigned, never `var` (js/no-var).
+- Never run strings as code: no `eval`, `new Function`, or string timers (js/no-eval); no `document.write` (js/document-write).
+- Detect features (`'share' in navigator`, `CSS.supports`), never parse `navigator.userAgent` (js/feature-detect).
+- Throw and reject `Error` objects, with `{ cause }` when rethrowing (js/throw-error-objects).
+- Check `res.ok` before reading a `fetch` body (js/fetch-check-ok); give requests a `signal` to cancel or time out.
+- Never leave a `catch` empty (js/no-empty-catch); await, return or `.catch()` every promise (js/no-floating-promises).
+- Attach handlers with `addEventListener` from a module, not `onclick=&quot;...&quot;` attributes (js/no-inline-handlers).
+- Make `touchstart`, `touchmove` and `wheel` listeners `{ passive: true }` unless they call `preventDefault()` (js/passive-listeners).
+- Remove what a view starts (listeners, timers, observers) when it goes away; one `AbortController` signal ends them all (js/listener-cleanup).
+- Import images, fonts and media or use the base-path helper; never hard-code `/images/...` in components (js/asset-import).
+- Read layout (`getBoundingClientRect`, `offsetWidth`) before writing styles, never alternating in a loop.
+
+Before larger changes, read the full skill: `.trae/skills/fe-javascript/SKILL.md`. Explain any rule id with `npx github:dawidolko/frontend-skills explain &lt;id&gt;`.</code></pre></div></div><figcaption>The real file</figcaption></figure>
+</div>
+</div>
+<div class="agent-panel" data-agent="continue">
+<h3 class="panel-title">Where fe-javascript lands for Continue</h3>
+<div class="panel-grid">
+<div>
+<ul class="file-list"><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.frontend-skills/skills/fe-javascript/SKILL.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.frontend-skills/skills/fe-javascript/references/javascript.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#layers"/></svg><code>.continue/rules/fe-javascript.md</code><span class="kind kind-rule">rule file</span></li></ul>
+<p class="note">For every agent also: <code>.frontend-skills/profile.json</code>, <code>.frontend-skills/lessons.md</code> and <code>.frontend-skills/install.json</code>.</p>
+
+
+<p class="note">Planned by the installer itself for the example React project in the repository.</p>
+</div>
+<figure class="shot"><div class="window "><div class="window-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="window-title"><code>.continue/rules/fe-javascript.md</code></span></div><div class="window-body"><pre data-lang="markdown" tabindex="0"><code class="language-markdown">---
+name: &quot;JavaScript in the browser&quot;
+description: &quot;Writes and reviews browser JavaScript (plain scripts, modules, framework script blocks) - equality, declarations, async and fetch errors, DOM events, assets through the bundler - so it fails loudly, stays fast and keeps working when moved. Use when writing or editing .js, .mjs, .jsx or a script block, debugging a silent failure or a listener leak, or asked to review JavaScript.&quot;
+globs: [&quot;**/*.js&quot;, &quot;**/*.mjs&quot;, &quot;**/*.cjs&quot;, &quot;**/*.jsx&quot;, &quot;**/*.ts&quot;, &quot;**/*.tsx&quot;]
+alwaysApply: false
+---
+
+# JavaScript in the browser (frontend-skills)
+
+- Compare with `===` and `!==` (js/strict-equality); declare with `const`, or `let` when reassigned, never `var` (js/no-var).
+- Never run strings as code: no `eval`, `new Function`, or string timers (js/no-eval); no `document.write` (js/document-write).
+- Detect features (`'share' in navigator`, `CSS.supports`), never parse `navigator.userAgent` (js/feature-detect).
+- Throw and reject `Error` objects, with `{ cause }` when rethrowing (js/throw-error-objects).
+- Check `res.ok` before reading a `fetch` body (js/fetch-check-ok); give requests a `signal` to cancel or time out.
+- Never leave a `catch` empty (js/no-empty-catch); await, return or `.catch()` every promise (js/no-floating-promises).
+- Attach handlers with `addEventListener` from a module, not `onclick=&quot;...&quot;` attributes (js/no-inline-handlers).
+- Make `touchstart`, `touchmove` and `wheel` listeners `{ passive: true }` unless they call `preventDefault()` (js/passive-listeners).
+- Remove what a view starts (listeners, timers, observers) when it goes away; one `AbortController` signal ends them all (js/listener-cleanup).
+- Import images, fonts and media or use the base-path helper; never hard-code `/images/...` in components (js/asset-import).
+- Read layout (`getBoundingClientRect`, `offsetWidth`) before writing styles, never alternating in a loop.
+
+Before larger changes, read the full skill: `.frontend-skills/skills/fe-javascript/SKILL.md`. Explain any rule id with `npx github:dawidolko/frontend-skills explain &lt;id&gt;`.</code></pre></div></div><figcaption>The real file</figcaption></figure>
+</div>
+</div>
+<div class="agent-panel" data-agent="amazonq">
+<h3 class="panel-title">Where fe-javascript lands for Amazon Q Developer</h3>
+<div class="panel-grid">
+<div>
+<ul class="file-list"><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.frontend-skills/skills/fe-javascript/SKILL.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.frontend-skills/skills/fe-javascript/references/javascript.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg><code>.amazonq/rules/frontend-skills.md</code><span class="kind kind-instructions">instruction block</span></li></ul>
+<p class="note">For every agent also: <code>.frontend-skills/profile.json</code>, <code>.frontend-skills/lessons.md</code> and <code>.frontend-skills/install.json</code>.</p>
+<p class="callout callout-info">Amazon Q Developer: Amazon Q Developer IDE plugins reach end of support on 2027-04-30; AWS points to Kiro.</p>
+<p class="note">Amazon Q Developer has no rule files scoped to file types; it reads the skills and the instruction block.</p>
+<p class="note">Planned by the installer itself for the example React project in the repository.</p>
+</div>
+<figure class="shot"><div class="window "><div class="window-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="window-title"><code>.amazonq/rules/frontend-skills.md</code></span></div><div class="window-body"><pre data-lang="markdown" tabindex="0"><code class="language-markdown">## Front-end work (frontend-skills)
+
+- Before front-end work, read `.frontend-skills/profile.json` (the stack) and `.frontend-skills/lessons.md` (confirmed conventions of this project; they win over any skill).
+- Use the installed `fe-*` skill that matches the files you edit.
+- After changing UI code, run `npx github:dawidolko/frontend-skills audit --changed --json` and fix findings at `serious` and above; `explain &lt;rule id&gt;` gives the reason, the source and the fix.
+- Name rule ids (such as `a11y/img-alt`) in reviews and commit messages.
+
+### Skills
+
+- `fe-javascript` (JavaScript in the browser): when editing `**/*.js`, `**/*.mjs`, `**/*.cjs`, `**/*.jsx`, `**/*.ts`, `**/*.tsx`, first read `.frontend-skills/skills/fe-javascript/SKILL.md`.</code></pre></div></div><figcaption>The real file</figcaption></figure>
+</div>
+</div>
+<div class="agent-panel" data-agent="aider">
+<h3 class="panel-title">Where fe-javascript lands for Aider</h3>
+<div class="panel-grid">
+<div>
+<ul class="file-list"><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.frontend-skills/skills/fe-javascript/SKILL.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.frontend-skills/skills/fe-javascript/references/javascript.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg><code>CONVENTIONS.md</code><span class="kind kind-instructions">instruction block</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.aider.conf.yml</code><span class="kind kind-config">config</span></li></ul>
+<p class="note">For every agent also: <code>.frontend-skills/profile.json</code>, <code>.frontend-skills/lessons.md</code> and <code>.frontend-skills/install.json</code>.</p>
+
+<p class="note">Aider has no rule files scoped to file types; it reads the skills and the instruction block.</p>
+<p class="note">Planned by the installer itself for the example React project in the repository.</p>
+</div>
+<figure class="shot"><div class="window "><div class="window-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="window-title"><code>CONVENTIONS.md</code></span></div><div class="window-body"><pre data-lang="markdown" tabindex="0"><code class="language-markdown">## Front-end work (frontend-skills)
+
+- Before front-end work, read `.frontend-skills/profile.json` (the stack) and `.frontend-skills/lessons.md` (confirmed conventions of this project; they win over any skill).
+- Use the installed `fe-*` skill that matches the files you edit.
+- After changing UI code, run `npx github:dawidolko/frontend-skills audit --changed --json` and fix findings at `serious` and above; `explain &lt;rule id&gt;` gives the reason, the source and the fix.
+- Name rule ids (such as `a11y/img-alt`) in reviews and commit messages.
+
+### Skills
+
+- `fe-javascript` (JavaScript in the browser): when editing `**/*.js`, `**/*.mjs`, `**/*.cjs`, `**/*.jsx`, `**/*.ts`, `**/*.tsx`, first read `.frontend-skills/skills/fe-javascript/SKILL.md`.</code></pre></div></div><figcaption>The real file</figcaption></figure>
+</div>
+</div>
+</section>
+<section aria-labelledby="how-to"><h2 id="how-to"><svg class="icon heading-icon" width="24" height="24" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#chat"/></svg>How to use it</h2>
+<p>Once installed, the agent loads the skill by itself when a task matches its description. You can also ask for it in your own words, for example:</p>
+
+<p>And to check and fix the work:</p><ul class="prompts"><li><svg class="icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#chat"/></svg><span>Use the fe-javascript skill on this file.</span></li><li><svg class="icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#chat"/></svg><span>Run the front-end audit on what I changed and fix everything serious.</span></li><li><svg class="icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#chat"/></svg><span>Explain js/strict-equality and fix it here.</span></li></ul>
+</section>
+<section aria-labelledby="rules"><h2 id="rules"><svg class="icon heading-icon" width="24" height="24" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg>Rules it teaches</h2>
+<ul class="rule-cards"><li class="rule-card lift sev-edge-minor"><a class="rule-id tile-link" href="/rules/js/strict-equality/"><code>js/strict-equality</code></a><p>Compare with === and !==; loose == and != convert types first (x == null as a deliberate null-or-undefined test is the exception).</p><p class="rule-meta"><span class="sev sev-minor">minor</span><span class="tag">static</span></p></li><li class="rule-card lift sev-edge-minor"><a class="rule-id tile-link" href="/rules/js/no-var/"><code>js/no-var</code></a><p>Declare variables with const, or let when they are reassigned; never with var.</p><p class="rule-meta"><span class="sev sev-minor">minor</span><span class="tag">static</span></p></li><li class="rule-card lift sev-edge-serious"><a class="rule-id tile-link" href="/rules/js/no-eval/"><code>js/no-eval</code></a><p>Never run strings as code - no eval, new Function, or a string as the first argument of setTimeout or setInterval.</p><p class="rule-meta"><span class="sev sev-serious">serious</span><span class="tag">static</span></p></li><li class="rule-card lift sev-edge-moderate"><a class="rule-id tile-link" href="/rules/js/document-write/"><code>js/document-write</code></a><p>Never insert content with document.write; create elements or load scripts with the DOM.</p><p class="rule-meta"><span class="sev sev-moderate">moderate</span><span class="tag">static</span></p></li><li class="rule-card lift sev-edge-minor"><a class="rule-id tile-link" href="/rules/js/feature-detect/"><code>js/feature-detect</code></a><p>Test for the feature you need (in, CSS.supports, matchMedia), not the browser name in navigator.userAgent.</p><p class="rule-meta"><span class="sev sev-minor">minor</span><span class="tag">static</span></p></li><li class="rule-card lift sev-edge-minor"><a class="rule-id tile-link" href="/rules/js/throw-error-objects/"><code>js/throw-error-objects</code></a><p>Throw and reject with Error objects (or subclasses), never with strings or plain objects.</p><p class="rule-meta"><span class="sev sev-minor">minor</span><span class="tag">static</span></p></li><li class="rule-card lift sev-edge-moderate"><a class="rule-id tile-link" href="/rules/js/fetch-check-ok/"><code>js/fetch-check-ok</code></a><p>After fetch, check response.ok (or the status) before reading the body; fetch does not reject on 404 or 500.</p><p class="rule-meta"><span class="sev sev-moderate">moderate</span><span class="tag">static</span></p></li><li class="rule-card lift sev-edge-moderate"><a class="rule-id tile-link" href="/rules/js/no-empty-catch/"><code>js/no-empty-catch</code></a><p>A catch block never swallows an error silently; handle it, report it, or say in a comment why it is safe to ignore.</p><p class="rule-meta"><span class="sev sev-moderate">moderate</span><span class="tag">static</span></p></li><li class="rule-card lift sev-edge-moderate"><a class="rule-id tile-link" href="/rules/js/no-floating-promises/"><code>js/no-floating-promises</code></a><p>Every promise is awaited, returned or given a .catch(); an async call is never left floating.</p><p class="rule-meta"><span class="sev sev-moderate">moderate</span><span class="tag">manual</span></p></li><li class="rule-card lift sev-edge-moderate"><a class="rule-id tile-link" href="/rules/js/no-inline-handlers/"><code>js/no-inline-handlers</code></a><p>Attach event handlers from script with addEventListener, not with onclick=&quot;...&quot; attributes in HTML.</p><p class="rule-meta"><span class="sev sev-moderate">moderate</span><span class="tag">static</span></p></li><li class="rule-card lift sev-edge-moderate"><a class="rule-id tile-link" href="/rules/js/passive-listeners/"><code>js/passive-listeners</code></a><p>Mark touchstart, touchmove and wheel listeners { passive true } unless the handler really calls preventDefault().</p><p class="rule-meta"><span class="sev sev-moderate">moderate</span><span class="tag">static</span></p></li><li class="rule-card lift sev-edge-moderate"><a class="rule-id tile-link" href="/rules/js/listener-cleanup/"><code>js/listener-cleanup</code></a><p>Listeners, timers and observers a view starts are removed when it goes away; one AbortController signal can end them all.</p><p class="rule-meta"><span class="sev sev-moderate">moderate</span><span class="tag">manual</span></p></li><li class="rule-card lift sev-edge-moderate"><a class="rule-id tile-link" href="/rules/js/asset-import/"><code>js/asset-import</code></a><p>In a bundled project, images, fonts and media in component markup are imported or use the base-path helper, not hard-coded root paths.</p><p class="rule-meta"><span class="sev sev-moderate">moderate</span><span class="tag">static</span></p></li></ul>
+</section>
+<section aria-labelledby="digest"><h2 id="digest"><svg class="icon heading-icon" width="24" height="24" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#layers"/></svg>The rule digest</h2><p>This part is copied into each agent's scoped rule file, so it stands on its own:</p><div class="digest" lang="en"><ul><li>Compare with <code>===</code> and <code>!==</code> (<a href="/rules/js/strict-equality/">js/strict-equality</a>); declare with <code>const</code>, or <code>let</code> when reassigned, never <code>var</code> (<a href="/rules/js/no-var/">js/no-var</a>).</li><li>Never run strings as code: no <code>eval</code>, <code>new Function</code>, or string timers (<a href="/rules/js/no-eval/">js/no-eval</a>); no <code>document.write</code> (<a href="/rules/js/document-write/">js/document-write</a>).</li><li>Detect features (<code>'share' in navigator</code>, <code>CSS.supports</code>), never parse <code>navigator.userAgent</code> (<a href="/rules/js/feature-detect/">js/feature-detect</a>).</li><li>Throw and reject <code>Error</code> objects, with <code>{ cause }</code> when rethrowing (<a href="/rules/js/throw-error-objects/">js/throw-error-objects</a>).</li><li>Check <code>res.ok</code> before reading a <code>fetch</code> body (<a href="/rules/js/fetch-check-ok/">js/fetch-check-ok</a>); give requests a <code>signal</code> to cancel or time out.</li><li>Never leave a <code>catch</code> empty (<a href="/rules/js/no-empty-catch/">js/no-empty-catch</a>); await, return or <code>.catch()</code> every promise (<a href="/rules/js/no-floating-promises/">js/no-floating-promises</a>).</li><li>Attach handlers with <code>addEventListener</code> from a module, not <code>onclick=&quot;...&quot;</code> attributes (<a href="/rules/js/no-inline-handlers/">js/no-inline-handlers</a>).</li><li>Make <code>touchstart</code>, <code>touchmove</code> and <code>wheel</code> listeners <code>{ passive: true }</code> unless they call <code>preventDefault()</code> (<a href="/rules/js/passive-listeners/">js/passive-listeners</a>).</li><li>Remove what a view starts (listeners, timers, observers) when it goes away; one <code>AbortController</code> signal ends them all (<a href="/rules/js/listener-cleanup/">js/listener-cleanup</a>).</li><li>Import images, fonts and media or use the base-path helper; never hard-code <code>/images/...</code> in components (<a href="/rules/js/asset-import/">js/asset-import</a>).</li><li>Read layout (<code>getBoundingClientRect</code>, <code>offsetWidth</code>) before writing styles, never alternating in a loop.</li></ul></div></section>
+<section aria-labelledby="do"><h2 id="do"><svg class="icon heading-icon" width="24" height="24" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#workflow"/></svg>Steps the agent follows</h2><div lang="en"><ol><li>Load app code as modules: <code>&lt;script type=&quot;module&quot; src&gt;</code> (deferred and strict by default). A classic script in <code>&lt;head&gt;</code> gets <code>defer</code> (<a href="/rules/perf/render-blocking-script/">perf/render-blocking-script</a>).</li><li>Insert text with <code>textContent</code>; markup from users only through a sanitizer (see the <code>fe-security</code> skill).</li><li>Wrap <code>fetch</code> once: a helper that adds <code>signal</code> (<code>AbortSignal.any([controller.signal, AbortSignal.timeout(8000)])</code>), checks <code>ok</code>, throws an <code>Error</code> with the status, and parses JSON. Show loading, empty and error states where it is called.</li><li>Use event delegation for lists and tables: one listener on the container, <code>event.target.closest('[data-id]')</code>.</li><li>Split rarely used features with <code>import()</code>; keep work off the main thread when a handler takes longer than about 50 ms (<code>scheduler.yield()</code> where supported, or <code>setTimeout</code> chunks).</li><li>In TypeScript files also follow <code>fe-typescript</code>; in a framework, its skill decides where effects and listeners live.</li></ol></div></section>
+<section aria-labelledby="check"><h2 id="check"><svg class="icon heading-icon" width="24" height="24" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#check"/></svg>How the agent checks the work</h2><div lang="en"><ul><li><code>npx github:dawidolko/frontend-skills audit --changed</code> reports loose equality, <code>var</code>, eval, <code>document.write</code>, user-agent sniffing, thrown literals, unchecked <code>fetch</code>, empty catches, inline handlers, non-passive scroll listeners and hard-coded asset paths.</li><li>Run the project's ESLint (<code>eqeqeq</code>, <code>no-var</code>, <code>no-implied-eval</code>, <code>no-empty</code>); with TypeScript, the typed rule <code>@typescript-eslint/no-floating-promises</code>.</li><li>In DevTools, the Performance panel's &quot;Forced reflow&quot; warnings and the Memory panel after navigating away and back show thrashing and leaks.</li></ul></div></section>
+<section aria-labelledby="checked"><h2 id="checked"><svg class="icon heading-icon" width="24" height="24" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#report"/></svg>Checked by the audit</h2>
+<p>The static checks of these rules run in <code>audit</code>; this is a real session on the example project:</p>
+<figure class="recording"><picture><source media="(prefers-reduced-motion: reduce)" srcset="/media/audit.png" width="842" height="584"><img src="/media/audit.svg" width="842" height="584" alt="Terminal recording: audit lists findings by severity with rule ids and file:line, and fails at serious." data-still="/media/audit.png" loading="lazy" decoding="async"></picture><figcaption><code>audit</code>: counts by severity, each rule with its first location, the exit code.</figcaption></figure>
+</section>
+<section aria-labelledby="refs"><h2 id="refs"><svg class="icon heading-icon" width="24" height="24" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg>Reference files</h2><ul class="file-list"><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><a href="https://github.com/dawidolko/frontend-skills/blob/main/skills/foundations/fe-javascript/references/javascript.md"><code>references/javascript.md</code></a><span class="kind">1903 tokens</span></li></ul></section>
+<p class="source-link"><a href="https://github.com/dawidolko/frontend-skills/blob/main/skills/foundations/fe-javascript/SKILL.md"><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#github"/></svg>SKILL.md on GitHub</a></p>
 </main>
+<aside class="docs-outline"><nav aria-labelledby="outline-title"><h2 id="outline-title">On this page</h2><ol><li><a href="#install">Install</a></li><li><a href="#how-to">How to use it</a></li><li><a href="#rules">Rules it teaches</a></li><li><a href="#digest">The rule digest</a></li><li><a href="#do">Steps the agent follows</a></li><li><a href="#check">How the agent checks the work</a></li><li><a href="#checked">Checked by the audit</a></li><li><a href="#refs">Reference files</a></li></ol></nav></aside>
+</div>
 <footer class="site-footer">
-<div class="wrap footer-inner">
-<div class="footer-text">
+<div class="wrap footer-grid">
+<div class="footer-brand-col">
 <p class="footer-brand"><svg class="brand-mark" viewBox="0 0 32 32" width="32" height="32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="8" fill="currentColor"/><path d="M12.5 10 7 16l5.5 6M19.5 10 25 16l-5.5 6" fill="none" stroke="var(--logo-ink)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Frontend Skills</span></p>
+<p>Skills and a rule dictionary for AI coding agents that write front-end code.</p>
 <p>Free and open source under the MIT licence, made by <a href="https://dawidolko.pl">Dawid Olko</a>.</p>
+</div>
+<nav class="footer-nav" aria-label="More">
+<div class="footer-col"><h2>Guide</h2><ul><li><a href="/">Home</a></li><li><a href="/how-it-works/">How it works</a></li><li><a href="/commands/">Commands</a></li><li><a href="/faq/">FAQ</a></li></ul></div>
+<div class="footer-col"><h2>Dictionary</h2><ul><li><a href="/rules/">All rules</a></li><li><a href="/rules/#area-a11y">Accessibility</a></li><li><a href="/rules/#area-perf">Performance</a></li><li><a href="/rules/#area-html">HTML</a></li><li><a href="/rules/#area-css">CSS</a></li><li><a href="/rules/#area-responsive">Responsive layout</a></li><li><a href="/rules/#area-js">JavaScript</a></li></ul></div>
+<div class="footer-col"><h2>Skills</h2><ul><li><a href="/skills/">All skills</a></li><li><a href="/skills/#sa-foundations">Foundations</a></li><li><a href="/skills/#sa-styling">Styling</a></li><li><a href="/skills/#sa-frameworks">Frameworks</a></li><li><a href="/skills/#sa-accessibility">Accessibility</a></li><li><a href="/skills/#sa-performance">Performance</a></li><li><a href="/skills/#sa-quality">Quality</a></li></ul></div>
+<div class="footer-col"><h2>Project</h2><ul><li><a href="https://github.com/dawidolko/frontend-skills">GitHub</a></li><li><a href="https://github.com/dawidolko/frontend-skills/issues">Report an issue</a></li><li><a href="/about/#licence">MIT licence</a></li><li><a href="/about/">About</a></li><li><a href="https://dawidolko.pl">dawidolko.pl</a></li></ul></div>
+</nav>
+</div>
+<div class="wrap footer-legal">
 <p>Built to WCAG 2.2 AA as a target. Automated checks find only part of the problems.</p>
 <p>No cookies, no analytics, no third-party requests. The accessibility button keeps its settings on your device.</p>
-</div>
-<nav aria-label="More"><ul class="footer-nav"><li><a href="/">Home</a></li><li><a href="/how-it-works/">How it works</a></li><li><a href="/rules/">Rules</a></li><li><a href="/skills/">Skills</a></li><li><a href="/commands/">Commands</a></li><li><a href="/faq/">FAQ</a></li><li><a href="/about/">About</a></li><li><a href="https://github.com/dawidolko/frontend-skills">GitHub</a></li></ul></nav>
 </div>
 </footer>
 <p id="live-status" class="visually-hidden" role="status" aria-live="polite"></p>

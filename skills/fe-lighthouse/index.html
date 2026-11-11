@@ -5,17 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Lighthouse and PageSpeed (fe-lighthouse) · Frontend Skills</title>
 <meta name="description" content="Runs and reads Lighthouse 13 for performance, accessibility, best practices and SEO - locally, in Chrome DevTools, PageSpeed Insights and CI with…">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-V2yAsoxJIibu4bEYhDOwR/ucB/Zr0RzUJUEQYpXs6vQ='; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="color-scheme" content="light dark">
-<meta name="theme-color" content="#faf7fc" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#0d0d0f" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#0d0d0f">
+<script>(function(){try{var t=localStorage.getItem("fs-theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}})();</script>
 <link rel="canonical" href="https://skills.dawidolko.pl/skills/fe-lighthouse/">
 <link rel="alternate" hreflang="en" href="https://skills.dawidolko.pl/skills/fe-lighthouse/">
 <link rel="alternate" hreflang="pl" href="https://skills.dawidolko.pl/pl/skills/fe-lighthouse/">
 <link rel="alternate" hreflang="x-default" href="https://skills.dawidolko.pl/skills/fe-lighthouse/">
 <link rel="preload" href="/assets/fonts/opensans-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/styles.css?v=fbc2d7ae26">
+<link rel="stylesheet" href="/assets/styles.css?v=c56b96b9b9">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Frontend Skills">
@@ -31,56 +31,541 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="author" content="Dawid Olko">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://skills.dawidolko.pl/"},{"@type":"ListItem","position":2,"name":"Skills","item":"https://skills.dawidolko.pl/skills/"},{"@type":"ListItem","position":3,"name":"Lighthouse and PageSpeed","item":"https://skills.dawidolko.pl/skills/fe-lighthouse/"}]}</script>
-<script src="/assets/site.js?v=dd8cab0a79" defer></script>
+<script src="/assets/site.js?v=6b0081a976" defer></script>
 <script src="/a11y/a11y-panel.js?v=39d6e82235" data-accent="#9b00c2" defer></script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="site-header">
-<div class="wrap header-inner">
+<div class="wrap-wide header-inner">
 <a class="brand" href="/"><svg class="brand-mark" viewBox="0 0 32 32" width="32" height="32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="8" fill="currentColor"/><path d="M12.5 10 7 16l5.5 6M19.5 10 25 16l-5.5 6" fill="none" stroke="var(--logo-ink)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="brand-name">Frontend Skills</span></a>
 <nav class="main-nav" aria-label="Main"><ul><li><a href="/how-it-works/">How it works</a></li><li><a href="/rules/">Rules</a></li><li><a href="/skills/" class="is-section">Skills</a></li><li><a href="/commands/">Commands</a></li><li><a href="/faq/">FAQ</a></li></ul></nav>
 <div class="header-tools">
+<div class="theme-switch" role="group" aria-label="Colour theme" hidden><button type="button" class="theme-btn" data-theme-set="light" aria-pressed="false" aria-label="Light theme" title="Light theme"><svg class="icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#sun"/></svg></button><button type="button" class="theme-btn" data-theme-set="system" aria-pressed="true" aria-label="Follow the system theme" title="Follow the system theme"><svg class="icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#system"/></svg></button><button type="button" class="theme-btn" data-theme-set="dark" aria-pressed="false" aria-label="Dark theme" title="Dark theme"><svg class="icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#moon"/></svg></button></div>
 <a class="lang-switch" href="/pl/skills/fe-lighthouse/" hreflang="pl" lang="pl" title="Ta strona po polsku">Polski</a>
-<a class="gh-link" href="https://github.com/dawidolko/frontend-skills" aria-label="Source code on GitHub"><svg viewBox="0 0 16 16" width="20" height="20" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg></a>
+<a class="gh-link" href="https://github.com/dawidolko/frontend-skills" aria-label="Source code on GitHub"><svg class="icon" width="22" height="22" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#github"/></svg></a>
 </div>
 </div>
 </header>
-<main id="main" tabindex="-1">
-<div class="page-head"><div class="wrap">
+<div class="docs wrap-wide">
+<button type="button" class="docs-toggle" popovertarget="docs-nav" aria-controls="docs-nav"><svg class="icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#menu"/></svg><span>Skill groups</span></button>
+<nav id="docs-nav" class="docs-nav" popover aria-label="Skill groups">
+<div class="docs-nav-head"><span>Skill groups</span><button type="button" class="docs-close" popovertarget="docs-nav" popovertargetaction="hide" aria-label="Close the chapters"><svg class="icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#close"/></svg></button></div>
+<a class="side-top" href="/skills/"><svg class="icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#layers"/></svg><span>All skills</span><span class="side-count">50</span></a>
+<ul class="side-chapters"><li><details><summary><svg class="icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#foundations"/></svg><span class="side-label">Foundations</span><span class="side-count">5</span></summary><ul>
+<li><a href="/skills/fe-forms/">Native forms and validation</a></li><li><a href="/skills/fe-html/">HTML documents and semantics</a></li><li><a href="/skills/fe-javascript/">JavaScript in the browser</a></li><li><a href="/skills/fe-responsive/">Responsive design</a></li><li><a href="/skills/fe-typescript/">TypeScript</a></li>
+</ul></details></li><li><details><summary><svg class="icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#styling"/></svg><span class="side-label">Styling</span><span class="side-count">7</span></summary><ul>
+<li><a href="/skills/fe-css-architecture/">CSS architecture and tokens</a></li><li><a href="/skills/fe-css-layout/">CSS layout</a></li><li><a href="/skills/fe-css-modern/">Modern CSS features</a></li><li><a href="/skills/fe-icons/">Icons</a></li><li><a href="/skills/fe-motion/">Motion and animation</a></li><li><a href="/skills/fe-sass/">Sass (SCSS)</a></li><li><a href="/skills/fe-tailwind/">Tailwind CSS</a></li>
+</ul></details></li><li><details><summary><svg class="icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#framework"/></svg><span class="side-label">Frameworks</span><span class="side-count">11</span></summary><ul>
+<li><a href="/skills/fe-angular/">Angular components</a></li><li><a href="/skills/fe-astro/">Astro sites and islands</a></li><li><a href="/skills/fe-data-fetching/">Data fetching</a></li><li><a href="/skills/fe-nextjs/">Next.js App Router</a></li><li><a href="/skills/fe-nuxt/">Nuxt apps</a></li><li><a href="/skills/fe-react/">React components</a></li><li><a href="/skills/fe-state/">State and stores</a></li><li><a href="/skills/fe-svelte/">Svelte components</a></li><li><a href="/skills/fe-sveltekit/">SvelteKit apps</a></li><li><a href="/skills/fe-vue/">Vue components</a></li><li><a href="/skills/fe-web-components/">Web components and Lit</a></li>
+</ul></details></li><li><details><summary><svg class="icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#a11y"/></svg><span class="side-label">Accessibility</span><span class="side-count">12</span></summary><ul>
+<li><a href="/skills/fe-a11y-aria/">ARIA, names and live regions</a></li><li><a href="/skills/fe-a11y-carousel-toast/">Carousels and toasts</a></li><li><a href="/skills/fe-a11y-combobox/">Combobox, listbox and custom select</a></li><li><a href="/skills/fe-a11y-core/">Accessibility, WCAG 2.2 map</a></li><li><a href="/skills/fe-a11y-dialog/">Dialogs and modals</a></li><li><a href="/skills/fe-a11y-forms/">Accessible forms</a></li><li><a href="/skills/fe-a11y-keyboard/">Keyboard access and focus</a></li><li><a href="/skills/fe-a11y-media/">Media, motion and flashing</a></li><li><a href="/skills/fe-a11y-menus/">Navigation, disclosures and menus</a></li><li><a href="/skills/fe-a11y-tables/">Data tables</a></li><li><a href="/skills/fe-a11y-tabs-accordion/">Tabs and accordions</a></li><li><a href="/skills/fe-a11y-visual/">Contrast, colour, size and reflow</a></li>
+</ul></details></li><li><details open><summary><svg class="icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#perf"/></svg><span class="side-label">Performance</span><span class="side-count">5</span></summary><ul>
+<li><a href="/skills/fe-core-web-vitals/">Core Web Vitals</a></li><li><a href="/skills/fe-fonts/">Web fonts</a></li><li><a href="/skills/fe-images/">Images and media delivery</a></li><li><a href="/skills/fe-lighthouse/" aria-current="page">Lighthouse and PageSpeed</a></li><li><a href="/skills/fe-perf-delivery/">JavaScript, CSS and asset delivery</a></li>
+</ul></details></li><li><details><summary><svg class="icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#quality"/></svg><span class="side-label">Quality</span><span class="side-count">5</span></summary><ul>
+<li><a href="/skills/fe-i18n/">Internationalisation</a></li><li><a href="/skills/fe-security/">Front-end security</a></li><li><a href="/skills/fe-seo-metadata/">SEO and metadata</a></li><li><a href="/skills/fe-testing/">Front-end testing</a></li><li><a href="/skills/fe-tooling/">Build, lint and format tooling</a></li>
+</ul></details></li><li><details><summary><svg class="icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#workflow"/></svg><span class="side-label">Workflow</span><span class="side-count">5</span></summary><ul>
+<li><a href="/skills/fe-audit/">Audit the project</a></li><li><a href="/skills/fe-component/">Build a component</a></li><li><a href="/skills/fe-fix/">Fix findings</a></li><li><a href="/skills/fe-learn/">Learn the project</a></li><li><a href="/skills/fe-review/">Review a change</a></li>
+</ul></details></li></ul>
+</nav>
+<main id="main" tabindex="-1" class="docs-main">
+<div class="page-head">
 <nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><a href="/skills/">Skills</a></li><li><span aria-current="page">Lighthouse and PageSpeed</span></li></ol></nav>
+<p class="eyebrow eyebrow-docs"><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#perf"/></svg>Performance</p>
 <h1>Lighthouse and PageSpeed</h1>
 <p class="lead">Runs and reads Lighthouse 13 for performance, accessibility, best practices and SEO - locally, in Chrome DevTools, PageSpeed Insights and CI with Lighthouse CI - and turns the report into fixes without chasing the score. Use when asked to run Lighthouse or PageSpeed, set up performance budgets or a CI gate, explain a score or an insight, or &quot;get the page to green&quot;.</p>
-</div></div>
-<div class="wrap rule-layout">
-<div class="prose">
-<section aria-labelledby="rules"><h2 id="rules">Rules it teaches</h2>
-<ul class="rule-list compact"><li class="rule-item"><a class="rule-id" href="/rules/perf/lighthouse-ci/"><code>perf/lighthouse-ci</code></a><p class="rule-title">Lighthouse in CI runs each URL several times, asserts on metrics and categories with realistic thresholds, and never demands a perfect 100.</p><p class="rule-meta"><span class="sev sev-minor">minor</span> <span class="tag tag-manual">manual</span></p></li><li class="rule-item"><a class="rule-id" href="/rules/perf/field-data-p75/"><code>perf/field-data-p75</code></a><p class="rule-title">Claims about Core Web Vitals come from field data at the 75th percentile, not from a Lighthouse score.</p><p class="rule-meta"><span class="sev sev-minor">minor</span> <span class="tag tag-manual">manual</span></p></li><li class="rule-item"><a class="rule-id" href="/rules/tooling/console-clean/"><code>tooling/console-clean</code></a><p class="rule-title">Pages log no errors and use no deprecated browser APIs, as seen in the console on load and in the main flows.</p><p class="rule-meta"><span class="sev sev-minor">minor</span> <span class="tag tag-browser">browser</span></p></li><li class="rule-item"><a class="rule-id" href="/rules/perf/lcp-image/"><code>perf/lcp-image</code></a><p class="rule-title">The LCP image is in the initial HTML, not lazy, and has fetchpriority=&quot;high&quot;; a CSS background LCP image is preloaded.</p><p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-browser">browser</span></p></li><li class="rule-item"><a class="rule-id" href="/rules/perf/layout-shift/"><code>perf/layout-shift</code></a><p class="rule-title">Nothing moves after it appears - space is reserved for images, embeds, ads and late content (CLS 0.1 or less).</p><p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-browser">browser</span></p></li><li class="rule-item"><a class="rule-id" href="/rules/perf/code-split/"><code>perf/code-split</code></a><p class="rule-title">JavaScript is split by route, and features that most visits do not use load on demand with dynamic import().</p><p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-browser">browser</span></p></li></ul></section>
-<section aria-labelledby="digest"><h2 id="digest">The rule digest</h2><p>This part is copied into each agent's scoped rule file, so it stands on its own:</p><div class="digest"><ul><li>The performance score weights TBT 30, LCP 25, CLS 25, FCP 10, Speed Index 10; fix the heaviest failing metric first.</li><li>Run the mobile preset (the default) and <code>--preset=desktop</code> separately; report which one.</li><li>Run at least three times and use the median; never gate CI on one run or on 100 (<a href="/rules/perf/lighthouse-ci/">perf/lighthouse-ci</a>).</li><li>A lab score is not a Core Web Vitals result; vitals come from field data at p75 (<a href="/rules/perf/field-data-p75/">perf/field-data-p75</a>).</li><li>Lighthouse 13 shows insights (LCP discovery, layout shift culprits, render blocking, third parties) instead of the old opportunities; read them for causes (<a href="/rules/perf/lcp-image/">perf/lcp-image</a>, <a href="/rules/perf/layout-shift/">perf/layout-shift</a>, <a href="/rules/perf/code-split/">perf/code-split</a>).</li><li>Accessibility 100 means no automated audit failed, not that the page is accessible; do the manual checks.</li><li>Keep the console free of errors and deprecated APIs (<a href="/rules/tooling/console-clean/">tooling/console-clean</a>).</li><li>Test production builds on a quiet machine in a clean profile (no extensions), not the dev server.</li><li>Never optimise for the score by hiding content from Lighthouse or detecting its user agent.</li></ul></div></section>
-<section aria-labelledby="do"><h2 id="do">Steps the agent follows</h2><ol><li>Build and serve the production output locally (<code>npm run build</code> then the framework's preview), or use the deployed URL.</li><li>Run <code>npx github:dawidolko/frontend-skills audit --url &lt;url&gt;</code>: it runs Lighthouse and axe-core in the local Chrome (after a yes) and maps results to rule ids. Or run <code>npx lighthouse@13.6.0 &lt;url&gt; --output=json --output-path=./lh.json --quiet</code>.</li><li>Read in order: metric values, then the insights for the failing metric, then diagnostics. Fix one cause, rebuild, rerun three times.</li><li>For CI, add <code>@lhci/cli</code> with a <code>lighthouserc.json</code>: several URLs, <code>numberOfRuns: 3</code>, metric assertions, results kept as artefacts.</li><li>Write results with the tool version, preset, number of runs and date.</li></ol></section>
-<section aria-labelledby="check"><h2 id="check">How the agent checks the work</h2><ul><li><code>npx github:dawidolko/frontend-skills audit --url &lt;url&gt;</code> gives the four category scores, the lab metrics and findings by rule id.</li><li>PageSpeed Insights (<a href="https://pagespeed.web.dev/">https://pagespeed.web.dev/</a>) adds field data for public URLs with enough traffic.</li><li>Compare two runs with the Lighthouse viewer or <code>lhci</code> server only when both used the same preset and machine.</li></ul></section>
-<section aria-labelledby="refs"><h2 id="refs">Reference files</h2><ul><li><a href="https://github.com/dawidolko/frontend-skills/blob/main/skills/performance/fe-lighthouse/references/lighthouse.md"><code>references/lighthouse.md</code></a> · 1485 tokens</li></ul></section>
-<section aria-labelledby="agents"><h2 id="agents">Written for</h2>
-<p>every agent the project uses: Claude Code, OpenAI Codex, Cursor, GitHub Copilot, Gemini CLI, Antigravity CLI, Devin / Windsurf, OpenCode, Cline, Zed, JetBrains Junie, Kiro, Augment, Trae, Continue, Amazon Q Developer, Aider.</p>
-<p>Agents that also get a rule file scoped to these files: Claude Code, Cursor, GitHub Copilot, Antigravity CLI, Devin / Windsurf, Cline, Kiro, Trae, Continue.</p></section>
+<p class="chips"><span class="tag"><code>fe-lighthouse</code></span><span class="tag"><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#framework"/></svg>every web project</span><span class="tag"><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg>6 rules</span><span class="tag"><svg class="icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#perf"/></svg>82 tokens always loaded, 820 tokens when used, 1485 tokens in references on demand.</span></p>
 </div>
-<aside class="facts" aria-labelledby="facts-title">
-<h2 id="facts-title">Facts</h2>
-<dl><dt>Name</dt><dd><code>fe-lighthouse</code></dd><dt>Area</dt><dd>Performance</dd><dt>Installed when the project uses</dt><dd>every web project</dd><dt>Files it is about</dt><dd><code>**/lighthouserc*</code> <code>**/.lighthouserc*</code> <code>**/*.html</code></dd><dt>Token cost</dt><dd>82 tokens always loaded, 820 tokens when used, 1485 tokens in references on demand.</dd></dl>
-<p><a href="https://github.com/dawidolko/frontend-skills/blob/main/skills/performance/fe-lighthouse/SKILL.md">SKILL.md on GitHub</a></p>
-<p><a href="/skills/">All skills</a></p>
-</aside>
+<section class="install" data-install aria-labelledby="install">
+<h2 id="install"><svg class="icon heading-icon" width="24" height="24" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#terminal"/></svg>Install</h2>
+<p><code>init</code> installs this skill when the project uses every web project. Pick your agent to see where its files land.</p>
+<div class="install-controls">
+<fieldset class="seg" data-runners hidden><legend>Run with</legend><div class="seg-options"><label class="seg-opt"><input type="radio" name="runner-ins-1" value="npx" data-template="npx github:dawidolko/frontend-skills {args}" checked><span>npx</span></label><label class="seg-opt"><input type="radio" name="runner-ins-1" value="pnpm" data-template="pnpm dlx github:dawidolko/frontend-skills {args}"><span>pnpm dlx</span></label><label class="seg-opt"><input type="radio" name="runner-ins-1" value="yarn" data-template="yarn dlx -p github:dawidolko/frontend-skills frontend-skills {args}"><span>yarn dlx</span></label><label class="seg-opt"><input type="radio" name="runner-ins-1" value="bun" data-template="bunx github:dawidolko/frontend-skills {args}"><span>bunx</span></label></div></fieldset>
+<fieldset class="seg seg-agents"><legend>Agent</legend><div class="seg-options"><label class="seg-opt"><input type="radio" name="agent-ins-1" value="auto" checked><span>Detect</span></label><label class="seg-opt"><input type="radio" name="agent-ins-1" value="claude"><span>Claude Code</span></label><label class="seg-opt"><input type="radio" name="agent-ins-1" value="codex"><span>OpenAI Codex</span></label><label class="seg-opt"><input type="radio" name="agent-ins-1" value="cursor"><span>Cursor</span></label><label class="seg-opt"><input type="radio" name="agent-ins-1" value="copilot"><span>GitHub Copilot</span></label><label class="seg-opt"><input type="radio" name="agent-ins-1" value="gemini"><span>Gemini CLI</span></label><label class="seg-opt"><input type="radio" name="agent-ins-1" value="antigravity"><span>Antigravity CLI</span></label><label class="seg-opt"><input type="radio" name="agent-ins-1" value="devin"><span>Devin / Windsurf</span></label><label class="seg-opt"><input type="radio" name="agent-ins-1" value="opencode"><span>OpenCode</span></label><label class="seg-opt"><input type="radio" name="agent-ins-1" value="cline"><span>Cline</span></label><label class="seg-opt"><input type="radio" name="agent-ins-1" value="zed"><span>Zed</span></label><label class="seg-opt"><input type="radio" name="agent-ins-1" value="junie"><span>JetBrains Junie</span></label><label class="seg-opt"><input type="radio" name="agent-ins-1" value="kiro"><span>Kiro</span></label><label class="seg-opt"><input type="radio" name="agent-ins-1" value="augment"><span>Augment</span></label><label class="seg-opt"><input type="radio" name="agent-ins-1" value="trae"><span>Trae</span></label><label class="seg-opt"><input type="radio" name="agent-ins-1" value="continue"><span>Continue</span></label><label class="seg-opt"><input type="radio" name="agent-ins-1" value="amazonq"><span>Amazon Q Developer</span></label><label class="seg-opt"><input type="radio" name="agent-ins-1" value="aider"><span>Aider</span></label></div></fieldset>
 </div>
+<div class="command"><pre class="command-text"><code id="cmd-2" data-args="init">npx github:<wbr>dawidolko/<wbr>frontend-skills init</code></pre><button type="button" class="copy-button" data-copy="cmd-2" data-done="Copied to the clipboard." data-fail="Copying failed; select the text and copy it by hand." aria-label="Copy the command" hidden><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#copy"/></svg><span>Copy</span></button></div>
+<p class="callout callout-warn runner-note" hidden>Not tested yet with this runner. <code>npx</code> and <code>pnpm dlx</code> are tested; if this one fails, use one of them.</p>
+<div class="agent-panel" data-agent="auto">
+<p>Without <code>--agents</code>, <code>init</code> finds the agents from what the project already has, and asks when it finds none:</p>
+<div class="table-wrap" tabindex="0" role="region" aria-label="Found by"><table class="compact-table"><thead><tr><th scope="col">Agent</th><th scope="col">Found by</th></tr></thead><tbody><tr><th scope="row">Claude Code</th><td><code>CLAUDE.md</code> <code>.claude</code> <code>CLAUDE.local.md</code></td></tr><tr><th scope="row">OpenAI Codex</th><td><code>.codex</code> <code>AGENTS.override.md</code></td></tr><tr><th scope="row">Cursor</th><td><code>.cursor</code> <code>.cursorrules</code></td></tr><tr><th scope="row">GitHub Copilot</th><td><code>.github/copilot-instructions.md</code> <code>.github/instructions</code> <code>.github/skills</code> <code>.github/prompts</code></td></tr><tr><th scope="row">Gemini CLI</th><td><code>GEMINI.md</code> <code>.gemini</code></td></tr><tr><th scope="row">Antigravity CLI</th><td><code>.agents/rules</code> <code>.agent/rules</code></td></tr><tr><th scope="row">Devin / Windsurf</th><td><code>.devin</code> <code>.windsurf</code> <code>.windsurfrules</code></td></tr><tr><th scope="row">OpenCode</th><td><code>opencode.json</code> <code>opencode.jsonc</code> <code>.opencode</code></td></tr><tr><th scope="row">Cline</th><td><code>.clinerules</code> <code>.cline</code></td></tr><tr><th scope="row">Zed</th><td><code>.rules</code> <code>.zed</code></td></tr><tr><th scope="row">JetBrains Junie</th><td><code>.junie</code></td></tr><tr><th scope="row">Kiro</th><td><code>.kiro</code></td></tr><tr><th scope="row">Augment</th><td><code>.augment</code> <code>.augment-guidelines</code></td></tr><tr><th scope="row">Trae</th><td><code>.trae</code></td></tr><tr><th scope="row">Continue</th><td><code>.continue</code></td></tr><tr><th scope="row">Amazon Q Developer</th><td><code>.amazonq</code></td></tr><tr><th scope="row">Aider</th><td><code>.aider.conf.yml</code> <code>CONVENTIONS.md</code></td></tr></tbody></table></div>
+</div>
+<div class="agent-panel" data-agent="claude">
+<h3 class="panel-title">Where fe-lighthouse lands for Claude Code</h3>
+<div class="panel-grid">
+<div>
+<ul class="file-list"><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.claude/skills/fe-lighthouse/SKILL.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.claude/skills/fe-lighthouse/references/lighthouse.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#layers"/></svg><code>.claude/rules/fe-lighthouse.md</code><span class="kind kind-rule">rule file</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg><code>CLAUDE.md</code><span class="kind kind-instructions">instruction block</span></li></ul>
+<p class="note">For every agent also: <code>.frontend-skills/profile.json</code>, <code>.frontend-skills/lessons.md</code> and <code>.frontend-skills/install.json</code>.</p>
+
+
+<p class="note">Planned by the installer itself for the example React project in the repository.</p>
+</div>
+<figure class="shot"><div class="window "><div class="window-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="window-title"><code>.claude/rules/fe-lighthouse.md</code></span></div><div class="window-body"><pre data-lang="markdown" tabindex="0"><code class="language-markdown">---
+paths:
+  - &quot;**/lighthouserc*&quot;
+  - &quot;**/.lighthouserc*&quot;
+  - &quot;**/*.html&quot;
+---
+
+# Lighthouse and PageSpeed (frontend-skills)
+
+Runs and reads Lighthouse 13 for performance, accessibility, best practices and SEO - locally, in Chrome DevTools, PageSpeed Insights and CI with Lighthouse CI - and turns the report into fixes without chasing the score. Use when asked to run Lighthouse or PageSpeed, set up performance budgets or a CI gate, explain a score or an insight, or &quot;get the page to green&quot;.
+
+- The performance score weights TBT 30, LCP 25, CLS 25, FCP 10, Speed Index 10; fix the heaviest failing metric first.
+- Run the mobile preset (the default) and `--preset=desktop` separately; report which one.
+- Run at least three times and use the median; never gate CI on one run or on 100 (perf/lighthouse-ci).
+- A lab score is not a Core Web Vitals result; vitals come from field data at p75 (perf/field-data-p75).
+- Lighthouse 13 shows insights (LCP discovery, layout shift culprits, render blocking, third parties) instead of the old opportunities; read them for causes (perf/lcp-image, perf/layout-shift, perf/code-split).
+- Accessibility 100 means no automated audit failed, not that the page is accessible; do the manual checks.
+- Keep the console free of errors and deprecated APIs (tooling/console-clean).
+- Test production builds on a quiet machine in a clean profile (no extensions), not the dev server.
+- Never optimise for the score by hiding content from Lighthouse or detecting its user agent.
+
+Before larger changes, read the full skill: `.claude/skills/fe-lighthouse/SKILL.md`. Explain any rule id with `npx github:dawidolko/frontend-skills explain &lt;id&gt;`.</code></pre></div></div><figcaption>The real file</figcaption></figure>
+</div>
+</div>
+<div class="agent-panel" data-agent="codex">
+<h3 class="panel-title">Where fe-lighthouse lands for OpenAI Codex</h3>
+<div class="panel-grid">
+<div>
+<ul class="file-list"><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-lighthouse/SKILL.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-lighthouse/references/lighthouse.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg><code>AGENTS.md</code><span class="kind kind-instructions">instruction block</span></li></ul>
+<p class="note">For every agent also: <code>.frontend-skills/profile.json</code>, <code>.frontend-skills/lessons.md</code> and <code>.frontend-skills/install.json</code>.</p>
+
+<p class="note">OpenAI Codex has no rule files scoped to file types; it reads the skills and the instruction block.</p>
+<p class="note">Planned by the installer itself for the example React project in the repository.</p>
+</div>
+<figure class="shot"><div class="window "><div class="window-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="window-title"><code>AGENTS.md</code></span></div><div class="window-body"><pre data-lang="markdown" tabindex="0"><code class="language-markdown">## Front-end work (frontend-skills)
+
+- Before front-end work, read `.frontend-skills/profile.json` (the stack) and `.frontend-skills/lessons.md` (confirmed conventions of this project; they win over any skill).
+- Use the installed `fe-*` skill that matches the files you edit.
+- After changing UI code, run `npx github:dawidolko/frontend-skills audit --changed --json` and fix findings at `serious` and above; `explain &lt;rule id&gt;` gives the reason, the source and the fix.
+- Name rule ids (such as `a11y/img-alt`) in reviews and commit messages.</code></pre></div></div><figcaption>The real file</figcaption></figure>
+</div>
+</div>
+<div class="agent-panel" data-agent="cursor">
+<h3 class="panel-title">Where fe-lighthouse lands for Cursor</h3>
+<div class="panel-grid">
+<div>
+<ul class="file-list"><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-lighthouse/SKILL.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-lighthouse/references/lighthouse.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#layers"/></svg><code>.cursor/rules/fe-lighthouse.mdc</code><span class="kind kind-rule">rule file</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg><code>AGENTS.md</code><span class="kind kind-instructions">instruction block</span></li></ul>
+<p class="note">For every agent also: <code>.frontend-skills/profile.json</code>, <code>.frontend-skills/lessons.md</code> and <code>.frontend-skills/install.json</code>.</p>
+
+
+<p class="note">Planned by the installer itself for the example React project in the repository.</p>
+</div>
+<figure class="shot"><div class="window "><div class="window-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="window-title"><code>.cursor/rules/fe-lighthouse.mdc</code></span></div><div class="window-body"><pre data-lang="markdown" tabindex="0"><code class="language-markdown">---
+description: Runs and reads Lighthouse 13 for performance, accessibility, best practices and SEO - locally, in Chrome DevTools, PageSpeed Insights and CI with Lighthouse CI - and turns the report into fixes without chasing the score. Use when asked to run Lighthouse or PageSpeed, set up performance budgets or a CI gate, explain a score or an insight, or &quot;get the page to green&quot;.
+globs: **/lighthouserc*, **/.lighthouserc*, **/*.html
+alwaysApply: false
+---
+
+# Lighthouse and PageSpeed (frontend-skills)
+
+- The performance score weights TBT 30, LCP 25, CLS 25, FCP 10, Speed Index 10; fix the heaviest failing metric first.
+- Run the mobile preset (the default) and `--preset=desktop` separately; report which one.
+- Run at least three times and use the median; never gate CI on one run or on 100 (perf/lighthouse-ci).
+- A lab score is not a Core Web Vitals result; vitals come from field data at p75 (perf/field-data-p75).
+- Lighthouse 13 shows insights (LCP discovery, layout shift culprits, render blocking, third parties) instead of the old opportunities; read them for causes (perf/lcp-image, perf/layout-shift, perf/code-split).
+- Accessibility 100 means no automated audit failed, not that the page is accessible; do the manual checks.
+- Keep the console free of errors and deprecated APIs (tooling/console-clean).
+- Test production builds on a quiet machine in a clean profile (no extensions), not the dev server.
+- Never optimise for the score by hiding content from Lighthouse or detecting its user agent.
+
+Before larger changes, read the full skill: `.agents/skills/fe-lighthouse/SKILL.md`. Explain any rule id with `npx github:dawidolko/frontend-skills explain &lt;id&gt;`.</code></pre></div></div><figcaption>The real file</figcaption></figure>
+</div>
+</div>
+<div class="agent-panel" data-agent="copilot">
+<h3 class="panel-title">Where fe-lighthouse lands for GitHub Copilot</h3>
+<div class="panel-grid">
+<div>
+<ul class="file-list"><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-lighthouse/SKILL.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-lighthouse/references/lighthouse.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#layers"/></svg><code>.github/instructions/fe-lighthouse.instructions.md</code><span class="kind kind-rule">rule file</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg><code>AGENTS.md</code><span class="kind kind-instructions">instruction block</span></li></ul>
+<p class="note">For every agent also: <code>.frontend-skills/profile.json</code>, <code>.frontend-skills/lessons.md</code> and <code>.frontend-skills/install.json</code>.</p>
+
+
+<p class="note">Planned by the installer itself for the example React project in the repository.</p>
+</div>
+<figure class="shot"><div class="window "><div class="window-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="window-title"><code>.github/instructions/fe-lighthouse.instructions.md</code></span></div><div class="window-body"><pre data-lang="markdown" tabindex="0"><code class="language-markdown">---
+applyTo: &quot;**/lighthouserc*,**/.lighthouserc*,**/*.html&quot;
+description: &quot;Runs and reads Lighthouse 13 for performance, accessibility, best practices and SEO - locally, in Chrome DevTools, PageSpeed Insights and CI with Lighthouse CI - and turns the report into fixes without chasing the score. Use when asked to run Lighthouse or PageSpeed, set up performance budgets or a CI gate, explain a score or an insight, or \&quot;get the page to green\&quot;.&quot;
+---
+
+# Lighthouse and PageSpeed (frontend-skills)
+
+- The performance score weights TBT 30, LCP 25, CLS 25, FCP 10, Speed Index 10; fix the heaviest failing metric first.
+- Run the mobile preset (the default) and `--preset=desktop` separately; report which one.
+- Run at least three times and use the median; never gate CI on one run or on 100 (perf/lighthouse-ci).
+- A lab score is not a Core Web Vitals result; vitals come from field data at p75 (perf/field-data-p75).
+- Lighthouse 13 shows insights (LCP discovery, layout shift culprits, render blocking, third parties) instead of the old opportunities; read them for causes (perf/lcp-image, perf/layout-shift, perf/code-split).
+- Accessibility 100 means no automated audit failed, not that the page is accessible; do the manual checks.
+- Keep the console free of errors and deprecated APIs (tooling/console-clean).
+- Test production builds on a quiet machine in a clean profile (no extensions), not the dev server.
+- Never optimise for the score by hiding content from Lighthouse or detecting its user agent.
+
+Before larger changes, read the full skill: `.agents/skills/fe-lighthouse/SKILL.md`. Explain any rule id with `npx github:dawidolko/frontend-skills explain &lt;id&gt;`.</code></pre></div></div><figcaption>The real file</figcaption></figure>
+</div>
+</div>
+<div class="agent-panel" data-agent="gemini">
+<h3 class="panel-title">Where fe-lighthouse lands for Gemini CLI</h3>
+<div class="panel-grid">
+<div>
+<ul class="file-list"><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-lighthouse/SKILL.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-lighthouse/references/lighthouse.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg><code>GEMINI.md</code><span class="kind kind-instructions">instruction block</span></li></ul>
+<p class="note">For every agent also: <code>.frontend-skills/profile.json</code>, <code>.frontend-skills/lessons.md</code> and <code>.frontend-skills/install.json</code>.</p>
+<p class="callout callout-info">Gemini CLI: Gemini CLI was replaced by Antigravity CLI for unpaid tiers on 2026-06-18; choose &quot;antigravity&quot; too if you use it.</p>
+<p class="note">Gemini CLI has no rule files scoped to file types; it reads the skills and the instruction block.</p>
+<p class="note">Planned by the installer itself for the example React project in the repository.</p>
+</div>
+<figure class="shot"><div class="window "><div class="window-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="window-title"><code>GEMINI.md</code></span></div><div class="window-body"><pre data-lang="markdown" tabindex="0"><code class="language-markdown">## Front-end work (frontend-skills)
+
+- Before front-end work, read `.frontend-skills/profile.json` (the stack) and `.frontend-skills/lessons.md` (confirmed conventions of this project; they win over any skill).
+- Use the installed `fe-*` skill that matches the files you edit.
+- After changing UI code, run `npx github:dawidolko/frontend-skills audit --changed --json` and fix findings at `serious` and above; `explain &lt;rule id&gt;` gives the reason, the source and the fix.
+- Name rule ids (such as `a11y/img-alt`) in reviews and commit messages.</code></pre></div></div><figcaption>The real file</figcaption></figure>
+</div>
+</div>
+<div class="agent-panel" data-agent="antigravity">
+<h3 class="panel-title">Where fe-lighthouse lands for Antigravity CLI</h3>
+<div class="panel-grid">
+<div>
+<ul class="file-list"><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-lighthouse/SKILL.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-lighthouse/references/lighthouse.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#layers"/></svg><code>.agents/rules/fe-lighthouse.md</code><span class="kind kind-rule">rule file</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg><code>AGENTS.md</code><span class="kind kind-instructions">instruction block</span></li></ul>
+<p class="note">For every agent also: <code>.frontend-skills/profile.json</code>, <code>.frontend-skills/lessons.md</code> and <code>.frontend-skills/install.json</code>.</p>
+
+
+<p class="note">Planned by the installer itself for the example React project in the repository.</p>
+</div>
+<figure class="shot"><div class="window "><div class="window-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="window-title"><code>.agents/rules/fe-lighthouse.md</code></span></div><div class="window-body"><pre data-lang="markdown" tabindex="0"><code class="language-markdown">---
+trigger: glob
+globs: &quot;**/lighthouserc*, **/.lighthouserc*, **/*.html&quot;
+description: &quot;Runs and reads Lighthouse 13 for performance, accessibility, best practices and SEO - locally, in Chrome DevTools, PageSpeed Insights and CI with Lighthouse CI - and turns the report into fixes without chasing the score. Use when asked to run Lighthouse or PageSpeed, set up performance budgets or a CI gate, explain a score or an insight, or \&quot;get the page to green\&quot;.&quot;
+---
+
+# Lighthouse and PageSpeed (frontend-skills)
+
+- The performance score weights TBT 30, LCP 25, CLS 25, FCP 10, Speed Index 10; fix the heaviest failing metric first.
+- Run the mobile preset (the default) and `--preset=desktop` separately; report which one.
+- Run at least three times and use the median; never gate CI on one run or on 100 (perf/lighthouse-ci).
+- A lab score is not a Core Web Vitals result; vitals come from field data at p75 (perf/field-data-p75).
+- Lighthouse 13 shows insights (LCP discovery, layout shift culprits, render blocking, third parties) instead of the old opportunities; read them for causes (perf/lcp-image, perf/layout-shift, perf/code-split).
+- Accessibility 100 means no automated audit failed, not that the page is accessible; do the manual checks.
+- Keep the console free of errors and deprecated APIs (tooling/console-clean).
+- Test production builds on a quiet machine in a clean profile (no extensions), not the dev server.
+- Never optimise for the score by hiding content from Lighthouse or detecting its user agent.
+
+Before larger changes, read the full skill: `.agents/skills/fe-lighthouse/SKILL.md`. Explain any rule id with `npx github:dawidolko/frontend-skills explain &lt;id&gt;`.</code></pre></div></div><figcaption>The real file</figcaption></figure>
+</div>
+</div>
+<div class="agent-panel" data-agent="devin">
+<h3 class="panel-title">Where fe-lighthouse lands for Devin / Windsurf</h3>
+<div class="panel-grid">
+<div>
+<ul class="file-list"><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-lighthouse/SKILL.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-lighthouse/references/lighthouse.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#layers"/></svg><code>.devin/rules/fe-lighthouse.md</code><span class="kind kind-rule">rule file</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg><code>AGENTS.md</code><span class="kind kind-instructions">instruction block</span></li></ul>
+<p class="note">For every agent also: <code>.frontend-skills/profile.json</code>, <code>.frontend-skills/lessons.md</code> and <code>.frontend-skills/install.json</code>.</p>
+<p class="callout callout-info">Devin / Windsurf: Devin CLI also reads .cursor/rules; with Cursor chosen too, the CLI sees both rule files of a skill.</p>
+
+<p class="note">Planned by the installer itself for the example React project in the repository.</p>
+</div>
+<figure class="shot"><div class="window "><div class="window-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="window-title"><code>.devin/rules/fe-lighthouse.md</code></span></div><div class="window-body"><pre data-lang="markdown" tabindex="0"><code class="language-markdown">---
+trigger: glob
+globs: &quot;**/lighthouserc*,**/.lighthouserc*,**/*.html&quot;
+---
+
+# Lighthouse and PageSpeed (frontend-skills)
+
+Runs and reads Lighthouse 13 for performance, accessibility, best practices and SEO - locally, in Chrome DevTools, PageSpeed Insights and CI with Lighthouse CI - and turns the report into fixes without chasing the score. Use when asked to run Lighthouse or PageSpeed, set up performance budgets or a CI gate, explain a score or an insight, or &quot;get the page to green&quot;.
+
+- The performance score weights TBT 30, LCP 25, CLS 25, FCP 10, Speed Index 10; fix the heaviest failing metric first.
+- Run the mobile preset (the default) and `--preset=desktop` separately; report which one.
+- Run at least three times and use the median; never gate CI on one run or on 100 (perf/lighthouse-ci).
+- A lab score is not a Core Web Vitals result; vitals come from field data at p75 (perf/field-data-p75).
+- Lighthouse 13 shows insights (LCP discovery, layout shift culprits, render blocking, third parties) instead of the old opportunities; read them for causes (perf/lcp-image, perf/layout-shift, perf/code-split).
+- Accessibility 100 means no automated audit failed, not that the page is accessible; do the manual checks.
+- Keep the console free of errors and deprecated APIs (tooling/console-clean).
+- Test production builds on a quiet machine in a clean profile (no extensions), not the dev server.
+- Never optimise for the score by hiding content from Lighthouse or detecting its user agent.
+
+Before larger changes, read the full skill: `.agents/skills/fe-lighthouse/SKILL.md`. Explain any rule id with `npx github:dawidolko/frontend-skills explain &lt;id&gt;`.</code></pre></div></div><figcaption>The real file</figcaption></figure>
+</div>
+</div>
+<div class="agent-panel" data-agent="opencode">
+<h3 class="panel-title">Where fe-lighthouse lands for OpenCode</h3>
+<div class="panel-grid">
+<div>
+<ul class="file-list"><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-lighthouse/SKILL.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-lighthouse/references/lighthouse.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg><code>AGENTS.md</code><span class="kind kind-instructions">instruction block</span></li></ul>
+<p class="note">For every agent also: <code>.frontend-skills/profile.json</code>, <code>.frontend-skills/lessons.md</code> and <code>.frontend-skills/install.json</code>.</p>
+
+<p class="note">OpenCode has no rule files scoped to file types; it reads the skills and the instruction block.</p>
+<p class="note">Planned by the installer itself for the example React project in the repository.</p>
+</div>
+<figure class="shot"><div class="window "><div class="window-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="window-title"><code>AGENTS.md</code></span></div><div class="window-body"><pre data-lang="markdown" tabindex="0"><code class="language-markdown">## Front-end work (frontend-skills)
+
+- Before front-end work, read `.frontend-skills/profile.json` (the stack) and `.frontend-skills/lessons.md` (confirmed conventions of this project; they win over any skill).
+- Use the installed `fe-*` skill that matches the files you edit.
+- After changing UI code, run `npx github:dawidolko/frontend-skills audit --changed --json` and fix findings at `serious` and above; `explain &lt;rule id&gt;` gives the reason, the source and the fix.
+- Name rule ids (such as `a11y/img-alt`) in reviews and commit messages.</code></pre></div></div><figcaption>The real file</figcaption></figure>
+</div>
+</div>
+<div class="agent-panel" data-agent="cline">
+<h3 class="panel-title">Where fe-lighthouse lands for Cline</h3>
+<div class="panel-grid">
+<div>
+<ul class="file-list"><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.claude/skills/fe-lighthouse/SKILL.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.claude/skills/fe-lighthouse/references/lighthouse.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#layers"/></svg><code>.clinerules/fe-lighthouse.md</code><span class="kind kind-rule">rule file</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg><code>AGENTS.md</code><span class="kind kind-instructions">instruction block</span></li></ul>
+<p class="note">For every agent also: <code>.frontend-skills/profile.json</code>, <code>.frontend-skills/lessons.md</code> and <code>.frontend-skills/install.json</code>.</p>
+<p class="callout callout-info">Cline: If .clinerules is a single file rather than a folder, Cline rule files are not written; skills still are.</p>
+
+<p class="note">Planned by the installer itself for the example React project in the repository.</p>
+</div>
+<figure class="shot"><div class="window "><div class="window-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="window-title"><code>.clinerules/fe-lighthouse.md</code></span></div><div class="window-body"><pre data-lang="markdown" tabindex="0"><code class="language-markdown">---
+paths:
+  - &quot;**/lighthouserc*&quot;
+  - &quot;**/.lighthouserc*&quot;
+  - &quot;**/*.html&quot;
+---
+
+# Lighthouse and PageSpeed (frontend-skills)
+
+Runs and reads Lighthouse 13 for performance, accessibility, best practices and SEO - locally, in Chrome DevTools, PageSpeed Insights and CI with Lighthouse CI - and turns the report into fixes without chasing the score. Use when asked to run Lighthouse or PageSpeed, set up performance budgets or a CI gate, explain a score or an insight, or &quot;get the page to green&quot;.
+
+- The performance score weights TBT 30, LCP 25, CLS 25, FCP 10, Speed Index 10; fix the heaviest failing metric first.
+- Run the mobile preset (the default) and `--preset=desktop` separately; report which one.
+- Run at least three times and use the median; never gate CI on one run or on 100 (perf/lighthouse-ci).
+- A lab score is not a Core Web Vitals result; vitals come from field data at p75 (perf/field-data-p75).
+- Lighthouse 13 shows insights (LCP discovery, layout shift culprits, render blocking, third parties) instead of the old opportunities; read them for causes (perf/lcp-image, perf/layout-shift, perf/code-split).
+- Accessibility 100 means no automated audit failed, not that the page is accessible; do the manual checks.
+- Keep the console free of errors and deprecated APIs (tooling/console-clean).
+- Test production builds on a quiet machine in a clean profile (no extensions), not the dev server.
+- Never optimise for the score by hiding content from Lighthouse or detecting its user agent.
+
+Before larger changes, read the full skill: `.claude/skills/fe-lighthouse/SKILL.md`. Explain any rule id with `npx github:dawidolko/frontend-skills explain &lt;id&gt;`.</code></pre></div></div><figcaption>The real file</figcaption></figure>
+</div>
+</div>
+<div class="agent-panel" data-agent="zed">
+<h3 class="panel-title">Where fe-lighthouse lands for Zed</h3>
+<div class="panel-grid">
+<div>
+<ul class="file-list"><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-lighthouse/SKILL.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-lighthouse/references/lighthouse.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg><code>CLAUDE.md</code><span class="kind kind-instructions">instruction block</span></li></ul>
+<p class="note">For every agent also: <code>.frontend-skills/profile.json</code>, <code>.frontend-skills/lessons.md</code> and <code>.frontend-skills/install.json</code>.</p>
+<p class="callout callout-info">Zed: Zed reads only the first instruction file of its list; the block is placed in that file.</p>
+<p class="note">Zed has no rule files scoped to file types; it reads the skills and the instruction block.</p>
+<p class="note">Planned by the installer itself for the example React project in the repository.</p>
+</div>
+<figure class="shot"><div class="window "><div class="window-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="window-title"><code>CLAUDE.md</code></span></div><div class="window-body"><pre data-lang="markdown" tabindex="0"><code class="language-markdown">## Front-end work (frontend-skills)
+
+- Before front-end work, read `.frontend-skills/profile.json` (the stack) and `.frontend-skills/lessons.md` (confirmed conventions of this project; they win over any skill).
+- Use the installed `fe-*` skill that matches the files you edit.
+- After changing UI code, run `npx github:dawidolko/frontend-skills audit --changed --json` and fix findings at `serious` and above; `explain &lt;rule id&gt;` gives the reason, the source and the fix.
+- Name rule ids (such as `a11y/img-alt`) in reviews and commit messages.</code></pre></div></div><figcaption>The real file</figcaption></figure>
+</div>
+</div>
+<div class="agent-panel" data-agent="junie">
+<h3 class="panel-title">Where fe-lighthouse lands for JetBrains Junie</h3>
+<div class="panel-grid">
+<div>
+<ul class="file-list"><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-lighthouse/SKILL.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-lighthouse/references/lighthouse.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg><code>AGENTS.md</code><span class="kind kind-instructions">instruction block</span></li></ul>
+<p class="note">For every agent also: <code>.frontend-skills/profile.json</code>, <code>.frontend-skills/lessons.md</code> and <code>.frontend-skills/install.json</code>.</p>
+<p class="callout callout-info">JetBrains Junie: Junie reads .agents/skills only in a trusted project.</p>
+<p class="note">JetBrains Junie has no rule files scoped to file types; it reads the skills and the instruction block.</p>
+<p class="note">Planned by the installer itself for the example React project in the repository.</p>
+</div>
+<figure class="shot"><div class="window "><div class="window-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="window-title"><code>AGENTS.md</code></span></div><div class="window-body"><pre data-lang="markdown" tabindex="0"><code class="language-markdown">## Front-end work (frontend-skills)
+
+- Before front-end work, read `.frontend-skills/profile.json` (the stack) and `.frontend-skills/lessons.md` (confirmed conventions of this project; they win over any skill).
+- Use the installed `fe-*` skill that matches the files you edit.
+- After changing UI code, run `npx github:dawidolko/frontend-skills audit --changed --json` and fix findings at `serious` and above; `explain &lt;rule id&gt;` gives the reason, the source and the fix.
+- Name rule ids (such as `a11y/img-alt`) in reviews and commit messages.</code></pre></div></div><figcaption>The real file</figcaption></figure>
+</div>
+</div>
+<div class="agent-panel" data-agent="kiro">
+<h3 class="panel-title">Where fe-lighthouse lands for Kiro</h3>
+<div class="panel-grid">
+<div>
+<ul class="file-list"><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.kiro/skills/fe-lighthouse/SKILL.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.kiro/skills/fe-lighthouse/references/lighthouse.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#layers"/></svg><code>.kiro/steering/fe-lighthouse.md</code><span class="kind kind-rule">rule file</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg><code>AGENTS.md</code><span class="kind kind-instructions">instruction block</span></li></ul>
+<p class="note">For every agent also: <code>.frontend-skills/profile.json</code>, <code>.frontend-skills/lessons.md</code> and <code>.frontend-skills/install.json</code>.</p>
+
+
+<p class="note">Planned by the installer itself for the example React project in the repository.</p>
+</div>
+<figure class="shot"><div class="window "><div class="window-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="window-title"><code>.kiro/steering/fe-lighthouse.md</code></span></div><div class="window-body"><pre data-lang="markdown" tabindex="0"><code class="language-markdown">---
+inclusion: fileMatch
+fileMatchPattern: [&quot;**/lighthouserc*&quot;, &quot;**/.lighthouserc*&quot;, &quot;**/*.html&quot;]
+---
+
+# Lighthouse and PageSpeed (frontend-skills)
+
+Runs and reads Lighthouse 13 for performance, accessibility, best practices and SEO - locally, in Chrome DevTools, PageSpeed Insights and CI with Lighthouse CI - and turns the report into fixes without chasing the score. Use when asked to run Lighthouse or PageSpeed, set up performance budgets or a CI gate, explain a score or an insight, or &quot;get the page to green&quot;.
+
+- The performance score weights TBT 30, LCP 25, CLS 25, FCP 10, Speed Index 10; fix the heaviest failing metric first.
+- Run the mobile preset (the default) and `--preset=desktop` separately; report which one.
+- Run at least three times and use the median; never gate CI on one run or on 100 (perf/lighthouse-ci).
+- A lab score is not a Core Web Vitals result; vitals come from field data at p75 (perf/field-data-p75).
+- Lighthouse 13 shows insights (LCP discovery, layout shift culprits, render blocking, third parties) instead of the old opportunities; read them for causes (perf/lcp-image, perf/layout-shift, perf/code-split).
+- Accessibility 100 means no automated audit failed, not that the page is accessible; do the manual checks.
+- Keep the console free of errors and deprecated APIs (tooling/console-clean).
+- Test production builds on a quiet machine in a clean profile (no extensions), not the dev server.
+- Never optimise for the score by hiding content from Lighthouse or detecting its user agent.
+
+Before larger changes, read the full skill: `.kiro/skills/fe-lighthouse/SKILL.md`. Explain any rule id with `npx github:dawidolko/frontend-skills explain &lt;id&gt;`.</code></pre></div></div><figcaption>The real file</figcaption></figure>
+</div>
+</div>
+<div class="agent-panel" data-agent="augment">
+<h3 class="panel-title">Where fe-lighthouse lands for Augment</h3>
+<div class="panel-grid">
+<div>
+<ul class="file-list"><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-lighthouse/SKILL.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.agents/skills/fe-lighthouse/references/lighthouse.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg><code>AGENTS.md</code><span class="kind kind-instructions">instruction block</span></li></ul>
+<p class="note">For every agent also: <code>.frontend-skills/profile.json</code>, <code>.frontend-skills/lessons.md</code> and <code>.frontend-skills/install.json</code>.</p>
+
+<p class="note">Augment has no rule files scoped to file types; it reads the skills and the instruction block.</p>
+<p class="note">Planned by the installer itself for the example React project in the repository.</p>
+</div>
+<figure class="shot"><div class="window "><div class="window-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="window-title"><code>AGENTS.md</code></span></div><div class="window-body"><pre data-lang="markdown" tabindex="0"><code class="language-markdown">## Front-end work (frontend-skills)
+
+- Before front-end work, read `.frontend-skills/profile.json` (the stack) and `.frontend-skills/lessons.md` (confirmed conventions of this project; they win over any skill).
+- Use the installed `fe-*` skill that matches the files you edit.
+- After changing UI code, run `npx github:dawidolko/frontend-skills audit --changed --json` and fix findings at `serious` and above; `explain &lt;rule id&gt;` gives the reason, the source and the fix.
+- Name rule ids (such as `a11y/img-alt`) in reviews and commit messages.</code></pre></div></div><figcaption>The real file</figcaption></figure>
+</div>
+</div>
+<div class="agent-panel" data-agent="trae">
+<h3 class="panel-title">Where fe-lighthouse lands for Trae</h3>
+<div class="panel-grid">
+<div>
+<ul class="file-list"><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.trae/skills/fe-lighthouse/SKILL.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.trae/skills/fe-lighthouse/references/lighthouse.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#layers"/></svg><code>.trae/rules/fe-lighthouse.md</code><span class="kind kind-rule">rule file</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg><code>AGENTS.md</code><span class="kind kind-instructions">instruction block</span></li></ul>
+<p class="note">For every agent also: <code>.frontend-skills/profile.json</code>, <code>.frontend-skills/lessons.md</code> and <code>.frontend-skills/install.json</code>.</p>
+<p class="callout callout-info">Trae: Trae reads AGENTS.md only after it is enabled in its settings.</p>
+
+<p class="note">Planned by the installer itself for the example React project in the repository.</p>
+</div>
+<figure class="shot"><div class="window "><div class="window-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="window-title"><code>.trae/rules/fe-lighthouse.md</code></span></div><div class="window-body"><pre data-lang="markdown" tabindex="0"><code class="language-markdown">---
+description: &quot;Runs and reads Lighthouse 13 for performance, accessibility, best practices and SEO - locally, in Chrome DevTools, PageSpeed Insights and CI with Lighthouse CI - and turns the report into fixes without chasing the score. Use when asked to run Lighthouse or PageSpeed, set up performance budgets or a CI gate, explain a score or an insight, or \&quot;get the page to green\&quot;.&quot;
+globs: **/lighthouserc*,**/.lighthouserc*,**/*.html
+alwaysApply: false
+---
+
+# Lighthouse and PageSpeed (frontend-skills)
+
+- The performance score weights TBT 30, LCP 25, CLS 25, FCP 10, Speed Index 10; fix the heaviest failing metric first.
+- Run the mobile preset (the default) and `--preset=desktop` separately; report which one.
+- Run at least three times and use the median; never gate CI on one run or on 100 (perf/lighthouse-ci).
+- A lab score is not a Core Web Vitals result; vitals come from field data at p75 (perf/field-data-p75).
+- Lighthouse 13 shows insights (LCP discovery, layout shift culprits, render blocking, third parties) instead of the old opportunities; read them for causes (perf/lcp-image, perf/layout-shift, perf/code-split).
+- Accessibility 100 means no automated audit failed, not that the page is accessible; do the manual checks.
+- Keep the console free of errors and deprecated APIs (tooling/console-clean).
+- Test production builds on a quiet machine in a clean profile (no extensions), not the dev server.
+- Never optimise for the score by hiding content from Lighthouse or detecting its user agent.
+
+Before larger changes, read the full skill: `.trae/skills/fe-lighthouse/SKILL.md`. Explain any rule id with `npx github:dawidolko/frontend-skills explain &lt;id&gt;`.</code></pre></div></div><figcaption>The real file</figcaption></figure>
+</div>
+</div>
+<div class="agent-panel" data-agent="continue">
+<h3 class="panel-title">Where fe-lighthouse lands for Continue</h3>
+<div class="panel-grid">
+<div>
+<ul class="file-list"><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.frontend-skills/skills/fe-lighthouse/SKILL.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.frontend-skills/skills/fe-lighthouse/references/lighthouse.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#layers"/></svg><code>.continue/rules/fe-lighthouse.md</code><span class="kind kind-rule">rule file</span></li></ul>
+<p class="note">For every agent also: <code>.frontend-skills/profile.json</code>, <code>.frontend-skills/lessons.md</code> and <code>.frontend-skills/install.json</code>.</p>
+
+
+<p class="note">Planned by the installer itself for the example React project in the repository.</p>
+</div>
+<figure class="shot"><div class="window "><div class="window-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="window-title"><code>.continue/rules/fe-lighthouse.md</code></span></div><div class="window-body"><pre data-lang="markdown" tabindex="0"><code class="language-markdown">---
+name: &quot;Lighthouse and PageSpeed&quot;
+description: &quot;Runs and reads Lighthouse 13 for performance, accessibility, best practices and SEO - locally, in Chrome DevTools, PageSpeed Insights and CI with Lighthouse CI - and turns the report into fixes without chasing the score. Use when asked to run Lighthouse or PageSpeed, set up performance budgets or a CI gate, explain a score or an insight, or \&quot;get the page to green\&quot;.&quot;
+globs: [&quot;**/lighthouserc*&quot;, &quot;**/.lighthouserc*&quot;, &quot;**/*.html&quot;]
+alwaysApply: false
+---
+
+# Lighthouse and PageSpeed (frontend-skills)
+
+- The performance score weights TBT 30, LCP 25, CLS 25, FCP 10, Speed Index 10; fix the heaviest failing metric first.
+- Run the mobile preset (the default) and `--preset=desktop` separately; report which one.
+- Run at least three times and use the median; never gate CI on one run or on 100 (perf/lighthouse-ci).
+- A lab score is not a Core Web Vitals result; vitals come from field data at p75 (perf/field-data-p75).
+- Lighthouse 13 shows insights (LCP discovery, layout shift culprits, render blocking, third parties) instead of the old opportunities; read them for causes (perf/lcp-image, perf/layout-shift, perf/code-split).
+- Accessibility 100 means no automated audit failed, not that the page is accessible; do the manual checks.
+- Keep the console free of errors and deprecated APIs (tooling/console-clean).
+- Test production builds on a quiet machine in a clean profile (no extensions), not the dev server.
+- Never optimise for the score by hiding content from Lighthouse or detecting its user agent.
+
+Before larger changes, read the full skill: `.frontend-skills/skills/fe-lighthouse/SKILL.md`. Explain any rule id with `npx github:dawidolko/frontend-skills explain &lt;id&gt;`.</code></pre></div></div><figcaption>The real file</figcaption></figure>
+</div>
+</div>
+<div class="agent-panel" data-agent="amazonq">
+<h3 class="panel-title">Where fe-lighthouse lands for Amazon Q Developer</h3>
+<div class="panel-grid">
+<div>
+<ul class="file-list"><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.frontend-skills/skills/fe-lighthouse/SKILL.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.frontend-skills/skills/fe-lighthouse/references/lighthouse.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg><code>.amazonq/rules/frontend-skills.md</code><span class="kind kind-instructions">instruction block</span></li></ul>
+<p class="note">For every agent also: <code>.frontend-skills/profile.json</code>, <code>.frontend-skills/lessons.md</code> and <code>.frontend-skills/install.json</code>.</p>
+<p class="callout callout-info">Amazon Q Developer: Amazon Q Developer IDE plugins reach end of support on 2027-04-30; AWS points to Kiro.</p>
+<p class="note">Amazon Q Developer has no rule files scoped to file types; it reads the skills and the instruction block.</p>
+<p class="note">Planned by the installer itself for the example React project in the repository.</p>
+</div>
+<figure class="shot"><div class="window "><div class="window-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="window-title"><code>.amazonq/rules/frontend-skills.md</code></span></div><div class="window-body"><pre data-lang="markdown" tabindex="0"><code class="language-markdown">## Front-end work (frontend-skills)
+
+- Before front-end work, read `.frontend-skills/profile.json` (the stack) and `.frontend-skills/lessons.md` (confirmed conventions of this project; they win over any skill).
+- Use the installed `fe-*` skill that matches the files you edit.
+- After changing UI code, run `npx github:dawidolko/frontend-skills audit --changed --json` and fix findings at `serious` and above; `explain &lt;rule id&gt;` gives the reason, the source and the fix.
+- Name rule ids (such as `a11y/img-alt`) in reviews and commit messages.
+
+### Skills
+
+- `fe-lighthouse` (Lighthouse and PageSpeed): when editing `**/lighthouserc*`, `**/.lighthouserc*`, `**/*.html`, first read `.frontend-skills/skills/fe-lighthouse/SKILL.md`.</code></pre></div></div><figcaption>The real file</figcaption></figure>
+</div>
+</div>
+<div class="agent-panel" data-agent="aider">
+<h3 class="panel-title">Where fe-lighthouse lands for Aider</h3>
+<div class="panel-grid">
+<div>
+<ul class="file-list"><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.frontend-skills/skills/fe-lighthouse/SKILL.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.frontend-skills/skills/fe-lighthouse/references/lighthouse.md</code><span class="kind kind-skill">skill</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg><code>CONVENTIONS.md</code><span class="kind kind-instructions">instruction block</span></li><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><code>.aider.conf.yml</code><span class="kind kind-config">config</span></li></ul>
+<p class="note">For every agent also: <code>.frontend-skills/profile.json</code>, <code>.frontend-skills/lessons.md</code> and <code>.frontend-skills/install.json</code>.</p>
+
+<p class="note">Aider has no rule files scoped to file types; it reads the skills and the instruction block.</p>
+<p class="note">Planned by the installer itself for the example React project in the repository.</p>
+</div>
+<figure class="shot"><div class="window "><div class="window-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="window-title"><code>CONVENTIONS.md</code></span></div><div class="window-body"><pre data-lang="markdown" tabindex="0"><code class="language-markdown">## Front-end work (frontend-skills)
+
+- Before front-end work, read `.frontend-skills/profile.json` (the stack) and `.frontend-skills/lessons.md` (confirmed conventions of this project; they win over any skill).
+- Use the installed `fe-*` skill that matches the files you edit.
+- After changing UI code, run `npx github:dawidolko/frontend-skills audit --changed --json` and fix findings at `serious` and above; `explain &lt;rule id&gt;` gives the reason, the source and the fix.
+- Name rule ids (such as `a11y/img-alt`) in reviews and commit messages.
+
+### Skills
+
+- `fe-lighthouse` (Lighthouse and PageSpeed): when editing `**/lighthouserc*`, `**/.lighthouserc*`, `**/*.html`, first read `.frontend-skills/skills/fe-lighthouse/SKILL.md`.</code></pre></div></div><figcaption>The real file</figcaption></figure>
+</div>
+</div>
+</section>
+<section aria-labelledby="how-to"><h2 id="how-to"><svg class="icon heading-icon" width="24" height="24" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#chat"/></svg>How to use it</h2>
+<p>Once installed, the agent loads the skill by itself when a task matches its description. You can also ask for it in your own words, for example:</p>
+<p>Phrases from the skill description that make the agent pick it:</p><ul class="prompts"><li lang="en"><svg class="icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#chat"/></svg><span>get the page to green</span></li></ul>
+<p>And to check and fix the work:</p><ul class="prompts"><li><svg class="icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#chat"/></svg><span>Use the fe-lighthouse skill on this file.</span></li><li><svg class="icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#chat"/></svg><span>Run the front-end audit on what I changed and fix everything serious.</span></li><li><svg class="icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#chat"/></svg><span>Explain perf/lighthouse-ci and fix it here.</span></li></ul>
+</section>
+<section aria-labelledby="rules"><h2 id="rules"><svg class="icon heading-icon" width="24" height="24" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#book"/></svg>Rules it teaches</h2>
+<ul class="rule-cards"><li class="rule-card lift sev-edge-minor"><a class="rule-id tile-link" href="/rules/perf/lighthouse-ci/"><code>perf/lighthouse-ci</code></a><p>Lighthouse in CI runs each URL several times, asserts on metrics and categories with realistic thresholds, and never demands a perfect 100.</p><p class="rule-meta"><span class="sev sev-minor">minor</span><span class="tag">manual</span></p></li><li class="rule-card lift sev-edge-minor"><a class="rule-id tile-link" href="/rules/perf/field-data-p75/"><code>perf/field-data-p75</code></a><p>Claims about Core Web Vitals come from field data at the 75th percentile, not from a Lighthouse score.</p><p class="rule-meta"><span class="sev sev-minor">minor</span><span class="tag">manual</span></p></li><li class="rule-card lift sev-edge-minor"><a class="rule-id tile-link" href="/rules/tooling/console-clean/"><code>tooling/console-clean</code></a><p>Pages log no errors and use no deprecated browser APIs, as seen in the console on load and in the main flows.</p><p class="rule-meta"><span class="sev sev-minor">minor</span><span class="tag">browser</span></p></li><li class="rule-card lift sev-edge-moderate"><a class="rule-id tile-link" href="/rules/perf/lcp-image/"><code>perf/lcp-image</code></a><p>The LCP image is in the initial HTML, not lazy, and has fetchpriority=&quot;high&quot;; a CSS background LCP image is preloaded.</p><p class="rule-meta"><span class="sev sev-moderate">moderate</span><span class="tag">browser</span></p></li><li class="rule-card lift sev-edge-moderate"><a class="rule-id tile-link" href="/rules/perf/layout-shift/"><code>perf/layout-shift</code></a><p>Nothing moves after it appears - space is reserved for images, embeds, ads and late content (CLS 0.1 or less).</p><p class="rule-meta"><span class="sev sev-moderate">moderate</span><span class="tag">browser</span></p></li><li class="rule-card lift sev-edge-moderate"><a class="rule-id tile-link" href="/rules/perf/code-split/"><code>perf/code-split</code></a><p>JavaScript is split by route, and features that most visits do not use load on demand with dynamic import().</p><p class="rule-meta"><span class="sev sev-moderate">moderate</span><span class="tag">browser</span></p></li></ul>
+</section>
+<section aria-labelledby="digest"><h2 id="digest"><svg class="icon heading-icon" width="24" height="24" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#layers"/></svg>The rule digest</h2><p>This part is copied into each agent's scoped rule file, so it stands on its own:</p><div class="digest" lang="en"><ul><li>The performance score weights TBT 30, LCP 25, CLS 25, FCP 10, Speed Index 10; fix the heaviest failing metric first.</li><li>Run the mobile preset (the default) and <code>--preset=desktop</code> separately; report which one.</li><li>Run at least three times and use the median; never gate CI on one run or on 100 (<a href="/rules/perf/lighthouse-ci/">perf/lighthouse-ci</a>).</li><li>A lab score is not a Core Web Vitals result; vitals come from field data at p75 (<a href="/rules/perf/field-data-p75/">perf/field-data-p75</a>).</li><li>Lighthouse 13 shows insights (LCP discovery, layout shift culprits, render blocking, third parties) instead of the old opportunities; read them for causes (<a href="/rules/perf/lcp-image/">perf/lcp-image</a>, <a href="/rules/perf/layout-shift/">perf/layout-shift</a>, <a href="/rules/perf/code-split/">perf/code-split</a>).</li><li>Accessibility 100 means no automated audit failed, not that the page is accessible; do the manual checks.</li><li>Keep the console free of errors and deprecated APIs (<a href="/rules/tooling/console-clean/">tooling/console-clean</a>).</li><li>Test production builds on a quiet machine in a clean profile (no extensions), not the dev server.</li><li>Never optimise for the score by hiding content from Lighthouse or detecting its user agent.</li></ul></div></section>
+<section aria-labelledby="do"><h2 id="do"><svg class="icon heading-icon" width="24" height="24" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#workflow"/></svg>Steps the agent follows</h2><div lang="en"><ol><li>Build and serve the production output locally (<code>npm run build</code> then the framework's preview), or use the deployed URL.</li><li>Run <code>npx github:dawidolko/frontend-skills audit --url &lt;url&gt;</code>: it runs Lighthouse and axe-core in the local Chrome (after a yes) and maps results to rule ids. Or run <code>npx lighthouse@13.6.0 &lt;url&gt; --output=json --output-path=./lh.json --quiet</code>.</li><li>Read in order: metric values, then the insights for the failing metric, then diagnostics. Fix one cause, rebuild, rerun three times.</li><li>For CI, add <code>@lhci/cli</code> with a <code>lighthouserc.json</code>: several URLs, <code>numberOfRuns: 3</code>, metric assertions, results kept as artefacts.</li><li>Write results with the tool version, preset, number of runs and date.</li></ol></div></section>
+<section aria-labelledby="check"><h2 id="check"><svg class="icon heading-icon" width="24" height="24" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#check"/></svg>How the agent checks the work</h2><div lang="en"><ul><li><code>npx github:dawidolko/frontend-skills audit --url &lt;url&gt;</code> gives the four category scores, the lab metrics and findings by rule id.</li><li>PageSpeed Insights (<a href="https://pagespeed.web.dev/">https://pagespeed.web.dev/</a>) adds field data for public URLs with enough traffic.</li><li>Compare two runs with the Lighthouse viewer or <code>lhci</code> server only when both used the same preset and machine.</li></ul></div></section>
+<section aria-labelledby="checked"><h2 id="checked"><svg class="icon heading-icon" width="24" height="24" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#report"/></svg>Checked by the audit</h2>
+<p>The static checks of these rules run in <code>audit</code>; this is a real session on the example project:</p>
+<figure class="recording"><picture><source media="(prefers-reduced-motion: reduce)" srcset="/media/audit.png" width="842" height="584"><img src="/media/audit.svg" width="842" height="584" alt="Terminal recording: audit lists findings by severity with rule ids and file:line, and fails at serious." data-still="/media/audit.png" loading="lazy" decoding="async"></picture><figcaption><code>audit</code>: counts by severity, each rule with its first location, the exit code.</figcaption></figure>
+</section>
+<section aria-labelledby="refs"><h2 id="refs"><svg class="icon heading-icon" width="24" height="24" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg>Reference files</h2><ul class="file-list"><li><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#file"/></svg><a href="https://github.com/dawidolko/frontend-skills/blob/main/skills/performance/fe-lighthouse/references/lighthouse.md"><code>references/lighthouse.md</code></a><span class="kind">1485 tokens</span></li></ul></section>
+<p class="source-link"><a href="https://github.com/dawidolko/frontend-skills/blob/main/skills/performance/fe-lighthouse/SKILL.md"><svg class="icon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#github"/></svg>SKILL.md on GitHub</a></p>
 </main>
+<aside class="docs-outline"><nav aria-labelledby="outline-title"><h2 id="outline-title">On this page</h2><ol><li><a href="#install">Install</a></li><li><a href="#how-to">How to use it</a></li><li><a href="#rules">Rules it teaches</a></li><li><a href="#digest">The rule digest</a></li><li><a href="#do">Steps the agent follows</a></li><li><a href="#check">How the agent checks the work</a></li><li><a href="#checked">Checked by the audit</a></li><li><a href="#refs">Reference files</a></li></ol></nav></aside>
+</div>
 <footer class="site-footer">
-<div class="wrap footer-inner">
-<div class="footer-text">
+<div class="wrap footer-grid">
+<div class="footer-brand-col">
 <p class="footer-brand"><svg class="brand-mark" viewBox="0 0 32 32" width="32" height="32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="8" fill="currentColor"/><path d="M12.5 10 7 16l5.5 6M19.5 10 25 16l-5.5 6" fill="none" stroke="var(--logo-ink)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Frontend Skills</span></p>
+<p>Skills and a rule dictionary for AI coding agents that write front-end code.</p>
 <p>Free and open source under the MIT licence, made by <a href="https://dawidolko.pl">Dawid Olko</a>.</p>
+</div>
+<nav class="footer-nav" aria-label="More">
+<div class="footer-col"><h2>Guide</h2><ul><li><a href="/">Home</a></li><li><a href="/how-it-works/">How it works</a></li><li><a href="/commands/">Commands</a></li><li><a href="/faq/">FAQ</a></li></ul></div>
+<div class="footer-col"><h2>Dictionary</h2><ul><li><a href="/rules/">All rules</a></li><li><a href="/rules/#area-a11y">Accessibility</a></li><li><a href="/rules/#area-perf">Performance</a></li><li><a href="/rules/#area-html">HTML</a></li><li><a href="/rules/#area-css">CSS</a></li><li><a href="/rules/#area-responsive">Responsive layout</a></li><li><a href="/rules/#area-js">JavaScript</a></li></ul></div>
+<div class="footer-col"><h2>Skills</h2><ul><li><a href="/skills/">All skills</a></li><li><a href="/skills/#sa-foundations">Foundations</a></li><li><a href="/skills/#sa-styling">Styling</a></li><li><a href="/skills/#sa-frameworks">Frameworks</a></li><li><a href="/skills/#sa-accessibility">Accessibility</a></li><li><a href="/skills/#sa-performance">Performance</a></li><li><a href="/skills/#sa-quality">Quality</a></li></ul></div>
+<div class="footer-col"><h2>Project</h2><ul><li><a href="https://github.com/dawidolko/frontend-skills">GitHub</a></li><li><a href="https://github.com/dawidolko/frontend-skills/issues">Report an issue</a></li><li><a href="/about/#licence">MIT licence</a></li><li><a href="/about/">About</a></li><li><a href="https://dawidolko.pl">dawidolko.pl</a></li></ul></div>
+</nav>
+</div>
+<div class="wrap footer-legal">
 <p>Built to WCAG 2.2 AA as a target. Automated checks find only part of the problems.</p>
 <p>No cookies, no analytics, no third-party requests. The accessibility button keeps its settings on your device.</p>
-</div>
-<nav aria-label="More"><ul class="footer-nav"><li><a href="/">Home</a></li><li><a href="/how-it-works/">How it works</a></li><li><a href="/rules/">Rules</a></li><li><a href="/skills/">Skills</a></li><li><a href="/commands/">Commands</a></li><li><a href="/faq/">FAQ</a></li><li><a href="/about/">About</a></li><li><a href="https://github.com/dawidolko/frontend-skills">GitHub</a></li></ul></nav>
 </div>
 </footer>
 <p id="live-status" class="visually-hidden" role="status" aria-live="polite"></p>
