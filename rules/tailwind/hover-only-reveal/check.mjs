@@ -12,7 +12,7 @@ export default {
   check(ctx) {
     for (const el of ctx.elements()) {
       const cls = literalClasses(el)
-      if (!cls || !cls.some((c) => HIDES.has(c))) continue
+      if (!cls?.some((c) => HIDES.has(c))) continue
       const parts = cls.map(splitClass)
       const hoverShow = parts.find((p) => /(?:^|:)(?:group-|peer-)?hover(?:\/[\w-]+)?:$/.test(p.variants) && SHOWS.test(p.utility))
       if (!hoverShow) continue

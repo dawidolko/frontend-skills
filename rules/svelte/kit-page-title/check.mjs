@@ -22,12 +22,16 @@ export default {
       const text = ctx.read(f.path)
       if (HAS_TITLE.test(text)) continue
       const markup = text.replace(/<(script|style)\b[^>]*>[\s\S]*?<\/\1\s*>/g, '').trim()
-      if (!markup || /^<([A-Z][\w.]*)\b[\s\S]*(?:\/>|<\/\1\s*>)$/.test(markup) && !/^<([A-Z][\w.]*)\b[^>]*\/>\s*</.test(markup)) continue
+      if (!markup || (/^<([A-Z][\w.]*)\b[\s\S]*(?:\/>|<\/\1\s*>)$/.test(markup) && !/^<([A-Z][\w.]*)\b[^>]*\/>\s*</.test(markup))) continue
       const fromData = layoutsAbove(f.path).some((l) => {
         const layout = ctx.read(l)
         return /<title[^>]*>[^<]*\{[^}]+\}[^<]*<\/title>/.test(layout) || /<(?:[\w.]*(?:Seo|SEO|Head|Meta)[\w.]*)[\s/>]/.test(layout)
       })
-      if (!fromData) ctx.report({ file: f.path, line: 1 }, 'This page sets no <title>; add <svelte:head><title>…</title></svelte:head> so the route announcement and tab name the page.')
+      if (!fromData)
+        ctx.report(
+          { file: f.path, line: 1 },
+          'This page sets no <title>; add <svelte:head><title>…</title></svelte:head> so the route announcement and tab name the page.'
+        )
     }
   }
 }

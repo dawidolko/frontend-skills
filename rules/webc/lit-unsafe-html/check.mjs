@@ -4,7 +4,7 @@
  */
 import { closing, findInCode } from '../../js/source.mjs'
 
-const SAFE = /^\s*(?:(["'])[^]*\1|`[^`$]*`|(?:[\w$]+\.)?sanitize(?:Html)?\s*\()/
+const SAFE = /^\s*(?:(["'])[\s\S]*\1|`[^`$]*`|(?:[\w$]+\.)?sanitize(?:Html)?\s*\()/
 
 export default {
   check(ctx) {

@@ -10,7 +10,10 @@ export default {
     if (/(?:^|\/)(?:server|modules)\//.test(ctx.file) || /\.config\.[a-z]+$/i.test(ctx.file)) return
     for (const f of findInCode(ctx, /(?<![\w$.])process\s*\.\s*(env|client|server|dev|browser)\b/g)) {
       const what = f.match[1]
-      const message = what === 'env' ? 'process.env is not available in the browser or from .env in production; use useRuntimeConfig().' : `Use import.meta.${what === 'browser' ? 'client' : what} instead of process.${what}.`
+      const message =
+        what === 'env'
+          ? 'process.env is not available in the browser or from .env in production; use useRuntimeConfig().'
+          : `Use import.meta.${what === 'browser' ? 'client' : what} instead of process.${what}.`
       ctx.report(ctx.lineOf(f.index), message)
     }
   }

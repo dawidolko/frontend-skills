@@ -27,8 +27,11 @@ export default {
     for (const f of findInCode(ctx, /(?<![\w$.])fetch\s*\(/g)) {
       const end = closing(f.code, f.match.index + f.match[0].length - 1)
       if (end < 0) continue
-      const then = new RegExp(`^\\s*\\.\\s*then\\s*\\(\\s*(?:\\(\\s*([\\w$]+)\\s*\\)|([\\w$]+))\\s*=>\\s*([\\w$]+)\\s*\\.\\s*${BODY}\\s*\\(`).exec(f.code.slice(end, end + 120))
-      if (then && (then[1] || then[2]) === then[3]) ctx.report(ctx.lineOf(f.index), 'The body is read without checking response.ok; fetch resolves on 404 and 500.')
+      const then = new RegExp(`^\\s*\\.\\s*then\\s*\\(\\s*(?:\\(\\s*([\\w$]+)\\s*\\)|([\\w$]+))\\s*=>\\s*([\\w$]+)\\s*\\.\\s*${BODY}\\s*\\(`).exec(
+        f.code.slice(end, end + 120)
+      )
+      if (then && (then[1] || then[2]) === then[3])
+        ctx.report(ctx.lineOf(f.index), 'The body is read without checking response.ok; fetch resolves on 404 and 500.')
     }
   }
 }

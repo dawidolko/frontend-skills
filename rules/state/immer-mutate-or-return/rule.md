@@ -10,8 +10,8 @@ stack:
 skill: fe-state
 since: 0.1.0
 sources:
-  - title: Redux Toolkit docs, Writing Reducers with Immer (mutating and returning state)
-    url: https://redux.js.org/toolkit/usage/immer-reducers
+  - title: Redux Toolkit docs, Writing reducers with Immer (source in the reduxjs/redux-toolkit repository)
+    url: https://github.com/reduxjs/redux-toolkit/blob/master/docs/usage/immer-reducers.md
 ---
 
 ## Why

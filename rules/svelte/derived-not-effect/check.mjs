@@ -22,7 +22,10 @@ export default {
         inner = f.code.slice(start, end - 1).trim()
         while (inner.startsWith('(') && closing(inner, 0) === inner.length) inner = inner.slice(1, -1).trim()
       }
-      const statements = inner.split(/[;\n]/).map((s) => s.trim()).filter(Boolean)
+      const statements = inner
+        .split(/[;\n]/)
+        .map((s) => s.trim())
+        .filter(Boolean)
       if (statements.length === 0) continue
       const targets = statements.map((s) => /^([\w$]+)\s*=(?!=)\s*\S/.exec(s)?.[1])
       if (targets.every((t) => t && states.has(t)))

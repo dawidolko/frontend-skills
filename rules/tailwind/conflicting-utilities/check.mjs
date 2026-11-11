@@ -18,7 +18,38 @@ const SETS = {
 }
 const BY_TOKEN = new Map()
 for (const [group, list] of Object.entries(SETS)) for (const t of list) BY_TOKEN.set(t, group)
-const PREFIXES = ['min-w', 'min-h', 'max-w', 'max-h', 'gap-x', 'gap-y', 'size', 'gap', 'opacity', 'px', 'py', 'pt', 'pr', 'pb', 'pl', 'ps', 'pe', 'mx', 'my', 'mt', 'mr', 'mb', 'ml', 'ms', 'me', 'p', 'm', 'w', 'h', 'z']
+const PREFIXES = [
+  'min-w',
+  'min-h',
+  'max-w',
+  'max-h',
+  'gap-x',
+  'gap-y',
+  'size',
+  'gap',
+  'opacity',
+  'px',
+  'py',
+  'pt',
+  'pr',
+  'pb',
+  'pl',
+  'ps',
+  'pe',
+  'mx',
+  'my',
+  'mt',
+  'mr',
+  'mb',
+  'ml',
+  'ms',
+  'me',
+  'p',
+  'm',
+  'w',
+  'h',
+  'z'
+]
 const PREFIX = new RegExp(`^-?(${PREFIXES.join('|')})-(?!\\(|\\[--)`)
 
 function group(utility) {

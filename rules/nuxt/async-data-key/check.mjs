@@ -12,15 +12,17 @@ export default {
     for (const b of scriptBlocks(ctx)) {
       const code = blank(b.text)
       const re = /(?<![\w$.])(useAsyncData|useLazyAsyncData)\s*(?:<[^>\n]*>)?\s*\(\s*(?:async\s+)?(?:function\b|\([^()]*\)\s*=>|[\w$]+\s*=>)/g
-      let m
-      while ((m = re.exec(code))) {
+      for (const m of code.matchAll(re)) {
         const fn = enclosingFunction(code, m.index)
         if (!fn || !/^use[A-Z0-9_]/.test(fn.name)) continue
         const open = code.indexOf('(', m.index + m[1].length)
         const end = closing(code, open)
         const args = end > 0 ? splitArgs(code, open, end) : []
         if (args.length > 1 && /^\s*(?:async\s+)?(?:function\b|\([^()]*\)\s*=>|[\w$]+\s*=>)/.test(code.slice(args[1].start, args[1].end))) continue
-        ctx.report(ctx.lineOf(b.offset + m.index), `${m[1]} in ${fn.name}() has no key; every caller would share one cache entry. Pass a key built from the inputs.`)
+        ctx.report(
+          ctx.lineOf(b.offset + m.index),
+          `${m[1]} in ${fn.name}() has no key; every caller would share one cache entry. Pass a key built from the inputs.`
+        )
       }
     }
   }

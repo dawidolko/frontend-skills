@@ -11,9 +11,12 @@ export default {
       if (!b.setup) continue
       const code = blank(b.text)
       const re = /(?<![\w$.])\$fetch\s*(?:<[^>\n]*>)?\s*\(/g
-      let m
-      while ((m = re.exec(code)))
-        if (runsAtTopLevel(code, m.index)) ctx.report(ctx.lineOf(b.offset + m.index), '$fetch at the top of script setup runs on the server and again in the browser; use useFetch or useAsyncData.')
+      for (const m of code.matchAll(re))
+        if (runsAtTopLevel(code, m.index))
+          ctx.report(
+            ctx.lineOf(b.offset + m.index),
+            '$fetch at the top of script setup runs on the server and again in the browser; use useFetch or useAsyncData.'
+          )
     }
   }
 }

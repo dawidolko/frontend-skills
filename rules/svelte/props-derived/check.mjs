@@ -21,7 +21,13 @@ function propNames(code, open) {
   const end = closing(code, open)
   if (end < 0) return []
   return splitArgs(code, open, end)
-    .map(({ start, end: e }) => code.slice(start, e).trim().replace(/=[\s\S]*$/, '').trim())
+    .map(({ start, end: e }) =>
+      code
+        .slice(start, e)
+        .trim()
+        .replace(/=[\s\S]*$/, '')
+        .trim()
+    )
     .map((item) => (item.startsWith('...') ? item.slice(3) : item.includes(':') ? item.split(':')[1] : item).trim())
     .filter((n) => /^[\w$]+$/.test(n))
 }
@@ -34,8 +40,7 @@ export default {
       const words = new RegExp(`(?<![\\w$.])(?:${names.map((n) => n.replace(/\$/g, '\\$')).join('|')})(?![\\w$])(?!\\s*:)`)
       const depth = depths(f.code)
       const decl = /(?:^|[;\n])[ \t]*(?:let|const)\s+([\w$]+)\s*(?::[^=\n]+)?=\s*([^\n;]+)/g
-      let m
-      while ((m = decl.exec(f.code))) {
+      for (const m of f.code.matchAll(decl)) {
         const at = m.index + m[0].search(/(?:let|const)/)
         if (depth[at] !== 0) continue
         const init = m[2].trim()

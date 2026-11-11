@@ -27,7 +27,49 @@ test('React + Vite project', () => {
   assert.deepEqual(detectAgents(root, ADAPTERS).sort(), ['claude', 'cursor'])
   assert.deepEqual(
     matchSkills(loadSkills(), d.stack).map((s) => s.name),
-    ['fe-a11y-forms', 'fe-html', 'fe-react']
+    [
+      'fe-a11y-aria',
+      'fe-a11y-carousel-toast',
+      'fe-a11y-combobox',
+      'fe-a11y-core',
+      'fe-a11y-dialog',
+      'fe-a11y-forms',
+      'fe-a11y-keyboard',
+      'fe-a11y-media',
+      'fe-a11y-menus',
+      'fe-a11y-tables',
+      'fe-a11y-tabs-accordion',
+      'fe-a11y-visual',
+      'fe-audit',
+      'fe-component',
+      'fe-core-web-vitals',
+      'fe-css-architecture',
+      'fe-css-layout',
+      'fe-css-modern',
+      'fe-data-fetching',
+      'fe-fix',
+      'fe-fonts',
+      'fe-forms',
+      'fe-html',
+      'fe-i18n',
+      'fe-icons',
+      'fe-images',
+      'fe-javascript',
+      'fe-learn',
+      'fe-lighthouse',
+      'fe-motion',
+      'fe-perf-delivery',
+      'fe-react',
+      'fe-responsive',
+      'fe-review',
+      'fe-security',
+      'fe-seo-metadata',
+      'fe-state',
+      'fe-tailwind',
+      'fe-testing',
+      'fe-tooling',
+      'fe-typescript'
+    ]
   )
 })
 
@@ -39,7 +81,42 @@ test('plain HTML site with no package.json, in a folder named with spaces', () =
   assert.equal(d.packageManager, null)
   assert.deepEqual(
     matchSkills(loadSkills(), d.stack).map((s) => s.name),
-    ['fe-a11y-forms', 'fe-html']
+    [
+      'fe-a11y-aria',
+      'fe-a11y-carousel-toast',
+      'fe-a11y-combobox',
+      'fe-a11y-core',
+      'fe-a11y-dialog',
+      'fe-a11y-forms',
+      'fe-a11y-keyboard',
+      'fe-a11y-media',
+      'fe-a11y-menus',
+      'fe-a11y-tables',
+      'fe-a11y-tabs-accordion',
+      'fe-a11y-visual',
+      'fe-audit',
+      'fe-component',
+      'fe-core-web-vitals',
+      'fe-css-architecture',
+      'fe-css-layout',
+      'fe-css-modern',
+      'fe-fix',
+      'fe-fonts',
+      'fe-forms',
+      'fe-html',
+      'fe-i18n',
+      'fe-icons',
+      'fe-images',
+      'fe-javascript',
+      'fe-learn',
+      'fe-lighthouse',
+      'fe-motion',
+      'fe-perf-delivery',
+      'fe-responsive',
+      'fe-review',
+      'fe-security',
+      'fe-seo-metadata'
+    ]
   )
 })
 

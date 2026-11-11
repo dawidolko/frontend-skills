@@ -13,7 +13,7 @@ Read on 2026-11-11. Primary sources:
 - pa11y 10.0.0 – https://www.npmjs.com/package/pa11y · https://github.com/pa11y/pa11y
 - IBM Equal Access `accessibility-checker` 4.0.34 – https://www.npmjs.com/package/accessibility-checker · https://github.com/IBMa/equal-access
 - WAVE (WebAIM) – https://wave.webaim.org/ · terms https://wave.webaim.org/terms
-- Directive (EU) 2019/882 (European Accessibility Act), OJ L 151, 7.6.2019 – http://publications.europa.eu/resource/celex/32019L0882
+- Directive (EU) 2019/882 (European Accessibility Act), OJ L 151, 7.6.2019 – https://publications.europa.eu/resource/celex/32019L0882
 - ETSI EN 301 549 V3.2.1 (2021-03) – https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf · V4.1.1 (2026-09) – https://www.etsi.org/deliver/etsi_en/301500_301599/301549/04.01.01_60/en_301549v040101p.pdf
 - Polish acts (Sejm ELI API): Dz.U. 2024 poz. 731 – https://api.sejm.gov.pl/eli/acts/DU/2024/731/text.html · Dz.U. 2019 poz. 848 – https://api.sejm.gov.pl/eli/acts/DU/2019/848/text.html
 
@@ -301,7 +301,7 @@ Quality and equivalence of alt text, captions, transcripts, link and heading wor
 
 ## 5. Context: European Accessibility Act and EN 301 549 (no legal advice)
 
-- **Directive (EU) 2019/882** (EAA), OJ L 151 of 7.6.2019 (http://publications.europa.eu/resource/celex/32019L0882): Art. 31 – Member States adopt measures by **28 June 2022** and **apply them from 28 June 2025**. Art. 2(2) covers services to consumers after 28 June 2025, including **e-commerce services**, consumer banking, e-books, electronic communications, and websites/apps of passenger transport services. Art. 4(5) exempts **microenterprises providing services**. Art. 32 has transitional periods (products already used to provide services until 28 June 2030; self-service terminals up to 20 years).
+- **Directive (EU) 2019/882** (EAA), OJ L 151 of 7.6.2019 (https://publications.europa.eu/resource/celex/32019L0882): Art. 31 – Member States adopt measures by **28 June 2022** and **apply them from 28 June 2025**. Art. 2(2) covers services to consumers after 28 June 2025, including **e-commerce services**, consumer banking, e-books, electronic communications, and websites/apps of passenger transport services. Art. 4(5) exempts **microenterprises providing services**. Art. 32 has transitional periods (products already used to provide services until 28 June 2030; self-service terminals up to 20 years).
 - **EN 301 549**, the harmonised European standard for ICT accessibility:
   - **V3.2.1 (2021-03)**: clause 9 (Web) states that conforming to **WCAG 2.1 Level AA** is equivalent to meeting clauses 9.1–9.4 plus 9.6 (https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf, clause 9.0). It was prepared for Directive (EU) 2016/2102 (public-sector websites).
   - **V4.1.1 (2026-09)** is published on the ETSI server: clauses 9–11 are updated to align with **WCAG 2.2**; clause 9.0 maps WCAG 2.2 AA to all of 9.1–9.4 + 9.6 (and WCAG 2.1 AA to the same minus 9.2.4.11, 9.2.5.7, 9.2.5.8, 9.3.2.6, 9.3.3.7, 9.3.3.8). Its foreword says it was prepared under standardisation request C(2022) 6456 to support Directive (EU) 2019/882 (Annex ZB) and that presumption of conformity applies **once it is cited in the Official Journal**. Dates in the document: adoption 24 August 2026, doa 30 November 2026, dop/e 31 May 2027, dow 31 May 2028 (https://www.etsi.org/deliver/etsi_en/301500_301599/301549/04.01.01_60/en_301549v040101p.pdf).
