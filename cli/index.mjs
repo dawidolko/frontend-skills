@@ -51,9 +51,9 @@ main(process.argv.slice(2)).then(
     process.exitCode = code ?? 0
   },
   (err) => {
-    if (err instanceof UsageError) {
+    if (err instanceof UsageError || err.code === 'EUNSAFE') {
       process.stderr.write(`frontend-skills: ${err.message}\n`)
-      process.exitCode = 2
+      process.exitCode = err.code === 'EUNSAFE' ? 1 : 2
     } else {
       process.stderr.write(`frontend-skills: ${err.stack || err.message}\n`)
       process.exitCode = err.exitCode || 1

@@ -6,7 +6,7 @@
  * file a person wrote or edited, removes what is no longer planned, and uninstall() removes exactly what is recorded.
  */
 import { createHash } from 'node:crypto'
-import { existsSync, mkdirSync, readdirSync, readFileSync, rmdirSync, statSync, unlinkSync, writeFileSync } from 'node:fs'
+import { existsSync, lstatSync, mkdirSync, readdirSync, readFileSync, realpathSync, rmdirSync, statSync, unlinkSync, writeFileSync } from 'node:fs'
 import path from 'node:path'
 import { adapter, chooseSkillDirs } from '../../adapters/index.mjs'
 import { skillIndex } from '../../adapters/shared.mjs'
@@ -20,9 +20,35 @@ export const SUPPORT_DIR = `${STATE_DIR}/skills`
 export const FORMATS = ['both', 'skills', 'rules']
 
 export const sha256 = (text) => createHash('sha256').update(text).digest('hex')
-const abs = (root, rel) => {
-  if (rel.split('/').includes('..') || path.isAbsolute(rel)) throw new Error(`refusing to write outside the project: ${rel}`)
-  return path.join(root, ...rel.split('/'))
+const SAFE_PATH = /^[A-Za-z0-9._@+-]+(\/[A-Za-z0-9._@+-]+)*$/
+
+/** True when rel is a plain relative path: "/"-separated segments, no "..", ".", backslash, drive or absolute path. */
+export const safeRelative = (rel) => typeof rel === 'string' && SAFE_PATH.test(rel) && !rel.split('/').some((seg) => seg === '..' || seg === '.')
+
+/*
+ * The absolute path of a planned or recorded file. Refuses anything that could leave the project: a path that is not
+ * plain, a symbolic link anywhere between the root and the file, or a real path outside the root. A recorded path
+ * comes from a file in the repository, so it is treated as untrusted input.
+ */
+const unsafe = (message) => Object.assign(new Error(message), { code: 'EUNSAFE' })
+
+function abs(root, rel) {
+  if (!safeRelative(rel)) throw unsafe(`refusing a path that is not a plain project path: ${JSON.stringify(rel)}`)
+  const base = realpathSync(root)
+  let cur = base
+  for (const seg of rel.split('/')) {
+    cur = path.join(cur, seg)
+    let st = null
+    try {
+      st = lstatSync(cur)
+    } catch {
+      break
+    }
+    if (st.isSymbolicLink()) throw unsafe(`refusing to follow a symbolic link inside the project: ${rel}`)
+  }
+  const file = path.join(base, ...rel.split('/'))
+  if (path.relative(base, file).startsWith('..')) throw unsafe(`refusing to write outside the project: ${rel}`)
+  return file
 }
 const readText = (file) => {
   try {
@@ -103,13 +129,20 @@ export function planInstall({ root, skills, agents, format = 'both', helpers = {
   return { ops, dirs: copyDirs, duplicates: cover.duplicates, notes, hints, skillPath }
 }
 
+/** The install record, with every entry that is not a plain project path dropped (and listed in `unsafe`). */
 export function readRecord(root) {
+  let r
   try {
-    const r = JSON.parse(readFileSync(abs(root, RECORD), 'utf8'))
-    return { version: 1, files: {}, ...r }
+    r = JSON.parse(readFileSync(abs(root, RECORD), 'utf8'))
   } catch {
     return null
   }
+  const files = {}
+  const unsafe = []
+  for (const [rel, entry] of Object.entries(r && typeof r.files === 'object' && r.files ? r.files : {}))
+    if (safeRelative(rel) && entry && (entry.kind === 'file' || entry.kind === 'block')) files[rel] = entry
+    else unsafe.push(rel)
+  return { version: 1, ...r, agents: Array.isArray(r.agents) ? r.agents.filter((a) => typeof a === 'string') : [], files, unsafe }
 }
 
 function writeRecord(root, record) {
@@ -134,7 +167,12 @@ function pruneDirs(root, rel) {
 
 /** Removes one recorded entry; returns 'removed', 'kept' (changed by a person) or 'gone'. */
 function removeEntry(root, rel, entry, dryRun) {
-  const file = abs(root, rel)
+  let file
+  try {
+    file = abs(root, rel)
+  } catch {
+    return 'kept'
+  }
   const text = readText(file)
   if (text === null) return 'gone'
   if (entry.kind === 'block') {
@@ -208,7 +246,7 @@ export function applyPlan(root, plan, { dryRun = false, meta = {} } = {}) {
       files[rel] = entry
     }
   }
-  if (!dryRun) writeRecord(root, { version: 1, ...meta, files })
+  if (!dryRun) writeRecord(root, { version: 1, ...meta, unsafe: undefined, files })
   return res
 }
 
@@ -219,7 +257,7 @@ export function uninstall(root, { dryRun = false } = {}) {
   if (!record) return res
   for (const [rel, entry] of Object.entries(record.files)) res[removeEntry(root, rel, entry, dryRun)].push(rel)
   if (!dryRun) {
-    if (res.kept.length) writeRecord(root, { ...record, files: Object.fromEntries(res.kept.map((k) => [k, record.files[k]])) })
+    if (res.kept.length) writeRecord(root, { ...record, unsafe: undefined, files: Object.fromEntries(res.kept.map((k) => [k, record.files[k]])) })
     else {
       try {
         unlinkSync(abs(root, RECORD))

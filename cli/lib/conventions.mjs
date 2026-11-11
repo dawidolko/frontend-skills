@@ -136,7 +136,7 @@ export function detectHelpers(root) {
     }
   }
   if (props) helpers['custom-properties'] = props
-  return helpers
+  return sanitizeHelpers(helpers)
 }
 
 function guessIconDir(svgDirs) {
@@ -145,11 +145,32 @@ function guessIconDir(svgDirs) {
   return best ? best[0] : null
 }
 
+/*
+ * Values read from project files end up in the instruction block that agents read, so each one is kept only when it
+ * is plain: a name, a prefix or a relative path of ordinary characters, at most 120 long.
+ */
+const PLAIN = /^[\w@.\/<>()-]{1,120}$/
+export function sanitizeHelpers(helpers) {
+  const out = {}
+  for (const [id, h] of Object.entries(helpers || {})) {
+    if (!HELPER_IDS.includes(id) || !h || typeof h !== 'object') continue
+    const clean = {}
+    for (const [k, v] of Object.entries(h)) {
+      if (typeof v === 'number' || v === null || typeof v === 'boolean') clean[k] = v
+      else if (typeof v === 'string') {
+        if (PLAIN.test(v) && !v.includes('..')) clean[k] = v
+      } else if (Array.isArray(v)) clean[k] = v.filter((x) => typeof x === 'string' && PLAIN.test(x) && !x.includes('..')).slice(0, 10)
+    }
+    out[id] = clean
+  }
+  return out
+}
+
 /** Merges fresh detection with the previous profile: entries a person added (source "person") win. */
 export function mergeHelpers(detected, previous = {}) {
   const out = { ...detected }
   for (const [id, h] of Object.entries(previous || {})) if (h && h.source === 'person') out[id] = h
-  return out
+  return sanitizeHelpers(out)
 }
 
 /**
@@ -166,7 +187,7 @@ export function fillHelpers(text, helpers = {}) {
 /** One line per helper for the always-on instruction block. */
 export function helperLines(helpers = {}) {
   const L = []
-  const h = helpers
+  const h = sanitizeHelpers(helpers)
   if (h['rem-function']) L.push(`- Sizes: write rem with \`${h['rem-function'].name}()\` (defined in \`${h['rem-function'].file}\`), not raw px.`)
   if (h['px-to-rem-build']) L.push(`- Sizes: px is converted to rem at build time by \`${h['px-to-rem-build'].tool}\`; write px.`)
   if (h['icon-classes']) L.push(`- Icons: use the generated classes${h['icon-classes'].prefix ? ` \`${h['icon-classes'].prefix}<name>\`` : ''}${h['icon-classes'].sourceDir ? `; add a new icon as an SVG in \`${h['icon-classes'].sourceDir}\` and rebuild` : ''} (${h['icon-classes'].tool}).`)
