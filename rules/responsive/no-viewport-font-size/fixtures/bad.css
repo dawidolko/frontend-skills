@@ -1,0 +1,4 @@
+/* Text sized by the viewport alone. */
+.hero__title { font-size: 6vw; }
+.lead { font-size: calc(1vw + 1vh); }
+.tagline { font-size: clamp(2vw, 3vw, 4vw); }

@@ -12,7 +12,7 @@ Status: ✅ written (reference examples), ⬜ to write. Every skill follows `doc
 | ✅ `fe-css-architecture` | styling | web | Cascade layers, custom properties as tokens, specificity, naming, file organisation, what to avoid. |
 | ✅ `fe-css-layout` | styling | web | Flexbox, grid, container queries, logical properties, spacing systems, no fixed heights. |
 | ✅ `fe-css-modern` | styling | web | Baseline features worth using today (`:has()`, nesting, `@scope`, `color-mix()`, `@starting-style`), with their Baseline status. |
-| ⬜ `fe-responsive` | foundations | web | Viewport, fluid type and space, breakpoints vs container queries, reflow at 320 CSS px, touch targets, print. Owns `responsive/*` and `a11y/zoom-not-blocked`. |
+| ✅ `fe-responsive` | foundations | web | Viewport, fluid type and space, breakpoints vs container queries, reflow at 320 CSS px, touch targets, print. Owns `responsive/*` and `a11y/zoom-not-blocked`. |
 | ⬜ `fe-forms` | foundations | web | Native inputs and types, constraint validation, submission, file inputs; accessibility is in `fe-a11y-forms`. |
 | ⬜ `fe-images` | performance | web | Formats (AVIF, WebP), `srcset`/`sizes`, `<picture>`, lazy loading, the LCP image, SVG. Owns `perf/img-dimensions`, `perf/large-image`. |
 | ⬜ `fe-fonts` | performance | web | Self-hosting, `font-display`, preload, subsetting, variable fonts, fallback metrics. Owns `perf/font-display`. |

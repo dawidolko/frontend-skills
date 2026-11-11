@@ -1,0 +1,6 @@
+// Fluid type with a zoomable part.
+.hero__title { font-size: clamp(2rem, 1.2rem + 4vw, 4rem); }
+.lead { font-size: calc(1rem + 0.5vw); }
+.note { font-size: 0.875em; }
+.title { font-size: var(--step-3); }
+.box { width: 50vw; }

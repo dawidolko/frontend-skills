@@ -1,0 +1,4 @@
+/* Fixed desktop widths. */
+.wrapper { width: 960px; margin: 0 auto; }
+.modal { min-width: 500px; }
+.sidebar { inline-size: 22rem; }
