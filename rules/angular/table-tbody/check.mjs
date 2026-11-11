@@ -7,7 +7,7 @@ export default {
     const seen = new Set()
     for (const tr of ctx.elements('tr')) {
       const table = tr.parent
-      if (!table || table.name !== 'table' || seen.has(table)) continue
+      if (table?.name !== 'table' || seen.has(table)) continue
       seen.add(table)
       ctx.report(tr, '<tr> is a direct child of <table>; wrap the rows in <tbody> so hydration matches the browser DOM.')
     }

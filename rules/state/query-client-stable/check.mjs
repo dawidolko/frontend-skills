@@ -5,7 +5,8 @@
  */
 import { closing, findInCode } from '../../js/source.mjs'
 
-const FN = /(?:function\s+([\w$]+)\s*(?=\()|(?:const|let|var)\s+([\w$]+)\s*=\s*(?:async\s*)?(?=\()|(?:const|let|var)\s+([\w$]+)\s*=\s*(?:async\s+)?function\s*[\w$]*\s*(?=\())/g
+const FN =
+  /(?:function\s+([\w$]+)\s*(?=\()|(?:const|let|var)\s+([\w$]+)\s*=\s*(?:async\s*)?(?=\()|(?:const|let|var)\s+([\w$]+)\s*=\s*(?:async\s+)?function\s*[\w$]*\s*(?=\())/g
 
 /** The index of the "{" that opens the body of the function whose parameters start at code[paren], or -1. */
 function bodyBrace(code, paren) {
@@ -22,8 +23,8 @@ export default {
       if (/(?:useState|useRef|useMemo)\s*\(\s*(?:\(\s*\)\s*=>\s*(?:\{\s*return\s*)?)?$/.test(before)) continue
       let owner = null
       FN.lastIndex = 0
-      let m
-      while ((m = FN.exec(f.code)) && m.index < f.match.index) {
+      for (const m of f.code.matchAll(FN)) {
+        if (m.index >= f.match.index) break
         const brace = bodyBrace(f.code, m.index + m[0].length)
         if (brace < 0 || brace > f.match.index) continue
         const end = closing(f.code, brace)

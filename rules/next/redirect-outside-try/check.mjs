@@ -10,8 +10,7 @@ const NAMES = ['redirect', 'permanentRedirect', 'notFound', 'forbidden', 'unauth
 function imported(text) {
   const out = new Set()
   const re = /import\s*\{([^}]*)\}\s*from\s*["']next\/navigation["']/g
-  let m
-  while ((m = re.exec(text)))
+  for (const m of text.matchAll(re))
     for (const part of m[1].split(',')) {
       const [orig, local] = part.trim().split(/\s+as\s+/)
       if (NAMES.includes(orig)) out.add((local || orig).trim())
@@ -36,8 +35,7 @@ export default {
       if (/\bunstable_rethrow\s*\(|\bisRedirectError\b|\bisNotFoundError\b|\bthrow\b/.test(handler)) continue
       const block = f.code.slice(open, end)
       call.lastIndex = 0
-      let m
-      while ((m = call.exec(block)))
+      for (const m of block.matchAll(call))
         ctx.report(ctx.lineOf(f.offset + open + m.index), `${m[1]}() inside try is caught by the catch below; call it after the try/catch.`)
     }
   }

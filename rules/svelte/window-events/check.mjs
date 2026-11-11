@@ -12,9 +12,10 @@ export default {
       if (end < 0) continue
       const re = /(?<![\w$.])(window|document)\s*\.\s*addEventListener\s*\(\s*["'`]/g
       re.lastIndex = open
-      let m
-      while ((m = re.exec(f.code)) && m.index < end)
+      for (const m of f.code.matchAll(re)) {
+        if (m.index >= end) break
         ctx.report(ctx.lineOf(f.offset + m.index), `Use <svelte:${m[1]} on...={handler} /> instead of ${m[1]}.addEventListener in a lifecycle callback.`)
+      }
     }
   }
 }

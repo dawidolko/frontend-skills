@@ -14,11 +14,12 @@ export default {
       const after = f.match.index + f.match[0].length
       const rest = f.code.slice(after)
       const destructure = new RegExp(`(?:const|let|var)\\s*\\{[^}]*\\}\\s*=\\s*${n}\\s*(?:$|[;\\n)])`, 'gm')
-      let m
-      while ((m = destructure.exec(rest))) ctx.report(ctx.lineOf(f.offset + after + m.index), `Destructuring ${n} (reactive) gives plain copies; use toRefs(${n}).`)
+      for (const m of rest.matchAll(destructure))
+        ctx.report(ctx.lineOf(f.offset + after + m.index), `Destructuring ${n} (reactive) gives plain copies; use toRefs(${n}).`)
       if (kind !== 'let') continue
       const assign = new RegExp(`(?<![\\w$.])${n}\\s*=(?![=>])`, 'g')
-      while ((m = assign.exec(rest))) ctx.report(ctx.lineOf(f.offset + after + m.index), `Reassigning ${n} replaces the reactive proxy; use Object.assign(${n}, ...) or a ref.`)
+      for (const m of rest.matchAll(assign))
+        ctx.report(ctx.lineOf(f.offset + after + m.index), `Reassigning ${n} replaces the reactive proxy; use Object.assign(${n}, ...) or a ref.`)
     }
   }
 }

@@ -13,11 +13,18 @@ export default {
       if ((majorOf(p.pkg, 'tailwindcss') ?? 0) < 4) continue
       for (const name of PREPROCESSORS)
         if (hasDep(p.pkg, name))
-          ctx.report({ file: p.path, line: lineOfMatch(p.text, new RegExp(`"${name}"\\s*:`)) }, `Tailwind 4 is not designed to run with ${name}; move the styles to plain CSS.`)
+          ctx.report(
+            { file: p.path, line: lineOfMatch(p.text, new RegExp(`"${name}"\\s*:`)) },
+            `Tailwind 4 is not designed to run with ${name}; move the styles to plain CSS.`
+          )
       for (const f of p.files.filter((x) => x.kind === 'scss' || x.kind === 'less')) {
-        ctx.read(f.path).split('\n').forEach((line, i) => {
-          if (/^\s*@(?:import\s+["']tailwindcss["']|tailwind\s)/.test(line)) ctx.report({ file: f.path, line: i + 1 }, `Tailwind is loaded from a .${f.kind} file; make the entry a .css file.`)
-        })
+        ctx
+          .read(f.path)
+          .split('\n')
+          .forEach((line, i) => {
+            if (/^\s*@(?:import\s+["']tailwindcss["']|tailwind\s)/.test(line))
+              ctx.report({ file: f.path, line: i + 1 }, `Tailwind is loaded from a .${f.kind} file; make the entry a .css file.`)
+          })
       }
     }
   }

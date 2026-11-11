@@ -13,6 +13,9 @@ export default {
     if (!m) return
     if (/(?:^|\/)pages\//.test(ctx.file)) return
     if (!ROUTE_PATH.test(ctx.file) && !ROUTE_NAME.test(ctx.text)) return
-    ctx.report(ctx.lineOf(m.index + m[0].length - 1), "'use client' on a page or layout ships the whole route to the browser; move it to the interactive child component.")
+    ctx.report(
+      ctx.lineOf(m.index + m[0].length - 1),
+      "'use client' on a page or layout ships the whole route to the browser; move it to the interactive child component."
+    )
   }
 }

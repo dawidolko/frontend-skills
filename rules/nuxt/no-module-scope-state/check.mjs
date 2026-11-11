@@ -13,11 +13,13 @@ export default {
       if (b.setup) continue
       const code = blank(b.text)
       const re = /(?:^|[;\n])\s*(?:export\s+)?(?:const|let|var)\s+([\w$]+)\s*(?::[^=\n]+)?=\s*(ref|reactive|shallowRef|shallowReactive)\s*(?:<[^>\n]*>)?\s*\(/g
-      let m
-      while ((m = re.exec(code))) {
+      for (const m of code.matchAll(re)) {
         const at = m.index + m[0].search(/\S/)
         if (depthAt(code, at) === 0)
-          ctx.report(ctx.lineOf(b.offset + at), `${m[1]} = ${m[2]}() at module scope is shared by every request on the server; use useState('${m[1]}') or a store.`)
+          ctx.report(
+            ctx.lineOf(b.offset + at),
+            `${m[1]} = ${m[2]}() at module scope is shared by every request on the server; use useState('${m[1]}') or a store.`
+          )
       }
     }
   }

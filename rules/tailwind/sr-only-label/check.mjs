@@ -38,7 +38,7 @@ export default {
   check(ctx) {
     for (const el of ctx.elements()) {
       const cls = literalClasses(el)
-      if (!cls || !cls.includes('hidden') || el.end === undefined) continue
+      if (!cls?.includes('hidden') || el.end === undefined) continue
       let control = el.parent
       while (control && !['button', 'a'].includes(control.name)) control = control.parent
       if (!control || control.component || control.spread || control.end === undefined) continue
