@@ -15,8 +15,6 @@ since: 0.1.0
 sources:
   - title: TypeScript 3.9 release notes (ts-expect-error comments)
     url: https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-9.html#-ts-expect-error-comments
-  - title: typescript-eslint, ban-ts-comment
-    url: https://typescript-eslint.io/rules/ban-ts-comment/
 ---
 
 ## Why

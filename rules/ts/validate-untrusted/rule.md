@@ -17,8 +17,6 @@ sources:
     url: https://www.typescriptlang.org/docs/handbook/2/functions.html#unknown
   - title: TypeScript handbook, Narrowing
     url: https://www.typescriptlang.org/docs/handbook/2/narrowing.html
-  - title: Valibot, Introduction
-    url: https://valibot.dev/guides/introduction/
 ---
 
 ## Why

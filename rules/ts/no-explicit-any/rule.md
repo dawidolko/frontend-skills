@@ -15,8 +15,8 @@ since: 0.1.0
 sources:
   - title: TypeScript handbook, More on functions (unknown)
     url: https://www.typescriptlang.org/docs/handbook/2/functions.html#unknown
-  - title: typescript-eslint, no-explicit-any
-    url: https://typescript-eslint.io/rules/no-explicit-any/
+  - title: TypeScript handbook, Everyday types (any and noImplicitAny)
+    url: https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#any
 ---
 
 ## Why

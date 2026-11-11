@@ -11,8 +11,8 @@ applies:
 skill: fe-javascript
 since: 0.1.0
 sources:
-  - title: typescript-eslint, no-floating-promises
-    url: https://typescript-eslint.io/rules/no-floating-promises/
+  - title: MDN, Using promises (error handling and chaining)
+    url: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises
   - title: MDN, Promise (chained promises and error handling)
     url: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 ---
