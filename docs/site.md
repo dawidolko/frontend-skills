@@ -3,7 +3,10 @@
 The site is plain HTML built from this repository by a small Node.js script with no dependencies. Every number and
 example on it comes from the repository at build time: the rules and skills through `cli/lib/catalog.mjs`, the agents
 and the files each one gets through `adapters/`, the token cost through the command's own estimator, the example
-report by running `audit` on `fixtures/projects/react-vite`, and the options of each command from its `--help`.
+report and the Markdown report by running `audit` on `fixtures/projects/react-vite`, the files each agent gets from
+the installer's own planner on that project, the options of each command from its `--help`, and the terminal
+recordings from `docs/media/` (made by `tools/record.mjs`; the still PNG frames are shown to people who ask for less
+motion or turn animations off in the accessibility panel).
 
 ## Commands
 
@@ -44,7 +47,8 @@ Stop the server when you are done.
 | `lib/og.mjs` | The Open Graph image as SVG, rendered to PNG by a headless Chrome when one is found. |
 | `i18n/en.json`, `i18n/pl.json` | Every user-facing string of the site, with the same keys. |
 | `assets/styles.css` | The one stylesheet (light and dark, from 320 px up, reduced motion). |
-| `assets/site.js` | Copy buttons and the dictionary's search and filters; every page works without it. |
+| `assets/site.js` | Theme switch, copy buttons, install picker command, outline, drawer, dictionary search and filters; every page works without it. |
+| `assets/icons.svg` | The icon sprite (drawn for this site). |
 | `assets/a11y/` | The author's accessibility panel, copied unchanged; `SOURCE.md` names the commit. |
 | `assets/fonts/` | Open Sans (latin and latin-ext subsets, SIL OFL 1.1, `OFL.txt`). |
 | `og/` | The Open Graph PNGs used when no Chrome is available at build time. |
@@ -54,6 +58,18 @@ Stop the server when you are done.
 English at `/`, Polish at `/pl/`, with the same paths below: `/`, `/how-it-works/`, `/rules/`, `/rules/<area>/<name>/`,
 `/skills/`, `/skills/<name>/`, `/commands/`, `/faq/`, `/about/`, and one `/404.html` with both languages. Skill and rule
 texts stay in English (agents read them); everything around them is translated.
+
+## Theme, layout and motion
+
+- The header has a day, night and system theme switch. The choice is kept in `localStorage` (`fs-theme`) and applied
+  by a one-line script in the head before the first paint (allowed by its hash in the Content-Security-Policy). The
+  night colours are written once in `styles.css` between `/*@dark*/` markers; the build applies them to the saved
+  choice and to the system preference.
+- The dictionary, the skills and the guide pages use a documentation layout: a chapter sidebar (sticky on wide
+  screens, a drawer through the `popover` attribute on phones), the page, and an outline of the page on very wide
+  screens.
+- Hover and keyboard focus look the same and change only colour, background, border, shadow and a 2 px lift, in
+  180 ms. Under `prefers-reduced-motion` or the panel's "stop animations", nothing transitions or lifts.
 
 ## Changing the site
 
