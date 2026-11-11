@@ -33,6 +33,8 @@
     "tokens": "node tools/calibrate-tokens.mjs",
     "format": "biome format --write .",
     "lint": "biome check .",
+    "site:build": "node site/build.mjs",
+    "site:check": "node site/check.mjs",
     "check": "biome check . && node tools/validate.mjs && node tools/check-headers.mjs && node tools/check-links.mjs && node tools/calibrate-tokens.mjs --check && node --test --test-concurrency=4 \"test/*.test.mjs\""
   },
   "devDependencies": {
