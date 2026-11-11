@@ -12,5 +12,5 @@ All notable changes are listed here. The format follows [Keep a Changelog](https
 - Confirmed project lessons in `.frontend-skills/lessons.md`, read first by every skill.
 - Adapters for 17 coding agents: Claude Code, OpenAI Codex, Cursor, GitHub Copilot, Gemini CLI, Antigravity CLI, Devin and Windsurf, OpenCode, Cline, Zed, JetBrains Junie, Kiro, Augment, Trae, Continue, Amazon Q Developer and Aider, with glob-scoped rule files where the agent supports them and the fewest skills folders.
 - A static audit engine for HTML, JSX and TSX, Vue, Svelte, Astro and Angular templates, CSS, SCSS and Less, with a Markdown report, condensed JSON for agents and exit codes by severity; `--url` adds Lighthouse and axe-core on a running page, fetched only after consent.
-- 25 rules with stable ids, sources and fixtures, 16 of them checked statically; the reference skills `fe-html`, `fe-a11y-forms` and `fe-react`.
+- 23 rules with stable ids and sources, 20 of them checked statically with bad and good fixtures; the reference skills `fe-html`, `fe-a11y-forms` and `fe-react`.
 - The format, the architecture, the authoring guide, the agent table and the skills plan in `docs/`.
