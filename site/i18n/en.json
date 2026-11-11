@@ -233,7 +233,7 @@
     "lead": "Every rule has a stable id such as `a11y/img-alt`, one sentence, a severity and at least one source in a public standard or the vendor's documentation. People, agents, the report and `explain` all use the same id.",
     "filtersLabel": "Filter the rules",
     "search": "Search",
-    "searchHint": "Id, words of the title, WCAG criterion or skill",
+    "searchHint": "Id, words, WCAG or skill",
     "area": "Area",
     "severity": "Severity",
     "check": "Check",
@@ -433,5 +433,103 @@
     "text": "This address does not lead to a page. A rule may have a different id; the dictionary has every one.",
     "home": "Go to the home page",
     "rules": "Search the rules"
+  },
+  "theme": {
+    "label": "Colour theme",
+    "light": "Light theme",
+    "dark": "Dark theme",
+    "system": "Follow the system theme"
+  },
+  "docs": {
+    "chapters": "Chapters",
+    "open": "Chapters",
+    "close": "Close the chapters",
+    "onThisPage": "On this page",
+    "allRules": "All rules",
+    "allSkills": "All skills",
+    "guide": "Guide",
+    "overview": "Overview",
+    "sidebarRules": "Rule chapters",
+    "sidebarSkills": "Skill groups",
+    "sidebarGuide": "Guide"
+  },
+  "install": {
+    "title": "Install for your agent",
+    "intro": "Pick how you run Node.js packages and which agent you use. `init` learns the stack and installs only the skills that fit; below are the files it writes for that agent.",
+    "runner": "Run with",
+    "agent": "Agent",
+    "auto": "Detect",
+    "autoText": "Without `--agents`, `init` finds the agents from what the project already has, and asks when it finds none:",
+    "colAgent": "Agent",
+    "colDetect": "Found by",
+    "untested": "Not tested yet with this runner. `npx` and `pnpm dlx` are tested; if this one fails, use one of them.",
+    "files": "What lands where for {agent}",
+    "filesSkill": "Where {skill} lands for {agent}",
+    "planned": "Planned by the installer itself for the example React project in the repository.",
+    "also": "For every agent also: `.frontend-skills/profile.json`, `.frontend-skills/lessons.md` and `.frontend-skills/install.json`.",
+    "kindSkill": "skill",
+    "kindRule": "rule file",
+    "kindInstructions": "instruction block",
+    "kindConfig": "config",
+    "preview": "The real file",
+    "noRule": "{agent} has no rule files scoped to file types; it reads the skills and the instruction block.",
+    "more": "… and {n} more files"
+  },
+  "showcase": {
+    "title": "See it run",
+    "intro": "Real terminal sessions and real files from this repository, recorded on its example React project.",
+    "tabsLabel": "Show",
+    "init": "init",
+    "audit": "audit",
+    "explain": "explain",
+    "report": "Report",
+    "files": "Agent files",
+    "initAlt": "Terminal recording: init learns a React and Tailwind project, installs the matching skills for Claude Code, writes the profile and runs the first audit.",
+    "auditAlt": "Terminal recording: audit lists findings by severity with rule ids and file:line, and fails at serious.",
+    "explainAlt": "Terminal recording: explain a11y/img-alt prints the rule, why it matters, the fix, examples and sources.",
+    "initCaption": "`init` on the example project: the stack it found, the skills and files it planned, the first audit.",
+    "auditCaption": "`audit`: counts by severity, each rule with its first location, the exit code.",
+    "explainCaption": "`explain a11y/img-alt`: the dictionary entry in the terminal.",
+    "reportCaption": "`frontend-report.md`, the report `audit` writes, as a person reads it.",
+    "filesCaption": "The rule file the installer writes for Cursor from the `{skill}` skill.",
+    "recorded": "Recorded with `tools/record.mjs`; the animation stops when you ask for less motion."
+  },
+  "chapters": {
+    "title": "The dictionary, chapter by chapter",
+    "intro": "{rules:rules} with a stable id, each with why, fix, examples and sources.",
+    "open": "{n:rules}"
+  },
+  "skillsHome": {
+    "title": "Skills for your stack",
+    "intro": "{skills:skills} in seven groups. `init` installs only those your stack needs."
+  },
+  "cta": {
+    "title": "Try it on your project",
+    "text": "One command, nothing to install globally, everything it writes can be removed with `uninstall`."
+  },
+  "footer": {
+    "guide": "Guide",
+    "dictionary": "Dictionary",
+    "skills": "Skills",
+    "project": "Project",
+    "issues": "Report an issue",
+    "licence": "MIT licence",
+    "author": "Author: Dawid Olko",
+    "tagline": "Skills and a rule dictionary for AI coding agents that write front-end code."
+  },
+  "skillx": {
+    "install": "Install",
+    "installText": "`init` installs this skill when the project uses {stack}. Pick your agent to see where its files land.",
+    "howTo": "How to use it",
+    "howToText": "Once installed, the agent loads the skill by itself when a task matches its description. You can also ask for it in your own words, for example:",
+    "promptsFromSkill": "Phrases from the skill description that make the agent pick it:",
+    "promptsGeneric": "And to check and fix the work:",
+    "prompt1": "Use the {name} skill on this file.",
+    "prompt2": "Run the front-end audit on what I changed and fix everything serious.",
+    "prompt3": "Explain {rule} and fix it here.",
+    "checked": "Checked by the audit",
+    "checkedText": "The static checks of these rules run in `audit`; this is a real session on the example project:",
+    "severityMix": "Severities of its rules",
+    "noRules": "This skill teaches a way of working; it owns no rule of its own."
   }
 }

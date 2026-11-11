@@ -237,7 +237,7 @@
     "lead": "Każda reguła ma stały identyfikator, np. `a11y/img-alt`, jedno zdanie, wagę i co najmniej jedno źródło w publicznym standardzie lub dokumentacji producenta. Ludzie, agenci, raport i `explain` używają tego samego identyfikatora. Treść reguł jest po angielsku, bo czytają ją agenci.",
     "filtersLabel": "Filtruj reguły",
     "search": "Szukaj",
-    "searchHint": "Identyfikator, słowa z tytułu, kryterium WCAG lub skill",
+    "searchHint": "Id, słowa, WCAG lub skill",
     "area": "Obszar",
     "severity": "Waga",
     "check": "Sprawdzanie",
@@ -437,5 +437,103 @@
     "text": "Ten adres nie prowadzi do żadnej strony. Reguła może mieć inny identyfikator; słownik zawiera wszystkie.",
     "home": "Przejdź na stronę główną",
     "rules": "Przeszukaj reguły"
+  },
+  "theme": {
+    "label": "Motyw kolorów",
+    "light": "Jasny motyw",
+    "dark": "Ciemny motyw",
+    "system": "Motyw systemu"
+  },
+  "docs": {
+    "chapters": "Rozdziały",
+    "open": "Rozdziały",
+    "close": "Zamknij rozdziały",
+    "onThisPage": "Na tej stronie",
+    "allRules": "Wszystkie reguły",
+    "allSkills": "Wszystkie skille",
+    "guide": "Przewodnik",
+    "overview": "Przegląd",
+    "sidebarRules": "Rozdziały reguł",
+    "sidebarSkills": "Grupy skilli",
+    "sidebarGuide": "Przewodnik"
+  },
+  "install": {
+    "title": "Instalacja dla Twojego agenta",
+    "intro": "Wybierz, czym uruchamiasz pakiety Node.js i którego agenta używasz. `init` poznaje stack i instaluje tylko pasujące skille; poniżej pliki, które zapisze dla tego agenta.",
+    "runner": "Uruchom przez",
+    "agent": "Agent",
+    "auto": "Wykryj",
+    "autoText": "Bez `--agents` polecenie `init` rozpoznaje agentów po tym, co projekt już ma, a gdy nie znajdzie żadnego, pyta:",
+    "colAgent": "Agent",
+    "colDetect": "Rozpoznawany po",
+    "untested": "Ten sposób nie był jeszcze testowany. `npx` i `pnpm dlx` są przetestowane; jeśli ten zawiedzie, użyj jednego z nich.",
+    "files": "Co trafia gdzie dla: {agent}",
+    "filesSkill": "Gdzie trafia {skill} dla: {agent}",
+    "planned": "Zaplanowane przez sam instalator dla przykładowego projektu React z repozytorium.",
+    "also": "Dla każdego agenta także: `.frontend-skills/profile.json`, `.frontend-skills/lessons.md` i `.frontend-skills/install.json`.",
+    "kindSkill": "skill",
+    "kindRule": "plik reguł",
+    "kindInstructions": "blok instrukcji",
+    "kindConfig": "konfiguracja",
+    "preview": "Prawdziwy plik",
+    "noRule": "{agent} nie ma plików reguł zawężonych do typów plików; czyta skille i blok instrukcji.",
+    "more": "… i jeszcze plików: {n}"
+  },
+  "showcase": {
+    "title": "Zobacz, jak działa",
+    "intro": "Prawdziwe sesje terminala i prawdziwe pliki z tego repozytorium, nagrane na jego przykładowym projekcie React. Komunikaty narzędzia są po angielsku.",
+    "tabsLabel": "Pokaż",
+    "init": "init",
+    "audit": "audit",
+    "explain": "explain",
+    "report": "Raport",
+    "files": "Pliki agenta",
+    "initAlt": "Nagranie terminala: init poznaje projekt React z Tailwindem, instaluje pasujące skille dla Claude Code, zapisuje profil i uruchamia pierwszy audyt.",
+    "auditAlt": "Nagranie terminala: audit wypisuje znaleziska według wagi z identyfikatorami reguł i miejscem plik:linia i kończy się błędem od progu serious.",
+    "explainAlt": "Nagranie terminala: explain a11y/img-alt wypisuje regułę, uzasadnienie, poprawkę, przykłady i źródła.",
+    "initCaption": "`init` na przykładowym projekcie: wykryty stack, zaplanowane skille i pliki, pierwszy audyt.",
+    "auditCaption": "`audit`: liczby według wagi, każda reguła z pierwszym miejscem, kod wyjścia.",
+    "explainCaption": "`explain a11y/img-alt`: hasło słownika w terminalu.",
+    "reportCaption": "`frontend-report.md`, raport zapisywany przez `audit`, tak jak czyta go człowiek.",
+    "filesCaption": "Plik reguł, który instalator zapisuje dla Cursora ze skilla `{skill}`.",
+    "recorded": "Nagrane przez `tools/record.mjs`; animacja zatrzymuje się, gdy prosisz o mniej ruchu."
+  },
+  "chapters": {
+    "title": "Słownik, rozdział po rozdziale",
+    "intro": "{rules:rules} ze stałym identyfikatorem, każda z uzasadnieniem, poprawką, przykładami i źródłami.",
+    "open": "{n:rules}"
+  },
+  "skillsHome": {
+    "title": "Skille dla Twojego stacku",
+    "intro": "{skills:skills} w siedmiu grupach. `init` instaluje tylko te, których potrzebuje Twój stack."
+  },
+  "cta": {
+    "title": "Wypróbuj na swoim projekcie",
+    "text": "Jedno polecenie, nic do instalowania globalnie, wszystko, co zapisze, usuniesz przez `uninstall`."
+  },
+  "footer": {
+    "guide": "Przewodnik",
+    "dictionary": "Słownik",
+    "skills": "Skille",
+    "project": "Projekt",
+    "issues": "Zgłoś problem",
+    "licence": "Licencja MIT",
+    "author": "Autor: Dawid Olko",
+    "tagline": "Skille i słownik reguł dla agentów AI, które piszą kod front-endu."
+  },
+  "skillx": {
+    "install": "Instalacja",
+    "installText": "`init` instaluje ten skill, gdy projekt używa: {stack}. Wybierz agenta, aby zobaczyć, gdzie trafią jego pliki.",
+    "howTo": "Jak go używać",
+    "howToText": "Po instalacji agent sam ładuje skill, gdy zadanie pasuje do jego opisu. Możesz też poprosić o niego własnymi słowami, na przykład:",
+    "promptsFromSkill": "Frazy z opisu skilla, po których agent go wybiera (po angielsku, jak w skillu):",
+    "promptsGeneric": "A żeby sprawdzić i poprawić pracę:",
+    "prompt1": "Użyj skilla {name} na tym pliku.",
+    "prompt2": "Uruchom audyt front-endu na moich zmianach i popraw wszystko, co poważne.",
+    "prompt3": "Wyjaśnij {rule} i popraw to tutaj.",
+    "checked": "Sprawdzane audytem",
+    "checkedText": "Testy statyczne tych reguł działają w `audit`; to prawdziwa sesja na przykładowym projekcie:",
+    "severityMix": "Wagi jego reguł",
+    "noRules": "Ten skill uczy sposobu pracy; nie ma własnych reguł."
   }
 }
