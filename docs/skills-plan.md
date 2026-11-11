@@ -71,7 +71,7 @@ Status: ✅ written (reference examples), ⬜ to write. Every skill follows `doc
 | ✅ `fe-audit` | Run `audit` (and `--url` when a page is running), read the JSON, explain the top findings, propose an order of fixes. |
 | ✅ `fe-fix` | Fix findings by rule id, smallest change first, re-run `audit --changed`, never suppress without a reason. |
 | ✅ `fe-review` | Review a diff of front-end code: run `audit --changed`, then the manual rules of the touched skills; report by rule id. |
-| ⬜ `fe-component` | Build a new component: semantics first, keyboard model from the APG, states, responsive, tests, then audit. |
+| ✅ `fe-component` | Build a new component: semantics first, keyboard model from the APG, states, responsive, tests, then audit. |
 
 ## Stack keys
 
