@@ -1,21 +1,184 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Frontend Skills — in preparation</title>
-    <meta name="description" content="Skills for AI coding agents that work on front-end code. Free and open source. In preparation." />
-    <meta name="robots" content="noindex" />
-    <link rel="stylesheet" href="placeholder.css" />
-  </head>
-  <body>
-    <main>
-      <h1>Frontend Skills</h1>
-      <p>Skills for AI coding agents that work on front-end code: HTML, CSS, JavaScript and the frameworks built on them, with accessibility, responsive layout and page speed checked against the public standards.</p>
-      <p>Free and open source. In preparation.</p>
-      <p lang="pl">Skille dla agentów AI piszących front-end: HTML, CSS, JavaScript i frameworki, z dostępnością, responsywnością i szybkością strony sprawdzanymi według publicznych standardów.</p>
-      <p lang="pl">Bezpłatne i otwarte. W przygotowaniu.</p>
-      <p><a href="https://github.com/dawidolko/frontend-skills">github.com/dawidolko/frontend-skills</a></p>
-    </main>
-  </body>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Frontend Skills: front-end skills for every AI coding agent</title>
+<meta name="description" content="One command learns your project's stack, installs the matching front-end skills for Claude Code, Codex, Cursor, Copilot and other agents, and reports what to fix with the rule, the line and the source. Free, MIT.">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#faf7fc" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0d0d0f" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://skills.dawidolko.pl/">
+<link rel="alternate" hreflang="en" href="https://skills.dawidolko.pl/">
+<link rel="alternate" hreflang="pl" href="https://skills.dawidolko.pl/pl/">
+<link rel="alternate" hreflang="x-default" href="https://skills.dawidolko.pl/">
+<link rel="preload" href="/assets/fonts/opensans-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/styles.css?v=fbc2d7ae26">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Frontend Skills">
+<meta property="og:title" content="Frontend Skills: front-end skills for every AI coding agent">
+<meta property="og:description" content="One command learns your project's stack, installs the matching front-end skills for Claude Code, Codex, Cursor, Copilot and other agents, and reports what to fix with the rule, the line and the source. Free, MIT.">
+<meta property="og:url" content="https://skills.dawidolko.pl/">
+<meta property="og:image" content="https://skills.dawidolko.pl/og-en.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Frontend Skills: one command that fits front-end skills to your project and every coding agent you use.">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="pl_PL">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="author" content="Dawid Olko">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Frontend Skills","description":"One command learns your project's stack, installs the matching front-end skills for Claude Code, Codex, Cursor, Copilot and other agents, and reports what to fix with the rule, the line and the source. Free, MIT.","url":"https://skills.dawidolko.pl/","inLanguage":"en","applicationCategory":"DeveloperApplication","operatingSystem":"Windows, macOS, Linux","softwareVersion":"0.1.0","softwareRequirements":"Node.js 20 or newer","license":"https://opensource.org/license/mit","isAccessibleForFree":true,"sameAs":"https://github.com/dawidolko/frontend-skills","author":{"@type":"Person","name":"Dawid Olko","url":"https://dawidolko.pl"}}</script>
+<script src="/assets/site.js?v=dd8cab0a79" defer></script>
+<script src="/a11y/a11y-panel.js?v=39d6e82235" data-accent="#9b00c2" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+<div class="wrap header-inner">
+<a class="brand" href="/" aria-current="page"><svg class="brand-mark" viewBox="0 0 32 32" width="32" height="32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="8" fill="currentColor"/><path d="M12.5 10 7 16l5.5 6M19.5 10 25 16l-5.5 6" fill="none" stroke="var(--logo-ink)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="brand-name">Frontend Skills</span></a>
+<nav class="main-nav" aria-label="Main"><ul><li><a href="/how-it-works/">How it works</a></li><li><a href="/rules/">Rules</a></li><li><a href="/skills/">Skills</a></li><li><a href="/commands/">Commands</a></li><li><a href="/faq/">FAQ</a></li></ul></nav>
+<div class="header-tools">
+<a class="lang-switch" href="/pl/" hreflang="pl" lang="pl" title="Ta strona po polsku">Polski</a>
+<a class="gh-link" href="https://github.com/dawidolko/frontend-skills" aria-label="Source code on GitHub"><svg viewBox="0 0 16 16" width="20" height="20" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg></a>
+</div>
+</div>
+</header>
+<main id="main" tabindex="-1">
+<section class="hero" aria-labelledby="hero-title">
+<div class="wrap hero-inner">
+<p class="eyebrow">Free and open source · MIT</p>
+<h1 id="hero-title">Front-end skills for every AI coding agent</h1>
+<p class="lead">One command learns your project's stack, installs only the skills that fit it for each coding agent you use, and reports what to fix in your HTML, CSS, JavaScript and framework code: the rule, the line, why it matters and the source.</p>
+<p class="start-label" id="start-label">Run it in your project's folder (Node.js 20 or newer):</p>
+<div class="command"><pre class="command-text"><code id="cmd-1">npx github:<wbr>dawidolko/<wbr>frontend-skills init</code></pre><button type="button" class="copy-button" data-copy="cmd-1" data-done="Copied to the clipboard." data-fail="Copying failed; select the text and copy it by hand." aria-label="Copy the command" hidden>Copy</button></div>
+<p class="cta"><a class="button" href="/how-it-works/">How it works</a> <a class="button button-ghost" href="/rules/">Browse the rules</a></p>
+</div>
+</section>
+<section class="stats" aria-labelledby="stats-title">
+<div class="wrap">
+<h2 id="stats-title" class="visually-hidden">In numbers</h2>
+<ul class="stat-list">
+<li><a href="/rules/"><strong>176</strong> <span>rules with a stable id</span></a></li>
+<li><a href="/skills/"><strong>26</strong> <span>skills</span></a></li>
+<li><a href="#agents-title"><strong>17</strong> <span>coding agents</span></a></li>
+<li><a href="/about/"><strong>0</strong> <span>runtime dependencies</span></a></li>
+</ul>
+</div>
+</section>
+<section class="section" aria-labelledby="steps-title">
+<div class="wrap">
+<h2 id="steps-title">Three steps, one command</h2>
+<p><code>init</code> runs all three. Each step is also a command of its own.</p>
+<div class="flow" role="group" aria-label="From your project to fixed code in three steps">
+<p class="flow-end flow-in"><span>your project</span></p>
+<ol class="flow-steps">
+<li class="flow-step">
+<div class="flow-icon"><svg viewBox="0 0 48 48" width="48" height="48" aria-hidden="true" focusable="false"><path d="M12 6h16l8 8v12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/><path d="M12 6v34h12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><path d="M28 6v8h8" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/><circle cx="33" cy="33" r="7" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="m38 38 5 5" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg></div>
+<h3><span class="flow-num">1.</span> Learn your stack</h3>
+<p>Reads <code>package.json</code>, lockfiles and config files, with no network. Writes <code>.frontend-skills/profile.json</code>: frameworks and versions, styling, tests, and your own helpers, such as a rem function or generated icon classes.</p>
+<p class="flow-out"><code>profile.json</code></p>
+</li>
+<li class="flow-step">
+<div class="flow-icon"><svg viewBox="0 0 48 48" width="48" height="48" aria-hidden="true" focusable="false"><path d="M6 14h12l3 4h21v20H6z" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/><path d="M14 27h20M14 32h12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><path d="M10 9h10l2 3" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+<h3><span class="flow-num">2.</span> Install for your agents</h3>
+<p>Finds the agents the project uses and writes only the skills that match the stack, in each agent's own format: skills folders, rule files scoped to file types, one short block in <code>AGENTS.md</code> or <code>CLAUDE.md</code>. Every file is recorded.</p>
+<p class="flow-out"><code>skills + rule files</code></p>
+</li>
+<li class="flow-step">
+<div class="flow-icon"><svg viewBox="0 0 48 48" width="48" height="48" aria-hidden="true" focusable="false"><rect x="8" y="6" width="32" height="36" rx="4" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="m14 17 3 3 6-6M14 31l3 3 6-6" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M27 18h8M27 32h8" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></div>
+<h3><span class="flow-num">3.</span> Audit and fix</h3>
+<p>Checks the source against the dictionary and writes a report a person can act on. Your agent reads the condensed JSON and fixes the code; you read the Markdown report.</p>
+<p class="flow-out"><code>frontend-report.md</code></p>
+</li>
+</ol>
+<p class="flow-end flow-result"><span>code your agent writes to the rules</span></p>
+</div>
+</div>
+</section>
+<section class="section section-alt" aria-labelledby="report-title">
+<div class="wrap">
+<h2 id="report-title">What a finding looks like</h2>
+<p>This is real output: <code>audit</code> run on the <code>react-vite</code> example project in the repository when this site was built.</p>
+<div class="report-grid">
+<div>
+<h3>Summary in the terminal</h3>
+<pre class="terminal" tabindex="0"><code><span class="prompt">$ </span>npx github:dawidolko/frontend-skills audit fixtures/projects/react-vite
+3 files, 80 rules: 2 critical, 3 serious, 1 moderate, 3 minor.
+  critical a11y/img-alt  1× (first: fixtures/projects/react-vite/src/App.tsx:8)
+  critical a11y/input-label  1× (first: fixtures/projects/react-vite/src/App.tsx:15)
+  serious  a11y/focus-visible  2× (first: fixtures/projects/react-vite/src/App.tsx:16)
+  serious  a11y/no-click-on-static  1× (first: fixtures/projects/react-vite/src/App.tsx:9)
+  moderate perf/img-dimensions  1× (first: fixtures/projects/react-vite/src/App.tsx:8)
+Explain a rule: frontend-skills explain a11y/img-alt
+Failed: findings at serious or above.</code></pre>
+</div>
+<div>
+<h3>One finding from the report</h3>
+<article class="finding" aria-labelledby="finding-title">
+<h3 id="finding-title" class="visually-hidden">One finding from the report</h3>
+<dl class="finding-grid">
+<dt>Rule</dt><dd><a href="/rules/a11y/img-alt/"><code>a11y/img-alt</code></a> <span class="sev sev-critical">critical</span></dd>
+<dt>Where</dt><dd><code>fixtures/projects/react-vite/src/App.tsx:8</code></dd>
+<dt>Why</dt><dd>Without <code>alt</code>, a screen reader announces the file name or nothing, and the image's meaning is lost; when the image fails to load, nothing replaces it.</dd>
+<dt>Fix</dt><dd>Describe what the image says in this context (alt=&quot;Revenue grew 20% in 2026&quot;), not what it looks like.</dd>
+<dt>Source</dt><dd><a href="https://www.w3.org/WAI/WCAG22/Understanding/non-text-content.html">WCAG 2.2, Understanding SC 1.1.1 Non-text Content</a></dd>
+</dl>
+</article>
+</div>
+</div>
+</div>
+</section>
+<section class="section" aria-labelledby="agents-title">
+<div class="wrap">
+<h2 id="agents-title" tabindex="-1">Works with the agents you already use</h2>
+<p>Each skill is written once in the open Agent Skills format and turned into each agent's own files. What each agent reads, with links to its documentation, is in <a href="https://github.com/dawidolko/frontend-skills/blob/main/docs/agents.md">docs/agents.md</a>.</p>
+<ul class="agents"><li><span class="mono" aria-hidden="true">CC</span><span>Claude Code</span><span class="agent-dot" aria-hidden="true"></span></li><li><span class="mono" aria-hidden="true">OC</span><span>OpenAI Codex</span></li><li><span class="mono" aria-hidden="true">C</span><span>Cursor</span><span class="agent-dot" aria-hidden="true"></span></li><li><span class="mono" aria-hidden="true">GC</span><span>GitHub Copilot</span><span class="agent-dot" aria-hidden="true"></span></li><li><span class="mono" aria-hidden="true">GC</span><span>Gemini CLI</span></li><li><span class="mono" aria-hidden="true">AC</span><span>Antigravity CLI</span><span class="agent-dot" aria-hidden="true"></span></li><li><span class="mono" aria-hidden="true">DW</span><span>Devin / Windsurf</span><span class="agent-dot" aria-hidden="true"></span></li><li><span class="mono" aria-hidden="true">O</span><span>OpenCode</span></li><li><span class="mono" aria-hidden="true">C</span><span>Cline</span><span class="agent-dot" aria-hidden="true"></span></li><li><span class="mono" aria-hidden="true">Z</span><span>Zed</span></li><li><span class="mono" aria-hidden="true">JJ</span><span>JetBrains Junie</span></li><li><span class="mono" aria-hidden="true">K</span><span>Kiro</span><span class="agent-dot" aria-hidden="true"></span></li><li><span class="mono" aria-hidden="true">A</span><span>Augment</span></li><li><span class="mono" aria-hidden="true">T</span><span>Trae</span><span class="agent-dot" aria-hidden="true"></span></li><li><span class="mono" aria-hidden="true">C</span><span>Continue</span><span class="agent-dot" aria-hidden="true"></span></li><li><span class="mono" aria-hidden="true">AQ</span><span>Amazon Q Developer</span></li><li><span class="mono" aria-hidden="true">A</span><span>Aider</span></li></ul>
+<p class="agents-key"><span class="agent-dot" aria-hidden="true"></span> with rule files scoped to file types: Claude Code, Cursor, GitHub Copilot, Antigravity CLI, Devin / Windsurf, Cline, Kiro, Trae, Continue.</p>
+</div>
+</section>
+<section class="section section-alt" aria-labelledby="free-title">
+<div class="wrap cards">
+<div class="card">
+<h2 id="free-title">Free, open source, yours to read</h2>
+<p>MIT licence. No account, no payment, no telemetry. The tool makes no network call unless you start one: <code>audit --url</code> asks before it fetches Lighthouse and axe-core. It runs straight from GitHub with <code>npx</code>; nothing is installed globally.</p>
+</div>
+<div class="card">
+<h2>Cheap to keep loaded</h2>
+<p>An agent always loads only the name and description of each installed skill. For all 26 skills that is about 2102 tokens; a skill's body (about 977 tokens on average) loads only when a task needs it.</p>
+<p class="note">Tokens are estimates by <code>frontend-skills estimate v1 (calibrated on o200k)</code>, measured with <code>frontend-skills tokens --all</code> when this site was built.</p>
+</div>
+<div class="card card-honest">
+<h2>What automated checks cannot do</h2>
+<p>Static checks and browser audits find only part of the accessibility problems. Whether an alt text says the right thing, whether the reading order makes sense, whether a custom widget traps the keyboard: a person has to look. The report lists those as a checklist next to the findings. The tool helps you work to WCAG 2.2 AA; it certifies nothing.</p>
+</div>
+</div>
+</section>
+<section class="section" aria-labelledby="next-title">
+<div class="wrap">
+<h2 id="next-title">Where next</h2>
+<ul class="next-links">
+<li><a href="/how-it-works/">How it works</a><span>How the profile, the agent files and the token budgets work</span></li>
+<li><a href="/rules/">Rules</a><span>Every rule, with its why, fix and sources</span></li>
+<li><a href="/skills/">Skills</a><span>Skills by technology</span></li>
+<li><a href="/commands/">Commands</a><span>All commands and their options</span></li>
+</ul>
+</div>
+</section>
+</main>
+<footer class="site-footer">
+<div class="wrap footer-inner">
+<div class="footer-text">
+<p class="footer-brand"><svg class="brand-mark" viewBox="0 0 32 32" width="32" height="32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="8" fill="currentColor"/><path d="M12.5 10 7 16l5.5 6M19.5 10 25 16l-5.5 6" fill="none" stroke="var(--logo-ink)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Frontend Skills</span></p>
+<p>Free and open source under the MIT licence, made by <a href="https://dawidolko.pl">Dawid Olko</a>.</p>
+<p>Built to WCAG 2.2 AA as a target. Automated checks find only part of the problems.</p>
+<p>No cookies, no analytics, no third-party requests. The accessibility button keeps its settings on your device.</p>
+</div>
+<nav aria-label="More"><ul class="footer-nav"><li><a href="/" aria-current="page">Home</a></li><li><a href="/how-it-works/">How it works</a></li><li><a href="/rules/">Rules</a></li><li><a href="/skills/">Skills</a></li><li><a href="/commands/">Commands</a></li><li><a href="/faq/">FAQ</a></li><li><a href="/about/">About</a></li><li><a href="https://github.com/dawidolko/frontend-skills">GitHub</a></li></ul></nav>
+</div>
+</footer>
+<p id="live-status" class="visually-hidden" role="status" aria-live="polite"></p>
+</body>
 </html>

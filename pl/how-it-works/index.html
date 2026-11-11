@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jak to działa · Frontend Skills</title>
+<meta name="description" content="Jak Frontend Skills poznaje projekt, zapisuje pliki dla każdego agenta AI, zawęża reguły do typów plików, oszczędza tokeny i zapamiętuje lekcje.">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#faf7fc" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0d0d0f" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://skills.dawidolko.pl/pl/how-it-works/">
+<link rel="alternate" hreflang="en" href="https://skills.dawidolko.pl/how-it-works/">
+<link rel="alternate" hreflang="pl" href="https://skills.dawidolko.pl/pl/how-it-works/">
+<link rel="alternate" hreflang="x-default" href="https://skills.dawidolko.pl/how-it-works/">
+<link rel="preload" href="/assets/fonts/opensans-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/styles.css?v=fbc2d7ae26">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Frontend Skills">
+<meta property="og:title" content="Jak to działa">
+<meta property="og:description" content="Jak Frontend Skills poznaje projekt, zapisuje pliki dla każdego agenta AI, zawęża reguły do typów plików, oszczędza tokeny i zapamiętuje lekcje.">
+<meta property="og:url" content="https://skills.dawidolko.pl/pl/how-it-works/">
+<meta property="og:image" content="https://skills.dawidolko.pl/og-pl.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Frontend Skills: jedno polecenie, które dopasowuje skille front-endowe do Twojego projektu i każdego agenta, którego używasz.">
+<meta property="og:locale" content="pl_PL">
+<meta property="og:locale:alternate" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="author" content="Dawid Olko">
+
+<script src="/assets/site.js?v=dd8cab0a79" defer></script>
+<script src="/a11y/a11y-panel.js?v=39d6e82235" data-accent="#9b00c2" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Przejdź do treści</a>
+<header class="site-header">
+<div class="wrap header-inner">
+<a class="brand" href="/pl/"><svg class="brand-mark" viewBox="0 0 32 32" width="32" height="32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="8" fill="currentColor"/><path d="M12.5 10 7 16l5.5 6M19.5 10 25 16l-5.5 6" fill="none" stroke="var(--logo-ink)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="brand-name">Frontend Skills</span></a>
+<nav class="main-nav" aria-label="Główna"><ul><li><a href="/pl/how-it-works/" aria-current="page">Jak to działa</a></li><li><a href="/pl/rules/">Reguły</a></li><li><a href="/pl/skills/">Skille</a></li><li><a href="/pl/commands/">Polecenia</a></li><li><a href="/pl/faq/">Pytania</a></li></ul></nav>
+<div class="header-tools">
+<a class="lang-switch" href="/how-it-works/" hreflang="en" lang="en" title="This page in English">English</a>
+<a class="gh-link" href="https://github.com/dawidolko/frontend-skills" aria-label="Kod źródłowy na GitHubie"><svg viewBox="0 0 16 16" width="20" height="20" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg></a>
+</div>
+</div>
+</header>
+<main id="main" tabindex="-1">
+<div class="page-head"><div class="wrap"><h1>Jak to działa</h1><p class="lead">Dwie rzeczy w jednym repozytorium: słownik (skille, które mówią agentowi, jak pisać kod front-endu, oraz reguły ze stałymi identyfikatorami) i polecenie, które dopasowuje słownik do konkretnego projektu.</p></div></div>
+<div class="wrap with-toc">
+<nav class="toc" aria-labelledby="toc-title"><h2 id="toc-title">Na tej stronie</h2><ol><li><a href="#profile">Profil projektu</a></li><li><a href="#helpers">Własne narzędzia Twojego projektu</a></li><li><a href="#agents">Pliki dla każdego agenta</a></li><li><a href="#globs">Reguły zawężone do typów plików</a></li><li><a href="#tokens">Budżety tokenów</a></li><li><a href="#lessons">Lekcje</a></li><li><a href="#audit">Audyt i raport</a></li><li><a href="#safe">Domyślnie bezpieczne</a></li></ol></nav>
+<div class="prose">
+<section aria-labelledby="profile"><h2 id="profile">Profil projektu</h2>
+<p><code>init</code> i <code>learn</code> czytają projekt w jednym przebiegu, bez sieci: pliki <code>package.json</code> (oraz workspace'y w monorepo), pliki lock, konfiguracje takie jak <code>next.config.*</code>, <code>angular.json</code> czy <code>tailwind.config.*</code> i zainstalowane wersje z <code>node_modules</code>. Folder bez <code>package.json</code>, w którym są pliki HTML, CSS i JavaScript, to zwykła strona. Wynikiem jest <code>.frontend-skills/profile.json</code>, commitowany razem z projektem:</p>
+<figure class="code-figure"><figcaption><code>.frontend-skills/profile.json</code> · Przykład</figcaption><pre data-lang="json" tabindex="0"><code class="language-json">{
+  &quot;version&quot;: 1,
+  &quot;packageManager&quot;: &quot;pnpm&quot;,
+  &quot;projects&quot;: [
+    {
+      &quot;path&quot;: &quot;apps/web&quot;,
+      &quot;frameworks&quot;: { &quot;next&quot;: &quot;16.4.0&quot;, &quot;react&quot;: &quot;19.3.0&quot; },
+      &quot;typescript&quot;: &quot;7.0.0&quot;,
+      &quot;styling&quot;: [&quot;tailwind&quot;],
+      &quot;testing&quot;: [&quot;vitest&quot;, &quot;playwright&quot;]
+    }
+  ],
+  &quot;stack&quot;: [&quot;web&quot;, &quot;react&quot;, &quot;next&quot;, &quot;typescript&quot;, &quot;tailwind&quot;, &quot;vitest&quot;, &quot;playwright&quot;],
+  &quot;helpers&quot;: {
+    &quot;rem-function&quot;: { &quot;name&quot;: &quot;rem-calc&quot;, &quot;call&quot;: &quot;rem-calc(16px)&quot;, &quot;file&quot;: &quot;src/styles/_functions.scss&quot; }
+  },
+  &quot;agents&quot;: [&quot;claude&quot;, &quot;cursor&quot;],
+  &quot;skills&quot;: [&quot;fe-html&quot;, &quot;fe-react&quot;, &quot;fe-a11y-forms&quot;],
+  &quot;audit&quot;: { &quot;failOn&quot;: &quot;serious&quot;, &quot;ignore&quot;: [], &quot;exclude&quot;: [] }
+}</code></pre></figure>
+<p><code>stack</code> decyduje, które skille zostaną zainstalowane: skill trafia do projektu, gdy profil ma choć jeden z wymaganych przez niego kluczy. Obiekt <code>audit</code> należy do Ciebie; <code>learn</code> i <code>update</code> go nie zmieniają.</p>
+</section>
+<section aria-labelledby="helpers"><h2 id="helpers">Własne narzędzia Twojego projektu</h2>
+<p>Reguły trzymają się konwencji projektu, jeśli ją ma. Profil zapisuje takie narzędzia jak funkcja px→rem, generowane klasy ikon, sprite SVG, design tokeny albo zestaw zmiennych CSS, a reguły, które od nich zależą, podają Twoje narzędzie: „pisz rozmiary przez <code>rem-calc(16px)</code>” zamiast ogólnej wskazówki. Możesz poprawić albo dopisać narzędzie w profilu; Twoje wpisy przetrwają <code>learn</code> i <code>update</code>.</p>
+</section>
+<section aria-labelledby="agents"><h2 id="agents">Pliki dla każdego agenta</h2>
+<p>Skill jest pisany raz, jako folder Agent Skills (<code>SKILL.md</code>, <code>references/</code>, <code>scripts/</code>). Każdy agent ma adapter, który wie, gdzie ten agent szuka plików i w jakim formacie. Nikt nie edytuje wygenerowanych plików; <code>update</code> zapisuje je od nowa, a <code>uninstall</code> usuwa.</p>
+<div class="table-wrap" tabindex="0" role="region" aria-labelledby="agents-caption"><table>
+<caption id="agents-caption">Co jest zapisywane dla każdego agenta</caption>
+<thead><tr><th scope="col">Agent</th><th scope="col">Czytane foldery skilli</th><th scope="col">Pliki reguł zawężone do typów plików</th><th scope="col">Instrukcje ładowane zawsze</th></tr></thead>
+<tbody><tr><th scope="row"><a href="https://code.claude.com/docs/en/skills">Claude Code</a></th><td><code>.claude/skills/</code></td><td><code>.claude/rules/&lt;skill&gt;.md</code></td><td><code>AGENTS.md *</code></td></tr><tr><th scope="row"><a href="https://learn.chatgpt.com/docs/build-skills">OpenAI Codex</a></th><td><code>.agents/skills/</code></td><td>—</td><td><code>AGENTS.md</code></td></tr><tr><th scope="row"><a href="https://cursor.com/docs/context/rules">Cursor</a></th><td><code>.agents/skills/</code> <code>.cursor/skills/</code> <code>.claude/skills/</code> <code>.codex/skills/</code></td><td><code>.cursor/rules/&lt;skill&gt;.mdc</code></td><td><code>AGENTS.md</code></td></tr><tr><th scope="row"><a href="https://docs.github.com/en/copilot/concepts/agents/about-agent-skills">GitHub Copilot</a></th><td><code>.agents/skills/</code> <code>.github/skills/</code> <code>.claude/skills/</code></td><td><code>.github/instructions/&lt;skill&gt;.instructions.md</code></td><td><code>AGENTS.md *</code></td></tr><tr><th scope="row"><a href="https://geminicli.com/docs/cli/skills/">Gemini CLI</a></th><td><code>.agents/skills/</code> <code>.gemini/skills/</code></td><td>—</td><td><code>GEMINI.md</code></td></tr><tr><th scope="row"><a href="https://antigravity.google/docs/rules">Antigravity CLI</a></th><td><code>.agents/skills/</code></td><td><code>.agents/rules/&lt;skill&gt;.md</code></td><td><code>AGENTS.md</code></td></tr><tr><th scope="row"><a href="https://docs.devin.ai/desktop/cascade/skills">Devin / Windsurf</a></th><td><code>.agents/skills/</code> <code>.devin/skills/</code> <code>.windsurf/skills/</code> <code>.claude/skills/</code> <code>.github/skills/</code> <code>.kiro/skills/</code> <code>.cursor/skills/</code> <code>.codex/skills/</code></td><td><code>.devin/rules/&lt;skill&gt;.md</code></td><td><code>AGENTS.md</code></td></tr><tr><th scope="row"><a href="https://opencode.ai/docs/skills/">OpenCode</a></th><td><code>.agents/skills/</code> <code>.opencode/skills/</code> <code>.claude/skills/</code></td><td>—</td><td><code>AGENTS.md</code></td></tr><tr><th scope="row"><a href="https://docs.cline.bot/features/cline-rules">Cline</a></th><td><code>.claude/skills/</code> <code>.cline/skills/</code> <code>.clinerules/skills/</code></td><td><code>.clinerules/&lt;skill&gt;.md</code></td><td><code>AGENTS.md</code></td></tr><tr><th scope="row"><a href="https://zed.dev/docs/ai/instructions">Zed</a></th><td><code>.agents/skills/</code></td><td>—</td><td><code>AGENTS.md *</code></td></tr><tr><th scope="row"><a href="https://junie.jetbrains.com/docs/agent-skills.html">JetBrains Junie</a></th><td><code>.agents/skills/</code> <code>.junie/skills/</code></td><td>—</td><td><code>AGENTS.md *</code></td></tr><tr><th scope="row"><a href="https://kiro.dev/docs/steering/">Kiro</a></th><td><code>.kiro/skills/</code></td><td><code>.kiro/steering/&lt;skill&gt;.md</code></td><td><code>AGENTS.md</code></td></tr><tr><th scope="row"><a href="https://docs.augmentcode.com/using-augment/skills">Augment</a></th><td><code>.agents/skills/</code> <code>.augment/skills/</code> <code>.claude/skills/</code></td><td>—</td><td><code>AGENTS.md</code></td></tr><tr><th scope="row"><a href="https://docs.trae.ai/ide/rules">Trae</a></th><td><code>.trae/skills/</code></td><td><code>.trae/rules/&lt;skill&gt;.md</code></td><td><code>AGENTS.md</code></td></tr><tr><th scope="row"><a href="https://docs.continue.dev/customize/deep-dives/rules">Continue</a></th><td>—</td><td><code>.continue/rules/&lt;skill&gt;.md</code></td><td>—</td></tr><tr><th scope="row"><a href="https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/context-project-rules.html">Amazon Q Developer</a></th><td>—</td><td>—</td><td><code>.amazonq/rules/frontend-skills.md</code></td></tr><tr><th scope="row"><a href="https://aider.chat/docs/usage/conventions.html">Aider</a></th><td>—</td><td>—</td><td><code>CONVENTIONS.md</code></td></tr></tbody></table></div>
+<p class="note">* zależy od plików, które projekt już ma (na przykład istniejący <code>CLAUDE.md</code>).</p>
+<h3>Jeden folder dla większości agentów</h3>
+<p>Wielu agentów czyta wspólny folder <code>.agents/skills/</code>, a niektórzy czytają dwa foldery i pokazaliby każdy skill dwa razy. Instalator wybiera najmniejszy zestaw folderów, który czyta każdy wybrany agent, z najmniejszą liczbą duplikatów, i nazywa duplikaty, których nie dało się uniknąć; <code>doctor</code> sprawdza to później ponownie.</p>
+<h3>Twoje pliki instrukcji zostają Twoje</h3>
+<p>Wspólne pliki, takie jak <code>AGENTS.md</code>, <code>CLAUDE.md</code> czy <code>GEMINI.md</code>, dostają jeden krótki blok między <code>&lt;!-- frontend-skills:start --&gt;</code> a <code>&lt;!-- frontend-skills:end --&gt;</code>. Tekst poza blokiem nigdy nie jest zmieniany, kolejne uruchomienie podmienia blok w miejscu, a plik powstaje tylko wtedy, gdy go nie było.</p>
+</section>
+<section aria-labelledby="globs"><h2 id="globs">Reguły zawężone do typów plików</h2>
+<p>Tam, gdzie agent to obsługuje, każdy skill dostaje też krótki plik reguł z jego skrótem reguł i wzorcami plików, których dotyczy, więc reguła CSS nie jest ładowana, gdy agent edytuje test. Istnieje osiem takich formatów, każdy z własnym kluczem (<code>paths</code>, <code>globs</code>, <code>applyTo</code>, <code>fileMatchPattern</code>…). To prawdziwy plik zapisywany dla Cursora ze skilla <code>fe-html</code>:</p>
+<figure class="code-figure"><figcaption><code>.cursor/rules/fe-html.mdc</code></figcaption><pre data-lang="markdown" tabindex="0"><code class="language-markdown">---
+description: Writes and reviews HTML documents and templates (plain HTML, JSX, Vue, Svelte, Astro, Angular) with valid structure, semantic elements, landmarks, headings, images and buttons that work for everyone. Use when creating or editing markup, a page layout or a document head, or when asked &quot;is this HTML correct&quot;, &quot;make this semantic&quot;, &quot;fix the markup&quot;.
+globs: **/*.html, **/*.htm, **/*.jsx, **/*.tsx, **/*.vue, **/*.svelte, **/*.astro
+alwaysApply: false
+---
+
+# HTML documents and semantics (frontend-skills)
+
+- Start every full document with `&lt;!doctype html&gt;` and `&lt;html lang=&quot;…&quot;&gt;` (html/doctype, a11y/html-lang).
+- Put `&lt;meta charset=&quot;utf-8&quot;&gt;` first in `&lt;head&gt;`, then the viewport meta tag, then a specific `&lt;title&gt;` (a11y/page-title).
+- Give every `&lt;img&gt;` an `alt`: the meaning in context, or `alt=&quot;&quot;` when it only decorates (a11y/img-alt).
+- Use the element that already does the job: `&lt;button type=&quot;button&quot;&gt;` for actions, `&lt;a href&gt;` for navigation, `&lt;nav&gt;`, `&lt;main&gt;`, `&lt;header&gt;`, `&lt;footer&gt;` for regions (html/button-type).
+- One `&lt;main&gt;` per page; headings go in order (`h1` then `h2`, never skipping a level for size; size is CSS).
+- Load head scripts with `defer` or `type=&quot;module&quot;` (perf/render-blocking-script).
+- Never put a click handler on a `div` or `span`, never use `&lt;br&gt;` for spacing or tables for layout, never invent ARIA where a native element exists.
+- Lowercase element and attribute names, quoted attribute values, closed non-void elements.
+
+Before larger changes, read the full skill: `.agents/skills/fe-html/SKILL.md`. Explain any rule id with `npx github:dawidolko/frontend-skills explain &lt;id&gt;`.</code></pre></figure>
+</section>
+<section aria-labelledby="tokens"><h2 id="tokens">Budżety tokenów</h2>
+<p>Agent stale płaci za listę nazw i opisów skilli, blok instrukcji i reguły ładowane zawsze. Za użycie płaci treścią skilla, plikiem referencyjnym tylko wtedy, gdy jest potrzebny, i wynikiem poleceń. Budżety pilnuje walidator repozytorium:</p>
+<div class="table-wrap" tabindex="0" role="region" aria-labelledby="tokens-caption"><table>
+<caption id="tokens-caption" class="visually-hidden">Budżety pilnowane przez walidator</caption>
+<thead><tr><th scope="col">Część</th><th scope="col">Budżet</th><th scope="col">Specyfikacja Agent Skills</th></tr></thead>
+<tbody>
+<tr><th scope="row"><code>description</code></th><td>400 znaków</td><td>1024</td></tr>
+<tr><th scope="row">cały <code>SKILL.md</code></th><td>120 linii i 1800 tokenów</td><td>poniżej 500 linii i 5000 tokenów (zalecenie)</td></tr>
+<tr><th scope="row">skrót <code>## Rules</code></th><td>12 punktów i 450 tokenów</td><td>bez limitu</td></tr>
+<tr><th scope="row">jeden plik referencyjny</th><td>300 linii i 4000 tokenów</td><td>bez limitu</td></tr>
+<tr><th scope="row">blok instrukcji</th><td>250 tokenów</td><td>bez limitu</td></tr>
+</tbody></table></div>
+<h3 id="measured">Zmierzony koszt każdego skilla</h3>
+<p>Ładowane zawsze: 2102 tokeny za nazwy i opisy wszystkich skilli (26). Projekt dostaje tylko skille potrzebne jego stackowi, więc jego lista jest krótsza.</p>
+<div class="table-wrap" tabindex="0" role="region" aria-labelledby="measured"><table class="numbers">
+<thead><tr><th scope="col">Skill</th><th scope="col">Ładowane zawsze</th><th scope="col">Treść skilla, przy użyciu</th><th scope="col">Referencje, na żądanie</th><th scope="col">Razem</th></tr></thead>
+<tbody><tr><th scope="row"><a href="/pl/skills/fe-a11y-forms/"><code>fe-a11y-forms</code></a></th><td>92</td><td>875</td><td>1223</td><td>2190</td></tr><tr><th scope="row"><a href="/pl/skills/fe-angular/"><code>fe-angular</code></a></th><td>78</td><td>1152</td><td>2088</td><td>3318</td></tr><tr><th scope="row"><a href="/pl/skills/fe-astro/"><code>fe-astro</code></a></th><td>73</td><td>920</td><td>1501</td><td>2494</td></tr><tr><th scope="row"><a href="/pl/skills/fe-css-architecture/"><code>fe-css-architecture</code></a></th><td>92</td><td>1053</td><td>2297</td><td>3442</td></tr><tr><th scope="row"><a href="/pl/skills/fe-css-layout/"><code>fe-css-layout</code></a></th><td>82</td><td>879</td><td>1666</td><td>2627</td></tr><tr><th scope="row"><a href="/pl/skills/fe-css-modern/"><code>fe-css-modern</code></a></th><td>94</td><td>839</td><td>1810</td><td>2743</td></tr><tr><th scope="row"><a href="/pl/skills/fe-data-fetching/"><code>fe-data-fetching</code></a></th><td>76</td><td>876</td><td>1803</td><td>2755</td></tr><tr><th scope="row"><a href="/pl/skills/fe-fonts/"><code>fe-fonts</code></a></th><td>75</td><td>875</td><td>1339</td><td>2289</td></tr><tr><th scope="row"><a href="/pl/skills/fe-forms/"><code>fe-forms</code></a></th><td>87</td><td>954</td><td>1472</td><td>2513</td></tr><tr><th scope="row"><a href="/pl/skills/fe-html/"><code>fe-html</code></a></th><td>76</td><td>869</td><td>1289</td><td>2234</td></tr><tr><th scope="row"><a href="/pl/skills/fe-icons/"><code>fe-icons</code></a></th><td>81</td><td>968</td><td>1857</td><td>2906</td></tr><tr><th scope="row"><a href="/pl/skills/fe-images/"><code>fe-images</code></a></th><td>81</td><td>1008</td><td>1726</td><td>2815</td></tr><tr><th scope="row"><a href="/pl/skills/fe-javascript/"><code>fe-javascript</code></a></th><td>79</td><td>1070</td><td>1903</td><td>3052</td></tr><tr><th scope="row"><a href="/pl/skills/fe-motion/"><code>fe-motion</code></a></th><td>79</td><td>838</td><td>1432</td><td>2349</td></tr><tr><th scope="row"><a href="/pl/skills/fe-nextjs/"><code>fe-nextjs</code></a></th><td>81</td><td>1053</td><td>1942</td><td>3076</td></tr><tr><th scope="row"><a href="/pl/skills/fe-nuxt/"><code>fe-nuxt</code></a></th><td>81</td><td>1136</td><td>2024</td><td>3241</td></tr><tr><th scope="row"><a href="/pl/skills/fe-react/"><code>fe-react</code></a></th><td>83</td><td>794</td><td>1070</td><td>1947</td></tr><tr><th scope="row"><a href="/pl/skills/fe-responsive/"><code>fe-responsive</code></a></th><td>93</td><td>1080</td><td>1971</td><td>3144</td></tr><tr><th scope="row"><a href="/pl/skills/fe-sass/"><code>fe-sass</code></a></th><td>75</td><td>1016</td><td>1926</td><td>3017</td></tr><tr><th scope="row"><a href="/pl/skills/fe-state/"><code>fe-state</code></a></th><td>71</td><td>888</td><td>1490</td><td>2449</td></tr><tr><th scope="row"><a href="/pl/skills/fe-svelte/"><code>fe-svelte</code></a></th><td>77</td><td>963</td><td>1544</td><td>2584</td></tr><tr><th scope="row"><a href="/pl/skills/fe-sveltekit/"><code>fe-sveltekit</code></a></th><td>77</td><td>1033</td><td>1637</td><td>2747</td></tr><tr><th scope="row"><a href="/pl/skills/fe-tailwind/"><code>fe-tailwind</code></a></th><td>75</td><td>1097</td><td>1546</td><td>2718</td></tr><tr><th scope="row"><a href="/pl/skills/fe-typescript/"><code>fe-typescript</code></a></th><td>87</td><td>1016</td><td>2090</td><td>3193</td></tr><tr><th scope="row"><a href="/pl/skills/fe-vue/"><code>fe-vue</code></a></th><td>81</td><td>1070</td><td>1926</td><td>3077</td></tr><tr><th scope="row"><a href="/pl/skills/fe-web-components/"><code>fe-web-components</code></a></th><td>76</td><td>1077</td><td>1699</td><td>2852</td></tr></tbody></table></div>
+<p class="note">Tokeny to szacunek <code>frontend-skills estimate v1 (calibrated on o200k)</code>, zmierzony poleceniem <code>frontend-skills tokens --all</code> podczas budowania tej strony.</p>
+</section>
+<section aria-labelledby="lessons"><h2 id="lessons">Lekcje</h2>
+<p>Gdy potwierdzisz coś o swoim projekcie („pola formularza używają naszego komponentu Field”), zostaje to zapisane jako jedna linia w <code>.frontend-skills/lessons.md</code>, a każdy skill czyta ten plik jako pierwszy. Lekcja ma najwyżej 300 znaków, może wymieniać identyfikatory reguł, których dotyczy, i jest odrzucana, jeśli wygląda na sekret.</p>
+<p>Zapisanie lekcji:</p>
+<div class="command"><pre class="command-text"><code id="cmd-1">npx github:<wbr>dawidolko/<wbr>frontend-skills learn --lesson &quot;Form fields use components/<wbr>ui/<wbr>Field.tsx&quot; --kind convention</code></pre><button type="button" class="copy-button" data-copy="cmd-1" data-done="Skopiowano do schowka." data-fail="Nie udało się skopiować; zaznacz tekst i skopiuj go ręcznie." aria-label="Skopiuj polecenie" hidden>Skopiuj</button></div>
+<pre data-lang="text" tabindex="0"><code class="language-text">- 2026-11-11 · convention · Form fields use components/ui/Field.tsx, which renders label, hint and error. [a11y/input-label]</code></pre>
+</section>
+<section aria-labelledby="audit"><h2 id="audit">Audyt i raport</h2>
+<p><code>audit</code> czyta kod źródłowy i sprawdza go każdą regułą, która ma test statyczny. Z <code>--url</code> uruchamia też, po zapytaniu, Lighthouse i axe-core w Twoim Chrome i przypisuje ich wyniki do tych samych identyfikatorów reguł. Reguły, których maszyna nie oceni, trafiają na listę kontrolną.</p>
+<div class="cards cards-3">
+<div class="card"><h3>W kodzie źródłowym</h3><p>Brak <code>alt</code>, <code>lang</code>, tytułu lub viewportu; zablokowane powiększanie; dodatni <code>tabindex</code>; obsługa kliknięć na elementach statycznych; pola bez etykiet; błędny <code>autocomplete</code>; usunięty obrys fokusu; obrazy bez wymiarów; skrypty blokujące renderowanie; fonty bez <code>font-display</code>; za duże obrazy; indeksy jako klucze; <code>100vh</code>.</p></div>
+<div class="card"><h3>Na wyrenderowanej stronie</h3><p>Kontrast kolorów, dostępne nazwy wyliczone przez komponenty, regiony i nagłówki gotowej strony, kolejność fokusu, rozmiar celów dotykowych, wydajność według Lighthouse, audyty SEO i dobrych praktyk.</p></div>
+<div class="card"><h3>Przez człowieka</h3><p>Czy tekst alternatywny znaczy to, co trzeba, jakość komunikatów błędów, kolejność czytania, pułapki klawiatury we własnych widżetach, komunikaty czytnika ekranu, obciążenie poznawcze.</p></div>
+</div>
+<h3>Skondensowany wynik dla agentów</h3>
+<p>Z <code>--json</code> audyt wypisuje jedną linię na regułę, z poprawką i każdym miejscem jako <code>plik:linia</code>, bez innej prozy, więc agent wydaje tokeny na znaleziska. To prawdziwy wynik dla przykładowego projektu <code>react-vite</code>:</p>
+<pre class="terminal wrap-lines" tabindex="0"><code><span class="prompt">$ </span>npx github:dawidolko/frontend-skills audit fixtures/projects/react-vite --json
+{&quot;v&quot;:1,&quot;failOn&quot;:&quot;serious&quot;,&quot;failed&quot;:true,&quot;counts&quot;:{&quot;critical&quot;:2,&quot;serious&quot;:3,&quot;moderate&quot;:1,&quot;minor&quot;:3},&quot;rules&quot;:{&quot;a11y/img-alt&quot;:{&quot;s&quot;:&quot;critical&quot;,&quot;fix&quot;:&quot;Describe what the image says in this context (alt=\&quot;Revenue grew 20% in 2026\&quot;), not what it looks like.&quot;,&quot;at&quot;:[&quot;fixtures/projects/react-vite/src/App.tsx:8&quot;]},&quot;a11y/input-label&quot;:{&quot;s&quot;:&quot;critical&quot;,&quot;fix&quot;:&quot;Pair a visible &lt;label for=\&quot;email\&quot;&gt; with &lt;input id=\&quot;email\&quot;&gt;, or wrap the field in the label.&quot;,&quot;at&quot;:[&quot;fixtures/projects/react-vite/src/App.tsx:15&quot;]},&quot;a11y/focus-visible&quot;:{&quot;s&quot;:&quot;serious&quot;,&quot;fix&quot;:&quot;Style :focus-visible instead of removing focus styles: button:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }.&quot;,&quot;at&quot;:[&quot;fixtures/projects/react-vite/src/App.tsx:16&quot;,&quot;fixtures/projects/react-vite/src/app.css:9&quot;]},&quot;a11y/no-click-on-static&quot;:{&quot;s&quot;:&quot;serious&quot;,&quot;fix&quot;:&quot;Use &lt;button type=\&quot;button\&quot;&gt; for an action and &lt;a href&gt; for navigation; both are focusable, keyboard operable and announced correctly for free.&quot;,&quot;at&quot;:[&quot;fixtures/projects/react-vite/src/App.tsx:9&quot;]},&quot;perf/img-dimensions&quot;:{&quot;s&quot;:&quot;moderate&quot;,&quot;fix&quot;:&quot;Write the image's intrinsic size: &lt;img src=\&quot;hero.jpg\&quot; width=\&quot;1200\&quot; height=\&quot;600\&quot; alt=\&quot;…\&quot;&gt;, and let CSS scale it with max-width: 100%; height: auto;.&quot;,&quot;at&quot;:[&quot;fixtures/projects/react-vite/src/App.tsx:8&quot;]},&quot;html/button-type&quot;:{&quot;s&quot;:&quot;minor&quot;,&quot;fix&quot;:&quot;Write type=\&quot;button\&quot; on every button that runs script, and type=\&quot;submit\&quot; on the one that submits, so intent is visible in the markup.&quot;,&quot;at&quot;:[&quot;fixtures/projects/react-vite/src/App.tsx:16&quot;]},&quot;perf/font-display&quot;:{&quot;s&quot;:&quot;minor&quot;,&quot;fix&quot;:&quot;Add font-display: swap to show fallback text at once, or font-display: optional when you would rather keep the fallback than shift the layout.&quot;,&quot;at&quot;:[&quot;fixtures/projects/react-vite/src/app.css:3&quot;]},&quot;responsive/dynamic-viewport-units&quot;:{&quot;s&quot;:&quot;minor&quot;,&quot;fix&quot;:&quot;Use min-height: 100dvh (follows the visible area) or 100svh (the smallest, stable value).&quot;,&quot;at&quot;:[&quot;fixtures/projects/react-vite/src/App.tsx:7&quot;]}}}</code></pre>
+<p>Kody wyjścia: <code>0</code>, gdy nic nie osiąga progu <code>--fail-on</code> (domyślnie <code>serious</code>), <code>1</code>, gdy coś osiąga, <code>2</code> przy błędnym użyciu, <code>3</code>, gdy wymagane narzędzie jest niedostępne.</p>
+<h3>Pomijanie znaleziska</h3>
+<p>Napisz <code>fs-ignore &lt;id reguły&gt;</code> w komentarzu w tej samej linii lub linię wyżej albo wpisz identyfikatory reguł i ścieżki w <code>audit.ignore</code> i <code>audit.exclude</code> w profilu.</p>
+</section>
+<section aria-labelledby="safe"><h2 id="safe">Domyślnie bezpieczne</h2>
+<p>Nic, co napisałeś, nie jest nadpisywane. Każdy plik i blok zapisany przez polecenie trafia do <code>.frontend-skills/install.json</code> z sumą kontrolną; <code>uninstall</code> usuwa plik tylko wtedy, gdy suma wciąż się zgadza, a plik, który zmieniłeś, zostawia. <code>--dry-run</code> pokazuje plan i niczego nie zapisuje.</p>
+</section>
+</div>
+</div>
+</main>
+<footer class="site-footer">
+<div class="wrap footer-inner">
+<div class="footer-text">
+<p class="footer-brand"><svg class="brand-mark" viewBox="0 0 32 32" width="32" height="32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="8" fill="currentColor"/><path d="M12.5 10 7 16l5.5 6M19.5 10 25 16l-5.5 6" fill="none" stroke="var(--logo-ink)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Frontend Skills</span></p>
+<p>Darmowy i otwarty, na licencji MIT. Autor: <a href="https://dawidolko.pl">Dawid Olko</a>.</p>
+<p>Budowana z WCAG 2.2 AA jako celem. Automatyczne testy wykrywają tylko część problemów.</p>
+<p>Bez ciasteczek, bez analityki, bez zapytań do innych serwisów. Przycisk dostępności zapisuje ustawienia tylko na Twoim urządzeniu.</p>
+</div>
+<nav aria-label="Więcej"><ul class="footer-nav"><li><a href="/pl/">Start</a></li><li><a href="/pl/how-it-works/" aria-current="page">Jak to działa</a></li><li><a href="/pl/rules/">Reguły</a></li><li><a href="/pl/skills/">Skille</a></li><li><a href="/pl/commands/">Polecenia</a></li><li><a href="/pl/faq/">Pytania</a></li><li><a href="/pl/about/">O projekcie</a></li><li><a href="https://github.com/dawidolko/frontend-skills">GitHub</a></li></ul></nav>
+</div>
+</footer>
+<p id="live-status" class="visually-hidden" role="status" aria-live="polite"></p>
+</body>
+</html>

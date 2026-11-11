@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Commands · Frontend Skills</title>
+<meta name="description" content="Every command of Frontend Skills: init, audit, learn, list, explain, doctor, update, uninstall and tokens, with their options.">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#faf7fc" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0d0d0f" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://skills.dawidolko.pl/commands/">
+<link rel="alternate" hreflang="en" href="https://skills.dawidolko.pl/commands/">
+<link rel="alternate" hreflang="pl" href="https://skills.dawidolko.pl/pl/commands/">
+<link rel="alternate" hreflang="x-default" href="https://skills.dawidolko.pl/commands/">
+<link rel="preload" href="/assets/fonts/opensans-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/styles.css?v=fbc2d7ae26">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Frontend Skills">
+<meta property="og:title" content="Commands">
+<meta property="og:description" content="Every command of Frontend Skills: init, audit, learn, list, explain, doctor, update, uninstall and tokens, with their options.">
+<meta property="og:url" content="https://skills.dawidolko.pl/commands/">
+<meta property="og:image" content="https://skills.dawidolko.pl/og-en.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Frontend Skills: one command that fits front-end skills to your project and every coding agent you use.">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="pl_PL">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="author" content="Dawid Olko">
+
+<script src="/assets/site.js?v=dd8cab0a79" defer></script>
+<script src="/a11y/a11y-panel.js?v=39d6e82235" data-accent="#9b00c2" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+<div class="wrap header-inner">
+<a class="brand" href="/"><svg class="brand-mark" viewBox="0 0 32 32" width="32" height="32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="8" fill="currentColor"/><path d="M12.5 10 7 16l5.5 6M19.5 10 25 16l-5.5 6" fill="none" stroke="var(--logo-ink)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="brand-name">Frontend Skills</span></a>
+<nav class="main-nav" aria-label="Main"><ul><li><a href="/how-it-works/">How it works</a></li><li><a href="/rules/">Rules</a></li><li><a href="/skills/">Skills</a></li><li><a href="/commands/" aria-current="page">Commands</a></li><li><a href="/faq/">FAQ</a></li></ul></nav>
+<div class="header-tools">
+<a class="lang-switch" href="/pl/commands/" hreflang="pl" lang="pl" title="Ta strona po polsku">Polski</a>
+<a class="gh-link" href="https://github.com/dawidolko/frontend-skills" aria-label="Source code on GitHub"><svg viewBox="0 0 16 16" width="20" height="20" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg></a>
+</div>
+</div>
+</header>
+<main id="main" tabindex="-1">
+<div class="page-head"><div class="wrap"><h1>Commands</h1><p class="lead">Every command runs with <code>npx github:dawidolko/frontend-skills &lt;command&gt;</code> and accepts <code>--cwd &lt;dir&gt;</code> and <code>--help</code>. Output is short by default; <code>--json</code> gives machine output where it makes sense.</p></div></div>
+<div class="wrap narrow">
+<section class="command-section" aria-labelledby="c-init">
+<h2 id="c-init"><code>init</code> <span class="status status-ok">available</span></h2>
+<p>Detects the stack and the agents, writes the profile, plans the files for each agent, shows the plan, asks, writes, records every file and runs the first audit. With no agent found it asks which ones.</p>
+<div class="command"><pre class="command-text"><code id="cmd-1">npx github:<wbr>dawidolko/<wbr>frontend-skills init</code></pre><button type="button" class="copy-button" data-copy="cmd-1" data-done="Copied to the clipboard." data-fail="Copying failed; select the text and copy it by hand." aria-label="Copy the command" hidden>Copy</button></div>
+<details><summary>Options, as printed by <code>--help</code></summary><pre class="terminal" tabindex="0"><code>Usage: frontend-skills init [options]
+
+  --agents &lt;ids&gt;     comma-separated: claude, codex, cursor, copilot, gemini, antigravity, devin, opencode, cline, zed, junie, kiro, augment, trae, continue, amazonq, aider (windsurf = devin)
+  --format &lt;f&gt;       both (default: skills plus glob-scoped rule files), skills, rules
+  --dry-run          show the plan and write nothing
+  --yes, -y          write without asking (for scripts)
+  --no-audit         skip the first audit</code></pre></details>
+</section>
+<section class="command-section" aria-labelledby="c-audit">
+<h2 id="c-audit"><code>audit</code> <span class="status status-ok">available</span></h2>
+<p>Checks the source against the rules and writes <code>frontend-report.md</code>. With <code>--url</code> it also checks a running page in your Chrome; with <code>--changed</code> only the files you changed; with <code>--json</code> it prints the condensed output for agents.</p>
+<div class="command"><pre class="command-text"><code id="cmd-2">npx github:<wbr>dawidolko/<wbr>frontend-skills audit</code></pre><button type="button" class="copy-button" data-copy="cmd-2" data-done="Copied to the clipboard." data-fail="Copying failed; select the text and copy it by hand." aria-label="Copy the command" hidden>Copy</button></div>
+<details><summary>Options, as printed by <code>--help</code></summary><pre class="terminal" tabindex="0"><code>Usage: frontend-skills audit [path] [options]
+
+  --url &lt;address&gt;     also check a running page (Lighthouse and axe-core in your Chrome; asks before fetching them)
+  --changed           only files changed against --base (default HEAD), staged, unstaged or new
+  --base &lt;ref&gt;        the git ref for --changed
+  --fail-on &lt;level&gt;   critical | serious | moderate | minor | none (default: profile audit.failOn or serious)
+  --json              print the condensed JSON for agents instead of the summary
+  --report &lt;file&gt;     where to write the Markdown report (default frontend-report.md)
+  --no-report         do not write the report
+  --yes               fetch the browser tools without asking (with --url)</code></pre></details>
+</section>
+<section class="command-section" aria-labelledby="c-learn">
+<h2 id="c-learn"><code>learn</code> <span class="status status-ok">available</span></h2>
+<p>Re-detects the stack after it changed, shows the difference and updates the profile and the installed skills. With <code>--lesson</code> it records a lesson you confirmed.</p>
+<div class="command"><pre class="command-text"><code id="cmd-3">npx github:<wbr>dawidolko/<wbr>frontend-skills learn</code></pre><button type="button" class="copy-button" data-copy="cmd-3" data-done="Copied to the clipboard." data-fail="Copying failed; select the text and copy it by hand." aria-label="Copy the command" hidden>Copy</button></div>
+<details><summary>Options, as printed by <code>--help</code></summary><pre class="terminal" tabindex="0"><code>Usage: frontend-skills learn [options]
+
+  (no options)          refresh the profile and the installed skills after the stack changed
+  --lesson &quot;&lt;text&gt;&quot;     record a confirmed lesson (one line, no secrets)
+  --kind &lt;kind&gt;         convention | command | pitfall (with --lesson; default convention)
+  --dry-run             show the changes, write nothing
+  --yes, -y             apply without asking</code></pre></details>
+</section>
+<section class="command-section" aria-labelledby="c-list">
+<h2 id="c-list"><code>list</code> <span class="status status-ok">available</span></h2>
+<p>Lists the skills that fit this project with their token cost; <code>--all</code> for every skill, <code>--rules</code> for the dictionary.</p>
+<div class="command"><pre class="command-text"><code id="cmd-4">npx github:<wbr>dawidolko/<wbr>frontend-skills list</code></pre><button type="button" class="copy-button" data-copy="cmd-4" data-done="Copied to the clipboard." data-fail="Copying failed; select the text and copy it by hand." aria-label="Copy the command" hidden>Copy</button></div>
+<details><summary>Options, as printed by <code>--help</code></summary><pre class="terminal" tabindex="0"><code>Usage: frontend-skills list [--all] [--rules] [--json]</code></pre></details>
+</section>
+<section class="command-section" aria-labelledby="c-explain">
+<h2 id="c-explain"><code>explain</code> <span class="status status-ok">available</span></h2>
+<p>Prints one rule: title, severity, why, fix, examples, sources and the skill that teaches it. A deprecated id leads to the rule that replaced it.</p>
+<div class="command"><pre class="command-text"><code id="cmd-5">npx github:<wbr>dawidolko/<wbr>frontend-skills explain</code></pre><button type="button" class="copy-button" data-copy="cmd-5" data-done="Copied to the clipboard." data-fail="Copying failed; select the text and copy it by hand." aria-label="Copy the command" hidden>Copy</button></div>
+<details><summary>Options, as printed by <code>--help</code></summary><pre class="terminal" tabindex="0"><code>Usage: frontend-skills explain &lt;rule id&gt; [--json]</code></pre></details>
+</section>
+<section class="command-section" aria-labelledby="c-doctor">
+<h2 id="c-doctor"><code>doctor</code> <span class="status status-ok">available</span></h2>
+<p>Checks, per agent, which files exist, whether they are current and whether any skill is listed twice. Exits with 1 when something is missing or stale.</p>
+<div class="command"><pre class="command-text"><code id="cmd-6">npx github:<wbr>dawidolko/<wbr>frontend-skills doctor</code></pre><button type="button" class="copy-button" data-copy="cmd-6" data-done="Copied to the clipboard." data-fail="Copying failed; select the text and copy it by hand." aria-label="Copy the command" hidden>Copy</button></div>
+<details><summary>Options, as printed by <code>--help</code></summary><pre class="terminal" tabindex="0"><code>Usage: frontend-skills doctor [--json]</code></pre></details>
+</section>
+<section class="command-section" aria-labelledby="c-update">
+<h2 id="c-update"><code>update</code> <span class="status status-ok">available</span></h2>
+<p>Re-installs the recorded selection from the current version. Files you changed are kept and listed.</p>
+<div class="command"><pre class="command-text"><code id="cmd-7">npx github:<wbr>dawidolko/<wbr>frontend-skills update</code></pre><button type="button" class="copy-button" data-copy="cmd-7" data-done="Copied to the clipboard." data-fail="Copying failed; select the text and copy it by hand." aria-label="Copy the command" hidden>Copy</button></div>
+<details><summary>Options, as printed by <code>--help</code></summary><pre class="terminal" tabindex="0"><code>Usage: frontend-skills update [--dry-run]</code></pre></details>
+</section>
+<section class="command-section" aria-labelledby="c-uninstall">
+<h2 id="c-uninstall"><code>uninstall</code> <span class="status status-ok">available</span></h2>
+<p>Removes exactly what the install record lists; a file you changed is kept.</p>
+<div class="command"><pre class="command-text"><code id="cmd-8">npx github:<wbr>dawidolko/<wbr>frontend-skills uninstall</code></pre><button type="button" class="copy-button" data-copy="cmd-8" data-done="Copied to the clipboard." data-fail="Copying failed; select the text and copy it by hand." aria-label="Copy the command" hidden>Copy</button></div>
+<details><summary>Options, as printed by <code>--help</code></summary><pre class="terminal" tabindex="0"><code>Usage: frontend-skills uninstall [--dry-run] [--yes]</code></pre></details>
+</section>
+<section class="command-section" aria-labelledby="c-tokens">
+<h2 id="c-tokens"><code>tokens</code> <span class="status status-ok">available</span></h2>
+<p>Shows the estimated token cost of what is installed: what each agent always loads and what it loads on use.</p>
+<div class="command"><pre class="command-text"><code id="cmd-9">npx github:<wbr>dawidolko/<wbr>frontend-skills tokens</code></pre><button type="button" class="copy-button" data-copy="cmd-9" data-done="Copied to the clipboard." data-fail="Copying failed; select the text and copy it by hand." aria-label="Copy the command" hidden>Copy</button></div>
+<details><summary>Options, as printed by <code>--help</code></summary><pre class="terminal" tabindex="0"><code>Usage: frontend-skills tokens [--all] [--json]</code></pre></details>
+</section>
+</div>
+</main>
+<footer class="site-footer">
+<div class="wrap footer-inner">
+<div class="footer-text">
+<p class="footer-brand"><svg class="brand-mark" viewBox="0 0 32 32" width="32" height="32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="8" fill="currentColor"/><path d="M12.5 10 7 16l5.5 6M19.5 10 25 16l-5.5 6" fill="none" stroke="var(--logo-ink)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Frontend Skills</span></p>
+<p>Free and open source under the MIT licence, made by <a href="https://dawidolko.pl">Dawid Olko</a>.</p>
+<p>Built to WCAG 2.2 AA as a target. Automated checks find only part of the problems.</p>
+<p>No cookies, no analytics, no third-party requests. The accessibility button keeps its settings on your device.</p>
+</div>
+<nav aria-label="More"><ul class="footer-nav"><li><a href="/">Home</a></li><li><a href="/how-it-works/">How it works</a></li><li><a href="/rules/">Rules</a></li><li><a href="/skills/">Skills</a></li><li><a href="/commands/" aria-current="page">Commands</a></li><li><a href="/faq/">FAQ</a></li><li><a href="/about/">About</a></li><li><a href="https://github.com/dawidolko/frontend-skills">GitHub</a></li></ul></nav>
+</div>
+</footer>
+<p id="live-status" class="visually-hidden" role="status" aria-live="polite"></p>
+</body>
+</html>

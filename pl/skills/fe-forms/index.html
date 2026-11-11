@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Native forms and validation (fe-forms) · Frontend Skills</title>
+<meta name="description" content="Builds and reviews HTML forms that work natively - the right input types and inputmode, autocomplete tokens, constraint validation and custom messages,…">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#faf7fc" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0d0d0f" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://skills.dawidolko.pl/pl/skills/fe-forms/">
+<link rel="alternate" hreflang="en" href="https://skills.dawidolko.pl/skills/fe-forms/">
+<link rel="alternate" hreflang="pl" href="https://skills.dawidolko.pl/pl/skills/fe-forms/">
+<link rel="alternate" hreflang="x-default" href="https://skills.dawidolko.pl/skills/fe-forms/">
+<link rel="preload" href="/assets/fonts/opensans-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/styles.css?v=fbc2d7ae26">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Frontend Skills">
+<meta property="og:title" content="Native forms and validation (fe-forms)">
+<meta property="og:description" content="Builds and reviews HTML forms that work natively - the right input types and inputmode, autocomplete tokens, constraint validation and custom messages,…">
+<meta property="og:url" content="https://skills.dawidolko.pl/pl/skills/fe-forms/">
+<meta property="og:image" content="https://skills.dawidolko.pl/og-pl.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Frontend Skills: jedno polecenie, które dopasowuje skille front-endowe do Twojego projektu i każdego agenta, którego używasz.">
+<meta property="og:locale" content="pl_PL">
+<meta property="og:locale:alternate" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="author" content="Dawid Olko">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Start","item":"https://skills.dawidolko.pl/pl/"},{"@type":"ListItem","position":2,"name":"Skille","item":"https://skills.dawidolko.pl/pl/skills/"},{"@type":"ListItem","position":3,"name":"Native forms and validation","item":"https://skills.dawidolko.pl/pl/skills/fe-forms/"}]}</script>
+<script src="/assets/site.js?v=dd8cab0a79" defer></script>
+<script src="/a11y/a11y-panel.js?v=39d6e82235" data-accent="#9b00c2" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Przejdź do treści</a>
+<header class="site-header">
+<div class="wrap header-inner">
+<a class="brand" href="/pl/"><svg class="brand-mark" viewBox="0 0 32 32" width="32" height="32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="8" fill="currentColor"/><path d="M12.5 10 7 16l5.5 6M19.5 10 25 16l-5.5 6" fill="none" stroke="var(--logo-ink)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="brand-name">Frontend Skills</span></a>
+<nav class="main-nav" aria-label="Główna"><ul><li><a href="/pl/how-it-works/">Jak to działa</a></li><li><a href="/pl/rules/">Reguły</a></li><li><a href="/pl/skills/" class="is-section">Skille</a></li><li><a href="/pl/commands/">Polecenia</a></li><li><a href="/pl/faq/">Pytania</a></li></ul></nav>
+<div class="header-tools">
+<a class="lang-switch" href="/skills/fe-forms/" hreflang="en" lang="en" title="This page in English">English</a>
+<a class="gh-link" href="https://github.com/dawidolko/frontend-skills" aria-label="Kod źródłowy na GitHubie"><svg viewBox="0 0 16 16" width="20" height="20" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg></a>
+</div>
+</div>
+</header>
+<main id="main" tabindex="-1">
+<div class="page-head"><div class="wrap">
+<nav class="breadcrumb" aria-label="Ścieżka nawigacji"><ol><li><a href="/pl/">Start</a></li><li><a href="/pl/skills/">Skille</a></li><li><span aria-current="page">Native forms and validation</span></li></ol></nav>
+<h1>Native forms and validation</h1>
+<p class="lead">Builds and reviews HTML forms that work natively - the right input types and inputmode, autocomplete tokens, constraint validation and custom messages, select placeholders, file inputs, and submission through the form's submit event. Accessibility of forms is in fe-a11y-forms. Use when writing a form, a field component, validation or a submit handler, or asked &quot;why does this form not validate&quot;.</p>
+</div></div>
+<div class="wrap rule-layout">
+<div class="prose">
+<section aria-labelledby="rules"><h2 id="rules">Reguły, których uczy</h2>
+<ul class="rule-list compact"><li class="rule-item"><a class="rule-id" href="/pl/rules/html/input-type/"><code>html/input-type</code></a><p class="rule-title">An input for an email address, phone number or URL uses type email, tel or url, not text.</p><p class="rule-meta"><span class="sev sev-minor">drobna</span> <span class="tag tag-static">statyczne</span></p></li><li class="rule-item"><a class="rule-id" href="/pl/rules/html/no-number-for-codes/"><code>html/no-number-for-codes</code></a><p class="rule-title">Codes made of digits (postal codes, card numbers, one-time codes, PINs) use type text with inputmode numeric, not type number.</p><p class="rule-meta"><span class="sev sev-moderate">umiarkowana</span> <span class="tag tag-static">statyczne</span></p></li><li class="rule-item"><a class="rule-id" href="/pl/rules/html/password-autocomplete/"><code>html/password-autocomplete</code></a><p class="rule-title">Password fields say current-password (sign-in) or new-password (sign-up, change) in autocomplete, and never use autocomplete off.</p><p class="rule-meta"><span class="sev sev-moderate">umiarkowana</span> <span class="tag tag-static">statyczne</span></p></li><li class="rule-item"><a class="rule-id" href="/pl/rules/html/constraint-attr-type/"><code>html/constraint-attr-type</code></a><p class="rule-title">Validation attributes match the input type (pattern and maxlength on text-like types, min, max and step on number and date types).</p><p class="rule-meta"><span class="sev sev-moderate">umiarkowana</span> <span class="tag tag-static">statyczne</span></p></li><li class="rule-item"><a class="rule-id" href="/pl/rules/html/required-select-placeholder/"><code>html/required-select-placeholder</code></a><p class="rule-title">A required single-choice select starts with an empty placeholder option (value=&quot;&quot;), so the required check can fail.</p><p class="rule-meta"><span class="sev sev-moderate">umiarkowana</span> <span class="tag tag-static">statyczne</span></p></li><li class="rule-item"><a class="rule-id" href="/pl/rules/html/form-submit/"><code>html/form-submit</code></a><p class="rule-title">Fields sit in a form that is handled on its submit event with a submit button, so Enter, autofill and native validation work.</p><p class="rule-meta"><span class="sev sev-moderate">umiarkowana</span> <span class="tag tag-manual">ręczne</span></p></li><li class="rule-item"><a class="rule-id" href="/pl/rules/a11y/input-label/"><code>a11y/input-label</code></a><p class="rule-title">Every form field has a programmatic label (label element, aria-label or aria-labelledby); a placeholder is not a label.</p><p class="rule-meta"><span class="sev sev-critical">krytyczna</span> <span class="tag tag-static">statyczne</span></p></li><li class="rule-item"><a class="rule-id" href="/pl/rules/a11y/autocomplete-valid/"><code>a11y/autocomplete-valid</code></a><p class="rule-title">An autocomplete attribute holds only tokens the HTML standard defines (email, given-name, new-password…).</p><p class="rule-meta"><span class="sev sev-serious">poważna</span> <span class="tag tag-static">statyczne</span></p></li><li class="rule-item"><a class="rule-id" href="/pl/rules/html/button-type/"><code>html/button-type</code></a><p class="rule-title">Every button states its type (button, submit or reset); the default is submit.</p><p class="rule-meta"><span class="sev sev-minor">drobna</span> <span class="tag tag-static">statyczne</span></p></li></ul></section>
+<section aria-labelledby="digest"><h2 id="digest">Skrót reguł</h2><p>Ta część jest kopiowana do zawężonego pliku reguł każdego agenta, więc musi być zrozumiała sama w sobie:</p><div class="digest"><ul><li>Put fields in a <code>&lt;form&gt;</code>, handle its <code>submit</code> event and give it one <code>&lt;button type=&quot;submit&quot;&gt;</code> (<a href="/pl/rules/html/form-submit/">html/form-submit</a>, <a href="/pl/rules/html/button-type/">html/button-type</a>).</li><li>Every field has a label; follow <code>fe-a11y-forms</code> for errors and groups (a11y/input-label).</li><li>Pick the type for the data: <code>email</code>, <code>tel</code>, <code>url</code>, <code>search</code>, <code>date</code>, <code>number</code> for quantities only (<a href="/pl/rules/html/input-type/">html/input-type</a>).</li><li>Codes of digits use <code>type=&quot;text&quot; inputmode=&quot;numeric&quot;</code>, never <code>type=&quot;number&quot;</code> (<a href="/pl/rules/html/no-number-for-codes/">html/no-number-for-codes</a>).</li><li>Fields about the person carry a standard <code>autocomplete</code> token (a11y/autocomplete-valid).</li><li>Password fields say <code>current-password</code> or <code>new-password</code>; never <code>autocomplete=&quot;off&quot;</code>, never block paste (<a href="/pl/rules/html/password-autocomplete/">html/password-autocomplete</a>).</li><li>Validation attributes match the type: <code>pattern</code> and <code>maxlength</code> on text-like types, <code>min</code>, <code>max</code>, <code>step</code> on numbers and dates (<a href="/pl/rules/html/constraint-attr-type/">html/constraint-attr-type</a>).</li><li>A required single select starts with <code>&lt;option value=&quot;&quot;&gt;</code> (<a href="/pl/rules/html/required-select-placeholder/">html/required-select-placeholder</a>).</li><li>Validate on the server too; client checks are a convenience.</li><li>Never disable the submit button to signal invalid input; let submit run and show the errors.</li></ul></div></section>
+<section aria-labelledby="do"><h2 id="do">Kroki, które wykonuje agent</h2><ol><li>Find the project's form layer first (a <code>Field</code> component, React Hook Form, VeeValidate, Angular reactive forms, SvelteKit form actions) and fix it there.</li><li>For each field: label, <code>name</code>, <code>id</code>, <code>type</code> or <code>inputmode</code>, <code>autocomplete</code>, <code>required</code> and the constraint attributes its type supports.</li><li>Use native constraint validation for the rules (<code>required</code>, <code>pattern</code>, <code>min</code>); for your own wording add <code>novalidate</code> to the form and show messages with <code>setCustomValidity</code> or rendered text after <code>checkValidity()</code>.</li><li>Style errors with <code>:user-invalid</code> (after interaction), not <code>:invalid</code> (which matches before the person typed).</li><li>Submit with <code>new FormData(form)</code>; keep the form working without JavaScript where the framework allows (a real <code>action</code>, SvelteKit or Remix-style actions, React form actions).</li><li>Prevent double submits by ignoring a second submit while one is pending, and keep the values when the server returns errors.</li></ol></section>
+<section aria-labelledby="check"><h2 id="check">Jak agent sprawdza swoją pracę</h2><ul><li><code>npx github:dawidolko/frontend-skills audit --changed</code> reports wrong input types, number fields for codes, password fields without a token, ignored constraint attributes, required selects without a placeholder, unlabeled fields and buttons without a type.</li><li>By hand: fill the form on a phone (keyboard per field), with a password manager, with autofill, and submit it with Enter.</li></ul></section>
+<section aria-labelledby="refs"><h2 id="refs">Pliki referencyjne</h2><ul><li><a href="https://github.com/dawidolko/frontend-skills/blob/main/skills/foundations/fe-forms/references/native-forms.md"><code>references/native-forms.md</code></a> · 1472 tokeny</li></ul></section>
+<section aria-labelledby="agents"><h2 id="agents">Pisany dla</h2>
+<p>każdego agenta używanego w projekcie: Claude Code, OpenAI Codex, Cursor, GitHub Copilot, Gemini CLI, Antigravity CLI, Devin / Windsurf, OpenCode, Cline, Zed, JetBrains Junie, Kiro, Augment, Trae, Continue, Amazon Q Developer, Aider.</p>
+<p>Agenci, którzy dostają też plik reguł zawężony do tych plików: Claude Code, Cursor, GitHub Copilot, Antigravity CLI, Devin / Windsurf, Cline, Kiro, Trae, Continue.</p></section>
+</div>
+<aside class="facts" aria-labelledby="facts-title">
+<h2 id="facts-title">Fakty</h2>
+<dl><dt>Nazwa</dt><dd><code>fe-forms</code></dd><dt>Obszar</dt><dd>Podstawy</dd><dt>Instalowany, gdy projekt używa</dt><dd>każdego projektu webowego</dd><dt>Pliki, których dotyczy</dt><dd><code>**/*.html</code> <code>**/*.jsx</code> <code>**/*.tsx</code> <code>**/*.vue</code> <code>**/*.svelte</code> <code>**/*.astro</code> <code>**/*.component.html</code></dd><dt>Koszt w tokenach</dt><dd>ładowane zawsze: 87 tokenów; przy użyciu: 954 tokeny; w referencjach na żądanie: 1472 tokeny.</dd></dl>
+<p><a href="https://github.com/dawidolko/frontend-skills/blob/main/skills/foundations/fe-forms/SKILL.md">SKILL.md na GitHubie</a></p>
+<p><a href="/pl/skills/">Wszystkie skille</a></p>
+</aside>
+</div>
+</main>
+<footer class="site-footer">
+<div class="wrap footer-inner">
+<div class="footer-text">
+<p class="footer-brand"><svg class="brand-mark" viewBox="0 0 32 32" width="32" height="32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="8" fill="currentColor"/><path d="M12.5 10 7 16l5.5 6M19.5 10 25 16l-5.5 6" fill="none" stroke="var(--logo-ink)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Frontend Skills</span></p>
+<p>Darmowy i otwarty, na licencji MIT. Autor: <a href="https://dawidolko.pl">Dawid Olko</a>.</p>
+<p>Budowana z WCAG 2.2 AA jako celem. Automatyczne testy wykrywają tylko część problemów.</p>
+<p>Bez ciasteczek, bez analityki, bez zapytań do innych serwisów. Przycisk dostępności zapisuje ustawienia tylko na Twoim urządzeniu.</p>
+</div>
+<nav aria-label="Więcej"><ul class="footer-nav"><li><a href="/pl/">Start</a></li><li><a href="/pl/how-it-works/">Jak to działa</a></li><li><a href="/pl/rules/">Reguły</a></li><li><a href="/pl/skills/">Skille</a></li><li><a href="/pl/commands/">Polecenia</a></li><li><a href="/pl/faq/">Pytania</a></li><li><a href="/pl/about/">O projekcie</a></li><li><a href="https://github.com/dawidolko/frontend-skills">GitHub</a></li></ul></nav>
+</div>
+</footer>
+<p id="live-status" class="visually-hidden" role="status" aria-live="polite"></p>
+</body>
+</html>

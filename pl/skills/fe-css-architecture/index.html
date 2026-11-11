@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CSS architecture and tokens (fe-css-architecture) · Frontend Skills</title>
+<meta name="description" content="Organises and reviews stylesheets (CSS, SCSS, Less, component styles) around the project's own tokens, helpers and icon set - cascade layers, specificity,…">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#faf7fc" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0d0d0f" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://skills.dawidolko.pl/pl/skills/fe-css-architecture/">
+<link rel="alternate" hreflang="en" href="https://skills.dawidolko.pl/skills/fe-css-architecture/">
+<link rel="alternate" hreflang="pl" href="https://skills.dawidolko.pl/pl/skills/fe-css-architecture/">
+<link rel="alternate" hreflang="x-default" href="https://skills.dawidolko.pl/skills/fe-css-architecture/">
+<link rel="preload" href="/assets/fonts/opensans-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/styles.css?v=fbc2d7ae26">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Frontend Skills">
+<meta property="og:title" content="CSS architecture and tokens (fe-css-architecture)">
+<meta property="og:description" content="Organises and reviews stylesheets (CSS, SCSS, Less, component styles) around the project's own tokens, helpers and icon set - cascade layers, specificity,…">
+<meta property="og:url" content="https://skills.dawidolko.pl/pl/skills/fe-css-architecture/">
+<meta property="og:image" content="https://skills.dawidolko.pl/og-pl.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Frontend Skills: jedno polecenie, które dopasowuje skille front-endowe do Twojego projektu i każdego agenta, którego używasz.">
+<meta property="og:locale" content="pl_PL">
+<meta property="og:locale:alternate" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="author" content="Dawid Olko">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Start","item":"https://skills.dawidolko.pl/pl/"},{"@type":"ListItem","position":2,"name":"Skille","item":"https://skills.dawidolko.pl/pl/skills/"},{"@type":"ListItem","position":3,"name":"CSS architecture and tokens","item":"https://skills.dawidolko.pl/pl/skills/fe-css-architecture/"}]}</script>
+<script src="/assets/site.js?v=dd8cab0a79" defer></script>
+<script src="/a11y/a11y-panel.js?v=39d6e82235" data-accent="#9b00c2" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Przejdź do treści</a>
+<header class="site-header">
+<div class="wrap header-inner">
+<a class="brand" href="/pl/"><svg class="brand-mark" viewBox="0 0 32 32" width="32" height="32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="8" fill="currentColor"/><path d="M12.5 10 7 16l5.5 6M19.5 10 25 16l-5.5 6" fill="none" stroke="var(--logo-ink)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="brand-name">Frontend Skills</span></a>
+<nav class="main-nav" aria-label="Główna"><ul><li><a href="/pl/how-it-works/">Jak to działa</a></li><li><a href="/pl/rules/">Reguły</a></li><li><a href="/pl/skills/" class="is-section">Skille</a></li><li><a href="/pl/commands/">Polecenia</a></li><li><a href="/pl/faq/">Pytania</a></li></ul></nav>
+<div class="header-tools">
+<a class="lang-switch" href="/skills/fe-css-architecture/" hreflang="en" lang="en" title="This page in English">English</a>
+<a class="gh-link" href="https://github.com/dawidolko/frontend-skills" aria-label="Kod źródłowy na GitHubie"><svg viewBox="0 0 16 16" width="20" height="20" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg></a>
+</div>
+</div>
+</header>
+<main id="main" tabindex="-1">
+<div class="page-head"><div class="wrap">
+<nav class="breadcrumb" aria-label="Ścieżka nawigacji"><ol><li><a href="/pl/">Start</a></li><li><a href="/pl/skills/">Skille</a></li><li><span aria-current="page">CSS architecture and tokens</span></li></ol></nav>
+<h1>CSS architecture and tokens</h1>
+<p class="lead">Organises and reviews stylesheets (CSS, SCSS, Less, component styles) around the project's own tokens, helpers and icon set - cascade layers, specificity, rem sizing, unitless line-height, z-index scale, no magic numbers or hard-coded asset paths. Use when writing or refactoring CSS, adding a component's styles, or asked &quot;clean up this CSS&quot;, &quot;why does this style not apply&quot;, &quot;use our tokens&quot;.</p>
+</div></div>
+<div class="wrap rule-layout">
+<div class="prose">
+<section aria-labelledby="rules"><h2 id="rules">Reguły, których uczy</h2>
+<ul class="rule-list compact"><li class="rule-item"><a class="rule-id" href="/pl/rules/css/design-tokens/"><code>css/design-tokens</code></a><p class="rule-title">Colours and spacing come from the project's tokens (custom properties or variables); a literal that has a token, or repeats, is a finding.</p><p class="rule-meta"><span class="sev sev-minor">drobna</span> <span class="tag tag-static">statyczne</span></p></li><li class="rule-item"><a class="rule-id" href="/pl/rules/css/no-magic-numbers/"><code>css/no-magic-numbers</code></a><p class="rule-title">Offsets and spacing use the project's spacing scale or come from layout; hand-tuned one-off values such as top -7px are a finding.</p><p class="rule-meta"><span class="sev sev-minor">drobna</span> <span class="tag tag-static">statyczne</span></p></li><li class="rule-item"><a class="rule-id" href="/pl/rules/css/z-index-scale/"><code>css/z-index-scale</code></a><p class="rule-title">z-index values come from a named scale (custom properties or Sass variables), not ad hoc numbers such as 999 or 9999.</p><p class="rule-meta"><span class="sev sev-minor">drobna</span> <span class="tag tag-static">statyczne</span></p></li><li class="rule-item"><a class="rule-id" href="/pl/rules/css/rem-helper/"><code>css/rem-helper</code></a><p class="rule-title">Font sizes and spacing use the project's px-to-rem helper (its rem function), not raw px.</p><p class="rule-meta"><span class="sev sev-minor">drobna</span> <span class="tag tag-static">statyczne</span></p></li><li class="rule-item"><a class="rule-id" href="/pl/rules/css/rem-units/"><code>css/rem-units</code></a><p class="rule-title">Font sizes are written in rem (or em), never px, in projects without a rem helper; with one, css/rem-helper applies.</p><p class="rule-meta"><span class="sev sev-minor">drobna</span> <span class="tag tag-static">statyczne</span></p></li><li class="rule-item"><a class="rule-id" href="/pl/rules/css/unitless-line-height/"><code>css/unitless-line-height</code></a><p class="rule-title">line-height is a unitless number (for example 1.5), never px, em or a percentage, so it scales with each element's font size.</p><p class="rule-meta"><span class="sev sev-minor">drobna</span> <span class="tag tag-static">statyczne</span></p></li><li class="rule-item"><a class="rule-id" href="/pl/rules/css/no-important/"><code>css/no-important</code></a><p class="rule-title">!important appears only in utility classes, user-preference overrides and third-party overrides, never to win a specificity fight.</p><p class="rule-meta"><span class="sev sev-minor">drobna</span> <span class="tag tag-static">statyczne</span></p></li><li class="rule-item"><a class="rule-id" href="/pl/rules/css/no-id-selectors/"><code>css/no-id-selectors</code></a><p class="rule-title">Style elements by class, not by id; an id selector outweighs any number of classes and makes the rule hard to override.</p><p class="rule-meta"><span class="sev sev-minor">drobna</span> <span class="tag tag-static">statyczne</span></p></li><li class="rule-item"><a class="rule-id" href="/pl/rules/css/icon-from-set/"><code>css/icon-from-set</code></a><p class="rule-title">With a generated icon set, CSS uses its icon classes or mixin, never a url() hard-coded to an icon file.</p><p class="rule-meta"><span class="sev sev-minor">drobna</span> <span class="tag tag-static">statyczne</span></p></li><li class="rule-item"><a class="rule-id" href="/pl/rules/css/asset-url/"><code>css/asset-url</code></a><p class="rule-title">In a bundled project, url() to images and fonts is a relative path or alias the bundler resolves, not a hard-coded root or public/ path.</p><p class="rule-meta"><span class="sev sev-minor">drobna</span> <span class="tag tag-static">statyczne</span></p></li><li class="rule-item"><a class="rule-id" href="/pl/rules/css/no-stale-prefixes/"><code>css/no-stale-prefixes</code></a><p class="rule-title">No hand-written vendor prefixes for features browsers support unprefixed (border-radius, transitions, transforms, flexbox, gradients).</p><p class="rule-meta"><span class="sev sev-minor">drobna</span> <span class="tag tag-static">statyczne</span></p></li></ul></section>
+<section aria-labelledby="digest"><h2 id="digest">Skrót reguł</h2><p>Ta część jest kopiowana do zawężonego pliku reguł każdego agenta, więc musi być zrozumiała sama w sobie:</p><div class="digest"><ul><li>Take colours and spacing from the project's tokens; a literal used three times becomes a custom property (<a href="/pl/rules/css/design-tokens/">css/design-tokens</a>).</li><li>No hand-tuned offsets (<code>top: -7px</code>): use a step of the spacing scale or derive it from layout (<a href="/pl/rules/css/no-magic-numbers/">css/no-magic-numbers</a>).</li><li><code>z-index</code> comes from a named scale; inside a component use <code>isolation: isolate</code> and small values (<a href="/pl/rules/css/z-index-scale/">css/z-index-scale</a>).</li><li>Sizes go through the project's px-to-rem function when it has one, <code>rem-calc(16px)</code> (<a href="/pl/rules/css/rem-helper/">css/rem-helper</a>); otherwise font sizes are <code>rem</code> (<a href="/pl/rules/css/rem-units/">css/rem-units</a>).</li><li><code>line-height</code> is unitless, such as <code>1.5</code> (<a href="/pl/rules/css/unitless-line-height/">css/unitless-line-height</a>).</li><li>Order the cascade once with <code>@layer reset, base, components, utilities;</code>; <code>!important</code> only in utilities (<a href="/pl/rules/css/no-important/">css/no-important</a>).</li><li>Style classes, not ids; keep selectors to one or two classes and wrap resets in <code>:where()</code> (<a href="/pl/rules/css/no-id-selectors/">css/no-id-selectors</a>).</li><li>Icons come from the generated set (class, mixin or sprite), never a <code>url()</code> to an icon file (<a href="/pl/rules/css/icon-from-set/">css/icon-from-set</a>).</li><li>Images and fonts by a relative path or alias the bundler resolves, never <code>/images/…</code> (<a href="/pl/rules/css/asset-url/">css/asset-url</a>).</li><li>No hand-written vendor prefixes; Autoprefixer adds what the browserslist needs (<a href="/pl/rules/css/no-stale-prefixes/">css/no-stale-prefixes</a>).</li><li>Follow the naming convention the project already uses (BEM, CSS Modules, utilities); never mix two in one component.</li></ul></div></section>
+<section aria-labelledby="do"><h2 id="do">Kroki, które wykonuje agent</h2><ol><li>Find the project's conventions before writing a value: <code>helpers</code> in the profile (<code>rem-function</code>, <code>icon-classes</code>, <code>icon-sprite</code>, <code>custom-properties</code>, <code>design-tokens</code>), the tokens file (<code>:root</code> custom properties, <code>_tokens.scss</code>, Tailwind <code>@theme</code>), the layer order statement and the naming pattern of existing components.</li><li>Look every colour, space, radius, shadow and layer up in the tokens. A new value gets a token named by role (<code>--color-text-muted</code>, <code>--space-3</code>), not by hue or size.</li><li>Structure: layer order once at the top of the entry stylesheet; resets and base styles in <code>:where()</code>; a component is one class plus modifiers; utilities last.</li><li>Units: <code>rem</code> (or the project's helper) for type, space and breakpoints; <code>em</code> for spacing that follows the component's font; <code>px</code> only for borders, hairlines and shadows; unitless <code>line-height</code>.</li><li>Icons: add the SVG to the icon source folder and rebuild; use the generated class, mixin or component. Assets: keep them in <code>src/assets</code> and reference them relatively or by alias.</li><li>A finding you keep on purpose gets <code>fs-ignore &lt;rule id&gt;</code> and the reason on the same line.</li></ol></section>
+<section aria-labelledby="check"><h2 id="check">Jak agent sprawdza swoją pracę</h2><ul><li><code>npx github:dawidolko/frontend-skills audit --changed</code> reports literals that have a token, values off the spacing scale, ad hoc <code>z-index</code>, px sizes beside the rem function, unit line heights, <code>!important</code>, id selectors, icon and asset paths, stale prefixes.</li><li>By hand: change one token (the brand colour, the base spacing) and see the whole interface follow; run the project's Stylelint when it has one.</li></ul></section>
+<section aria-labelledby="refs"><h2 id="refs">Pliki referencyjne</h2><ul><li><a href="https://github.com/dawidolko/frontend-skills/blob/main/skills/styling/fe-css-architecture/references/architecture.md"><code>references/architecture.md</code></a> · 2297 tokenów</li></ul></section>
+<section aria-labelledby="agents"><h2 id="agents">Pisany dla</h2>
+<p>każdego agenta używanego w projekcie: Claude Code, OpenAI Codex, Cursor, GitHub Copilot, Gemini CLI, Antigravity CLI, Devin / Windsurf, OpenCode, Cline, Zed, JetBrains Junie, Kiro, Augment, Trae, Continue, Amazon Q Developer, Aider.</p>
+<p>Agenci, którzy dostają też plik reguł zawężony do tych plików: Claude Code, Cursor, GitHub Copilot, Antigravity CLI, Devin / Windsurf, Cline, Kiro, Trae, Continue.</p></section>
+</div>
+<aside class="facts" aria-labelledby="facts-title">
+<h2 id="facts-title">Fakty</h2>
+<dl><dt>Nazwa</dt><dd><code>fe-css-architecture</code></dd><dt>Obszar</dt><dd>Style</dd><dt>Instalowany, gdy projekt używa</dt><dd>każdego projektu webowego</dd><dt>Pliki, których dotyczy</dt><dd><code>**/*.css</code> <code>**/*.scss</code> <code>**/*.less</code> <code>**/*.vue</code> <code>**/*.svelte</code> <code>**/*.astro</code></dd><dt>Koszt w tokenach</dt><dd>ładowane zawsze: 92 tokeny; przy użyciu: 1053 tokeny; w referencjach na żądanie: 2297 tokenów.</dd></dl>
+<p><a href="https://github.com/dawidolko/frontend-skills/blob/main/skills/styling/fe-css-architecture/SKILL.md">SKILL.md na GitHubie</a></p>
+<p><a href="/pl/skills/">Wszystkie skille</a></p>
+</aside>
+</div>
+</main>
+<footer class="site-footer">
+<div class="wrap footer-inner">
+<div class="footer-text">
+<p class="footer-brand"><svg class="brand-mark" viewBox="0 0 32 32" width="32" height="32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="8" fill="currentColor"/><path d="M12.5 10 7 16l5.5 6M19.5 10 25 16l-5.5 6" fill="none" stroke="var(--logo-ink)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Frontend Skills</span></p>
+<p>Darmowy i otwarty, na licencji MIT. Autor: <a href="https://dawidolko.pl">Dawid Olko</a>.</p>
+<p>Budowana z WCAG 2.2 AA jako celem. Automatyczne testy wykrywają tylko część problemów.</p>
+<p>Bez ciasteczek, bez analityki, bez zapytań do innych serwisów. Przycisk dostępności zapisuje ustawienia tylko na Twoim urządzeniu.</p>
+</div>
+<nav aria-label="Więcej"><ul class="footer-nav"><li><a href="/pl/">Start</a></li><li><a href="/pl/how-it-works/">Jak to działa</a></li><li><a href="/pl/rules/">Reguły</a></li><li><a href="/pl/skills/">Skille</a></li><li><a href="/pl/commands/">Polecenia</a></li><li><a href="/pl/faq/">Pytania</a></li><li><a href="/pl/about/">O projekcie</a></li><li><a href="https://github.com/dawidolko/frontend-skills">GitHub</a></li></ul></nav>
+</div>
+</footer>
+<p id="live-status" class="visually-hidden" role="status" aria-live="polite"></p>
+</body>
+</html>

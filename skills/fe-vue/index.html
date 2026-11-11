@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vue components (fe-vue) · Frontend Skills</title>
+<meta name="description" content="Writes and reviews Vue 3.5 single-file components with script setup and the Composition API - keyed lists, props and emits, refs and reactive, pure…">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#faf7fc" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0d0d0f" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://skills.dawidolko.pl/skills/fe-vue/">
+<link rel="alternate" hreflang="en" href="https://skills.dawidolko.pl/skills/fe-vue/">
+<link rel="alternate" hreflang="pl" href="https://skills.dawidolko.pl/pl/skills/fe-vue/">
+<link rel="alternate" hreflang="x-default" href="https://skills.dawidolko.pl/skills/fe-vue/">
+<link rel="preload" href="/assets/fonts/opensans-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/styles.css?v=fbc2d7ae26">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Frontend Skills">
+<meta property="og:title" content="Vue components (fe-vue)">
+<meta property="og:description" content="Writes and reviews Vue 3.5 single-file components with script setup and the Composition API - keyed lists, props and emits, refs and reactive, pure…">
+<meta property="og:url" content="https://skills.dawidolko.pl/skills/fe-vue/">
+<meta property="og:image" content="https://skills.dawidolko.pl/og-en.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Frontend Skills: one command that fits front-end skills to your project and every coding agent you use.">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="pl_PL">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="author" content="Dawid Olko">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://skills.dawidolko.pl/"},{"@type":"ListItem","position":2,"name":"Skills","item":"https://skills.dawidolko.pl/skills/"},{"@type":"ListItem","position":3,"name":"Vue components","item":"https://skills.dawidolko.pl/skills/fe-vue/"}]}</script>
+<script src="/assets/site.js?v=dd8cab0a79" defer></script>
+<script src="/a11y/a11y-panel.js?v=39d6e82235" data-accent="#9b00c2" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+<div class="wrap header-inner">
+<a class="brand" href="/"><svg class="brand-mark" viewBox="0 0 32 32" width="32" height="32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="8" fill="currentColor"/><path d="M12.5 10 7 16l5.5 6M19.5 10 25 16l-5.5 6" fill="none" stroke="var(--logo-ink)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="brand-name">Frontend Skills</span></a>
+<nav class="main-nav" aria-label="Main"><ul><li><a href="/how-it-works/">How it works</a></li><li><a href="/rules/">Rules</a></li><li><a href="/skills/" class="is-section">Skills</a></li><li><a href="/commands/">Commands</a></li><li><a href="/faq/">FAQ</a></li></ul></nav>
+<div class="header-tools">
+<a class="lang-switch" href="/pl/skills/fe-vue/" hreflang="pl" lang="pl" title="Ta strona po polsku">Polski</a>
+<a class="gh-link" href="https://github.com/dawidolko/frontend-skills" aria-label="Source code on GitHub"><svg viewBox="0 0 16 16" width="20" height="20" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg></a>
+</div>
+</div>
+</header>
+<main id="main" tabindex="-1">
+<div class="page-head"><div class="wrap">
+<nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><a href="/skills/">Skills</a></li><li><span aria-current="page">Vue components</span></li></ol></nav>
+<h1>Vue components</h1>
+<p class="lead">Writes and reviews Vue 3.5 single-file components with script setup and the Composition API - keyed lists, props and emits, refs and reactive, pure computeds, watchers with cleanup, navigation links - so they stay reactive, correct and accessible. Use when creating or editing a .vue file or a composable, fixing a value that does not update, or when asked to review Vue code.</p>
+</div></div>
+<div class="wrap rule-layout">
+<div class="prose">
+<section aria-labelledby="rules"><h2 id="rules">Rules it teaches</h2>
+<ul class="rule-list compact"><li class="rule-item"><a class="rule-id" href="/rules/vue/require-v-for-key/"><code>vue/require-v-for-key</code></a><p class="rule-title">Every v-for gives its items a :key from the data; on a template v-for the key goes on the template tag.</p><p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-static">static</span></p></li><li class="rule-item"><a class="rule-id" href="/rules/vue/no-index-key/"><code>vue/no-index-key</code></a><p class="rule-title">A v-for key comes from the item's data, not from the loop index, when the list can change.</p><p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-static">static</span></p></li><li class="rule-item"><a class="rule-id" href="/rules/vue/no-v-if-with-v-for/"><code>vue/no-v-if-with-v-for</code></a><p class="rule-title">Never put v-if and v-for on the same element; filter in a computed list or move v-if to a wrapper.</p><p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-static">static</span></p></li><li class="rule-item"><a class="rule-id" href="/rules/vue/no-mutating-props/"><code>vue/no-mutating-props</code></a><p class="rule-title">A component never changes its props (or objects and arrays inside them); it emits an event or keeps a local copy.</p><p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-static">static</span></p></li><li class="rule-item"><a class="rule-id" href="/rules/vue/ref-value-in-script/"><code>vue/ref-value-in-script</code></a><p class="rule-title">In script code, read and compare a ref or computed through .value; the ref object itself is always truthy.</p><p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-static">static</span></p></li><li class="rule-item"><a class="rule-id" href="/rules/vue/no-reactivity-loss/"><code>vue/no-reactivity-loss</code></a><p class="rule-title">Never destructure or reassign a reactive() object; use toRefs, a ref, or change its properties.</p><p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-static">static</span></p></li><li class="rule-item"><a class="rule-id" href="/rules/vue/computed-pure/"><code>vue/computed-pure</code></a><p class="rule-title">A computed getter only derives a value - no async work, no requests and no changes to other state.</p><p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-static">static</span></p></li><li class="rule-item"><a class="rule-id" href="/rules/vue/detailed-props/"><code>vue/detailed-props</code></a><p class="rule-title">Declare props with their types (an object with type, or a TypeScript type), not as a bare array of names.</p><p class="rule-meta"><span class="sev sev-minor">minor</span> <span class="tag tag-static">static</span></p></li><li class="rule-item"><a class="rule-id" href="/rules/vue/multi-word-names/"><code>vue/multi-word-names</code></a><p class="rule-title">Name components with two or more words (TodoItem, not Item); App, pages and layouts are exempt.</p><p class="rule-meta"><span class="sev sev-minor">minor</span> <span class="tag tag-static">static</span></p></li><li class="rule-item"><a class="rule-id" href="/rules/vue/link-for-navigation/"><code>vue/link-for-navigation</code></a><p class="rule-title">Navigate with RouterLink or NuxtLink, not a button whose click handler only calls router.push or navigateTo.</p><p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-static">static</span></p></li><li class="rule-item"><a class="rule-id" href="/rules/a11y/no-click-on-static/"><code>a11y/no-click-on-static</code></a><p class="rule-title">A click handler belongs on a button or link; a static element with one also needs a role, tabindex and a key handler.</p><p class="rule-meta"><span class="sev sev-serious">serious</span> <span class="tag tag-static">static</span></p></li><li class="rule-item"><a class="rule-id" href="/rules/a11y/input-label/"><code>a11y/input-label</code></a><p class="rule-title">Every form field has a programmatic label (label element, aria-label or aria-labelledby); a placeholder is not a label.</p><p class="rule-meta"><span class="sev sev-critical">critical</span> <span class="tag tag-static">static</span></p></li></ul></section>
+<section aria-labelledby="digest"><h2 id="digest">The rule digest</h2><p>This part is copied into each agent's scoped rule file, so it stands on its own:</p><div class="digest"><ul><li>Key every <code>v-for</code> with an id from the item (<a href="/rules/vue/require-v-for-key/">vue/require-v-for-key</a>), never the loop index for a list that changes (<a href="/rules/vue/no-index-key/">vue/no-index-key</a>).</li><li>Never put <code>v-if</code> and <code>v-for</code> on one element; loop over a computed list (<a href="/rules/vue/no-v-if-with-v-for/">vue/no-v-if-with-v-for</a>).</li><li>Never change a prop; emit, use <code>defineModel()</code>, or copy to local state (<a href="/rules/vue/no-mutating-props/">vue/no-mutating-props</a>).</li><li>In script code read refs and computeds through <code>.value</code> (<a href="/rules/vue/ref-value-in-script/">vue/ref-value-in-script</a>).</li><li>Never destructure or reassign a <code>reactive()</code> object; use <code>ref</code>, <code>toRefs</code> or <code>Object.assign</code> (<a href="/rules/vue/no-reactivity-loss/">vue/no-reactivity-loss</a>).</li><li>Computed getters only derive: no async, requests or writes (<a href="/rules/vue/computed-pure/">vue/computed-pure</a>).</li><li>Type props (<code>defineProps&lt;{...}&gt;()</code> or objects with <code>type</code>), never a bare name array (<a href="/rules/vue/detailed-props/">vue/detailed-props</a>).</li><li>Name components with two or more words (<a href="/rules/vue/multi-word-names/">vue/multi-word-names</a>).</li><li>Navigate with <code>RouterLink</code>/<code>NuxtLink</code>, not a button that calls <code>router.push</code> (<a href="/rules/vue/link-for-navigation/">vue/link-for-navigation</a>).</li><li>Clicks go on <code>&lt;button&gt;</code> or links (a11y/no-click-on-static); every field has a label (a11y/input-label).</li><li>Register composables, <code>watch</code> and lifecycle hooks synchronously in setup; clean up what a watcher or <code>onMounted</code> starts.</li></ul></div></section>
+<section aria-labelledby="do"><h2 id="do">Steps the agent follows</h2><ol><li>Check the profile: Vue 3.5 (<code>useId</code>, <code>useTemplateRef</code>, <code>onWatcherCleanup</code>, reactive props destructure, lazy hydration); Nuxt adds <code>fe-nuxt</code>; stores follow <code>fe-state</code>.</li><li>Write <code>&lt;script setup lang=&quot;ts&quot;&gt;</code>; declare <code>defineProps</code>, <code>defineEmits</code> (typed) and <code>defineModel</code> for two-way bindings. Options API code stays Options API unless the task is a migration.</li><li>Use <code>ref</code> for state, <code>computed</code> for derived values, <code>watch</code> with <code>onWatcherCleanup</code> or an <code>AbortController</code> for side effects; <code>shallowRef</code> for large data you replace.</li><li>Extract reusable logic into <code>useX()</code> composables in <code>composables/</code> that take refs or getters and return plain objects of refs.</li><li>Use <code>useId()</code> for <code>id</code>/<code>for</code>/<code>aria-describedby</code>; move focus to the page heading after a route change; bind text with <code>{{ }}</code>; <code>v-html</code> only for sanitized HTML (see <code>fe-security</code>).</li><li>Images and media: import them or use <code>@/assets</code> paths (<a href="/rules/js/asset-import/">js/asset-import</a>); icons from the project set (<a href="/rules/html/project-icons/">html/project-icons</a>, <a href="/rules/html/icon-from-set/">html/icon-from-set</a>).</li><li>Split routes and heavy widgets with <code>() =&gt; import(...)</code> and <code>defineAsyncComponent</code>.</li></ol></section>
+<section aria-labelledby="check"><h2 id="check">How the agent checks the work</h2><ul><li><code>npx github:dawidolko/frontend-skills audit --changed</code> reports missing and index keys, <code>v-if</code> with <code>v-for</code>, prop mutation, refs without <code>.value</code>, lost reactivity, impure computeds, untyped props and single-word names.</li><li>Run ESLint with <code>eslint-plugin-vue</code> <code>flat/recommended</code> and <code>vue-tsc --noEmit</code>; never silence a rule to pass.</li><li>Vue DevTools: watch the component tree and the timeline for components that re-render on unrelated changes.</li></ul></section>
+<section aria-labelledby="refs"><h2 id="refs">Reference files</h2><ul><li><a href="https://github.com/dawidolko/frontend-skills/blob/main/skills/frameworks/fe-vue/references/vue.md"><code>references/vue.md</code></a> · 1926 tokens</li></ul></section>
+<section aria-labelledby="agents"><h2 id="agents">Written for</h2>
+<p>every agent the project uses: Claude Code, OpenAI Codex, Cursor, GitHub Copilot, Gemini CLI, Antigravity CLI, Devin / Windsurf, OpenCode, Cline, Zed, JetBrains Junie, Kiro, Augment, Trae, Continue, Amazon Q Developer, Aider.</p>
+<p>Agents that also get a rule file scoped to these files: Claude Code, Cursor, GitHub Copilot, Antigravity CLI, Devin / Windsurf, Cline, Kiro, Trae, Continue.</p></section>
+</div>
+<aside class="facts" aria-labelledby="facts-title">
+<h2 id="facts-title">Facts</h2>
+<dl><dt>Name</dt><dd><code>fe-vue</code></dd><dt>Area</dt><dd>Frameworks</dd><dt>Installed when the project uses</dt><dd><code>vue</code>, <code>nuxt</code></dd><dt>Files it is about</dt><dd><code>**/*.vue</code> <code>src/composables/**/*.ts</code> <code>src/composables/**/*.js</code></dd><dt>Token cost</dt><dd>81 tokens always loaded, 1070 tokens when used, 1926 tokens in references on demand.</dd></dl>
+<p><a href="https://github.com/dawidolko/frontend-skills/blob/main/skills/frameworks/fe-vue/SKILL.md">SKILL.md on GitHub</a></p>
+<p><a href="/skills/">All skills</a></p>
+</aside>
+</div>
+</main>
+<footer class="site-footer">
+<div class="wrap footer-inner">
+<div class="footer-text">
+<p class="footer-brand"><svg class="brand-mark" viewBox="0 0 32 32" width="32" height="32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="8" fill="currentColor"/><path d="M12.5 10 7 16l5.5 6M19.5 10 25 16l-5.5 6" fill="none" stroke="var(--logo-ink)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Frontend Skills</span></p>
+<p>Free and open source under the MIT licence, made by <a href="https://dawidolko.pl">Dawid Olko</a>.</p>
+<p>Built to WCAG 2.2 AA as a target. Automated checks find only part of the problems.</p>
+<p>No cookies, no analytics, no third-party requests. The accessibility button keeps its settings on your device.</p>
+</div>
+<nav aria-label="More"><ul class="footer-nav"><li><a href="/">Home</a></li><li><a href="/how-it-works/">How it works</a></li><li><a href="/rules/">Rules</a></li><li><a href="/skills/">Skills</a></li><li><a href="/commands/">Commands</a></li><li><a href="/faq/">FAQ</a></li><li><a href="/about/">About</a></li><li><a href="https://github.com/dawidolko/frontend-skills">GitHub</a></li></ul></nav>
+</div>
+</footer>
+<p id="live-status" class="visually-hidden" role="status" aria-live="polite"></p>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Angular components (fe-angular) · Frontend Skills</title>
+<meta name="description" content="Writes and reviews Angular 22 components, templates and services - signals, built-in control flow, zoneless and OnPush defaults, SSR and hydration,…">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#faf7fc" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0d0d0f" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://skills.dawidolko.pl/pl/skills/fe-angular/">
+<link rel="alternate" hreflang="en" href="https://skills.dawidolko.pl/skills/fe-angular/">
+<link rel="alternate" hreflang="pl" href="https://skills.dawidolko.pl/pl/skills/fe-angular/">
+<link rel="alternate" hreflang="x-default" href="https://skills.dawidolko.pl/skills/fe-angular/">
+<link rel="preload" href="/assets/fonts/opensans-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/styles.css?v=fbc2d7ae26">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Frontend Skills">
+<meta property="og:title" content="Angular components (fe-angular)">
+<meta property="og:description" content="Writes and reviews Angular 22 components, templates and services - signals, built-in control flow, zoneless and OnPush defaults, SSR and hydration,…">
+<meta property="og:url" content="https://skills.dawidolko.pl/pl/skills/fe-angular/">
+<meta property="og:image" content="https://skills.dawidolko.pl/og-pl.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Frontend Skills: jedno polecenie, które dopasowuje skille front-endowe do Twojego projektu i każdego agenta, którego używasz.">
+<meta property="og:locale" content="pl_PL">
+<meta property="og:locale:alternate" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="author" content="Dawid Olko">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Start","item":"https://skills.dawidolko.pl/pl/"},{"@type":"ListItem","position":2,"name":"Skille","item":"https://skills.dawidolko.pl/pl/skills/"},{"@type":"ListItem","position":3,"name":"Angular components","item":"https://skills.dawidolko.pl/pl/skills/fe-angular/"}]}</script>
+<script src="/assets/site.js?v=dd8cab0a79" defer></script>
+<script src="/a11y/a11y-panel.js?v=39d6e82235" data-accent="#9b00c2" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Przejdź do treści</a>
+<header class="site-header">
+<div class="wrap header-inner">
+<a class="brand" href="/pl/"><svg class="brand-mark" viewBox="0 0 32 32" width="32" height="32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="8" fill="currentColor"/><path d="M12.5 10 7 16l5.5 6M19.5 10 25 16l-5.5 6" fill="none" stroke="var(--logo-ink)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="brand-name">Frontend Skills</span></a>
+<nav class="main-nav" aria-label="Główna"><ul><li><a href="/pl/how-it-works/">Jak to działa</a></li><li><a href="/pl/rules/">Reguły</a></li><li><a href="/pl/skills/" class="is-section">Skille</a></li><li><a href="/pl/commands/">Polecenia</a></li><li><a href="/pl/faq/">Pytania</a></li></ul></nav>
+<div class="header-tools">
+<a class="lang-switch" href="/skills/fe-angular/" hreflang="en" lang="en" title="This page in English">English</a>
+<a class="gh-link" href="https://github.com/dawidolko/frontend-skills" aria-label="Kod źródłowy na GitHubie"><svg viewBox="0 0 16 16" width="20" height="20" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg></a>
+</div>
+</div>
+</header>
+<main id="main" tabindex="-1">
+<div class="page-head"><div class="wrap">
+<nav class="breadcrumb" aria-label="Ścieżka nawigacji"><ol><li><a href="/pl/">Start</a></li><li><a href="/pl/skills/">Skille</a></li><li><span aria-current="page">Angular components</span></li></ol></nav>
+<h1>Angular components</h1>
+<p class="lead">Writes and reviews Angular 22 components, templates and services - signals, built-in control flow, zoneless and OnPush defaults, SSR and hydration, NgOptimizedImage, router accessibility, DomSanitizer - for fast, accessible apps. Use when editing a .component.ts or .component.html, migrating from *ngIf or NgModules, or asked to review Angular code.</p>
+</div></div>
+<div class="wrap rule-layout">
+<div class="prose">
+<section aria-labelledby="rules"><h2 id="rules">Reguły, których uczy</h2>
+<ul class="rule-list compact"><li class="rule-item"><a class="rule-id" href="/pl/rules/angular/control-flow/"><code>angular/control-flow</code></a><p class="rule-title">Templates use the built-in @if, @for and @switch blocks, not the *ngIf, *ngFor and *ngSwitch directives deprecated in v20.</p><p class="rule-meta"><span class="sev sev-minor">drobna</span> <span class="tag tag-static">statyczne</span></p></li><li class="rule-item"><a class="rule-id" href="/pl/rules/angular/for-track-id/"><code>angular/for-track-id</code></a><p class="rule-title">An @for block tracks a stable unique field of the item (track item.id), not the item object itself.</p><p class="rule-meta"><span class="sev sev-moderate">umiarkowana</span> <span class="tag tag-static">statyczne</span></p></li><li class="rule-item"><a class="rule-id" href="/pl/rules/angular/ng-optimized-image/"><code>angular/ng-optimized-image</code></a><p class="rule-title">Static images in Angular templates use NgOptimizedImage (ngSrc with width and height, or fill), not a plain src.</p><p class="rule-meta"><span class="sev sev-moderate">umiarkowana</span> <span class="tag tag-static">statyczne</span></p></li><li class="rule-item"><a class="rule-id" href="/pl/rules/angular/router-aria-current/"><code>angular/router-aria-current</code></a><p class="rule-title">A routerLinkActive link also sets ariaCurrentWhenActive, so the current page is announced, not only styled.</p><p class="rule-meta"><span class="sev sev-moderate">umiarkowana</span> <span class="tag tag-static">statyczne</span></p></li><li class="rule-item"><a class="rule-id" href="/pl/rules/angular/table-tbody/"><code>angular/table-tbody</code></a><p class="rule-title">Table rows in Angular templates sit inside an explicit tbody (or thead/tfoot); the browser inserts one and hydration fails.</p><p class="rule-meta"><span class="sev sev-moderate">umiarkowana</span> <span class="tag tag-static">statyczne</span></p></li><li class="rule-item"><a class="rule-id" href="/pl/rules/angular/banana-in-box/"><code>angular/banana-in-box</code></a><p class="rule-title">Two-way binding is written [(prop)], brackets outside; ([prop]) silently binds an event named [prop] instead.</p><p class="rule-meta"><span class="sev sev-moderate">umiarkowana</span> <span class="tag tag-static">statyczne</span></p></li><li class="rule-item"><a class="rule-id" href="/pl/rules/angular/computed-not-effect/"><code>angular/computed-not-effect</code></a><p class="rule-title">Derive state with computed() (or linkedSignal()); never copy one signal into another inside effect().</p><p class="rule-meta"><span class="sev sev-moderate">umiarkowana</span> <span class="tag tag-manual">ręczne</span></p></li><li class="rule-item"><a class="rule-id" href="/pl/rules/angular/ssr-browser-globals/"><code>angular/ssr-browser-globals</code></a><p class="rule-title">Code that runs on the server never touches window, document, navigator or localStorage directly; use DI or afterNextRender.</p><p class="rule-meta"><span class="sev sev-serious">poważna</span> <span class="tag tag-manual">ręczne</span></p></li><li class="rule-item"><a class="rule-id" href="/pl/rules/angular/no-bypass-security-trust/"><code>angular/no-bypass-security-trust</code></a><p class="rule-title">DomSanitizer bypassSecurityTrust* calls never receive user or server data; each one is a reviewed exception.</p><p class="rule-meta"><span class="sev sev-serious">poważna</span> <span class="tag tag-manual">ręczne</span></p></li></ul></section>
+<section aria-labelledby="digest"><h2 id="digest">Skrót reguł</h2><p>Ta część jest kopiowana do zawężonego pliku reguł każdego agenta, więc musi być zrozumiała sama w sobie:</p><div class="digest"><ul><li>Use <code>@if</code>, <code>@for</code> and <code>@switch</code>; <code>*ngIf</code>, <code>*ngFor</code> and <code>NgSwitch</code> are deprecated since v20 (<a href="/pl/rules/angular/control-flow/">angular/control-flow</a>).</li><li><code>@for</code> tracks a unique field (<code>track item.id</code>), not the object (<a href="/pl/rules/angular/for-track-id/">angular/for-track-id</a>).</li><li>Two-way binding is <code>[(value)]</code>, never <code>([value])</code> (<a href="/pl/rules/angular/banana-in-box/">angular/banana-in-box</a>).</li><li>Derive state with <code>computed()</code> or <code>linkedSignal()</code>; <code>effect()</code> only syncs with the outside world (<a href="/pl/rules/angular/computed-not-effect/">angular/computed-not-effect</a>).</li><li>Change signals with <code>set()</code> and <code>update()</code> and new values; never mutate their contents.</li><li>Static images use <code>ngSrc</code> with <code>width</code> and <code>height</code> (or <code>fill</code>), the LCP image <code>priority</code> (<a href="/pl/rules/angular/ng-optimized-image/">angular/ng-optimized-image</a>).</li><li><code>routerLinkActive</code> links set <code>ariaCurrentWhenActive=&quot;page&quot;</code> (<a href="/pl/rules/angular/router-aria-current/">angular/router-aria-current</a>); move focus to the main heading after navigation.</li><li>With SSR, no direct <code>window</code>, <code>document</code> or <code>localStorage</code>; inject <code>DOCUMENT</code> or use <code>afterNextRender()</code> (<a href="/pl/rules/angular/ssr-browser-globals/">angular/ssr-browser-globals</a>).</li><li>Write <code>&lt;tbody&gt;</code> in every table (<a href="/pl/rules/angular/table-tbody/">angular/table-tbody</a>).</li><li>Never pass data to <code>bypassSecurityTrust*</code>; bind <code>[innerHTML]</code> and let Angular sanitize (<a href="/pl/rules/angular/no-bypass-security-trust/">angular/no-bypass-security-trust</a>).</li><li>Interactive elements are native <code>&lt;button&gt;</code> and <code>&lt;a&gt;</code>, also as component hosts (<code>button[appButton]</code>) (a11y/no-click-on-static).</li></ul></div></section>
+<section aria-labelledby="do"><h2 id="do">Kroki, które wykonuje agent</h2><ol><li>Read the <code>@angular/core</code> major from <code>package.json</code>. On v20+ components are standalone by default, on v21+ zoneless, on v22+ <code>OnPush</code>: do not write <code>standalone: true</code> or <code>changeDetection: OnPush</code> in new code.</li><li>Components: <code>input()</code>, <code>input.required()</code>, <code>output()</code>, <code>model()</code> instead of <code>@Input</code>/<code>@Output</code>; <code>inject()</code> instead of constructor parameters; <code>host: {}</code> instead of <code>@HostBinding</code>/<code>@HostListener</code>; <code>[class.x]</code> and <code>[style.x]</code> instead of <code>NgClass</code>/<code>NgStyle</code>.</li><li>State: a service holds a private <code>signal()</code> and exposes <code>asReadonly()</code> and <code>computed()</code> views. Reads with <code>httpResource()</code> or <code>resource()</code>; writes with <code>HttpClient</code> methods.</li><li>Routes lazy-load features with <code>loadComponent</code> and <code>loadChildren</code>. Below-the-fold widgets go in <code>@defer (on viewport)</code> with a sized <code>@placeholder</code>; never defer what is visible on first paint.</li><li>SSR: declare <code>RenderMode</code> per route in <code>app.routes.server.ts</code>; never prerender per-user pages; keep auth requests out of the transfer cache.</li><li>Accessibility: the CDK (<code>cdkTrapFocus</code>, <code>LiveAnnouncer</code>, <code>FocusMonitor</code>) or <code>@angular/aria</code> for widgets instead of hand-written keyboard code.</li></ol></section>
+<section aria-labelledby="check"><h2 id="check">Jak agent sprawdza swoją pracę</h2><ul><li><code>npx github:dawidolko/frontend-skills audit --changed</code> reads <code>*.component.html</code> templates: deprecated directives, identity tracking, plain <code>&lt;img src&gt;</code>, missing <code>ariaCurrentWhenActive</code>, rows without <code>&lt;tbody&gt;</code>, reversed two-way bindings. Inline templates in <code>.ts</code> files are not read yet; review them by hand.</li><li>Run <code>ng lint</code> with angular-eslint (template accessibility rules, <code>prefer-control-flow</code>, <code>no-uncalled-signals</code>) and <code>ng build</code>; in development watch the console for hydration (NG05xx) and image warnings.</li><li>Search <code>.ts</code> files for <code>effect(</code>, <code>bypassSecurityTrust</code> and, with SSR, <code>window.</code>, <code>document.</code> and <code>localStorage</code>.</li></ul></section>
+<section aria-labelledby="refs"><h2 id="refs">Pliki referencyjne</h2><ul><li><a href="https://github.com/dawidolko/frontend-skills/blob/main/skills/frameworks/fe-angular/references/angular.md"><code>references/angular.md</code></a> · 2088 tokenów</li></ul></section>
+<section aria-labelledby="agents"><h2 id="agents">Pisany dla</h2>
+<p>każdego agenta używanego w projekcie: Claude Code, OpenAI Codex, Cursor, GitHub Copilot, Gemini CLI, Antigravity CLI, Devin / Windsurf, OpenCode, Cline, Zed, JetBrains Junie, Kiro, Augment, Trae, Continue, Amazon Q Developer, Aider.</p>
+<p>Agenci, którzy dostają też plik reguł zawężony do tych plików: Claude Code, Cursor, GitHub Copilot, Antigravity CLI, Devin / Windsurf, Cline, Kiro, Trae, Continue.</p></section>
+</div>
+<aside class="facts" aria-labelledby="facts-title">
+<h2 id="facts-title">Fakty</h2>
+<dl><dt>Nazwa</dt><dd><code>fe-angular</code></dd><dt>Obszar</dt><dd>Frameworki</dd><dt>Instalowany, gdy projekt używa</dt><dd><code>angular</code></dd><dt>Pliki, których dotyczy</dt><dd><code>**/*.component.ts</code> <code>**/*.component.html</code> <code>**/*.service.ts</code> <code>**/app.config.ts</code> <code>**/*.routes.ts</code></dd><dt>Koszt w tokenach</dt><dd>ładowane zawsze: 78 tokenów; przy użyciu: 1152 tokeny; w referencjach na żądanie: 2088 tokenów.</dd></dl>
+<p><a href="https://github.com/dawidolko/frontend-skills/blob/main/skills/frameworks/fe-angular/SKILL.md">SKILL.md na GitHubie</a></p>
+<p><a href="/pl/skills/">Wszystkie skille</a></p>
+</aside>
+</div>
+</main>
+<footer class="site-footer">
+<div class="wrap footer-inner">
+<div class="footer-text">
+<p class="footer-brand"><svg class="brand-mark" viewBox="0 0 32 32" width="32" height="32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="8" fill="currentColor"/><path d="M12.5 10 7 16l5.5 6M19.5 10 25 16l-5.5 6" fill="none" stroke="var(--logo-ink)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Frontend Skills</span></p>
+<p>Darmowy i otwarty, na licencji MIT. Autor: <a href="https://dawidolko.pl">Dawid Olko</a>.</p>
+<p>Budowana z WCAG 2.2 AA jako celem. Automatyczne testy wykrywają tylko część problemów.</p>
+<p>Bez ciasteczek, bez analityki, bez zapytań do innych serwisów. Przycisk dostępności zapisuje ustawienia tylko na Twoim urządzeniu.</p>
+</div>
+<nav aria-label="Więcej"><ul class="footer-nav"><li><a href="/pl/">Start</a></li><li><a href="/pl/how-it-works/">Jak to działa</a></li><li><a href="/pl/rules/">Reguły</a></li><li><a href="/pl/skills/">Skille</a></li><li><a href="/pl/commands/">Polecenia</a></li><li><a href="/pl/faq/">Pytania</a></li><li><a href="/pl/about/">O projekcie</a></li><li><a href="https://github.com/dawidolko/frontend-skills">GitHub</a></li></ul></nav>
+</div>
+</footer>
+<p id="live-status" class="visually-hidden" role="status" aria-live="polite"></p>
+</body>
+</html>

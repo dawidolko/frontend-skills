@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pytania i odpowiedzi · Frontend Skills</title>
+<meta name="description" content="Odpowiedzi o Frontend Skills: koszt, prywatność, obsługiwani agenci, WCAG, Twoje pliki instrukcji, odinstalowanie, zużycie tokenów i współtworzenie.">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#faf7fc" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0d0d0f" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://skills.dawidolko.pl/pl/faq/">
+<link rel="alternate" hreflang="en" href="https://skills.dawidolko.pl/faq/">
+<link rel="alternate" hreflang="pl" href="https://skills.dawidolko.pl/pl/faq/">
+<link rel="alternate" hreflang="x-default" href="https://skills.dawidolko.pl/faq/">
+<link rel="preload" href="/assets/fonts/opensans-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/styles.css?v=fbc2d7ae26">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Frontend Skills">
+<meta property="og:title" content="Pytania i odpowiedzi">
+<meta property="og:description" content="Odpowiedzi o Frontend Skills: koszt, prywatność, obsługiwani agenci, WCAG, Twoje pliki instrukcji, odinstalowanie, zużycie tokenów i współtworzenie.">
+<meta property="og:url" content="https://skills.dawidolko.pl/pl/faq/">
+<meta property="og:image" content="https://skills.dawidolko.pl/og-pl.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Frontend Skills: jedno polecenie, które dopasowuje skille front-endowe do Twojego projektu i każdego agenta, którego używasz.">
+<meta property="og:locale" content="pl_PL">
+<meta property="og:locale:alternate" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="author" content="Dawid Olko">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","inLanguage":"pl","mainEntity":[{"@type":"Question","name":"Czy to jest darmowe?","acceptedAnswer":{"@type":"Answer","text":"Tak. Kod, skille i reguły są na licencji MIT. Nie ma konta, płatnego planu ani rejestracji."}},{"@type":"Question","name":"Czy mój kod gdzieś trafia?","acceptedAnswer":{"@type":"Answer","text":"Nie. Narzędzie nie ma telemetrii i nie łączy się z siecią, chyba że sam to uruchomisz: npx pobiera narzędzie z GitHuba, a audit --url pyta, zanim pobierze Lighthouse i axe-core, i otwiera tylko adres, który podasz."}},{"@type":"Question","name":"Których agentów obsługuje?","acceptedAnswer":{"@type":"Answer","text":"Claude Code, OpenAI Codex, Cursor, GitHub Copilot, Gemini CLI, Antigravity CLI, Devin / Windsurf, OpenCode, Cline, Zed, JetBrains Junie, Kiro, Augment, Trae, Continue, Amazon Q Developer, Aider. Co czyta każdy z nich, z linkami do dokumentacji, opisuje docs/agents.md."}},{"@type":"Question","name":"Czy dzięki temu moja strona będzie zgodna z WCAG?","acceptedAnswer":{"@type":"Answer","text":"Żadne narzędzie tego nie zapewni. Reguły powołują się na kryteria sukcesu WCAG 2.2, a audyt znajduje problemy widoczne dla maszyny, ale tylko część z nich. Znaczenie treści, kolejność czytania i wiele problemów z klawiaturą i czytnikiem ekranu wymaga człowieka; raport podaje je jako listę kontrolną."}},{"@type":"Question","name":"Czy nadpisze mój AGENTS.md albo CLAUDE.md?","acceptedAnswer":{"@type":"Answer","text":"Nie. Dodaje jeden blok między komentarzami-znacznikami i nigdy nie zmienia tekstu wokół niego. Pliki, które tworzy i zmienia, są rejestrowane, a --dry-run pokazuje wszystko przed zapisem."}},{"@type":"Question","name":"Jak to usunąć?","acceptedAnswer":{"@type":"Answer","text":"Uruchom npx github:dawidolko/frontend-skills uninstall. Usuwa zapisane przez siebie pliki, dopóki są niezmienione, usuwa swoje bloki ze wspólnych plików i zostawia wszystko, co edytowałeś."}},{"@type":"Question","name":"Ile kosztuje w tokenach?","acceptedAnswer":{"@type":"Answer","text":"Agent stale ładuje tylko nazwy i opisy zainstalowanych skilli; resztę dopiero wtedy, gdy zadanie jej potrzebuje. frontend-skills tokens wypisuje liczby dla Twojego projektu; zmierzony koszt każdego skilla jest na stronie Jak to działa."}},{"@type":"Question","name":"Mój projekt ma własne narzędzia. Czy reguły będą z nimi walczyć?","acceptedAnswer":{"@type":"Answer","text":"Nie. Funkcja rem, generowane klasy ikon, design tokeny czy zmienne CSS są wykrywane i zapisywane w profilu, a reguły, które od nich zależą, każą agentowi używać Twojego narzędzia. Możesz je poprawić albo dopisać w profilu."}},{"@type":"Question","name":"Czy mogę wyłączyć regułę?","acceptedAnswer":{"@type":"Answer","text":"Tak: fs-ignore \u003cid reguły> w komentarzu w tej samej linii lub linię wyżej albo audit.ignore i audit.exclude w .frontend-skills/profile.json."}},{"@type":"Question","name":"Czy działa w monorepo?","acceptedAnswer":{"@type":"Answer","text":"Tak. Czyta workspace'y npm, pnpm, Yarn, Lerna, Nx i Turborepo, każdy pakiet ma własny wpis w profilu, a skille pasują do sumy ich stacków."}},{"@type":"Question","name":"Dlaczego uruchamia się z GitHuba, a nie z npm?","acceptedAnswer":{"@type":"Answer","text":"Żeby nie wymagało instalacji: npx github:dawidolko/frontend-skills uruchamia repozytorium takie, jakie jest, z Node.js 20 lub nowszym i bez zależności."}},{"@type":"Question","name":"Jak dodać regułę albo skill?","acceptedAnswer":{"@type":"Answer","text":"Przewodnik dla autorów, docs/authoring.md, opisuje format, testy i sprawdzenia. Zgłoszenia i pull requesty na GitHubie są mile widziane."}}]}</script>
+<script src="/assets/site.js?v=dd8cab0a79" defer></script>
+<script src="/a11y/a11y-panel.js?v=39d6e82235" data-accent="#9b00c2" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Przejdź do treści</a>
+<header class="site-header">
+<div class="wrap header-inner">
+<a class="brand" href="/pl/"><svg class="brand-mark" viewBox="0 0 32 32" width="32" height="32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="8" fill="currentColor"/><path d="M12.5 10 7 16l5.5 6M19.5 10 25 16l-5.5 6" fill="none" stroke="var(--logo-ink)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="brand-name">Frontend Skills</span></a>
+<nav class="main-nav" aria-label="Główna"><ul><li><a href="/pl/how-it-works/">Jak to działa</a></li><li><a href="/pl/rules/">Reguły</a></li><li><a href="/pl/skills/">Skille</a></li><li><a href="/pl/commands/">Polecenia</a></li><li><a href="/pl/faq/" aria-current="page">Pytania</a></li></ul></nav>
+<div class="header-tools">
+<a class="lang-switch" href="/faq/" hreflang="en" lang="en" title="This page in English">English</a>
+<a class="gh-link" href="https://github.com/dawidolko/frontend-skills" aria-label="Kod źródłowy na GitHubie"><svg viewBox="0 0 16 16" width="20" height="20" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg></a>
+</div>
+</div>
+</header>
+<main id="main" tabindex="-1">
+<div class="page-head"><div class="wrap"><h1>Pytania i odpowiedzi</h1></div></div>
+<div class="wrap narrow faq">
+<section aria-labelledby="q1"><h2 id="q1">Czy to jest darmowe?</h2><p>Tak. Kod, skille i reguły są na licencji MIT. Nie ma konta, płatnego planu ani rejestracji.</p></section>
+<section aria-labelledby="q2"><h2 id="q2">Czy mój kod gdzieś trafia?</h2><p>Nie. Narzędzie nie ma telemetrii i nie łączy się z siecią, chyba że sam to uruchomisz: <code>npx</code> pobiera narzędzie z GitHuba, a <code>audit --url</code> pyta, zanim pobierze Lighthouse i axe-core, i otwiera tylko adres, który podasz.</p></section>
+<section aria-labelledby="q3"><h2 id="q3">Których agentów obsługuje?</h2><p>Claude Code, OpenAI Codex, Cursor, GitHub Copilot, Gemini CLI, Antigravity CLI, Devin / Windsurf, OpenCode, Cline, Zed, JetBrains Junie, Kiro, Augment, Trae, Continue, Amazon Q Developer, Aider. Co czyta każdy z nich, z linkami do dokumentacji, opisuje <a href="https://github.com/dawidolko/frontend-skills/blob/main/docs/agents.md">docs/agents.md</a>.</p></section>
+<section aria-labelledby="q4"><h2 id="q4">Czy dzięki temu moja strona będzie zgodna z WCAG?</h2><p>Żadne narzędzie tego nie zapewni. Reguły powołują się na kryteria sukcesu WCAG 2.2, a audyt znajduje problemy widoczne dla maszyny, ale tylko część z nich. Znaczenie treści, kolejność czytania i wiele problemów z klawiaturą i czytnikiem ekranu wymaga człowieka; raport podaje je jako listę kontrolną.</p></section>
+<section aria-labelledby="q5"><h2 id="q5">Czy nadpisze mój AGENTS.md albo CLAUDE.md?</h2><p>Nie. Dodaje jeden blok między komentarzami-znacznikami i nigdy nie zmienia tekstu wokół niego. Pliki, które tworzy i zmienia, są rejestrowane, a <code>--dry-run</code> pokazuje wszystko przed zapisem.</p></section>
+<section aria-labelledby="q6"><h2 id="q6">Jak to usunąć?</h2><p>Uruchom <code>npx github:dawidolko/frontend-skills uninstall</code>. Usuwa zapisane przez siebie pliki, dopóki są niezmienione, usuwa swoje bloki ze wspólnych plików i zostawia wszystko, co edytowałeś.</p></section>
+<section aria-labelledby="q7"><h2 id="q7">Ile kosztuje w tokenach?</h2><p>Agent stale ładuje tylko nazwy i opisy zainstalowanych skilli; resztę dopiero wtedy, gdy zadanie jej potrzebuje. <code>frontend-skills tokens</code> wypisuje liczby dla Twojego projektu; <a href="/pl/how-it-works/#tokens">zmierzony koszt każdego skilla</a> jest na stronie Jak to działa.</p></section>
+<section aria-labelledby="q8"><h2 id="q8">Mój projekt ma własne narzędzia. Czy reguły będą z nimi walczyć?</h2><p>Nie. Funkcja rem, generowane klasy ikon, design tokeny czy zmienne CSS są wykrywane i zapisywane w profilu, a reguły, które od nich zależą, każą agentowi używać Twojego narzędzia. Możesz je poprawić albo dopisać w profilu.</p></section>
+<section aria-labelledby="q9"><h2 id="q9">Czy mogę wyłączyć regułę?</h2><p>Tak: <code>fs-ignore &lt;id reguły&gt;</code> w komentarzu w tej samej linii lub linię wyżej albo <code>audit.ignore</code> i <code>audit.exclude</code> w <code>.frontend-skills/profile.json</code>.</p></section>
+<section aria-labelledby="q10"><h2 id="q10">Czy działa w monorepo?</h2><p>Tak. Czyta workspace'y npm, pnpm, Yarn, Lerna, Nx i Turborepo, każdy pakiet ma własny wpis w profilu, a skille pasują do sumy ich stacków.</p></section>
+<section aria-labelledby="q11"><h2 id="q11">Dlaczego uruchamia się z GitHuba, a nie z npm?</h2><p>Żeby nie wymagało instalacji: <code>npx github:dawidolko/frontend-skills</code> uruchamia repozytorium takie, jakie jest, z Node.js 20 lub nowszym i bez zależności.</p></section>
+<section aria-labelledby="q12"><h2 id="q12">Jak dodać regułę albo skill?</h2><p>Przewodnik dla autorów, <a href="https://github.com/dawidolko/frontend-skills/blob/main/docs/authoring.md">docs/authoring.md</a>, opisuje format, testy i sprawdzenia. Zgłoszenia i pull requesty na GitHubie są mile widziane.</p></section>
+</div>
+</main>
+<footer class="site-footer">
+<div class="wrap footer-inner">
+<div class="footer-text">
+<p class="footer-brand"><svg class="brand-mark" viewBox="0 0 32 32" width="32" height="32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="8" fill="currentColor"/><path d="M12.5 10 7 16l5.5 6M19.5 10 25 16l-5.5 6" fill="none" stroke="var(--logo-ink)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Frontend Skills</span></p>
+<p>Darmowy i otwarty, na licencji MIT. Autor: <a href="https://dawidolko.pl">Dawid Olko</a>.</p>
+<p>Budowana z WCAG 2.2 AA jako celem. Automatyczne testy wykrywają tylko część problemów.</p>
+<p>Bez ciasteczek, bez analityki, bez zapytań do innych serwisów. Przycisk dostępności zapisuje ustawienia tylko na Twoim urządzeniu.</p>
+</div>
+<nav aria-label="Więcej"><ul class="footer-nav"><li><a href="/pl/">Start</a></li><li><a href="/pl/how-it-works/">Jak to działa</a></li><li><a href="/pl/rules/">Reguły</a></li><li><a href="/pl/skills/">Skille</a></li><li><a href="/pl/commands/">Polecenia</a></li><li><a href="/pl/faq/" aria-current="page">Pytania</a></li><li><a href="/pl/about/">O projekcie</a></li><li><a href="https://github.com/dawidolko/frontend-skills">GitHub</a></li></ul></nav>
+</div>
+</footer>
+<p id="live-status" class="visually-hidden" role="status" aria-live="polite"></p>
+</body>
+</html>

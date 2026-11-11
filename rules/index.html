@@ -1,0 +1,1011 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The rule dictionary · Frontend Skills</title>
+<meta name="description" content="Every rule of Frontend Skills with its stable id, severity, check kind and sources in WCAG, WHATWG, MDN, web.dev and framework documentation. Search and filter by area.">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#faf7fc" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0d0d0f" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://skills.dawidolko.pl/rules/">
+<link rel="alternate" hreflang="en" href="https://skills.dawidolko.pl/rules/">
+<link rel="alternate" hreflang="pl" href="https://skills.dawidolko.pl/pl/rules/">
+<link rel="alternate" hreflang="x-default" href="https://skills.dawidolko.pl/rules/">
+<link rel="preload" href="/assets/fonts/opensans-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/styles.css?v=fbc2d7ae26">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Frontend Skills">
+<meta property="og:title" content="The rule dictionary">
+<meta property="og:description" content="Every rule of Frontend Skills with its stable id, severity, check kind and sources in WCAG, WHATWG, MDN, web.dev and framework documentation. Search and filter by area.">
+<meta property="og:url" content="https://skills.dawidolko.pl/rules/">
+<meta property="og:image" content="https://skills.dawidolko.pl/og-en.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Frontend Skills: one command that fits front-end skills to your project and every coding agent you use.">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="pl_PL">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="author" content="Dawid Olko">
+
+<script src="/assets/site.js?v=dd8cab0a79" defer></script>
+<script src="/a11y/a11y-panel.js?v=39d6e82235" data-accent="#9b00c2" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+<div class="wrap header-inner">
+<a class="brand" href="/"><svg class="brand-mark" viewBox="0 0 32 32" width="32" height="32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="8" fill="currentColor"/><path d="M12.5 10 7 16l5.5 6M19.5 10 25 16l-5.5 6" fill="none" stroke="var(--logo-ink)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="brand-name">Frontend Skills</span></a>
+<nav class="main-nav" aria-label="Main"><ul><li><a href="/how-it-works/">How it works</a></li><li><a href="/rules/" aria-current="page">Rules</a></li><li><a href="/skills/">Skills</a></li><li><a href="/commands/">Commands</a></li><li><a href="/faq/">FAQ</a></li></ul></nav>
+<div class="header-tools">
+<a class="lang-switch" href="/pl/rules/" hreflang="pl" lang="pl" title="Ta strona po polsku">Polski</a>
+<a class="gh-link" href="https://github.com/dawidolko/frontend-skills" aria-label="Source code on GitHub"><svg viewBox="0 0 16 16" width="20" height="20" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg></a>
+</div>
+</div>
+</header>
+<main id="main" tabindex="-1">
+<div class="page-head"><div class="wrap"><h1>The rule dictionary</h1><p class="lead">Every rule has a stable id such as <code>a11y/img-alt</code>, one sentence, a severity and at least one source in a public standard or the vendor's documentation. People, agents, the report and <code>explain</code> all use the same id.</p></div></div>
+<div class="wrap">
+<form class="filters" id="rule-filters" role="search" aria-label="Filter the rules" data-index="/rules/index.json" data-count="{shown} of {total} rules shown." data-count-all="{total} rules." hidden>
+<div class="field field-search"><label for="f-q">Search</label><input id="f-q" name="q" type="search" autocomplete="off" spellcheck="false" aria-describedby="f-q-hint"><p class="hint" id="f-q-hint">Id, words of the title, WCAG criterion or skill</p></div>
+<div class="field"><label for="f-area">Area</label><select id="f-area" name="area"><option value="">All</option><option value="html">HTML</option><option value="css">CSS</option><option value="responsive">Responsive layout</option><option value="a11y">Accessibility</option><option value="perf">Performance</option><option value="js">JavaScript</option><option value="ts">TypeScript</option><option value="react">React</option><option value="next">Next.js</option><option value="vue">Vue</option><option value="nuxt">Nuxt</option><option value="angular">Angular</option><option value="svelte">Svelte</option><option value="astro">Astro</option><option value="webc">Web Components</option><option value="tailwind">Tailwind CSS</option><option value="sass">Sass</option><option value="state">State</option></select></div>
+<div class="field"><label for="f-severity">Severity</label><select id="f-severity" name="severity"><option value="">All</option><option value="critical">critical</option><option value="serious">serious</option><option value="moderate">moderate</option><option value="minor">minor</option></select></div>
+<div class="field"><label for="f-check">Check</label><select id="f-check" name="check"><option value="">All</option><option value="static">static</option><option value="browser">browser</option><option value="manual">manual</option></select></div>
+<div class="field field-reset"><button type="reset" class="button button-ghost">Clear the filters</button></div>
+</form>
+<p class="rule-count" id="rule-count">176 rules.</p>
+<p class="empty" id="rule-empty" hidden>No rule matches these filters.</p>
+<section class="rule-group" data-area="html" aria-labelledby="area-html">
+<h2 id="area-html">HTML <span class="count">11 rules</span></h2>
+<ul class="rule-list"><li class="rule-item" data-id="html/button-type" data-area="html" data-severity="minor" data-check="static">
+<a class="rule-id" href="/rules/html/button-type/"><code>html/button-type</code></a>
+<p class="rule-title">Every button states its type (button, submit or reset); the default is submit.</p>
+<p class="rule-meta"><span class="sev sev-minor">minor</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="html/constraint-attr-type" data-area="html" data-severity="moderate" data-check="static">
+<a class="rule-id" href="/rules/html/constraint-attr-type/"><code>html/constraint-attr-type</code></a>
+<p class="rule-title">Validation attributes match the input type (pattern and maxlength on text-like types, min, max and step on number and date types).</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="html/doctype" data-area="html" data-severity="moderate" data-check="static">
+<a class="rule-id" href="/rules/html/doctype/"><code>html/doctype</code></a>
+<p class="rule-title">Every HTML document starts with &lt;!doctype html&gt; so the browser renders it in standards mode.</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="html/form-submit" data-area="html" data-severity="moderate" data-check="manual">
+<a class="rule-id" href="/rules/html/form-submit/"><code>html/form-submit</code></a>
+<p class="rule-title">Fields sit in a form that is handled on its submit event with a submit button, so Enter, autofill and native validation work.</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-manual">manual</span></p>
+</li>
+<li class="rule-item" data-id="html/icon-from-set" data-area="html" data-severity="minor" data-check="static">
+<a class="rule-id" href="/rules/html/icon-from-set/"><code>html/icon-from-set</code></a>
+<p class="rule-title">When the project has an icon set (sprite, icon classes or an Icon component), markup uses it, never a hard-coded path to an icon file.</p>
+<p class="rule-meta"><span class="sev sev-minor">minor</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="html/input-type" data-area="html" data-severity="minor" data-check="static">
+<a class="rule-id" href="/rules/html/input-type/"><code>html/input-type</code></a>
+<p class="rule-title">An input for an email address, phone number or URL uses type email, tel or url, not text.</p>
+<p class="rule-meta"><span class="sev sev-minor">minor</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="html/no-number-for-codes" data-area="html" data-severity="moderate" data-check="static">
+<a class="rule-id" href="/rules/html/no-number-for-codes/"><code>html/no-number-for-codes</code></a>
+<p class="rule-title">Codes made of digits (postal codes, card numbers, one-time codes, PINs) use type text with inputmode numeric, not type number.</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="html/password-autocomplete" data-area="html" data-severity="moderate" data-check="static">
+<a class="rule-id" href="/rules/html/password-autocomplete/"><code>html/password-autocomplete</code></a>
+<p class="rule-title">Password fields say current-password (sign-in) or new-password (sign-up, change) in autocomplete, and never use autocomplete off.</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="html/picture-img" data-area="html" data-severity="serious" data-check="static">
+<a class="rule-id" href="/rules/html/picture-img/"><code>html/picture-img</code></a>
+<p class="rule-title">Every picture element ends with an img that has src, alt, width and height; source elements alone render nothing.</p>
+<p class="rule-meta"><span class="sev sev-serious">serious</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="html/project-icons" data-area="html" data-severity="minor" data-check="static">
+<a class="rule-id" href="/rules/html/project-icons/"><code>html/project-icons</code></a>
+<p class="rule-title">Icons use the project's generated icon classes (its icon classes), not separate SVG image files.</p>
+<p class="rule-meta"><span class="sev sev-minor">minor</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="html/required-select-placeholder" data-area="html" data-severity="moderate" data-check="static">
+<a class="rule-id" href="/rules/html/required-select-placeholder/"><code>html/required-select-placeholder</code></a>
+<p class="rule-title">A required single-choice select starts with an empty placeholder option (value=&quot;&quot;), so the required check can fail.</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-static">static</span></p>
+</li></ul>
+</section>
+<section class="rule-group" data-area="css" aria-labelledby="area-css">
+<h2 id="area-css">CSS <span class="count">23 rules</span></h2>
+<ul class="rule-list"><li class="rule-item" data-id="css/animate-composited" data-area="css" data-severity="moderate" data-check="static">
+<a class="rule-id" href="/rules/css/animate-composited/"><code>css/animate-composited</code></a>
+<p class="rule-title">Animations and transitions change transform and opacity, not layout properties such as width, height, top, left or margin.</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="css/asset-url" data-area="css" data-severity="minor" data-check="static">
+<a class="rule-id" href="/rules/css/asset-url/"><code>css/asset-url</code></a>
+<p class="rule-title">In a bundled project, url() to images and fonts is a relative path or alias the bundler resolves, not a hard-coded root or public/ path.</p>
+<p class="rule-meta"><span class="sev sev-minor">minor</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="css/baseline-check" data-area="css" data-severity="minor" data-check="manual">
+<a class="rule-id" href="/rules/css/baseline-check/"><code>css/baseline-check</code></a>
+<p class="rule-title">Before using a newer CSS feature, check its Baseline status against the project's browser targets and plan the fallback.</p>
+<p class="rule-meta"><span class="sev sev-minor">minor</span> <span class="tag tag-manual">manual</span></p>
+</li>
+<li class="rule-item" data-id="css/container-type-size" data-area="css" data-severity="moderate" data-check="static">
+<a class="rule-id" href="/rules/css/container-type-size/"><code>css/container-type-size</code></a>
+<p class="rule-title">Query containers use container-type inline-size; size is only for elements that get their height from elsewhere.</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="css/design-tokens" data-area="css" data-severity="minor" data-check="static">
+<a class="rule-id" href="/rules/css/design-tokens/"><code>css/design-tokens</code></a>
+<p class="rule-title">Colours and spacing come from the project's tokens (custom properties or variables); a literal that has a token, or repeats, is a finding.</p>
+<p class="rule-meta"><span class="sev sev-minor">minor</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="css/gap-over-margins" data-area="css" data-severity="minor" data-check="manual">
+<a class="rule-id" href="/rules/css/gap-over-margins/"><code>css/gap-over-margins</code></a>
+<p class="rule-title">Space the children of a flex or grid container with gap, not with margins on the children and last-child exceptions.</p>
+<p class="rule-meta"><span class="sev sev-minor">minor</span> <span class="tag tag-manual">manual</span></p>
+</li>
+<li class="rule-item" data-id="css/icon-from-set" data-area="css" data-severity="minor" data-check="static">
+<a class="rule-id" href="/rules/css/icon-from-set/"><code>css/icon-from-set</code></a>
+<p class="rule-title">With a generated icon set, CSS uses its icon classes or mixin, never a url() hard-coded to an icon file.</p>
+<p class="rule-meta"><span class="sev sev-minor">minor</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="css/light-dark-color-scheme" data-area="css" data-severity="moderate" data-check="static">
+<a class="rule-id" href="/rules/css/light-dark-color-scheme/"><code>css/light-dark-color-scheme</code></a>
+<p class="rule-title">A project that uses light-dark() declares color-scheme (light dark) on :root or in a meta tag, or the dark values never apply.</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="css/limited-needs-supports" data-area="css" data-severity="moderate" data-check="static">
+<a class="rule-id" href="/rules/css/limited-needs-supports/"><code>css/limited-needs-supports</code></a>
+<p class="rule-title">CSS that is not Baseline yet (anchor positioning) or only just became Baseline (scroll-driven animations) sits in @supports with a fallback.</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="css/logical-properties" data-area="css" data-severity="minor" data-check="manual">
+<a class="rule-id" href="/rules/css/logical-properties/"><code>css/logical-properties</code></a>
+<p class="rule-title">Sites that run or may run right to left use logical properties (margin-inline-start, inset-inline-end), not left and right.</p>
+<p class="rule-meta"><span class="sev sev-minor">minor</span> <span class="tag tag-manual">manual</span></p>
+</li>
+<li class="rule-item" data-id="css/nesting-no-concat" data-area="css" data-severity="serious" data-check="static">
+<a class="rule-id" href="/rules/css/nesting-no-concat/"><code>css/nesting-no-concat</code></a>
+<p class="rule-title">In native CSS nesting, never build class names from &quot;&amp;&quot; plus a suffix (&amp;__title); write the full selector.</p>
+<p class="rule-meta"><span class="sev sev-serious">serious</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="css/no-fixed-height-text" data-area="css" data-severity="serious" data-check="static">
+<a class="rule-id" href="/rules/css/no-fixed-height-text/"><code>css/no-fixed-height-text</code></a>
+<p class="rule-title">Boxes that hold text do not combine a fixed height with hidden overflow; use min-height so enlarged or spaced text is not clipped.</p>
+<p class="rule-meta"><span class="sev sev-serious">serious</span> <span class="tag tag-static">static</span> <span class="tag">WCAG 1.4.4, 1.4.12 AA</span></p>
+</li>
+<li class="rule-item" data-id="css/no-float-layout" data-area="css" data-severity="minor" data-check="static">
+<a class="rule-id" href="/rules/css/no-float-layout/"><code>css/no-float-layout</code></a>
+<p class="rule-title">Page and component layout uses grid or flexbox; float is only for wrapping text around media, and clearfix hacks are gone.</p>
+<p class="rule-meta"><span class="sev sev-minor">minor</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="css/no-id-selectors" data-area="css" data-severity="minor" data-check="static">
+<a class="rule-id" href="/rules/css/no-id-selectors/"><code>css/no-id-selectors</code></a>
+<p class="rule-title">Style elements by class, not by id; an id selector outweighs any number of classes and makes the rule hard to override.</p>
+<p class="rule-meta"><span class="sev sev-minor">minor</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="css/no-important" data-area="css" data-severity="minor" data-check="static">
+<a class="rule-id" href="/rules/css/no-important/"><code>css/no-important</code></a>
+<p class="rule-title">!important appears only in utility classes, user-preference overrides and third-party overrides, never to win a specificity fight.</p>
+<p class="rule-meta"><span class="sev sev-minor">minor</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="css/no-magic-numbers" data-area="css" data-severity="minor" data-check="static">
+<a class="rule-id" href="/rules/css/no-magic-numbers/"><code>css/no-magic-numbers</code></a>
+<p class="rule-title">Offsets and spacing use the project's spacing scale or come from layout; hand-tuned one-off values such as top -7px are a finding.</p>
+<p class="rule-meta"><span class="sev sev-minor">minor</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="css/no-stale-prefixes" data-area="css" data-severity="minor" data-check="static">
+<a class="rule-id" href="/rules/css/no-stale-prefixes/"><code>css/no-stale-prefixes</code></a>
+<p class="rule-title">No hand-written vendor prefixes for features browsers support unprefixed (border-radius, transitions, transforms, flexbox, gradients).</p>
+<p class="rule-meta"><span class="sev sev-minor">minor</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="css/pause-auto-motion" data-area="css" data-severity="serious" data-check="manual">
+<a class="rule-id" href="/rules/css/pause-auto-motion/"><code>css/pause-auto-motion</code></a>
+<p class="rule-title">Anything that moves, blinks or scrolls on its own for more than five seconds (carousels, marquees, background video) can be paused.</p>
+<p class="rule-meta"><span class="sev sev-serious">serious</span> <span class="tag tag-manual">manual</span> <span class="tag">WCAG 2.2.2 A</span></p>
+</li>
+<li class="rule-item" data-id="css/reduced-motion" data-area="css" data-severity="moderate" data-check="static">
+<a class="rule-id" href="/rules/css/reduced-motion/"><code>css/reduced-motion</code></a>
+<p class="rule-title">Non-essential motion (entrance animations, parallax, smooth scrolling) respects prefers-reduced-motion.</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="css/rem-helper" data-area="css" data-severity="minor" data-check="static">
+<a class="rule-id" href="/rules/css/rem-helper/"><code>css/rem-helper</code></a>
+<p class="rule-title">Font sizes and spacing use the project's px-to-rem helper (its rem function), not raw px.</p>
+<p class="rule-meta"><span class="sev sev-minor">minor</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="css/rem-units" data-area="css" data-severity="minor" data-check="static">
+<a class="rule-id" href="/rules/css/rem-units/"><code>css/rem-units</code></a>
+<p class="rule-title">Font sizes are written in rem (or em), never px, in projects without a rem helper; with one, css/rem-helper applies.</p>
+<p class="rule-meta"><span class="sev sev-minor">minor</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="css/unitless-line-height" data-area="css" data-severity="minor" data-check="static">
+<a class="rule-id" href="/rules/css/unitless-line-height/"><code>css/unitless-line-height</code></a>
+<p class="rule-title">line-height is a unitless number (for example 1.5), never px, em or a percentage, so it scales with each element's font size.</p>
+<p class="rule-meta"><span class="sev sev-minor">minor</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="css/z-index-scale" data-area="css" data-severity="minor" data-check="static">
+<a class="rule-id" href="/rules/css/z-index-scale/"><code>css/z-index-scale</code></a>
+<p class="rule-title">z-index values come from a named scale (custom properties or Sass variables), not ad hoc numbers such as 999 or 9999.</p>
+<p class="rule-meta"><span class="sev sev-minor">minor</span> <span class="tag tag-static">static</span></p>
+</li></ul>
+</section>
+<section class="rule-group" data-area="responsive" aria-labelledby="area-responsive">
+<h2 id="area-responsive">Responsive layout <span class="count">7 rules</span></h2>
+<ul class="rule-list"><li class="rule-item" data-id="responsive/dynamic-viewport-units" data-area="responsive" data-severity="minor" data-check="static">
+<a class="rule-id" href="/rules/responsive/dynamic-viewport-units/"><code>responsive/dynamic-viewport-units</code></a>
+<p class="rule-title">A full-height layout uses 100dvh (or svh) instead of 100vh, which is taller than the visible area on mobile.</p>
+<p class="rule-meta"><span class="sev sev-minor">minor</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="responsive/no-fixed-wide-width" data-area="responsive" data-severity="serious" data-check="static">
+<a class="rule-id" href="/rules/responsive/no-fixed-wide-width/"><code>responsive/no-fixed-wide-width</code></a>
+<p class="rule-title">No layout box gets a fixed width wider than 320 CSS px; cap it with max-width or min(100%, …) so the page reflows on narrow screens.</p>
+<p class="rule-meta"><span class="sev sev-serious">serious</span> <span class="tag tag-static">static</span> <span class="tag">WCAG 1.4.10 AA</span></p>
+</li>
+<li class="rule-item" data-id="responsive/no-hover-only" data-area="responsive" data-severity="serious" data-check="static">
+<a class="rule-id" href="/rules/responsive/no-hover-only/"><code>responsive/no-hover-only</code></a>
+<p class="rule-title">Nothing is revealed on hover alone; content and controls shown on hover also show on keyboard focus and are reachable on touch.</p>
+<p class="rule-meta"><span class="sev sev-serious">serious</span> <span class="tag tag-static">static</span> <span class="tag">WCAG 2.1.1 A</span></p>
+</li>
+<li class="rule-item" data-id="responsive/no-viewport-font-size" data-area="responsive" data-severity="serious" data-check="static">
+<a class="rule-id" href="/rules/responsive/no-viewport-font-size/"><code>responsive/no-viewport-font-size</code></a>
+<p class="rule-title">Text is never sized with viewport units alone (font-size 5vw); fluid type mixes in rem, as in clamp(1rem, 0.9rem + 1vw, 1.5rem).</p>
+<p class="rule-meta"><span class="sev sev-serious">serious</span> <span class="tag tag-static">static</span> <span class="tag">WCAG 1.4.4 AA</span></p>
+</li>
+<li class="rule-item" data-id="responsive/orientation" data-area="responsive" data-severity="serious" data-check="manual">
+<a class="rule-id" href="/rules/responsive/orientation/"><code>responsive/orientation</code></a>
+<p class="rule-title">The page works in portrait and landscape; it never locks the orientation or asks people to rotate unless one orientation is essential.</p>
+<p class="rule-meta"><span class="sev sev-serious">serious</span> <span class="tag tag-manual">manual</span> <span class="tag">WCAG 1.3.4 AA</span></p>
+</li>
+<li class="rule-item" data-id="responsive/reflow" data-area="responsive" data-severity="serious" data-check="manual">
+<a class="rule-id" href="/rules/responsive/reflow/"><code>responsive/reflow</code></a>
+<p class="rule-title">The page reads without sideways scrolling at 320 CSS px and 400% zoom; only tables, maps and similar may scroll both ways.</p>
+<p class="rule-meta"><span class="sev sev-serious">serious</span> <span class="tag tag-manual">manual</span> <span class="tag">WCAG 1.4.10 AA</span></p>
+</li>
+<li class="rule-item" data-id="responsive/viewport-meta" data-area="responsive" data-severity="serious" data-check="static">
+<a class="rule-id" href="/rules/responsive/viewport-meta/"><code>responsive/viewport-meta</code></a>
+<p class="rule-title">Every HTML document has &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;.</p>
+<p class="rule-meta"><span class="sev sev-serious">serious</span> <span class="tag tag-static">static</span></p>
+</li></ul>
+</section>
+<section class="rule-group" data-area="a11y" aria-labelledby="area-a11y">
+<h2 id="area-a11y">Accessibility <span class="count">10 rules</span></h2>
+<ul class="rule-list"><li class="rule-item" data-id="a11y/autocomplete-valid" data-area="a11y" data-severity="serious" data-check="static">
+<a class="rule-id" href="/rules/a11y/autocomplete-valid/"><code>a11y/autocomplete-valid</code></a>
+<p class="rule-title">An autocomplete attribute holds only tokens the HTML standard defines (email, given-name, new-password…).</p>
+<p class="rule-meta"><span class="sev sev-serious">serious</span> <span class="tag tag-static">static</span> <span class="tag">WCAG 1.3.5 AA</span></p>
+</li>
+<li class="rule-item" data-id="a11y/focus-visible" data-area="a11y" data-severity="serious" data-check="static">
+<a class="rule-id" href="/rules/a11y/focus-visible/"><code>a11y/focus-visible</code></a>
+<p class="rule-title">Never remove the focus outline without drawing a visible replacement for keyboard focus.</p>
+<p class="rule-meta"><span class="sev sev-serious">serious</span> <span class="tag tag-static">static</span> <span class="tag">WCAG 2.4.7 AA</span></p>
+</li>
+<li class="rule-item" data-id="a11y/form-errors" data-area="a11y" data-severity="serious" data-check="manual">
+<a class="rule-id" href="/rules/a11y/form-errors/"><code>a11y/form-errors</code></a>
+<p class="rule-title">An input error is shown in text next to the field, tied to it with aria-describedby, and says how to fix it.</p>
+<p class="rule-meta"><span class="sev sev-serious">serious</span> <span class="tag tag-manual">manual</span> <span class="tag">WCAG 3.3.1, 3.3.3, 4.1.3 AA</span></p>
+</li>
+<li class="rule-item" data-id="a11y/html-lang" data-area="a11y" data-severity="serious" data-check="static">
+<a class="rule-id" href="/rules/a11y/html-lang/"><code>a11y/html-lang</code></a>
+<p class="rule-title">The html element names the language of the page in a non-empty lang attribute.</p>
+<p class="rule-meta"><span class="sev sev-serious">serious</span> <span class="tag tag-static">static</span> <span class="tag">WCAG 3.1.1 A</span></p>
+</li>
+<li class="rule-item" data-id="a11y/img-alt" data-area="a11y" data-severity="critical" data-check="static">
+<a class="rule-id" href="/rules/a11y/img-alt/"><code>a11y/img-alt</code></a>
+<p class="rule-title">Every img and area element has an alt attribute; a decorative image has alt=&quot;&quot;.</p>
+<p class="rule-meta"><span class="sev sev-critical">critical</span> <span class="tag tag-static">static</span> <span class="tag">WCAG 1.1.1 A</span></p>
+</li>
+<li class="rule-item" data-id="a11y/input-label" data-area="a11y" data-severity="critical" data-check="static">
+<a class="rule-id" href="/rules/a11y/input-label/"><code>a11y/input-label</code></a>
+<p class="rule-title">Every form field has a programmatic label (label element, aria-label or aria-labelledby); a placeholder is not a label.</p>
+<p class="rule-meta"><span class="sev sev-critical">critical</span> <span class="tag tag-static">static</span> <span class="tag">WCAG 1.3.1, 3.3.2, 4.1.2 A</span></p>
+</li>
+<li class="rule-item" data-id="a11y/no-click-on-static" data-area="a11y" data-severity="serious" data-check="static">
+<a class="rule-id" href="/rules/a11y/no-click-on-static/"><code>a11y/no-click-on-static</code></a>
+<p class="rule-title">A click handler belongs on a button or link; a static element with one also needs a role, tabindex and a key handler.</p>
+<p class="rule-meta"><span class="sev sev-serious">serious</span> <span class="tag tag-static">static</span> <span class="tag">WCAG 2.1.1, 4.1.2 A</span></p>
+</li>
+<li class="rule-item" data-id="a11y/page-title" data-area="a11y" data-severity="serious" data-check="static">
+<a class="rule-id" href="/rules/a11y/page-title/"><code>a11y/page-title</code></a>
+<p class="rule-title">Every HTML document has a title element that says what the page is about.</p>
+<p class="rule-meta"><span class="sev sev-serious">serious</span> <span class="tag tag-static">static</span> <span class="tag">WCAG 2.4.2 A</span></p>
+</li>
+<li class="rule-item" data-id="a11y/positive-tabindex" data-area="a11y" data-severity="serious" data-check="static">
+<a class="rule-id" href="/rules/a11y/positive-tabindex/"><code>a11y/positive-tabindex</code></a>
+<p class="rule-title">No element has a tabindex greater than 0; focus order follows the source order.</p>
+<p class="rule-meta"><span class="sev sev-serious">serious</span> <span class="tag tag-static">static</span> <span class="tag">WCAG 2.4.3 A</span></p>
+</li>
+<li class="rule-item" data-id="a11y/zoom-not-blocked" data-area="a11y" data-severity="critical" data-check="static">
+<a class="rule-id" href="/rules/a11y/zoom-not-blocked/"><code>a11y/zoom-not-blocked</code></a>
+<p class="rule-title">The viewport never disables zoom (no user-scalable=no, no maximum-scale below 2).</p>
+<p class="rule-meta"><span class="sev sev-critical">critical</span> <span class="tag tag-static">static</span> <span class="tag">WCAG 1.4.4 AA</span></p>
+</li></ul>
+</section>
+<section class="rule-group" data-area="perf" aria-labelledby="area-perf">
+<h2 id="area-perf">Performance <span class="count">12 rules</span></h2>
+<ul class="rule-list"><li class="rule-item" data-id="perf/font-display" data-area="perf" data-severity="minor" data-check="static">
+<a class="rule-id" href="/rules/perf/font-display/"><code>perf/font-display</code></a>
+<p class="rule-title">Every @font-face and Google Fonts URL sets font-display (swap or optional) so text is visible while the font loads.</p>
+<p class="rule-meta"><span class="sev sev-minor">minor</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="perf/font-fallback-metrics" data-area="perf" data-severity="minor" data-check="manual">
+<a class="rule-id" href="/rules/perf/font-fallback-metrics/"><code>perf/font-fallback-metrics</code></a>
+<p class="rule-title">The fallback font is adjusted to the web font's metrics (size-adjust and overrides) so the swap does not shift the layout.</p>
+<p class="rule-meta"><span class="sev sev-minor">minor</span> <span class="tag tag-manual">manual</span></p>
+</li>
+<li class="rule-item" data-id="perf/font-preconnect" data-area="perf" data-severity="minor" data-check="static">
+<a class="rule-id" href="/rules/perf/font-preconnect/"><code>perf/font-preconnect</code></a>
+<p class="rule-title">Fonts are self-hosted, or the font CDN's file origin (fonts.gstatic.com) is preconnected with crossorigin.</p>
+<p class="rule-meta"><span class="sev sev-minor">minor</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="perf/font-preload-crossorigin" data-area="perf" data-severity="moderate" data-check="static">
+<a class="rule-id" href="/rules/perf/font-preload-crossorigin/"><code>perf/font-preload-crossorigin</code></a>
+<p class="rule-title">A font preload has crossorigin (and type font/woff2); without it the preload is wasted and the font is fetched twice.</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="perf/font-woff2" data-area="perf" data-severity="moderate" data-check="static">
+<a class="rule-id" href="/rules/perf/font-woff2/"><code>perf/font-woff2</code></a>
+<p class="rule-title">Web fonts are served as WOFF2; TTF, OTF, EOT and plain WOFF files are dead weight for current browsers.</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="perf/gif-to-video" data-area="perf" data-severity="moderate" data-check="static">
+<a class="rule-id" href="/rules/perf/gif-to-video/"><code>perf/gif-to-video</code></a>
+<p class="rule-title">Animations longer than a small icon are shipped as a muted, looping MP4 or WebM video, not as a GIF over 100 KiB.</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="perf/img-dimensions" data-area="perf" data-severity="moderate" data-check="static">
+<a class="rule-id" href="/rules/perf/img-dimensions/"><code>perf/img-dimensions</code></a>
+<p class="rule-title">Every img has width and height attributes (or a CSS aspect ratio) so the browser reserves its space.</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="perf/img-modern-format" data-area="perf" data-severity="moderate" data-check="browser">
+<a class="rule-id" href="/rules/perf/img-modern-format/"><code>perf/img-modern-format</code></a>
+<p class="rule-title">Photos and large raster images are served as AVIF or WebP at the size they are shown, not as large JPEG or PNG files.</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-browser">browser</span></p>
+</li>
+<li class="rule-item" data-id="perf/large-image" data-area="perf" data-severity="moderate" data-check="static">
+<a class="rule-id" href="/rules/perf/large-image/"><code>perf/large-image</code></a>
+<p class="rule-title">An image file in the source stays under the image budget (250 KB by default); larger ones are resized or re-encoded.</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="perf/lcp-image-priority" data-area="perf" data-severity="serious" data-check="static">
+<a class="rule-id" href="/rules/perf/lcp-image-priority/"><code>perf/lcp-image-priority</code></a>
+<p class="rule-title">The image that is likely the LCP element loads eagerly with fetchpriority high; it is never lazy-loaded.</p>
+<p class="rule-meta"><span class="sev sev-serious">serious</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="perf/render-blocking-script" data-area="perf" data-severity="moderate" data-check="static">
+<a class="rule-id" href="/rules/perf/render-blocking-script/"><code>perf/render-blocking-script</code></a>
+<p class="rule-title">A script in the head loads with defer, async or type=&quot;module&quot;, never as a plain blocking script.</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="perf/srcset-sizes" data-area="perf" data-severity="moderate" data-check="static">
+<a class="rule-id" href="/rules/perf/srcset-sizes/"><code>perf/srcset-sizes</code></a>
+<p class="rule-title">A srcset with width descriptors (400w, 800w) comes with a sizes attribute that matches the image's displayed width.</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-static">static</span></p>
+</li></ul>
+</section>
+<section class="rule-group" data-area="js" aria-labelledby="area-js">
+<h2 id="area-js">JavaScript <span class="count">13 rules</span></h2>
+<ul class="rule-list"><li class="rule-item" data-id="js/asset-import" data-area="js" data-severity="moderate" data-check="static">
+<a class="rule-id" href="/rules/js/asset-import/"><code>js/asset-import</code></a>
+<p class="rule-title">In a bundled project, images, fonts and media in component markup are imported or use the base-path helper, not hard-coded root paths.</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="js/document-write" data-area="js" data-severity="moderate" data-check="static">
+<a class="rule-id" href="/rules/js/document-write/"><code>js/document-write</code></a>
+<p class="rule-title">Never insert content with document.write; create elements or load scripts with the DOM.</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="js/feature-detect" data-area="js" data-severity="minor" data-check="static">
+<a class="rule-id" href="/rules/js/feature-detect/"><code>js/feature-detect</code></a>
+<p class="rule-title">Test for the feature you need (in, CSS.supports, matchMedia), not the browser name in navigator.userAgent.</p>
+<p class="rule-meta"><span class="sev sev-minor">minor</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="js/fetch-check-ok" data-area="js" data-severity="moderate" data-check="static">
+<a class="rule-id" href="/rules/js/fetch-check-ok/"><code>js/fetch-check-ok</code></a>
+<p class="rule-title">After fetch, check response.ok (or the status) before reading the body; fetch does not reject on 404 or 500.</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="js/listener-cleanup" data-area="js" data-severity="moderate" data-check="manual">
+<a class="rule-id" href="/rules/js/listener-cleanup/"><code>js/listener-cleanup</code></a>
+<p class="rule-title">Listeners, timers and observers a view starts are removed when it goes away; one AbortController signal can end them all.</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-manual">manual</span></p>
+</li>
+<li class="rule-item" data-id="js/no-empty-catch" data-area="js" data-severity="moderate" data-check="static">
+<a class="rule-id" href="/rules/js/no-empty-catch/"><code>js/no-empty-catch</code></a>
+<p class="rule-title">A catch block never swallows an error silently; handle it, report it, or say in a comment why it is safe to ignore.</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="js/no-eval" data-area="js" data-severity="serious" data-check="static">
+<a class="rule-id" href="/rules/js/no-eval/"><code>js/no-eval</code></a>
+<p class="rule-title">Never run strings as code - no eval, new Function, or a string as the first argument of setTimeout or setInterval.</p>
+<p class="rule-meta"><span class="sev sev-serious">serious</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="js/no-floating-promises" data-area="js" data-severity="moderate" data-check="manual">
+<a class="rule-id" href="/rules/js/no-floating-promises/"><code>js/no-floating-promises</code></a>
+<p class="rule-title">Every promise is awaited, returned or given a .catch(); an async call is never left floating.</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-manual">manual</span></p>
+</li>
+<li class="rule-item" data-id="js/no-inline-handlers" data-area="js" data-severity="moderate" data-check="static">
+<a class="rule-id" href="/rules/js/no-inline-handlers/"><code>js/no-inline-handlers</code></a>
+<p class="rule-title">Attach event handlers from script with addEventListener, not with onclick=&quot;...&quot; attributes in HTML.</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="js/no-var" data-area="js" data-severity="minor" data-check="static">
+<a class="rule-id" href="/rules/js/no-var/"><code>js/no-var</code></a>
+<p class="rule-title">Declare variables with const, or let when they are reassigned; never with var.</p>
+<p class="rule-meta"><span class="sev sev-minor">minor</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="js/passive-listeners" data-area="js" data-severity="moderate" data-check="static">
+<a class="rule-id" href="/rules/js/passive-listeners/"><code>js/passive-listeners</code></a>
+<p class="rule-title">Mark touchstart, touchmove and wheel listeners { passive true } unless the handler really calls preventDefault().</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="js/strict-equality" data-area="js" data-severity="minor" data-check="static">
+<a class="rule-id" href="/rules/js/strict-equality/"><code>js/strict-equality</code></a>
+<p class="rule-title">Compare with === and !==; loose == and != convert types first (x == null as a deliberate null-or-undefined test is the exception).</p>
+<p class="rule-meta"><span class="sev sev-minor">minor</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="js/throw-error-objects" data-area="js" data-severity="minor" data-check="static">
+<a class="rule-id" href="/rules/js/throw-error-objects/"><code>js/throw-error-objects</code></a>
+<p class="rule-title">Throw and reject with Error objects (or subclasses), never with strings or plain objects.</p>
+<p class="rule-meta"><span class="sev sev-minor">minor</span> <span class="tag tag-static">static</span></p>
+</li></ul>
+</section>
+<section class="rule-group" data-area="ts" aria-labelledby="area-ts">
+<h2 id="area-ts">TypeScript <span class="count">6 rules</span></h2>
+<ul class="rule-list"><li class="rule-item" data-id="ts/isolated-modules" data-area="ts" data-severity="minor" data-check="static">
+<a class="rule-id" href="/rules/ts/isolated-modules/"><code>ts/isolated-modules</code></a>
+<p class="rule-title">A Vite project's tsconfig sets isolatedModules or verbatimModuleSyntax, so code the bundler compiles file by file type-checks the same way.</p>
+<p class="rule-meta"><span class="sev sev-minor">minor</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="ts/no-deprecated-options" data-area="ts" data-severity="moderate" data-check="static">
+<a class="rule-id" href="/rules/ts/no-deprecated-options/"><code>ts/no-deprecated-options</code></a>
+<p class="rule-title">A TypeScript 6 or 7 tsconfig uses no option deprecated in 6.0 and removed in 7.0 (baseUrl, moduleResolution node, target es5).</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="ts/no-explicit-any" data-area="ts" data-severity="moderate" data-check="static">
+<a class="rule-id" href="/rules/ts/no-explicit-any/"><code>ts/no-explicit-any</code></a>
+<p class="rule-title">Type values with a real type or unknown (then narrow), never any.</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="ts/no-ts-ignore" data-area="ts" data-severity="minor" data-check="static">
+<a class="rule-id" href="/rules/ts/no-ts-ignore/"><code>ts/no-ts-ignore</code></a>
+<p class="rule-title">Silence a type error with @ts-expect-error and a reason, never @ts-ignore or @ts-nocheck.</p>
+<p class="rule-meta"><span class="sev sev-minor">minor</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="ts/strict" data-area="ts" data-severity="moderate" data-check="static">
+<a class="rule-id" href="/rules/ts/strict/"><code>ts/strict</code></a>
+<p class="rule-title">TypeScript runs with strict on; no config turns strict or one of its checks (strictNullChecks, noImplicitAny...) off.</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="ts/validate-untrusted" data-area="ts" data-severity="moderate" data-check="static">
+<a class="rule-id" href="/rules/ts/validate-untrusted/"><code>ts/validate-untrusted</code></a>
+<p class="rule-title">Data from outside the program (fetch, JSON.parse, storage) is validated at run time, not given a type with as or an annotation.</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-static">static</span></p>
+</li></ul>
+</section>
+<section class="rule-group" data-area="react" aria-labelledby="area-react">
+<h2 id="area-react">React <span class="count">3 rules</span></h2>
+<ul class="rule-list"><li class="rule-item" data-id="react/no-array-index-key" data-area="react" data-severity="moderate" data-check="static">
+<a class="rule-id" href="/rules/react/no-array-index-key/"><code>react/no-array-index-key</code></a>
+<p class="rule-title">A list item's key comes from the data (an id), not from the array index.</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="react/no-derived-state-effect" data-area="react" data-severity="moderate" data-check="manual">
+<a class="rule-id" href="/rules/react/no-derived-state-effect/"><code>react/no-derived-state-effect</code></a>
+<p class="rule-title">Values computed from props or state are calculated during render, not copied into state by an effect.</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-manual">manual</span></p>
+</li>
+<li class="rule-item" data-id="react/no-nested-component" data-area="react" data-severity="serious" data-check="manual">
+<a class="rule-id" href="/rules/react/no-nested-component/"><code>react/no-nested-component</code></a>
+<p class="rule-title">Components are declared at module level, never inside another component's body.</p>
+<p class="rule-meta"><span class="sev sev-serious">serious</span> <span class="tag tag-manual">manual</span></p>
+</li></ul>
+</section>
+<section class="rule-group" data-area="next" aria-labelledby="area-next">
+<h2 id="area-next">Next.js <span class="count">9 rules</span></h2>
+<ul class="rule-list"><li class="rule-item" data-id="next/async-params" data-area="next" data-severity="serious" data-check="static">
+<a class="rule-id" href="/rules/next/async-params/"><code>next/async-params</code></a>
+<p class="rule-title">Await params and searchParams in App Router pages, layouts and generateMetadata; Next.js 16 removed synchronous access.</p>
+<p class="rule-meta"><span class="sev sev-serious">serious</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="next/image-fill-sizes" data-area="next" data-severity="moderate" data-check="static">
+<a class="rule-id" href="/rules/next/image-fill-sizes/"><code>next/image-fill-sizes</code></a>
+<p class="rule-title">A next/image with fill (or sized by CSS) sets sizes, so the browser does not download a viewport-wide file for a small slot.</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="next/no-async-client-component" data-area="next" data-severity="serious" data-check="static">
+<a class="rule-id" href="/rules/next/no-async-client-component/"><code>next/no-async-client-component</code></a>
+<p class="rule-title">A Client Component is never an async function; fetch in a Server Component parent or read a promise with use().</p>
+<p class="rule-meta"><span class="sev sev-serious">serious</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="next/public-env-secret" data-area="next" data-severity="serious" data-check="static">
+<a class="rule-id" href="/rules/next/public-env-secret/"><code>next/public-env-secret</code></a>
+<p class="rule-title">Never give a secret the NEXT_PUBLIC_ prefix; those values are copied into the JavaScript every visitor downloads.</p>
+<p class="rule-meta"><span class="sev sev-serious">serious</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="next/redirect-outside-try" data-area="next" data-severity="serious" data-check="static">
+<a class="rule-id" href="/rules/next/redirect-outside-try/"><code>next/redirect-outside-try</code></a>
+<p class="rule-title">Call redirect(), notFound() and their kin outside try blocks; they work by throwing, and a catch swallows them.</p>
+<p class="rule-meta"><span class="sev sev-serious">serious</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="next/server-action-checks" data-area="next" data-severity="serious" data-check="manual">
+<a class="rule-id" href="/rules/next/server-action-checks/"><code>next/server-action-checks</code></a>
+<p class="rule-title">Every Server Action checks who is calling and what they may change, validates its input and returns only what the UI needs.</p>
+<p class="rule-meta"><span class="sev sev-serious">serious</span> <span class="tag tag-manual">manual</span></p>
+</li>
+<li class="rule-item" data-id="next/use-client-at-leaves" data-area="next" data-severity="moderate" data-check="static">
+<a class="rule-id" href="/rules/next/use-client-at-leaves/"><code>next/use-client-at-leaves</code></a>
+<p class="rule-title">Keep App Router pages and layouts Server Components; put 'use client' on the small interactive component they render.</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="next/use-next-font" data-area="next" data-severity="moderate" data-check="static">
+<a class="rule-id" href="/rules/next/use-next-font/"><code>next/use-next-font</code></a>
+<p class="rule-title">Load web fonts with next/font (google or local), not a link or @import to the Google Fonts stylesheet.</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="next/use-next-image" data-area="next" data-severity="moderate" data-check="static">
+<a class="rule-id" href="/rules/next/use-next-image/"><code>next/use-next-image</code></a>
+<p class="rule-title">In a Next.js app, render images with next/image instead of a plain img element (a picture element with its own sources is fine).</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-static">static</span></p>
+</li></ul>
+</section>
+<section class="rule-group" data-area="vue" aria-labelledby="area-vue">
+<h2 id="area-vue">Vue <span class="count">10 rules</span></h2>
+<ul class="rule-list"><li class="rule-item" data-id="vue/computed-pure" data-area="vue" data-severity="moderate" data-check="static">
+<a class="rule-id" href="/rules/vue/computed-pure/"><code>vue/computed-pure</code></a>
+<p class="rule-title">A computed getter only derives a value - no async work, no requests and no changes to other state.</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="vue/detailed-props" data-area="vue" data-severity="minor" data-check="static">
+<a class="rule-id" href="/rules/vue/detailed-props/"><code>vue/detailed-props</code></a>
+<p class="rule-title">Declare props with their types (an object with type, or a TypeScript type), not as a bare array of names.</p>
+<p class="rule-meta"><span class="sev sev-minor">minor</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="vue/link-for-navigation" data-area="vue" data-severity="moderate" data-check="static">
+<a class="rule-id" href="/rules/vue/link-for-navigation/"><code>vue/link-for-navigation</code></a>
+<p class="rule-title">Navigate with RouterLink or NuxtLink, not a button whose click handler only calls router.push or navigateTo.</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-static">static</span> <span class="tag">WCAG 4.1.2 A</span></p>
+</li>
+<li class="rule-item" data-id="vue/multi-word-names" data-area="vue" data-severity="minor" data-check="static">
+<a class="rule-id" href="/rules/vue/multi-word-names/"><code>vue/multi-word-names</code></a>
+<p class="rule-title">Name components with two or more words (TodoItem, not Item); App, pages and layouts are exempt.</p>
+<p class="rule-meta"><span class="sev sev-minor">minor</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="vue/no-index-key" data-area="vue" data-severity="moderate" data-check="static">
+<a class="rule-id" href="/rules/vue/no-index-key/"><code>vue/no-index-key</code></a>
+<p class="rule-title">A v-for key comes from the item's data, not from the loop index, when the list can change.</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="vue/no-mutating-props" data-area="vue" data-severity="moderate" data-check="static">
+<a class="rule-id" href="/rules/vue/no-mutating-props/"><code>vue/no-mutating-props</code></a>
+<p class="rule-title">A component never changes its props (or objects and arrays inside them); it emits an event or keeps a local copy.</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="vue/no-reactivity-loss" data-area="vue" data-severity="moderate" data-check="static">
+<a class="rule-id" href="/rules/vue/no-reactivity-loss/"><code>vue/no-reactivity-loss</code></a>
+<p class="rule-title">Never destructure or reassign a reactive() object; use toRefs, a ref, or change its properties.</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="vue/no-v-if-with-v-for" data-area="vue" data-severity="moderate" data-check="static">
+<a class="rule-id" href="/rules/vue/no-v-if-with-v-for/"><code>vue/no-v-if-with-v-for</code></a>
+<p class="rule-title">Never put v-if and v-for on the same element; filter in a computed list or move v-if to a wrapper.</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="vue/ref-value-in-script" data-area="vue" data-severity="moderate" data-check="static">
+<a class="rule-id" href="/rules/vue/ref-value-in-script/"><code>vue/ref-value-in-script</code></a>
+<p class="rule-title">In script code, read and compare a ref or computed through .value; the ref object itself is always truthy.</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="vue/require-v-for-key" data-area="vue" data-severity="moderate" data-check="static">
+<a class="rule-id" href="/rules/vue/require-v-for-key/"><code>vue/require-v-for-key</code></a>
+<p class="rule-title">Every v-for gives its items a :key from the data; on a template v-for the key goes on the template tag.</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-static">static</span></p>
+</li></ul>
+</section>
+<section class="rule-group" data-area="nuxt" aria-labelledby="area-nuxt">
+<h2 id="area-nuxt">Nuxt <span class="count">8 rules</span></h2>
+<ul class="rule-list"><li class="rule-item" data-id="nuxt/async-data-key" data-area="nuxt" data-severity="moderate" data-check="static">
+<a class="rule-id" href="/rules/nuxt/async-data-key/"><code>nuxt/async-data-key</code></a>
+<p class="rule-title">A composable that wraps useAsyncData passes an explicit, unique key built from its inputs.</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="nuxt/fetch-composable-in-handler" data-area="nuxt" data-severity="moderate" data-check="static">
+<a class="rule-id" href="/rules/nuxt/fetch-composable-in-handler/"><code>nuxt/fetch-composable-in-handler</code></a>
+<p class="rule-title">Call useFetch and useAsyncData only in setup, plugins or composables; in event handlers use $fetch.</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="nuxt/no-bare-fetch-in-setup" data-area="nuxt" data-severity="moderate" data-check="static">
+<a class="rule-id" href="/rules/nuxt/no-bare-fetch-in-setup/"><code>nuxt/no-bare-fetch-in-setup</code></a>
+<p class="rule-title">Load a page's initial data with useFetch or useAsyncData, not a bare $fetch at the top of script setup.</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="nuxt/no-browser-api-in-setup" data-area="nuxt" data-severity="serious" data-check="static">
+<a class="rule-id" href="/rules/nuxt/no-browser-api-in-setup/"><code>nuxt/no-browser-api-in-setup</code></a>
+<p class="rule-title">Never touch window, document, localStorage or navigator at the top of script setup; it also runs on the server.</p>
+<p class="rule-meta"><span class="sev sev-serious">serious</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="nuxt/no-module-scope-state" data-area="nuxt" data-severity="serious" data-check="static">
+<a class="rule-id" href="/rules/nuxt/no-module-scope-state/"><code>nuxt/no-module-scope-state</code></a>
+<p class="rule-title">Never create ref() or reactive() state at module scope in a Nuxt app; use useState or a Pinia store.</p>
+<p class="rule-meta"><span class="sev sev-serious">serious</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="nuxt/public-runtime-config" data-area="nuxt" data-severity="serious" data-check="static">
+<a class="rule-id" href="/rules/nuxt/public-runtime-config/"><code>nuxt/public-runtime-config</code></a>
+<p class="rule-title">Secrets live in the top level of runtimeConfig, never under runtimeConfig.public, which every page sends to the browser.</p>
+<p class="rule-meta"><span class="sev sev-serious">serious</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="nuxt/route-announcer" data-area="nuxt" data-severity="moderate" data-check="static">
+<a class="rule-id" href="/rules/nuxt/route-announcer/"><code>nuxt/route-announcer</code></a>
+<p class="rule-title">The app renders NuxtRouteAnnouncer (in app.vue or a layout) so client-side page changes are announced.</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-static">static</span> <span class="tag">WCAG 4.1.3 AA</span></p>
+</li>
+<li class="rule-item" data-id="nuxt/runtime-config-not-process-env" data-area="nuxt" data-severity="moderate" data-check="static">
+<a class="rule-id" href="/rules/nuxt/runtime-config-not-process-env/"><code>nuxt/runtime-config-not-process-env</code></a>
+<p class="rule-title">App code reads configuration with useRuntimeConfig() and tests the side with import.meta.client, not process.env or process.client.</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-static">static</span></p>
+</li></ul>
+</section>
+<section class="rule-group" data-area="angular" aria-labelledby="area-angular">
+<h2 id="area-angular">Angular <span class="count">9 rules</span></h2>
+<ul class="rule-list"><li class="rule-item" data-id="angular/banana-in-box" data-area="angular" data-severity="moderate" data-check="static">
+<a class="rule-id" href="/rules/angular/banana-in-box/"><code>angular/banana-in-box</code></a>
+<p class="rule-title">Two-way binding is written [(prop)], brackets outside; ([prop]) silently binds an event named [prop] instead.</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="angular/computed-not-effect" data-area="angular" data-severity="moderate" data-check="manual">
+<a class="rule-id" href="/rules/angular/computed-not-effect/"><code>angular/computed-not-effect</code></a>
+<p class="rule-title">Derive state with computed() (or linkedSignal()); never copy one signal into another inside effect().</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-manual">manual</span></p>
+</li>
+<li class="rule-item" data-id="angular/control-flow" data-area="angular" data-severity="minor" data-check="static">
+<a class="rule-id" href="/rules/angular/control-flow/"><code>angular/control-flow</code></a>
+<p class="rule-title">Templates use the built-in @if, @for and @switch blocks, not the *ngIf, *ngFor and *ngSwitch directives deprecated in v20.</p>
+<p class="rule-meta"><span class="sev sev-minor">minor</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="angular/for-track-id" data-area="angular" data-severity="moderate" data-check="static">
+<a class="rule-id" href="/rules/angular/for-track-id/"><code>angular/for-track-id</code></a>
+<p class="rule-title">An @for block tracks a stable unique field of the item (track item.id), not the item object itself.</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="angular/ng-optimized-image" data-area="angular" data-severity="moderate" data-check="static">
+<a class="rule-id" href="/rules/angular/ng-optimized-image/"><code>angular/ng-optimized-image</code></a>
+<p class="rule-title">Static images in Angular templates use NgOptimizedImage (ngSrc with width and height, or fill), not a plain src.</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="angular/no-bypass-security-trust" data-area="angular" data-severity="serious" data-check="manual">
+<a class="rule-id" href="/rules/angular/no-bypass-security-trust/"><code>angular/no-bypass-security-trust</code></a>
+<p class="rule-title">DomSanitizer bypassSecurityTrust* calls never receive user or server data; each one is a reviewed exception.</p>
+<p class="rule-meta"><span class="sev sev-serious">serious</span> <span class="tag tag-manual">manual</span></p>
+</li>
+<li class="rule-item" data-id="angular/router-aria-current" data-area="angular" data-severity="moderate" data-check="static">
+<a class="rule-id" href="/rules/angular/router-aria-current/"><code>angular/router-aria-current</code></a>
+<p class="rule-title">A routerLinkActive link also sets ariaCurrentWhenActive, so the current page is announced, not only styled.</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-static">static</span> <span class="tag">WCAG 1.3.1 A</span></p>
+</li>
+<li class="rule-item" data-id="angular/ssr-browser-globals" data-area="angular" data-severity="serious" data-check="manual">
+<a class="rule-id" href="/rules/angular/ssr-browser-globals/"><code>angular/ssr-browser-globals</code></a>
+<p class="rule-title">Code that runs on the server never touches window, document, navigator or localStorage directly; use DI or afterNextRender.</p>
+<p class="rule-meta"><span class="sev sev-serious">serious</span> <span class="tag tag-manual">manual</span></p>
+</li>
+<li class="rule-item" data-id="angular/table-tbody" data-area="angular" data-severity="moderate" data-check="static">
+<a class="rule-id" href="/rules/angular/table-tbody/"><code>angular/table-tbody</code></a>
+<p class="rule-title">Table rows in Angular templates sit inside an explicit tbody (or thead/tfoot); the browser inserts one and hydration fails.</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-static">static</span></p>
+</li></ul>
+</section>
+<section class="rule-group" data-area="svelte" aria-labelledby="area-svelte">
+<h2 id="area-svelte">Svelte <span class="count">10 rules</span></h2>
+<ul class="rule-list"><li class="rule-item" data-id="svelte/derived-not-effect" data-area="svelte" data-severity="moderate" data-check="static">
+<a class="rule-id" href="/rules/svelte/derived-not-effect/"><code>svelte/derived-not-effect</code></a>
+<p class="rule-title">A value computed from state is a $derived, not a $state that an $effect keeps in sync.</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="svelte/each-key" data-area="svelte" data-severity="moderate" data-check="static">
+<a class="rule-id" href="/rules/svelte/each-key/"><code>svelte/each-key</code></a>
+<p class="rule-title">An each block whose items hold state (inputs, bindings, components, transitions) is keyed by a unique id, never by the index.</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="svelte/kit-app-state" data-area="svelte" data-severity="moderate" data-check="static">
+<a class="rule-id" href="/rules/svelte/kit-app-state/"><code>svelte/kit-app-state</code></a>
+<p class="rule-title">Read page, navigating and updated from $app/state, not the $app/stores module that SvelteKit 3 removed.</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="svelte/kit-form-actions" data-area="svelte" data-severity="moderate" data-check="static">
+<a class="rule-id" href="/rules/svelte/kit-form-actions/"><code>svelte/kit-form-actions</code></a>
+<p class="rule-title">A SvelteKit form posts to a form action (method and action) and is enhanced with use:enhance, not handled only by onsubmit.</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="svelte/kit-load-waterfall" data-area="svelte" data-severity="moderate" data-check="manual">
+<a class="rule-id" href="/rules/svelte/kit-load-waterfall/"><code>svelte/kit-load-waterfall</code></a>
+<p class="rule-title">A load function starts independent requests together and awaits parent() only after them, so data does not load in a chain.</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-manual">manual</span></p>
+</li>
+<li class="rule-item" data-id="svelte/kit-page-title" data-area="svelte" data-severity="serious" data-check="static">
+<a class="rule-id" href="/rules/svelte/kit-page-title/"><code>svelte/kit-page-title</code></a>
+<p class="rule-title">Every SvelteKit page sets its own descriptive title in svelte:head, or its layout renders a title from page data.</p>
+<p class="rule-meta"><span class="sev sev-serious">serious</span> <span class="tag tag-static">static</span> <span class="tag">WCAG 2.4.2 A</span></p>
+</li>
+<li class="rule-item" data-id="svelte/kit-shared-server-state" data-area="svelte" data-severity="serious" data-check="static">
+<a class="rule-id" href="/rules/svelte/kit-shared-server-state/"><code>svelte/kit-shared-server-state</code></a>
+<p class="rule-title">Server code of a SvelteKit app never keeps per-request data in module-level variables; the module is shared by every user.</p>
+<p class="rule-meta"><span class="sev sev-serious">serious</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="svelte/no-legacy-syntax" data-area="svelte" data-severity="minor" data-check="static">
+<a class="rule-id" href="/rules/svelte/no-legacy-syntax/"><code>svelte/no-legacy-syntax</code></a>
+<p class="rule-title">New Svelte 5 code uses runes and the new syntax, not export let, $:, on:event, slot or svelte:component.</p>
+<p class="rule-meta"><span class="sev sev-minor">minor</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="svelte/props-derived" data-area="svelte" data-severity="moderate" data-check="static">
+<a class="rule-id" href="/rules/svelte/props-derived/"><code>svelte/props-derived</code></a>
+<p class="rule-title">A top-level value computed from props is a $derived; a plain let or const keeps only the first value.</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="svelte/window-events" data-area="svelte" data-severity="minor" data-check="static">
+<a class="rule-id" href="/rules/svelte/window-events/"><code>svelte/window-events</code></a>
+<p class="rule-title">Listen to window and document events with svelte:window and svelte:document, not addEventListener in $effect or onMount.</p>
+<p class="rule-meta"><span class="sev sev-minor">minor</span> <span class="tag tag-static">static</span></p>
+</li></ul>
+</section>
+<section class="rule-group" data-area="astro" aria-labelledby="area-astro">
+<h2 id="area-astro">Astro <span class="count">6 rules</span></h2>
+<ul class="rule-list"><li class="rule-item" data-id="astro/client-only-framework" data-area="astro" data-severity="moderate" data-check="static">
+<a class="rule-id" href="/rules/astro/client-only-framework/"><code>astro/client-only-framework</code></a>
+<p class="rule-title">Give client:only the framework of the component (client:only=&quot;react&quot;), and a fallback slot for the space it fills.</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="astro/directive-on-framework-component" data-area="astro" data-severity="moderate" data-check="static">
+<a class="rule-id" href="/rules/astro/directive-on-framework-component/"><code>astro/directive-on-framework-component</code></a>
+<p class="rule-title">Put client:* directives only on UI framework components imported into the .astro file, never on Astro components.</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="astro/public-env-secret" data-area="astro" data-severity="serious" data-check="static">
+<a class="rule-id" href="/rules/astro/public-env-secret/"><code>astro/public-env-secret</code></a>
+<p class="rule-title">Never give a secret the PUBLIC_ prefix; in Astro those variables are built into client code. Declare secrets in astro:env as server secrets.</p>
+<p class="rule-meta"><span class="sev sev-serious">serious</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="astro/script-processed" data-area="astro" data-severity="moderate" data-check="static">
+<a class="rule-id" href="/rules/astro/script-processed/"><code>astro/script-processed</code></a>
+<p class="rule-title">Astro script tags carry no attribute but src so they are bundled; is:inline only on purpose, data-* instead of define:vars.</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="astro/server-defer-fallback" data-area="astro" data-severity="moderate" data-check="static">
+<a class="rule-id" href="/rules/astro/server-defer-fallback/"><code>astro/server-defer-fallback</code></a>
+<p class="rule-title">A server island (server:defer) has slot=&quot;fallback&quot; content of the same size, and receives only small serializable props.</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="astro/static-by-default" data-area="astro" data-severity="moderate" data-check="manual">
+<a class="rule-id" href="/rules/astro/static-by-default/"><code>astro/static-by-default</code></a>
+<p class="rule-title">Render framework components without a client directive unless they need interactivity, and pick the latest directive that works.</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-manual">manual</span></p>
+</li></ul>
+</section>
+<section class="rule-group" data-area="webc" aria-labelledby="area-webc">
+<h2 id="area-webc">Web Components <span class="count">9 rules</span></h2>
+<ul class="rule-list"><li class="rule-item" data-id="webc/aria-idrefs-same-tree" data-area="webc" data-severity="serious" data-check="manual">
+<a class="rule-id" href="/rules/webc/aria-idrefs-same-tree/"><code>webc/aria-idrefs-same-tree</code></a>
+<p class="rule-title">id references (for, aria-labelledby, aria-describedby, aria-controls) point at an element in the same DOM tree, not across a shadow root.</p>
+<p class="rule-meta"><span class="sev sev-serious">serious</span> <span class="tag tag-manual">manual</span> <span class="tag">WCAG 1.3.1, 4.1.2 A</span></p>
+</li>
+<li class="rule-item" data-id="webc/constructor-no-attributes" data-area="webc" data-severity="serious" data-check="static">
+<a class="rule-id" href="/rules/webc/constructor-no-attributes/"><code>webc/constructor-no-attributes</code></a>
+<p class="rule-title">A custom element constructor never reads or adds attributes or children; do that in connectedCallback.</p>
+<p class="rule-meta"><span class="sev sev-serious">serious</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="webc/form-associated" data-area="webc" data-severity="serious" data-check="manual">
+<a class="rule-id" href="/rules/webc/form-associated/"><code>webc/form-associated</code></a>
+<p class="rule-title">A custom form control is form-associated (formAssociated and attachInternals) and reports its value and validity to the form.</p>
+<p class="rule-meta"><span class="sev sev-serious">serious</span> <span class="tag tag-manual">manual</span></p>
+</li>
+<li class="rule-item" data-id="webc/host-hidden" data-area="webc" data-severity="moderate" data-check="static">
+<a class="rule-id" href="/rules/webc/host-hidden/"><code>webc/host-hidden</code></a>
+<p class="rule-title">Shadow styles that give :host a display also add :host([hidden]) { display none }, or the hidden attribute stops working.</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="webc/lit-class-fields" data-area="webc" data-severity="serious" data-check="static">
+<a class="rule-id" href="/rules/webc/lit-class-fields/"><code>webc/lit-class-fields</code></a>
+<p class="rule-title">In JavaScript, a Lit reactive property is never also declared as a class field; the field hides Lit's accessor and updates stop.</p>
+<p class="rule-meta"><span class="sev sev-serious">serious</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="webc/lit-immutable-updates" data-area="webc" data-severity="moderate" data-check="static">
+<a class="rule-id" href="/rules/webc/lit-immutable-updates/"><code>webc/lit-immutable-updates</code></a>
+<p class="rule-title">A Lit reactive array is replaced, not mutated in place (push, splice, sort), unless requestUpdate() follows.</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="webc/lit-unsafe-html" data-area="webc" data-severity="serious" data-check="static">
+<a class="rule-id" href="/rules/webc/lit-unsafe-html/"><code>webc/lit-unsafe-html</code></a>
+<p class="rule-title">Lit's unsafeHTML, unsafeSVG and unsafeStatic only receive strings the developer wrote or sanitized, never data.</p>
+<p class="rule-meta"><span class="sev sev-serious">serious</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="webc/no-customized-builtins" data-area="webc" data-severity="moderate" data-check="static">
+<a class="rule-id" href="/rules/webc/no-customized-builtins/"><code>webc/no-customized-builtins</code></a>
+<p class="rule-title">Build autonomous custom elements that wrap a native element; do not extend built-ins with is=, which Safari does not support.</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="webc/valid-name" data-area="webc" data-severity="serious" data-check="static">
+<a class="rule-id" href="/rules/webc/valid-name/"><code>webc/valid-name</code></a>
+<p class="rule-title">A custom element name is lowercase, starts with a letter, contains a hyphen and is not a reserved name, or define() throws.</p>
+<p class="rule-meta"><span class="sev sev-serious">serious</span> <span class="tag tag-static">static</span></p>
+</li></ul>
+</section>
+<section class="rule-group" data-area="tailwind" aria-labelledby="area-tailwind">
+<h2 id="area-tailwind">Tailwind CSS <span class="count">9 rules</span></h2>
+<ul class="rule-list"><li class="rule-item" data-id="tailwind/components-over-apply" data-area="tailwind" data-severity="minor" data-check="manual">
+<a class="rule-id" href="/rules/tailwind/components-over-apply/"><code>tailwind/components-over-apply</code></a>
+<p class="rule-title">Remove repeated class lists with a component, a loop or a partial; keep @apply for small cases and third-party markup.</p>
+<p class="rule-meta"><span class="sev sev-minor">minor</span> <span class="tag tag-manual">manual</span></p>
+</li>
+<li class="rule-item" data-id="tailwind/conflicting-utilities" data-area="tailwind" data-severity="minor" data-check="static">
+<a class="rule-id" href="/rules/tailwind/conflicting-utilities/"><code>tailwind/conflicting-utilities</code></a>
+<p class="rule-title">One element never carries two utilities that set the same property under the same variant (p-2 p-4, flex grid).</p>
+<p class="rule-meta"><span class="sev sev-minor">minor</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="tailwind/hover-only-reveal" data-area="tailwind" data-severity="moderate" data-check="static">
+<a class="rule-id" href="/rules/tailwind/hover-only-reveal/"><code>tailwind/hover-only-reveal</code></a>
+<p class="rule-title">Content or controls revealed with hover: are also revealed on focus (focus-within:, group-focus-within:), never on hover alone.</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-static">static</span> <span class="tag">WCAG 2.1.1 A</span></p>
+</li>
+<li class="rule-item" data-id="tailwind/motion-safe" data-area="tailwind" data-severity="minor" data-check="static">
+<a class="rule-id" href="/rules/tailwind/motion-safe/"><code>tailwind/motion-safe</code></a>
+<p class="rule-title">Decorative Tailwind animations (animate-bounce, animate-ping, animate-pulse) run under motion-safe: or stop under motion-reduce:.</p>
+<p class="rule-meta"><span class="sev sev-minor">minor</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="tailwind/no-dynamic-class" data-area="tailwind" data-severity="moderate" data-check="static">
+<a class="rule-id" href="/rules/tailwind/no-dynamic-class/"><code>tailwind/no-dynamic-class</code></a>
+<p class="rule-title">Write every Tailwind class as a complete string; never build one from fragments such as bg-${color}-500.</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="tailwind/no-preprocessor" data-area="tailwind" data-severity="moderate" data-check="static">
+<a class="rule-id" href="/rules/tailwind/no-preprocessor/"><code>tailwind/no-preprocessor</code></a>
+<p class="rule-title">Do not run Tailwind CSS 4 through Sass, Less or Stylus; use plain CSS with native nesting and variables.</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="tailwind/sr-only-label" data-area="tailwind" data-severity="serious" data-check="static">
+<a class="rule-id" href="/rules/tailwind/sr-only-label/"><code>tailwind/sr-only-label</code></a>
+<p class="rule-title">The only text of a button or link is never hidden with hidden; use sr-only (with md:not-sr-only to show it on wider screens).</p>
+<p class="rule-meta"><span class="sev sev-serious">serious</span> <span class="tag tag-static">static</span> <span class="tag">WCAG 4.1.2 A</span></p>
+</li>
+<li class="rule-item" data-id="tailwind/theme-tokens" data-area="tailwind" data-severity="minor" data-check="static">
+<a class="rule-id" href="/rules/tailwind/theme-tokens/"><code>tailwind/theme-tokens</code></a>
+<p class="rule-title">An arbitrary value used again and again (bg-[#0a7a3e], p-[18px]) becomes a theme variable in @theme with its own utility.</p>
+<p class="rule-meta"><span class="sev sev-minor">minor</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="tailwind/v4-entry" data-area="tailwind" data-severity="moderate" data-check="static">
+<a class="rule-id" href="/rules/tailwind/v4-entry/"><code>tailwind/v4-entry</code></a>
+<p class="rule-title">In Tailwind CSS 4, load Tailwind with @import &quot;tailwindcss&quot; and a legacy JS config with @config; @tailwind directives do nothing.</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-static">static</span></p>
+</li></ul>
+</section>
+<section class="rule-group" data-area="sass" aria-labelledby="area-sass">
+<h2 id="area-sass">Sass <span class="count">8 rules</span></h2>
+<ul class="rule-list"><li class="rule-item" data-id="sass/custom-properties-for-themes" data-area="sass" data-severity="minor" data-check="manual">
+<a class="rule-id" href="/rules/sass/custom-properties-for-themes/"><code>sass/custom-properties-for-themes</code></a>
+<p class="rule-title">Values that change at run time (themes, dark mode, user settings) are CSS custom properties; Sass variables are for build-time constants.</p>
+<p class="rule-meta"><span class="sev sev-minor">minor</span> <span class="tag tag-manual">manual</span></p>
+</li>
+<li class="rule-item" data-id="sass/math-div" data-area="sass" data-severity="minor" data-check="static">
+<a class="rule-id" href="/rules/sass/math-div/"><code>sass/math-div</code></a>
+<p class="rule-title">Divide with math.div() in Sass; a slash between Sass values is becoming a list separator, as it is in CSS.</p>
+<p class="rule-meta"><span class="sev sev-minor">minor</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="sass/no-extend-class" data-area="sass" data-severity="minor" data-check="static">
+<a class="rule-id" href="/rules/sass/no-extend-class/"><code>sass/no-extend-class</code></a>
+<p class="rule-title">Extend only placeholder selectors (%name), or use a mixin; @extend of a real class copies selectors everywhere it appears.</p>
+<p class="rule-meta"><span class="sev sev-minor">minor</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="sass/no-global-builtins" data-area="sass" data-severity="minor" data-check="static">
+<a class="rule-id" href="/rules/sass/no-global-builtins/"><code>sass/no-global-builtins</code></a>
+<p class="rule-title">Call Sass built-in functions through their module (map.get, math.div, string.index) after @use &quot;sass:...&quot;, not as globals.</p>
+<p class="rule-meta"><span class="sev sev-minor">minor</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="sass/no-import" data-area="sass" data-severity="moderate" data-check="static">
+<a class="rule-id" href="/rules/sass/no-import/"><code>sass/no-import</code></a>
+<p class="rule-title">Load Sass files with @use and @forward, not @import, which is deprecated and will be removed in Dart Sass 3.</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="sass/no-legacy-color-functions" data-area="sass" data-severity="minor" data-check="static">
+<a class="rule-id" href="/rules/sass/no-legacy-color-functions/"><code>sass/no-legacy-color-functions</code></a>
+<p class="rule-title">Adjust colours with color.scale or color.adjust (and read channels with color.channel), not darken, lighten, fade-out and the like.</p>
+<p class="rule-meta"><span class="sev sev-minor">minor</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="sass/no-node-sass" data-area="sass" data-severity="moderate" data-check="static">
+<a class="rule-id" href="/rules/sass/no-node-sass/"><code>sass/no-node-sass</code></a>
+<p class="rule-title">Compile Sass with Dart Sass (the sass or sass-embedded package), never node-sass, which is deprecated LibSass.</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="sass/rem-helper" data-area="sass" data-severity="minor" data-check="static">
+<a class="rule-id" href="/rules/sass/rem-helper/"><code>sass/rem-helper</code></a>
+<p class="rule-title">Sizes are converted with the project's px-to-rem function, never by dividing by a hard-coded base by hand.</p>
+<p class="rule-meta"><span class="sev sev-minor">minor</span> <span class="tag tag-static">static</span></p>
+</li></ul>
+</section>
+<section class="rule-group" data-area="state" aria-labelledby="area-state">
+<h2 id="area-state">State <span class="count">13 rules</span></h2>
+<ul class="rule-list"><li class="rule-item" data-id="state/fetch-effect-cleanup" data-area="state" data-severity="moderate" data-check="static">
+<a class="rule-id" href="/rules/state/fetch-effect-cleanup/"><code>state/fetch-effect-cleanup</code></a>
+<p class="rule-title">An effect that fetches into state returns a cleanup that ignores or aborts stale responses.</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="state/immer-mutate-or-return" data-area="state" data-severity="serious" data-check="static">
+<a class="rule-id" href="/rules/state/immer-mutate-or-return/"><code>state/immer-mutate-or-return</code></a>
+<p class="rule-title">A Redux Toolkit or Immer reducer either mutates the draft or returns a new state, never both; no arrow that returns a mutation.</p>
+<p class="rule-meta"><span class="sev sev-serious">serious</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="state/invalidate-after-mutation" data-area="state" data-severity="moderate" data-check="manual">
+<a class="rule-id" href="/rules/state/invalidate-after-mutation/"><code>state/invalidate-after-mutation</code></a>
+<p class="rule-title">After a mutation succeeds, invalidate or update every cached query it changed, so lists and details show the new data.</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-manual">manual</span></p>
+</li>
+<li class="rule-item" data-id="state/no-server-state-in-store" data-area="state" data-severity="moderate" data-check="manual">
+<a class="rule-id" href="/rules/state/no-server-state-in-store/"><code>state/no-server-state-in-store</code></a>
+<p class="rule-title">Data fetched from a server lives in the framework's loader or a server-state cache, not copied into a client store.</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-manual">manual</span></p>
+</li>
+<li class="rule-item" data-id="state/pinia-store-to-refs" data-area="state" data-severity="serious" data-check="static">
+<a class="rule-id" href="/rules/state/pinia-store-to-refs/"><code>state/pinia-store-to-refs</code></a>
+<p class="rule-title">State and getters taken out of a Pinia store go through storeToRefs(); plain destructuring freezes them at their first value.</p>
+<p class="rule-meta"><span class="sev sev-serious">serious</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="state/query-client-stable" data-area="state" data-severity="serious" data-check="static">
+<a class="rule-id" href="/rules/state/query-client-stable/"><code>state/query-client-stable</code></a>
+<p class="rule-title">The QueryClient is created once - in useState(() =&gt; new QueryClient()) or a module helper - never in a component's render.</p>
+<p class="rule-meta"><span class="sev sev-serious">serious</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="state/query-error-state" data-area="state" data-severity="moderate" data-check="static">
+<a class="rule-id" href="/rules/state/query-error-state/"><code>state/query-error-state</code></a>
+<p class="rule-title">A component that reads a query (TanStack Query, SWR) also reads its error and shows it; it never renders only data.</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="state/query-key-deps" data-area="state" data-severity="serious" data-check="static">
+<a class="rule-id" href="/rules/state/query-key-deps/"><code>state/query-key-deps</code></a>
+<p class="rule-title">A TanStack Query key holds every variable its query function reads, so a new id fetches new data instead of showing the old.</p>
+<p class="rule-meta"><span class="sev sev-serious">serious</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="state/query-object-syntax" data-area="state" data-severity="serious" data-check="static">
+<a class="rule-id" href="/rules/state/query-object-syntax/"><code>state/query-object-syntax</code></a>
+<p class="rule-title">TanStack Query 5 hooks take one options object; the v4 positional form useQuery(key, fn) and useMutation(fn) no longer works.</p>
+<p class="rule-meta"><span class="sev sev-serious">serious</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="state/redux-toolkit" data-area="state" data-severity="minor" data-check="static">
+<a class="rule-id" href="/rules/state/redux-toolkit/"><code>state/redux-toolkit</code></a>
+<p class="rule-title">New and maintained Redux code uses Redux Toolkit's configureStore and createSlice, not the legacy createStore.</p>
+<p class="rule-meta"><span class="sev sev-minor">minor</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="state/selector-stable-result" data-area="state" data-severity="serious" data-check="static">
+<a class="rule-id" href="/rules/state/selector-stable-result/"><code>state/selector-stable-result</code></a>
+<p class="rule-title">A store selector returns existing values, not a new object or array on every call; pick fields one by one or use useShallow or shallowEqual.</p>
+<p class="rule-meta"><span class="sev sev-serious">serious</span> <span class="tag tag-static">static</span></p>
+</li>
+<li class="rule-item" data-id="state/server-state-cache" data-area="state" data-severity="moderate" data-check="manual">
+<a class="rule-id" href="/rules/state/server-state-cache/"><code>state/server-state-cache</code></a>
+<p class="rule-title">Server data comes from the framework loader or a server-state library, not fetch plus useState and loading flags in each component.</p>
+<p class="rule-meta"><span class="sev sev-moderate">moderate</span> <span class="tag tag-manual">manual</span></p>
+</li>
+<li class="rule-item" data-id="state/url-state" data-area="state" data-severity="minor" data-check="manual">
+<a class="rule-id" href="/rules/state/url-state/"><code>state/url-state</code></a>
+<p class="rule-title">State a person would share, bookmark or restore with Back (filters, sort, page, selected tab, search) lives in the URL.</p>
+<p class="rule-meta"><span class="sev sev-minor">minor</span> <span class="tag tag-manual">manual</span></p>
+</li></ul>
+</section>
+<p class="note">In a terminal: <code>npx github:dawidolko/frontend-skills explain &lt;id&gt;</code>.</p>
+</div>
+</main>
+<footer class="site-footer">
+<div class="wrap footer-inner">
+<div class="footer-text">
+<p class="footer-brand"><svg class="brand-mark" viewBox="0 0 32 32" width="32" height="32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="8" fill="currentColor"/><path d="M12.5 10 7 16l5.5 6M19.5 10 25 16l-5.5 6" fill="none" stroke="var(--logo-ink)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Frontend Skills</span></p>
+<p>Free and open source under the MIT licence, made by <a href="https://dawidolko.pl">Dawid Olko</a>.</p>
+<p>Built to WCAG 2.2 AA as a target. Automated checks find only part of the problems.</p>
+<p>No cookies, no analytics, no third-party requests. The accessibility button keeps its settings on your device.</p>
+</div>
+<nav aria-label="More"><ul class="footer-nav"><li><a href="/">Home</a></li><li><a href="/how-it-works/">How it works</a></li><li><a href="/rules/" aria-current="page">Rules</a></li><li><a href="/skills/">Skills</a></li><li><a href="/commands/">Commands</a></li><li><a href="/faq/">FAQ</a></li><li><a href="/about/">About</a></li><li><a href="https://github.com/dawidolko/frontend-skills">GitHub</a></li></ul></nav>
+</div>
+</footer>
+<p id="live-status" class="visually-hidden" role="status" aria-live="polite"></p>
+</body>
+</html>

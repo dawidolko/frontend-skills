@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>State and stores (fe-state) · Frontend Skills</title>
+<meta name="description" content="Decides where front-end state lives and writes stores that stay correct - component state, URL, context, Pinia, Zustand, Redux Toolkit, Svelte runes,…">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#faf7fc" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0d0d0f" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://skills.dawidolko.pl/pl/skills/fe-state/">
+<link rel="alternate" hreflang="en" href="https://skills.dawidolko.pl/skills/fe-state/">
+<link rel="alternate" hreflang="pl" href="https://skills.dawidolko.pl/pl/skills/fe-state/">
+<link rel="alternate" hreflang="x-default" href="https://skills.dawidolko.pl/skills/fe-state/">
+<link rel="preload" href="/assets/fonts/opensans-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/styles.css?v=fbc2d7ae26">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Frontend Skills">
+<meta property="og:title" content="State and stores (fe-state)">
+<meta property="og:description" content="Decides where front-end state lives and writes stores that stay correct - component state, URL, context, Pinia, Zustand, Redux Toolkit, Svelte runes,…">
+<meta property="og:url" content="https://skills.dawidolko.pl/pl/skills/fe-state/">
+<meta property="og:image" content="https://skills.dawidolko.pl/og-pl.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Frontend Skills: jedno polecenie, które dopasowuje skille front-endowe do Twojego projektu i każdego agenta, którego używasz.">
+<meta property="og:locale" content="pl_PL">
+<meta property="og:locale:alternate" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="author" content="Dawid Olko">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Start","item":"https://skills.dawidolko.pl/pl/"},{"@type":"ListItem","position":2,"name":"Skille","item":"https://skills.dawidolko.pl/pl/skills/"},{"@type":"ListItem","position":3,"name":"State and stores","item":"https://skills.dawidolko.pl/pl/skills/fe-state/"}]}</script>
+<script src="/assets/site.js?v=dd8cab0a79" defer></script>
+<script src="/a11y/a11y-panel.js?v=39d6e82235" data-accent="#9b00c2" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Przejdź do treści</a>
+<header class="site-header">
+<div class="wrap header-inner">
+<a class="brand" href="/pl/"><svg class="brand-mark" viewBox="0 0 32 32" width="32" height="32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="8" fill="currentColor"/><path d="M12.5 10 7 16l5.5 6M19.5 10 25 16l-5.5 6" fill="none" stroke="var(--logo-ink)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="brand-name">Frontend Skills</span></a>
+<nav class="main-nav" aria-label="Główna"><ul><li><a href="/pl/how-it-works/">Jak to działa</a></li><li><a href="/pl/rules/">Reguły</a></li><li><a href="/pl/skills/" class="is-section">Skille</a></li><li><a href="/pl/commands/">Polecenia</a></li><li><a href="/pl/faq/">Pytania</a></li></ul></nav>
+<div class="header-tools">
+<a class="lang-switch" href="/skills/fe-state/" hreflang="en" lang="en" title="This page in English">English</a>
+<a class="gh-link" href="https://github.com/dawidolko/frontend-skills" aria-label="Kod źródłowy na GitHubie"><svg viewBox="0 0 16 16" width="20" height="20" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg></a>
+</div>
+</div>
+</header>
+<main id="main" tabindex="-1">
+<div class="page-head"><div class="wrap">
+<nav class="breadcrumb" aria-label="Ścieżka nawigacji"><ol><li><a href="/pl/">Start</a></li><li><a href="/pl/skills/">Skille</a></li><li><span aria-current="page">State and stores</span></li></ol></nav>
+<h1>State and stores</h1>
+<p class="lead">Decides where front-end state lives and writes stores that stay correct - component state, URL, context, Pinia, Zustand, Redux Toolkit, Svelte runes, Angular signals - with stable selectors and no server data copied into stores. Use when adding or reviewing a store, a selector or shared state, fixing stale or looping UI, or asked where some state should go.</p>
+</div></div>
+<div class="wrap rule-layout">
+<div class="prose">
+<section aria-labelledby="rules"><h2 id="rules">Reguły, których uczy</h2>
+<ul class="rule-list compact"><li class="rule-item"><a class="rule-id" href="/pl/rules/state/selector-stable-result/"><code>state/selector-stable-result</code></a><p class="rule-title">A store selector returns existing values, not a new object or array on every call; pick fields one by one or use useShallow or shallowEqual.</p><p class="rule-meta"><span class="sev sev-serious">poważna</span> <span class="tag tag-static">statyczne</span></p></li><li class="rule-item"><a class="rule-id" href="/pl/rules/state/immer-mutate-or-return/"><code>state/immer-mutate-or-return</code></a><p class="rule-title">A Redux Toolkit or Immer reducer either mutates the draft or returns a new state, never both; no arrow that returns a mutation.</p><p class="rule-meta"><span class="sev sev-serious">poważna</span> <span class="tag tag-static">statyczne</span></p></li><li class="rule-item"><a class="rule-id" href="/pl/rules/state/pinia-store-to-refs/"><code>state/pinia-store-to-refs</code></a><p class="rule-title">State and getters taken out of a Pinia store go through storeToRefs(); plain destructuring freezes them at their first value.</p><p class="rule-meta"><span class="sev sev-serious">poważna</span> <span class="tag tag-static">statyczne</span></p></li><li class="rule-item"><a class="rule-id" href="/pl/rules/state/redux-toolkit/"><code>state/redux-toolkit</code></a><p class="rule-title">New and maintained Redux code uses Redux Toolkit's configureStore and createSlice, not the legacy createStore.</p><p class="rule-meta"><span class="sev sev-minor">drobna</span> <span class="tag tag-static">statyczne</span></p></li><li class="rule-item"><a class="rule-id" href="/pl/rules/state/no-server-state-in-store/"><code>state/no-server-state-in-store</code></a><p class="rule-title">Data fetched from a server lives in the framework's loader or a server-state cache, not copied into a client store.</p><p class="rule-meta"><span class="sev sev-moderate">umiarkowana</span> <span class="tag tag-manual">ręczne</span></p></li><li class="rule-item"><a class="rule-id" href="/pl/rules/state/url-state/"><code>state/url-state</code></a><p class="rule-title">State a person would share, bookmark or restore with Back (filters, sort, page, selected tab, search) lives in the URL.</p><p class="rule-meta"><span class="sev sev-minor">drobna</span> <span class="tag tag-manual">ręczne</span></p></li></ul></section>
+<section aria-labelledby="digest"><h2 id="digest">Skrót reguł</h2><p>Ta część jest kopiowana do zawężonego pliku reguł każdego agenta, więc musi być zrozumiała sama w sobie:</p><div class="digest"><ul><li>Put each value in the narrowest home: derived (computed in render), component, URL, shared parent, context, store; a store only for client state many distant parts share.</li><li>Never copy server data into a store; use the framework loader or a query cache (<a href="/pl/rules/state/no-server-state-in-store/">state/no-server-state-in-store</a>).</li><li>Filters, sort, page, tab and search live in the URL (<a href="/pl/rules/state/url-state/">state/url-state</a>).</li><li>Selectors return existing values, never a new object or array per call; use <code>useShallow</code> or <code>shallowEqual</code> (<a href="/pl/rules/state/selector-stable-result/">state/selector-stable-result</a>).</li><li>In Redux Toolkit or Immer reducers, mutate the draft or return a new state, never both (<a href="/pl/rules/state/immer-mutate-or-return/">state/immer-mutate-or-return</a>).</li><li>Use <code>configureStore</code> and <code>createSlice</code>, not <code>createStore</code> (<a href="/pl/rules/state/redux-toolkit/">state/redux-toolkit</a>).</li><li>Take Pinia state and getters out with <code>storeToRefs()</code>; destructure only actions (<a href="/pl/rules/state/pinia-store-to-refs/">state/pinia-store-to-refs</a>).</li><li>Update state immutably outside Immer: new arrays and objects, <code>signal.update()</code>, never <code>push</code> on a value a framework compares by reference.</li><li>Never keep per-user state in module-level variables of server-rendered code; create stores per request (Pinia, <code>useState</code> in Nuxt, context in SvelteKit).</li></ul></div></section>
+<section aria-labelledby="do"><h2 id="do">Kroki, które wykonuje agent</h2><ol><li>Find the existing store setup first (<code>stores/</code>, <code>store/</code>, <code>*.store.*</code>, <code>createSlice</code>, <code>defineStore</code>, <code>create(</code> from zustand) and follow it; do not add a second library.</li><li>Before adding state, ask: can it be derived, live in the URL, or stay in one component? Model it as one status value (<code>'idle' | 'saving' | 'error'</code>) rather than several booleans.</li><li>React: <code>useState</code> or <code>useReducer</code> locally, context for rarely changing values (theme, user), Zustand or Redux Toolkit for frequently changing shared client state; subscribe with narrow selectors.</li><li>Vue: <code>ref</code> and <code>computed</code> locally, Pinia setup stores (<code>defineStore('cart', () =&gt; { … })</code>) for shared state, <code>storeToRefs</code> in components.</li><li>Svelte 5: <code>$state</code> and <code>$derived</code>; shared state as a <code>$state</code> object in a <code>.svelte.js</code> module for client-only code, context for anything rendered on the server.</li><li>Angular: <code>signal</code>, <code>computed</code> and <code>linkedSignal</code> in services, exposed with <code>asReadonly()</code>; update with <code>set</code> and <code>update</code>.</li></ol></section>
+<section aria-labelledby="check"><h2 id="check">Jak agent sprawdza swoją pracę</h2><ul><li><code>npx github:dawidolko/frontend-skills audit --changed</code> reports unstable selectors, Immer arrows that mutate and return, Pinia destructuring and legacy <code>createStore</code>.</li><li>Open the store devtools (Redux DevTools, Vue DevTools Pinia tab) and check that every entry is client state and not a copy of an API response.</li><li>Reload a filtered page and press Back: the filters must survive.</li></ul></section>
+<section aria-labelledby="refs"><h2 id="refs">Pliki referencyjne</h2><ul><li><a href="https://github.com/dawidolko/frontend-skills/blob/main/skills/frameworks/fe-state/references/state.md"><code>references/state.md</code></a> · 1490 tokenów</li></ul></section>
+<section aria-labelledby="agents"><h2 id="agents">Pisany dla</h2>
+<p>każdego agenta używanego w projekcie: Claude Code, OpenAI Codex, Cursor, GitHub Copilot, Gemini CLI, Antigravity CLI, Devin / Windsurf, OpenCode, Cline, Zed, JetBrains Junie, Kiro, Augment, Trae, Continue, Amazon Q Developer, Aider.</p>
+<p>Agenci, którzy dostają też plik reguł zawężony do tych plików: Claude Code, Cursor, GitHub Copilot, Antigravity CLI, Devin / Windsurf, Cline, Kiro, Trae, Continue.</p></section>
+</div>
+<aside class="facts" aria-labelledby="facts-title">
+<h2 id="facts-title">Fakty</h2>
+<dl><dt>Nazwa</dt><dd><code>fe-state</code></dd><dt>Obszar</dt><dd>Frameworki</dd><dt>Instalowany, gdy projekt używa</dt><dd><code>react</code>, <code>vue</code>, <code>svelte</code>, <code>angular</code></dd><dt>Pliki, których dotyczy</dt><dd><code>**/*.js</code> <code>**/*.jsx</code> <code>**/*.ts</code> <code>**/*.tsx</code> <code>**/*.vue</code> <code>**/*.svelte</code></dd><dt>Koszt w tokenach</dt><dd>ładowane zawsze: 71 tokenów; przy użyciu: 888 tokenów; w referencjach na żądanie: 1490 tokenów.</dd></dl>
+<p><a href="https://github.com/dawidolko/frontend-skills/blob/main/skills/frameworks/fe-state/SKILL.md">SKILL.md na GitHubie</a></p>
+<p><a href="/pl/skills/">Wszystkie skille</a></p>
+</aside>
+</div>
+</main>
+<footer class="site-footer">
+<div class="wrap footer-inner">
+<div class="footer-text">
+<p class="footer-brand"><svg class="brand-mark" viewBox="0 0 32 32" width="32" height="32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="8" fill="currentColor"/><path d="M12.5 10 7 16l5.5 6M19.5 10 25 16l-5.5 6" fill="none" stroke="var(--logo-ink)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Frontend Skills</span></p>
+<p>Darmowy i otwarty, na licencji MIT. Autor: <a href="https://dawidolko.pl">Dawid Olko</a>.</p>
+<p>Budowana z WCAG 2.2 AA jako celem. Automatyczne testy wykrywają tylko część problemów.</p>
+<p>Bez ciasteczek, bez analityki, bez zapytań do innych serwisów. Przycisk dostępności zapisuje ustawienia tylko na Twoim urządzeniu.</p>
+</div>
+<nav aria-label="Więcej"><ul class="footer-nav"><li><a href="/pl/">Start</a></li><li><a href="/pl/how-it-works/">Jak to działa</a></li><li><a href="/pl/rules/">Reguły</a></li><li><a href="/pl/skills/">Skille</a></li><li><a href="/pl/commands/">Polecenia</a></li><li><a href="/pl/faq/">Pytania</a></li><li><a href="/pl/about/">O projekcie</a></li><li><a href="https://github.com/dawidolko/frontend-skills">GitHub</a></li></ul></nav>
+</div>
+</footer>
+<p id="live-status" class="visually-hidden" role="status" aria-live="polite"></p>
+</body>
+</html>
