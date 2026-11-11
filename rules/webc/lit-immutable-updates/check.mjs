@@ -18,13 +18,15 @@ export default {
         const names = reactiveNames(f.code, cls)
         const body = f.code.slice(cls.open, cls.end)
         MUTATE.lastIndex = 0
-        let m
-        while ((m = MUTATE.exec(body))) {
+        for (const m of body.matchAll(MUTATE)) {
           if (!names.has(m[1])) continue
           const after = body.slice(m.index, m.index + 400)
           const end = after.search(/\n\s{0,2}\}/)
           if (/requestUpdate\s*\(/.test(end > 0 ? after.slice(0, end) : after)) continue
-          ctx.report(ctx.lineOf(f.offset + cls.open + m.index), `this.${m[1]}.${m[2]}() mutates a reactive array in place, so Lit does not render; assign a new array.`)
+          ctx.report(
+            ctx.lineOf(f.offset + cls.open + m.index),
+            `this.${m[1]}.${m[2]}() mutates a reactive array in place, so Lit does not render; assign a new array.`
+          )
         }
       }
     }

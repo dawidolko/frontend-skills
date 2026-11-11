@@ -17,12 +17,18 @@ export default {
     for (const el of ctx.elements()) {
       const vfor = el.attrs.get('v-for')
       const key = el.attrs.get('key')
-      if (!vfor || !key || !key.dynamic) continue
+      if (!vfor || !key?.dynamic) continue
       const names = aliases(vfor.value)
       if (!names || names.length < 2) continue
       const index = names.length === 3 ? names[2] : names[1]
       if (!/^[\w$]+$/.test(index) || (names.length === 2 && !INDEX.test(index))) continue
-      const ids = (key.value.replace(/(["'])(?:(?!\1).)*\1/g, '').replace(/`[^`$]*/g, '').replace(/\$\{|\}/g, ' ').match(/[A-Za-z_$][\w$]*/g) || []).filter((w) => w !== 'String' && w !== 'toString')
+      const ids = (
+        key.value
+          .replace(/(["'])(?:(?!\1).)*\1/g, '')
+          .replace(/`[^`$]*/g, '')
+          .replace(/\$\{|\}/g, ' ')
+          .match(/[A-Za-z_$][\w$]*/g) || []
+      ).filter((w) => w !== 'String' && w !== 'toString')
       if (ids.length === 1 && ids[0] === index) ctx.report(key.line, `:key="${key.value}" is the loop index; use a stable id from the item.`)
     }
   }

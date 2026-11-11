@@ -25,7 +25,49 @@ test('init on a React project: Claude Code and Cursor, person files intact, exac
   assert.equal(readFileSync(path.join(root, '.cursor/rules/team.mdc'), 'utf8'), before['.cursor/rules/team.mdc'])
   assert.ok(readFileSync(path.join(root, 'CLAUDE.md'), 'utf8').startsWith(before['CLAUDE.md']))
   const profile = JSON.parse(readFileSync(path.join(root, '.frontend-skills/profile.json'), 'utf8'))
-  assert.deepEqual(profile.skills, ['fe-a11y-forms', 'fe-html', 'fe-react'])
+  assert.deepEqual(profile.skills, [
+    'fe-a11y-aria',
+    'fe-a11y-carousel-toast',
+    'fe-a11y-combobox',
+    'fe-a11y-core',
+    'fe-a11y-dialog',
+    'fe-a11y-forms',
+    'fe-a11y-keyboard',
+    'fe-a11y-media',
+    'fe-a11y-menus',
+    'fe-a11y-tables',
+    'fe-a11y-tabs-accordion',
+    'fe-a11y-visual',
+    'fe-audit',
+    'fe-component',
+    'fe-core-web-vitals',
+    'fe-css-architecture',
+    'fe-css-layout',
+    'fe-css-modern',
+    'fe-data-fetching',
+    'fe-fix',
+    'fe-fonts',
+    'fe-forms',
+    'fe-html',
+    'fe-i18n',
+    'fe-icons',
+    'fe-images',
+    'fe-javascript',
+    'fe-learn',
+    'fe-lighthouse',
+    'fe-motion',
+    'fe-perf-delivery',
+    'fe-react',
+    'fe-responsive',
+    'fe-review',
+    'fe-security',
+    'fe-seo-metadata',
+    'fe-state',
+    'fe-tailwind',
+    'fe-testing',
+    'fe-tooling',
+    'fe-typescript'
+  ])
   assert.match(readFileSync(path.join(root, 'frontend-report.md'), 'utf8'), /a11y\/img-alt/)
   assert.equal(run(['doctor', '--cwd', root]).code, 0)
   const second = run(['init', '--cwd', root, '--yes', '--no-audit'])
@@ -128,7 +170,7 @@ test('audit: exit codes, threshold, scope, suppression, report, --changed in git
   assert.equal(run(['audit', '--cwd', root, '--fail-on', 'none', '--no-report']).code, 0)
   assert.equal(run(['audit', '--cwd', root, '--fail-on', 'bogus']).code, 2)
   const scoped = JSON.parse(run(['audit', 'src/app.css', '--cwd', root, '--json']).stdout)
-  assert.deepEqual(Object.keys(scoped.rules).sort(), ['a11y/focus-visible', 'perf/font-display'])
+  assert.deepEqual(Object.keys(scoped.rules).sort(), ['a11y/focus-visible', 'css/asset-url', 'perf/font-display'])
   const app = path.join(root, 'src/App.tsx')
   writeFileSync(app, readFileSync(app, 'utf8').replace('<img src="/hero.jpg" />', '{/* fs-ignore a11y/img-alt */}\n      <img src="/hero.jpg" />'))
   const ignored = JSON.parse(run(['audit', '--cwd', root, '--json', '--fail-on', 'none']).stdout)
@@ -145,7 +187,7 @@ test('audit: exit codes, threshold, scope, suppression, report, --changed in git
   assert.equal(JSON.parse(run(['audit', '--cwd', root, '--json', '--changed']).stdout).rules['a11y/focus-visible'], undefined)
   writeFileSync(path.join(root, 'src/app.css'), `${readFileSync(path.join(root, 'src/app.css'), 'utf8')}\n.x:focus { outline: 0; }\n`)
   const changed = JSON.parse(run(['audit', '--cwd', root, '--json', '--changed']).stdout)
-  assert.deepEqual(Object.keys(changed.rules).sort(), ['a11y/focus-visible', 'perf/font-display'])
+  assert.deepEqual(Object.keys(changed.rules).sort(), ['a11y/focus-visible', 'css/asset-url', 'perf/font-display'])
 })
 
 test('learn records a confirmed lesson and refreshes the profile', () => {

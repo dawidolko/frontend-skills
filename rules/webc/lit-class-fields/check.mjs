@@ -16,7 +16,10 @@ export default {
         const names = reactiveNames(f.code, cls)
         for (const field of fields(f.code, cls))
           if (names.has(field.name) && !field.isStatic && !/\b(?:accessor|declare)\b/.test(field.modifiers))
-            ctx.report(ctx.lineOf(f.offset + field.index), `The class field ${field.name} hides Lit's reactive property; set it in the constructor (or use accessor).`)
+            ctx.report(
+              ctx.lineOf(f.offset + field.index),
+              `The class field ${field.name} hides Lit's reactive property; set it in the constructor (or use accessor).`
+            )
       }
     }
   }

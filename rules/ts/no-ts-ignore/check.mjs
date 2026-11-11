@@ -9,8 +9,7 @@ export default {
     for (const block of scriptBlocks(ctx)) {
       const code = blank(block.text)
       const re = /@ts-(ignore|nocheck)\b/g
-      let m
-      while ((m = re.exec(block.text))) {
+      for (const m of block.text.matchAll(re)) {
         const lineStart = block.text.lastIndexOf('\n', m.index) + 1
         const prefix = block.text.slice(lineStart, m.index)
         if (code[m.index] !== ' ' || !/(?:\/\/|\/\*|^\s*\*)\s*$/.test(prefix)) continue

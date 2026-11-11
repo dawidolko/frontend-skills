@@ -37,10 +37,15 @@ export default {
         if (new RegExp(`(?:const|let)\\s+${p}\\b`).test(body)) continue
         patterns.push(`(?<![\\w$.])${p}\\s*\\.\\s*(?!then\\b|catch\\b)[A-Za-z_$]`, `\\}\\s*=\\s*${p}\\b(?!\\s*\\.)`)
       }
-      if (props) patterns.push(`(?<![\\w$.])${props}\\s*\\.\\s*(?:params|searchParams)\\s*\\.\\s*(?!then\\b)[A-Za-z_$]`, `\\}\\s*=\\s*${props}\\s*\\.\\s*(?:params|searchParams)\\b(?!\\s*\\.)`)
+      if (props)
+        patterns.push(
+          `(?<![\\w$.])${props}\\s*\\.\\s*(?:params|searchParams)\\s*\\.\\s*(?!then\\b)[A-Za-z_$]`,
+          `\\}\\s*=\\s*${props}\\s*\\.\\s*(?:params|searchParams)\\b(?!\\s*\\.)`
+        )
       if (!patterns.length) continue
       const hit = new RegExp(patterns.join('|')).exec(body)
-      if (hit) ctx.report(ctx.lineOf(f.offset + brace + hit.index), `${name} reads params or searchParams synchronously; await them (or use() in a Client Component).`)
+      if (hit)
+        ctx.report(ctx.lineOf(f.offset + brace + hit.index), `${name} reads params or searchParams synchronously; await them (or use() in a Client Component).`)
     }
   }
 }

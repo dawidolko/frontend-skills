@@ -12,6 +12,9 @@ export default {
     if (!DIRECTIVE.test(ctx.text)) return
     const re = /\basync\s+function\s+([A-Z][\w$]*)\s*\(|(?:const|let)\s+([A-Z][\w$]*)\s*(?::[^=]+)?=\s*async\b/g
     for (const f of findInCode(ctx, re))
-      ctx.report(ctx.lineOf(f.index), `${f.match[1] || f.match[2]} is an async Client Component; await in a Server Component and pass props, or read a promise with use().`)
+      ctx.report(
+        ctx.lineOf(f.index),
+        `${f.match[1] || f.match[2]} is an async Client Component; await in a Server Component and pass props, or read a promise with use().`
+      )
   }
 }

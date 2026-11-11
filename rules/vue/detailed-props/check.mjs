@@ -24,10 +24,11 @@ export default {
       if (end < 0) continue
       const re = /(?<![\w$.])props\s*:\s*\[/g
       re.lastIndex = open
-      let m
-      while ((m = re.exec(f.code)) && m.index < end)
+      for (const m of f.code.matchAll(re)) {
+        if (m.index >= end) break
         if (depthIn(f.code, open, m.index) === 1)
           ctx.report(ctx.lineOf(f.offset + m.index), 'Props declared as an array of names have no types; use an object with type and required.')
+      }
     }
   }
 }

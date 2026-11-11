@@ -13,7 +13,10 @@ export default {
       if (options.isolatedModules === true || options.verbatimModuleSyntax === true) continue
       const pkg = packageOf(ctx, cfg.path)
       if (!pkg?.devDependencies?.vite && !pkg?.dependencies?.vite) continue
-      ctx.report({ file: cfg.path, line: lineOfKey(cfg.text, 'compilerOptions') }, 'Vite compiles each file alone; add "verbatimModuleSyntax": true (or "isolatedModules": true).')
+      ctx.report(
+        { file: cfg.path, line: lineOfKey(cfg.text, 'compilerOptions') },
+        'Vite compiles each file alone; add "verbatimModuleSyntax": true (or "isolatedModules": true).'
+      )
     }
   }
 }

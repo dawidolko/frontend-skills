@@ -13,11 +13,14 @@ export default {
       const p = f.match[1]
       const code = f.code
       const path = `(?<![\\w$.])${p}\\s*\\.\\s*[\\w$]+(?:\\s*\\.\\s*[\\w$]+|\\s*\\[[^\\]\\n]*\\])*`
-      const res = [new RegExp(`${path}\\s*(?:[-+*/%]?=(?!=)|\\+\\+|--)`, 'g'), new RegExp(`(?:\\+\\+|--)\\s*${path}`, 'g'), new RegExp(`${path}\\s*\\.\\s*(?:${MUTATORS})\\s*\\(`, 'g')]
+      const res = [
+        new RegExp(`${path}\\s*(?:[-+*/%]?=(?!=)|\\+\\+|--)`, 'g'),
+        new RegExp(`(?:\\+\\+|--)\\s*${path}`, 'g'),
+        new RegExp(`${path}\\s*\\.\\s*(?:${MUTATORS})\\s*\\(`, 'g')
+      ]
       const seen = new Set()
       for (const re of res) {
-        let m
-        while ((m = re.exec(code))) {
+        for (const m of code.matchAll(re)) {
           const line = ctx.lineOf(f.offset + m.index)
           if (seen.has(line)) continue
           seen.add(line)

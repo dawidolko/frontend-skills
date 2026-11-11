@@ -24,7 +24,11 @@ export default {
       if (major === null || major < 6) continue
       const options = cfg.data.compilerOptions || {}
       for (const [key, bad, fix] of CHECKS)
-        if (bad(options[key])) ctx.report({ file: cfg.path, line: lineOfKey(cfg.text, key) }, `"${key}"${typeof options[key] === 'string' ? `: "${options[key]}"` : ''} is removed in TypeScript 7; ${fix}.`)
+        if (bad(options[key]))
+          ctx.report(
+            { file: cfg.path, line: lineOfKey(cfg.text, key) },
+            `"${key}"${typeof options[key] === 'string' ? `: "${options[key]}"` : ''} is removed in TypeScript 7; ${fix}.`
+          )
     }
   }
 }

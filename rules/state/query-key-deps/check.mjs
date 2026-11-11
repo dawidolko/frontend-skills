@@ -7,12 +7,15 @@
  */
 import { closing, findInCode } from '../../js/source.mjs'
 
-const CALLS = /(?<![\w$.])(?:useQuery|useInfiniteQuery|useSuspenseQuery|useSuspenseInfiniteQuery|queryOptions|infiniteQueryOptions|createQuery|createInfiniteQuery|injectQuery|prefetchQuery|fetchQuery|ensureQueryData)\s*\(/g
+const CALLS =
+  /(?<![\w$.])(?:useQuery|useInfiniteQuery|useSuspenseQuery|useSuspenseInfiniteQuery|queryOptions|infiniteQueryOptions|createQuery|createInfiniteQuery|injectQuery|prefetchQuery|fetchQuery|ensureQueryData)\s*\(/g
 const GLOBALS = new Set(
-  ('await async return const let var function new typeof instanceof void delete in of if else for while do switch case break continue try catch ' +
+  (
+    'await async return const let var function new typeof instanceof void delete in of if else for while do switch case break continue try catch ' +
     'finally throw this super null undefined true false NaN Infinity window document globalThis self navigator location fetch console JSON Math ' +
     'Number String Boolean Object Array Promise Date URL Error encodeURIComponent decodeURIComponent setTimeout clearTimeout structuredClone ' +
-    'string number boolean unknown any never object as satisfies keyof readonly import process').split(' ')
+    'string number boolean unknown any never object as satisfies keyof readonly import process'
+  ).split(' ')
 )
 
 /** The end of the expression that starts at i: the next top-level comma or closing bracket. */
@@ -54,12 +57,15 @@ export default {
       if (/^[\w$]+$/.test(key.trim())) continue
       const fnStart = base + fnAt.index + fnAt[0].length
       const fn = f.code.slice(fnStart, exprEnd(f.code, fnStart, end - 1))
-      const arrow = /^(?:async\s+)?(\([^()]*(?:\([^()]*\)[^()]*)*\)|[\w$]+)\s*(?::[^=]*)?=>/.exec(fn.trim()) || /^(?:async\s+)?function\s*[\w$]*\s*\(([^()]*)\)/.exec(fn.trim())
+      const arrow =
+        /^(?:async\s+)?(\([^()]*(?:\([^()]*\)[^()]*)*\)|[\w$]+)\s*(?::[^=]*)?=>/.exec(fn.trim()) ||
+        /^(?:async\s+)?function\s*[\w$]*\s*\(([^()]*)\)/.exec(fn.trim())
       if (!arrow) continue
       const fnBody = fn.trim().slice(arrow[0].length)
       const local = new Set([...words(arrow[1]), ...moduleNames(f.code)])
       for (const m of fnBody.matchAll(/(?:const|let|var)\s+([^=;]+?)\s*=/g)) for (const w of words(m[1])) local.add(w)
-      for (const m of fnBody.matchAll(/\(([^()]*)\)\s*(?::[^=]*)?=>|([\w$]+)\s*=>|function\s*[\w$]*\s*\(([^()]*)\)|catch\s*\(([^()]*)\)/g)) for (const w of words(m[1] || m[2] || m[3] || m[4] || '')) local.add(w)
+      for (const m of fnBody.matchAll(/\(([^()]*)\)\s*(?::[^=]*)?=>|([\w$]+)\s*=>|function\s*[\w$]*\s*\(([^()]*)\)|catch\s*\(([^()]*)\)/g))
+        for (const w of words(m[1] || m[2] || m[3] || m[4] || '')) local.add(w)
       const missing = new Set()
       for (const m of fnBody.matchAll(/(?<![\w$.])[A-Za-z_$][\w$]*/g)) {
         const name = m[0]
@@ -69,7 +75,11 @@ export default {
         if (new RegExp(`(?<![\\w$.])${name.replace(/\$/g, '\\$')}(?![\\w$])`).test(key)) continue
         missing.add(name)
       }
-      if (missing.size) ctx.report(ctx.lineOf(f.offset + fnStart), `queryFn reads ${[...missing].join(', ')}, which the queryKey does not include; add ${missing.size > 1 ? 'them' : 'it'} to the key.`)
+      if (missing.size)
+        ctx.report(
+          ctx.lineOf(f.offset + fnStart),
+          `queryFn reads ${[...missing].join(', ')}, which the queryKey does not include; add ${missing.size > 1 ? 'them' : 'it'} to the key.`
+        )
     }
   }
 }

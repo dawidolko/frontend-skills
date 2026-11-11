@@ -19,8 +19,7 @@ function body(text, from) {
   const re = /\{#each\b|\{\/each\s*\}/g
   re.lastIndex = from
   let depth = 1
-  let m
-  while ((m = re.exec(text))) {
+  for (const m of text.matchAll(re)) {
     depth += m[0].startsWith('{#') ? 1 : -1
     if (depth === 0) return text.slice(from, m.index)
   }
@@ -31,8 +30,7 @@ export default {
   check(ctx) {
     const text = ctx.text
     const re = /\{#each\s/g
-    let m
-    while ((m = re.exec(text))) {
+    for (const m of text.matchAll(re)) {
       const close = balanced(text, m.index)
       if (close < 0) continue
       const head = text.slice(m.index + 6, close).trim()
