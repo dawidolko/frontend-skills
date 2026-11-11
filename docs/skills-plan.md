@@ -52,7 +52,7 @@ Status: ✅ written (reference examples), ⬜ to write. Every skill follows `doc
 | ✅ `fe-a11y-menus` | accessibility | web | Disclosure, navigation menus, menu buttons; when not to use `role="menu"` (APG Disclosure, Menu Button). |
 | ✅ `fe-a11y-tabs-accordion` | accessibility | web | Tabs and accordions with the right keyboard model (APG Tabs, Accordion). |
 | ✅ `fe-a11y-combobox` | accessibility | web | Autocomplete, select-only combobox, listbox (APG Combobox, Listbox). |
-| ⬜ `fe-a11y-carousel-toast` | accessibility | web | Carousels with pause and controls; toasts and status messages that are announced and not timed out (APG Carousel). |
+| ✅ `fe-a11y-carousel-toast` | accessibility | web | Carousels with pause and controls; toasts and status messages that are announced and not timed out (APG Carousel). |
 | ⬜ `fe-a11y-tables` | accessibility | web | Data tables, headers and captions, sortable columns, responsive tables. |
 | ⬜ `fe-core-web-vitals` | performance | web | LCP (≤ 2.5 s), INP (≤ 200 ms), CLS (≤ 0.1) at the 75th percentile: causes and fixes per framework. |
 | ⬜ `fe-lighthouse` | performance | web | Running Lighthouse 13 locally and in CI, reading the score (weights: TBT 30, LCP 25, CLS 25, FCP 10, SI 10), budgets. |
