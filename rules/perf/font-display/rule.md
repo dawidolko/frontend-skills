@@ -12,7 +12,7 @@ applies:
   - svelte
   - astro
 lighthouse:
-  - font-display
+  - font-display-insight
 skill: fe-fonts
 since: 0.1.0
 sources:

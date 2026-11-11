@@ -124,6 +124,6 @@ export function toSummary({ findings, failOn, reportPath, stats }) {
   for (const g of top) L.push(`  ${g.severity.padEnd(8)} ${g.id}  ${g.items.length}× (first: ${loc(g.items[0])})`)
   if (reportPath) L.push(`Report: ${reportPath}`)
   if (top.length) L.push(`Explain a rule: frontend-skills explain ${top[0].id}`)
-  L.push(failed ? `Failed: findings at ${failOn} or above.` : `Passed: nothing at ${failOn} or above.`)
+  L.push(failOn === 'none' ? 'No threshold (--fail-on none).' : failed ? `Failed: findings at ${failOn} or above.` : `Passed: nothing at ${failOn} or above.`)
   return L.join('\n')
 }

@@ -150,7 +150,8 @@ export async function runBrowserAudit({ url, rules, yes = false, log = () => {},
       .join(' and ')
     const ok =
       yes ||
-      (interactive() && (await confirm(`The page audit needs ${what} (several tens of MB, fetched once from the npm registry into ${dir}). Fetch them now?`)))
+      (interactive() &&
+        (await confirm(`The page audit needs ${what} (about 200 MB with their dependencies, fetched once from the npm registry into ${dir}). Fetch them now?`)))
     if (!ok) return { unavailable: `the page audit needs ${what}; run again with --yes to fetch them into ${dir}, or without --url for the static audit` }
     try {
       install(dir, log)

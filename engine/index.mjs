@@ -19,6 +19,17 @@ import { changedFiles, listFiles, MARKUP_KINDS, STYLE_KINDS } from './files.mjs'
 
 const IGNORE = /fs-ignore(?![\w-])([^\n]*)/
 
+const ORDER = ['critical', 'serious', 'moderate', 'minor']
+
+/** Sorts findings by severity, then rule id, then file and line (in place). */
+export function sortFindings(findings) {
+  const order = (s) => ORDER.indexOf(s)
+  return findings.sort(
+    (a, b) =>
+      order(a.severity) - order(b.severity) || (a.id < b.id ? -1 : a.id > b.id ? 1 : 0) || (a.file < b.file ? -1 : a.file > b.file ? 1 : a.line - b.line)
+  )
+}
+
 /** Loads the check module of each rule that has one. */
 export async function loadChecks(rules) {
   const out = []
@@ -160,10 +171,6 @@ export async function runAudit({ root, rules, profile = null, stack = new Set(),
     impl.check(pctx)
   }
 
-  const order = (s) => ['critical', 'serious', 'moderate', 'minor'].indexOf(s)
-  findings.sort(
-    (a, b) =>
-      order(a.severity) - order(b.severity) || (a.id < b.id ? -1 : a.id > b.id ? 1 : 0) || (a.file < b.file ? -1 : a.file > b.file ? 1 : a.line - b.line)
-  )
+  sortFindings(findings)
   return { findings, files: all.length, rules: active.length, changedOnly: changedOnly ? changedOnly.size : null }
 }

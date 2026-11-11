@@ -8,7 +8,7 @@ import { readdirSync, readFileSync, statSync, writeFileSync } from 'node:fs'
 import path from 'node:path'
 import { gzipSync } from 'node:zlib'
 import { buildDirs, listFiles } from '../../engine/files.mjs'
-import { runAudit } from '../../engine/index.mjs'
+import { runAudit, sortFindings } from '../../engine/index.mjs'
 import { loadRules, loadSkills, SEVERITIES } from '../lib/catalog.mjs'
 import { detectHelpers } from '../lib/conventions.mjs'
 import { detectStack } from '../lib/detect.mjs'
@@ -66,7 +66,8 @@ export async function runProjectAudit(root, { scope = null, changed = false, bas
   if (url) {
     const { runBrowserAudit } = await import('../../engine/browser.mjs')
     browser = await runBrowserAudit({ url, rules, yes, log })
-    result.findings.push(...browser.findings)
+    result.findings.push(...(browser.findings || []))
+    sortFindings(result.findings)
   }
   const installed = new Set(profile?.skills || matchSkills(loadSkills(), [...stack]).map((s) => s.name))
   const manual = rules.filter(

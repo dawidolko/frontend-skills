@@ -7,7 +7,7 @@ applies:
   - html
   - astro
 lighthouse:
-  - viewport
+  - viewport-insight
 skill: fe-responsive
 since: 0.1.0
 sources:
