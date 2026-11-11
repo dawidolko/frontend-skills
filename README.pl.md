@@ -271,7 +271,7 @@ node cli/index.mjs --help
 4. Dodaj identyfikator do `metadata.rules` skilla, który jest jej właścicielem, a jeśli jest dość ważna, do jego sekcji `## Rules`.
 5. Uruchom `npm run check` i nigdy nie podnoś budżetu ani nie osłabiaj testu, żeby przeszedł.
 
-Jak to jest zbudowane: [`docs/architecture.md`](docs/architecture.md). Strona: [`docs/site.md`](docs/site.md). Ponowne nagranie sesji terminala: `PLAYWRIGHT_MODULE=<ścieżka do playwright/index.mjs> node tools/record.mjs --png` (bez `--png` przeglądarka nie jest potrzebna). Zmiany są w [`CHANGELOG.md`](CHANGELOG.md).
+Jak to jest zbudowane: [`docs/architecture.md`](docs/architecture.md). Strona: [`docs/site.md`](docs/site.md). Ponowne nagranie sesji terminala: `PLAYWRIGHT_MODULE=<ścieżka do playwright/index.mjs> node tools/record.mjs --png` (bez `--png` przeglądarka nie jest potrzebna). Film o narzędziu buduje się z [`media/video/`](media/video/README.md). Zmiany są w [`CHANGELOG.md`](CHANGELOG.md).
 
 ## Licencja
 

@@ -269,7 +269,7 @@ node cli/index.mjs --help
 4. Add the id to the owning skill's `metadata.rules` and, if it matters enough, to its `## Rules` digest.
 5. Run `npm run check` and never raise a budget or weaken a check to pass.
 
-How it is built: [`docs/architecture.md`](docs/architecture.md). The website: [`docs/site.md`](docs/site.md). To record the terminal sessions again: `PLAYWRIGHT_MODULE=<path to playwright/index.mjs> node tools/record.mjs --png` (without `--png` no browser is needed). Changes are listed in [`CHANGELOG.md`](CHANGELOG.md).
+How it is built: [`docs/architecture.md`](docs/architecture.md). The website: [`docs/site.md`](docs/site.md). To record the terminal sessions again: `PLAYWRIGHT_MODULE=<path to playwright/index.mjs> node tools/record.mjs --png` (without `--png` no browser is needed). The video of the tool is rebuilt from [`media/video/`](media/video/README.md). Changes are listed in [`CHANGELOG.md`](CHANGELOG.md).
 
 ## Licence
 
