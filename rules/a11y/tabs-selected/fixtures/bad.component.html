@@ -1,0 +1,5 @@
+<div role="tablist" aria-label="Plan">
+  @for (tab of tabs; track tab.id) {
+    <button role="tab" [class.active]="tab.id === current" (click)="select(tab.id)">{{ tab.label }}</button>
+  }
+</div>
